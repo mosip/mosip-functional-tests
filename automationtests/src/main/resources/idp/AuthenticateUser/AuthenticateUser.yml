@@ -1,21 +1,4 @@
 AuthenticateUser:
-#   IDP_AuthenticateUserIDP_Pin_Valid_Smoke:
-#     endPoint: /v1/idp/authorization/authenticate
-#      role: resident
-#      restMethod: post
-#      inputTemplate: idp/AuthenticateUser/AuthenticateUser
-#      outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
-#      input: '{
-#      	"requestTime": "$TIMESTAMP$",
-#      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-#      	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
-#      	"authFactorType" : "PIN",
-#      	"challenge" : "34789"
-#}'
-#      output: '{
-#      
-#}'
-#
    IDP_AuthenticateUserIDP_Otp_Valid_Smoke:
       endPoint: /v1/idp/authorization/authenticate
       role: resident
@@ -27,10 +10,51 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
-}'
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
+    }'
       output: '{
-      
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   IDP_AuthenticateUserIDP_2nd_Otp_Valid_Smoke:
+      endPoint: /v1/idp/authorization/authenticate
+      role: resident
+      restMethod: post
+      inputTemplate: idp/AuthenticateUser/AuthenticateUser
+      outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Otp_Vid_Valid_Smoke:
@@ -41,13 +65,25 @@ AuthenticateUser:
       outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
-}'
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
+    }'
       output: '{
-      
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Otp_Vid_Invalid_Neg:
@@ -55,16 +91,34 @@ AuthenticateUser:
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
-      outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Temporary_VID_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
-}'
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
+    }'
       output: '{
-      
+      	"errors": [
+    {
+      "errorCode": "IDA-OTA-004",
+      "errorMessage": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_2_Otp_UnAuthenticated_Neg:
@@ -78,15 +132,28 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Valid_Parameters_Sce2_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
-}'
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
+    }'
       output: '{
       	"errors": [
     {
       "errorCode": "IDA-MLC-007",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Invalid_RequestTime_Neg:
@@ -97,10 +164,18 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2022-11-07T06:51:30",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -108,7 +183,12 @@ AuthenticateUser:
       "errorCode": "invalid_request",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Diff_RequestTime_Neg:
@@ -119,10 +199,18 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2022-11-07T06:51:30.195Z",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -130,7 +218,12 @@ AuthenticateUser:
       "errorCode": "invalid_request",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Future_RequestTime_Neg:
@@ -141,10 +234,18 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2033-11-07T06:51:30.195Z",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -152,7 +253,12 @@ AuthenticateUser:
       "errorCode": "invalid_request",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Invalid_TransactionId_Neg:
@@ -166,7 +272,15 @@ AuthenticateUser:
       	"transactionId": "transactionId",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -174,7 +288,12 @@ AuthenticateUser:
       "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Expired_TransactionId_Neg:
@@ -188,7 +307,15 @@ AuthenticateUser:
       	"transactionId": "eZJZ0j3EeZJ_d9CsSakCoA0-Trbm6fOECY6J_q3dZtc",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -196,7 +323,12 @@ AuthenticateUser:
       "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Missing_TransactionId_Neg:
@@ -210,7 +342,15 @@ AuthenticateUser:
       	"transactionId": "$REMOVE$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -218,7 +358,12 @@ AuthenticateUser:
       "errorCode": "invalid_transaction_id",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Empty_TransactionId_Neg:
@@ -232,7 +377,15 @@ AuthenticateUser:
       	"transactionId": "",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -240,7 +393,12 @@ AuthenticateUser:
       "errorCode": "invalid_transaction_id",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Null_TransactionId_Neg:
@@ -254,7 +412,15 @@ AuthenticateUser:
       	"transactionId": "null",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -262,7 +428,12 @@ AuthenticateUser:
       "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Invalid_IndividualId_Neg:
@@ -273,18 +444,31 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "@#WE$#",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "IDA-MLC-007",
+      "errorCode": "IDA-MLC-009",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Missing_IndividualId_Neg:
@@ -295,10 +479,18 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$REMOVE$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -306,7 +498,12 @@ AuthenticateUser:
       "errorCode": "invalid_identifier",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Empty_IndividualId_Neg:
@@ -317,10 +514,18 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -328,7 +533,12 @@ AuthenticateUser:
       "errorCode": "invalid_identifier",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Null_IndividualId_Neg:
@@ -339,18 +549,31 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "null",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "IDA-MLC-007",
+      "errorCode": "IDA-MLC-009",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Invalid_AuthFactorType_Neg:
@@ -361,10 +584,18 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "#$%FDF",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -372,7 +603,12 @@ AuthenticateUser:
       "errorCode": "auth_factor_mismatch",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Missing_AuthFactorType_Neg:
@@ -383,10 +619,18 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "$REMOVE$",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -394,7 +638,12 @@ AuthenticateUser:
       "errorCode": "auth_factor_mismatch",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Empty_AuthFactorType_Neg:
@@ -405,10 +654,18 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -416,7 +673,12 @@ AuthenticateUser:
       "errorCode": "auth_factor_mismatch",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Null_AuthFactorType_Neg:
@@ -427,10 +689,18 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "null",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -438,7 +708,12 @@ AuthenticateUser:
       "errorCode": "auth_factor_mismatch",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Diff_AuthFactorType_Neg:
@@ -449,10 +724,18 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "bio",
-      	"challenge" : "111111"
+      	"challenge" : "111111",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
@@ -460,7 +743,12 @@ AuthenticateUser:
       "errorCode": "auth_factor_mismatch",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Invalid_Challenge_Neg:
@@ -471,18 +759,31 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "23432"
+      	"challenge" : "23432",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "IDA-MLC-007",
+      "errorCode": "IDA-OTA-004",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Missing_Challenge_Neg:
@@ -493,18 +794,31 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "$REMOVE$"
+      	"challenge" : "$REMOVE$",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "IDA-MLC-007",
+      "errorCode": "IDA-MLC-008",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Empty_Challenge_Neg:
@@ -515,18 +829,31 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : ""
+      	"challenge" : "",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "IDA-MLC-007",
+      "errorCode": "IDA-MLC-008",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Null_Challenge_Neg:
@@ -537,18 +864,31 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "null"
+      	"challenge" : "null",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "IDA-MLC-007",
+      "errorCode": "IDA-OTA-004",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'
 
    IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg:
@@ -559,16 +899,29 @@ AuthenticateUser:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "113453"
+      	"challenge" : "113453",
+        "sendOtp":{
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
 }'
       output: '{
       	"errors": [
     {
-      "errorCode": "IDA-MLC-007",
+      "errorCode": "IDA-OTA-004",
       "errorMessage": "$IGNORE$"
     }
-  ]
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'

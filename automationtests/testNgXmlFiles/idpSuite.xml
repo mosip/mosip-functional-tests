@@ -72,7 +72,7 @@
 		<parameter name="ymlFile"
 			value="idp/AuthenticateUser/AuthenticateUser.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="AuthorizationCode">

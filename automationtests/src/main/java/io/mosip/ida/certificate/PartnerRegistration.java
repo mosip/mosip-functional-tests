@@ -46,6 +46,8 @@ public class PartnerRegistration extends AdminTestUtil{
 		
 		partnerKeyUrl = mispLicKey+ "/"+partnerId+"/"+apiKey;
 		
+		System.out.println("partnerKeyUrl = " + partnerKeyUrl);
+		
 		return partnerKeyUrl;
 	}
 	

@@ -11,7 +11,7 @@ AuthorizationCode:
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
-      	"redirectUri": "https://health-services.com/userprofile"
+      	"redirectUri": "$IGNORE$"
 }'
 
    IDP_AuthorizationCode_Invalid_TransactionId_Neg:
@@ -122,7 +122,7 @@ AuthorizationCode:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
       	"permittedAuthorizeScopes": [{scope: ""}]
 }'
@@ -143,7 +143,7 @@ AuthorizationCode:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
       	"permittedAuthorizeScopes": [{scope: "abc"}]
 }'
@@ -164,7 +164,7 @@ AuthorizationCode:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
       	"permittedAuthorizeScopes": [{scope: "null"}]
 }'
@@ -209,7 +209,7 @@ AuthorizationCode:
       	"acceptedClaims": [{claim: "$REMOVE$"}]
 }'
       output: '{
-      	"redirectUri": "https://health-services.com/userprofile"
+      	"redirectUri": "$IGNORE$"
 }'
 
    IDP_AuthorizationCode_Empty_acceptedClaims_Neg:
