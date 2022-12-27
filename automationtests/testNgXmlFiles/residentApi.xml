@@ -222,6 +222,13 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name="GetSupportingDoc">
+		<parameter name="ymlFile"
+			value="resident/GetSupportingDoc/GetSupportingDoc.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
+		</classes>
+	</test>
 	<test name="GetInputAttributeValues">
 		<parameter name="ymlFile"
 			value="resident/GetInputAttributeValues/GetInputAttributeValues.yml" />
@@ -291,6 +298,14 @@
 			<parameter name="idKeyName"	value="vid" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GetRequestCardVid">
+		<parameter name="ymlFile"
+			value="resident/GetRequestCardVid/GetRequestCardVid.yml" />
+			<parameter name="idKeyName"	value="eventId" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
 		</classes>
 	</test>
 	<test name="GetRetrieveVidPolicy">

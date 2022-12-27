@@ -3191,7 +3191,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String signJWKKey(String clientId, RSAKey jwkKey) {
-		String tempUrl = ApplnURI.replace("-internal", "") + "/v1/idp";
+		String tempUrl = ApplnURI.replace("-internal", "") + "/v1/idp/oauth/token";
 		// Create RSA-signer with the private key
 		JWSSigner signer;
 		
