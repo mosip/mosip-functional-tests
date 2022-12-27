@@ -12,8 +12,8 @@ SendOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-        "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "$IGNORE$"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    	"maskedMobile": "XXXXXX3210"
 }'
 
    IDP_SendOtp_NR_Email_Uin_Neg:
@@ -71,8 +71,8 @@ SendOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-        "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "$IGNORE$"
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+    	"maskedMobile": "XXXXXX3210"
 }'
 
    IDP_SendOtp_SpaceSeparated_otpChannels_Neg:

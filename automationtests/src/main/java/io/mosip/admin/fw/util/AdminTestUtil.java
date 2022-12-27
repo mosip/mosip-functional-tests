@@ -171,6 +171,7 @@ public class AdminTestUtil extends BaseTestCase {
 	private String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
 	public static File oidcJWK1 = new File("src/main/resources/oidcJWK1.txt");
 	public static File oidcJWK2 = new File("src/main/resources/oidcJWK2.txt");
+	public static File clientPrivateKey = new File("src/main/resources/clientPrivateKey.txt");
 	//These variables are created to store IdP Cookie in a file and then use it for some apis
 	private static File IDPUINCookiesFile = new File("src/main/resources/IDPUINCookiesResponse.txt");
 	// public static String prevrReqTime=null;
@@ -1782,6 +1783,11 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$IDPUSER$")) {
 			jsonString = jsonString.replace("$IDPUSER$", propsKernel.getProperty("idpClientId"));
 		}
+		if (jsonString.contains("$IDPREDIRECTURI$")) {
+			String redirectUri = ApplnURI.replace("api-internal", "healthservices")+"/userprofile";
+			
+			jsonString = jsonString.replace("$IDPREDIRECTURI$", redirectUri);
+		}
 		if (jsonString.contains("$BASE64URI$")) {
 			String redirectUri = ApplnURI.replace("api-internal", "resident")+ propsKernel.getProperty("currentUserURI");
 			String encodedRedirectUri = encodeBase64(redirectUri);
@@ -1811,9 +1817,11 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$OIDCJWKKEY2$", oidcJwkKey);
 		}
 		if (jsonString.contains("$CLIENT_ASSERTION_JWK$")) {
-			String oidcJWKKeyString = getJWKKey(oidcJWK1);
+			String oidcJWKKeyString = getJWKKey(clientPrivateKey);
+			System.out.println("oidcJWKKeyString =" + oidcJWKKeyString);
 			try {
 				oidcJWKKey1 = RSAKey.parse(oidcJWKKeyString);
+				System.out.println("oidcJWKKey1 =" + oidcJWKKey1);
 			} catch (java.text.ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
