@@ -422,4 +422,19 @@
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
 	</test>
+<!-- commented out bcoz it's under testing
+	<test name="SendOtpToUserId">
+		<parameter name="ymlFile"
+			value="resident/SendOtpToUserId/SendOtpToUserId.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="ValidateWithUserIdOtp">
+		<parameter name="ymlFile"
+			value="resident/ValidateWithUserIdOtp/ValidateWithUserIdOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>-->
 </suite>
