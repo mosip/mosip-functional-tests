@@ -43,6 +43,8 @@ public class MosipTestRunner {
 	private static final Logger LOGGER = Logger.getLogger(MosipTestRunner.class);
 
 	private static final boolean String = false;
+	public static Properties props = getproperty(
+			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
 
 	public static String jarUrl = MosipTestRunner.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 	public static List<String> languageList = new ArrayList<>();
@@ -76,6 +78,17 @@ public class MosipTestRunner {
 		
 		
 		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains("idp")) {
+			if(BaseTestCase.listOfModules.contains("auth")) {
+				LOGGER.info("waiting for " + props.getProperty("AuthWaitTime")
+				+ " mili secs for auth certificate generation");
+				try {
+					Thread.sleep(Long.parseLong(props.getProperty("AuthWaitTime")));
+				} catch (NumberFormatException | InterruptedException e) {
+					// TODO Auto-generated catch block
+					LOGGER.error("Exception : " + e.getMessage());
+				}
+			}
+			
 			PartnerRegistration.deleteCertificates();
 			CertificateGenerationUtil.getThumbprints();
 			AdminTestUtil.createAndPublishPolicy();
