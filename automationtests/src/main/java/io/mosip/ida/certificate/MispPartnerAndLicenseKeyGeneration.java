@@ -73,6 +73,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		requestBody.put("organizationName", mispOrganizationName);
 		requestBody.put("partnerId", mispPartnerId);
 		requestBody.put("partnerType", mispPartnerType);
+		requestBody.put("policyGroup", policyGroup);
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
