@@ -214,7 +214,7 @@ public class ConfigManager {
 		s3_account = getValueForKey(S3_ACCOUNT);
 		push_reports_to_s3 = getValueForKey(PUSH_TO_S3);
 		db_port = getValueForKey(DB_PORT);
-		db_domain = getValueForKey(DB_DOMAIN);
+		db_domain = "api-internal."+getValueForKey(DB_DOMAIN);
 		hibernate_connection_driver_class = getValueForKey(HIBERNATE_CONNECTION_DRIVER_CLASS);
 		hibernate_connection_pool_size = getValueForKey(HIBERNATE_CONNECTION_POOL_SIZE);
 		hibernate_dialect = getValueForKey(HIBERNATE_DIALECT);
