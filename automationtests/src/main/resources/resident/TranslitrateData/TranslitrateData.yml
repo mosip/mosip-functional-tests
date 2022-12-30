@@ -1,7 +1,7 @@
 TranslitrateData:
    Resident_TranslitrateData_all_Valid_Smoke:
       endPoint: /resident/v1/transliteration/transliterate
-      role: resident
+      role: residentNew
       restMethod: post
       inputTemplate: resident/TranslitrateData/TranslitrateData
       outputTemplate: resident/TranslitrateData/TranslitrateDataResult

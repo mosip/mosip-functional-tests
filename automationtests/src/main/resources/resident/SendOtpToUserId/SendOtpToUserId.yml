@@ -1,0 +1,36 @@
+SendOtpToUserId:
+   Resident_SendOtpToUserId_all_Valid_Smoke:
+      endPoint: /resident/v1/contact-details/send-otp
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/SendOtpToUserId/SendOtpToUserId
+      outputTemplate: resident/SendOtpToUserId/SendOtpToUserIdResult
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "userId": "residentautomation@gmail.com",
+	    "transactionID": "1234567890"
+}'
+      output: '{
+        "status": "Email Request submitted",
+        "message": "success"
+}'
+
+   Resident_SendOtpToUserId_Invalid_User_Neg:
+      endPoint: /resident/v1/contact-details/send-otp
+      role: resident
+      restMethod: post
+      inputTemplate: resident/SendOtpToUserId/SendOtpToUserId
+      outputTemplate: resident/error
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "userId": "residentautomation@gmail.com",
+	    "transactionID": "1234567890"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-463",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

@@ -1,0 +1,38 @@
+ValidateWithUserIdOtp:
+   Resident_ValidateWithUserIdOtp_all_Valid_Smoke:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/ValidateWithUserIdOtp/ValidateWithUserIdOtp
+      outputTemplate: resident/ValidateWithUserIdOtp/ValidateWithUserIdOtpResult
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "userId": "residentautomation@gmail.com",
+	    "transactionID": "1234567890",
+    	"otp":"111111"
+}'
+      output: '{
+        "status": "success",
+        "message": "VALIDATION_SUCCESSFUL"
+}'
+
+   Resident_ValidateWithUserIdOtp_Invalid_User_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: resident
+      restMethod: post
+      inputTemplate: resident/ValidateWithUserIdOtp/ValidateWithUserIdOtp
+      outputTemplate: resident/error
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "userId": "residentautomation@gmail.com",
+	    "transactionID": "1234567890",
+    	"otp":"111111"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-468",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
