@@ -2,12 +2,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_all_Valid_Smoke_sid:
       endPoint: /resident/v1/service-history/{langcode}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -69,12 +68,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_1_Valid_Smoke:
       endPoint: /resident/v1/service-history/{langcode}?serviceType={serviceType}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -91,12 +89,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_2_Valid_Smoke:
       endPoint: /resident/v1/service-history/{langcode}?serviceType={serviceType}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -113,12 +110,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_3_Valid_Smoke:
       endPoint: /resident/v1/service-history/{langcode}?serviceType={serviceType}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -135,12 +131,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_4_Valid_Smoke:
       endPoint: /resident/v1/service-history/{langcode}?serviceType={serviceType}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -157,12 +152,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_5_Valid_Smoke:
       endPoint: /resident/v1/service-history/{langcode}?serviceType={serviceType}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -179,12 +173,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Date_Specified_Valid_Smoke:
       endPoint: /resident/v1/service-history/{langcode}?fromDateTime={fromDateTime}&toDateTime={toDateTime}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "2022-12-07T12:35:23.994Z",
@@ -201,12 +194,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Invalid_FromDate_Neg:
       endPoint: /resident/v1/service-history/{langcode}?fromDateTime={fromDateTime}&toDateTime={toDateTime}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "2035-12-07T12:35:23.994Z",
@@ -228,12 +220,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Invalid_From_To_Date_Neg:
       endPoint: /resident/v1/service-history/{langcode}?fromDateTime={fromDateTime}&toDateTime={toDateTime}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "2035-12-07T12:35:23.994Z",
@@ -255,12 +246,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Empty_FromDate_Neg:
       endPoint: /resident/v1/service-history/{langcode}?fromDateTime={fromDateTime}&toDateTime={toDateTime}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "",
@@ -282,12 +272,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Empty_ToDate_Neg:
       endPoint: /resident/v1/service-history/{langcode}?fromDateTime={fromDateTime}&toDateTime={toDateTime}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "2022-12-07T12:35:23.994Z",
@@ -309,12 +298,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Invalid_PageStart_Neg:
       endPoint: /resident/v1/service-history/{langcode}?pageStart={pageStart}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "sdjv$#",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -336,12 +324,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Valid_PageStart_Smoke:
       endPoint: /resident/v1/service-history/{langcode}?pageStart={pageStart}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "0",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -363,12 +350,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Negative_PageFetch_Value_Neg:
       endPoint: /resident/v1/service-history/{langcode}?pageFetch={pageFetch}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "-1",
 	    "fromDateTime": "$REMOVE$",
@@ -390,12 +376,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Invalid_Random_PageFetch_Neg:
       endPoint: /resident/v1/service-history/{langcode}?pageFetch={pageFetch}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "sdsd#$",
 	    "fromDateTime": "$REMOVE$",
@@ -417,12 +402,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Invalid_PageFetch_Neg:
       endPoint: /resident/v1/service-history/{langcode}?pageFetch={pageFetch}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "0",
 	    "fromDateTime": "$REMOVE$",
@@ -444,12 +428,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Multiple_ServiceType_Valid_Smoke:
       endPoint: /resident/v1/service-history/{langcode}?serviceType={serviceType}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -471,12 +454,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_ASC_SortType_Valid_Smoke:
       endPoint: /resident/v1/service-history/{langcode}?sortType={sortType}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -493,12 +475,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_DESC_SortType_Valid_Smoke:
       endPoint: /resident/v1/service-history/{langcode}?sortType={sortType}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -515,12 +496,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Empty_SortType_Neg:
       endPoint: /resident/v1/service-history/{langcode}?sortType={sortType}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -542,12 +522,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_Invalid_SortType_Neg:
       endPoint: /resident/v1/service-history/{langcode}?sortType={sortType}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -569,12 +548,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_SearchText_Valid_Smoke:
       endPoint: /resident/v1/service-history/{langcode}?searchText={searchText}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -591,12 +569,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_0_SearchText_Pos:
       endPoint: /resident/v1/service-history/{langcode}?searchText={searchText}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -613,12 +590,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_SearchText_Random_Pos:
       endPoint: /resident/v1/service-history/{langcode}?searchText={searchText}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -635,12 +611,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_StatusFilter_Valid_Smoke:
       endPoint: /resident/v1/service-history/{langcode}?statusFilter={statusFilter}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -657,12 +632,11 @@ GetServiceHistory:
    Resident_GetServiceHistory_StatusFilter_Invalid_Neg:
       endPoint: /resident/v1/service-history/{langcode}?statusFilter={statusFilter}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -688,7 +662,7 @@ GetServiceHistory:
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
@@ -714,7 +688,7 @@ GetServiceHistory:
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/error
       input: '{
-      	"langcode": "eng",
+      	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
 	    "fromDateTime": "$REMOVE$",
