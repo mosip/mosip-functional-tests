@@ -356,6 +356,17 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
 		return postResponse;
 	}
+	
+	public static Response postRequestWithMultipleHeadersAndCookies(String url, Object body, String contentHeader,
+			String acceptHeader, String cookieName, String cookieValue, HashMap<String, String> headers) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
+				.contentType(contentHeader).cookie("XSRF-TOKEN", "7d01b2a8-b89d-41ad-9361-d7f6294021d1").accept(acceptHeader).log().all().when()
+				.post(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
 
 	public static Response postRequestWithMultipleHeadersWithoutCookie(String url, Object body, String contentHeader,
 			String acceptHeader, HashMap<String, String> headers) {
