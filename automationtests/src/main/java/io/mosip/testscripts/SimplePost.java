@@ -109,7 +109,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		else {
 			if(testCaseName.contains("IDP_")) {
 				String tempUrl = ApplnURI.replace("-internal", "");
-				response = postWithBodyAndCookie(tempUrl + testCaseDTO.getEndPoint(),
+				response = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + testCaseDTO.getEndPoint(),
 						inputJson, COOKIENAME,
 						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 				
