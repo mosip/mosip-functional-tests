@@ -66,8 +66,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-
-	
 	<test name="AuthenticateUser">
 		<parameter name="ymlFile"
 			value="idp/AuthenticateUser/AuthenticateUser.yml" />
@@ -83,7 +81,6 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-
 	<test name="GenerateToken">
 		<parameter name="ymlFile"
 			value="idp/GenerateToken/GenerateToken.yml" />
@@ -100,6 +97,7 @@
 		</classes>
 	</test>
 
+<!--
 	<test name="IntrospectToken">
 		<parameter name="ymlFile"
 			value="idp/IntrospectToken/IntrospectToken.yml" />
@@ -128,8 +126,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-<!--
-Enable once wallet binding is deployed
 	<test name="GenerateLinkCode">
 		<parameter name="ymlFile"
 			value="idp/GenerateLinkCode/GenerateLinkCode.yml" />

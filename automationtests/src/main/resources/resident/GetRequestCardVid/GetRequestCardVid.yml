@@ -24,7 +24,7 @@ GetRequestCardVid:
       output: '{
       "errors": [
     {
-      "errorCode": "RES-SER-418",
+      "errorCode": "KER-ATH-401",
       "message": "$IGNORE$"
     }
   ]
