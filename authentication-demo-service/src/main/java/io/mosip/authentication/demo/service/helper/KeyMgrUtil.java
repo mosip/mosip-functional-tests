@@ -285,6 +285,13 @@ public class KeyMgrUtil {
             return getPrivateKeyEntry(partnerFilePath);
         }
         
+        if (partnerType == PartnerTypes.MISP) {
+			String filePrepend = keyFileNameByPartnerName ? PartnerTypes.MISP.getFilePrepend() + '-' + organization
+					: PartnerTypes.MISP.getFilePrepend();
+            String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;
+            return getPrivateKeyEntry(partnerFilePath);
+        }
+        
         String filePrepend = partnerType.getFilePrepend();
         if (partnerType == PartnerTypes.FTM) {
             String csPartnerFilePath = dirPath + '/' + filePrepend + CHIP_SPECIFIC_KEY + PARTNER_P12_FILE_NAME;
