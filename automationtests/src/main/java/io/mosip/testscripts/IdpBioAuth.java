@@ -153,7 +153,7 @@ public class IdpBioAuth extends AdminTestUtil implements ITest {
 		}
 		if(testCaseName.contains("IDP_")) {
 			String tempUrl = ApplnURI.replace("-internal", "");
-			response = postWithBodyAndCookie(tempUrl + testCaseDTO.getEndPoint(),
+			response = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + testCaseDTO.getEndPoint(),
 					authRequest, COOKIENAME,
 					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 			
