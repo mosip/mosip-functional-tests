@@ -174,6 +174,8 @@ public class AuthRequestController {
 	private static final String ID_TYPE = "idType";
 
 	private static final String IDA_AUTH_REQUEST_TEMPLATE = "ida.authRequest.template";
+	
+	private static final String IDA_KYC_EXCHANGE_REQUEST_TEMPLATE = "ida.kycExchangeRequest.template";
 
 	private static final String ID = "id";
 
@@ -249,6 +251,7 @@ public class AuthRequestController {
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
 			@RequestParam(name = "isNewInternalAuth", required = false) @Nullable boolean isNewInternalAuth,
 			@RequestParam(name = "isPreLTS", required = false) @Nullable boolean isPreLTS,
+			@RequestParam(name = "signWithMisp", required = false) @Nullable boolean signWithMisp,
 			@RequestParam(name = "partnerName", required = false) String partnerName,
 			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
 			@RequestBody Map<String, Object> request) throws Exception {
@@ -350,7 +353,7 @@ public class AuthRequestController {
 				//httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false));
 				PartnerTypes partnerTypes = isKyc ? PartnerTypes.EKYC : PartnerTypes.RELYING_PARTY;
 
-				String rpSignature = signRequest(partnerTypes, partnerName, keyFileNameByPartnerName, responseStr);
+				String rpSignature = signRequest(signWithMisp ? PartnerTypes.MISP : partnerTypes, partnerName, keyFileNameByPartnerName, responseStr);
 				httpHeaders.add("signature", rpSignature);
 				return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
 			} else {
@@ -393,10 +396,11 @@ public class AuthRequestController {
 			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
 			@RequestParam(name = "isNewInternalAuth", required = false) @Nullable boolean isNewInternalAuth,
 			@RequestParam(name = "isPreLTS", required = false) @Nullable boolean isPreLTS,
+			@RequestParam(name = "signWithMisp", required = false) @Nullable boolean signWithMisp,
 			@RequestParam(name = "partnerName", required = false) String partnerName,
 			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
 			@RequestBody Map<String, Object> request) throws Exception {
-		ResponseEntity<String> authRequest = this.createAuthRequest(id, idType, isKyc, isInternal, reqAuth, transactionId, requestTime, isNewInternalAuth, isPreLTS, partnerName, keyFileNameByPartnerName, request);
+		ResponseEntity<String> authRequest = this.createAuthRequest(id, idType, isKyc, isInternal, reqAuth, transactionId, requestTime, isNewInternalAuth, isPreLTS, signWithMisp, partnerName, keyFileNameByPartnerName, request);
 		String reqBody = authRequest.getBody();
 		String reqSignature = authRequest.getHeaders().get("signature").get(0);
 		
@@ -441,6 +445,126 @@ public class AuthRequestController {
 		ResponseEntity<Map<String, Object>> responseEntity = new ResponseEntity(respMap, HttpStatus.OK);
 		return responseEntity;
 		
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@PostMapping(path = "/kyc-exchange", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {
+			MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<Map<String, Object>> doKycExchange(@RequestParam(name = ID, required = true) @Nullable String id,
+			@RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
+			@RequestParam(name = "isLocal", required = false ) @Nullable boolean isLocal,
+			@RequestParam(name = "Authtype", required = false) @Nullable String reqAuth,
+			@RequestParam(name = "kycToken", required = false) @Nullable String kycToken,
+			@RequestParam(name = "respType", required = false) @Nullable String respType,
+			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
+			@RequestParam(name = PROP_PARTNER_URL_SUFFIX, required = false) @Nullable String partnerUrlSuffix,
+			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
+			@RequestParam(name = "partnerName", required = false) String partnerName,
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
+			@RequestBody Map<String, Object> request) throws Exception {
+		ResponseEntity<String> authRequest = this.createKycExchangeRequest(id, idType, reqAuth, kycToken, respType, transactionId, requestTime, partnerName, keyFileNameByPartnerName, request);
+		String reqBody = authRequest.getBody();
+		String reqSignature = authRequest.getHeaders().get("signature").get(0);
+		
+		RestTemplate restTemplate = encrypt.createRestTemplate();
+		
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.add("signature", reqSignature);
+		httpHeaders.add("Authorization", reqSignature);
+		httpHeaders.add("Content-Type", "application/json");
+		HttpEntity<String> httpEntity = new HttpEntity<>(reqBody, httpHeaders);
+		Map<String, Object> reqBodyMap = mapper.readValue(reqBody, Map.class);
+		URI authRequestUrl = getAuthRequestUrl((String)reqBodyMap.get("id"), isLocal, partnerUrlSuffix, false);
+		
+		Map<String, Object> respMap = new LinkedHashMap<>();
+		
+		respMap.put("URL", authRequestUrl);
+		
+		Map<String, Object> authReqMap = new LinkedHashMap<>();
+		authReqMap.put("body", reqBody);
+		authReqMap.put("signature", reqSignature);
+		respMap.put("authRequest", authReqMap);
+		
+		Map<String, Object> authRespBody = new LinkedHashMap<>();
+		Object respBody;
+		String respSignature;
+		try {
+			ResponseEntity<Map> authResponse = restTemplate.exchange(authRequestUrl, HttpMethod.POST, httpEntity, Map.class);
+			respBody = authResponse.getBody();
+			List<ServiceError> serviceErrorList = ExceptionUtils.getServiceErrorList(mapper.writeValueAsString(respBody));
+			if(serviceErrorList.isEmpty()) {
+				List<String> signatureHeaders = authResponse.getHeaders().get("response-signature");
+				respSignature = signatureHeaders != null ? authResponse.getHeaders().get("response-signature").get(0) : null;
+				authRespBody.put("signature", respSignature);
+			}
+		} catch (RestClientException e) {
+			respBody = e instanceof HttpServerErrorException ? ((HttpServerErrorException)e).getResponseBodyAsString() : ExceptionUtils.getStackTrace(e);
+		}
+		
+		authRespBody.put("body", respBody);
+		respMap.put("authResponse", authRespBody);
+		
+		ResponseEntity<Map<String, Object>> responseEntity = new ResponseEntity(respMap, HttpStatus.OK);
+		return responseEntity;
+	}
+
+	@PostMapping(path = "/create-kyc-exchange-request", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {
+			MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<String> createKycExchangeRequest(@RequestParam(name = ID, required = true) @Nullable String id,
+			@RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
+			@RequestParam(name = "Authtype", required = false) @Nullable String reqAuth,
+			@RequestParam(name = "kycToken", required = false) @Nullable String kycToken,
+			@RequestParam(name = "respType", required = false) @Nullable String respType,
+			@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
+			@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
+			@RequestParam(name = "partnerName", required = false) String partnerName,
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
+			@RequestBody Map<String, Object> request) throws Exception {
+		String authRequestTemplate = environment.getProperty(IDA_KYC_EXCHANGE_REQUEST_TEMPLATE);
+		Map<String, Object> reqValues = new HashMap<>();
+		
+		if (requestTime == null) {
+			requestTime = DateUtils.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
+		}
+
+		reqValues.put(ID, id);
+		reqValues.put("individualIdType", idType == null || idType.trim().length() == 0 ? IdType.UIN.toString() : idType);
+		reqValues.put(AUTH_TYPE, reqAuth);		
+		reqValues.put(TIMESTAMP, requestTime);
+		reqValues.put(TXN, transactionId == null ? "1234567890" : transactionId);
+		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));
+		reqValues.put("kycToken", kycToken);
+		reqValues.put("respType", respType);
+		reqValues.put("request", request);
+
+		StringWriter writer = new StringWriter();
+		InputStream templateValue;
+		if (request != null && request.size() > 0) {
+			templateValue = templateManager
+					.merge(new ByteArrayInputStream(authRequestTemplate.getBytes(StandardCharsets.UTF_8)), reqValues);
+
+			if (templateValue != null) {
+				IOUtils.copy(templateValue, writer, StandardCharsets.UTF_8);
+				String res = writer.toString();
+				ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
+				
+				HttpHeaders httpHeaders = new HttpHeaders();
+				String responseStr = response.toString();
+				
+				String rpSignature = signRequest(PartnerTypes.MISP, partnerName, keyFileNameByPartnerName, responseStr);
+				httpHeaders.add("signature", rpSignature);
+				return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
+			} else {
+				throw new IdAuthenticationBusinessException(
+						IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(), String.format(
+								IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), TEMPLATE));
+			}
+
+		} else {
+			throw new IdAuthenticationBusinessException(
+					IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(),
+					String.format(IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), IDENTITY));
+		}
 	}
 	
 	/**
@@ -634,6 +758,14 @@ public class AuthRequestController {
 			baseUrl = isLocal ? "http://localhost:" +  environment.getProperty("internal.port", "8093"): envBaseUrl;
 			urlSuffix = isNewInternalAuth ? "/idauthentication/v1/internal/verifyidentity" : "/idauthentication/v1/internal/auth";
 			isInternal = true;
+			break;
+		case "mosip.identity.kycauth":
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("kyc.port", "8090") : envBaseUrl;
+			urlSuffix = "/idauthentication/v1/kyc-auth";
+			break;
+		case "mosip.identity.kycexchange":
+			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("kyc.port", "8090") : envBaseUrl;
+			urlSuffix = "/idauthentication/v1/kyc-exchange";
 			break;
 		default:
 			baseUrl = isLocal ? "http://localhost:" + environment.getProperty("auth.port", "8090") : envBaseUrl;
