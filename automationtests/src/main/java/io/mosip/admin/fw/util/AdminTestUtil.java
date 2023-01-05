@@ -1831,6 +1831,11 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$IDPUSER$")) {
 			jsonString = jsonString.replace("$IDPUSER$", propsKernel.getProperty("idpClientId"));
 		}
+		if (jsonString.contains("$OIDCCLIENT$")) {
+			String keyValue = propsKernel.getProperty("clientIdKey");
+			String clientId = getValueFromActuator(keyValue);
+			jsonString = jsonString.replace("$OIDCCLIENT$", clientId);
+		}
 		if (jsonString.contains("$IDPREDIRECTURI$")) {
 			String redirectUri = ApplnURI.replace("api-internal", "healthservices")+"/userprofile";
 			
@@ -1884,7 +1889,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains("$IDPCLIENTPAYLOAD$")) {
 			String clientId = propsKernel.getProperty("idpClientId");
-			String idpBaseURI = ApplnURI.replace("-internal", "") + "/v1/idp";
+			String idpBaseURI = ApplnURI.replace("-internal", "") + "/v1/idp/oauth/token";
 			Instant instant = Instant.now();
   
 	        // print Instant Value
@@ -3276,5 +3281,33 @@ public class AdminTestUtil extends BaseTestCase {
 			e.printStackTrace();
 		}
 	}
+	
+	public static String getValueFromActuator(String content) {
+//		To Do ---> To get the value from server config
+		return propsKernel.getProperty("idpClientId");
+				
+				
+//		Response response = null;
+//		JSONObject responseJson = null;
+//		JSONObject responseJson1 = null;
+//		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
+//		String clientId = null;
+////		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+//		try {
+//		response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+//			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+//					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+//			
+//			responseJson = new JSONObject(response.getBody().asString());
+//			responseJson1 = responseJson.getJSONObject(content);
+//			clientId = responseJson.get("value").toString();
+//			return clientId;
+//		} catch (Exception e) {
+//			logger.error("Exception " + e);
+//			return clientId;
+//		}
+		
+	}
+	
 
 }

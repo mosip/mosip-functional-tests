@@ -8,7 +8,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:IDP_AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "$IDPUSER$",
+		  "client_id": "$OIDCCLIENT$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$ID:SignJWT_all_Valid_Smoke_sid_jwtSignedData$",
 		  "redirect_uri": "$ID:IDP_AuthorizationCode_All_Valid_Smoke_sid_redirectUri$"
