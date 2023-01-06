@@ -29,7 +29,7 @@ SendOtpToUserId:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-463",
+      "errorCode": "KER-ATH-401",
       "message": "$IGNORE$"
     }
   ]

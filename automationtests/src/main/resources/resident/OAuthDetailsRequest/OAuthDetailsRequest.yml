@@ -7,13 +7,13 @@ OAuthDetailsRequest:
       outputTemplate: resident/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "$IDPUSER$",
+      	"clientId": "$OIDCCLIENT$",
       	"scope": "openid resident-service profile identity.readonly identity.update vid.readonly vid.manage auth.readonly auth.method.manage auth.history.readonly auth.history.manage card.manage credential.manage notifications.readonly notifications.manage",
       	"responseType": "code",
       	"redirectUri": "$BASEURI$/resident/v1/login-redirect/$BASE64URI$",
       	"display": "popup",
 	    "prompt": "login",
-	    "acrValues": "mosip:idp:acr:static-code",
+	    "acrValues": "mosip:idp:acr:generated-code",
 	    "nonce": "973eieljzng",
 	    "state": "$RANDOMUUID$",
 	    "claimsLocales": "en"

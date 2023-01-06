@@ -131,11 +131,11 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(residentCookie))
 				residentCookie = kernelAuthLib.getAuthForResident();
 			return residentCookie;
-		case "residentnewIdp":
+		case "residentnew":
 			if(!kernelCmnLib.isValidToken(residentNewCookie))
 			residentNewCookie = getUinAuthFromIdp();
 			return residentNewCookie;
-		case "residentnew":
+		case "residentnewKc":
 			if(!kernelCmnLib.isValidToken(residentNewCookieKc))
 				residentNewCookieKc = kernelAuthLib.getAuthForNewResidentKc();
 			return residentNewCookieKc;

@@ -1,20 +1,4 @@
 AuthenticateUser:
-#   Resident_IDP_AuthenticateUserIDP_Pin_Valid_Smoke:
-#      endPoint: /v1/idp/authorization/authenticate
-#      role: resident
-#      restMethod: post
-#      inputTemplate: resident/AuthenticateUser/AuthenticateUser
-#      outputTemplate: resident/AuthenticateUser/AuthenticateUserResult
-#      input: '{
-#      	"requestTime": "$TIMESTAMP$",
-#      	"transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-#      	"individualId": "2189753278",
-#      	"authFactorType" : "PIN",
-#      	"challenge" : "12345"
-#}'
-#      output: '{
-#      
-#}'
    Resident_IDP_AuthenticateUserIDP_Otp_Valid_Smoke:
       endPoint: /v1/idp/authorization/authenticate
       role: resident
@@ -30,4 +14,33 @@ AuthenticateUser:
 }'
       output: '{
       
+}'
+
+   Resident_IDP_AuthenticateUserIDP_Otp_Valid_Smoke:
+      endPoint: /v1/idp/authorization/authenticate
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthenticateUser/AuthenticateUser
+      outputTemplate: resident/AuthenticateUser/AuthenticateUserResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111",
+        "sendOtp":{
+		    "requestTime": "$TIMESTAMP$",
+		    "transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+			"individualId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_UIN$",
+		    "otpChannels": [{channel: "email"},{channel: "phone"}],
+		    "sendOtpReqTemplate": "resident/SendOtpIdp/SendOtpIdp",
+		    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+    }
+}'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOtpIdp/SendOtpIdpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
 }'

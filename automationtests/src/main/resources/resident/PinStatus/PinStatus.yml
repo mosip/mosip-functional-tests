@@ -25,7 +25,7 @@ PinStatus:
       output: '{
       	"errors": [
     {
-      "errorCode": "RES-SER-459",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ]
