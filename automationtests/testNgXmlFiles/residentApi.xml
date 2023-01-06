@@ -56,6 +56,13 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
+	</test>	
+	<test name="DownloadUinCard">
+		<parameter name="ymlFile"
+			value="resident/DownloadUinCard/DownloadUinCard.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerateAndPdfDownload" />
+		</classes>
 	</test>
 	<test name="AuthHistory">
 		<parameter name="ymlFile"
@@ -144,7 +151,6 @@
 			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
 	</test>
-	
 	<test name="GetUiProperties">
 		<parameter name="ymlFile"
 			value="resident/GetUiProperties/GetUiProperties.yml" />
