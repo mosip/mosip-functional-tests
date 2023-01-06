@@ -64,7 +64,6 @@
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerateAndPdfDownload" />
 		</classes>
 	</test>
-	
 	<test name="AuthHistory">
 		<parameter name="ymlFile"
 			value="resident/AuthHistory/AuthHistory.yml" />
@@ -137,7 +136,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>
+	</test>	
 	<test name="GetCredentialTypes">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/GetCredentialTypes/GetCredentialTypes.yml" />
@@ -391,6 +390,13 @@
 			<parameter name="idKeyName"	value="eventId" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AcknowledgementController">
+		<parameter name="ymlFile"
+			value="resident/AcknowledgementController/AcknowledgementController.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
 	</test>
 	<test name="DownloadServiceHistory">
