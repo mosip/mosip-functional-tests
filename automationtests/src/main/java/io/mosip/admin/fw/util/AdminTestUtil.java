@@ -216,7 +216,7 @@ public class AdminTestUtil extends BaseTestCase {
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		token = kernelAuthLib.getTokenByRole(role);
+		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
@@ -238,7 +238,7 @@ public class AdminTestUtil extends BaseTestCase {
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		token = kernelAuthLib.getTokenByRole(role);
+		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
@@ -1289,6 +1289,31 @@ public class AdminTestUtil extends BaseTestCase {
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
 		try {
 			pdf = RestClient.getPdf(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName,
+					token);
+			return pdf;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return pdf;
+		}
+	}
+	
+	protected byte[] postWithBodyAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
+			String testCaseName) {
+		byte[] pdf = null;
+		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		HashMap<String, String> map = null;
+		try {
+			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
+			}.getType());
+		} catch (Exception e) {
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+		}
+
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******post request to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		try {
+			pdf = RestClient.postWithBodyForPdf(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName,
 					token);
 			return pdf;
 		} catch (Exception e) {
