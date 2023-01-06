@@ -1832,8 +1832,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$IDPUSER$", propsKernel.getProperty("idpClientId"));
 		}
 		if (jsonString.contains("$OIDCCLIENT$")) {
-			String keyValue = propsKernel.getProperty("clientIdKey");
-			String clientId = getValueFromActuator(keyValue);
+			String clientId = getValueFromActuator();
 			jsonString = jsonString.replace("$OIDCCLIENT$", clientId);
 		}
 		if (jsonString.contains("$IDPREDIRECTURI$")) {
@@ -1888,7 +1887,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$CLIENT_ASSERTION_JWK$", signJWKKey(client_id, oidcJWKKey1));
 		}
 		if (jsonString.contains("$IDPCLIENTPAYLOAD$")) {
-			String clientId = propsKernel.getProperty("idpClientId");
+			String clientId = getValueFromActuator();
 			String idpBaseURI = ApplnURI.replace("-internal", "") + "/v1/idp/oauth/token";
 			Instant instant = Instant.now();
   
@@ -3282,30 +3281,35 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 	}
 	
-	public static String getValueFromActuator(String content) {
-//		To Do ---> To get the value from server config
-		return propsKernel.getProperty("idpClientId");
+	public static String getValueFromActuator() {
 				
 				
-//		Response response = null;
-//		JSONObject responseJson = null;
-//		JSONObject responseJson1 = null;
-//		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
-//		String clientId = null;
-////		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-//		try {
-//		response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-//			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-//					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
-//			
-//			responseJson = new JSONObject(response.getBody().asString());
-//			responseJson1 = responseJson.getJSONObject(content);
-//			clientId = responseJson.get("value").toString();
-//			return clientId;
-//		} catch (Exception e) {
-//			logger.error("Exception " + e);
-//			return clientId;
-//		}
+		Response response = null;
+		JSONObject responseJson = null;
+		JSONArray responseArray = null;
+		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
+		String clientId = null;
+		try {
+		response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			
+			responseJson = new JSONObject(response.getBody().asString());
+			responseArray = responseJson.getJSONArray("propertySources");
+			
+			for (int i = 0, size = responseArray.length(); i < size; i++) {
+				JSONObject eachJson = responseArray.getJSONObject(i);
+				if(eachJson.get("name").toString().contains("resident-default.properties")) {
+					clientId = eachJson.getJSONObject("properties").getJSONObject("mosip.iam.module.clientID").get("value").toString();
+					break;
+				}
+			}
+
+			return clientId;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return clientId;
+		}
 		
 	}
 	
