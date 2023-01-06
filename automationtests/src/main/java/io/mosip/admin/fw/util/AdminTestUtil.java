@@ -216,7 +216,7 @@ public class AdminTestUtil extends BaseTestCase {
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		token = kernelAuthLib.getTokenByRole(role);
+		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
@@ -238,7 +238,7 @@ public class AdminTestUtil extends BaseTestCase {
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		token = kernelAuthLib.getTokenByRole(role);
+		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
