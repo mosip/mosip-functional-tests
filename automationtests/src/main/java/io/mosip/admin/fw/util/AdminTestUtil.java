@@ -1297,6 +1297,31 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 	}
 	
+	protected byte[] postWithBodyAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
+			String testCaseName) {
+		byte[] pdf = null;
+		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		HashMap<String, String> map = null;
+		try {
+			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
+			}.getType());
+		} catch (Exception e) {
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+		}
+
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******post request to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		try {
+			pdf = RestClient.postWithBodyForPdf(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName,
+					token);
+			return pdf;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return pdf;
+		}
+	}
+	
 	protected byte[] getWithQueryParamAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
 		byte[] pdf = null;
