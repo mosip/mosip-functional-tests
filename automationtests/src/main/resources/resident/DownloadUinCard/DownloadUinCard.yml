@@ -1,0 +1,235 @@
+DownloadUinCard:
+   Resident_DownloadUinCard_all_Valid_Smoke:
+      endPoint: /resident/v1/download-card
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DownloadUinCard/DownloadUinCard
+      outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
+      input: '{
+      	 "transactionId": "1234567890",
+          "otp": "111111",
+          "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+          "requesttime": "$TIMESTAMP$",
+	      "sendOtp":{
+		    "transactionID": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+	    }
+}'
+
+      output: '{
+                "sendOtpResp":{
+			        "maskedMobile": "XXXXXX3210",
+			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+			        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_DownloadUinCard_Invalid_TransactionID_Neg:
+      endPoint: /resident/v1/download-card
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DownloadUinCard/DownloadUinCard
+      outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
+      input: '{
+      	 "transactionId": "213$@As",
+          "otp": "111111",
+          "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+          "requesttime": "$TIMESTAMP$",
+	      "sendOtp":{
+		    "transactionID": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+	    }
+}'
+
+      output: '{
+	           "errors": [{
+				"errorCode": "RES-SER-457",
+		        "message": "$IGNORE$"
+			}],
+                "sendOtpResp":{
+			        "maskedMobile": "XXXXXX3210",
+			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+			        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_DownloadUinCard_Empty_TransactionID_Neg:
+      endPoint: /resident/v1/download-card
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DownloadUinCard/DownloadUinCard
+      outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
+      input: '{
+      	 "transactionId": "",
+          "otp": "111111",
+          "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+          "requesttime": "$TIMESTAMP$",
+	      "sendOtp":{
+		    "transactionID": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+	    }
+}'
+
+      output: '{
+	           "errors": [{
+				"errorCode": "RES-SER-457",
+		        "message": "$IGNORE$"
+			}],
+                "sendOtpResp":{
+			        "maskedMobile": "XXXXXX3210",
+			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+			        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_DownloadUinCard_Invalid_Otp_Neg:
+      endPoint: /resident/v1/download-card
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DownloadUinCard/DownloadUinCard
+      outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
+      input: '{
+      	 "transactionId": "1234567890",
+          "otp": "123456",
+          "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+          "requesttime": "$TIMESTAMP$",
+	      "sendOtp":{
+		    "transactionID": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+	    }
+}'
+
+      output: '{
+	           "errors": [{
+					"errorCode": "RES-SER-410",
+			        "message": "Invalid input parameter - otp"
+			}],
+                "sendOtpResp":{
+			        "maskedMobile": "XXXXXX3210",
+			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+			        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_DownloadUinCard_Empty_Otp_Neg:
+      endPoint: /resident/v1/download-card
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DownloadUinCard/DownloadUinCard
+      outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
+      input: '{
+      	 "transactionId": "1234567890",
+          "otp": "",
+          "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+          "requesttime": "$TIMESTAMP$",
+	      "sendOtp":{
+		    "transactionID": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+	    }
+}'
+
+      output: '{
+	           "errors": [{
+					"errorCode": "RES-SER-410",
+			        "message": "$IGNORE$"
+			}],
+                "sendOtpResp":{
+			        "maskedMobile": "XXXXXX3210",
+			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+			        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_DownloadUinCard_Invalid_IndividualID_Neg:
+      endPoint: /resident/v1/download-card
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DownloadUinCard/DownloadUinCard
+      outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
+      input: '{
+      	 "transactionId": "1234567890",
+          "otp": "111111",
+          "individualId": "Asad#@11",
+          "requesttime": "$TIMESTAMP$",
+	      "sendOtp":{
+		    "transactionID": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+	    }
+}'
+
+      output: '{
+	           "errors": [{
+					"errorCode": "RES-SER-410",
+			        "message": "$IGNORE$"
+			}],
+                "sendOtpResp":{
+			        "maskedMobile": "XXXXXX3210",
+			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+			        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_DownloadUinCard_Empty_IndividualID_Neg:
+      endPoint: /resident/v1/download-card
+      role: resident
+      restMethod: post
+      inputTemplate: resident/DownloadUinCard/DownloadUinCard
+      outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
+      input: '{
+      	 "transactionId": "1234567890",
+          "otp": "111111",
+          "individualId": "",
+          "requesttime": "$TIMESTAMP$",
+	      "sendOtp":{
+		    "transactionID": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+	    }
+}'
+
+      output: '{
+	           "errors": [{
+					"errorCode": "RES-SER-410",
+			        "message": "$IGNORE$"
+			}],
+                "sendOtpResp":{
+			        "maskedMobile": "XXXXXX3210",
+			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+			        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+   
