@@ -635,7 +635,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_factor_mismatch",
+      "errorCode": "invalid_auth_factor_type",
       "errorMessage": "$IGNORE$"
     }
   ],
@@ -670,7 +670,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "auth_factor_mismatch",
+      "errorCode": "invalid_auth_factor_type",
       "errorMessage": "$IGNORE$"
     }
   ],
@@ -810,7 +810,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "IDA-MLC-008",
+      "errorCode": "invalid_challenge",
       "errorMessage": "$IGNORE$"
     }
   ],
@@ -845,7 +845,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "IDA-MLC-008",
+      "errorCode": "invalid_challenge",
       "errorMessage": "$IGNORE$"
     }
   ],

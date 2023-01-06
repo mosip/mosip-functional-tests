@@ -10,6 +10,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
+import java.util.Base64;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import javax.ws.rs.core.MediaType;
@@ -27,7 +29,9 @@ import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
+import io.mosip.kernel.util.ConfigManager;
 import io.mosip.service.BaseTestCase;
+import io.restassured.response.Response;
 
 /**
  * The class to perform or construct biometric identity data which involves
@@ -43,6 +47,7 @@ public class BioDataUtility extends AdminTestUtil {
 	private static final Logger logger = Logger.getLogger(BioDataUtility.class);
 
 	private String cryptoEncryptUrl = BaseTestCase.ApplnURI + "/idauthentication/v1/internal/encrypt";
+	static String EncryptUtilBaseUrl = ConfigManager.getAuthDemoServiceUrl() + "/";
 	//private static String jsonContent = "config/AuthPolicy.json";
 
 	private String encryptIsoBioValue(String isoBiovalue, String timestamp, String bioValueEncryptionTemplateJson,
@@ -96,7 +101,7 @@ public class BioDataUtility extends AdminTestUtil {
 			if (!isInternal) {
 				String digitalId = JsonPrecondtion.getJsonValueFromJson(identityRequest,
 						biometricsMapper + ".data.digitalId");
-				digitalId = getSignedBiometrics(digitalId,"ftm");
+				digitalId = getSignedBiometrics(digitalId,"FTM");
 				identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, digitalId,
 						biometricsMapper + ".data.digitalId");
 			}
@@ -126,7 +131,7 @@ public class BioDataUtility extends AdminTestUtil {
 			String latestData = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + ".data");
 			String signedData = "";
 			if (isInternal == false) {
-				signedData = getSignedBiometrics(latestData,"device");
+				signedData = getSignedBiometrics(latestData,"DEVICE");
 				identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
 						EncryptionDecrptionUtil.idaFirThumbPrint, biometricsMapper + ".thumbprint");
 			} else if (isInternal == true) {
@@ -204,14 +209,30 @@ public class BioDataUtility extends AdminTestUtil {
 	private String generateSignatureWithBioMetric(String identityDataBlock, String string, String key) {
 		
 		String singResponse = null;
-		//call sing() 
-		try {
-		 singResponse =  sign(identityDataBlock, true, true, false, null, getKeysDirPath(), key);
-		} catch (NoSuchAlgorithmException | UnrecoverableEntryException | KeyStoreException | CertificateException
-				| OperatorCreationException | JoseException | IOException e) {
-			e.printStackTrace();
-		}
-		return singResponse;
+		
+        residentCookie = kernelAuthLib.getTokenByRole("resident");
+        HashMap<String, String> pathParamsMap = new HashMap<String, String>();
+        pathParamsMap.put("partnerType", key);
+        
+        //Response response = RestClient.postWithBodyAndCookie(EncryptUtilBaseUrl+props.get("signRequest")+"?"+"partnerType="+key, identityDataBlock, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", residentCookie);
+		Response response = RestClient.postRequestWithQueryParamBodyAndCookie(
+				EncryptUtilBaseUrl + props.get("signRequest"), identityDataBlock, pathParamsMap,
+				 MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, "Authorization",
+				residentCookie);
+		
+		byte[] bytePayload = identityDataBlock.getBytes();
+		String payloadData = Base64.getUrlEncoder().encodeToString(bytePayload);
+		
+		//String newResponse = response.asString();
+		String signNewResponse = response.asString().replace("..", "."+ payloadData +".");
+		System.out.println(signNewResponse);
+		
+		//String content = RestClient.postR(EncryptUtilBaseUrl+props.get("encryptionPath"), identityDataBlock, MediaType.APPLICATION_JSON,
+				//MediaType.APPLICATION_JSON).asString();
+        
+         singResponse = response.asString();
+		
+		return signNewResponse;
 	}
 
 	private static final String HASH_ALGORITHM_NAME = "SHA-256";

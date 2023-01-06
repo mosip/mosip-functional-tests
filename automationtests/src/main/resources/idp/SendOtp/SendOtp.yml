@@ -24,7 +24,7 @@ SendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
@@ -45,7 +45,7 @@ SendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
@@ -66,7 +66,7 @@ SendOtp:
       outputTemplate: idp/SendOtp/SendOtpResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_SendOtp_Vid_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
@@ -293,7 +293,7 @@ SendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "@@#$#VGH",
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
@@ -356,7 +356,7 @@ SendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "null",
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
