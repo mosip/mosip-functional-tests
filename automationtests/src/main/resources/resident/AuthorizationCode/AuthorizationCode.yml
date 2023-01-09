@@ -8,7 +8,7 @@ AuthorizationCode:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
-      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"},{claim: "picture"},{claim: "individual_id"}],
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "birthdate"},{claim: "picture"},{claim: "individual_id"}],
       	"permittedAuthorizeScopes": [{scope: "identity.readonly"},{scope: "identity.update"},{scope: "vid.readonly"},{scope: "vid.manage"},{scope: "auth.readonly"},{scope: "auth.method.manage"},{scope: "auth.history.readonly"},{scope: "auth.history.manage"},{scope: "card.manage"},{scope: "credential.manage"},{scope: "notifications.readonly"},{scope: "notifications.manage"}]
 }'
       output: '{

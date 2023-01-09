@@ -6,7 +6,7 @@ CheckAidStatus:
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
       outputTemplate: resident/CheckAidStatus/CheckAidStatusResult
       input: '{
-		"requesttime": "$TIMESTAMP$",
+      	"requesttime": "$TIMESTAMP$",
 	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 	    "otp": "111111",
 	    "transactionID": "1234567890",
@@ -23,9 +23,9 @@ CheckAidStatus:
       output: '{
         "transactionID": "1234567890",
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+	        "maskedMobile": "XXXXXX3210",
+	        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+	        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
 
@@ -239,3 +239,4 @@ CheckAidStatus:
     }
 }'
 
+>>>>>>> upstream/develop

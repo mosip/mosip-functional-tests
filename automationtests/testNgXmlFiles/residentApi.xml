@@ -49,14 +49,14 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>	
+	</test>
 	<test name="CheckAidStatus">
 		<parameter name="ymlFile"
 			value="resident/CheckAidStatus/CheckAidStatus.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
-	</test>	
+	</test>
 	<test name="DownloadUinCard">
 		<parameter name="ymlFile"
 			value="resident/DownloadUinCard/DownloadUinCard.yml" />
@@ -64,7 +64,6 @@
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerateAndPdfDownload" />
 		</classes>
 	</test>
-	
 	<test name="AuthHistory">
 		<parameter name="ymlFile"
 			value="resident/AuthHistory/AuthHistory.yml" />
@@ -137,7 +136,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
-	</test>
+	</test>	
 	<test name="GetCredentialTypes">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/GetCredentialTypes/GetCredentialTypes.yml" />
@@ -241,6 +240,45 @@
 			value="resident/GetIdentityMapping/GetIdentityMapping.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="OAuthDetailsRequest">
+		<parameter name="ymlFile"
+			value="resident/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
+			<parameter name="idKeyName"	value="transactionId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthenticateUser">
+		<parameter name="ymlFile"
+			value="resident/AuthenticateUser/AuthenticateUser.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="AuthorizationCode">
+		<parameter name="ymlFile"
+			value="resident/AuthorizationCode/AuthorizationCode.yml" />
+			<parameter name="idKeyName"	value="code,state,redirectUri" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="SignJWT">
+		<parameter name="ymlFile"
+			value="resident/SignJWT/SignJWT.yml" />
+			<parameter name="idKeyName"	value="jwtSignedData" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GenerateToken">
+		<parameter name="ymlFile"
+			value="resident/GenerateToken/GenerateToken.yml" />
+			<parameter name="idKeyName"	value="access_token" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
 		</classes>
 	</test>
 	<test name="SendOtpToUserId">
@@ -391,6 +429,13 @@
 			<parameter name="idKeyName"	value="eventId" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AcknowledgementController">
+		<parameter name="ymlFile"
+			value="resident/AcknowledgementController/AcknowledgementController.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
 	</test>
 	<test name="DownloadServiceHistory">
