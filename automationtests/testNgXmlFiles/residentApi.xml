@@ -20,15 +20,15 @@
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
 	</test>
-	<test name="GenerateVID">
+	 <test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="resident/GenerateVID/createGenerateVID.yml" />
 			<parameter name="idKeyName"	value="vid" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
-	</test>
-	<test name="RevokeVID">
+	</test> 
+	 <test name="RevokeVID">
 		<parameter name="ymlFile"
 			value="resident/RevokeVID/createRevokeVID.yml" />
 		<classes>
@@ -41,6 +41,20 @@
 			<parameter name="idKeyName"	value="registrationId" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="UpdateCountByIndividualIdRequest">
+		<parameter name="ymlFile"
+			value="resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="UpdateCountByIndividualIdRequest">
+		<parameter name="ymlFile"
+			value="resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="ReqAidOtp">
