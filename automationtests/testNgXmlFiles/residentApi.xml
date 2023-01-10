@@ -485,7 +485,7 @@
 			value="resident/DocumentController/UploadDocument/UploadDocument.yml" />
 			<parameter name="idKeyName"	value="docId" />
 		<classes>
-			<class name="io.mosip.testscripts.PostWithFormPathParamAndFile" />
+			<class name="io.mosip.testscripts.PostWithParamAndFile" />
 		</classes>
 	</test>
 	<test name="GetDocByTransId">

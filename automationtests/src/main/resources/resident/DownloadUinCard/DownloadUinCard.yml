@@ -18,7 +18,7 @@ DownloadUinCard:
 		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
 		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
-	    }
+}
 }'
 
       output: '{

@@ -71,12 +71,12 @@ AuthLockNew:
   		"status": "Success"
 }'
 
-   Resident_AuthLockNew_Invalid_Requesttime_Pos:
+   Resident_AuthLockNew_Invalid_Requesttime_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
       inputTemplate: resident/AuthLockNew/CreateAuthLockNew
-      outputTemplate: resident/AuthLockNew/CreateAuthLockNewResult
+      outputTemplate: resident/error
       input: '{
         "requesttime": "T@345IMP",
         "id": "mosip.resident.auth.lock.unlock",
@@ -86,7 +86,12 @@ AuthLockNew:
         "unlockForSeconds": "null"
     }'
       output: '{
-  		"status": "Success"
+  		"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
 }'
 
    Resident_AuthLockNew_Invalid_Id_Neg:
