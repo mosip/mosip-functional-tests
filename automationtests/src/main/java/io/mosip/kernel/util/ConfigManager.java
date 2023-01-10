@@ -60,7 +60,7 @@ public class ConfigManager {
 	private static String HIBERNATE_CONTEXT_CLASS = "hibernate.current_session_context_class";
 
 	private static String AUDIT_DB_USER = "db-su-user";
-	private static String AUDIT_DB_PASS = "db-su-password";
+	private static String AUDIT_DB_PASS = "postgresql-password";
 	private static String AUDIT_DB_SCHEMA = "audit_db_schema";
 
 	private static String IDA_DB_USER = "db-su-user";
