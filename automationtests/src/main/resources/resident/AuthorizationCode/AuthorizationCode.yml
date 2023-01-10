@@ -14,3 +14,19 @@ AuthorizationCode:
       output: '{
       	"redirectUri": "$IGNORE$"
 }'
+
+   Resident_IDP_AuthorizationCode_Vid_All_Valid_Smoke_sid:
+      endPoint: /v1/idp/authorization/auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthorizationCode/AuthorizationCode
+      outputTemplate: resident/AuthorizationCode/AuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "birthdate"},{claim: "picture"},{claim: "individual_id"}],
+      	"permittedAuthorizeScopes": [{scope: "identity.readonly"},{scope: "identity.update"},{scope: "vid.readonly"},{scope: "vid.manage"},{scope: "auth.readonly"},{scope: "auth.method.manage"},{scope: "auth.history.readonly"},{scope: "auth.history.manage"},{scope: "card.manage"},{scope: "credential.manage"},{scope: "notifications.readonly"},{scope: "notifications.manage"}]
+}'
+      output: '{
+      	"redirectUri": "$IGNORE$"
+}'
