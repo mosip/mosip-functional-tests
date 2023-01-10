@@ -1,0 +1,26 @@
+GetRemainingupdatecountbyIndividualIdRequest2:
+   Resident_GetRemainingupdatecountbyIndividualIdRequest2_Valid_Smoke:
+      endPoint: resident/v1/identity/update-count
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2
+      outputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2Result
+      input: '{
+		  
+}'
+      output: '{
+   		
+}'
+
+   Resident_GetRemainingupdatecountbyIndividualIdRequest2_Invalid_Token:
+      endPoint: resident/v1/identity/update-count
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2
+      outputTemplate: resident/error
+      input: '{
+		  
+}'
+      output: '{
+   		
+}'
