@@ -13,4 +13,5 @@ public class TestCaseDTO {
 	private String inputTemplate;
 	private String outputTemplate;
 	private String restMethod;
+	private boolean regenerateHbs;
 }
