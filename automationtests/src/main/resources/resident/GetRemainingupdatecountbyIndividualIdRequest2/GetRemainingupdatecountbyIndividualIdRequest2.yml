@@ -1,10 +1,10 @@
 GetRemainingupdatecountbyIndividualIdRequest2:
-   Resident_GetRemainingupdatecountbyIndividualIdRequest_Valid_Smoke:
+   Resident_GetRemainingupdatecountbyIndividualIdRequest2_Valid_Smoke:
       endPoint: resident/v1/identity/update-count
       role: residentNew
       restMethod: get
-      inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest
-      outputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequestResult
+      inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2
+      outputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2Result
       input: '{
 		  
 }'
@@ -12,11 +12,11 @@ GetRemainingupdatecountbyIndividualIdRequest2:
    		
 }'
 
-   Resident_GetRemainingupdatecountbyIndividualIdRequest_Invalid_Token:
+   Resident_GetRemainingupdatecountbyIndividualIdRequest2_Invalid_Token:
       endPoint: resident/v1/identity/update-count
       role: resident
       restMethod: get
-      inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest
+      inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2
       outputTemplate: resident/error
       input: '{
 		  
@@ -24,4 +24,3 @@ GetRemainingupdatecountbyIndividualIdRequest2:
       output: '{
    		
 }'
-
