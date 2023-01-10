@@ -69,6 +69,7 @@ public class KernelAuthentication extends BaseTestCase{
 	private String preregSendOtp= props.get("preregSendOtp");
 	private String preregValidateOtp= props.get("preregValidateOtp");
 	private static File IDPUINCookiesFile = new File("src/main/resources/IDPUINCookiesResponse.txt");
+	private static File IDPVIDCookiesFile = new File("src/main/resources/IDPVIDCookiesResponse.txt");
 
 	
 	
@@ -133,8 +134,12 @@ public class KernelAuthentication extends BaseTestCase{
 			return residentCookie;
 		case "residentnew":
 			if(!kernelCmnLib.isValidToken(residentNewCookie))
-			residentNewCookie = getUinAuthFromIdp();
+				residentNewCookie = getAuthFromIdp(IDPUINCookiesFile);
 			return residentNewCookie;
+		case "residentnewvid":
+			if(!kernelCmnLib.isValidToken(residentNewVidCookie))
+				residentNewVidCookie = getAuthFromIdp(IDPVIDCookiesFile);
+			return residentNewVidCookie;
 		case "residentnewKc":
 			if(!kernelCmnLib.isValidToken(residentNewCookieKc))
 				residentNewCookieKc = kernelAuthLib.getAuthForNewResidentKc();
@@ -163,24 +168,24 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	
 	@SuppressWarnings("unchecked")
-	public String getUinAuthFromIdp() {
+	public String getAuthFromIdp(File fileName) {
 		String token = null;
-		if (IDPUINCookiesFile.exists()) {
-			String IDPUINCookiesFileString = null;
+		if (fileName.exists()) {
+			String IDPCookiesFileString = null;
 			try {
-				IDPUINCookiesFileString = FileUtils.readFileToString(IDPUINCookiesFile, StandardCharset.UTF_8);
+				IDPCookiesFileString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			org.json.JSONObject jsonCookies = new org.json.JSONObject(IDPUINCookiesFileString);
+			org.json.JSONObject jsonCookies = new org.json.JSONObject(IDPCookiesFileString);
 			token = jsonCookies.get("access_token").toString();
 //			System.out.println("JSON " + jsonCookies);
 //			System.out.println("JSON " + token);
 //			System.out.println("id_token " + jsonCookies.get("id_token"));
 //			System.out.println("access_token " + jsonCookies.get("access_token"));
 		} else {
-			logger.error("IDPUINCookiesFile File not Found in location:" + IDPUINCookiesFile.getAbsolutePath());
+			logger.error("IDPCookiesFile File not Found in location:" + fileName.getAbsolutePath());
 		}
 	return token;
 	}
