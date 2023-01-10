@@ -159,7 +159,7 @@ DemoAuthNew:
     "gender": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "FR"
+      "value": "MLE"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -178,7 +178,7 @@ DemoAuthNew:
     "gender": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "FR"
+      "value": "MLE"
     }
   ],
         "timestamp": "$TIMESTAMP$",
