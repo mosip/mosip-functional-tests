@@ -237,4 +237,5 @@ CheckAidStatus:
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
+
 }'
