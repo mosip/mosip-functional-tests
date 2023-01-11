@@ -281,6 +281,13 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
 		</classes>
 	</test>
+	<test name="TranslitrateData">
+		<parameter name="ymlFile"
+			value="resident/TranslitrateData/TranslitrateData.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="SendOtpToUserId">
 		<parameter name="ymlFile"
 			value="resident/SendOtpToUserId/SendOtpToUserId.yml" />
