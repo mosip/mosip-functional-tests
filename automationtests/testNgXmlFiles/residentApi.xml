@@ -43,6 +43,27 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
+	<test name="GetRidByIndividualId">
+		<parameter name="ymlFile"
+			value="resident/GetRidByIndividualId/GetRidByIndividualId.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>		
+	<test name="GetRemainingupdatecountbyIndividualIdRequest">
+		<parameter name="ymlFile"
+			value="resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetRemainingupdatecountbyIndividualIdRequest2">
+		<parameter name="ymlFile"
+			value="resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="ReqAidOtp">
 		<parameter name="ymlFile"
 			value="resident/ReqAidOtp/ReqAidOtp.yml" />
@@ -281,6 +302,14 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
 		</classes>
 	</test>
+	<test name="ReqShareCredWithPartner">
+		<parameter name="ymlFile"
+			value="resident/ReqShareCredWithPartner/ReqShareCredWithPartner.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
 	<test name="SendOtpToUserId">
 		<parameter name="ymlFile"
 			value="resident/SendOtpToUserId/SendOtpToUserId.yml" />
