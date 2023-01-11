@@ -309,7 +309,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	
 	<test name="SendOtpToUserId">
 		<parameter name="ymlFile"
 			value="resident/SendOtpToUserId/SendOtpToUserId.yml" />
@@ -536,6 +535,13 @@
 			value="resident/DocumentController/DeleteDoc/DeleteDoc.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="TranslitrateData">
+		<parameter name="ymlFile"
+			value="resident/TranslitrateData/TranslitrateData.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 </suite>
