@@ -2354,3 +2354,304 @@ GenerateVID:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
+
+   Resident_GenerateVID_Perpetual_IdP_Integ_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+   Resident_GenerateVID_Temporary_1_IdP_Integ_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+   Resident_GenerateVID_Temporary_2_IdP_Integ_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+   Resident_GenerateVID_Temporary_3_IdP_Integ_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+   Resident_GenerateVID_Temporary_4_IdP_Integ_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+   Resident_GenerateVID_Onetimeuse_IdP_Integ_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "onetimeuse",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_GenerateVID_Onetimeuse_GetRid_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_GetRid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "onetimeuse",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_GetRid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_GenerateVID_Perpetual_GetRid_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_GetRid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_GetRid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_GenerateVID_Temp_GetRid_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_GetRid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_GetRid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'

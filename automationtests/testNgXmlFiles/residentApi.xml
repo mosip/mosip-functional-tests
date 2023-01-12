@@ -20,21 +20,21 @@
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
 	</test>
-	 <test name="GenerateVID">
+	<test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="resident/GenerateVID/createGenerateVID.yml" />
 			<parameter name="idKeyName"	value="vid" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
-	</test> 
-	  <test name="RevokeVID">
+	</test>
+	<test name="RevokeVID">
 		<parameter name="ymlFile"
 			value="resident/RevokeVID/createRevokeVID.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PatchWithBodyWithOtpGenerate" />
 		</classes>
-	</test> 
+	</test>
 	<test name="UpdateUIN">
 		<parameter name="ymlFile"
 			value="resident/UpdateUIN/UpdateUIN.yml" />
@@ -43,6 +43,13 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
+	<test name="GetRidByIndividualId">
+		<parameter name="ymlFile"
+			value="resident/GetRidByIndividualId/GetRidByIndividualId.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>		
 	<test name="GetRemainingupdatecountbyIndividualIdRequest">
 		<parameter name="ymlFile"
 			value="resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest.yml" />
@@ -57,7 +64,7 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	 <test name="ReqAidOtp">
+	<test name="ReqAidOtp">
 		<parameter name="ymlFile"
 			value="resident/ReqAidOtp/ReqAidOtp.yml" />
 		<classes>
@@ -295,6 +302,13 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
 		</classes>
 	</test>
+	<test name="ReqShareCredWithPartner">
+		<parameter name="ymlFile"
+			value="resident/ReqShareCredWithPartner/ReqShareCredWithPartner.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="SendOtpToUserId">
 		<parameter name="ymlFile"
 			value="resident/SendOtpToUserId/SendOtpToUserId.yml" />
@@ -521,6 +535,13 @@
 			value="resident/DocumentController/DeleteDoc/DeleteDoc.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="TranslitrateData">
+		<parameter name="ymlFile"
+			value="resident/TranslitrateData/TranslitrateData.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 </suite>

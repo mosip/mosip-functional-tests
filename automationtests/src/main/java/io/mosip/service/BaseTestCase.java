@@ -75,6 +75,7 @@ public class BaseTestCase {
 	public String policytestCookie = null;
 	public String residentCookie = null;
 	public String residentNewCookie = null;
+	public String residentNewVidCookie = null;
 	public String residentNewCookieKc = null;
 	public String hotlistCookie = null;
 	public String keycloakCookie = null;
