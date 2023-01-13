@@ -302,6 +302,20 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
 		</classes>
 	</test>
+	<test name="SendOtpForContactDet">
+		<parameter name="ymlFile"
+			value="resident/SendOtpForContactDet/SendOtpForContactDet.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateContactDetails">
+		<parameter name="ymlFile"
+			value="resident/UpdateContactDetails/UpdateContactDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+		</classes>
+	</test>
 	<test name="ReqShareCredWithPartner">
 		<parameter name="ymlFile"
 			value="resident/ReqShareCredWithPartner/ReqShareCredWithPartner.yml" />
@@ -459,11 +473,11 @@
 			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
 		</classes>
 	</test>
-	<test name="AcknowledgementController">
+	<test name="GrievanceTicket">
 		<parameter name="ymlFile"
-			value="resident/AcknowledgementController/AcknowledgementController.yml" />
+			value="resident/GrievanceTicket/GrievanceTicket.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
+			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="DownloadServiceHistory">
@@ -516,6 +530,13 @@
 			<class name="io.mosip.testscripts.PostWithParamAndFile" />
 		</classes>
 	</test>
+	<test name="UpdateUINNew">
+		<parameter name="ymlFile"
+			value="resident/UpdateUINNew/UpdateUINNew.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePatch" />
+		</classes>
+	</test>
 	<test name="GetDocByTransId">
 		<parameter name="ymlFile"
 			value="resident/DocumentController/GetDocByTransId/GetDocByTransId.yml" />
@@ -544,4 +565,21 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="DownloadSupportingDocs">
+		<parameter name="ymlFile"
+			value="resident/DownloadSupportingDocs/DownloadSupportingDocs.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
+		</classes>
+	</test>
+
+<!-- On hold API's
+	<test name="AcknowledgementController">
+		<parameter name="ymlFile"
+			value="resident/AcknowledgementController/AcknowledgementController.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
+		</classes>
+	</test>
+-->
 </suite>
