@@ -167,7 +167,7 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
-	<test name="GetPartnerDetails">
+	<test name="GetPrintPartnerDetails">
 		<parameter name="ymlFile"
 			value="partner/PrintPartner/GetPartnerDetails/GetPartnerDetails.yml" />
 		<classes>
