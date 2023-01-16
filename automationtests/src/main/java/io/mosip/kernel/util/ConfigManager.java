@@ -60,23 +60,23 @@ public class ConfigManager {
 	private static String HIBERNATE_CONTEXT_CLASS = "hibernate.current_session_context_class";
 
 	private static String AUDIT_DB_USER = "db-su-user";
-	private static String AUDIT_DB_PASS = "db-su-password";
+	private static String AUDIT_DB_PASS = "postgresql-password";
 	private static String AUDIT_DB_SCHEMA = "audit_db_schema";
 
 	private static String IDA_DB_USER = "db-su-user";
-	private static String IDA_DB_PASS = "db-su-password";
+	private static String IDA_DB_PASS = "postgresql-password";
 	private static String IDA_DB_SCHEMA = "ida_db_schema";
 
 	private static String PMS_DB_USER="db-su-user";
-	private static String PMS_DB_PASS="db-su-password";
+	private static String PMS_DB_PASS="postgresql-password";
 	private static String PMS_DB_SCHEMA="pms_db_schema";
 
 	private static String KM_DB_USER="db-su-user";
-	private static String KM_DB_PASS="db-su-password";
+	private static String KM_DB_PASS="postgresql-password";
 	private static String KM_DB_SCHEMA="km_db_schema";
 
 	private static String MASTER_DB_USER="db-su-user";
-	private static String MASTER_DB_PASS="db-su-password";
+	private static String MASTER_DB_PASS="postgresql-password";
 	private static String MASTER_DB_SCHEMA="master_db_schema";
 
 	private static String IAM_EXTERNAL_URL = "keycloak-external-url";
@@ -214,7 +214,7 @@ public class ConfigManager {
 		s3_account = getValueForKey(S3_ACCOUNT);
 		push_reports_to_s3 = getValueForKey(PUSH_TO_S3);
 		db_port = getValueForKey(DB_PORT);
-		db_domain = "api-internal."+getValueForKey(DB_DOMAIN);
+		db_domain = getValueForKey(DB_DOMAIN);
 		hibernate_connection_driver_class = getValueForKey(HIBERNATE_CONNECTION_DRIVER_CLASS);
 		hibernate_connection_pool_size = getValueForKey(HIBERNATE_CONNECTION_POOL_SIZE);
 		hibernate_dialect = getValueForKey(HIBERNATE_DIALECT);

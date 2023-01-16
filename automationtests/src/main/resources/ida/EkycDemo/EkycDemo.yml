@@ -174,7 +174,7 @@ EkycDemo:
      "gender": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Female"
+      "value": "MLE"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -193,7 +193,7 @@ EkycDemo:
      "gender": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "FR"
+      "value": "MLE"
     }
   ],
         "timestamp": "$TIMESTAMP$",

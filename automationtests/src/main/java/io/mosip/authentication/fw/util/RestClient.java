@@ -86,6 +86,19 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		return postResponse;
 	}
+	
+	public static Response postWithParamsAndFile(String url, HashMap<String, String> pathParams, File file, String fileKeyName, String contentHeader, String cookie) {
+		RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
+		RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
+		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
+		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart(fileKeyName, file)
+				.pathParams(pathParams).contentType(contentHeader).expect().when().post(url)
+				.then().log().all().extract().response();
+		// log then response
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
+		return postResponse;
+	}
 
 	public static Response postWithFormDataAndFile(String url, HashMap<String, String> formParams, String filePath,
 			String contentHeader, String cookie) {
@@ -634,6 +647,15 @@ public class RestClient {
 			String cookieName, String cookieValue) {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 		byte[] pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).contentType("application/pdf")
+				.accept("*/*").cookie(cookieName, cookieValue).log().all().when().get(url).then().extract()
+				.asByteArray();
+		return pdf;
+	}
+	
+	public static byte[] postWithBodyForPdf(String url, String body, String contentHeader, String acceptHeader,
+			String cookieName, String cookieValue) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+		byte[] pdf = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
 				.accept("*/*").cookie(cookieName, cookieValue).log().all().when().get(url).then().extract()
 				.asByteArray();
 		return pdf;

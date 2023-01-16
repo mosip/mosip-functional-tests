@@ -1,0 +1,168 @@
+ReqShareCredWithPartner:
+   Resident_ReqShareCredWithPartner_all_Valid_Smoke:
+      endPoint: /resident/v1/share-credential
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
+      outputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartnerResult
+      input: '{
+	        "purpose": "string",
+	        "consent" : "Accepted",
+            "requesttime": "$TIMESTAMP$",
+            "attributeName" : "dateOfBirth",
+            "format" : "YYYY",
+            "masked" : true
+}'
+      output: '{
+   		"status": "Success"
+}'
+
+   Resident_ReqShareCredWithPartner_Invalid__AccessToken_Neg:
+      endPoint: /resident/v1/share-credential
+      role: resident
+      restMethod: post
+      inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
+      outputTemplate: resident/error
+      input: '{
+	        "purpose": "string",
+	        "consent" : "Accepted",
+            "requesttime": "$TIMESTAMP$",
+            "attributeName" : "dateOfBirth",
+            "format" : "YYYY",
+            "masked" : true
+}'
+      output: '{
+   		"errors": [
+        {
+            "errorCode": "KER-ATH-401",
+            "message": "$IGNORE$"
+        }
+    ]
+}'
+
+   Resident_ReqShareCredWithPartner_Empty_Purpose_Pos:
+      endPoint: /resident/v1/share-credential
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
+      outputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartnerResult
+      input: '{
+	        "purpose": "",
+	        "consent" : "Accepted",
+            "requesttime": "$TIMESTAMP$",
+            "attributeName" : "dateOfBirth",
+            "format" : "YYYY",
+            "masked" : true
+}'
+      output: '{
+   	   "status": "Success"
+}'
+
+   Resident_ReqShareCredWithPartner_Invalid_Space_Purpose_Neg:
+      endPoint: /resident/v1/share-credential
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
+      outputTemplate: resident/error
+      input: '{
+	        "purpose": " string",
+	        "consent" : "Accepted",
+            "requesttime": "$TIMESTAMP$",
+               "attributeName" : "dateOfBirth",
+               "format" : "YYYY",
+               "masked" : true
+}'
+      output: '{
+   		"errors": [
+        {
+            "errorCode": "RES-SER-461",
+            "message": "$IGNORE$"
+        }
+    ]
+}'
+
+   Resident_ReqShareCredWithPartner_AplhaNumeric_Value_Purpose_Pos:
+      endPoint: /resident/v1/share-credential
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
+      outputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartnerResult
+      input: '{
+	        "purpose": "asgdf12j",
+	        "consent" : "Accepted",
+            "requesttime": "$TIMESTAMP$",
+               "attributeName" : "dateOfBirth",
+               "format" : "YYYY",
+               "masked" : true
+}'
+      output: '{
+   		"status": "Success"
+}'
+   Resident_ReqShareCredWithPartner_Invalid_Purpose_Neg:
+      endPoint: /resident/v1/share-credential
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
+      outputTemplate: resident/error
+      input: '{
+	        "purpose": "a12$%",
+	        "consent" : "Accepted",
+            "requesttime": "$TIMESTAMP$",
+               "attributeName" : "dateOfBirth",
+               "format" : "YYYY",
+               "masked" : true
+}'
+      output: '{
+   		"errors": [
+        {
+            "errorCode": "RES-SER-461",
+            "message": "$IGNORE$"
+        }
+    ]
+}'
+
+   Resident_ReqShareCredWithPartner_Empty_Consent_Neg:
+      endPoint: /resident/v1/share-credential
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
+      outputTemplate: resident/error
+      input: '{
+	        "purpose": "string",
+	        "consent" : "",
+            "requesttime": "$TIMESTAMP$",
+               "attributeName" : "dateOfBirth",
+               "format" : "YYYY",
+               "masked" : true
+}'
+      output: '{
+   		"errors": [
+        {
+            "errorCode": "RES-SER-461",
+            "message": "$IGNORE$"
+        }
+    ]
+}'
+
+   Resident_ReqShareCredWithPartner_Input_Consent_Absent_Neg:
+      endPoint: /resident/v1/share-credential
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
+      outputTemplate: resident/error
+      input: '{
+	        "purpose": "string",
+            "requesttime": "$TIMESTAMP$",
+            "consent" : "$REMOVE$",
+            "attributeName" : "dateOfBirth",
+            "format" : "YYYY",
+            "masked" : true
+}'
+      output: '{
+   		"errors": [
+        {
+            "errorCode": "RES-SER-461",
+            "message": "$IGNORE$"
+        }
+    ]
+}'

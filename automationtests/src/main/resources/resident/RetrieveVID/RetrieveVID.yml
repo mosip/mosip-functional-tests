@@ -10,6 +10,17 @@ RetrieveVID:
       output: '{
 }'
 
+   Resident_RetrieveVID_Vid_all_Valid_Smoke:
+      endPoint: /resident/v1/vids
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/RetrieveVID/RetrieveVID
+      outputTemplate: resident/RetrieveVID/RetrieveVIDResult
+      input: '{
+}'
+      output: '{
+}'
+
    Resident_RetrieveVID_Invalid_Token_Neg:
       endPoint: /resident/v1/vids
       role: resident
@@ -21,7 +32,7 @@ RetrieveVID:
       output: '{
   		"errors": [
 		    {
-		      "errorCode": "RES-SER-439",
+		      "errorCode": "KER-ATH-401",
 		      "message": "$IGNORE$"
 		    }
 		  ]

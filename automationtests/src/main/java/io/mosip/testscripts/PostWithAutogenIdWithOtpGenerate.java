@@ -161,7 +161,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
 		try {
-			if(!testCaseName.contains("IDP_")) {
+			if((!testCaseName.contains("IDP_")) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
 				logger.info("waiting for" + props.getProperty("Delaytime")
 						+ " mili secs after VID Generation In RESIDENT SERVICES");
 				Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));

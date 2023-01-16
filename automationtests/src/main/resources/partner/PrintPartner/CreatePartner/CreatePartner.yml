@@ -1,0 +1,21 @@
+createPartnerSelfRegistration:
+   Partner_PartnerSelfRegistration_PrintPartner_AllValid_Smoke:
+      endPoint: /v1/partnermanager/partners/v2
+      role: partner
+      restMethod: post
+      inputTemplate: partner/PrintPartner/CreatePartner/createPartner
+      outputTemplate: partner/PrintPartner/CreatePartner/createPartnerResult
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "9553967572",
+    "emailId": "mosipprint@gmail.com",
+    "organizationName": "mosipprint",
+    "partnerId": "mosipprint",
+    "partnerType": "Print_Partner",
+    "policyGroup":"mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+     "partnerId": "mosipprint",
+     "status": "InProgress"
+    }'

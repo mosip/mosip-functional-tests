@@ -31,7 +31,7 @@ ValidateWithUserIdOtp:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-468",
+      "errorCode": "KER-ATH-401",
       "message": "$IGNORE$"
     }
   ]

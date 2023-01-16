@@ -39,7 +39,7 @@ public class DBManager {
 							"delete from partner_policy_bioextract where policy_id in (select id from auth_policy where name in ('mosip policy','mosip data share policy'))");
 					statement.addBatch("delete from partner_policy_credential_type where part_id='MOVP'");
 					statement.addBatch(
-							"delete from pms.partner where id in ('Tech-123','MOVP','DPP','MISP','MISP2','FTP','111997','partner-111997','updatepolicy')");
+							"delete from pms.partner where id in ('Tech-123','MOVP','DPP','MISP','MISP2','FTP','111997','mosipprint','partner-111997','updatepolicy')");
 					statement.addBatch(
 							"delete from pms.auth_policy where name in('mosip policy','mosip policy2','mosip policy3','mosip data share policy','mosip data share policy2')");
 					statement.addBatch(
@@ -98,6 +98,10 @@ public class DBManager {
 							"delete from mosip_keymgr.keymgr.partner_cert_store where cert_subject ='CN=misp,OU=misp,O=misp,L=BLR,ST=KAR,C=IN'");
 					statement.addBatch(
 							"delete from mosip_keymgr.keymgr.partner_cert_store where cert_subject ='CN=misp2,OU=misp2,O=misp2,L=BLR,ST=KAR,C=IN'");
+					statement.addBatch(
+							"delete from mosip_keymgr.keymgr.partner_cert_store where cert_subject ='CN=mosipprint,O=mosipprint,L=Bangalore,ST=Karnataka,C=IN'");
+					statement.addBatch(
+							"delete from mosip_keymgr.keymgr.ca_cert_store where cert_subject ='CN=mosipprint,O=mosipprint,L=Bangalore,ST=Karnataka,C=IN'");
 					int[] result = statement.executeBatch();
 					logger.info("Success:: Executed KM DB quiries successfully.");
 					for (int i : result) {
