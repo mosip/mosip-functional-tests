@@ -136,7 +136,22 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	
+	<test name="GenerateLinkCode">
+		<parameter name="ymlFile"
+			value="idp/GenerateLinkCode/GenerateLinkCode.yml" />
+			<parameter name="idKeyName"	value="linkCode" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="LinkTransaction">
+		<parameter name="ymlFile"
+			value="idp/LinkTransaction/LinkTransaction.yml" />
+			<parameter name="idKeyName"	value="linkTransactionId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
 	<test name="BioAuthIdp">
 		<parameter name="ymlFile" value="idp/BioAuthIdp/BioAuthIdp.yml" />
 		<parameter name="isInternal" value="false" />

@@ -7,7 +7,7 @@ GenerateLinkCode:
       outputTemplate: idp/GenerateLinkCode/GenerateLinkCodeResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$"
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$"
 }'
       output: '{
         
@@ -21,7 +21,7 @@ GenerateLinkCode:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2022-11-08T06:35:53",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$"
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$"
 }'
       output: '{
       	"errors": [
@@ -40,7 +40,7 @@ GenerateLinkCode:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2022-11-07T06:51:30.195Z",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$"
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$"
 }'
       output: '{
       	"errors": [
@@ -59,7 +59,7 @@ GenerateLinkCode:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2033-11-07T06:51:30.195Z",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$"
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$"
 }'
       output: '{
       	"errors": [
@@ -78,7 +78,7 @@ GenerateLinkCode:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$REMOVE$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$"
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$"
 }'
       output: '{
       	"errors": [
@@ -97,7 +97,7 @@ GenerateLinkCode:
       outputTemplate: idp/error
       input: '{
       	"requestTime": " ",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$"
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$"
 }'
       output: '{
       	"errors": [

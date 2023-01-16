@@ -5,61 +5,25 @@
     "identity": {
 	  "UIN": "{{UIN}}",
 	  "IDSchemaVersion": 0.2,
-	  "fullName": [
-	   {{#each fullName}}
-		{
-		  "language": "{{language}}",
-		  "value": "{{value}}"
-		}
-		{{#unless @last}},{{/unless}}
-		{{/each}}
-	  ],
+	  "fullName": 
+	   [{"language":"eng","value":"FR"},{"language":"ara","value":"FR"}]
+	,
 	  "dateOfBirth": "{{dateOfBirth}}",
-	  "gender": [
-	   {{#each gender}}
-		{
-		  "language": "{{language}}",
-		  "value": "{{value}}"
-		}
-		{{#unless @last}},{{/unless}}
-		{{/each}}
-	  ],
-	  "region": [
-	   {{#each region}}
-		{
-		  "language": "{{language}}",
-		  "value": "{{value}}"
-		}
-		{{#unless @last}},{{/unless}}
-		{{/each}}
-	  ],
-	  "province": [
-	   {{#each province}}
-		{
-		  "language": "{{language}}",
-		  "value": "{{value}}"
-		}
-		{{#unless @last}},{{/unless}}
-		{{/each}}
-	  ],
-	  "city": [
-	   {{#each city}}
-		{
-		  "language": "{{language}}",
-		  "value": "{{value}}"
-		}
-		{{#unless @last}},{{/unless}}
-		{{/each}}
-	  ],
-	  "zone": [
-	   {{#each zone}}
-		{
-		  "language": "{{language}}",
-		  "value": "{{value}}"
-		}
-		{{#unless @last}},{{/unless}}
-		{{/each}}
-	  ],
+	  "gender": 
+	   [{"language":"eng","value":"MLE"},{"language":"ara","value":"MLE"}]
+	,
+	  "region": 
+	   [{"language":"eng","value":"FR"},{"language":"ara","value":"FR"}]
+	,
+	  "province": 
+	   [{"language":"eng","value":"FR"},{"language":"ara","value":"FR"}]
+	,
+	  "city": 
+	   [{"language":"eng","value":"FR"},{"language":"ara","value":"FR"}]
+	,
+	  "zone": 
+	   [{"language":"eng","value":"FR"},{"language":"ara","value":"FR"}]
+	,
 	  "postalCode": "{{postalCode}}",
 	  "phone": "{{phone}}",
 	  "email": "{{email}}",
