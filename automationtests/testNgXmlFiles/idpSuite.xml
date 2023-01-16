@@ -12,6 +12,91 @@
 		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
 		
+		
+		
+		<test name="CreatePolicyGroup">
+		<parameter name="ymlFile"
+			value="idp/PmsIntegration/DefinePolicyGroup/DefinePolicyGroup.yml" />
+		<parameter name="idKeyName" value="id,name" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	
+	<test name="DefinePolicy">
+		<parameter name="ymlFile"
+			value="idp/PmsIntegration/DefinePolicy/DefinePolicy.yml" />
+		<parameter name="idKeyName" value="id,name" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	
+	<test name="PublishPolicy">
+		<parameter name="ymlFile"
+			value="idp/PmsIntegration/PublishPolicy/PublishPolicy.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
+		</classes>
+	</test>
+	
+	 <test name="CreatePartner">
+		<parameter name="ymlFile"
+			value="idp/PmsIntegration/CreatePartner/CreatePartner.yml" />
+			<parameter name="idKeyName" value="partnerId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	
+	<test name ="UploadCACertificate">
+		<parameter name ="ymlFile"
+			value= "idp/PmsIntegration/UploadCertificate/UploadCertificate.yml" />
+	<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test> 
+	
+	<test name ="UploadPartnerCertificate">
+		<parameter name ="ymlFile"
+			value= "idp/PmsIntegration/UploadCert/UploadCert.yml" />
+	<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	
+	<test name="RequestAPIKeyForAuthPartner">
+		<parameter name="ymlFile"
+			value="idp/PmsIntegration/RequestAPIKey/RequestAPIKey.yml" />
+		<parameter name="idKeyName" value="mappingkey" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	
+	<test name="ApproveAPIKey">
+		<parameter name="ymlFile"
+			value="idp/PmsIntegration/ApproveAPIKey/ApproveAPIKey.yml" />
+		<parameter name="pathParams" value="mappingkey" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="OIDCClient">
+		<parameter name="ymlFile"
+			value="idp/OidcClient/OIDCClient.yml" />
+			<parameter name="idKeyName"	value="clientId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+		
+		
+		
+		
+		
+		
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="idp/AddIdentity/AddIdentity.yml" />
@@ -27,14 +112,14 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
-	<test name="CreateOIDCClient">
+	<!-- <test name="CreateOIDCClient">
 		<parameter name="ymlFile"
 			value="idp/CreateOIDCClient/CreateOIDCClient.yml" />
 			<parameter name="idKeyName"	value="clientId" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
-	</test>
+	</test> -->
 	<test name="UpdateOIDCClient">
 		<parameter name="ymlFile"
 			value="idp/UpdateOIDCClient/UpdateOIDCClient.yml" />

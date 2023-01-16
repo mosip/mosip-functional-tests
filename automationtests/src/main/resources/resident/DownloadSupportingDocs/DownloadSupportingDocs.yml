@@ -36,3 +36,39 @@ DownloadSupportingDocs:
       output: '{
 	
 }'
+
+   Resident_DownloadSupportingDocs_Invalid_token_Neg:
+      endPoint: /resident/v1/download/supporting-documents
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/DownloadSupportingDocs/DownloadSupportingDocs
+      outputTemplate: resident/error
+      input: '{
+      "langcode":"$1STLANG$"
+}'
+      output: '{
+}'
+
+   Resident_DownloadSupportingDocs_Invalid_lang_Neg:
+      endPoint: /resident/v1/download/supporting-documents
+      role: resident
+      restMethod: get
+      inputTemplate: resident/DownloadSupportingDocs/DownloadSupportingDocs
+      outputTemplate: resident/error
+      input: '{
+      "langcode":"$1!ee$"
+}'
+      output: '{
+}'
+
+   Resident_DownloadSupportingDocs_Absent_langCode_Neg:
+      endPoint: /resident/v1/download/supporting-documents
+      role: resident
+      restMethod: get
+      inputTemplate: resident/DownloadSupportingDocs/DownloadSupportingDocs
+      outputTemplate: resident/error
+      input: '{
+      "langcode":"$REMOVE$"
+}'
+      output: '{
+}'

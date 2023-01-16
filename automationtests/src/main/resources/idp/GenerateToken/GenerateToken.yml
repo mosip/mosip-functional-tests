@@ -8,7 +8,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -98,7 +98,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "hbkd$#$@@",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -116,7 +116,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "$REMOVE$",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -134,7 +134,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -152,7 +152,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "null",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -170,7 +170,7 @@ GenerateToken:
       input: '{
 		  "grant_type": " authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -188,7 +188,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code ",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -206,7 +206,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "AuthorizationCode_All_Valid_Smoke_sid_code",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -224,7 +224,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$REMOVE$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -242,7 +242,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -260,7 +260,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "null",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -278,7 +278,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -296,7 +296,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "https://new-services.com/newprofile"
@@ -314,7 +314,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$REMOVE$"
@@ -332,7 +332,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": ""
@@ -350,7 +350,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "null"
@@ -368,7 +368,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn ietf params oauth client-assertion-type jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -386,7 +386,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "$REMOVE$",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -404,7 +404,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -422,7 +422,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "null",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -440,7 +440,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": " urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -458,7 +458,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer ",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -476,7 +476,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "sdhb$$#@",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -494,7 +494,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "CLIENT_ASSERTION_JWK",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -512,7 +512,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$REMOVE$",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -530,7 +530,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "",
 		  "redirect_uri": "$IDPREDIRECTURI$"
@@ -548,7 +548,7 @@ GenerateToken:
       input: '{
 		  "grant_type": "authorization_code",
 		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
-		  "client_id": "88Vjt34c5Twz1oJ",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "null",
 		  "redirect_uri": "$IDPREDIRECTURI$"

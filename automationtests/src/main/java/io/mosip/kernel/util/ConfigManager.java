@@ -60,23 +60,23 @@ public class ConfigManager {
 	private static String HIBERNATE_CONTEXT_CLASS = "hibernate.current_session_context_class";
 
 	private static String AUDIT_DB_USER = "db-su-user";
-	private static String AUDIT_DB_PASS = "db-su-password";
+	private static String AUDIT_DB_PASS = "postgresql-password";
 	private static String AUDIT_DB_SCHEMA = "audit_db_schema";
 
 	private static String IDA_DB_USER = "db-su-user";
-	private static String IDA_DB_PASS = "db-su-password";
+	private static String IDA_DB_PASS = "postgresql-password";
 	private static String IDA_DB_SCHEMA = "ida_db_schema";
 
 	private static String PMS_DB_USER="db-su-user";
-	private static String PMS_DB_PASS="db-su-password";
+	private static String PMS_DB_PASS="postgresql-password";
 	private static String PMS_DB_SCHEMA="pms_db_schema";
 
 	private static String KM_DB_USER="db-su-user";
-	private static String KM_DB_PASS="db-su-password";
+	private static String KM_DB_PASS="postgresql-password";
 	private static String KM_DB_SCHEMA="km_db_schema";
 
 	private static String MASTER_DB_USER="db-su-user";
-	private static String MASTER_DB_PASS="db-su-password";
+	private static String MASTER_DB_PASS="postgresql-password";
 	private static String MASTER_DB_SCHEMA="master_db_schema";
 
 	private static String IAM_EXTERNAL_URL = "keycloak-external-url";

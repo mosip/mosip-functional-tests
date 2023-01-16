@@ -34,10 +34,16 @@ ENV work_dir=/home/${container_user}
 
 ADD ./target/ $work_dir
 
+ADD entrypoint.sh $work_dir/entrypoint.sh
+
+RUN chmod +x $work_dir/entrypoint.sh
+
 #ADD ./testNgXmlFiles/ $work_dir/testNgXmlFiles/
 
 # change permissions of file inside working dir
-RUN chown -R ${container_user}:${container_user} /home/${container_user}
+RUN chown -R ${container_user}:${container_user} /home/${container_user} /usr/local/openjdk-11/lib/security/cacerts
+
+RUN chmod 644 /usr/local/openjdk-11/lib/security/cacerts
 
 # select container user for all tasks
 USER ${container_user_uid}:${container_user_gid}
@@ -48,5 +54,6 @@ ENV MODULES=
 ENV ENV_USER=
 ENV ENV_ENDPOINT=
 ENV ENV_TESTLEVEL=smokeAndRegression
+ENV ENABLE_INSECURE=false
 
-CMD [ "/bin/bash", "-c", "java -jar -Dmodules=\"$MODULES\" -Denv.user=\"$ENV_USER\" -Denv.endpoint=\"$ENV_ENDPOINT\" -Denv.testLevel=\"$ENV_TESTLEVEL\" automationtests.jar" ]
+ENTRYPOINT ["./entrypoint.sh"]

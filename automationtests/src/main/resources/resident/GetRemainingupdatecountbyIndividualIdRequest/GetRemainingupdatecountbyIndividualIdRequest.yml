@@ -1,7 +1,7 @@
 GetRemainingupdatecountbyIndividualIdRequest:
    Resident_GetRemainingupdatecountbyIndividualIdRequest_Valid_Smoke:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts
-      role: resident
+      role: idrepo
       restMethod: get
       inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest
       outputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequestResult
