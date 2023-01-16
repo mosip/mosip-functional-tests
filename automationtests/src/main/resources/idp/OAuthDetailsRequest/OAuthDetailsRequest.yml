@@ -7,7 +7,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -30,7 +30,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -53,7 +53,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -76,7 +76,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -99,7 +99,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -122,7 +122,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -144,7 +144,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -167,7 +167,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -190,7 +190,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -212,7 +212,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -234,7 +234,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -256,7 +256,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -278,7 +278,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -300,7 +300,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -322,7 +322,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -344,7 +344,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -366,7 +366,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "88Vjt34c5Twz1oJ",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
@@ -389,7 +389,7 @@ OAuthDetailsRequest:
       outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "$ID:CreateOIDCClient_2_Same_RelyParty_Valid_Smoke_sid_clientId$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",

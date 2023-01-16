@@ -1,0 +1,41 @@
+definePolicy:
+   Idp_DefinePolicy_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: idp/PmsIntegration/DefinePolicy/definePolicy
+      outputTemplate: idp/PmsIntegration/DefinePolicy/definePolicyResult
+      input: '{
+	"desc": "$POLICYDESC$",
+	"name": "$POLICYNAME$",
+	"policyGroupName": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid_name$",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "$IGNORE$",
+    "name": "$IGNORE$",
+    "desc": "$IGNORE$",
+    "is_Active": false
+}'
+   Idp_DefinePolicy_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: idp/PmsIntegration/DefinePolicy/definePolicy
+      outputTemplate: idp/PmsIntegration/DefinePolicy/definePolicyResult
+      input: '{
+	"desc": "$POLICYDESC1$",
+	"name": "$POLICYNAME1$",
+	"policyGroupName": "$ID:DefinePolicyGroup_Valid_Smoke_sid_name$",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "$IGNORE$",
+    "name": "$IGNORE$",
+    "desc": "$IGNORE$",
+    "is_Active": false
+}'

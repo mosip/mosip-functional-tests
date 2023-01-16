@@ -450,6 +450,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String role, String testCaseName, String idKeyName) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		 url = inputJsonKeyWordHandeler(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
@@ -1792,6 +1793,80 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$KEYCLOAKUSER2$", propsKernel.getProperty("KEYCLOAKUSER2"));
 		if (jsonString.contains("$RIDDEL$"))
 			jsonString = jsonString.replace("$RIDDEL$", genRidDel);
+		
+		if (jsonString.contains("$POLICYGROUPDESC$"))
+			jsonString = jsonString.replace("$POLICYGROUPDESC$", genPolicyGroupDesc);
+		
+		if (jsonString.contains("$POLICYGROUPNAME$"))
+			jsonString = jsonString.replace("$POLICYGROUPNAME$", genPolicyGroupName);
+		
+		if (jsonString.contains("$POLICYDESC$"))
+			jsonString = jsonString.replace("$POLICYDESC$", genPolicyDesc);
+		
+		if (jsonString.contains("$POLICYDESC1$"))
+			jsonString = jsonString.replace("$POLICYDESC1$", genPolicyDesc + "pol");
+		
+		if (jsonString.contains("$POLICYNAME$"))
+			jsonString = jsonString.replace("$POLICYNAME$", genPolicyName);
+		
+		if (jsonString.contains("$POLICYNAME1$"))
+			jsonString = jsonString.replace("$POLICYNAME1$", genPolicyName + "pold");
+		
+		if (jsonString.contains("$PARTNERID$"))
+			jsonString = jsonString.replace("$PARTNERID$", genPartnerName);
+		
+		if (jsonString.contains("$PARTNERID1$"))
+			jsonString = jsonString.replace("$PARTNERID1$", genPartnerName+"2ndj");
+		
+		if (jsonString.contains("$PARTNEREMAIL1$"))
+			jsonString = jsonString.replace("$PARTNEREMAIL1$", genPartnerEmail+"12d");
+		
+		if (jsonString.contains("$PARTNEREMAIL$"))
+			jsonString = jsonString.replace("$PARTNEREMAIL$", genPartnerEmail);
+		
+		
+		if (jsonString.contains("$CACERT$")) {
+
+			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(genPartnerName, "RELYING_PARTY");
+			String caFtmCertValue = certificateValue.getString("caCertificate");
+			
+			caFtmCertValue = caFtmCertValue.replaceAll("\r\n", "\\\\n");
+
+			jsonString = jsonString.replace("$CACERT$", caFtmCertValue);
+
+		}
+
+		if (jsonString.contains("$INTERCERT$")) {
+
+			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(genPartnerName, "RELYING_PARTY");
+			String interFtmCertValue = certificateValue.getString("interCertificate");
+
+			interFtmCertValue = interFtmCertValue.replaceAll("\r\n", "\\\\n");
+			
+			jsonString = jsonString.replace("$INTERCERT$", interFtmCertValue);
+
+		}
+
+		if (jsonString.contains("$PARTNERCERT$")) {
+
+			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(genPartnerName, "RELYING_PARTY");
+			String partnerFtmCertValue = certificateValue.getString("partnerCertificate");
+
+			partnerFtmCertValue = partnerFtmCertValue.replaceAll("\r\n", "\\\\r\\\\n");
+			
+			jsonString = jsonString.replace("$PARTNERCERT$", partnerFtmCertValue);
+
+		}
+			
+			
+			
+			
+			
+			 
+		
+		
+		
+		
 		if (jsonString.contains("$PUBLICKEY$")) {
 			jsonString = jsonString.replace("$PUBLICKEY$", MosipTestRunner.generatePulicKey());
 			publickey = JsonPrecondtion.getJsonValueFromJson(jsonString, "request.publicKey");
@@ -1865,8 +1940,8 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$OIDCJWKKEY2$", oidcJwkKey);
 		}
 		if (jsonString.contains("$CLIENT_ASSERTION_JWK$")) {
-//			String oidcJWKKeyString = getJWKKey(clientPrivateKey);
-			String oidcJWKKeyString = props.getProperty("privateKey");
+            String oidcJWKKeyString = getJWKKey(oidcJWK1);
+			//String oidcJWKKeyString = props.getProperty("privateKey");
 			System.out.println("oidcJWKKeyString =" + oidcJWKKeyString);
 			try {
 				oidcJWKKey1 = RSAKey.parse(oidcJWKKeyString);
@@ -3276,5 +3351,8 @@ public class AdminTestUtil extends BaseTestCase {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
 
 }

@@ -1,0 +1,17 @@
+LinkedAuthentication:
+   IDP_LinkedAuthentication_Otp_all_Valid_Smoke:
+      endPoint: /v1/idp/linked-authorization/authenticate
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthentication/LinkedAuthentication
+      outputTemplate: idp/LinkedAuthentication/LinkedAuthenticationResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"linkTransactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+    	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111"
+}'
+      output: '{
+        
+}'
