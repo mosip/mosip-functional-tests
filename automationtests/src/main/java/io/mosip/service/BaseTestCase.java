@@ -119,6 +119,12 @@ public class BaseTestCase {
 	
 	public static String genPolicyNumber = "9" + RandomStringUtils.randomNumeric(5);
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
+	public static String genPolicyGroupDesc = "policyGroupForAutomationIdp" + RandomStringUtils.randomNumeric(6);
+	public static String genPolicyGroupName = "policyGroupNameForAutomationIdp" + RandomStringUtils.randomNumeric(5);
+	public static String genPolicyDesc = "policyDescForAutomationIdp" + RandomStringUtils.randomNumeric(5);
+	public static String genPolicyName = "policyNameForAutomationIdp" + RandomStringUtils.randomNumeric(4);
+	public static String genPartnerName = "partnerNameForAutomationIdp-" + RandomStringUtils.randomNumeric(3);
+	public static String genPartnerEmail = "automationpartneridp" + RandomStringUtils.randomNumeric(7) +"@automationMosip.com";
 	//public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
 	public static RSAKey rsaJWK;
@@ -235,6 +241,7 @@ public class BaseTestCase {
 		}
 		
 		if (listOfModules.contains("idp")){
+			
 			BaseTestCase.currentModule = "idp";
 			setReportName("idp");
 			AdminTestUtil.initiateidpTest();

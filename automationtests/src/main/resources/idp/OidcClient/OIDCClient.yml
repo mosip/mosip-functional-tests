@@ -1,0 +1,214 @@
+CreateOIDCClient:
+   Idp_CreateOIDCClient_all_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/OidcClient/OIDCClientResult
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "clientId": "$IGNORE$",
+        "status": "ACTIVE"
+}'
+   Idp_CreateOIDCClient_InValid_logoUri_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "djxjdjjdjdpng.cndi",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Idp_CreateOIDCClient_InValid_Partner_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "sjsjjsjsjsjsjjs",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+     {
+            "errorCode": "PMS_PRT_061",
+            "message": "Partner policy mapping not exists."
+        }
+  ]
+}'
+   Idp_CreateOIDCClient_Valid_Smoke_onepartner_multiplePolicy_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/OidcClient/OIDCClientResult
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "clientId": "$IGNORE$",
+        "status": "ACTIVE"
+}'
+   Idp_CreateOIDCClient_with_null_oidc_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+     {
+            "errorCode": "PMS_COR_001",
+            "message": "Invalid request parameter - must not be blank :request.name"
+        }
+  ]
+}'
+
+   Idp_CreateOIDCClient_with_null_policy_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+      {
+            "errorCode": "PMS_COR_001",
+            "message": "Invalid request parameter - must not be blank :request.policyName"
+        }
+  ]
+}'
+
+   Idp_CreateOIDCClient_with_invalid_policy_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "ahajajaj123",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+       {
+            "errorCode": "PMS_PRT_073",
+            "message": "Policy not exists."
+        }
+  ]
+}'
+
+   Idp_CreateOIDCClient_inValid_authPartnerId_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "263636gdgdg",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+    {
+            "errorCode": "PMS_PRT_061",
+            "message": "Partner policy mapping not exists."
+        }
+  ]
+}'
+
+   Idp_CreateOIDCClient_blank_authPartnerId_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "263636gdgdg",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+    {
+            "errorCode": "PMS_PRT_061",
+            "message": "Partner policy mapping not exists."
+        }
+  ]
+}'
+
