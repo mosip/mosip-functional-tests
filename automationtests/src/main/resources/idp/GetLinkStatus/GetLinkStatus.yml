@@ -7,7 +7,7 @@ GetLinkStatus:
       outputTemplate: idp/GetLinkStatus/GetLinkStatusResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$",
       	"linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"
 }'
       output: '{
@@ -22,7 +22,7 @@ GetLinkStatus:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2022-11-08T06:35:53",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
       	"linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"
 }'
       output: '{
@@ -42,7 +42,7 @@ GetLinkStatus:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2022-11-07T06:51:30.195Z",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
       	"linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"
 }'
       output: '{
@@ -62,7 +62,7 @@ GetLinkStatus:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2033-11-07T06:51:30.195Z",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
       	"linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"
 }'
       output: '{
@@ -82,7 +82,7 @@ GetLinkStatus:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$REMOVE$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
       	"linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"
 }'
       output: '{
@@ -102,7 +102,7 @@ GetLinkStatus:
       outputTemplate: idp/error
       input: '{
       	"requestTime": " ",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
       	"linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"
 }'
       output: '{
@@ -242,7 +242,7 @@ GetLinkStatus:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
       	"linkCode": "linkCode"
 }'
       output: '{
@@ -262,7 +262,7 @@ GetLinkStatus:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
       	"linkCode": "y7djExbsje5uzKi"
 }'
       output: '{
@@ -282,7 +282,7 @@ GetLinkStatus:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
       	"linkCode": "$REMOVE$"
 }'
       output: '{
@@ -302,7 +302,7 @@ GetLinkStatus:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
       	"linkCode": ""
 }'
       output: '{
@@ -322,7 +322,7 @@ GetLinkStatus:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
       	"linkCode": "null"
 }'
       output: '{
@@ -342,7 +342,7 @@ GetLinkStatus:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
       	"linkCode": " "
 }'
       output: '{
