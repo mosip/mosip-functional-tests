@@ -152,6 +152,20 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
+	<test name="GetLinkStatus">
+		<parameter name="ymlFile"
+			value="idp/GetLinkStatus/GetLinkStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="LinkedAuthenticationOtp">
+		<parameter name="ymlFile"
+			value="idp/LinkedAuthenticationOtp/LinkedAuthenticationOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
 	<test name="BioAuthIdp">
 		<parameter name="ymlFile" value="idp/BioAuthIdp/BioAuthIdp.yml" />
 		<parameter name="isInternal" value="false" />

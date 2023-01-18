@@ -1897,14 +1897,11 @@ public class AdminTestUtil extends BaseTestCase {
 			String caFtmCertValue = certificateValue.getString("caCertificate");
 
 			// caFtmCertValue = caFtmCertValue.replaceAll("\r\n", "\\\\n");
-			//caFtmCertValue = caFtmCertValue.replaceAll("\n", "\\\\n");
-			
-			
+			// caFtmCertValue = caFtmCertValue.replaceAll("\n", "\\\\n");
 
-			if(System.getProperty("os.name").toLowerCase().contains("windows") == true) {
+			if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
 				caFtmCertValue = caFtmCertValue.replaceAll("\r\n", "\\\\n");
-			}
-			else {
+			} else {
 				caFtmCertValue = caFtmCertValue.replaceAll("\n", "\\\\n");
 			}
 
@@ -1917,16 +1914,11 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(genPartnerName, "RELYING_PARTY");
 			String interFtmCertValue = certificateValue.getString("interCertificate");
 
-			// interFtmCertValue = interFtmCertValue.replaceAll("\r\n", "\\\\n");
-			
-			if(System.getProperty("os.name").toLowerCase().contains("windows") == true) {
+			if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
 				interFtmCertValue = interFtmCertValue.replaceAll("\r\n", "\\\\n");
-			}
-			else {
+			} else {
 				interFtmCertValue = interFtmCertValue.replaceAll("\n", "\\\\n");
 			}
-			
-			
 
 			jsonString = jsonString.replace("$INTERCERT$", interFtmCertValue);
 
@@ -1937,16 +1929,11 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(genPartnerName, "RELYING_PARTY");
 			String partnerFtmCertValue = certificateValue.getString("partnerCertificate");
 
-			// partnerFtmCertValue = partnerFtmCertValue.replaceAll("\r\n", "\\\\r\\\\n");
-			//partnerFtmCertValue = partnerFtmCertValue.replaceAll("\n", "\\\\r\\\\n");
-
-			if(System.getProperty("os.name").toLowerCase().contains("windows") == true) {
+			if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
 				partnerFtmCertValue = partnerFtmCertValue.replaceAll("\r\n", "\\\\r\\\\n");
-			}
-			else {
+			} else {
 				partnerFtmCertValue = partnerFtmCertValue.replaceAll("\n", "\\\\r\\\\n");
 			}
-			
 			jsonString = jsonString.replace("$PARTNERCERT$", partnerFtmCertValue);
 
 		}
