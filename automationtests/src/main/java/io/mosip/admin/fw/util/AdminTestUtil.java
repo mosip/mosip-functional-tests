@@ -1899,6 +1899,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String caFtmCertValue = certificateValue.getString("caCertificate");
 			
 			//caFtmCertValue = caFtmCertValue.replaceAll("\r\n", "\\\\n");
+			caFtmCertValue = caFtmCertValue.replaceAll("\n", "\\\\n");
 
 			jsonString = jsonString.replace("$CACERT$", caFtmCertValue);
 
@@ -1910,6 +1911,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String interFtmCertValue = certificateValue.getString("interCertificate");
 
 			//interFtmCertValue = interFtmCertValue.replaceAll("\r\n", "\\\\n");
+			interFtmCertValue = interFtmCertValue.replaceAll("\n", "\\\\n");
 			
 			jsonString = jsonString.replace("$INTERCERT$", interFtmCertValue);
 
@@ -1921,6 +1923,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String partnerFtmCertValue = certificateValue.getString("partnerCertificate");
 
 			//partnerFtmCertValue = partnerFtmCertValue.replaceAll("\r\n", "\\\\r\\\\n");
+			partnerFtmCertValue = partnerFtmCertValue.replaceAll("\n", "\\\\r\\\\n");
 			
 			jsonString = jsonString.replace("$PARTNERCERT$", partnerFtmCertValue);
 
