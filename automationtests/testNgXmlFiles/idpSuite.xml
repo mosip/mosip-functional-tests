@@ -96,7 +96,7 @@
 		
 		
 		
-	<!--	
+		
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="idp/AddIdentity/AddIdentity.yml" />
@@ -111,7 +111,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
-	</test>-->
+	</test>
 	<!-- <test name="CreateOIDCClient">
 		<parameter name="ymlFile"
 			value="idp/CreateOIDCClient/CreateOIDCClient.yml" />
@@ -119,7 +119,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
-	</test> 
+	</test> -->
 	<test name="UpdateOIDCClient">
 		<parameter name="ymlFile"
 			value="idp/UpdateOIDCClient/UpdateOIDCClient.yml" />
@@ -209,7 +209,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>-->
+	</test>
 
 <!--
 	<test name="IntrospectToken">
