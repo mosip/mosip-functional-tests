@@ -38,8 +38,8 @@ CreateOIDCClient:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - must be a valid URL :request.logoUri"
     }
   ]
 }'
@@ -211,4 +211,146 @@ CreateOIDCClient:
         }
   ]
 }'
-
+   Idp_CreateOIDCClient_with_maxm_char_logouri_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "dgdnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnndddddddhhhhhhhhhhhhhhhhhhhhhhhhhhhhhheeeeeehhhhhhhhhhyyyyy",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+    {
+            "errorCode": "PMS_COR_001",
+            "message": "Invalid request parameter - must be a valid URL :request.logoUri"
+        }
+  ]
+}'
+   Idp_CreateOIDCClient_without_redirecturi_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+    {
+            "errorCode": "PMS_COR_001",
+            "message": "Invalid request parameter - must be a valid URL :request.logoUri"
+        }
+  ]
+}'
+   Idp_CreateOIDCClient_with_invalid_clientAuthMethods_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "????%%%$$$"
+}'
+      output: '{
+        "errors": [
+    {
+            "errorCode": null,
+            "message": "invalid_client_auth --> request.clientAuthMethods[0]: invalid_client_auth"
+        }
+  ]
+}'
+   Idp_CreateOIDCClient_with_empty_grantTypes_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+     {
+            "errorCode": null,
+            "message": "invalid_grant_type --> request.grantTypes[0]: invalid_grant_type"
+        }
+  ]
+}'
+   Idp_CreateOIDCClient_with_null_grantTypes_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "null",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+     {
+            "errorCode": null,
+            "message": "invalid_grant_type --> request.grantTypes[0]: invalid_grant_type"
+        }
+  ]
+}'
+   Idp_CreateOIDCClient_with_invalid_grantTypes_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "ahshdbdbchhd",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+     {
+            "errorCode": null,
+            "message": "invalid_grant_type --> request.grantTypes[0]: invalid_grant_type"
+        }
+  ]
+}'
