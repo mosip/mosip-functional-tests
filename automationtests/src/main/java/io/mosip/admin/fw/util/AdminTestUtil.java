@@ -1989,6 +1989,10 @@ public class AdminTestUtil extends BaseTestCase {
 			
 			jsonString = jsonString.replace("$BASE64URI$", encodedRedirectUri);
 		}
+		if (jsonString.contains("$JWKKEY$")) {
+			String oidcJwkKey = MosipTestRunner.generateJWKPublicKey();
+			jsonString = jsonString.replace("$JWKKEY$", oidcJwkKey.toString());
+		}
 		if (jsonString.contains("$OIDCJWKKEY$")) {
 			String oidcJwkKey = null;
 			if (triggerIdPKeyGen1) {

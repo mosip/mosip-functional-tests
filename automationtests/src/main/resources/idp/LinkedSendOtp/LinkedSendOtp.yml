@@ -7,13 +7,13 @@ LinkedSendOtp:
       outputTemplate: idp/LinkedSendOtp/LinkedSendOtpResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
         "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "$IGNORE$"
+    	"maskedphone": "$IGNORE$"
 }'
 
    IDP_LinkedSendOtp_NR_Email_Uin_Neg:
@@ -24,9 +24,9 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
       	"errors": [
@@ -45,9 +45,9 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
       	"errors": [
@@ -66,13 +66,13 @@ LinkedSendOtp:
       outputTemplate: idp/LinkedSendOtp/LinkedSendOtpResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Vid_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
         "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "$IGNORE$"
+    	"maskedphone": "$IGNORE$"
 }'
 
    IDP_LinkedSendOtp_SpaceSeparated_otpChannels_Neg:
@@ -83,7 +83,7 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "email"},{channel: "s m s"}]
 }'
@@ -104,7 +104,7 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
 	    "otpChannels": [{channel: "email"},{channel: "s m s"}]
 }'
@@ -125,9 +125,9 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2022-11-08T06:35:53",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
       	"errors": [
@@ -146,9 +146,9 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2022-11-07T06:51:30.195Z",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
       	"errors": [
@@ -167,9 +167,9 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "2033-11-07T06:51:30.195Z",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
       	"errors": [
@@ -190,7 +190,7 @@ LinkedSendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "transactionId",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
       	"errors": [
@@ -211,7 +211,7 @@ LinkedSendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
       	"errors": [
@@ -232,7 +232,7 @@ LinkedSendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$REMOVE$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
       	"errors": [
@@ -253,7 +253,7 @@ LinkedSendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
       	"errors": [
@@ -274,7 +274,7 @@ LinkedSendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "null",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
       	"errors": [
@@ -293,9 +293,9 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "@@#$#VGH",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
         "errors": [
@@ -314,9 +314,9 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$REMOVE$",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
         "errors": [
@@ -335,9 +335,9 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
         "errors": [
@@ -356,9 +356,9 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "null",
-	    "otpChannels": [{channel: "email"},{channel: "mobile"}]
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
         "errors": [
@@ -377,7 +377,7 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "Random1"},{channel: "Random2"}]
 }'
@@ -398,7 +398,7 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "$REMOVE$"},{channel: "$REMOVE$"}]
 }'
@@ -419,7 +419,7 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: ""},{channel: ""}]
 }'
@@ -440,7 +440,7 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": [{channel: "null"},{channel: "null"}]
 }'
@@ -461,7 +461,7 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": "$REMOVE$"
 }'
@@ -482,7 +482,7 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": ""
 }'
@@ -503,7 +503,7 @@ LinkedSendOtp:
       outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
 	    "otpChannels": "null"
 }'
