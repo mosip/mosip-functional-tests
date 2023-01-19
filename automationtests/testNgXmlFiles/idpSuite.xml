@@ -14,7 +14,7 @@
 		
 		
 		
-		<test name="CreatePolicyGroup">
+	<test name="CreatePolicyGroup">
 		<parameter name="ymlFile"
 			value="idp/PmsIntegration/DefinePolicyGroup/DefinePolicyGroup.yml" />
 		<parameter name="idKeyName" value="id,name" />
@@ -112,7 +112,7 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
-	<!-- <test name="CreateOIDCClient">
+	 <test name="CreateOIDCClient">
 		<parameter name="ymlFile"
 			value="idp/CreateOIDCClient/CreateOIDCClient.yml" />
 			<parameter name="idKeyName"	value="clientId" />
@@ -155,6 +155,13 @@
 	<test name="GetLinkStatus">
 		<parameter name="ymlFile"
 			value="idp/GetLinkStatus/GetLinkStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="LinkedSendOtp">
+		<parameter name="ymlFile"
+			value="idp/LinkedSendOtp/LinkedSendOtp.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
