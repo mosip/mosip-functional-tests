@@ -172,13 +172,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="LinkedAuthenticationOtp">
-		<parameter name="ymlFile"
-			value="idp/LinkedAuthenticationOtp/LinkedAuthenticationOtp.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
-		</classes>
-	</test>
 	<test name="OAuthDetailsRequest">
 		<parameter name="ymlFile"
 			value="idp/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
@@ -259,6 +252,13 @@
 			value="idp/ConfigurationEndpoint/ConfigurationEndpoint.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="LinkedAuthenticationOtp">
+		<parameter name="ymlFile"
+			value="idp/LinkedAuthenticationOtp/LinkedAuthenticationOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="SendBindingOtp">
