@@ -114,6 +114,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(partnerNewCookie))
 				partnerNewCookie = kernelAuthLib.getAuthForNewPartner();
 			return partnerNewCookie;
+		case "idppartner":
+			if(!kernelCmnLib.isValidToken(idpPartnerCookie))
+				idpPartnerCookie = kernelAuthLib.getAuthForNewPartnerIdp();
+			return idpPartnerCookie;
 		case "policytest":
 			if(!kernelCmnLib.isValidToken(policytestCookie))
 				policytestCookie = kernelAuthLib.getAuthForPolicytest();
@@ -256,6 +260,23 @@ public class KernelAuthentication extends BaseTestCase{
 		request.put("appId", ConfigManager.getPmsAppId());
 		request.put("password", partner_password);
 		request.put("userName", PartnerRegistration.partnerId);	
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		request.put("clientId", ConfigManager.getPmsClientId());
+		request.put("clientSecret", ConfigManager.getPmsClientSecret());
+		actualInternalrequest.put("request", request);
+		Response reponse=appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
+		return token;			
+	}
+	
+	@SuppressWarnings({ "unchecked" })
+	public String getAuthForNewPartnerIdp() {		
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", ConfigManager.getPmsAppId());
+		request.put("password", partner_password);
+		request.put("userName", AdminTestUtil.genPartnerName);	
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put("clientId", ConfigManager.getPmsClientId());
 		request.put("clientSecret", ConfigManager.getPmsClientSecret());

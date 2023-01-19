@@ -1,0 +1,14 @@
+GenerateApiKey:
+   IDP_GenerateApiKey_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/partners/$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$/generate/apikey
+      role: idppartner
+      restMethod: patch
+      inputTemplate: idp/GenerateApiKey/GenerateApiKey
+      outputTemplate: idp/GenerateApiKey/GenerateApiKeyResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "label": "ABCD"
+    }'
+      output: '{
+}'
