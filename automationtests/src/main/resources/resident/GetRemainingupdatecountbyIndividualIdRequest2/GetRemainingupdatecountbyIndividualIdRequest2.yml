@@ -1,6 +1,6 @@
 GetRemainingupdatecountbyIndividualIdRequest2:
    Resident_GetRemainingupdatecountbyIndividualIdRequest2_Valid_Smoke:
-      endPoint: /resident/v1/identity/update-count
+      endPoint: /resident/v1/identity/update-count?filter_attribute_list={filter_attribute_list}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2
@@ -14,7 +14,7 @@ GetRemainingupdatecountbyIndividualIdRequest2:
 }'
 
    Resident_GetRemainingupdatecountbyIndividualIdRequest2_Invalid_Token:
-      endPoint: /resident/v1/identity/update-count
+      endPoint: /resident/v1/identity/update-count?filter_attribute_list={filter_attribute_list}
       role: resident
       restMethod: get
       inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2
