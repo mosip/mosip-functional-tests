@@ -1,0 +1,150 @@
+LinkAuthorizationCode:
+   IDP_LinkAuthorizationCode_all_Valid_Smoke:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": "",
+        "linkedCode": ""    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Invalid_requestTime_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "2022-11-08T06:35:53",
+    	"transactionId": "",
+        "linkedCode": ""    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Past_Val_requestTime_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "2023-01-16T00:17:54.649Z",
+    	"transactionId": "",
+        "linkedCode": ""    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Future_Val_requestTime_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "2024-01-16T00:17:54.649Z",
+    	"transactionId": "",
+        "linkedCode": ""    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Empty_Val_requestTime_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "",
+    	"transactionId": "",
+        "linkedCode": ""    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Space_Val_requestTime_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": " ",
+    	"transactionId": "",
+        "linkedCode": ""    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Invalid_TransactionId_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": "$t21!",
+        "linkedCode": ""    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Space_Val_TransactionId_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": " ",
+        "linkedCode": ""    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Missing_Val_TransactionId_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": "$REMOVE$",
+        "linkedCode": ""    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Val_TransactionId_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": "",
+        "linkedCode": ""    	
+}'
+      output: '{
+        
+}'
