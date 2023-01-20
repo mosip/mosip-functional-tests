@@ -12,9 +12,23 @@
 		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
 		
-		
-		
-		<test name="CreatePolicyGroup">
+	 <test name="CreateOIDCClient">
+		<parameter name="ymlFile"
+			value="idp/CreateOIDCClient/CreateOIDCClient.yml" />
+			<parameter name="idKeyName"	value="clientId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test> 
+	<test name="UpdateOIDCClient">
+		<parameter name="ymlFile"
+			value="idp/UpdateOIDCClient/UpdateOIDCClient.yml" />
+		<parameter name="pathParams" value="clientId" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>		
+	<test name="CreatePolicyGroup">
 		<parameter name="ymlFile"
 			value="idp/PmsIntegration/DefinePolicyGroup/DefinePolicyGroup.yml" />
 		<parameter name="idKeyName" value="id,name" />
@@ -83,6 +97,14 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
+	<test name="GenerateApiKey">
+		<parameter name="ymlFile"
+			value="idp/GenerateApiKey/GenerateApiKey.yml" />
+		<parameter name="idKeyName"	value="apiKey" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePatchForAutoGenId" />
+		</classes>
+	</test>
 	<test name="OIDCClient">
 		<parameter name="ymlFile"
 			value="idp/OidcClient/OIDCClient.yml" />
@@ -112,25 +134,9 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
-	<!-- <test name="CreateOIDCClient">
+	<test name="OAuthDetailsRequestLinked">
 		<parameter name="ymlFile"
-			value="idp/CreateOIDCClient/CreateOIDCClient.yml" />
-			<parameter name="idKeyName"	value="clientId" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test> 
-	<test name="UpdateOIDCClient">
-		<parameter name="ymlFile"
-			value="idp/UpdateOIDCClient/UpdateOIDCClient.yml" />
-		<parameter name="pathParams" value="clientId" />
-		<classes>
-			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
-		</classes>
-	</test>-->
-	<test name="OAuthDetailsRequest">
-		<parameter name="ymlFile"
-			value="idp/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
+			value="idp/OAuthDetailsRequestLinked/OAuthDetailsRequest.yml" />
 			<parameter name="idKeyName"	value="transactionId" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -159,11 +165,19 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="LinkedAuthenticationOtp">
+	<test name="LinkedSendOtp">
 		<parameter name="ymlFile"
-			value="idp/LinkedAuthenticationOtp/LinkedAuthenticationOtp.yml" />
+			value="idp/LinkedSendOtp/LinkedSendOtp.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="OAuthDetailsRequest">
+		<parameter name="ymlFile"
+			value="idp/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
+			<parameter name="idKeyName"	value="transactionId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 	<test name="BioAuthIdp">
@@ -238,6 +252,13 @@
 			value="idp/ConfigurationEndpoint/ConfigurationEndpoint.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="LinkedAuthenticationOtp">
+		<parameter name="ymlFile"
+			value="idp/LinkedAuthenticationOtp/LinkedAuthenticationOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="SendBindingOtp">
