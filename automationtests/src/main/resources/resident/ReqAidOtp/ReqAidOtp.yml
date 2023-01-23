@@ -33,7 +33,7 @@ ReqAidOtp:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-449",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ]
@@ -77,7 +77,7 @@ ReqAidOtp:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ]
@@ -99,7 +99,7 @@ ReqAidOtp:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-006",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ]
