@@ -134,7 +134,67 @@ LinkAuthorizationCode:
         
 }'
 
-   IDP_LinkAuthorizationCode_Val_TransactionId_Neg:
+   IDP_LinkAuthorizationCode_Space_Val_TransactionId_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": "",
+        "linkedCode": ""    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Invalid_linkedCode_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": "",
+        "linkedCode": "$13hj"    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Misssing_linkedCode_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": "",
+        "linkedCode": "$REMOVE$"    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Space_Val_linkedCode_Neg:
+      endPoint: /v1/idp/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": "",
+        "linkedCode": " "    	
+}'
+      output: '{
+        
+}'
+
+   IDP_LinkAuthorizationCode_Empty_Val_linkedCode_Neg:
       endPoint: /v1/idp/linked-authorization/link-auth-code
       role: resident
       restMethod: post
