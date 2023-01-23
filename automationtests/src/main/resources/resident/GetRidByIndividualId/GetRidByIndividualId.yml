@@ -1,7 +1,7 @@
 GetRidByIndividualId:
    Resident_GetRidByIndividualId_all_Valid_Smoke:
       endPoint: /idrepository/v1/identity/rid/{individualId}
-      role: idrepo
+      role: resident
       restMethod: get
       inputTemplate: resident/GetRidByIndividualId/GetRidByIndividualId
       outputTemplate: resident/GetRidByIndividualId/GetRidByIndividualIdResult
@@ -14,7 +14,7 @@ GetRidByIndividualId:
 
    Resident_GetRidByIndividualId_Perp_Vid_all_Valid_Smoke:
       endPoint: /idrepository/v1/identity/rid/{individualId}
-      role: idrepo
+      role: resident
       restMethod: get
       inputTemplate: resident/GetRidByIndividualId/GetRidByIndividualId
       outputTemplate: resident/GetRidByIndividualId/GetRidByIndividualIdResult
@@ -27,7 +27,7 @@ GetRidByIndividualId:
 
    Resident_GetRidByIndividualId_OneTime_Vid_Valid_Smoke:
       endPoint: /idrepository/v1/identity/rid/{individualId}
-      role: idrepo
+      role: resident
       restMethod: get
       inputTemplate: resident/GetRidByIndividualId/GetRidByIndividualId
       outputTemplate: resident/GetRidByIndividualId/GetRidByIndividualIdResult
@@ -40,7 +40,7 @@ GetRidByIndividualId:
 
    Resident_GetRidByIndividualId_Temp_Vid_all_Valid_Smoke:
       endPoint: /idrepository/v1/identity/rid/{individualId}
-      role: idrepo
+      role: resident
       restMethod: get
       inputTemplate: resident/GetRidByIndividualId/GetRidByIndividualId
       outputTemplate: resident/GetRidByIndividualId/GetRidByIndividualIdResult
@@ -53,7 +53,7 @@ GetRidByIndividualId:
 
    Resident_GetRidByIndividualId_Invalid_IndividualId_Neg:
       endPoint: /idrepository/v1/identity/rid/{individualId}
-      role: idrepo
+      role: resident
       restMethod: get
       inputTemplate: resident/GetRidByIndividualId/GetRidByIndividualId
       outputTemplate: resident/error
@@ -71,7 +71,7 @@ GetRidByIndividualId:
 
    Resident_GetRidByIndividualId_Empty_IndividualId_Neg:
       endPoint: /idrepository/v1/identity/rid/{individualId}
-      role: idrepo
+      role: resident
       restMethod: get
       inputTemplate: resident/GetRidByIndividualId/GetRidByIndividualId
       outputTemplate: resident/error

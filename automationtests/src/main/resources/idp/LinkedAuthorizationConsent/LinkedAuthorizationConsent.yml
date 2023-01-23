@@ -1,0 +1,200 @@
+LinkedAuthorizationConsent:
+   IDP_LinkedAuthorizationConsent_All_Valid_Smoke_sid:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$"
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Invalid_RequestTime_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2022-11-08T06:35:53",
+      	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$"
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Past_Val_RequestTime_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2023-01-16T00:17:54.649Z",
+      	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$"
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Future_Val_RequestTime_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "2024-01-16T00:17:54.649Z",
+      	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$"
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Space_Val_RequestTime_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": " ",
+      	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$"
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Empty_Val_RequestTime_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "",
+      	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$"
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Invalid_TransactionId_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"linkedTransactionId": "!$j6"
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Missing_TransactionId_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"linkedTransactionId": "$REMOVE$"
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Empty_TransactionId_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"linkedTransactionId": ""
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Space_Val_TransactionId_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"linkedTransactionId": " "
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Invalid_AcceptedClaims_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
+      	"acceptedClaims": [{claim: "$E23Teda"}]
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Null_AcceptedClaims_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
+      	"acceptedClaims": [{claim: "null"}]
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Invalid_permittedAuthorizeScopes_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
+      	"permittedAuthorizeScopes": [{scope: "$absc34"}]
+}'
+      output: '{
+    
+}'
+
+   IDP_LinkedAuthorizationConsent_Null_permittedAuthorizeScopes_Neg:
+      endPoint: /v1/idp/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
+      	"permittedAuthorizeScopes": [{scope: "null"}]
+}'
+      output: '{
+    
+}'

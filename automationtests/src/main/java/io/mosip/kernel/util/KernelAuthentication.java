@@ -156,6 +156,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(zonemapCookie))
 				zonemapCookie = kernelAuthLib.getAuthForzoneMap();
 			return zonemapCookie;
+		case "mobileauth":
+			if(!kernelCmnLib.isValidToken(mobileAuthCookie))
+				mobileAuthCookie = kernelAuthLib.getAuthForMobile();
+			return mobileAuthCookie;
 		case "state":
 			UUID uuid = UUID.randomUUID();
 			
@@ -312,6 +316,24 @@ public class KernelAuthentication extends BaseTestCase{
 		request.put("appId", ConfigManager.getResidentAppId());
 		request.put("clientId", ConfigManager.getResidentClientId());
 		request.put("secretKey", ConfigManager.getResidentClientSecret());
+		System.out.println("request for  Resident: " + request);
+		logger.info("request for  Resident " + request);
+		actualrequest.put("request", request);
+		System.out.println("Actual Auth Request for Resident: " + actualrequest);
+		logger.info("Actual Auth Request for Resident: " + actualrequest);
+		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+		cookie=reponse.getCookie("Authorization");
+		return cookie;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForMobile() {
+		JSONObject actualrequest = getRequestJson(authRequest);
+		logger.info("actualrequest " + actualrequest);
+		JSONObject request=new JSONObject();
+		request.put("appId", ConfigManager.getPmsAppId());
+		request.put("clientId", ConfigManager.getMPartnerMobileClientId());
+		request.put("secretKey", ConfigManager.getMPartnerMobileClientSecret());
 		System.out.println("request for  Resident: " + request);
 		logger.info("request for  Resident " + request);
 		actualrequest.put("request", request);

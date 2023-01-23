@@ -12,7 +12,7 @@
 		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
 		
-	 <test name="CreateOIDCClient">
+	<test name="CreateOIDCClient">
 		<parameter name="ymlFile"
 			value="idp/CreateOIDCClient/CreateOIDCClient.yml" />
 			<parameter name="idKeyName"	value="clientId" />
@@ -27,7 +27,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
-	</test>		
+	</test>
 	<test name="CreatePolicyGroup">
 		<parameter name="ymlFile"
 			value="idp/PmsIntegration/DefinePolicyGroup/DefinePolicyGroup.yml" />
@@ -165,18 +165,12 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="LinkedSendOtp">
+	<test name="LinkedAuthenticationWla">
 		<parameter name="ymlFile"
-			value="idp/LinkedSendOtp/LinkedSendOtp.yml" />
+			value="idp/LinkedAuthenticationWla/LinkedAuthenticationWla.yml" />
+			<parameter name="idKeyName"	value="certificate" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="LinkedAuthenticationOtp">
-		<parameter name="ymlFile"
-			value="idp/LinkedAuthenticationOtp/LinkedAuthenticationOtp.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerateForWla" />
 		</classes>
 	</test>
 	<test name="OAuthDetailsRequest">
@@ -233,6 +227,34 @@
 	</test>
 
 <!--
+<test name="LinkedSendOtp">
+		<parameter name="ymlFile"
+			value="idp/LinkedSendOtp/LinkedSendOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="LinkAuthorizationCode">
+		<parameter name="ymlFile"
+			value="idp/LinkAuthorizationCode/LinkAuthorizationCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="LinkedAuthorizationConsent">
+		<parameter name="ymlFile"
+			value="idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="LinkedValidateBinding">
+		<parameter name="ymlFile"
+			value="idp/LinkedValidateBinding/LinkedValidateBinding.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="IntrospectToken">
 		<parameter name="ymlFile"
 			value="idp/IntrospectToken/IntrospectToken.yml" />
@@ -259,6 +281,13 @@
 			value="idp/ConfigurationEndpoint/ConfigurationEndpoint.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="LinkedAuthenticationOtp">
+		<parameter name="ymlFile"
+			value="idp/LinkedAuthenticationOtp/LinkedAuthenticationOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="SendBindingOtp">
