@@ -21,8 +21,8 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	
 	static String address = "Bangalore";
 	static String contactNumber = "8553967572";
-	static String emailId = "mosip"+RandomStringUtils.randomNumeric(4)+"@gmail.com";
-	public static String mispOrganizationName = "mosip-" + RandomStringUtils.randomNumeric(4);
+	static String emailId = "mosip"+timeStamp+"@gmail.com";
+	public static String mispOrganizationName = "mosip-" + timeStamp;
 	public static String mispPartnerId = mispOrganizationName;
 	public static String mispPartnerType = "Misp_Partner";
 	static String getPartnerType = "MISP";
