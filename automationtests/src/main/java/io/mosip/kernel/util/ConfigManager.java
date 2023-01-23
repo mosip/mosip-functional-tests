@@ -19,6 +19,9 @@ public class ConfigManager {
 	private static String MOSIP_RESIDENT_CLIENT_SECRET = "mosip_resident_client_secret";
 	private static String MOSIP_RESIDENT_CLIENT_ID = "mosip_resident_client_id";
 	private static String MOSIP_RESIDENT_APP_ID = "mosip_resident_app_id";
+	
+	private static String MOSIP_MOBILE_CLIENT_ID = "mosip_mobile_client_secret";
+	private static String MOSIP_MOBILE_CLIENT_SECRET = "mosip_mobile_client_id";
 
 	private static String MOSIP_IDREPO_CLIENT_SECRET = "mosip_idrepo_client_secret";
 	private static String MOSIP_IDREPO_CLIENT_ID = "mosip_idrepo_client_id";
@@ -94,6 +97,9 @@ public class ConfigManager {
 	private static String resident_client_secret;
 	private static String resident_client_id;
 	private static String resident_app_id;
+	
+	private static String mpartner_mobile_client_id;
+	private static String mpartner_mobile_client_secret;
 
 	private static String idrepo_client_secret;
 	private static String idrepo_client_id;
@@ -189,6 +195,8 @@ public class ConfigManager {
 		resident_client_secret = getValueForKey(MOSIP_RESIDENT_CLIENT_SECRET);
 		resident_client_id = getValueForKey(MOSIP_RESIDENT_CLIENT_ID);
 		resident_app_id = getValueForKey(MOSIP_RESIDENT_APP_ID);
+		mpartner_mobile_client_id = getValueForKey(MOSIP_MOBILE_CLIENT_ID);
+		mpartner_mobile_client_secret = getValueForKey(MOSIP_MOBILE_CLIENT_SECRET);
 		idrepo_client_secret = getValueForKey(MOSIP_IDREPO_CLIENT_SECRET);
 		idrepo_client_id = getValueForKey(MOSIP_IDREPO_CLIENT_ID);
 		idrepo_app_id = getValueForKey(MOSIP_IDREPO_APP_ID);
@@ -301,6 +309,14 @@ public class ConfigManager {
 
 	public static String getResidentAppId() {
 		return resident_app_id;
+	}
+	
+	public static String getMPartnerMobileClientId() {
+		return mpartner_mobile_client_id;
+	}
+	
+	public static String getMPartnerMobileClientSecret() {
+		return mpartner_mobile_client_secret;
 	}
 
 	public static String getAdminClientSecret() {

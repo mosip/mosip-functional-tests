@@ -12,7 +12,7 @@
 		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
 		
-	 <test name="CreateOIDCClient">
+	<test name="CreateOIDCClient">
 		<parameter name="ymlFile"
 			value="idp/CreateOIDCClient/CreateOIDCClient.yml" />
 			<parameter name="idKeyName"	value="clientId" />
@@ -27,7 +27,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
-	</test>		
+	</test>
 	<test name="CreatePolicyGroup">
 		<parameter name="ymlFile"
 			value="idp/PmsIntegration/DefinePolicyGroup/DefinePolicyGroup.yml" />
@@ -163,6 +163,14 @@
 			value="idp/GetLinkStatus/GetLinkStatus.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="LinkedAuthenticationWla">
+		<parameter name="ymlFile"
+			value="idp/LinkedAuthenticationWla/LinkedAuthenticationWla.yml" />
+			<parameter name="idKeyName"	value="certificate" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerateForWla" />
 		</classes>
 	</test>
 	<test name="OAuthDetailsRequest">

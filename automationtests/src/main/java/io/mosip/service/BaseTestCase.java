@@ -81,6 +81,7 @@ public class BaseTestCase {
 	public String hotlistCookie = null;
 	public String keycloakCookie = null;
 	public String zonemapCookie = null;
+	public String mobileAuthCookie = null;
 	public String autoTstUsrCkie = null;
 	public static String currentModule = "masterdata";
 	public static List<String> listOfModules = null;
