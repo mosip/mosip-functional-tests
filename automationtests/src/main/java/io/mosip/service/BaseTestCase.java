@@ -72,6 +72,7 @@ public class BaseTestCase {
 	public String adminCookie = null;
 	public String partnerCookie = null;
 	public String partnerNewCookie = null;
+	public String idpPartnerCookie = null;
 	public String policytestCookie = null;
 	public String residentCookie = null;
 	public String residentNewCookie = null;
@@ -123,7 +124,7 @@ public class BaseTestCase {
 	public static String genPolicyGroupName = "policyGroupNameForAutomationIdp" + RandomStringUtils.randomNumeric(5);
 	public static String genPolicyDesc = "policyDescForAutomationIdp" + RandomStringUtils.randomNumeric(5);
 	public static String genPolicyName = "policyNameForAutomationIdp" + RandomStringUtils.randomNumeric(4);
-	public static String genPartnerName = "partnerNameForAutomationIdp-" + RandomStringUtils.randomNumeric(3);
+	public static String genPartnerName = "partnernameforautomationidp-" + RandomStringUtils.randomNumeric(3);
 	public static String genPartnerEmail = "automationpartneridp" + RandomStringUtils.randomNumeric(7) +"@automationMosip.com";
 	//public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;

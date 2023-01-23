@@ -1,6 +1,6 @@
 CheckAidStatus:
    Resident_CheckAidStatus_all_Valid_Smoke:
-      endPoint: /resident/v1/aid/get-individual-id
+      endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
@@ -17,7 +17,7 @@ CheckAidStatus:
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
 		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
-		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
 	    }
 }'
       output: '{
@@ -30,7 +30,7 @@ CheckAidStatus:
 }'
 
    Resident_CheckAidStatus_Invalid_Aid_Neg:
-      endPoint: /resident/v1/aid/get-individual-id
+      endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
@@ -47,7 +47,7 @@ CheckAidStatus:
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
 		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
-		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
 	    }
 }'
       output: '{
@@ -65,7 +65,7 @@ CheckAidStatus:
 }'
 
    Resident_CheckAidStatus_Invalid_TransactionID_Neg:
-      endPoint: /resident/v1/aid/get-individual-id
+      endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
@@ -82,7 +82,7 @@ CheckAidStatus:
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
 		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
-		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
 	    }
 }'
       output: '{
@@ -100,7 +100,7 @@ CheckAidStatus:
 }'
 
    Resident_CheckAidStatus_Invalid_Otp_Neg:
-      endPoint: /resident/v1/aid/get-individual-id
+      endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
@@ -117,7 +117,7 @@ CheckAidStatus:
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
 		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
-		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
 	    }
 }'
       output: '{
@@ -135,7 +135,7 @@ CheckAidStatus:
 }'
 
    Resident_CheckAidStatus_Empty_Aid_Neg:
-      endPoint: /resident/v1/aid/get-individual-id
+      endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
@@ -152,7 +152,7 @@ CheckAidStatus:
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
 		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
-		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
 	    }
 }'
       output: '{
@@ -170,7 +170,7 @@ CheckAidStatus:
 }'
 
    Resident_CheckAidStatus_Empty_TransactionID_Neg:
-      endPoint: /resident/v1/aid/get-individual-id
+      endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
@@ -187,7 +187,7 @@ CheckAidStatus:
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
 		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
-		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
 	    }
 }'
       output: '{
@@ -205,7 +205,7 @@ CheckAidStatus:
 }'
 
    Resident_CheckAidStatus_Empty_Otp_Neg:
-      endPoint: /resident/v1/aid/get-individual-id
+      endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
@@ -222,7 +222,7 @@ CheckAidStatus:
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
 		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
-		    "sendOtpEndPoint": "/resident/v1/req/individualId/otp"
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
 	    }
 }'
       output: '{
