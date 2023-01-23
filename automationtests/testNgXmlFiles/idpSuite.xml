@@ -165,13 +165,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="LinkedSendOtp">
-		<parameter name="ymlFile"
-			value="idp/LinkedSendOtp/LinkedSendOtp.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
 	<test name="OAuthDetailsRequest">
 		<parameter name="ymlFile"
 			value="idp/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
@@ -226,6 +219,34 @@
 	</test>
 
 <!--
+<test name="LinkedSendOtp">
+		<parameter name="ymlFile"
+			value="idp/LinkedSendOtp/LinkedSendOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="LinkAuthorizationCode">
+		<parameter name="ymlFile"
+			value="idp/LinkAuthorizationCode/LinkAuthorizationCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="LinkedAuthorizationConsent">
+		<parameter name="ymlFile"
+			value="idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="LinkedValidateBinding">
+		<parameter name="ymlFile"
+			value="idp/LinkedValidateBinding/LinkedValidateBinding.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="IntrospectToken">
 		<parameter name="ymlFile"
 			value="idp/IntrospectToken/IntrospectToken.yml" />
