@@ -7,12 +7,12 @@ SendOtpForContactDet:
       outputTemplate: resident/SendOtpForContactDet/SendOtpForContactDetResult
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890"
-  }'
+		   "userId": "residentautomation@gmail.com",
+		   "transactionID": "1234567890"
+}'
       output: '{
 	"status": "Email Request submitted"
-    }'
+}'
 
    Resident_SendOtpForContactDet_Invalid_UserId_Neg:
       endPoint: /resident/v1/contact-details/send-otp
@@ -22,17 +22,17 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		    "userId": "ahgasj#5",
-		    "transactionID": "1234567890"
-  }'
+		   "userId": "ahgasj#5",
+		   "transactionID": "1234567890"
+ }'
       output: '{
          "errors": [
     {
       "errorCode": "RES-SER-463",
       "message": "$IGNORE$"
-    }
+}
   ]
-    }'
+}'
 
    Resident_SendOtpForContactDet_Empty_UserId_Neg:
       endPoint: /resident/v1/contact-details/send-otp
@@ -42,9 +42,9 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		    "userId": "",
-		    "transactionID": "1234567890"
-  }'
+		   "userId": "",
+		   "transactionID": "1234567890"
+}'
       output: '{
          "errors": [
     {
@@ -52,7 +52,7 @@ SendOtpForContactDet:
       "message": "$IGNORE$"
     }
   ]
-    }'
+}'
 
    Resident_SendOtpForContactDet_UserId_Not_Present_Neg:
       endPoint: /resident/v1/contact-details/send-otp
@@ -62,9 +62,9 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		    "userId": "$REMOVE$",
-		    "transactionID": "1234567890"
-  }'
+		  "userId": "$REMOVE$",
+		  "transactionID": "1234567890"
+}'
       output: '{
          "errors": [
     {
@@ -72,7 +72,7 @@ SendOtpForContactDet:
       "message": "$IGNORE$"
     }
   ]
-    }'
+}'
 
    Resident_SendOtpForContactDet_Invalid_Transaction_Id_Neg:
       endPoint: /resident/v1/contact-details/send-otp
@@ -82,9 +82,9 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "adhs%^"
-  }'
+		  "userId": "residentautomation@gmail.com",
+		  "transactionID": "adhs%^"
+}'
       output: '{
          "errors": [
     {
@@ -92,7 +92,7 @@ SendOtpForContactDet:
       "message": "$IGNORE$"
     }
   ]
-    }'
+}'
 
    Resident_SendOtpForContactDet_Empty_Transaction_Id_Neg:
       endPoint: /resident/v1/contact-details/send-otp
@@ -102,9 +102,9 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
-		    "transactionID": ""
-  }'
+		  "userId": "residentautomation@gmail.com",
+		  "transactionID": ""
+}'
       output: '{
          "errors": [
     {
@@ -112,7 +112,7 @@ SendOtpForContactDet:
       "message": "$IGNORE$"
     }
   ]
-    }'
+}'
 
    Resident_SendOtpForContactDet_Transaction_Id_Not_Present_Neg:
       endPoint: /resident/v1/contact-details/send-otp
@@ -122,9 +122,9 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "$REMOVE$"
-  }'
+		  "userId": "residentautomation@gmail.com",
+		  "transactionID": "$REMOVE$"
+}'
       output: '{
          "errors": [
     {
@@ -132,7 +132,7 @@ SendOtpForContactDet:
       "message": "$IGNORE$"
     }
   ]
-    }'
+}'
 
    Resident_SendOtpForContactDet_Invalid_Token_Neg:
       endPoint: /resident/v1/contact-details/send-otp
@@ -142,9 +142,9 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890"
-  }'
+		  "userId": "residentautomation@gmail.com",
+		  "transactionID": "1234567890"
+}'
       output: '{
          "errors": [
     {
@@ -152,7 +152,7 @@ SendOtpForContactDet:
       "message": "$IGNORE$"
     }
   ]
-    }'
+}'
 
    Resident_SendOtpForContactDet_Invalid_Req_Time_Neg:
       endPoint: /resident/v1/contact-details/send-otp
@@ -162,9 +162,9 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "12323dqq",
-		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890"
-  }'
+		  "userId": "residentautomation@gmail.com",
+		  "transactionID": "1234567890"
+}'
       output: '{
          "errors": [
     {
@@ -172,7 +172,7 @@ SendOtpForContactDet:
       "message": "$IGNORE$"
     }
   ]
-    }'
+}'
 
    Resident_SendOtpForContactDet_Empty_Req_Time_Neg:
       endPoint: /resident/v1/contact-details/send-otp
@@ -182,9 +182,9 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "",
-		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890"
-  }'
+		  "userId": "residentautomation@gmail.com",
+		  "transactionID": "1234567890"
+}'
       output: '{
          "errors": [
     {
@@ -192,4 +192,4 @@ SendOtpForContactDet:
       "message": "$IGNORE$"
     }
   ]
-    }'
+}'
