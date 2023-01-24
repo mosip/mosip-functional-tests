@@ -7,8 +7,8 @@ LinkAuthorizationCode:
       outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-    	"transactionId": "",
-        "linkedCode": ""    	
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$",
+        "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
         
