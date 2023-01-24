@@ -19,11 +19,11 @@ LinkAuthorizationCode:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "2022-11-08T06:35:53",
-    	"transactionId": "",
-        "linkedCode": ""    	
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$",
+        "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
         
@@ -34,11 +34,11 @@ LinkAuthorizationCode:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "2023-01-16T00:17:54.649Z",
-    	"transactionId": "",
-        "linkedCode": ""    	
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$",
+        "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
         
@@ -49,11 +49,11 @@ LinkAuthorizationCode:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "2024-01-16T00:17:54.649Z",
-    	"transactionId": "",
-        "linkedCode": ""    	
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$",
+        "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
         
@@ -64,11 +64,11 @@ LinkAuthorizationCode:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "",
-    	"transactionId": "",
-        "linkedCode": ""    	
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$",
+        "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
         
@@ -79,11 +79,11 @@ LinkAuthorizationCode:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": " ",
-    	"transactionId": "",
-        "linkedCode": ""    	
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$",
+        "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
         
@@ -94,11 +94,11 @@ LinkAuthorizationCode:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
     	"transactionId": "$t21!",
-        "linkedCode": ""    	
+        "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
         
@@ -109,11 +109,11 @@ LinkAuthorizationCode:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
     	"transactionId": " ",
-        "linkedCode": ""    	
+        "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
         
@@ -124,26 +124,26 @@ LinkAuthorizationCode:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
     	"transactionId": "$REMOVE$",
-        "linkedCode": ""    	
+        "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
         
 }'
 
-   IDP_LinkAuthorizationCode_Space_Val_TransactionId_Neg:
+   IDP_LinkAuthorizationCode_Empty_TransactionId_Neg:
       endPoint: /v1/idp/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
     	"transactionId": "",
-        "linkedCode": ""    	
+        "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
         
@@ -154,10 +154,10 @@ LinkAuthorizationCode:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-    	"transactionId": "",
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$",
         "linkedCode": "$13hj"    	
 }'
       output: '{
@@ -169,10 +169,10 @@ LinkAuthorizationCode:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-    	"transactionId": "",
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$",
         "linkedCode": "$REMOVE$"    	
 }'
       output: '{
@@ -184,10 +184,10 @@ LinkAuthorizationCode:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-    	"transactionId": "",
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$",
         "linkedCode": " "    	
 }'
       output: '{
@@ -199,11 +199,11 @@ LinkAuthorizationCode:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
-      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
-    	"transactionId": "",
-        "linkedCode": ""    	
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid_transactionId$",
+        "linkedCode": ""
 }'
       output: '{
         

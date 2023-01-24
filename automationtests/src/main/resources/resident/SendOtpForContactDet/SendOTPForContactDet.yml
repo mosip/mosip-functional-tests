@@ -11,7 +11,7 @@ SendOtpForContactDet:
 		   "transactionID": "1234567890"
 }'
       output: '{
-	"status": "Email Request submitted"
+		"status": "Email Request submitted"
 }'
 
    Resident_SendOtpForContactDet_Invalid_UserId_Neg:
@@ -28,7 +28,7 @@ SendOtpForContactDet:
       output: '{
          "errors": [
     {
-      "errorCode": "RES-SER-463",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
 }
   ]
@@ -48,7 +48,7 @@ SendOtpForContactDet:
       output: '{
          "errors": [
     {
-      "errorCode": "RES-SER-463",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ]
@@ -68,7 +68,7 @@ SendOtpForContactDet:
       output: '{
          "errors": [
     {
-      "errorCode": "RES-SER-463",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ]
@@ -88,7 +88,7 @@ SendOtpForContactDet:
       output: '{
          "errors": [
     {
-      "errorCode": "RES-SER-463",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ]
@@ -108,7 +108,7 @@ SendOtpForContactDet:
       output: '{
          "errors": [
     {
-      "errorCode": "RES-SER-463",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ]
@@ -128,7 +128,7 @@ SendOtpForContactDet:
       output: '{
          "errors": [
     {
-      "errorCode": "RES-SER-463",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ]
