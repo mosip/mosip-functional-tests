@@ -1939,10 +1939,10 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$PARTNERID$", genPartnerName);
 
 		if (jsonString.contains("$PARTNERID1$"))
-			jsonString = jsonString.replace("$PARTNERID1$", genPartnerName + "2ndj");
+			jsonString = jsonString.replace("$PARTNERID1$", genPartnerName + "2n");
 
 		if (jsonString.contains("$PARTNEREMAIL1$"))
-			jsonString = jsonString.replace("$PARTNEREMAIL1$", genPartnerEmail + "12d");
+			jsonString = jsonString.replace("$PARTNEREMAIL1$", "12d" + genPartnerEmail);
 
 		if (jsonString.contains("$PARTNEREMAIL$"))
 			jsonString = jsonString.replace("$PARTNEREMAIL$", genPartnerEmail);
