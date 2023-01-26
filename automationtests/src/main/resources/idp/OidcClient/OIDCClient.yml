@@ -354,3 +354,51 @@ CreateOIDCClient:
         }
   ]
 }'
+   Idp_CreateOIDCClient_same_publickey_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+     {
+            "errorCode": "PMS_IDP_001",
+            "message": "Client public key already exists."
+        }
+  ]
+}'
+   Idp_CreateOIDCClient_max_authPartnerId_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "publicKey": "$OIDCJWKKEY2$",
+        "authPartnerId": "17777777777777777777777777hhhhhhhhhhhhhhhh7222222222222222222222hdddddd",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "errors": [
+     {
+            "errorCode": "PMS_IDP_001",
+            "message": "Client public key already exists."
+        }
+  ]
+}'

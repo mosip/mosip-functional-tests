@@ -36,13 +36,13 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean isInternal = false;
-	
+
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
 //		AuthPartnerProcessor.startProcess();
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -59,7 +59,7 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
 
@@ -73,52 +73,75 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
-		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
-		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl));
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+		testCaseName = testCaseDTO.getTestCaseName();
+		if (testCaseDTO.getEndPoint().contains("$partnerKeyURL$")) {
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
-		if(request.has("identityRequest")) {
+		if (request.has("identityRequest")) {
 			identityRequest = request.get("identityRequest").toString();
 			request.remove("identityRequest");
 		}
-		
+
 		if (identityRequest.contains("$PRIMARYLANG$"))
 			identityRequest = identityRequest.replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0));
-		
+
 		JSONObject identityReqJson = new JSONObject(identityRequest);
 		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
 		identityReqJson.remove("identityRequestTemplate");
 		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
-		identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, generateCurrentUTCTimeStamp(), "identityRequest.timestamp");
+		identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, generateCurrentUTCTimeStamp(),
+				"identityRequest.timestamp");
 		Map<String, String> demoAuthTempMap = encryptDecryptUtil.getEncryptSessionKeyValue(identityRequest);
 		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
 		logger.info("************* Modification of bio auth request ******************");
 		Reporter.log("<b><u>Modification of demo auth request</u></b>");
-		authRequest = modifyRequest(authRequest, demoAuthTempMap, getResourcePath()+props.getProperty("idaMappingPath"));
+		authRequest = modifyRequest(authRequest, demoAuthTempMap,
+				getResourcePath() + props.getProperty("idaMappingPath"));
 		JSONObject authRequestTemp = new JSONObject(authRequest);
 		authRequestTemp.remove("env");
 		authRequestTemp.put("env", "Staging");
 		authRequest = authRequestTemp.toString();
 		testCaseDTO.setInput(authRequest);
-				
-		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");		
-		
-		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
+
+		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");
+
+		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest,
+				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
+		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+
+		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
+			if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+					|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
+				ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+			} else {
+				ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+			}
+		} else {
+			if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+				if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+				} else {
+					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+				}
+			}
+		}
+
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				.doJsonOutputValidation(response.asString(), ActualOPJson);
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
-		//if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
-			//	throw new AdminTestException("Failed at Signature validation");
-
+		// if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
+		// response.getHeader(props.getProperty("signatureheaderKey"))))
+		// throw new AdminTestException("Failed at Signature validation");
 
 	}
 
@@ -141,12 +164,13 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 			Reporter.log("Exception : " + e.getMessage());
 		}
 	}
-	
+
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		//As the demo auth service will be running in a separate docker, we dont need to launch the demo auth service
-				//return;
+		// As the demo auth service will be running in a separate docker, we dont need
+		// to launch the demo auth service
+		// return;
 //		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }
