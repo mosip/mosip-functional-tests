@@ -119,7 +119,7 @@ OtpAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_Blank_individualId_neg:
+  auth_OTP_Auth_With_Blank_individualId_uin_neg:
       endPoint: /v1/identity/authenticate?id=&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -171,7 +171,7 @@ OtpAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_Missing_individualId_neg:
+  auth_OTP_Auth_With_Missing_individualId_uin_neg:
       endPoint: /v1/identity/authenticate?partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -223,7 +223,7 @@ OtpAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_Invalid_transactionId_Pos:
+  auth_OTP_Auth_With_Invalid_transactionId_uin_Pos:
       endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -263,7 +263,7 @@ OtpAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_Blank_transactionId_Pos:
+  auth_OTP_Auth_With_Blank_transactionId_uin_Pos:
       endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -303,7 +303,7 @@ OtpAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_different_transactionId_neg:
+  auth_OTP_Auth_With_different_transactionId_uin_neg:
       endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -383,7 +383,7 @@ OtpAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_Invalid_partner:
+  auth_OTP_Auth_With_Invalid_uin_partner:
       endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
