@@ -2,6 +2,7 @@ package io.mosip.admin.fw.util;
 
 import java.io.File;
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,6 +10,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.math.BigInteger;
@@ -24,7 +26,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.SecureRandom;
 import java.security.UnrecoverableEntryException;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -54,6 +58,8 @@ import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.bouncycastle.operator.OperatorCreationException;
+import org.bouncycastle.util.io.pem.PemObject;
+import org.bouncycastle.util.io.pem.PemReader;
 import org.jose4j.jws.JsonWebSignature;
 import org.jose4j.lang.JoseException;
 import org.json.JSONArray;
@@ -1933,10 +1939,10 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$PARTNERID$", genPartnerName);
 
 		if (jsonString.contains("$PARTNERID1$"))
-			jsonString = jsonString.replace("$PARTNERID1$", genPartnerName + "2ndj");
+			jsonString = jsonString.replace("$PARTNERID1$", genPartnerName + "2n");
 
 		if (jsonString.contains("$PARTNEREMAIL1$"))
-			jsonString = jsonString.replace("$PARTNEREMAIL1$", genPartnerEmail + "12d");
+			jsonString = jsonString.replace("$PARTNEREMAIL1$", "12d" + genPartnerEmail);
 
 		if (jsonString.contains("$PARTNEREMAIL$"))
 			jsonString = jsonString.replace("$PARTNEREMAIL$", genPartnerEmail);
@@ -2129,13 +2135,19 @@ public class AdminTestUtil extends BaseTestCase {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			JSONObject request = new JSONObject(jsonString);
+			
 			String individualId = null;
+			String wlaToken = null;
 			String certificate = getJWKKey(BINDINGCERTFile);
-			if (request.has("individualId")) {
-				individualId = request.get("individualId").toString();
+			JSONObject request = new JSONObject(jsonString);
+			individualId = request.getJSONObject("request").get("individualId").toString();
+			try {
+				wlaToken = getWlaToken(individualId, bindingJWKKey, certificate);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			jsonString = jsonString.replace("$WLATOKEN$", getWlaToken(individualId, bindingJWKKey, certificate));
+			jsonString = jsonString.replace("$WLATOKEN$", wlaToken);
 		}
 		if (jsonString.contains("$REMOVE$")) // Keep this condition at last to avoid exception
 			jsonString = removeObject(new JSONObject(jsonString));
@@ -3492,31 +3504,49 @@ public class AdminTestUtil extends BaseTestCase {
 		return clientAssertionToken;
 	}
 	
-	public static String getWlaToken(String individualId, RSAKey jwkKey, String certificate) {
-		String tempUrl = ApplnURI.replace("-internal", "") + "/v1/idp/oauth/token";
+	public static String getWlaToken(String individualId, RSAKey jwkKey, String certData) throws Exception {
+		String tempUrl = ApplnURI.replace("-internal", "") + "/v1/idpbinding/validate-binding";
+		JSONObject payload = new JSONObject();
+		payload.put("iss", "test-app");
+		payload.put("aud", tempUrl);
+		payload.put("sub", individualId);
+		payload.put("iat", new Date());
+		payload.put("exp", new Date(new Date().getTime() + 180 * 1000));
+		
+		X509Certificate certificate = (X509Certificate) convertToCertificate(certData);
+		JsonWebSignature jwSign = new JsonWebSignature();
+		jwSign.setKeyIdHeaderValue(certificate.getSerialNumber().toString(10));
+		jwSign.setX509CertSha256ThumbprintHeaderValue(certificate);
+		jwSign.setPayload(payload.toString());
+		jwSign.setAlgorithmHeaderValue("RS256");
+		jwSign.setKey(jwkKey.toPrivateKey());
+		jwSign.setDoKeyValidation(false);
+		return jwSign.getCompactSerialization();
+		
+		
 		// Create RSA-signer with the private key
-		JWSSigner signer;
-
-		try {
-			signer = new RSASSASigner(jwkKey);
-
-			// Prepare JWT with claims set
-			JWTClaimsSet claimsSet = new JWTClaimsSet.Builder().subject(individualId)//
-					.audience(tempUrl)//
-					.issuer("inji-app")//
-					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + 180 * 1000)).build();
-
-			SignedJWT signedJWT = new SignedJWT(
-					new JWSHeader.Builder(JWSAlgorithm.RS256).x509CertSHA256Thumbprint(null).build(), claimsSet);
-
-			// Compute the RSA signature
-			signedJWT.sign(signer);
-			clientAssertionToken = signedJWT.serialize();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			logger.error("Exception while signing oidcJWKKey for client assertion: " + e.getMessage());
-		}
-		return clientAssertionToken;
+//		JWSSigner signer;
+//
+//		try {
+//			signer = new RSASSASigner(jwkKey);
+//
+//			// Prepare JWT with claims set
+//			JWTClaimsSet claimsSet = new JWTClaimsSet.Builder().subject(individualId)//
+//					.audience(tempUrl)//
+//					.issuer("inji-app")//
+//					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + 180 * 1000)).build();
+//
+//			SignedJWT signedJWT = new SignedJWT(
+//					new JWSHeader.Builder(JWSAlgorithm.RS256).x509CertSHA256Thumbprint(null).build(), claimsSet);
+//
+//			// Compute the RSA signature
+//			signedJWT.sign(signer);
+//			clientAssertionToken = signedJWT.serialize();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			logger.error("Exception while signing oidcJWKKey for client assertion: " + e.getMessage());
+//		}
+//		return clientAssertionToken;
 	}
 
 	public static void writeFileAsString(File fileName, String content) {
@@ -3527,6 +3557,28 @@ public class AdminTestUtil extends BaseTestCase {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	
+	public static Certificate convertToCertificate(String certData) {
+		try {
+			StringReader strReader = new StringReader(certData);
+			PemReader pemReader = new PemReader(strReader);
+			PemObject pemObject = pemReader.readPemObject();
+			if (Objects.isNull(pemObject)) {
+//				LOGGER.error(KeymanagerConstant.SESSIONID, KeymanagerConstant.CERTIFICATE_PARSE, 
+//								KeymanagerConstant.CERTIFICATE_PARSE, "Error Parsing Certificate.");
+//				throw new KeymanagerServiceException(io.mosip.kernel.keymanagerservice.constant.KeymanagerErrorConstant.CERTIFICATE_PARSING_ERROR.getErrorCode(),
+//								KeymanagerErrorConstant.CERTIFICATE_PARSING_ERROR.getErrorMessage());
+				return null;
+			}
+			byte[] certBytes = pemObject.getContent();
+			CertificateFactory certFactory = CertificateFactory.getInstance("X.509");
+			return certFactory.generateCertificate(new ByteArrayInputStream(certBytes));
+		} catch(IOException | CertificateException e) {
+//			throw new KeymanagerServiceException(KeymanagerErrorConstant.CERTIFICATE_PARSING_ERROR.getErrorCode(),
+//					KeymanagerErrorConstant.CERTIFICATE_PARSING_ERROR.getErrorMessage() + e.getMessage());
+			return null;
 		}
 	}
 

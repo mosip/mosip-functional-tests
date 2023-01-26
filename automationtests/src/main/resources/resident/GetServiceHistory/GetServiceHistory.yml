@@ -9,8 +9,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -30,8 +30,8 @@ GetServiceHistory:
       	"langcode": "hinn",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -56,8 +56,8 @@ GetServiceHistory:
       	"langcode": "$REMOVE$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -75,8 +75,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "AUTHENTICATION_REQUEST",
 	    "statusFilter": "$REMOVE$",
@@ -96,8 +96,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "SERVICE_REQUEST",
 	    "statusFilter": "$REMOVE$",
@@ -117,8 +117,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "DATA_UPDATE_REQUEST",
 	    "statusFilter": "$REMOVE$",
@@ -138,8 +138,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "ID_MANAGEMENT_REQUEST",
 	    "statusFilter": "$REMOVE$",
@@ -159,8 +159,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "DATA_SHARE_REQUEST",
 	    "statusFilter": "$REMOVE$",
@@ -171,7 +171,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_Date_Specified_Valid_Smoke:
-      endPoint: /resident/v1/service-history/{langcode}?fromDateTime={fromDateTime}&toDateTime={toDateTime}
+      endPoint: /resident/v1/service-history/{langcode}?fromDate={fromDate}&toDate={toDate}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
@@ -180,8 +180,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "2022-12-07T12:35:23.994Z",
-	    "toDateTime": "$TIMESTAMP$",
+	    "fromDate": "2022-12-07T12:35:23.994Z",
+	    "toDate": "$TIMESTAMP$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -192,7 +192,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_Invalid_FromDate_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?fromDateTime={fromDateTime}&toDateTime={toDateTime}
+      endPoint: /resident/v1/service-history/{langcode}?fromDate={fromDate}&toDate={toDate}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
@@ -201,8 +201,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "2035-12-07T12:35:23.994Z",
-	    "toDateTime": "$TIMESTAMP$",
+	    "fromDate": "2035-12-07T12:35:23.994Z",
+	    "toDate": "$TIMESTAMP$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -218,7 +218,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_Invalid_From_To_Date_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?fromDateTime={fromDateTime}&toDateTime={toDateTime}
+      endPoint: /resident/v1/service-history/{langcode}?fromDate={fromDate}&toDate={toDate}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
@@ -227,8 +227,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "2035-12-07T12:35:23.994Z",
-	    "toDateTime": "2022-12-06T12:35:23.994Z",
+	    "fromDate": "2035-12-07T12:35:23.994Z",
+	    "toDate": "2022-12-06T12:35:23.994Z",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -244,7 +244,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_Empty_FromDate_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?fromDateTime={fromDateTime}&toDateTime={toDateTime}
+      endPoint: /resident/v1/service-history/{langcode}?fromDate={fromDate}&toDate={toDate}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
@@ -253,8 +253,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "",
-	    "toDateTime": "$TIMESTAMP$",
+	    "fromDate": "",
+	    "toDate": "$TIMESTAMP$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -270,7 +270,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_Empty_ToDate_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?fromDateTime={fromDateTime}&toDateTime={toDateTime}
+      endPoint: /resident/v1/service-history/{langcode}?fromDate={fromDate}&toDate={toDate}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
@@ -279,8 +279,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "2022-12-07T12:35:23.994Z",
-	    "toDateTime": "",
+	    "fromDate": "2022-12-07T12:35:23.994Z",
+	    "toDate": "",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -305,8 +305,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "sdjv$#",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -331,8 +331,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "0",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -357,8 +357,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "-1",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -383,8 +383,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "sdsd#$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -409,8 +409,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "0",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -435,8 +435,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "AUTHENTICATION_REQUEST,SERVICE_REQUEST",
 	    "statusFilter": "$REMOVE$",
@@ -461,8 +461,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "ASC",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -482,8 +482,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "DESC",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -503,8 +503,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -529,8 +529,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "ssd$#$#",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -555,8 +555,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -576,8 +576,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -597,8 +597,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -618,8 +618,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "in-progress,success,failed",
@@ -639,8 +639,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "SD$#$%",
@@ -665,8 +665,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",
@@ -691,8 +691,8 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDateTime": "$REMOVE$",
-	    "toDateTime": "$REMOVE$",
+	    "fromDate": "$REMOVE$",
+	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
 	    "statusFilter": "$REMOVE$",

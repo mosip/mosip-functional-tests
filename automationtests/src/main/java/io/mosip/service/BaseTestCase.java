@@ -129,7 +129,7 @@ public class BaseTestCase {
 	public static String genPolicyGroupName = "policyGroupNameForAutomationIdp" + RandomStringUtils.randomNumeric(5);
 	public static String genPolicyDesc = "policyDescForAutomationIdp" + RandomStringUtils.randomNumeric(5);
 	public static String genPolicyName = "policyNameForAutomationIdp" + RandomStringUtils.randomNumeric(4);
-	public static String genPartnerName = "partnernameforautomationidp-" + RandomStringUtils.randomNumeric(3);
+	public static String genPartnerName = "partnernameforautomationidp-" + RandomStringUtils.randomNumeric(6);
 	public static String genPartnerEmail = "automationpartneridp" + RandomStringUtils.randomNumeric(7) +"@automationMosip.com";
 	//public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;

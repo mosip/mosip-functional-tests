@@ -1,5 +1,5 @@
 UpdateContactDetails:
-   Resident_UpdateContactDetails_Valid_All_Smoke_Pos_sid:
+   Resident_UpdateContactDetails_Valid_All_Smoke_Pos:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -10,20 +10,20 @@ UpdateContactDetails:
 		    "userId": "residentautomation@gmail.com",
 		    "transactionID": "1234567890",
 		    "otp": "111111",
-	    "sendOtp":{
-		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
-		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
-		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
-	    }
-    }'
+		    "sendOtp": {
+			    "requesttime": "$TIMESTAMP$",
+			    "userId": "residentautomation@gmail.com",
+			    "transactionID": "1234567890",
+			    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+			    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+		    }
+}'
       output: '{
-	 "status": "success",
-     "sendOtpResp":{
-	        "status": "Email Request submitted",
-	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
-    }
+			 "status": "success",
+		     "sendOtpResp": {
+			        "status": "Email Request submitted",
+			        "sendOtpResTemplate": "resident/SendOtpForContactDet/SendOtpForContactDetResult"
+		    }
 }'
 
    Resident_UpdateContactDetails_Invalid_User_Id_Neg:
@@ -48,13 +48,13 @@ UpdateContactDetails:
       output: '{
 	         "errors": [
     {
-      "errorCode": "KER-ATH-401",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
-  ]
+  ],
      "sendOtpResp":{
 	        "status": "Email Request submitted",
-	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+	        "sendOtpResTemplate": "resident/SendOtpForContactDet/SendOtpForContactDetResult"
     }
 }'
 
@@ -80,10 +80,10 @@ UpdateContactDetails:
       output: '{
 	         "errors": [
     {
-      "errorCode": "KER-ATH-401",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
-  ]
+  ],
      "sendOtpResp":{
 	        "status": "Email Request submitted",
 	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
@@ -112,10 +112,10 @@ UpdateContactDetails:
       output: '{
 	         "errors": [
     {
-      "errorCode": "KER-ATH-401",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
-  ]
+  ],
      "sendOtpResp":{
 	        "status": "Email Request submitted",
 	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
@@ -144,10 +144,10 @@ UpdateContactDetails:
       output: '{
 	         "errors": [
     {
-      "errorCode": "KER-ATH-401",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
-  ]
+  ],
      "sendOtpResp":{
 	        "status": "Email Request submitted",
 	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
@@ -176,10 +176,10 @@ UpdateContactDetails:
       output: '{
 	         "errors": [
     {
-      "errorCode": "KER-ATH-401",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
-  ]
+  ],
      "sendOtpResp":{
 	        "status": "Email Request submitted",
 	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
@@ -208,10 +208,10 @@ UpdateContactDetails:
       output: '{
 	         "errors": [
     {
-      "errorCode": "KER-ATH-401",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
-  ]
+  ],
      "sendOtpResp":{
 	        "status": "Email Request submitted",
 	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
@@ -240,10 +240,10 @@ UpdateContactDetails:
       output: '{
 	         "errors": [
     {
-      "errorCode": "KER-ATH-401",
+      "errorCode": "RES-SER-422",
       "message": "$IGNORE$"
     }
-  ]
+  ],
      "sendOtpResp":{
 	        "status": "Email Request submitted",
 	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
@@ -272,10 +272,10 @@ UpdateContactDetails:
       output: '{
 	         "errors": [
     {
-      "errorCode": "RES-SER-463",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
-  ]
+  ],
      "sendOtpResp":{
 	        "status": "Email Request submitted",
 	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
@@ -304,10 +304,10 @@ UpdateContactDetails:
       output: '{
 	         "errors": [
     {
-      "errorCode": "RES-SER-463",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
-  ]
+  ],
      "sendOtpResp":{
 	        "status": "Email Request submitted",
 	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
@@ -339,11 +339,9 @@ UpdateContactDetails:
       "errorCode": "KER-ATH-401",
       "message": "$IGNORE$"
     }
-  ]
+  ],
      "sendOtpResp":{
-	        "status": "Email Request submitted",
-	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+	        "errorCode": "KER-ATH-401",
+	        "sendOtpResTemplate":"resident/error"
     }
 }'
-
-

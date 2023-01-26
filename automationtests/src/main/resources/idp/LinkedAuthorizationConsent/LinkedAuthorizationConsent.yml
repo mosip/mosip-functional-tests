@@ -174,7 +174,7 @@ LinkedAuthorizationConsent:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
-      outputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
@@ -189,7 +189,7 @@ LinkedAuthorizationConsent:
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
-      outputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
+      outputTemplate: idp/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
