@@ -100,7 +100,10 @@ testCaseName = testCaseDTO.getTestCaseName();
 		requestBody.put("partnerName", PartnerRegistration.partnerId);
 		
 		String token = kernelAuthLib.getTokenByRole("resident");
-		Response sendOtpReqResp = RestClient.postRequestWithQueryParm(url + "/v1/identity/createOtpReqest", requestBody, MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, "Authorization", token);
+		
+		Response sendOtpReqResp = postWithOnlyQueryParamAndCookie(url + "/v1/identity/createOtpReqest", requestBody.toString(), "Authorization", "resident", testCaseName);
+		
+//		Response sendOtpReqResp = RestClient.postRequestWithQueryParm(url + "/v1/identity/createOtpReqest", requestBody, MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, "Authorization", token);
 		
 		
 		
@@ -117,7 +120,9 @@ testCaseName = testCaseDTO.getTestCaseName();
 
 		Response otpRespon = null;
 		
-		otpRespon = RestClient.postRequestWithMultipleHeaders(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody,  MediaType.APPLICATION_JSON,  MediaType.APPLICATION_JSON, "Authorization", token, headers);
+		otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody.toString(),  "Authorization", token, headers, testCaseName);
+		
+//		otpRespon = RestClient.postRequestWithMultipleHeaders(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody,  MediaType.APPLICATION_JSON,  MediaType.APPLICATION_JSON, "Authorization", token, headers);
 		
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
@@ -155,7 +160,9 @@ testCaseName = testCaseDTO.getTestCaseName();
 				
 		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");		
 		
-		response = RestClient.postRequest(url + endPoint, authRequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON );
+		response = postWithBodyAndCookie(url + endPoint, authRequest.toString(), COOKIENAME, testCaseDTO.getRole(), testCaseName);
+		
+//		response = RestClient.postRequest(url + endPoint, authRequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON );
 		System.out.println(response);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
