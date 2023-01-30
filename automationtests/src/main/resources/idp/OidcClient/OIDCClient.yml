@@ -253,7 +253,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
     {
-            "errorCode": "PMS_COR_001",
+            "errorCode": "$IGNORE$",
             "message": "Invalid request parameter - must be a valid URL :request.logoUri"
         }
   ]
@@ -277,7 +277,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
     {
-            "errorCode": null,
+            "errorCode": "$IGNORE$",
             "message": "invalid_client_auth --> request.clientAuthMethods[0]: invalid_client_auth"
         }
   ]
@@ -301,7 +301,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
      {
-            "errorCode": null,
+            "errorCode": "$IGNORE$",
             "message": "invalid_grant_type --> request.grantTypes[0]: invalid_grant_type"
         }
   ]
@@ -325,7 +325,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
      {
-            "errorCode": null,
+            "errorCode": "$IGNORE$",
             "message": "invalid_grant_type --> request.grantTypes[0]: invalid_grant_type"
         }
   ]
@@ -349,7 +349,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
      {
-            "errorCode": null,
+            "errorCode": $IGNORE$,
             "message": "invalid_grant_type --> request.grantTypes[0]: invalid_grant_type"
         }
   ]
