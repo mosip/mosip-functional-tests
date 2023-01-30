@@ -128,7 +128,7 @@ GetLinkStatus:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction_id",
+      "errorCode": "response_timeout",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -148,7 +148,7 @@ GetLinkStatus:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction_id",
+      "errorCode": "response_timeout",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -208,7 +208,7 @@ GetLinkStatus:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction_id",
+      "errorCode": "response_timeout",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -248,7 +248,7 @@ GetLinkStatus:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_link_code",
+      "errorCode": "response_timeout",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -268,7 +268,7 @@ GetLinkStatus:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_link_code",
+      "errorCode": "response_timeout",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -328,7 +328,7 @@ GetLinkStatus:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_link_code",
+      "errorCode": "response_timeout",
       "errorMessage": "$IGNORE$"
     }
   ]

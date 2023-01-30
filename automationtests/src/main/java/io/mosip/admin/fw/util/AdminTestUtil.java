@@ -374,6 +374,24 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
+	
+	protected Response postRequestWithAuthHeaderAndSignatureForOtp(String url, String jsonInput, String cookieName,
+			String token, HashMap<String, String> headers, String testCaseName) {
+		Response response = null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		try {
+			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, cookieName, token, headers);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
 
 	protected Response patchRequestWithCookieAuthHeaderAndSignature(String url, String jsonInput, String cookieName,
 			String role, String testCaseName) {
@@ -1896,6 +1914,8 @@ public class AdminTestUtil extends BaseTestCase {
 			KeycloakUserManager.createKeyCloakUsers(genPartnerName, genPartnerEmail, "AUTH_PARTNER");
 		if (jsonString.contains("$TIMESTAMP$"))
 			jsonString = jsonString.replace("$TIMESTAMP$", generateCurrentUTCTimeStamp());
+		if (jsonString.contains("$DATESTAMP$"))
+			jsonString = jsonString.replace("$DATESTAMP$", generateCurrentUTCDateStamp());
 		if (jsonString.contains("$TIMESTAMPL$"))
 			jsonString = jsonString.replace("$TIMESTAMPL$", generateCurrentLocalTimeStamp());
 		if (jsonString.contains("$RID$"))
@@ -1939,10 +1959,10 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$PARTNERID$", genPartnerName);
 
 		if (jsonString.contains("$PARTNERID1$"))
-			jsonString = jsonString.replace("$PARTNERID1$", genPartnerName + "2ndj");
+			jsonString = jsonString.replace("$PARTNERID1$", genPartnerName + "2n");
 
 		if (jsonString.contains("$PARTNEREMAIL1$"))
-			jsonString = jsonString.replace("$PARTNEREMAIL1$", genPartnerEmail + "12d");
+			jsonString = jsonString.replace("$PARTNEREMAIL1$", "12d" + genPartnerEmail);
 
 		if (jsonString.contains("$PARTNEREMAIL$"))
 			jsonString = jsonString.replace("$PARTNEREMAIL$", genPartnerEmail);
@@ -2250,6 +2270,13 @@ public class AdminTestUtil extends BaseTestCase {
 		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
 		return dateFormat.format(date);
 	}
+	
+	public static String generateCurrentUTCDateStamp() {
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+		return dateFormat.format(date);
+	}
 
 	@SuppressWarnings("unchecked")
 	public String generateIdentityJson(String testCaseName) {
@@ -2413,6 +2440,33 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithCookieAndOnlyPathParm(url, map, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
+	
+	protected Response postWithOnlyQueryParamAndCookie(String url, String jsonInput, String cookieName, String role,
+			String testCaseName) {
+		Response response = null;
+		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		HashMap<String, String> map = null;
+		try {
+			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
+			}.getType());
+		} catch (Exception e) {
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+		}
+
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******get request to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		try {
+			response = RestClient.postRequestWithQueryParm(url, map, "*/*",
+					"*/*", cookieName, token);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;

@@ -20,8 +20,8 @@ public class ConfigManager {
 	private static String MOSIP_RESIDENT_CLIENT_ID = "mosip_resident_client_id";
 	private static String MOSIP_RESIDENT_APP_ID = "mosip_resident_app_id";
 	
-	private static String MOSIP_MOBILE_CLIENT_ID = "mosip_mobile_client_secret";
-	private static String MOSIP_MOBILE_CLIENT_SECRET = "mosip_mobile_client_id";
+	private static String MOSIP_MOBILE_CLIENT_ID = "mpartner_default_mobile_client_id";
+	private static String MOSIP_MOBILE_CLIENT_SECRET = "mpartner_default_mobile_secret";
 
 	private static String MOSIP_IDREPO_CLIENT_SECRET = "mosip_idrepo_client_secret";
 	private static String MOSIP_IDREPO_CLIENT_ID = "mosip_idrepo_client_id";
