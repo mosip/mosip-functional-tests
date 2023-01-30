@@ -101,9 +101,13 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		requestBody.put("partnerName", PartnerRegistration.partnerId);
 
 		String token = kernelAuthLib.getTokenByRole("resident");
-		Response sendOtpReqResp = RestClient.postRequestWithQueryParm(url + "/v1/identity/createOtpReqest", requestBody,
-				MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, "Authorization", token);
 
+		
+		Response sendOtpReqResp = postWithOnlyQueryParamAndCookie(url + "/v1/identity/createOtpReqest", requestBody.toString(), "Authorization", "resident", testCaseName);
+		
+//		Response sendOtpReqResp = RestClient.postRequestWithQueryParm(url + "/v1/identity/createOtpReqest", requestBody, MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, "Authorization", token);
+		
+		
 		String otpInput = sendOtpReqResp.getBody().asString();
 		System.out.println(otpInput);
 		String signature = sendOtpReqResp.getHeader("signature");
@@ -116,11 +120,12 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		headers.put(SIGNATURE_HEADERNAME, signature);
 
 		Response otpRespon = null;
-
-		otpRespon = RestClient.postRequestWithMultipleHeaders(
-				ApplnURI + "/idauthentication/v1/otp/" + PartnerRegistration.partnerKeyUrl, sendOtpBody,
-				MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token, headers);
-
+		
+		otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody.toString(),  "Authorization", token, headers, testCaseName);
+		
+//		otpRespon = RestClient.postRequestWithMultipleHeaders(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody,  MediaType.APPLICATION_JSON,  MediaType.APPLICATION_JSON, "Authorization", token, headers);
+		
+		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
 		if (res.has("sendOtpResp")) {
@@ -150,11 +155,12 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		String inputStr = buildIdentityRequest(input.toString());
 
 		String authRequest = getJsonFromTemplate(inputStr, testCaseDTO.getInputTemplate());
+		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");		
+		
+		response = postWithBodyAndCookie(url + endPoint, authRequest.toString(), COOKIENAME, testCaseDTO.getRole(), testCaseName);
+		
+//		response = RestClient.postRequest(url + endPoint, authRequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON );
 
-		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");
-
-		response = RestClient.postRequest(url + endPoint, authRequest, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON);
 		System.out.println(response);
 		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 

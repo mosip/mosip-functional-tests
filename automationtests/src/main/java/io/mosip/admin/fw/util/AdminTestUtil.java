@@ -374,6 +374,24 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
+	
+	protected Response postRequestWithAuthHeaderAndSignatureForOtp(String url, String jsonInput, String cookieName,
+			String token, HashMap<String, String> headers, String testCaseName) {
+		Response response = null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		try {
+			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, cookieName, token, headers);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
 
 	protected Response patchRequestWithCookieAuthHeaderAndSignature(String url, String jsonInput, String cookieName,
 			String role, String testCaseName) {
@@ -2413,6 +2431,33 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postRequestWithCookieAndOnlyPathParm(url, map, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
+	
+	protected Response postWithOnlyQueryParamAndCookie(String url, String jsonInput, String cookieName, String role,
+			String testCaseName) {
+		Response response = null;
+		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		HashMap<String, String> map = null;
+		try {
+			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
+			}.getType());
+		} catch (Exception e) {
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+		}
+
+		token = kernelAuthLib.getTokenByRole(role);
+		logger.info("******get request to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		try {
+			response = RestClient.postRequestWithQueryParm(url, map, "*/*",
+					"*/*", cookieName, token);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
