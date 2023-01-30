@@ -85,20 +85,19 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 	public void test(TestCaseDTO testCaseDTO)
 			throws AuthenticationTestException, AdminTestException, NoSuchAlgorithmException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		if(testCaseDTO.getEndPoint().contains("$PartnerKeyURL$"))
-		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
+		if (testCaseDTO.getEndPoint().contains("$PartnerKeyURL$")) {
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
-		if(testCaseDTO.getEndPoint().contains("$PartnerName$"))
-		{
+		if (testCaseDTO.getEndPoint().contains("$PartnerName$")) {
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerName$", PartnerRegistration.partnerId));
 		}
-		
+
 		String input = testCaseDTO.getInput();
-		
+
 		if (input.contains("$PRIMARYLANG$"))
 			input = input.replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0));
-		
+
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
 		String inputJson = getJsonFromTemplate(input, testCaseDTO.getInputTemplate());
@@ -133,10 +132,30 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 			}
 		} else {
 			String url = ConfigManager.getAuthDemoServiceUrl();
-			response = postWithBodyAndCookie(url + testCaseDTO.getEndPoint(), inputJson,
-					COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			response = postWithBodyAndCookie(url + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,
+					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+
+			if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
+				if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
+					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+				} else {
+					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+				}
+			} else {
+				if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+					if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+							|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+						ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+					} else {
+						ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+					}
+				}
+			}
+
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-					.doJsonOutputValidation(response.asString(), outputJson);
+					.doJsonOutputValidation(response.asString(), ActualOPJson);
 			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");

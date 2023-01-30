@@ -38,6 +38,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.ConfigManager;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 public class OtpAuthNew extends AdminTestUtil implements ITest {
@@ -45,13 +46,13 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean isInternal = false;
-	
+
 	/*
 	 * @BeforeClass public static void setPrerequiste() {
 	 * logger.info("Starting authpartner demo service...");
 	 * AuthPartnerProcessor.startProcess(); }
 	 */
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -69,7 +70,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		isInternal = Boolean.parseBoolean(context.getCurrentXmlTest().getLocalParameters().get("isInternal"));
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
 
@@ -83,39 +84,39 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		
+
 		JSONObject input = new JSONObject(testCaseDTO.getInput());
 		String individualId = null;
-		if(input.has("individualId")) {
+		if (input.has("individualId")) {
 			individualId = input.get("individualId").toString();
 			input.remove("individualId");
 		}
-		
-		individualId = uriKeyWordHandelerUri(individualId, testCaseName );
-		
+
+		individualId = uriKeyWordHandelerUri(individualId, testCaseName);
+
 		String url = ConfigManager.getAuthDemoServiceUrl();
-		
+
 		HashMap<String, String> requestBody = new HashMap<String, String>();
-		
+
 		requestBody.put("id", individualId);
 		requestBody.put("keyFileNameByPartnerName", "true");
 		requestBody.put("partnerName", PartnerRegistration.partnerId);
-		
+
 		String token = kernelAuthLib.getTokenByRole("resident");
 		
 		Response sendOtpReqResp = postWithOnlyQueryParamAndCookie(url + "/v1/identity/createOtpReqest", requestBody.toString(), "Authorization", "resident", testCaseName);
+
 		System.out.println(sendOtpReqResp);
-		
-		
+
 		String otpInput = sendOtpReqResp.getBody().asString();
 		System.out.println(otpInput);
 		String signature = sendOtpReqResp.getHeader("signature");
-		Object sendOtpBody=otpInput;  
-		//JSONObject sendOtpBody = new JSONObject(otpInput);
+		Object sendOtpBody = otpInput;
+		// JSONObject sendOtpBody = new JSONObject(otpInput);
 		System.out.println(sendOtpBody);
-		
+
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(AUTHORIZATHION_HEADERNAME, token);
 		headers.put(SIGNATURE_HEADERNAME, signature);
@@ -128,32 +129,30 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if(res.has("sendOtpResp")) {
+		if (res.has("sendOtpResp")) {
 			sendOtpResp = res.get("sendOtpResp").toString();
 			res.remove("sendOtpResp");
 		}
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
-		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpRespon.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
+				otpRespon.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValidOtp));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at Send OTP output validation");
-		
+
 		String endPoint = testCaseDTO.getEndPoint();
-		endPoint = uriKeyWordHandelerUri(endPoint, testCaseName );
-		
-		if(endPoint.contains("$partnerKeyURL$"))
-		{
+		endPoint = uriKeyWordHandelerUri(endPoint, testCaseName);
+
+		if (endPoint.contains("$partnerKeyURL$")) {
 			endPoint = endPoint.replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl);
 		}
-		if(endPoint.contains("$PartnerName$"))
-		{
+		if (endPoint.contains("$PartnerName$")) {
 			endPoint = endPoint.replace("$PartnerName$", PartnerRegistration.partnerId);
 		}
-		
+
 		String authRequest = getJsonFromTemplate(input.toString(), testCaseDTO.getInputTemplate());
 				
 		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");		
@@ -162,16 +161,36 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		
 //		response = RestClient.postRequest(url + endPoint, authRequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON );
 		
+
+		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+
+		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
+			if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+					|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
+				ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+			} else {
+				ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+			}
+		} else {
+			if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+				if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+				} else {
+					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+				}
+			}
+		}
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				.doJsonOutputValidation(response.asString(), ActualOPJson);
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-		
-		if(testCaseName.toLowerCase().contains("kyc")) {
+
+		if (testCaseName.toLowerCase().contains("kyc")) {
 			JSONObject resJsonObject = new JSONObject(response.asString());
-			String resp="";
+			String resp = "";
 			try {
 				resp = resJsonObject.get("response").toString();
 			} catch (JSONException e) {
@@ -182,7 +201,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 //			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
 //						resp, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
-		
+
 		/*
 		 * if(testCaseName.toLowerCase().contains("kyc")) { String error = null;
 		 * if(response.getBody().asString().contains("errors")) error =
@@ -191,9 +210,10 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
 		 * testCaseDTO.getEndPoint()); }
 		 */
-		
-		//if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
-			//throw new AdminTestException("Failed at Signature validation");
+
+		// if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
+		// response.getHeader(props.getProperty("signatureheaderKey"))))
+		// throw new AdminTestException("Failed at Signature validation");
 
 	}
 
@@ -216,12 +236,13 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 			Reporter.log("Exception : " + e.getMessage());
 		}
 	}
-	
+
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		//As the demo auth service will be running in a separate docker, we dont need to launch the demo auth service
-		//return;
+		// As the demo auth service will be running in a separate docker, we dont need
+		// to launch the demo auth service
+		// return;
 //		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }

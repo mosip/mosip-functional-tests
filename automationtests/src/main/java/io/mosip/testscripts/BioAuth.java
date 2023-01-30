@@ -39,6 +39,8 @@ import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.ConfigManager;
+import io.mosip.service.BaseTestCase;
+import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
 
 public class BioAuth extends AdminTestUtil implements ITest {
@@ -107,9 +109,31 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		
 		response = postWithBodyAndCookie(url + testCaseDTO.getEndPoint(), inputJSON,
 				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		
+		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+		
+		
+		if (testCaseDTO.getTestCaseName().contains("uin")||testCaseDTO.getTestCaseName().contains("UIN")) {
+			if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+					|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
+				ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+			} else {
+				ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+			}
+		} else {
+			if (testCaseDTO.getTestCaseName().contains("vid")||testCaseDTO.getTestCaseName().contains("VID")) {
+				if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+				} else {
+					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+				}
+			}
+		}
+
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				response.asString(), ActualOPJson);
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -129,6 +153,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 //						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
 		
+		
+		
 		/*
 		 * if (testCaseName.toLowerCase().contains("kyc")) { String error = null; if
 		 * (response.getBody().asString().contains("errors")) error =
@@ -147,6 +173,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		 */
 
 	}
+	
+	
 
 	
 

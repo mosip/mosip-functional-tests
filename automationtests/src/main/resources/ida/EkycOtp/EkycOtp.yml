@@ -65,7 +65,7 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Invalid_individualId_neg:
+  auth_EkycOtp_With_Invalid_individualId_uin_neg:
       endPoint: /v1/identity/authenticate?id=@@###cndjdhe77473838&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -117,7 +117,7 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Blank_individualId_neg:
+  auth_EkycOtp_With_Blank_individualId_uin_neg:
       endPoint: /v1/identity/authenticate?id=isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -169,7 +169,7 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Missing_individualId_neg:
+  auth_EkycOtp_With_Missing_individualId_uin_neg:
       endPoint: /v1/identity/authenticate?isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -221,7 +221,7 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Invalid_transactionId_Pos:
+  auth_EkycOtp_With_Invalid_transactionId_uin_Pos:
       endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -261,7 +261,7 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Blank_transactionId_Pos:
+  auth_EkycOtp_With_Blank_transactionId_uin_Pos:
       endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -381,7 +381,7 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_invalid_partner:
+  auth_EkycOtp_With_invalid_uin_partner:
       endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post

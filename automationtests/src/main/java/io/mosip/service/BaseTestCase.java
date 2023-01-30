@@ -15,8 +15,10 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.json.JSONArray;
 import org.json.simple.JSONObject;
 import org.testng.ITestContext;
+import org.testng.Reporter;
 import org.testng.annotations.AfterSuite;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -26,6 +28,7 @@ import com.nimbusds.jose.jwk.RSAKey;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
+import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.dbaccess.DBManager;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
@@ -86,6 +89,7 @@ public class BaseTestCase {
 	public static String currentModule = "masterdata";
 	public static List<String> listOfModules = null;
 	public static List<String> languageList = new ArrayList<>();
+	public static List<String> supportedIdType = new ArrayList<>();
 	public static KernelAuthentication kernelAuthLib = null;
 	public static CommonLibrary kernelCmnLib = null;
 	public static Map<?, ?> queries;
@@ -499,6 +503,47 @@ public class BaseTestCase {
 			languageList.addAll(Arrays.asList(((String) responseValue.get("mosip.optional-languages")).split(",")));
 			
 			return languageList;
+		}
+         
+		public static List<String> getSupportedIdTypesValueFromActuator() {
+
+			if (!supportedIdType.isEmpty()) {
+				return supportedIdType;
+			}
+			Response response = null;
+			// supportedIdType.add("UIN");
+			// supportedIdType.add("VID");
+
+			org.json.JSONObject responseJson = null;
+			JSONArray responseArray = null;
+			String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
+			try {
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+
+				responseJson = new org.json.JSONObject(response.getBody().asString());
+				responseArray = responseJson.getJSONArray("propertySources");
+
+				for (int i = 0, size = responseArray.length(); i < size; i++) {
+				    org.json.JSONObject eachJson = responseArray.getJSONObject(i);
+				    System.out.println("eachJson is :" + eachJson.toString());
+				    if (eachJson.get("name").toString().contains("configService:https://github.com/mosip/mosip-config/id-authentication-default.properties")) {
+				    	org.json.JSONObject  idTypes = (org.json.JSONObject) eachJson.getJSONObject("properties").get("request.idtypes.allowed");
+                        String newIdTypes =  idTypes.getString("value");
+
+						supportedIdType.addAll(Arrays.asList((newIdTypes).split(",")));
+
+						break;
+					}
+				}
+
+				return supportedIdType;
+			} catch (Exception e) {
+				logger.error("Exception " + e);
+				return supportedIdType;
+			}
+
 		}
 	
 	public static JSONObject getRequestJson(String filepath){
