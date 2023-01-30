@@ -113,12 +113,6 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-		
-		
-		
-		
-		
-		
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="idp/AddIdentity/AddIdentity.yml" />
@@ -171,6 +165,13 @@
 			<parameter name="idKeyName"	value="certificate" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerateForWla" />
+		</classes>
+	</test>
+	<test name="LinkedAuthorizationConsent">
+		<parameter name="ymlFile"
+			value="idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="OAuthDetailsRequest">
@@ -237,13 +238,6 @@
 	<test name="LinkAuthorizationCode">
 		<parameter name="ymlFile"
 			value="idp/LinkAuthorizationCode/LinkAuthorizationCode.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="LinkedAuthorizationConsent">
-		<parameter name="ymlFile"
-			value="idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>

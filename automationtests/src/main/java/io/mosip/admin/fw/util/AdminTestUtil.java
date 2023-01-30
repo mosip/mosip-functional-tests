@@ -1914,6 +1914,8 @@ public class AdminTestUtil extends BaseTestCase {
 			KeycloakUserManager.createKeyCloakUsers(genPartnerName, genPartnerEmail, "AUTH_PARTNER");
 		if (jsonString.contains("$TIMESTAMP$"))
 			jsonString = jsonString.replace("$TIMESTAMP$", generateCurrentUTCTimeStamp());
+		if (jsonString.contains("$DATESTAMP$"))
+			jsonString = jsonString.replace("$DATESTAMP$", generateCurrentUTCDateStamp());
 		if (jsonString.contains("$TIMESTAMPL$"))
 			jsonString = jsonString.replace("$TIMESTAMPL$", generateCurrentLocalTimeStamp());
 		if (jsonString.contains("$RID$"))
@@ -2265,6 +2267,13 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String generateCurrentUTCTimeStamp() {
 		Date date = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+		return dateFormat.format(date);
+	}
+	
+	public static String generateCurrentUTCDateStamp() {
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
 		return dateFormat.format(date);
 	}
