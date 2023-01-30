@@ -10,17 +10,23 @@ PersonalizedCard:
        "html": "YmFzZS02NC11cmwtZW5jb2RlZCBodG1sIGNvbnRlbnQ=",
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
 }'
+      output: '{
+       
+}'
 
    Resident_PersonalizedCard_Empty_Access_Token_Neg:
       endPoint: /resident/v1/download/personalized-card
       role:
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
-      outputTemplate: resident/PersonalizedCard/PersonalizedCardResult
+      outputTemplate: resident/error
       input: '{
        "requesttime": "$TIMESTAMP$",
        "html": "YmFzZS02NC11cmwtZW5jb2RlZCBodG1sIGNvbnRlbnQ=",
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
+}'
+      output: '{
+       
 }'
 
    Resident_PersonalizedCard_Invalid_Access_Token_Neg:
@@ -28,11 +34,14 @@ PersonalizedCard:
       role: resident
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
-      outputTemplate: resident/PersonalizedCard/PersonalizedCardResult
+      outputTemplate: resident/error
       input: '{
        "requesttime": "$TIMESTAMP$",
        "html": "YmFzZS02NC11cmwtZW5jb2RlZCBodG1sIGNvbnRlbnQ=",
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
+}'
+      output: '{
+       
 }'
 
    Resident_PersonalizedCard_Invalid_Html_Neg:
@@ -40,21 +49,28 @@ PersonalizedCard:
       role: residentNew
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
-      outputTemplate: resident/PersonalizedCard/PersonalizedCardResult
+      outputTemplate: resident/error
       input: '{
        "requesttime": "$TIMESTAMP$",
        "html": "sfdr$=",
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
 }'
+      output: '{
+       
+}'
+
 
    Resident_PersonalizedCard_Empty_Html_Neg:
       endPoint: /resident/v1/download/personalized-card
       role: residentNew
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
-      outputTemplate: resident/PersonalizedCard/PersonalizedCardResult
+      outputTemplate: resident/error
       input: '{
        "requesttime": "$TIMESTAMP$",
        "html": "",
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
+}'
+      output: '{
+       
 }'

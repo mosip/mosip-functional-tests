@@ -20,7 +20,7 @@
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
 	</test>
-<!--	<test name="GenerateVID">
+	<test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="resident/GenerateVID/createGenerateVID.yml" />
 			<parameter name="idKeyName"	value="vid" />
@@ -262,7 +262,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>-->
+	</test>
 	<test name="OAuthDetailsRequest">
 		<parameter name="ymlFile"
 			value="resident/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
@@ -310,7 +310,7 @@
 			<class name="io.mosip.testscripts.PostWithBodyWithPdfDownload" />
 		</classes>
 	</test>
-	<!--<test name="SendOtpForContactDet">
+	<test name="SendOtpForContactDet">
 		<parameter name="ymlFile"
 			value="resident/SendOtpForContactDet/SendOtpForContactDet.yml" />
 		<classes>
@@ -579,7 +579,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
 		</classes>
-	</test>-->
+	</test>
 
 <!-- On hold API's
 	<test name="AcknowledgementController">
