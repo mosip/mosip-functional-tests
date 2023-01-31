@@ -26,7 +26,12 @@ LinkAuthorizationCode:
         "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_LinkAuthorizationCode_Past_Val_requestTime_Neg:
@@ -41,7 +46,12 @@ LinkAuthorizationCode:
         "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_LinkAuthorizationCode_Future_Val_requestTime_Neg:
@@ -56,7 +66,12 @@ LinkAuthorizationCode:
         "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_LinkAuthorizationCode_Empty_Val_requestTime_Neg:
@@ -71,7 +86,12 @@ LinkAuthorizationCode:
         "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_LinkAuthorizationCode_Space_Val_requestTime_Neg:
@@ -86,7 +106,12 @@ LinkAuthorizationCode:
         "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_LinkAuthorizationCode_Invalid_TransactionId_Neg:
@@ -101,7 +126,12 @@ LinkAuthorizationCode:
         "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "response_timeout",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_LinkAuthorizationCode_Space_Val_TransactionId_Neg:
@@ -116,7 +146,12 @@ LinkAuthorizationCode:
         "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "invalid_transaction_id",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_LinkAuthorizationCode_Missing_Val_TransactionId_Neg:
@@ -131,7 +166,12 @@ LinkAuthorizationCode:
         "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "invalid_transaction_id",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_LinkAuthorizationCode_Empty_TransactionId_Neg:
@@ -146,7 +186,12 @@ LinkAuthorizationCode:
         "linkedCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$"    	
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "invalid_transaction_id",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_LinkAuthorizationCode_Invalid_linkedCode_Neg:
@@ -161,7 +206,12 @@ LinkAuthorizationCode:
         "linkedCode": "$13hj"    	
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "response_timeout",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_LinkAuthorizationCode_Misssing_linkedCode_Neg:
@@ -176,7 +226,12 @@ LinkAuthorizationCode:
         "linkedCode": "$REMOVE$"    	
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "invalid_link_code",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_LinkAuthorizationCode_Space_Val_linkedCode_Neg:
@@ -191,7 +246,12 @@ LinkAuthorizationCode:
         "linkedCode": " "    	
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "invalid_link_code",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
 
    IDP_LinkAuthorizationCode_Empty_Val_linkedCode_Neg:
@@ -206,5 +266,10 @@ LinkAuthorizationCode:
         "linkedCode": ""
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "invalid_link_code",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'

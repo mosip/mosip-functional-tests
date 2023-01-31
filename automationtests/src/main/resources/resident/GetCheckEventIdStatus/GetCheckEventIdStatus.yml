@@ -2,13 +2,12 @@ GetCheckEventIdStatus:
    Resident_GetCheckEventIdStatus_all_Valid_Smoke:
       endPoint: /resident/v1/events/{eventId}?langCode={langCode}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetCheckEventIdStatus/GetCheckEventIdStatus
       outputTemplate: resident/GetCheckEventIdStatus/GetCheckEventIdStatusResult
       input: '{
       	"eventId": "$ID:GetServiceHistory_all_Valid_Smoke_sid_eventId$",
-		"langCode": "eng"
+		"langCode": "$1STLANG$"
 }'
       output: '{
         
@@ -17,13 +16,12 @@ GetCheckEventIdStatus:
    Resident_GetCheckEventIdStatus_Invalid_eventId_Neg:
       endPoint: /resident/v1/events/{eventId}?langCode={langCode}
       role: residentNew
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetCheckEventIdStatus/GetCheckEventIdStatus
       outputTemplate: resident/error
       input: '{
       	"eventId": "164161sdsd##",
-		"langCode": "eng"
+		"langCode": "$1STLANG$"
 }'
       output: '{
         "errors": [

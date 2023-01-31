@@ -279,7 +279,7 @@ GetServiceHistory:
       	"langcode": "$1STLANG$",
       	"pageStart": "$REMOVE$",
 	    "pageFetch": "$REMOVE$",
-	    "fromDate": "2022-12-07T12:35:23.994Z",
+	    "fromDate": "2022-12-07",
 	    "toDate": "",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
