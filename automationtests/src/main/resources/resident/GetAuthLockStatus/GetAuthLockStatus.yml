@@ -1,4 +1,4 @@
-GetAuthLockStatus:
+residentNewVid:
    Resident_GetAuthLockStatus_all_Valid_Smoke:
       endPoint: /resident/v1/auth-lock-status
       role: residentNew
@@ -25,4 +25,15 @@ GetAuthLockStatus:
 		      "message": "$IGNORE$"
 		    }
 		  ]
+}'
+
+   Resident_GetAuthLockStatus_Vid_all_Valid_Smoke:
+      endPoint: /resident/v1/auth-lock-status
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetAuthLockStatus/getAuthLockStatus
+      outputTemplate: resident/GetAuthLockStatus/getAuthLockStatusResult
+      input: '{
+}'
+      output: '{
 }'
