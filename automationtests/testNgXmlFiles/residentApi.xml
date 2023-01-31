@@ -415,6 +415,27 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name="AuthLockNew">
+		<parameter name="ymlFile"
+			value="resident/AuthLockNew/CreateAuthLockNew.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GetAuthLockStatus">
+		<parameter name="ymlFile"
+			value="resident/GetAuthLockStatus/GetAuthLockStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="AuthUnlockNew">
+		<parameter name="ymlFile"
+			value="resident/AuthUnlockNew/CreateAuthUnlockNew.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="GenerateVIDNew">
 		<parameter name="ymlFile"
 			value="resident/GenerateVID/createGenerateVIDNew.yml" />
@@ -443,27 +464,6 @@
 			value="resident/GetPartnersByPartnerType/GetPartnersByPartnerType.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="AuthLockNew">
-		<parameter name="ymlFile"
-			value="resident/AuthLockNew/CreateAuthLockNew.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="GetAuthLockStatus">
-		<parameter name="ymlFile"
-			value="resident/GetAuthLockStatus/GetAuthLockStatus.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="AuthUnlockNew">
-		<parameter name="ymlFile"
-			value="resident/AuthUnlockNew/CreateAuthUnlockNew.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="RetrieveVID">

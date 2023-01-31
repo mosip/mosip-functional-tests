@@ -487,3 +487,75 @@ AuthUnlockNew:
 		    }
 		  ]
 }'
+
+   Resident_AuthUnlockNew_Demo_Valid_Vid_All:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "demo",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_Face_Valid_Vid_All:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FACE",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_Iris_Valid_Vid_All:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-IRIS",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_Finger_Valid_Vid_All:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
