@@ -302,6 +302,14 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
 		</classes>
 	</test>
+	<test name="PersonalizedCard">
+		<parameter name="ymlFile"
+			value="resident/PersonalizedCard/PersonalizedCard.yml" />
+			<parameter name="idKeyName"	value="access_token" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithPdfDownload" />
+		</classes>
+	</test>
 	<test name="SendOtpForContactDet">
 		<parameter name="ymlFile"
 			value="resident/SendOtpForContactDet/SendOtpForContactDet.yml" />
