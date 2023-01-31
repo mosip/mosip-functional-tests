@@ -48,7 +48,7 @@ UpdateUINNew:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-461",
+      "errorCode": "RES-SER-418",
       "message": "$REMOVE$"
     }
   ]
