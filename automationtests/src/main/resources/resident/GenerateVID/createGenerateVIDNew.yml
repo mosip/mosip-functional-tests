@@ -399,3 +399,23 @@ GenerateVIDNew:
     }
   ]
 }'
+
+   Resident_GenerateVID_Onetimeuse_Using_VID_Valid_Smoke_sid:
+      endPoint: /resident/v1/generate-vid
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
+      input: '{
+        "transactionID": "1234567890",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
+        "vidType": "Onetimeuse"
+    }'
+      output: '{
+      	"vid": "$IGNORE$",
+	    "message": "Notification has been sent to the provided contact detail(s)",
+	    "maskedPhone": "******3210",
+	    "maskedEmail": "res***************@gmail.com"
+}'

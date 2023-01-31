@@ -52,3 +52,39 @@ GetInputAttributeValues:
     }
   ]
 }'
+
+   Resident_GetInputAttributeValues1_Vid_all_Valid_Smoke:
+      endPoint: /resident/v1/identity/info/type/{schemaType}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
+      outputTemplate: resident/GetInputAttributeValues/getInputAttributeValuesResult
+      input: '{
+      	"schemaType":"update-demographics"
+}'
+      output: '{
+}'
+
+   Resident_GetInputAttributeValues2_Vid_all_Valid_Smoke:
+      endPoint: /resident/v1/identity/info/type/{schemaType}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
+      outputTemplate: resident/GetInputAttributeValues/getInputAttributeValuesResult
+      input: '{
+      	"schemaType":"share-credential"
+}'
+      output: '{
+}'
+
+   Resident_GetInputAttributeValues3_Vid_all_Valid_Smoke:
+      endPoint: /resident/v1/identity/info/type/{schemaType}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
+      outputTemplate: resident/GetInputAttributeValues/getInputAttributeValuesResult
+      input: '{
+      	"schemaType":"personalized-card"
+}'
+      output: '{
+}'
