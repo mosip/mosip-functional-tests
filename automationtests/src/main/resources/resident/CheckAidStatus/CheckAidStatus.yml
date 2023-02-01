@@ -21,7 +21,6 @@ CheckAidStatus:
 	    }
 }'
       output: '{
-        "transactionID": "1234567890",
         "sendOtpResp":{
 	        "maskedMobile": "XXXXXX3210",
 	        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
