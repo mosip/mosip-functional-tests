@@ -113,6 +113,21 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
+	<test name="OIDCClientUpdate">
+		<parameter name="ymlFile"
+			value="idp/UpdateOIDC/UpdateOIDC.yml" />
+		<parameter name="pathParams" value="clientId" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="GetOidcClient">
+		<parameter name="ymlFile"
+			value="idp/GetOidcClient/GetOidcClient.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="idp/AddIdentity/AddIdentity.yml" />

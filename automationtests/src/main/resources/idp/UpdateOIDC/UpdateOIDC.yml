@@ -1,5 +1,5 @@
 UpdateOIDCClient:
-   IDP_UpdateOIDC_all_Valid_Smoke:
+   Idp_UpdateOIDC_all_Valid_Smoke:
       endPoint: /v1/partnermanager/oidc/client/{clientId}
       role: partner
       restMethod: put
@@ -18,4 +18,29 @@ UpdateOIDCClient:
       output: '{
         "clientId": "$IGNORE$",
         "status": "ACTIVE"
+}'
+
+   Idp_UpdateOIDC_Invalid_clientId_Neg:
+      endPoint: /v1/partnermanager/oidc/client/{clientId}
+      role: partner
+      restMethod: put
+      inputTemplate: idp/UpdateOIDC/UpdateOIDC
+      outputTemplate: idp/error
+      input: '{
+        "requestTime": "$TIMESTAMP$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "status": "ACTIVE",
+        "grantTypes": "authorization_code",
+        "clientName": "MOSIP OIDC Client",
+        "clientId": "$DFDFF@#$",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "PMS_IDP_004",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
 }'
