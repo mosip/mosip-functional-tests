@@ -56,7 +56,7 @@ AidGetIndividualId:
       inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
       outputTemplate: mobileId/error
       input: '{
-        "otp": "111111",
+        "otp": "1234",
         "transactionID": "1234567890",
         "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
         "sendOtp":{
@@ -71,5 +71,56 @@ AidGetIndividualId:
 	        "maskedMobile": "XXXXXX3210",
 	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
 	        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+	 }
+}'
+
+   MobileId_AidGetIndividualId_Getting_With_Valid_Otp_All:
+      endPoint: /residentmobileapp/aid/get-individual-id
+      role: resident
+      restMethod: post
+      inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
+      outputTemplate: mobileId/AidGetIndividualId/aidGetIndividualIdResult
+      input: '{
+        "otp": "111111",
+        "transactionID": "1234567890",
+        "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+        "sendOtp":{
+		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
+		    "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp"
+	 }
+}'
+      output: '{
+       "aidStatus": "PROCESSED",
+        "sendOtpResp":{
+	        "maskedMobile": "XXXXXX3210",
+	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
+	        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+	 }
+}'
+
+   MobileId_AidGetIndividualId_Getting_With_Invalid_lenght_Of_AID_Neg:
+      endPoint: /residentmobileapp/aid/get-individual-id
+      role: resident
+      restMethod: post
+      inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
+      outputTemplate: mobileId/error
+      input: '{
+        "otp": "111111",
+        "transactionID": "1234567890",
+        "aid": "$ID:AddIdentit$",
+        "sendOtp":{
+		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
+		    "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp"
+	 }
+}'
+      output: '{
+       "errors": [
+    {
+      "errorCode": "RES-SER-457",
+      "errorMessage": "AID not found"
+    }
+  ]
 	 }
 }'

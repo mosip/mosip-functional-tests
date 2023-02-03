@@ -42,8 +42,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test> -->
-	
-	
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="mobileId/AddIdentity/AddIdentity.yml" />
@@ -59,7 +57,6 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
-	
 	 <test name="AuthLock">
 		<parameter name="ymlFile"
 			value="mobileId/AuthLock/createAuthLock.yml" />
@@ -90,7 +87,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	
 	<test name="DownloadCredential">
 		<parameter name="ymlFile"
 			value="mobileId/CredentialIssuance/DownloadWithReqid/DownloadWithReqid.yml" />
@@ -98,7 +94,13 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	
+	<test name="SendOTP">
+		<parameter name="ymlFile"
+			value="mobileId/SendOTP/SendOTP.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="SendOTPUIN">
 		<parameter name="ymlFile"
 			value="mobileId/SendOTPUIN/createSendOTP.yml" />
@@ -106,12 +108,11 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	
 	<test name="AidGetIndividualId">
 		<parameter name="ymlFile"
 			value="mobileId/AidGetIndividualId/AidGetIndividualId.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
 
