@@ -25,3 +25,30 @@ uploadCACert:
       output: ' {
     "status": "Upload Success."
 }'
+
+   Idp_UploadCACertificate_Misp_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/certificate/ca/upload
+      role: partner
+      restMethod: post
+      inputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificate
+      outputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificateResult
+      input: '{
+    "certificateData": "$MISPCACERT$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+    "status": "Upload Success."
+}'
+   Idp_UploadCInterCertificate_Misp_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/certificate/ca/upload
+      role: partner
+      restMethod: post
+      inputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificate
+      outputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificateResult
+      input: '{
+    "certificateData": "$MISPINTERCERT$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+    "status": "Upload Success."
+}'

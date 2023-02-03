@@ -19,6 +19,28 @@ CreateOIDCClient:
         "clientId": "$IGNORE$",
         "status": "ACTIVE"
 }'
+
+   Idp_CreateOIDCClient_Misp_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: idp/OidcClient/OIDCClient
+      outputTemplate: idp/OidcClient/OIDCClientResult
+      input: '{
+        "name": "$RANDOMID$",
+        "policyName": "$ID:DefinePolicy_Misp_Valid_Smoke_sid_name$",
+        "publicKey": "$JWKKEY$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "clientId": "$IGNORE$",
+        "status": "ACTIVE"
+}'
+
    Idp_CreateOIDCClient_InValid_logoUri_sid:
       endPoint: /v1/partnermanager/oidc/client
       role: partner

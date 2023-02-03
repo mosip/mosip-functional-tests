@@ -1966,6 +1966,24 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$PARTNEREMAIL$"))
 			jsonString = jsonString.replace("$PARTNEREMAIL$", genPartnerEmail);
+		
+		if (jsonString.contains("$MISPPOLICYGROUPDESC$"))
+			jsonString = jsonString.replace("$MISPPOLICYGROUPDESC$", genMispPolicyGroupDesc);
+
+		if (jsonString.contains("$MISPPOLICYGROUPNAME$"))
+			jsonString = jsonString.replace("$MISPPOLICYGROUPNAME$", genMispPolicyGroupName);
+
+		if (jsonString.contains("$MISPPOLICYDESC$"))
+			jsonString = jsonString.replace("$MISPPOLICYDESC$", genMispPolicyDesc);
+
+		if (jsonString.contains("$MISPPOLICYNAME$"))
+			jsonString = jsonString.replace("$MISPPOLICYNAME$", genMispPolicyName);
+
+		if (jsonString.contains("$MISPPARTNERID$"))
+			jsonString = jsonString.replace("$MISPPARTNERID$", genMispPartnerName);
+
+		if (jsonString.contains("$MISPPARTNEREMAIL$"))
+			jsonString = jsonString.replace("$MISPPARTNEREMAIL$", genMispPartnerEmail);
 
 		if (jsonString.contains("$CACERT$")) {
 
@@ -1984,6 +2002,24 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$CACERT$", caFtmCertValue);
 
 		}
+		
+		if (jsonString.contains("$MISPCACERT$")) {
+
+			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(genMispPartnerName, "RELYING_PARTY");
+			String caFtmCertValue = certificateValue.getString("caCertificate");
+
+			// caFtmCertValue = caFtmCertValue.replaceAll("\r\n", "\\\\n");
+			// caFtmCertValue = caFtmCertValue.replaceAll("\n", "\\\\n");
+
+			if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
+				caFtmCertValue = caFtmCertValue.replaceAll("\r\n", "\\\\n");
+			} else {
+				caFtmCertValue = caFtmCertValue.replaceAll("\n", "\\\\n");
+			}
+
+			jsonString = jsonString.replace("$MISPCACERT$", caFtmCertValue);
+
+		}
 
 		if (jsonString.contains("$INTERCERT$")) {
 
@@ -1999,6 +2035,21 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$INTERCERT$", interFtmCertValue);
 
 		}
+		
+		if (jsonString.contains("$MISPINTERCERT$")) {
+
+			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(genMispPartnerName, "RELYING_PARTY");
+			String interFtmCertValue = certificateValue.getString("interCertificate");
+
+			if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
+				interFtmCertValue = interFtmCertValue.replaceAll("\r\n", "\\\\n");
+			} else {
+				interFtmCertValue = interFtmCertValue.replaceAll("\n", "\\\\n");
+			}
+
+			jsonString = jsonString.replace("$MISPINTERCERT$", interFtmCertValue);
+
+		}
 
 		if (jsonString.contains("$PARTNERCERT$")) {
 
@@ -2011,6 +2062,20 @@ public class AdminTestUtil extends BaseTestCase {
 				partnerFtmCertValue = partnerFtmCertValue.replaceAll("\n", "\\\\r\\\\n");
 			}
 			jsonString = jsonString.replace("$PARTNERCERT$", partnerFtmCertValue);
+
+		}
+		
+		if (jsonString.contains("$MISPPARTNERCERT$")) {
+
+			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(genMispPartnerName, "RELYING_PARTY");
+			String partnerFtmCertValue = certificateValue.getString("partnerCertificate");
+
+			if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
+				partnerFtmCertValue = partnerFtmCertValue.replaceAll("\r\n", "\\\\r\\\\n");
+			} else {
+				partnerFtmCertValue = partnerFtmCertValue.replaceAll("\n", "\\\\r\\\\n");
+			}
+			jsonString = jsonString.replace("$MISPPARTNERCERT$", partnerFtmCertValue);
 
 		}
 
@@ -3559,7 +3624,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	public static String getWlaToken(String individualId, RSAKey jwkKey, String certData) throws Exception {
-		String tempUrl = ApplnURI.replace("-internal", "") + "/v1/idpbinding/validate-binding";
+		String tempUrl = ApplnURI + "/v1/idpbinding/validate-binding";
 		JSONObject payload = new JSONObject();
 		payload.put("iss", "test-app");
 		payload.put("aud", tempUrl);

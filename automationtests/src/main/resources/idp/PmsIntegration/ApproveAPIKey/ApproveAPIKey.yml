@@ -12,4 +12,19 @@ ApproveAPIKey:
   }'
       output: '{
         "response": "Policy mapping approved successfully"
-    }'
+}'
+
+   Idp_ApproveRejectPartnerAPIKeyReq_Misp_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/policy/{mappingkey}
+      role: partner
+      restMethod: put
+      inputTemplate: idp/PmsIntegration/ApproveAPIKey/approveAPIKey
+      outputTemplate: idp/PmsIntegration/ApproveAPIKey/approveAPIKeyResult
+      input: '{
+      "status": "Approved",
+      "mappingkey": "$ID:SubmitPartnerApiKeyRequest_Rejection_Misp_Valid_Smoke_sid_mappingkey$",
+	  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "response": "Policy mapping approved successfully"
+}'
