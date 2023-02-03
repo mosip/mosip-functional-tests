@@ -580,6 +580,21 @@
 			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
 		</classes>
 	</test>
+		<test name="GetDocumentTypes">
+		<parameter name="ymlFile"
+			value="resident/GetDocumentTypes/GetDocumentTypes.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetGenderCode">
+		<parameter name="ymlFile"
+			value="resident/GetGenderCode/GetGenderCode.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+
 
 <!-- On hold API's
 	<test name="AcknowledgementController">
