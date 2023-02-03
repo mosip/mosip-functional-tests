@@ -622,7 +622,7 @@ GetServiceHistory:
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
 	    "serviceType": "$REMOVE$",
-	    "statusFilter": "in-progress,success,failed",
+	    "statusFilter": "In progress, Success, Failed",
 	    "searchText": "$REMOVE$"
 }'
       output: '{

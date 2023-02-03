@@ -13,4 +13,20 @@ RequestAPIKeyForAuthPartner:
       output: '{
         "mappingkey": "$IGNORE$",
         "message": "Policy mapping request submitted successfully."
+}'
+
+   Idp_SubmitPartnerApiKeyRequest_Rejection_Misp_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/partners/$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$/policy/map
+      role: partner
+      restMethod: post 
+      inputTemplate: idp/PmsIntegration/RequestAPIKey/requestApiKey
+      outputTemplate: idp/PmsIntegration/RequestAPIKey/requestAPIKeyResult
+      input: '{
+        "policyName": "$ID:DefinePolicy_Misp_Valid_Smoke_sid_name$",
+        "useCaseDescription": "Need submit the payment",
+        "requesttime": "$TIMESTAMP$"
     }'
+      output: '{
+        "mappingkey": "$IGNORE$",
+        "message": "Policy mapping request submitted successfully."
+}'
