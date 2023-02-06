@@ -8,11 +8,11 @@ DownloadCredential:
       input: '{
         "requestId": "$ID:RequestCredentials__All_Valid_Smoke_sid_requestId$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$"
-    }'
+}'
       output: ' {
         "Content-Type": "application/pdf",
         "filename": "$IGNORE$"
-    }'
+}'
    MobileId_CredentialsStatus_InValid_Smoke_euin:
       endPoint: /residentmobileapp/credentialshare/download
       role: resident
@@ -22,8 +22,8 @@ DownloadCredential:
       input: '{
         "requestId": "$ID:RequestCredentials__All_Valid_Smoke_sid_requestId$",
         "individualId": "965337484848041697"
-    }'
+}'
       output: ' {
         "Content-Type": "$IGNORE$",
         "filename": "$IGNORE$"
-    }'
+}'

@@ -108,7 +108,7 @@ AidGetIndividualId:
       input: '{
         "otp": "111111",
         "transactionID": "1234567890",
-        "aid": "$ID:AddIdentit$",
+        "aid": "2745538921628455389216202302041241544770230204124154278477",
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
 		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
@@ -116,11 +116,15 @@ AidGetIndividualId:
 	 }
 }'
       output: '{
-       "errors": [
+      "errors": [
     {
       "errorCode": "RES-SER-457",
-      "errorMessage": "AID not found"
+      "errorMessage": "Invalid Input Parameter- individualId"
     }
-  ]
+  ],
+          "sendOtpResp":{
+	        "maskedMobile": "XXXXXX3210",
+	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
+	        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
 	 }
 }'

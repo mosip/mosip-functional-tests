@@ -94,9 +94,9 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="SendOTP">
+	<test name="SendOTP1">
 		<parameter name="ymlFile"
-			value="mobileId/SendOTP/SendOTP.yml" />
+			value="mobileId/SendOTP1/SendOTP.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
