@@ -3626,7 +3626,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String getWlaToken(String individualId, RSAKey jwkKey, String certData) throws Exception {
 		String tempUrl = ApplnURI + "/v1/idpbinding/validate-binding";
 		JSONObject payload = new JSONObject();
-		payload.put("iss", "test-app");
+		payload.put("iss", "postman-inji");
 		payload.put("aud", tempUrl);
 		payload.put("sub", individualId);
 		payload.put("iat", new Date());
