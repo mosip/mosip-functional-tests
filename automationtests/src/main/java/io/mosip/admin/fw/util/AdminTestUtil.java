@@ -3625,12 +3625,15 @@ public class AdminTestUtil extends BaseTestCase {
 	
 	public static String getWlaToken(String individualId, RSAKey jwkKey, String certData) throws Exception {
 		String tempUrl = ApplnURI + "/v1/idpbinding/validate-binding";
+		Instant instant = Instant.now();
+		long epochValue = instant.getEpochSecond();
+		
 		JSONObject payload = new JSONObject();
 		payload.put("iss", "postman-inji");
 		payload.put("aud", tempUrl);
 		payload.put("sub", individualId);
-		payload.put("iat", new Date());
-		payload.put("exp", new Date(new Date().getTime() + 180 * 1000));
+		payload.put("iat", epochValue);
+		payload.put("exp", epochValue + 5400);
 		
 		X509Certificate certificate = (X509Certificate) convertToCertificate(certData);
 		JsonWebSignature jwSign = new JsonWebSignature();
