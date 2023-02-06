@@ -3,8 +3,8 @@ SendOTP:
       endPoint: /resident/v1/req/otp
       role: resident
       restMethod: post
-      inputTemplate: mobileId/SendOTP/createSendOTP
-      outputTemplate: mobileId/SendOTP/createSendOTPResult
+      inputTemplate: mobileId/SendOTP1/createSendOTP
+      outputTemplate: mobileId/SendOTP1/createSendOTPResult
       input: '{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -15,11 +15,29 @@ SendOTP:
         "maskedMobile": "XXXXXX3210",
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }'
+    
+   MobileId_SendOTP_Valid_VID_All_Smoke:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      restMethod: post
+      inputTemplate: mobileId/SendOTP1/createSendOTP
+      outputTemplate: mobileId/SendOTP1/createSendOTPResult
+      input: '{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID"
+}'
+      output: '{
+        "maskedMobile": "XXXXXX3210",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+}'
+
    MobileId_SendOTP_InValid_UIN_All:
       endPoint: /residentmobileapp/req/otp
       role: resident
       restMethod: post
-      inputTemplate: mobileId/SendOTP/createSendOTP
+      inputTemplate: mobileId/SendOTP1/createSendOTP
       outputTemplate: mobileId/error
       input: '{
     "transactionID": "1234567890",
@@ -30,8 +48,31 @@ SendOTP:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-422",
-      "message": "$IGNORE$"
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "$IGNORE$"
     }
   ]
-    }'
+}'
+    
+   MobileId_SendOTP_Invalid_VID_Neg:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      restMethod: post
+      inputTemplate: mobileId/SendOTP1/createSendOTP
+      outputTemplate: mobileId/error
+      input: '{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$gyx56",
+    "individualIdType": "VID"
+}'
+      output: '{
+       "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "Invalid Input Parameter - individualId"
+    }
+  ],
+        "maskedMobile": "XXXXXX3210",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+}'
