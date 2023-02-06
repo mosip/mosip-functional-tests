@@ -29,7 +29,8 @@ SendOTP:
     "individualIdType": "UIN"
 }'
       output: '{
-        
+        "maskedMobile": "XXXXXX3210",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
 }'
 
    Resident_SendOTP_Invalid_VID_Neg:
