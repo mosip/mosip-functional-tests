@@ -15,7 +15,26 @@ definePolicyGroup:
         "name": "$IGNORE$",
         "desc": "$IGNORE$",
         "is_Active": true
-    }'
+}'
+
+   Idp_DefinePolicyGroup_Misp_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies/group/new
+      role: partner
+      restMethod: post
+      inputTemplate: idp/PmsIntegration/DefinePolicyGroup/definePolicyGroup
+      outputTemplate: idp/PmsIntegration/DefinePolicyGroup/definePolicyGroupResult
+      input: '{
+    "desc": "$MISPPOLICYGROUPDESC$",
+    "name": "$MISPPOLICYGROUPNAME$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+      "id": "$IGNORE$",
+        "name": "$IGNORE$",
+        "desc": "$IGNORE$",
+        "is_Active": true
+}'
+
    Idp_DefinePolicyGroup_in_Valid_Smoke_sid:
       endPoint: /v1/policymanager/policies/group/new
       role: partner

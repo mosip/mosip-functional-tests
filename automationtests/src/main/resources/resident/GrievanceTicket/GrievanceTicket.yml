@@ -10,9 +10,9 @@ GrievanceTicket:
 	    "eventId" : "$ID:GetServiceHistory_all_Valid_Smoke_sid_eventId$", 
 	    "name" : "FR",
 	    "emailId" : "residentautomation@gmail.com", 
-	    "alternateEmailId" : "null", 
+	    "alternateEmailId" : "", 
 	    "phoneNo" : "9876543210", 
-	    "alternatePhoneNo" : "null", 
+	    "alternatePhoneNo" : "", 
 	    "message" : "Share"
 }'
       output: '{

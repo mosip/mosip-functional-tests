@@ -18,7 +18,29 @@ createPartnerSelfRegistration:
       output: ' {
         "partnerId": "$IGNORE$",
         "status": "InProgress"
-    }'
+}'
+
+   Idp_PartnerSelfRegistration_Misp_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: idp/PmsIntegration/CreatePartner/createPartner
+      outputTemplate: idp/PmsIntegration/CreatePartner/createPartnerResult
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967372",
+    "emailId": "$MISPPARTNEREMAIL$",
+    "organizationName": "$MISPPARTNERID$",
+    "partnerId": "$MISPPARTNERID$",
+    "partnerType": "Misp_Partner",
+    "policyGroup": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "partnerId": "$IGNORE$",
+        "status": "InProgress"
+}'
+
    Idp_PartnerSelfRegistration_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/partners
       role: partner

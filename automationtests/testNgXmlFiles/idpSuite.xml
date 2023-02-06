@@ -12,22 +12,6 @@
 		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
 		
-	<test name="CreateOIDCClient">
-		<parameter name="ymlFile"
-			value="idp/CreateOIDCClient/CreateOIDCClient.yml" />
-			<parameter name="idKeyName"	value="clientId" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test> 
-	<test name="UpdateOIDCClient">
-		<parameter name="ymlFile"
-			value="idp/UpdateOIDCClient/UpdateOIDCClient.yml" />
-		<parameter name="pathParams" value="clientId" />
-		<classes>
-			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
-		</classes>
-	</test>
 	<test name="CreatePolicyGroup">
 		<parameter name="ymlFile"
 			value="idp/PmsIntegration/DefinePolicyGroup/DefinePolicyGroup.yml" />
@@ -78,7 +62,14 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	
+	<test name="GenerateMispLK">
+		<parameter name="ymlFile"
+			value="idp/PmsIntegration/GenerateMispLK/GenerateMispLK.yml" />
+		<parameter name="idKeyName"	value="licenseKey" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
 	
 	<test name="RequestAPIKeyForAuthPartner">
 		<parameter name="ymlFile"
@@ -247,6 +238,22 @@
 			value="idp/GetOidcUserInfo/GetOidcUserInfo.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="CreateOIDCClient">
+		<parameter name="ymlFile"
+			value="idp/CreateOIDCClient/CreateOIDCClient.yml" />
+			<parameter name="idKeyName"	value="clientId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test> 
+	<test name="UpdateOIDCClient">
+		<parameter name="ymlFile"
+			value="idp/UpdateOIDCClient/UpdateOIDCClient.yml" />
+		<parameter name="pathParams" value="clientId" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
 
