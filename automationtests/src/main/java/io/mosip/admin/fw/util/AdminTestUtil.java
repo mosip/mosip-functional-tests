@@ -311,6 +311,36 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
+	
+	protected Response postRequestWithCookieAuthHeader(String url, String jsonInput,
+			String cookieName, String role, String testCaseName) {
+		Response response = null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		token = kernelAuthLib.getTokenByRole(role);
+		String apiKey = null, partnerId = null;
+		JSONObject req = new JSONObject(inputJson);
+		apiKey = req.getString("apiKey");
+		req.remove("apiKey");
+		partnerId = req.getString("partnerId");
+		req.remove("partnerId");
+		
+		HashMap<String, String> headers = new HashMap<String, String>();
+		headers.put("api-key", apiKey);
+		headers.put("partner-id", partnerId);
+		headers.put(cookieName, "Bearer "+ token);
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
+		try {
+			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, req.toString(), MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, headers);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
 
 	protected Response postWithBodyAndCookieForKeyCloak(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {

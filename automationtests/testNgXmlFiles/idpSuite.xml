@@ -134,6 +134,13 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
+	<test name="SendBindingOtp">
+		<parameter name="ymlFile"
+			value="idp/SendBindingOtp/SendBindingOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="OAuthDetailsRequestLinked">
 		<parameter name="ymlFile"
 			value="idp/OAuthDetailsRequestLinked/OAuthDetailsRequest.yml" />
@@ -258,7 +265,14 @@
 	</test>
 
 <!--
-<test name="LinkedSendOtp">
+	<test name="KycAuth">
+		<parameter name="ymlFile" value="idp/KycAuth/KycAuth.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testscripts.KycAuth" />
+		</classes>
+	</test>
+	<test name="LinkedSendOtp">
 		<parameter name="ymlFile"
 			value="idp/LinkedSendOtp/LinkedSendOtp.yml" />
 		<classes>
@@ -305,14 +319,6 @@
 			value="idp/LinkedAuthenticationOtp/LinkedAuthenticationOtp.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
-		</classes>
-	</test>
-	<test name="SendBindingOtp">
-		<parameter name="ymlFile"
-			value="idp/SendBindingOtp/SendBindingOtp.yml" />
-			<parameter name="idKeyName"	value="transactionId" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 	<test name="WalletBinding">
