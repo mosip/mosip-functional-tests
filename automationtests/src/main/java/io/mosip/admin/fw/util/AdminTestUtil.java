@@ -311,6 +311,36 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
+	
+	protected Response postRequestWithCookieAuthHeader(String url, String jsonInput,
+			String cookieName, String role, String testCaseName) {
+		Response response = null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		token = kernelAuthLib.getTokenByRole(role);
+		String apiKey = null, partnerId = null;
+		JSONObject req = new JSONObject(inputJson);
+		apiKey = req.getString("apiKey");
+		req.remove("apiKey");
+		partnerId = req.getString("partnerId");
+		req.remove("partnerId");
+		
+		HashMap<String, String> headers = new HashMap<String, String>();
+		headers.put("api-key", apiKey);
+		headers.put("partner-id", partnerId);
+		headers.put(cookieName, "Bearer "+ token);
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
+		try {
+			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, req.toString(), MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, headers);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			return response;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return response;
+		}
+	}
 
 	protected Response postWithBodyAndCookieForKeyCloak(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
@@ -3625,12 +3655,15 @@ public class AdminTestUtil extends BaseTestCase {
 	
 	public static String getWlaToken(String individualId, RSAKey jwkKey, String certData) throws Exception {
 		String tempUrl = ApplnURI + "/v1/idpbinding/validate-binding";
+		Instant instant = Instant.now();
+		long epochValue = instant.getEpochSecond();
+		
 		JSONObject payload = new JSONObject();
-		payload.put("iss", "test-app");
+		payload.put("iss", "postman-inji");
 		payload.put("aud", tempUrl);
 		payload.put("sub", individualId);
-		payload.put("iat", new Date());
-		payload.put("exp", new Date(new Date().getTime() + 180 * 1000));
+		payload.put("iat", epochValue);
+		payload.put("exp", epochValue + 5400);
 		
 		X509Certificate certificate = (X509Certificate) convertToCertificate(certData);
 		JsonWebSignature jwSign = new JsonWebSignature();
