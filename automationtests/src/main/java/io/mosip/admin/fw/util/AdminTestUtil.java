@@ -185,6 +185,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static File bindingJWK1 = new File("src/main/resources/bindingJWK1.txt");
 	public static File clientPrivateKey = new File("src/main/resources/config/clientPrivateKey.txt");
 	public static final String XSRF_HEADERNAME = "X-XSRF-TOKEN";
+	public static String encryptedSessionKeyString;
 	// These variables are created to store IdP Cookie in a file and then use it for
 	// some apis
 	private static File IDPUINCookiesFile = new File("src/main/resources/IDPUINCookiesResponse.txt");
@@ -1942,6 +1943,12 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (testCaseName.contains("IDP_GenerateApiKey"))
 			KeycloakUserManager.createKeyCloakUsers(genPartnerName, genPartnerEmail, "AUTH_PARTNER");
+		if (jsonString.contains("$THUMBPRINT$")) {
+			jsonString = jsonString.replace("$THUMBPRINT$", EncryptionDecrptionUtil.idaFirThumbPrint);
+		}
+		if (jsonString.contains("$ENCRYPTEDSESSIONKEY$")) {
+			jsonString = jsonString.replace("$ENCRYPTEDSESSIONKEY$", encryptedSessionKeyString);
+		}
 		if (jsonString.contains("$TIMESTAMP$"))
 			jsonString = jsonString.replace("$TIMESTAMP$", generateCurrentUTCTimeStamp());
 		if (jsonString.contains("$DATESTAMP$"))

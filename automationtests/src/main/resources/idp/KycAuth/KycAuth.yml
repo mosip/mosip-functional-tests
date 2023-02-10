@@ -6,14 +6,14 @@ KycAuth:
       inputTemplate: idp/KycAuth/KycAuth
       outputTemplate: idp/KycAuth/KycAuthResult
       input: '{
-      	  "id": "",
-		  "version": "",
+      	  "id": "mosip.identity.kycauth",
+		  "version": "1.0",
 		  "individualId": "$ID:AddIdentity_KycAuth_smoke_Pos_UIN$",
 		  "individualIdType": "UIN",
 		  "transactionID": "1234567890",
 		  "requestTime": "$TIMESTAMP$",
-		  "specVersion": "",
-		  "thumbprint": "",
+		  "specVersion": "1.0",
+		  "thumbprint": "$THUMBPRINT$",
 		  "domainUri": "$BASEURI$",
 		  "env": "Staging",
           "serialNo": "78467171",
@@ -35,9 +35,9 @@ KycAuth:
           "timestamp": "$TIMESTAMP$",
           "purpose": "Auth",
     	  "hash": "",
-          "sessionKey": "",
+          "sessionKey": "$ENCRYPTEDSESSIONKEY$",
 		  "requestHMAC": "",
-		  "requestSessionKey": ""
+		  "requestSessionKey": "$ENCRYPTEDSESSIONKEY$"
 }'
       output: '{
         
