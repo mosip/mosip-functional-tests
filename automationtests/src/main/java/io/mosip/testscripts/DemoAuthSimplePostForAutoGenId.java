@@ -141,7 +141,12 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
 					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 				} else {
-					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+					if (testCaseDTO.getTestCaseName().contains("auth_EkycDemo")) {
+						ActualOPJson = AdminTestUtil.getRequestJson("config/errorUINKyc.json").toString();
+					} else {
+						ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+					}
+
 				}
 			} else {
 				if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
@@ -149,7 +154,12 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 							|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 						ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 					} else {
-						ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+						if (testCaseDTO.getTestCaseName().contains("auth_EkycDemo")) {
+							ActualOPJson = AdminTestUtil.getRequestJson("config/errorUINKyc.json").toString();
+						} else {
+							ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+						}
+
 					}
 				}
 			}
