@@ -1,669 +1,1316 @@
 WalletBinding:
    IDP_WalletBinding_OTP_Valid_Smoke:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/WalletBinding/WalletBindingResult
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        
-}'
-
-   IDP_WalletBinding_Vid_OTP_Valid_Smoke:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
-      restMethod: post
-      inputTemplate: idp/WalletBinding/WalletBinding
-      outputTemplate: idp/WalletBinding/WalletBindingResult
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_Vid_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
-	    "authFactorType": "OTP",
-        "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
-}'
-      output: '{
-        
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
    IDP_WalletBinding_OTP_Phone_Valid_Smoke:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/WalletBinding/WalletBindingResult
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
    IDP_WalletBinding_OTP_Email_Valid_Smoke:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/WalletBinding/WalletBindingResult
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
-   IDP_WalletBinding_Vid_OTP_Invalid_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+   IDP_WalletBinding_Vid_OTP_Valid_Smoke:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/WalletBinding/WalletBindingResult
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_Vid_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:Generate_Temporary_VID_Valid_Smoke_sid_vid$",
-	    "authFactorType": "OTP",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+        "authFactorType": "OTP",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
-    {
-      "errorCode": "invalid_individualId",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
    IDP_WalletBinding_Invalid_RequestTime_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "2022-11-08T06:35:53",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "asdf$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
+      "errors": [
     {
       "errorCode": "invalid_request",
-      "errorMessage": "$IGNORE$"
+      "errorMessage": "requestTime: invalid_request"
     }
-  ]
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
-   IDP_WalletBinding_Past_RequestTime_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+   IDP_WalletBinding_PastVal_RequestTime_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "2022-11-07T06:51:30.195Z",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "2033-11-07T06:51:30.195Z",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
+      "errors": [
     {
       "errorCode": "invalid_request",
-      "errorMessage": "$IGNORE$"
+      "errorMessage": "requestTime: invalid_request"
     }
-  ]
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
    IDP_WalletBinding_Future_RequestTime_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "2033-11-07T06:51:30.195Z",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "2033-11-07T06:51:30.195Z",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
+       "errors": [
     {
       "errorCode": "invalid_request",
-      "errorMessage": "$IGNORE$"
+      "errorMessage": "requestTime: invalid_request"
     }
-  ]
-}'
-
-   IDP_WalletBinding_invalid_transactionIdId_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
-      restMethod: post
-      inputTemplate: idp/WalletBinding/WalletBinding
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
-        "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
-}'
-      output: '{
-        "errors": [
-    {
-      "errorCode": "invalid_transactionId",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
-   IDP_WalletBinding_Missing_TransactionId_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
-      restMethod: post
-      inputTemplate: idp/WalletBinding/WalletBinding
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$REMOVE$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
-        "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
-}'
-      output: '{
-        "errors": [
-    {
-      "errorCode": "invalid_transactionId",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
-   IDP_WalletBinding_Expired_TransactionId_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
-      restMethod: post
-      inputTemplate: idp/WalletBinding/WalletBinding
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
-        "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
-}'
-      output: '{
-        "errors": [
-    {
-      "errorCode": "invalid_transactionId",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
-   IDP_WalletBinding_Null_TransactionId_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
-      restMethod: post
-      inputTemplate: idp/WalletBinding/WalletBinding
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "null",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
-        "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
-}'
-      output: '{
-        "errors": [
-    {
-      "errorCode": "invalid_transactionId",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
-   IDP_WalletBinding_Empty_TransactionId_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
-      restMethod: post
-      inputTemplate: idp/WalletBinding/WalletBinding
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
-        "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
-}'
-      output: '{
-        "errors": [
-    {
-      "errorCode": "invalid_transactionId",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
    IDP_WalletBinding_Invalid_IndividualId_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "184139896834",
-	    "authFactorType": "OTP",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$tyhg",
+        "authFactorType": "OTP",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
-    {
-      "errorCode": "invalid_individualId",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
-   IDP_WalletBinding_Diff_IndividualId_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
-      restMethod: post
-      inputTemplate: idp/WalletBinding/WalletBinding
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
-        "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
-}'
-      output: '{
-        "errors": [
-    {
-      "errorCode": "invalid_individualId",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
-   IDP_WalletBinding_Missing_IndividualId_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
-      restMethod: post
-      inputTemplate: idp/WalletBinding/WalletBinding
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$REMOVE$",
-	    "authFactorType": "OTP",
-        "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
-}'
-      output: '{
-        "errors": [
-    {
-      "errorCode": "invalid_individualId",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
    IDP_WalletBinding_Empty_IndividualId_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "",
-	    "authFactorType": "OTP",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "",
+        "authFactorType": "OTP",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
+       "errors": [
     {
-      "errorCode": "invalid_individualId",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "invalid_individual_id",
+      "errorMessage": "request.individualId: invalid_individual_id"
     }
-  ]
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
-   IDP_WalletBinding_Missing_ChallengeList_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
-      restMethod: post
-      inputTemplate: idp/WalletBinding/WalletBindingEmptyChallenge
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "challengeList": "$REMOVE$",
-        "publicKey": "$OIDCJWKKEY$"
-}'
-      output: '{
-        "errors": [
-    {
-      "errorCode": "unknown error",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
-   IDP_WalletBinding_Empty_ChallengeList_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+   IDP_WalletBinding_Null_IndividualId_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "$REMOVE$",
-        "challenge": "$REMOVE$",
-        "publicKey": "$OIDCJWKKEY$"
-}'
-      output: '{
-        "errors": [
-    {
-      "errorCode": "unknown error",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
-   IDP_WalletBinding_Missing_Challenge_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
-      restMethod: post
-      inputTemplate: idp/WalletBinding/WalletBinding
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
-        "challenge": "$REMOVE$",
-        "publicKey": "$OIDCJWKKEY$"
-}'
-      output: '{
-        "errors": [
-    {
-      "errorCode": "unknown error",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
-   IDP_WalletBinding_Missing_AuthFactorType_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
-      restMethod: post
-      inputTemplate: idp/WalletBinding/WalletBinding
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "$REMOVE$",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "null",
+        "authFactorType": "OTP",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
-    {
-      "errorCode": "unknown error",
-      "errorMessage": "$IGNORE$"
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_Missing_IndividualId_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$REMOVE$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
     }
-  ]
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "invalid_individual_id",
+      "errorMessage": "request.individualId: invalid_individual_id"
+    }
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_SpaceVal_IndividualId_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": " ",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+        "sendOtpResp": {
+         "errors": [
+    {
+      "errorCode": "invalid_individual_id",
+      "errorMessage": "request.individualId: invalid_individual_id"
+    }
+  ],
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
    IDP_WalletBinding_Invalid_AuthFactorType_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "gdkh",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "dfg5",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
-    {
-      "errorCode": "auth_failed",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
-   IDP_WalletBinding_Empty_AuthFactorType_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+   IDP_WalletBinding_Missing_AuthFactorType_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "$REMOVE$",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
-    {
-      "errorCode": "auth_failed",
-      "errorMessage": "$IGNORE$"
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_EmptyVal_AuthFactorType_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
     }
-  ]
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "invalid_auth_factor_type",
+      "errorMessage": "request.challengeList[0].authFactorType: invalid_auth_factor_type"
+    }
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
    IDP_WalletBinding_SpaceVal_AuthFactorType_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": " ",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": " ",
         "challenge": "111111",
-        "publicKey": "$OIDCJWKKEY$"
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
-    {
-      "errorCode": "auth_failed",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
-   IDP_WalletBinding_Empty_Challenge_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
-      restMethod: post
-      inputTemplate: idp/WalletBinding/WalletBinding
-      outputTemplate: idp/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
-        "challenge": "",
-        "publicKey": "$OIDCJWKKEY$"
-}'
-      output: '{
-        "errors": [
-    {
-      "errorCode": "auth_failed",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
    IDP_WalletBinding_Invalid_Challenge_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
-        "challenge": "123123",
-        "publicKey": "$OIDCJWKKEY$"
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "gd5$",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
-    {
-      "errorCode": "auth_failed",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
-   IDP_WalletBinding_Missing_PublicKey_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+   IDP_WalletBinding_EmptyVal_Challenge_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
-        "challenge": "111111",
-        "publicKey": "$REMOVE$"
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
+      "errors": [
     {
-      "errorCode": "auth_failed",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "invalid_challenge",
+      "errorMessage": "request.challengeList[0].challenge: invalid_challenge"
     }
-  ]
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
-   IDP_WalletBinding_Empty_PublicKey_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+   IDP_WalletBinding_Missing_Challenge_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
-        "challenge": "111111",
-        "publicKey": ""
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "$REMOVE$",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
+     "errors": [
     {
-      "errorCode": "auth_failed",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "invalid_challenge",
+      "errorMessage": "request.challengeList[0].challenge: invalid_challenge"
     }
-  ]
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
-   IDP_WalletBinding_Null_PublicKey_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+   IDP_WalletBinding_SpaceVal_Challenge_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
-        "challenge": "111111",
-        "publicKey": "null"
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": " ",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
+       "errors": [
     {
-      "errorCode": "auth_failed",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "invalid_challenge",
+      "errorMessage": "request.challengeList[0].challenge: invalid_challenge"
     }
-  ]
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'
 
-   IDP_WalletBinding_Invalid_PublicKey_Neg:
-      endPoint: /v1/idp/wallet-binding
-      role: resident
+   IDP_WalletBinding_Invalid_Formate_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
       outputTemplate: idp/error
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:SendBindingOtp_all_Valid_Smoke_sid_transactionId$",
-	    "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
-	    "authFactorType": "OTP",
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
         "challenge": "111111",
-        "publicKey": "xyz"
+        "format": "GT$r5",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
 }'
       output: '{
-        "errors": [
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_Missing_Formate_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "$REMOVE$",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+       "errors": [
     {
-      "errorCode": "auth_failed",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "unsupported_challenge_format",
+      "errorMessage": "request.format: unsupported_challenge_format"
+    }
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_SpaceVal_Formate_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": " ",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "unsupported_challenge_format",
+      "errorMessage": "request.challengeList[0].format: unsupported_challenge_format"
+    }
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_Empty_Formate_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "GT$r5",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_Invalid_authFactorType1_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": "hy$5",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "unsupported_challenge_format",
+      "errorMessage": "unsupported_challenge_format"
+    }
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_Missing_authFactorType1_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": "$REMOVE$",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "invalid_auth_factor_type",
+      "errorMessage": "request.authFactorType: invalid_auth_factor_type"
+    }
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_Empty_authFactorType1_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": "",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "invalid_auth_factor_type",
+      "errorMessage": "request.authFactorType: invalid_auth_factor_type"
+    }
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_SpaceVal_authFactorType1_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": " ",
+        "format1": "jwt",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "unsupported_challenge_format",
+      "errorMessage": "unsupported_challenge_format"
+    }
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_Invalid_format1_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "hju$5",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+       "errors": [
+    {
+      "errorCode": "unsupported_challenge_format",
+      "errorMessage": "request.format: unsupported_challenge_format"
+    }
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_Empty_format1_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+       "errors": [
+    {
+      "errorCode": "unsupported_challenge_format",
+      "errorMessage": "request.format: unsupported_challenge_format"
+    }
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_Missing_format1_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "$REMOVE$",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+       "errors": [
+    {
+      "errorCode": "unsupported_challenge_format",
+      "errorMessage": "request.format: unsupported_challenge_format"
+    }
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_SpaceVal_format1_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": " ",
+        "publicKey": "$JWKKEY$",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "unsupported_challenge_format",
+      "errorMessage": "unsupported_challenge_format"
     }
   ]
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_Invalid_publicKey_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "ghj$4",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
+}'
+
+   IDP_WalletBinding_Null_publicKey_Neg:
+      endPoint: /v1/idpbinding/wallet-binding
+      role: mobileauth
+      restMethod: post
+      inputTemplate: idp/WalletBinding/WalletBinding
+      outputTemplate: idp/error
+      input: '{
+        "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+        "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+        "requestTime": "$TIMESTAMP$",
+        "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+        "authFactorType": "OTP",
+        "challenge": "111111",
+        "format": "alpha-numeric",
+        "authFactorType1": "WLA",
+        "format1": "jwt",
+        "publicKey": "null",        
+        "sendOtp":{
+           "requestTime": "$TIMESTAMP$",
+           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+   	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "email"},{channel: "phone"}],
+           "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+    }
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "invalid_public_key",
+      "errorMessage": "request.publicKey: invalid_public_key"
+    }
+  ],
+        "sendOtpResp": {
+           "maskedMobile": "$IGNORE$",
+           "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+           "maskedEmail": "$IGNORE$"
+       }
 }'

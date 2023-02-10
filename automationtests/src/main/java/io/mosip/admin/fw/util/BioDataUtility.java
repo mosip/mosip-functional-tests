@@ -222,7 +222,7 @@ public class BioDataUtility extends AdminTestUtil {
 		
 		byte[] bytePayload = identityDataBlock.getBytes();
 		String payloadData = Base64.getUrlEncoder().encodeToString(bytePayload);
-		
+		payloadData= payloadData.replace("=", "");
 		//String newResponse = response.asString();
 		String signNewResponse = response.asString().replace("..", "."+ payloadData +".");
 		System.out.println(signNewResponse);

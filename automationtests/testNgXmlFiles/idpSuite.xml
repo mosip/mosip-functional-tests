@@ -141,6 +141,13 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="WalletBinding">
+		<parameter name="ymlFile"
+			value="idp/WalletBinding/WalletBinding.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+		</classes>
+	</test>
 	<test name="OAuthDetailsRequestLinked">
 		<parameter name="ymlFile"
 			value="idp/OAuthDetailsRequestLinked/OAuthDetailsRequest.yml" />
@@ -264,8 +271,8 @@
 		</classes>
 	</test>
 
-<!--
-	<test name="KycAuth">
+
+<!-- 	<test name="KycAuth">
 		<parameter name="ymlFile" value="idp/KycAuth/KycAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
@@ -320,12 +327,5 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
-	</test>
-	<test name="WalletBinding">
-		<parameter name="ymlFile"
-			value="idp/WalletBinding/WalletBinding.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>-->
+	</test> -->
 </suite>
