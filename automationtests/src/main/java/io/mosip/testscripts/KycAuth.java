@@ -35,6 +35,7 @@ import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.kernel.util.ConfigManager;
 import io.restassured.response.Response;
 
 public class KycAuth extends AdminTestUtil implements ITest {
@@ -87,49 +88,66 @@ public class KycAuth extends AdminTestUtil implements ITest {
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String jsonrequest = buildIdentityRequest(request.toString());
 		String input = getJsonFromTemplate(jsonrequest, testCaseDTO.getInputTemplate());
-		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
-		if (request.has("identityRequest")) {
-			identityRequest = request.get("identityRequest").toString();
-			request.remove("identityRequest");
-		}
-		identityRequest = buildIdentityRequest(identityRequest);
 		
-		JSONObject identityReqJson = new JSONObject(identityRequest);
-		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
-		identityReqJson.remove("identityRequestTemplate");
-		identityRequestEncUrl = identityReqJson.getString("identityRequestEncUrl");
-		identityReqJson.remove("identityRequestEncUrl");
-		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
-
-		String encryptedIdentityReq = null;
+		String requestJson = null;
 		try {
-			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
-					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
-		} catch (Exception e) {
+			requestJson = bioDataUtil.constructBiorequest(input, getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), isInternal, testCaseName);
+		} catch (Exception e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("Exception while signing oidcJWKKey for client assertion: " + e1.getMessage());
+//			e1.printStackTrace();
 		}
+		
+//		String encryptedContent = encryptIsoBioValue(bioValue, timestamp, bioValueencryptionTemplateJson,
+//				transactionId, isInternal);
+//		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
+//		if (request.has("identityRequest")) {
+//			identityRequest = request.get("identityRequest").toString();
+//			request.remove("identityRequest");
+//		}
+//		identityRequest = buildIdentityRequest(identityRequest);
+//		
+//		JSONObject identityReqJson = new JSONObject(identityRequest);
+//		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
+//		identityReqJson.remove("identityRequestTemplate");
+//		identityRequestEncUrl = identityReqJson.getString("identityRequestEncUrl");
+//		identityReqJson.remove("identityRequestEncUrl");
+//		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
+//
+//		String encryptedIdentityReq = null;
+//		try {
+//			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
+//					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
-		Map<String, String> bioAuthTempMap = (isInternal)
-				? encryptDecryptUtil.getInternalEncryptSessionKeyValue(encryptedIdentityReq)
-				: encryptDecryptUtil.getEncryptSessionKeyValue(encryptedIdentityReq);
-		// storeValue(bioAuthTempMap);
-		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
-		logger.info("************* Modification of bio auth request ******************");
-		Reporter.log("<b><u>Modification of bio auth request</u></b>");
-		authRequest = modifyRequest(authRequest, bioAuthTempMap,
-				getResourcePath() + props.getProperty("idaMappingPath"));
-		JSONObject authRequestTemp = new JSONObject(authRequest);
-		authRequestTemp.remove("env");
-		authRequestTemp.put("env", "Staging");
-		authRequest = authRequestTemp.toString();
-		testCaseDTO.setInput(authRequest);
+//		Map<String, String> bioAuthTempMap = (isInternal)
+//				? encryptDecryptUtil.getInternalEncryptSessionKeyValue(encryptedIdentityReq)
+//				: encryptDecryptUtil.getEncryptSessionKeyValue(encryptedIdentityReq);
+//		// storeValue(bioAuthTempMap);
+//		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
+//		logger.info("************* Modification of bio auth request ******************");
+//		Reporter.log("<b><u>Modification of bio auth request</u></b>");
+//		authRequest = modifyRequest(authRequest, bioAuthTempMap,
+//				getResourcePath() + props.getProperty("idaMappingPath"));
+//		JSONObject authRequestTemp = new JSONObject(authRequest);
+//		authRequestTemp.remove("env");
+//		authRequestTemp.put("env", "Staging");
+//		authRequest = authRequestTemp.toString();
+//		testCaseDTO.setInput(authRequest);
 		// storeValue(authRequest,"authRequest");
-
-		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");
-
-		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest,
+		
+		String url = ConfigManager.getAuthDemoServiceUrl();
+		
+		logger.info("******Post request Json to EndPointUrl: " + url + testCaseDTO.getEndPoint() + " *******");
+		
+		response = postWithBodyAndCookie(url + testCaseDTO.getEndPoint(), requestJson,
 				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
+//		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest,
+//				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));

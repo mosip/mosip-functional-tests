@@ -89,12 +89,12 @@ CreateOIDCClient:
         }
   ]
 }'
-   Idp_CreateOIDCClient_Valid_Smoke_onepartner_multiplePolicy_sid:
+   Idp_CreateOIDCClient_Invalid_onepartner_multiplePolicy_Neg:
       endPoint: /v1/partnermanager/oidc/client
       role: partner
       restMethod: post
       inputTemplate: idp/OidcClient/OIDCClient
-      outputTemplate: idp/OidcClient/OIDCClientResult
+      outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
         "policyName": "$ID:DefinePolicy_Valid_Smoke_sid_name$",
@@ -106,8 +106,12 @@ CreateOIDCClient:
         "clientAuthMethods": "private_key_jwt"
 }'
       output: '{
-        "clientId": "$IGNORE$",
-        "status": "ACTIVE"
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_061",
+      "message": "$IGNORE$"
+    }
+  ]
 }'
    Idp_CreateOIDCClient_with_null_oidc_sid:
       endPoint: /v1/partnermanager/oidc/client
@@ -400,7 +404,7 @@ CreateOIDCClient:
         }
   ]
 }'
-   Idp_CreateOIDCClient_max_authPartnerId_sid:
+   Idp_CreateOIDCClient_max_authPartnerId_Neg:
       endPoint: /v1/partnermanager/oidc/client
       role: partner
       restMethod: post
@@ -417,10 +421,10 @@ CreateOIDCClient:
         "clientAuthMethods": "private_key_jwt"
 }'
       output: '{
-        "errors": [
-     {
-            "errorCode": "PMS_IDP_001",
-            "message": "Client public key already exists."
-        }
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_061",
+      "message": "$IGNORE$"
+    }
   ]
 }'

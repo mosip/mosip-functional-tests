@@ -21,6 +21,8 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.jose4j.lang.JoseException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
@@ -87,6 +89,47 @@ public class BioDataUtility extends AdminTestUtil {
 
 	private String getHash(String content) {
 		return HMACUtils.digestAsPlainText(HMACUtils.generateHash(content.getBytes()));
+	}
+	
+	public String constructBiorequest(String input, String bioValueencryptionTemplateJson, boolean isInternal, String testCaseName) throws Exception {
+		String bioValue = null, timestamp = null, transactionId = null;
+		String previousHash = getHash("");
+		byte[] previousBioDataHash = null;
+		byte [] previousDataByteArr =  "".getBytes(StandardCharsets.UTF_8);
+		previousBioDataHash = generateHash(previousDataByteArr);
+		
+		JSONObject request = new JSONObject(input);
+		if (request.has("request")) {
+			JSONObject bioJson = request.getJSONObject("request").getJSONArray("biometrics").getJSONObject(0).getJSONObject("data");
+			bioValue = bioJson.getString("bioValue");
+			transactionId = bioJson.getString("transactionId");
+			timestamp = bioJson.getString("timestamp");
+		}
+		
+        byte [] currentDataByteArr = org.apache.commons.codec.binary.Base64.decodeBase64(bioValue);
+	       
+        // Here Byte Array
+        byte[] currentBioDataHash = generateHash (currentDataByteArr);
+        byte[] finalBioDataHash = new byte[currentBioDataHash.length + previousBioDataHash.length];
+        System.arraycopy(previousBioDataHash, 0, finalBioDataHash, 0, previousBioDataHash.length);
+        System.arraycopy(currentBioDataHash, 0, finalBioDataHash, previousBioDataHash.length, currentBioDataHash.length);
+		String hash = toHex (generateHash (finalBioDataHash));
+		previousBioDataHash = decodeHex(hash);
+		
+		String encryptedContent = encryptIsoBioValue(bioValue, timestamp, bioValueencryptionTemplateJson,
+				transactionId, isInternal);
+		String encryptedBioValue = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedData");
+		String encryptedSessionKey = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedSessionKey");
+		encryptedSessionKeyString = encryptedSessionKey;
+//		Replacing biovalue with encryptedBioValue
+		request.getJSONObject("request").getJSONArray("biometrics").getJSONObject(0).getJSONObject("data").put("bioValue", encryptedBioValue);
+//		Replacing hashvalue with hash
+		request.getJSONObject("request").getJSONArray("biometrics").getJSONObject(0).put("hash", hash);
+		System.out.println(encryptedSessionKeyString);
+		
+		
+		
+		return request.toString();
 	}
 
 	public String constractBioIdentityRequest(String identityRequest, String bioValueencryptionTemplateJson,
