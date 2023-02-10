@@ -91,7 +91,7 @@ SendNotifications:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_APP_013",
+      "errorCode": "PRG_PAM_APP_005",
       "message": "$IGNORE$"
     }
   ]
