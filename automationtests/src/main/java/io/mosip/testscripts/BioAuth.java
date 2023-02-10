@@ -52,9 +52,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
-		
-		
-	//AuthPartnerProcessor.startProcess();
+
+		// AuthPartnerProcessor.startProcess();
 	}
 
 	/**
@@ -90,58 +89,64 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		if(testCaseDTO.getEndPoint().contains("$PartnerKeyURL$"))
-		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
+		if (testCaseDTO.getEndPoint().contains("$PartnerKeyURL$")) {
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
-		if(testCaseDTO.getEndPoint().contains("$PartnerName$"))
-		{
+		if (testCaseDTO.getEndPoint().contains("$PartnerName$")) {
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerName$", PartnerRegistration.partnerId));
 		}
 		String request = testCaseDTO.getInput();
 		request = buildIdentityRequest(request);
 
-		
 		String inputJSON = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
 		// storeValue(authRequest,"authRequest");
 
 		String url = ConfigManager.getAuthDemoServiceUrl();
-		
-		response = postWithBodyAndCookie(url + testCaseDTO.getEndPoint(), inputJSON,
-				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
+
+		response = postWithBodyAndCookie(url + testCaseDTO.getEndPoint(), inputJSON, COOKIENAME, testCaseDTO.getRole(),
+				testCaseDTO.getTestCaseName());
+
 		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
-		
-		
-		if (testCaseDTO.getTestCaseName().contains("uin")||testCaseDTO.getTestCaseName().contains("UIN")) {
+
+		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
 			if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
 					|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
 				ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 			} else {
-				ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+				if (testCaseDTO.getTestCaseName().contains("auth_EkycBio")) {
+					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUINKyc.json").toString();
+				} else {
+					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+				}
+
 			}
 		} else {
-			if (testCaseDTO.getTestCaseName().contains("vid")||testCaseDTO.getTestCaseName().contains("VID")) {
+			if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
 				if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 				} else {
-					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+					if (testCaseDTO.getTestCaseName().contains("auth_EkycBio")) {
+						ActualOPJson = AdminTestUtil.getRequestJson("config/errorUINKyc.json").toString();
+					} else {
+						ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+					}
+
 				}
 			}
 		}
 
-
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), ActualOPJson);
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+				.doJsonOutputValidation(response.asString(), ActualOPJson);
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-		
-		if(testCaseName.toLowerCase().contains("kyc")) {
+
+		if (testCaseName.toLowerCase().contains("kyc")) {
 			JSONObject resJsonObject = new JSONObject(response.asString());
-			String res="";
+			String res = "";
 			try {
 				res = resJsonObject.get("response").toString();
 			} catch (JSONException e) {
@@ -152,9 +157,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 //			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
 //						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
-		
-		
-		
+
 		/*
 		 * if (testCaseName.toLowerCase().contains("kyc")) { String error = null; if
 		 * (response.getBody().asString().contains("errors")) error =
@@ -163,7 +166,6 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
 		 * testCaseDTO.getEndPoint()); }
 		 */
-		 
 
 		/*
 		 * if
@@ -173,10 +175,6 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		 */
 
 	}
-	
-	
-
-	
 
 	/**
 	 * The method ser current test name to result
@@ -196,8 +194,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-		
-		
+
 	}
 
 	@AfterClass
