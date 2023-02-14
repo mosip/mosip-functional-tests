@@ -169,7 +169,7 @@ public class IdpBioAuth extends AdminTestUtil implements ITest {
 					|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
 				ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 			} else {
-				ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+				ActualOPJson = AdminTestUtil.getRequestJson("config/errorUINIdp.json").toString();
 			}
 		} else {
 			if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
@@ -177,7 +177,7 @@ public class IdpBioAuth extends AdminTestUtil implements ITest {
 						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 				} else {
-					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUINIdp.json").toString();
 				}
 			}
 		}
