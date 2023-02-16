@@ -342,8 +342,8 @@ UpdatePreregistration:
   "dateOfBirth": "1996/01/01",
   "version": "1.0",
   "langCode": "$1STLANG$",
-  "requesttime": "$TIMESTAMP$"
-  "id": "",
+  "requesttime": "$TIMESTAMP$",
+  "id": ""
 }'
       output: '{
    "errors": [
