@@ -32,6 +32,7 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(PostWithBodyAndPathParams.class);
 	protected String testCaseName = "";
 	String pathParams = null;
+	String headers = null;
 	public Response response = null;
 	/**
 	 * get current testcaseName
@@ -50,6 +51,7 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		pathParams = context.getCurrentXmlTest().getLocalParameters().get("pathParams");
+		headers = context.getCurrentXmlTest().getLocalParameters().get("headers");
 		logger.info("Started executing yml: "+ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -97,8 +99,12 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 		}  
 		
 		else {
-			response = postWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
-			
+			if (testCaseName.contains("Idp_KycDemoAuth")) {
+				response = postWithPathParamsBodyHeaderAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+			}
+			else {
+				response = postWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+			}
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 					.doJsonOutputValidation(response.asString(), outputJson);
 			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));

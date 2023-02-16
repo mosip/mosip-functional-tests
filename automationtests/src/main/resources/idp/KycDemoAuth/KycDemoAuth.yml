@@ -1,6 +1,6 @@
 KycDemoAuth:
    Idp_KycDemoAuth_all_Valid_Smoke:
-      endPoint: /v1/identity/createAuthRequest?id=$ID:AddIdentity_KycAuth_smoke_Pos_UIN$&idType=UIN&isKyc=true&isInternal=false&Authtype=demo&transactionId=1234567890&requestTime=$TIMESTAMP$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$​
+      endPoint: /v1/identity/createAuthRequest?id=$ID:AddIdentity_KycAuth_smoke_Pos_UIN$&idType=UIN&isKyc=true&isInternal=false&transactionId=1234567890&requestTime=$TIMESTAMP$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$​&keyFileNameByPartnerName=true
       role: resident
       restMethod: post
       inputTemplate: idp/KycDemoAuth/KycDemoAuth
