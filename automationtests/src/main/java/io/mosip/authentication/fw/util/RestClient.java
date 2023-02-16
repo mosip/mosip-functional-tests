@@ -328,6 +328,17 @@ public class RestClient {
 		return postResponse;
 	}
 	
+	public static Response deleteRequestWithCookie(String url, Object body, String contentHeader, String acceptHeader,
+			String cookieName, String cookieValue) {
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
+		Response deleteResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
+				.cookie(cookieName, cookieValue).accept(acceptHeader).log().all().when().delete(url).then().log().all()
+				.extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + deleteResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + deleteResponse.time());
+		return deleteResponse;
+	}
+	
 	public static Response postRequestWithoutCookie(String url, Object body, String contentHeader, String acceptHeader) {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
 		Response postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader).accept(acceptHeader).log().all().when().post(url).then().log().all()
