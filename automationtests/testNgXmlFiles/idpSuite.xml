@@ -118,7 +118,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>
+	</test> 
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="idp/AddIdentity/AddIdentity.yml" />
@@ -167,7 +167,7 @@
 	<test name="OAuthDetailsRequestLinked">
 		<parameter name="ymlFile"
 			value="idp/OAuthDetailsRequestLinked/OAuthDetailsRequest.yml" />
-			<parameter name="idKeyName"	value="transactionId" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
@@ -221,7 +221,7 @@
 	<test name="OAuthDetailsRequest">
 		<parameter name="ymlFile"
 			value="idp/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
-			<parameter name="idKeyName"	value="transactionId" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
