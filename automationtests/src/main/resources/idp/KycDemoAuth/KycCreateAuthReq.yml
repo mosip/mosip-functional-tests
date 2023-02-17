@@ -14,7 +14,7 @@ KycCreateAuthReq:
       	"isNewInternalAuth": "false",
       	"isPreLTS": "false",
       	"signWithMisp": "true",
-      	"partnerName": "$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$​",
+      	"partnerName": "$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​",
       	"Authtype": "demo"
 }'
       output: '{

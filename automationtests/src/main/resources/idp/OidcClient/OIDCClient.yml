@@ -30,7 +30,7 @@ CreateOIDCClient:
         "name": "$RANDOMID$",
         "policyId": "$ID:DefinePolicy_Misp_Valid_Smoke_sid_id$",
         "publicKey": "$JWKKEY$",
-        "authPartnerId": "$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
         "redirectUris": "$IDPREDIRECTURI$",
         "grantTypes": "authorization_code",

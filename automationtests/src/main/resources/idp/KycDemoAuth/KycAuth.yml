@@ -7,7 +7,7 @@ KycDemoAuth:
       outputTemplate: idp/KycDemoAuth/KycAuthResult
       input: '{
       	"idpLk": "$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​",
-      	"partnerID": "$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$",
+      	"partnerID": "$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$",
       	"oidcClientId": "$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$",
       	"signature": "$ID:KycCreateAuthReq_AuthDemoUrl_all_Valid_Smoke_sid_authSignature$",
       	"request": "$ID:KycCreateAuthReq_AuthDemoUrl_all_Valid_Smoke_sid_authReqBody$"

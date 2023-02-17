@@ -41,7 +41,7 @@ createPartnerSelfRegistration:
         "status": "InProgress"
 }'
 
-   Idp_PartnerSelfRegistration_Valid_Smoke_sid:
+   Idp_PartnerSelfRegistration_Kyc_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/partners
       role: partner
       restMethod: post
@@ -53,8 +53,8 @@ createPartnerSelfRegistration:
     "emailId": "$PARTNEREMAIL1$",
     "organizationName": "$PARTNERID1$",
     "partnerId": "$PARTNERID1$",
-    "partnerType": "Misp_Partner",
-    "policyGroup": "$ID:DefinePolicyGroup_Valid_Smoke_sid_name$",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: ' {
