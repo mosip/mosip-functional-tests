@@ -1,6 +1,6 @@
 GetLinkStatus:
    IDP_GetLinkStatus_all_Valid_Smoke:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -15,7 +15,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Invalid_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -35,7 +35,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Past_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -55,7 +55,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Future_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -75,7 +75,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Missing_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -95,7 +95,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_SpaceVal_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -115,7 +115,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Invalid_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -135,7 +135,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Expired_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -155,7 +155,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Empty_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -175,7 +175,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Missing_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -195,7 +195,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Null_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -215,7 +215,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_SpaceVal_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -235,7 +235,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Invalid_LinkCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -255,7 +255,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Expired_LinkCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -275,7 +275,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Missing_LinkCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -295,7 +295,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Empty_LinkCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -315,7 +315,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_Null_LinkCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus
@@ -335,7 +335,7 @@ GetLinkStatus:
 }'
 
    IDP_GetLinkStatus_SpaceVal_LinkCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-status
+      endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       restMethod: post
       inputTemplate: idp/GetLinkStatus/GetLinkStatus

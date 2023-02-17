@@ -1,6 +1,6 @@
 GenerateToken:
    Resident_IDP_GenerateToken_UIN_Cookie_Valid_Smoke_sid:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: resident/GenerateToken/GenerateToken
@@ -18,7 +18,7 @@ GenerateToken:
 }'
 
    Resident_IDP_GenerateToken_Vid_Cookie_Valid_Smoke_sid:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: resident/GenerateToken/GenerateToken

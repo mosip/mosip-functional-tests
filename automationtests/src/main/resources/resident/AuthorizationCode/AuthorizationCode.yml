@@ -1,6 +1,6 @@
 AuthorizationCode:
    Resident_IDP_AuthorizationCode_All_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: resident/AuthorizationCode/AuthorizationCode
@@ -16,7 +16,7 @@ AuthorizationCode:
 }'
 
    Resident_IDP_AuthorizationCode_Vid_All_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: resident/AuthorizationCode/AuthorizationCode

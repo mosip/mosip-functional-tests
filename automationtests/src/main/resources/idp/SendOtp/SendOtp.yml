@@ -1,6 +1,6 @@
 SendOtp:
    IDP_SendOtp_all_Valid_Smoke:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -17,7 +17,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_NR_Email_Uin_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -38,7 +38,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_NR_Phone_Uin_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -59,7 +59,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Vid_all_Valid_Smoke:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -76,7 +76,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_SpaceSeparated_otpChannels_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -97,7 +97,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Vid_SpaceSeparated_otpChannels_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -118,7 +118,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Invalid_RequestTime_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -139,7 +139,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Diff_RequestTime_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -160,7 +160,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Future_RequestTime_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -181,7 +181,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Invalid_transactionId_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -202,7 +202,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Expired_transactionId_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -223,7 +223,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Missing_transactionId_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -244,7 +244,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Empty_transactionId_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -265,7 +265,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Null_transactionId_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -286,7 +286,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Invalid_individualId_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -307,7 +307,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Missing_individualId_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -328,7 +328,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Empty_individualId_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -349,7 +349,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Null_individualId_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -370,7 +370,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Invalid_OtpChannels_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -391,7 +391,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Missing_OtpChannels_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -412,7 +412,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Empty_OtpChannels_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -433,7 +433,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Null_OtpChannels_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtp
@@ -454,7 +454,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Missing_OtpChannel_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtpEmptyOtpChannel
@@ -475,7 +475,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Empty_OtpChannel_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtpEmptyOtpChannel
@@ -496,7 +496,7 @@ SendOtp:
 }'
 
    IDP_SendOtp_Null_OtpChannel_Neg:
-      endPoint: /v1/idp/authorization/send-otp
+      endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/SendOtp/SendOtpEmptyOtpChannel

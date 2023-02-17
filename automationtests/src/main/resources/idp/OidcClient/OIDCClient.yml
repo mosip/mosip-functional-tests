@@ -84,7 +84,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
      {
-            "errorCode": "PMS_PRT_061",
+            "errorCode": "PMS_PRT_058",
             "message": "Partner policy mapping not exists."
         }
   ]
@@ -97,7 +97,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyId": "$ID:DefinePolicy_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_Valid_Smoke_sid_id$",
         "publicKey": "$JWKKEY$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
@@ -207,7 +207,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
     {
-            "errorCode": "PMS_PRT_061",
+            "errorCode": "PMS_PRT_058",
             "message": "Partner policy mapping not exists."
         }
   ]
@@ -232,7 +232,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
     {
-            "errorCode": "PMS_PRT_061",
+            "errorCode": "PMS_PRT_058",
             "message": "Partner policy mapping not exists."
         }
   ]
@@ -423,7 +423,7 @@ CreateOIDCClient:
       output: '{
   "errors": [
     {
-      "errorCode": "PMS_PRT_061",
+      "errorCode": "PMS_PRT_058",
       "message": "$IGNORE$"
     }
   ]

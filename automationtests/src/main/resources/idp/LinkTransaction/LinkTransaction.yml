@@ -1,6 +1,6 @@
 LinkTransaction:
    IDP_LinkTransaction_all_Valid_Smoke_sid:
-      endPoint: /v1/idp/linked-authorization/link-transaction
+      endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       restMethod: post
       inputTemplate: idp/LinkTransaction/LinkTransaction
@@ -14,7 +14,7 @@ LinkTransaction:
 }'
 
    IDP_LinkTransaction_Invalid_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-transaction
+      endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       restMethod: post
       inputTemplate: idp/LinkTransaction/LinkTransaction
@@ -34,7 +34,7 @@ LinkTransaction:
 }'
 
    IDP_LinkTransaction_RequestTime_PastValue_Neg:
-      endPoint: /v1/idp/linked-authorization/link-transaction
+      endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       restMethod: post
       inputTemplate: idp/LinkTransaction/LinkTransaction
@@ -54,7 +54,7 @@ LinkTransaction:
 }'
 
    IDP_LinkTransaction_RequestTime_FutureValue_Neg:
-      endPoint: /v1/idp/linked-authorization/link-transaction
+      endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       restMethod: post
       inputTemplate: idp/LinkTransaction/LinkTransaction
@@ -74,7 +74,7 @@ LinkTransaction:
 }'
 
    IDP_Link_Transaction_Absent_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-transaction
+      endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       restMethod: post
       inputTemplate: idp/LinkTransaction/LinkTransaction
@@ -94,7 +94,7 @@ LinkTransaction:
 }'
 
    IDP_LinkTransaction_Space_Val_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-transaction
+      endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       restMethod: post
       inputTemplate: idp/LinkTransaction/LinkTransaction
@@ -114,7 +114,7 @@ LinkTransaction:
 }'
 
    IDP_LinkTransaction_Empty_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-transaction
+      endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       restMethod: post
       inputTemplate: idp/LinkTransaction/LinkTransaction
@@ -134,7 +134,7 @@ LinkTransaction:
 }'
 
    IDP_LinkTransaction_Invalid_LinkCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-transaction
+      endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       restMethod: post
       inputTemplate: idp/LinkTransaction/LinkTransaction
@@ -154,7 +154,7 @@ LinkTransaction:
 }'
 
    IDP_LinkTransaction_Missing_val_LinkCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-transaction
+      endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       restMethod: post
       inputTemplate: idp/LinkTransaction/LinkTransaction
@@ -174,7 +174,7 @@ LinkTransaction:
 }'
 
    IDP_LinkTransaction_Expired_LinkCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-transaction
+      endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       restMethod: post
       inputTemplate: idp/LinkTransaction/LinkTransaction
@@ -194,7 +194,7 @@ LinkTransaction:
 }'
 
    IDP_LinkTransaction_Empty_LinkCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-transaction
+      endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       restMethod: post
       inputTemplate: idp/LinkTransaction/LinkTransaction
@@ -214,7 +214,7 @@ LinkTransaction:
 }'
 
    IDP_LinkTransaction_Null_LinkCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-transaction
+      endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       restMethod: post
       inputTemplate: idp/LinkTransaction/LinkTransaction

@@ -1,6 +1,6 @@
 CreateOIDCClient:
    IDP_CreateOIDCClient_all_Valid_Smoke_sid:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -28,7 +28,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_2_Same_RelyParty_Valid_Smoke_sid:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -56,7 +56,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_RequestTime_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -88,7 +88,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Diff_RequestTime_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -120,7 +120,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_StatusCode_Invalid_Token_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: resident
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -145,7 +145,7 @@ CreateOIDCClient:
       output: "401"
       
    IDP_CreateOIDCClient_StatusCode_Diff_Token_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: idrepo
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -170,7 +170,7 @@ CreateOIDCClient:
       output: "403"
 
    IDP_CreateOIDCClient_Invalid_Range_ClientId_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -202,7 +202,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Exceding_Range_ClientId_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -234,7 +234,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_Range_ClientName_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -266,7 +266,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Exceding_Range_ClientName_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -298,7 +298,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_SpaceFirst_ClientId_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -330,7 +330,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_SpaceLast_ClientId_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -362,7 +362,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_SpaceMiddle_ClientId_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -394,7 +394,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_Range_relyingPartyId_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -426,7 +426,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_Exceding_Range_relyingPartyId_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -458,7 +458,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_Range_logoUri_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -490,7 +490,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_Exceding_Range_logoUri_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -522,7 +522,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Missing_redirectUris:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -554,7 +554,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_authContextRefs:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -586,7 +586,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Null_authContextRefs:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -618,7 +618,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Missing_authContextRefs:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -650,7 +650,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Empty_authContextRefs:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -682,7 +682,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_publicKey:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClientInvPublicKey
@@ -713,7 +713,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_UserClaims:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -745,7 +745,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Missing_grantTypes_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -777,7 +777,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Null_grantTypes_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -809,7 +809,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_grantTypes_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -841,7 +841,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Empty_grantTypes_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -873,7 +873,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Missing_clientAuthMethods_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -905,7 +905,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Invalid_clientAuthMethods_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -937,7 +937,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Empty_clientAuthMethods_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient
@@ -969,7 +969,7 @@ CreateOIDCClient:
 }'
 
    IDP_CreateOIDCClient_Null_clientAuthMethods_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client
+      endPoint: /v1/esignet/client-mgmt/oidc-client
       role: partner
       restMethod: post
       inputTemplate: idp/CreateOIDCClient/CreateOIDCClient

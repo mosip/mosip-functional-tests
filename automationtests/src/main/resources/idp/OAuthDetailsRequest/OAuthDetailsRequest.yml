@@ -1,6 +1,6 @@
 OAuthDetailsRequest:
    IDP_OAuthDetailsRequest_all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -23,7 +23,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_2nd_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -46,7 +46,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Vid_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -69,7 +69,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_SendOtp_Vid_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -92,7 +92,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Other_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -115,7 +115,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_2all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -137,7 +137,7 @@ OAuthDetailsRequest:
        
 }'
    IDP_OAuthDetailsRequest_3all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -160,7 +160,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_4all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -183,7 +183,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_5all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -205,7 +205,7 @@ OAuthDetailsRequest:
        
 }'
    IDP_OAuthDetailsRequest_6all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -227,7 +227,7 @@ OAuthDetailsRequest:
        
 }'
    IDP_OAuthDetailsRequest_7all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -249,7 +249,7 @@ OAuthDetailsRequest:
        
 }'
    IDP_OAuthDetailsRequest_8all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -271,7 +271,7 @@ OAuthDetailsRequest:
        
 }'
    IDP_OAuthDetailsRequest_9all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -293,7 +293,7 @@ OAuthDetailsRequest:
        
 }'
    IDP_OAuthDetailsRequest_10all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -315,7 +315,7 @@ OAuthDetailsRequest:
        
 }'
    IDP_OAuthDetailsRequest_11all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -337,7 +337,7 @@ OAuthDetailsRequest:
        
 }'
    IDP_OAuthDetailsRequest_12all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -359,7 +359,7 @@ OAuthDetailsRequest:
        
 }'
    IDP_OAuthDetailsRequest_13all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -382,7 +382,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_2_all_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -405,7 +405,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_ClientId_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -433,7 +433,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Empty_ClientId_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -461,7 +461,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Missing_ClientId_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -489,7 +489,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_Range_ClientId_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -517,7 +517,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Exceding_Range_ClientId_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -545,7 +545,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_redirectUri_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -573,7 +573,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Missing_redirectUri_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -601,7 +601,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Empty_redirectUri_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -629,7 +629,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Null_redirectUri_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -657,7 +657,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_ResponseType_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -685,7 +685,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Missing_ResponseType_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -713,7 +713,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Empty_ResponseType_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -741,7 +741,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Null_ResponseType_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -769,7 +769,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_Scope_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -797,7 +797,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_WithoutSpace_Scope_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -825,7 +825,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Missing_Scope_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -853,7 +853,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Empty_Scope_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -881,7 +881,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Null_Scope_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -909,7 +909,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_AcrValues_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -932,7 +932,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_Format_AcrValues_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -955,7 +955,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_WithoutSpace_AcrValues_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -978,7 +978,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Missing_AcrValues_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1001,7 +1001,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Empty_AcrValues_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1024,7 +1024,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Null_AcrValues_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1047,7 +1047,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Missing_Claims_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestEmptyClaims
@@ -1071,7 +1071,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Empty_Claims_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestEmptyClaims
@@ -1100,7 +1100,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_Claims_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestInvalidClaim
@@ -1123,7 +1123,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Missing_claimsLocales_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1146,7 +1146,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_claimsLocales_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1169,7 +1169,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Empty_claimsLocales_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1192,7 +1192,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Null_claimsLocales_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1215,7 +1215,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Missing_display_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1238,7 +1238,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_display_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1266,7 +1266,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Empty_display_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1289,7 +1289,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Null_display_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1317,7 +1317,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_SpaceValue_display_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1340,7 +1340,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_State_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1363,7 +1363,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Missing_State_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1386,7 +1386,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Empty_State_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1409,7 +1409,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Null_State_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1432,7 +1432,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Exceding_Range_State_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1455,7 +1455,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_Nonce_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1478,7 +1478,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Missing_Nonce_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1501,7 +1501,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Empty_Nonce_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1524,7 +1524,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Null_Nonce_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1547,7 +1547,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_requestTime_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1575,7 +1575,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Diff_requestTime_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1603,7 +1603,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_Prompt_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1631,7 +1631,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Missing_Prompt_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1653,7 +1653,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Empty_Prompt_Pos:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1676,7 +1676,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Null_Prompt_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1704,7 +1704,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_space_delimited_Prompt_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
@@ -1732,7 +1732,7 @@ OAuthDetailsRequest:
 }'
 
    IDP_OAuthDetailsRequest_Invalid_ResponseType_And_Scope_Neg:
-      endPoint: /v1/idp/authorization/oauth-details
+      endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
       inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest

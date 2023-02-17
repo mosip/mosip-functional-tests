@@ -1,6 +1,6 @@
 LinkAuthorizationCode:
    IDP_LinkAuthorizationCode_all_Valid_Smoke:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -15,7 +15,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Invalid_requestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -35,7 +35,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Past_Val_requestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -55,7 +55,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Future_Val_requestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -75,7 +75,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Empty_Val_requestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -95,7 +95,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Space_Val_requestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -115,7 +115,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Invalid_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -135,7 +135,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Space_Val_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -155,7 +155,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Missing_Val_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -175,7 +175,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Empty_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -195,7 +195,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Invalid_linkedCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -215,7 +215,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Misssing_linkedCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -235,7 +235,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Space_Val_linkedCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
@@ -255,7 +255,7 @@ LinkAuthorizationCode:
 }'
 
    IDP_LinkAuthorizationCode_Empty_Val_linkedCode_Neg:
-      endPoint: /v1/idp/linked-authorization/link-auth-code
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
