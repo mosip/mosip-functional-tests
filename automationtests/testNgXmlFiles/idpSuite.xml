@@ -104,7 +104,7 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-<!--	<test name="OIDCClientUpdate">
+	<test name="OIDCClientUpdate">
 		<parameter name="ymlFile"
 			value="idp/UpdateOIDC/UpdateOIDC.yml" />
 		<parameter name="pathParams" value="clientId" />
@@ -118,7 +118,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>-->
+	</test>
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="idp/AddIdentity/AddIdentity.yml" />
@@ -126,13 +126,22 @@
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
 	</test>
-	<test name="KycDemoAuth">
-		<parameter name="ymlFile" value="idp/KycDemoAuth/KycDemoAuth.yml" />
-		<parameter name="isInternal" value="false" />
+	<test name="KycCreateAuthReq">
+		<parameter name="ymlFile" value="idp/KycDemoAuth/KycCreateAuthReq.yml" />
+		<parameter name="idKeyName"	value="authReqBody,authSignature" />
+		<parameter name="queryParams" value="id,idType,isKyc,Authtype,isInternal,transactionId,isNewInternalAuth,isPreLTS,signWithMisp,partnerName" />
 		<classes>
-			<class name="io.mosip.testscripts.KycAuth" />
+			<class name="io.mosip.testscripts.PostWithBodyAndQueryParamsForAutoGenId" />
 		</classes>
 	</test>
+	<test name="KycAuth">
+		<parameter name="ymlFile" value="idp/KycDemoAuth/KycAuth.yml" />
+		<parameter name="pathParams" value="idpLk,partnerID,oidcClientId" />
+		<parameter name="headers" value="signature" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyAndPathParams" />
+		</classes>
+	</test>	
 	<test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="idp/GenerateVID/createGenerateVID.yml" />
@@ -277,16 +286,16 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
-	<test name="KycAuth">
-		<parameter name="ymlFile" value="idp/KycAuth/KycAuth.yml" />
+
+
+<!--
+	<test name="KycDemoAuth">
+		<parameter name="ymlFile" value="idp/KycDemoAuth/KycDemoAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.KycAuth" />
 		</classes>
 	</test>
-
-
-<!--
 	<test name="KycAuth">
 		<parameter name="ymlFile" value="idp/KycAuth/KycAuth.yml" />
 		<parameter name="isInternal" value="false" />

@@ -134,7 +134,7 @@ public class BaseTestCase {
 	public static String genPolicyName = "policyNameForAutomationIdp" + RandomStringUtils.randomNumeric(4);
 	public static String genMispPolicyName = "policyNameForMispIdp" + RandomStringUtils.randomNumeric(6)+ RandomStringUtils.randomNumeric(3);
 	public static String genPartnerName = "partnernameforautomationidp-" + RandomStringUtils.randomNumeric(6);
-	public static String genMispPartnerName = "partnernameformispidp-" + RandomStringUtils.randomNumeric(6)+ RandomStringUtils.randomNumeric(3);
+	public static String genMispPartnerName = "idp_" + RandomStringUtils.randomNumeric(6)+ RandomStringUtils.randomNumeric(3);
 	public static String genPartnerEmail = "automationpartneridp" + RandomStringUtils.randomNumeric(7) +"@automationMosip.com";
 	public static String genMispPartnerEmail = "misppartneridp" + RandomStringUtils.randomNumeric(4) + RandomStringUtils.randomNumeric(4) +"@automationMosip.com";
 	//public static HashMap<String, String> langcode = new HashMap<>();
