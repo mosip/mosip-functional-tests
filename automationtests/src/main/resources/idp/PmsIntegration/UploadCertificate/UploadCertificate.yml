@@ -6,6 +6,7 @@ uploadCACert:
       inputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificate
       outputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificateResult
       input: '{
+    "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
     "certificateData": "$CACERT$",
     "requesttime": "$TIMESTAMP$"
   }'
@@ -19,6 +20,7 @@ uploadCACert:
       inputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificate
       outputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificateResult
       input: '{
+    "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
     "certificateData": "$INTERCERT$",
     "requesttime": "$TIMESTAMP$"
   }'
@@ -33,6 +35,7 @@ uploadCACert:
       inputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificate
       outputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificateResult
       input: '{
+    "partnerId": "$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$",
     "certificateData": "$MISPCACERT$",
     "requesttime": "$TIMESTAMP$"
   }'
@@ -46,7 +49,37 @@ uploadCACert:
       inputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificate
       outputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificateResult
       input: '{
+    "partnerId": "$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$",
     "certificateData": "$MISPINTERCERT$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+    "status": "Upload Success."
+}'
+
+   Idp_UploadCACertificate_Kyc_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/certificate/ca/upload
+      role: partner
+      restMethod: post
+      inputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificate
+      outputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificateResult
+      input: '{
+    "partnerId": "$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$",
+    "certificateData": "$CACERT$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+    "status": "Upload Success."
+}'
+   Idp_UploadCInterCertificate_Kyc_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/certificate/ca/upload
+      role: partner
+      restMethod: post
+      inputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificate
+      outputTemplate: idp/PmsIntegration/UploadCertificate/uploadCertificateResult
+      input: '{
+    "partnerId": "$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$",
+    "certificateData": "$INTERCERT$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: ' {

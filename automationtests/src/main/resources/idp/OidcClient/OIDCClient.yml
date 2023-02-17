@@ -7,7 +7,7 @@ CreateOIDCClient:
       outputTemplate: idp/OidcClient/OIDCClientResult
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
@@ -28,9 +28,9 @@ CreateOIDCClient:
       outputTemplate: idp/OidcClient/OIDCClientResult
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_Misp_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_Misp_Valid_Smoke_sid_id$",
         "publicKey": "$JWKKEY$",
-        "authPartnerId": "$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
         "redirectUris": "$IDPREDIRECTURI$",
         "grantTypes": "authorization_code",
@@ -49,7 +49,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "djxjdjjdjdpng.cndi",
@@ -73,7 +73,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "sjsjjsjsjsjsjjs",
         "logoUri": "https://health-services.com/logo.png",
@@ -97,7 +97,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_Valid_Smoke_sid_name$",
         "publicKey": "$JWKKEY$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
@@ -121,7 +121,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
@@ -146,7 +146,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "",
+        "policyId": "",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
@@ -158,7 +158,7 @@ CreateOIDCClient:
         "errors": [
       {
             "errorCode": "PMS_COR_001",
-            "message": "Invalid request parameter - must not be blank :request.policyName"
+            "message": "Invalid request parameter - must not be blank :request.policyId"
         }
   ]
 }'
@@ -171,7 +171,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "ahajajaj123",
+        "policyId": "ahajajaj123",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
@@ -196,7 +196,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "263636gdgdg",
         "logoUri": "https://health-services.com/logo.png",
@@ -221,7 +221,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "263636gdgdg",
         "logoUri": "https://health-services.com/logo.png",
@@ -245,7 +245,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "dgdnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnndddddddhhhhhhhhhhhhhhhhhhhhhhhhhhhhhheeeeeehhhhhhhhhhyyyyy",
@@ -269,7 +269,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
@@ -292,7 +292,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
@@ -316,7 +316,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
@@ -340,7 +340,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
@@ -364,7 +364,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
@@ -388,7 +388,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY$",
         "authPartnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
@@ -412,7 +412,7 @@ CreateOIDCClient:
       outputTemplate: idp/error
       input: '{
         "name": "$RANDOMID$",
-        "policyName": "$ID:DefinePolicy_All_Valid_Smoke_sid_name$",
+        "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$",
         "publicKey": "$OIDCJWKKEY2$",
         "authPartnerId": "17777777777777777777777777hhhhhhhhhhhhhhhh7222222222222222222222hdddddd",
         "logoUri": "https://health-services.com/logo.png",

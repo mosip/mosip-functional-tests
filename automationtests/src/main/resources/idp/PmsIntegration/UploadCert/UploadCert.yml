@@ -28,3 +28,18 @@ uploadPartnerCert:
       output: ' {
   "errors": "$IGNORE$"
 }'
+
+   Idp_UploadPartnerCert_Kyc_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/certificate/upload
+      role: partner
+      restMethod: post
+      inputTemplate: idp/PmsIntegration/UploadCert/uploadCert
+      outputTemplate: idp/PmsIntegration/UploadCert/uploadCertResult
+      input: '{
+  "certificateData": "$PARTNERCERT$",
+  "partnerId": "$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+  "errors": "$IGNORE$"
+}'
