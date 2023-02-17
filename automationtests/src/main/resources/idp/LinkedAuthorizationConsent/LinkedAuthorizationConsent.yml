@@ -1,6 +1,6 @@
 LinkedAuthorizationConsent:
    IDP_LinkedAuthorizationConsent_All_Valid_Smoke_sid:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -14,7 +14,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Invalid_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -33,7 +33,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Past_Val_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -52,7 +52,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Future_Val_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -71,7 +71,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Space_Val_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -90,7 +90,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Empty_Val_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -109,7 +109,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Invalid_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -128,7 +128,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Missing_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -147,7 +147,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Empty_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -166,7 +166,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Space_Val_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -185,7 +185,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Invalid_AcceptedClaims_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -205,7 +205,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Null_AcceptedClaims_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -225,7 +225,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Invalid_permittedAuthorizeScopes_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
@@ -245,7 +245,7 @@ LinkedAuthorizationConsent:
 }'
 
    IDP_LinkedAuthorizationConsent_Null_permittedAuthorizeScopes_Neg:
-      endPoint: /v1/idp/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/consent
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent

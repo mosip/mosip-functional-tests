@@ -1,6 +1,6 @@
 AuthenticateUser:
    Resident_IDP_AuthenticateUserIDP_Otp_Valid_Smoke:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: resident/AuthenticateUser/AuthenticateUser
@@ -17,7 +17,7 @@ AuthenticateUser:
 			"individualId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_UIN$",
 		    "otpChannels": [{channel: "email"},{channel: "phone"}],
 		    "sendOtpReqTemplate": "resident/SendOtpIdp/SendOtpIdp",
-		    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+		    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
     }
 }'
       output: '{
@@ -29,7 +29,7 @@ AuthenticateUser:
 }'
 
    Resident_IDP_AuthenticateUserIDP_Vid_Otp_Valid_Smoke:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: resident/AuthenticateUser/AuthenticateUser
@@ -46,7 +46,7 @@ AuthenticateUser:
 			"individualId": "$ID:GenerateVID_Perpetual_IdP_Integ_Valid_Smoke_sid_vid$",
 		    "otpChannels": [{channel: "email"},{channel: "phone"}],
 		    "sendOtpReqTemplate": "resident/SendOtpIdp/SendOtpIdp",
-		    "sendOtpEndPoint": "/v1/idp/authorization/send-otp"
+		    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
     }
 }'
       output: '{

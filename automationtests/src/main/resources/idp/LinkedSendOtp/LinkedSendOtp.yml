@@ -1,6 +1,6 @@
 LinkedSendOtp:
    IDP_LinkedSendOtp_all_Valid_Smoke:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -17,7 +17,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_NR_Email_Uin_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -38,7 +38,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_NR_Phone_Uin_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -59,7 +59,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Vid_all_Valid_Smoke:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -76,7 +76,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_SpaceSeparated_otpChannels_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -97,7 +97,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Vid_SpaceSeparated_otpChannels_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -118,7 +118,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Invalid_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -139,7 +139,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Diff_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -160,7 +160,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Future_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -181,7 +181,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Invalid_transactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -202,7 +202,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Expired_transactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -223,7 +223,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Missing_transactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -244,7 +244,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Empty_transactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -265,7 +265,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Null_transactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -286,7 +286,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Invalid_individualId_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -307,7 +307,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Missing_individualId_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -328,7 +328,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Empty_individualId_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -349,7 +349,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Null_individualId_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -370,7 +370,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Invalid_OtpChannels_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -391,7 +391,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Missing_OtpChannels_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -412,7 +412,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Empty_OtpChannels_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -433,7 +433,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Null_OtpChannels_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtp
@@ -454,7 +454,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Missing_OtpChannel_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtpEmptyOtpChannel
@@ -475,7 +475,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Empty_OtpChannel_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtpEmptyOtpChannel
@@ -496,7 +496,7 @@ LinkedSendOtp:
 }'
 
    IDP_LinkedSendOtp_Null_OtpChannel_Neg:
-      endPoint: /v1/idp/linked-authorization/send-otp
+      endPoint: /v1/esignet/linked-authorization/send-otp
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedSendOtp/LinkedSendOtpEmptyOtpChannel

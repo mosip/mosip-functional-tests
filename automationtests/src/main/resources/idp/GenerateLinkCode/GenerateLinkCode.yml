@@ -1,6 +1,6 @@
 GenerateLinkCode:
    IDP_GenerateLinkCode_all_Valid_Smoke_sid:
-      endPoint: /v1/idp/linked-authorization/link-code
+      endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateLinkCode/GenerateLinkCode
@@ -14,7 +14,7 @@ GenerateLinkCode:
 }'
 
    IDP_GenerateLinkCode_Invalid_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-code
+      endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateLinkCode/GenerateLinkCode
@@ -33,7 +33,7 @@ GenerateLinkCode:
 }'
 
    IDP_GenerateLinkCode_Past_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-code
+      endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateLinkCode/GenerateLinkCode
@@ -52,7 +52,7 @@ GenerateLinkCode:
 }'
 
    IDP_GenerateLinkCode_Future_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-code
+      endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateLinkCode/GenerateLinkCode
@@ -71,7 +71,7 @@ GenerateLinkCode:
 }'
 
    IDP_GenerateLinkCode_Missing_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-code
+      endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateLinkCode/GenerateLinkCode
@@ -90,7 +90,7 @@ GenerateLinkCode:
 }'
 
    IDP_GenerateLinkCode_Space_As_RequestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/link-code
+      endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateLinkCode/GenerateLinkCode
@@ -109,7 +109,7 @@ GenerateLinkCode:
 }'
 
    IDP_GenerateLinkCode_Invalid_transactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-code
+      endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateLinkCode/GenerateLinkCode
@@ -128,7 +128,7 @@ GenerateLinkCode:
 }'
 
    IDP_GenerateLinkCode_Expired_transactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-code
+      endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateLinkCode/GenerateLinkCode
@@ -147,7 +147,7 @@ GenerateLinkCode:
 }'
 
    IDP_GenerateLinkCode_Missing_transactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-code
+      endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateLinkCode/GenerateLinkCode
@@ -166,7 +166,7 @@ GenerateLinkCode:
 }'
 
    IDP_GenerateLinkCode_Empty_transactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-code
+      endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateLinkCode/GenerateLinkCode
@@ -185,7 +185,7 @@ GenerateLinkCode:
 }'
 
    IDP_GenerateLinkCode_Null_transactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/link-code
+      endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateLinkCode/GenerateLinkCode

@@ -1,6 +1,6 @@
 UpdateOIDCClient:
    IDP_UpdateOIDCClient_all_Valid_Smoke:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -27,7 +27,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_2_all_Valid_Smoke:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -54,7 +54,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Invalid_RequestTime_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -85,7 +85,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Diff_RequestTime_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -116,7 +116,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Invalid_clientId_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -147,7 +147,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_StatusCode_Invalid_Token_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: resident
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -171,7 +171,7 @@ UpdateOIDCClient:
       output: "401"
       
    IDP_UpdateOIDCClient_StatusCode_Diff_Token_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: idrepo
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -195,7 +195,7 @@ UpdateOIDCClient:
       output: "403"
 
    IDP_UpdateOIDCClient_Invalid_Range_ClientId_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -226,7 +226,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Exceding_Range_ClientId_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -257,7 +257,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Invalid_status_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -288,7 +288,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Invalid_Range_logoUri_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -319,7 +319,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Exceding_Range_logoUri_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -350,7 +350,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Empty_redirectUris_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -381,7 +381,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Missing_redirectUris_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -412,7 +412,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Invalid_userClaims_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -443,7 +443,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Invalid_authContextRefs_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -474,7 +474,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Empty_authContextRefs_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -505,7 +505,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Null_authContextRefs_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -536,7 +536,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Missing_authContextRefs_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -567,7 +567,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Invalid_grantTypes_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -598,7 +598,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Null_grantTypes_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -629,7 +629,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Empty_grantTypes_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -660,7 +660,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Missing_grantTypes_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -691,7 +691,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Invalid_clientAuthMethods_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -722,7 +722,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Null_clientAuthMethods_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -753,7 +753,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Empty_clientAuthMethods_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -784,7 +784,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Missing_clientAuthMethods_Neg:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -815,7 +815,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Invalid_Range_ClientName:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient
@@ -846,7 +846,7 @@ UpdateOIDCClient:
 }'
 
    IDP_UpdateOIDCClient_Exceding_Range_ClientName:
-      endPoint: /v1/idp/client-mgmt/oidc-client/{clientId}
+      endPoint: /v1/esignet/client-mgmt/oidc-client/{clientId}
       role: partner
       restMethod: put
       inputTemplate: idp/UpdateOIDCClient/UpdateOIDCClient

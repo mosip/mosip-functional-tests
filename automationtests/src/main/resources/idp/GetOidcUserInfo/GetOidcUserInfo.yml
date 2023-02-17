@@ -1,6 +1,6 @@
 GetOidcUserInfo:
    IDP_GetOidcUserInfo_IdpAccessToken_StatusCode_Valid_Smoke_sid:
-      endPoint: /v1/idp/oidc/userinfo
+      endPoint: /v1/esignet/oidc/userinfo
       role: resident
       restMethod: get
       inputTemplate: idp/GetOidcUserInfo/GetOidcUserInfo
@@ -11,7 +11,7 @@ GetOidcUserInfo:
       output: "200"
       
    IDP_GetOidcUserInfo_IdpAccessToken_StatusCode_Invalid_Token_Neg:
-      endPoint: /v1/idp/oidc/userinfo
+      endPoint: /v1/esignet/oidc/userinfo
       role: resident
       restMethod: get
       inputTemplate: idp/GetOidcUserInfo/GetOidcUserInfo
