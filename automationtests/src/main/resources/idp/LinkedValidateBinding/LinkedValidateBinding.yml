@@ -1,6 +1,6 @@
 LinkedValidateBinding:
    IDP_LinkedValidateBinding_Otp_all_Valid_Smoke:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -16,7 +16,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Invalid_requestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -32,7 +32,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Past_Val_requestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -48,7 +48,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Future_Val_requestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -64,7 +64,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Empty_Val_requestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -80,7 +80,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Missing_Val_requestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -96,7 +96,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Space_Val_requestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -112,7 +112,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Null_Val_requestTime_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -128,7 +128,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Invalid_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -144,7 +144,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Invalid_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -160,7 +160,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Missing_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -176,7 +176,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Empty_Val_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -192,7 +192,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Null_Val_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -208,7 +208,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Space_Val_TransactionId_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -224,7 +224,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Invalid_individualId_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -240,7 +240,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Missing_Val_individualId_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -256,7 +256,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Space_Val_individualId_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -272,7 +272,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Null_Val_individualId_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding
@@ -288,7 +288,7 @@ LinkedValidateBinding:
 }'
 
    IDP_LinkedValidateBinding_Empty_Val_individualId_Neg:
-      endPoint: /v1/idp/linked-authorization/validate-binding
+      endPoint: /v1/esignet/linked-authorization/validate-binding
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedValidateBinding/LinkedValidateBinding

@@ -1,6 +1,6 @@
 GenerateToken:
    IDP_GenerateToken_Valid_Smoke_sid:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -18,7 +18,7 @@ GenerateToken:
 }'
  
    IDP_GenerateToken_Invalid_ClientId_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -36,7 +36,7 @@ GenerateToken:
  }'
  
    IDP_GenerateToken_Missing_ClientId_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -54,7 +54,7 @@ GenerateToken:
  }'
  
    IDP_GenerateToken_Null_ClientId_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -72,7 +72,7 @@ GenerateToken:
  }'
  
    IDP_GenerateToken_Empty_ClientId_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -90,7 +90,7 @@ GenerateToken:
  }'
 
    IDP_GenerateToken_Invalid_Grant_type_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -108,7 +108,7 @@ GenerateToken:
  }'
  
    IDP_GenerateToken_Missing_Grant_type_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -126,7 +126,7 @@ GenerateToken:
  }'
  
    IDP_GenerateToken_Empty_Grant_type_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -144,7 +144,7 @@ GenerateToken:
  }'
  
    IDP_GenerateToken_Null_Grant_type_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -162,7 +162,7 @@ GenerateToken:
  }'
  
    IDP_GenerateToken_SpaceFirst_Grant_type_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -180,7 +180,7 @@ GenerateToken:
  }'
  
    IDP_GenerateToken_SpaceLast_Grant_type_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -198,7 +198,7 @@ GenerateToken:
  }'
  
    IDP_GenerateToken_Invalid_Code_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -216,7 +216,7 @@ GenerateToken:
  }'
  
    IDP_GenerateToken_Missing_Code_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -234,7 +234,7 @@ GenerateToken:
  }'
  
    IDP_GenerateToken_Empty_Code_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -252,7 +252,7 @@ GenerateToken:
  }'
 
    IDP_GenerateToken_Null_Code_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -270,7 +270,7 @@ GenerateToken:
  }'
  
    IDP_GenerateToken_Used_Code_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -288,7 +288,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Invalid_Redirect_uri_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -306,7 +306,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Missing_Redirect_uri_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -324,7 +324,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Empty_Redirect_uri_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -342,7 +342,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Null_Redirect_uri_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -360,7 +360,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Incorrect_ClientAssertionType_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -378,7 +378,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Missing_ClientAssertionType_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -396,7 +396,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Empty_ClientAssertionType_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -414,7 +414,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Null_ClientAssertionType_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -432,7 +432,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_SpaceFirst_ClientAssertionType_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -450,7 +450,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_SpaceLast_ClientAssertionType_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -468,7 +468,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Invalid_ClientAssertionType_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -486,7 +486,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Invalid_ClientAssertion_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -504,7 +504,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Missing_ClientAssertion_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -522,7 +522,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Empty_ClientAssertion_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken
@@ -540,7 +540,7 @@ GenerateToken:
 }'
 
    IDP_GenerateToken_Null_ClientAssertion_Neg:
-      endPoint: /v1/idp/oauth/token
+      endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
       inputTemplate: idp/GenerateToken/GenerateToken

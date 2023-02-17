@@ -1,6 +1,6 @@
 LinkedAuthenticationWla:
    IDP_LinkedAuthenticationWla_all_Valid_Smoke_sid:
-      endPoint: /v1/idp/linked-authorization/authenticate
+      endPoint: /v1/esignet/linked-authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/LinkedAuthenticationWla/LinkedAuthenticationWla

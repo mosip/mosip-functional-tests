@@ -1,6 +1,6 @@
 AuthorizationCode:
    IDP_AuthorizationCode_All_Valid_Smoke_sid:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -15,7 +15,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Invalid_TransactionId_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -35,7 +35,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Missing_TransactionId_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -55,7 +55,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Empty_TransactionId_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -75,7 +75,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Null_TransactionId_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -95,7 +95,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Expired_TransactionId_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -115,7 +115,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Empty_PermittedAuthorizeScopes_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -136,7 +136,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Invalid_PermittedAuthorizeScopes_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -157,7 +157,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Null_PermittedAuthorizeScopes_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -178,7 +178,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Invalid_acceptedClaims_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -198,7 +198,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Missing_Claims_Pos:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -213,7 +213,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Empty_acceptedClaims_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -233,7 +233,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Null_acceptedClaims_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -253,7 +253,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Invalid_requestTime_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -273,7 +273,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Diff_requestTime_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
@@ -293,7 +293,7 @@ AuthorizationCode:
 }'
 
    IDP_AuthorizationCode_Future_RequestTime_Neg:
-      endPoint: /v1/idp/authorization/auth-code
+      endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: idp/AuthorizationCode/AuthorizationCode

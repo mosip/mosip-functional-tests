@@ -1,6 +1,6 @@
 AuthenticateUser:
 #   IDP_AuthenticateUserIDP_Pin_Valid_Smoke:
-#     endPoint: /v1/idp/authorization/authenticate
+#     endPoint: /v1/esignet/authorization/authenticate
 #      role: resident
 #      restMethod: post
 #      inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -17,7 +17,7 @@ AuthenticateUser:
 #}'
 #
    IDP_AuthenticateUserIDP_Otp_Valid_Smoke:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -34,7 +34,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Otp_Vid_Valid_Smoke:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -51,7 +51,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Otp_Vid_Invalid_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -68,7 +68,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_2_Otp_UnAuthenticated_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -90,7 +90,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Invalid_RequestTime_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -112,7 +112,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Diff_RequestTime_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -134,7 +134,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Future_RequestTime_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -156,7 +156,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Invalid_TransactionId_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -178,7 +178,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Expired_TransactionId_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -200,7 +200,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Missing_TransactionId_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -222,7 +222,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Empty_TransactionId_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -244,7 +244,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Null_TransactionId_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -266,7 +266,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Invalid_IndividualId_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -288,7 +288,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Missing_IndividualId_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -310,7 +310,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Empty_IndividualId_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -332,7 +332,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Null_IndividualId_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -354,7 +354,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Invalid_AuthFactorType_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -376,7 +376,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Missing_AuthFactorType_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -398,7 +398,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Empty_AuthFactorType_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -420,7 +420,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Null_AuthFactorType_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -442,7 +442,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Diff_AuthFactorType_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -464,7 +464,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Invalid_Challenge_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -486,7 +486,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Missing_Challenge_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -508,7 +508,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Empty_Challenge_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -530,7 +530,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Null_Challenge_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
@@ -552,7 +552,7 @@ AuthenticateUser:
 }'
 
    IDP_AuthenticateUserIDP_Invalid_Otp_Challenge_Neg:
-      endPoint: /v1/idp/authorization/authenticate
+      endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
