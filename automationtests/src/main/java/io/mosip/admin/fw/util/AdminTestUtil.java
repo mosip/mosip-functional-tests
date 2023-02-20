@@ -287,6 +287,13 @@ public class AdminTestUtil extends BaseTestCase {
 				 transactionId = request.getJSONObject("request").get("transactionId").toString();
 			 }
 		}
+		 if (encodedResp.contains("\u200B")) {
+			 encodedResp = encodedResp.replaceAll("\u200B", "");
+			}
+		 if (encodedResp.contains("\\p{Cf}")) {
+			 encodedResp = encodedResp.replaceAll("\\p{Cf}", "");
+			}
+		
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
