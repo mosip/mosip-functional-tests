@@ -186,6 +186,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static File bindingJWK1 = new File("src/main/resources/bindingJWK1.txt");
 	public static File clientPrivateKey = new File("src/main/resources/config/clientPrivateKey.txt");
 	public static final String XSRF_HEADERNAME = "X-XSRF-TOKEN";
+	public static final String OAUTH_HASH_HEADERNAME = "oauth-details-hash";
+	public static final String OAUTH_TRANSID_HEADERNAME = "oauth-details-key";
 	public static String encryptedSessionKeyString;
 	// These variables are created to store IdP Cookie in a file and then use it for
 	// some apis
@@ -272,8 +274,22 @@ public class AdminTestUtil extends BaseTestCase {
 			String role, String testCaseName) {
 		Response response = null;
 		HashMap<String, String> headers = new HashMap<String, String>();
-		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		JSONObject request = new JSONObject(inputJson);
+		String encodedResp = null;
+		String transactionId = null;
+		 if(request.has("encodedHash")) {
+			 encodedResp = request.get("encodedHash").toString();
+			 request.remove("encodedHash");
+		}
+		 if(request.has("request")) {
+			 if(request.getJSONObject("request").has("transactionId")) {
+				 transactionId = request.getJSONObject("request").get("transactionId").toString();
+			 }
+		}
+		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
+		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
+		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
 		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
@@ -282,6 +298,7 @@ public class AdminTestUtil extends BaseTestCase {
 			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
 		} catch (Exception e) {
@@ -294,8 +311,23 @@ public class AdminTestUtil extends BaseTestCase {
 			String cookieName, String role, String testCaseName, String idKeyName) {
 		Response response = null;
 		HashMap<String, String> headers = new HashMap<String, String>();
-		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		JSONObject request = new JSONObject(inputJson);
+		String encodedResp = null;
+		String transactionId = null;
+		 if(request.has("encodedHash")) {
+			 encodedResp = request.get("encodedHash").toString();
+			 request.remove("encodedHash");
+		}
+		 if(request.has("request")) {
+			 if(request.getJSONObject("request").has("transactionId")) {
+				 transactionId = request.getJSONObject("request").get("transactionId").toString();
+			 }
+		}
+		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
+		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
+		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
+		
 		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
