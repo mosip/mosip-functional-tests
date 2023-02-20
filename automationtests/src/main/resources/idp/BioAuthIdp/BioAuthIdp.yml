@@ -6,6 +6,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+       "encodedHash": "$ID:OAuthDetailsRequest_13all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_13all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -42,6 +43,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+      "encodedHash": "$ID:OAuthDetailsRequest_2all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_2all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -78,6 +80,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+       "encodedHash": "$ID:OAuthDetailsRequest_3all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_3all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -114,6 +117,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_4all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_4all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -150,6 +154,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+       "encodedHash": "$ID:OAuthDetailsRequest_5all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_5all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -186,6 +191,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+       "encodedHash": "$ID:OAuthDetailsRequest_6all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_6all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -222,6 +228,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_7all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_7all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -258,6 +265,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_8all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_8all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -294,6 +302,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_9all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_9all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -330,6 +339,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_10all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_10all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -366,6 +376,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+         "encodedHash": "$ID:OAuthDetailsRequest_11all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_11all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -402,6 +413,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_12all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_12all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -438,6 +450,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+       "encodedHash": "$ID:OAuthDetailsRequest_13all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_13all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
@@ -474,6 +487,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+       "encodedHash": "$ID:OAuthDetailsRequest_2all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_2all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
@@ -510,6 +524,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_3all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_3all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
@@ -546,6 +561,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+       "encodedHash": "$ID:OAuthDetailsRequest_3all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
@@ -582,6 +598,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_5all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_5all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
@@ -618,6 +635,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_6all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_6all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
@@ -654,6 +672,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_7all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_7all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
@@ -690,6 +709,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_8all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_8all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
@@ -726,6 +746,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_9all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_9all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
@@ -762,6 +783,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_10all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_10all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
@@ -798,6 +820,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_11all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_11all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
@@ -834,6 +857,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_12all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:OAuthDetailsRequest_12all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",

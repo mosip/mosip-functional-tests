@@ -6,12 +6,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
@@ -35,12 +37,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
@@ -64,12 +68,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
@@ -93,12 +99,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Temporary_VID_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
@@ -128,12 +136,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Valid_Parameters_Sce2_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
@@ -163,12 +173,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "2022-11-07T06:51:30",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -198,12 +210,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "2022-11-07T06:51:30.195Z",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -233,12 +247,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "2033-11-07T06:51:30.195Z",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -268,12 +284,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "transactionId",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -303,12 +321,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+      "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "eZJZ0j3EeZJ_d9CsSakCoA0-Trbm6fOECY6J_q3dZtc",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -338,6 +358,7 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$REMOVE$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -345,6 +366,7 @@ AuthenticateUser:
       	"challenge" : "111111",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
@@ -373,12 +395,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -408,12 +432,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "null",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -443,12 +469,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "@#WE$#",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -478,12 +506,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$REMOVE$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -513,6 +543,7 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "",
@@ -520,6 +551,7 @@ AuthenticateUser:
       	"challenge" : "111111",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
@@ -548,12 +580,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "null",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -583,12 +617,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "#$%FDF",
       	"challenge" : "111111",
         "sendOtp":{
+     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -618,12 +654,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "$REMOVE$",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -653,12 +691,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -688,12 +728,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "null",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -723,12 +765,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "bio",
       	"challenge" : "111111",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -758,12 +802,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "23432",
         "sendOtp":{
+     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -793,12 +839,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "$REMOVE$",
         "sendOtp":{
+     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -828,12 +876,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -863,12 +913,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "null",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
@@ -898,12 +950,14 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
+      "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "113453",
         "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
     "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
