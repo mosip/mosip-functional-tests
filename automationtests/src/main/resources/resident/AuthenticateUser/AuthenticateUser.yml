@@ -6,12 +6,14 @@ AuthenticateUser:
       inputTemplate: resident/AuthenticateUser/AuthenticateUser
       outputTemplate: resident/AuthenticateUser/AuthenticateUserResult
       input: '{
+        "encodedHash": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+            "encodedHash": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
 		    "requestTime": "$TIMESTAMP$",
 		    "transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
 			"individualId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_UIN$",
@@ -35,12 +37,14 @@ AuthenticateUser:
       inputTemplate: resident/AuthenticateUser/AuthenticateUser
       outputTemplate: resident/AuthenticateUser/AuthenticateUserResult
       input: '{
+        "encodedHash": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:GenerateVID_Perpetual_IdP_Integ_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
+            "encodedHash": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_encodedResp$",
 		    "requestTime": "$TIMESTAMP$",
 		    "transactionId": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_transactionId$",
 			"individualId": "$ID:GenerateVID_Perpetual_IdP_Integ_Valid_Smoke_sid_vid$",
