@@ -144,37 +144,6 @@ public class KycAuth extends AdminTestUtil implements ITest {
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-		
-		if(testCaseName.toLowerCase().contains("kyc")) {
-			JSONObject resJsonObject = new JSONObject(response.asString());
-			String res="";
-			try {
-				res = resJsonObject.get("response").toString();
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
-			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
-						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
-		}
-		
-		/*
-		 * if (testCaseName.toLowerCase().contains("kyc")) { String error = null; if
-		 * (response.getBody().asString().contains("errors")) error =
-		 * JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),
-		 * "errors"); if (error.equalsIgnoreCase("null"))
-		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
-		 * testCaseDTO.getEndPoint()); }
-		 */
-		 
-
-		/*
-		 * if
-		 * (!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
-		 * response.getHeader(props.getProperty("signatureheaderKey")))) throw new
-		 * AdminTestException("Failed at Signature validation");
-		 */
 
 	}
 

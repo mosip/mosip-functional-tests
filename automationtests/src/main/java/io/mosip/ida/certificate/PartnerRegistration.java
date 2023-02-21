@@ -150,7 +150,7 @@ public class PartnerRegistration extends AdminTestUtil{
 		
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
-		if (partnerType.equals("RELYING_PARTY")){
+		if (partnerType.equals("RELYING_PARTY") || partnerType.equals("MISP")){
 			map.put("keyFileNameByPartnerName", "true");
 		}
 		
