@@ -7,7 +7,7 @@ UploadDocument:
       outputTemplate: resident/DocumentController/UploadDocument/UploadDocumentResult
       input: '{
 	    "referenceId" : "mosip123",
-	    "docCatCode" : "POA",
+	    "docCatCode" : "poa",
 	    "docTypCode" : "doc008",
 	    "langCode" : "$1STLANG$",
 		"transactionId": "1234567889",
@@ -18,7 +18,7 @@ UploadDocument:
         "transactionId": "1234567889",
 	    "docId": "$IGNORE$",
 	    "docName": "doc_POA.pdf",
-	    "docCatCode": "POA",
+	    "docCatCode": "poa",
 	    "docTypCode": "doc008",
 	    "docFileFormat": "pdf"      
 }'
@@ -130,7 +130,7 @@ UploadDocument:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-418",
+      "errorCode": "RES-SER-410",
       "message": "Bad Request"
     }
   ]     

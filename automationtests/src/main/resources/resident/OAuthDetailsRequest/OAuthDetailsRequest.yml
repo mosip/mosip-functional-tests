@@ -8,7 +8,7 @@ OAuthDetailsRequest:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"clientId": "$OIDCCLIENT$",
-      	"scope": "openid resident-service profile identity.readonly identity.update vid.readonly vid.manage auth.readonly auth.method.manage auth.history.readonly auth.history.manage card.manage credential.manage notifications.readonly notifications.manage",
+      	"scope": "openid profile Manage-Identity-Data Manage-VID Manage-Authentication Manage-Service-Requests Manage-Credentials",
       	"responseType": "code",
       	"redirectUri": "$BASEURI$/resident/v1/login-redirect/$BASE64URI$",
       	"display": "popup",
@@ -31,7 +31,7 @@ OAuthDetailsRequest:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"clientId": "$OIDCCLIENT$",
-      	"scope": "openid resident-service profile identity.readonly identity.update vid.readonly vid.manage auth.readonly auth.method.manage auth.history.readonly auth.history.manage card.manage credential.manage notifications.readonly notifications.manage",
+      	"scope": "openid profile Manage-Identity-Data Manage-VID Manage-Authentication Manage-Service-Requests Manage-Credentials",
       	"responseType": "code",
       	"redirectUri": "$BASEURI$/resident/v1/login-redirect/$BASE64URI$",
       	"display": "popup",
