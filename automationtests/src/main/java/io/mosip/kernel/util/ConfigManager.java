@@ -19,7 +19,7 @@ public class ConfigManager {
 	private static String MOSIP_RESIDENT_CLIENT_SECRET = "mosip_resident_client_secret";
 	private static String MOSIP_RESIDENT_CLIENT_ID = "mosip_resident_client_id";
 	private static String MOSIP_RESIDENT_APP_ID = "mosip_resident_app_id";
-	
+
 	private static String MOSIP_MOBILE_CLIENT_ID = "mpartner_default_mobile_client_id";
 	private static String MOSIP_MOBILE_CLIENT_SECRET = "mpartner_default_mobile_secret";
 
@@ -52,7 +52,7 @@ public class ConfigManager {
 	private static String S3_USER_KEY = "s3-user-key";
 	private static String S3_SECRET_KEY = "s3-user-secret";
 	private static String S3_ACCOUNT = "s3-account";
-	private static String PUSH_TO_S3 ="push-reports-to-s3";
+	private static String PUSH_TO_S3 = "push-reports-to-s3";
 
 	private static String DB_PORT = "db-port";
 	private static String DB_DOMAIN = "db-server";
@@ -70,17 +70,17 @@ public class ConfigManager {
 	private static String IDA_DB_PASS = "postgresql-password";
 	private static String IDA_DB_SCHEMA = "ida_db_schema";
 
-	private static String PMS_DB_USER="db-su-user";
-	private static String PMS_DB_PASS="postgresql-password";
-	private static String PMS_DB_SCHEMA="pms_db_schema";
+	private static String PMS_DB_USER = "db-su-user";
+	private static String PMS_DB_PASS = "postgresql-password";
+	private static String PMS_DB_SCHEMA = "pms_db_schema";
 
-	private static String KM_DB_USER="db-su-user";
-	private static String KM_DB_PASS="postgresql-password";
-	private static String KM_DB_SCHEMA="km_db_schema";
+	private static String KM_DB_USER = "db-su-user";
+	private static String KM_DB_PASS = "postgresql-password";
+	private static String KM_DB_SCHEMA = "km_db_schema";
 
-	private static String MASTER_DB_USER="db-su-user";
-	private static String MASTER_DB_PASS="postgresql-password";
-	private static String MASTER_DB_SCHEMA="master_db_schema";
+	private static String MASTER_DB_USER = "db-su-user";
+	private static String MASTER_DB_PASS = "postgresql-password";
+	private static String MASTER_DB_SCHEMA = "master_db_schema";
 
 	private static String IAM_EXTERNAL_URL = "keycloak-external-url";
 	private static String IAM_REALM_ID = "keycloak-realm-id";
@@ -89,7 +89,9 @@ public class ConfigManager {
 
 	private static String AUTH_DEMO_SERVICE_PORT = "authDemoServicePort";
 	private static String AUTH_DEMO_SERVICE_BASE_URL = "authDemoServiceBaseURL";
-	
+	private static String MOUNT_PATH = "mountPath";
+	private static String PACKET_UTILITY_BASE_URL = "packetUtilityBaseUrl";
+
 	private static String pms_client_secret;
 	private static String pms_client_id;
 	private static String pms_app_id;
@@ -97,7 +99,7 @@ public class ConfigManager {
 	private static String resident_client_secret;
 	private static String resident_client_id;
 	private static String resident_app_id;
-	
+
 	private static String mpartner_mobile_client_id;
 	private static String mpartner_mobile_client_secret;
 
@@ -167,28 +169,28 @@ public class ConfigManager {
 	private static String authDemoServicePort;
 	private static String authDemoServiceBaseUrl;
 
+	private static String mountPath;
+	private static String packetUtilityBaseUrl;
 	public static Properties propsKernel;
 
-	public static void setProperty(String key, String value)
-	{
+	public static void setProperty(String key, String value) {
 		// Overwrite the value with only if the key exists
-		if(propsKernel.containsKey(key)){
+		if (propsKernel.containsKey(key)) {
 			propsKernel.setProperty(key, value);
 		}
 	}
 
-	public static String getValueForKey(String key)
-	{
-		String value= System.getenv(key) == null ? propsKernel.getProperty(key): System.getenv(key);
+	public static String getValueForKey(String key) {
+		String value = System.getenv(key) == null ? propsKernel.getProperty(key) : System.getenv(key);
 		setProperty(key, value);
 
-		return 	value;
+		return value;
 	}
 
 	public static void init() {
-		//Loading Kernel property
+		// Loading Kernel property
 		propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
-		
+
 		pms_client_secret = getValueForKey(MOSIP_PMS_CLIENT_SECRET);
 		pms_client_id = getValueForKey(MOSIP_PMS_CLIENT_ID);
 		pms_app_id = getValueForKey(MOSIP_PMS_APP_ID);
@@ -227,15 +229,15 @@ public class ConfigManager {
 		hibernate_connection_pool_size = getValueForKey(HIBERNATE_CONNECTION_POOL_SIZE);
 		hibernate_dialect = getValueForKey(HIBERNATE_DIALECT);
 		hibernate_show_sql = getValueForKey(HIBERNATE_SHOW_SQL);
-		hibernate_current_session_context_class = getValueForKey(HIBERNATE_CONTEXT_CLASS) ;
+		hibernate_current_session_context_class = getValueForKey(HIBERNATE_CONTEXT_CLASS);
 		audit_db_user = getValueForKey(AUDIT_DB_USER);
 		audit_db_pass = getValueForKey(AUDIT_DB_PASS);
 		audit_db_schema = getValueForKey(AUDIT_DB_SCHEMA);
-		ida_db_user = getValueForKey(IDA_DB_USER) ;
+		ida_db_user = getValueForKey(IDA_DB_USER);
 		ida_db_pass = getValueForKey(IDA_DB_PASS);
 		ida_db_schema = getValueForKey(IDA_DB_SCHEMA);
 		pms_db_user = getValueForKey(PMS_DB_USER);
-		pms_db_pass = getValueForKey(PMS_DB_PASS) ;
+		pms_db_pass = getValueForKey(PMS_DB_PASS);
 		pms_db_schema = getValueForKey(PMS_DB_SCHEMA);
 		km_db_user = getValueForKey(KM_DB_USER);
 		km_db_pass = getValueForKey(KM_DB_PASS);
@@ -244,48 +246,57 @@ public class ConfigManager {
 		master_db_pass = getValueForKey(MASTER_DB_PASS);
 		master_db_schema = getValueForKey(MASTER_DB_SCHEMA);
 		iam_external_url = getValueForKey(IAM_EXTERNAL_URL);
-		System.out.println("keycloakendpoint from config manager::"+ iam_external_url);
+		System.out.println("keycloakendpoint from config manager::" + iam_external_url);
 
 		iam_realm_id = getValueForKey(IAM_REALM_ID);
 		iam_users_to_create = getValueForKey(IAM_USERS_TO_CREATE);
 		iam_users_password = getValueForKey(IAM_USERS_PASSWORD);
 
-	
-		
-		authDemoServicePort = System.getenv(AUTH_DEMO_SERVICE_PORT) == null ? propsKernel.getProperty(AUTH_DEMO_SERVICE_PORT)
+		admin_client_secret = System.getenv(MOSIP_ADMIN_CLIENT_SECRET) == null
+				? propsKernel.getProperty(MOSIP_ADMIN_CLIENT_SECRET)
+				: System.getenv(MOSIP_ADMIN_CLIENT_SECRET);
+
+		propsKernel.setProperty(MOSIP_ADMIN_CLIENT_SECRET, admin_client_secret);
+
+		authDemoServicePort = System.getenv(AUTH_DEMO_SERVICE_PORT) == null
+				? propsKernel.getProperty(AUTH_DEMO_SERVICE_PORT)
 				: System.getenv(AUTH_DEMO_SERVICE_PORT);
-		authDemoServiceBaseUrl = System.getenv(AUTH_DEMO_SERVICE_BASE_URL) == null ? propsKernel.getProperty(AUTH_DEMO_SERVICE_BASE_URL)
+		propsKernel.setProperty(AUTH_DEMO_SERVICE_PORT, authDemoServicePort);
+
+		authDemoServiceBaseUrl = System.getenv(AUTH_DEMO_SERVICE_BASE_URL) == null
+				? propsKernel.getProperty(AUTH_DEMO_SERVICE_BASE_URL)
 				: System.getenv(AUTH_DEMO_SERVICE_BASE_URL);
-		
+		propsKernel.setProperty(AUTH_DEMO_SERVICE_BASE_URL, authDemoServiceBaseUrl);
+
+		mountPath = System.getenv(MOUNT_PATH) == null ? propsKernel.getProperty(MOUNT_PATH) : System.getenv(MOUNT_PATH);
+		propsKernel.setProperty(MOUNT_PATH, mountPath);
+		packetUtilityBaseUrl = System.getenv(PACKET_UTILITY_BASE_URL) == null ? propsKernel.getProperty(PACKET_UTILITY_BASE_URL) : System.getenv(PACKET_UTILITY_BASE_URL);
+		propsKernel.setProperty(PACKET_UTILITY_BASE_URL, packetUtilityBaseUrl);
+
 	}
-	
+
 	public static String getAuthDemoServicePort() {
 		return authDemoServicePort;
 	}
-	
+
 	public static String getAuthDemoServiceBaseUrl() {
 		return authDemoServiceBaseUrl;
 
 	}
 
-
-	public static Properties init(String d) {
-		propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
-
-
-
-
-		admin_client_secret = System.getenv(MOSIP_ADMIN_CLIENT_SECRET) == null
-				? propsKernel.getProperty(MOSIP_ADMIN_CLIENT_SECRET): System.getenv(MOSIP_ADMIN_CLIENT_SECRET);
-
-				propsKernel.setProperty(MOSIP_ADMIN_CLIENT_SECRET, admin_client_secret);
-
-
-
-
-				return propsKernel;
+	public static String getmountPath() {
+		return mountPath;
+	}
+	
+	public static String getpacketUtilityBaseUrl() {
+		return packetUtilityBaseUrl;
 	}
 
+	public static Properties init(String abc) {
+		propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
+
+		return propsKernel;
+	}
 
 	public static String getPmsClientSecret() {
 		return pms_client_secret;
@@ -310,11 +321,11 @@ public class ConfigManager {
 	public static String getResidentAppId() {
 		return resident_app_id;
 	}
-	
+
 	public static String getMPartnerMobileClientId() {
 		return mpartner_mobile_client_id;
 	}
-	
+
 	public static String getMPartnerMobileClientSecret() {
 		return mpartner_mobile_client_secret;
 	}
@@ -448,7 +459,7 @@ public class ConfigManager {
 	}
 
 	public static String getAuditDbPass() {
-		System.out.println("DB Password from ENV::: "+ System.getenv(AUDIT_DB_PASS));
+		System.out.println("DB Password from ENV::: " + System.getenv(AUDIT_DB_PASS));
 		return audit_db_pass;
 	}
 
@@ -516,13 +527,12 @@ public class ConfigManager {
 		return master_db_schema;
 	}
 
-
 	// from docker env getting only host url
 	public static String getIAMUrl() {
-		System.out.println("keycloak url from ENV::: "+ System.getenv(IAM_EXTERNAL_URL) + "/auth");
-		System.out.println("keycloak url from Property::: "+ System.getProperty(IAM_EXTERNAL_URL) + "/auth");
-		System.out.println("keycloak url from Config::: "+ propsKernel.getProperty(IAM_EXTERNAL_URL) + "/auth");
-		System.out.println("keycloak url is:::"+iam_external_url + "/auth");
+		System.out.println("keycloak url from ENV::: " + System.getenv(IAM_EXTERNAL_URL) + "/auth");
+		System.out.println("keycloak url from Property::: " + System.getProperty(IAM_EXTERNAL_URL) + "/auth");
+		System.out.println("keycloak url from Config::: " + propsKernel.getProperty(IAM_EXTERNAL_URL) + "/auth");
+		System.out.println("keycloak url is:::" + iam_external_url + "/auth");
 		return iam_external_url + "/auth";
 	}
 
@@ -553,8 +563,8 @@ public class ConfigManager {
 		}
 		return prop;
 	}
-	
+
 	public static String getAuthDemoServiceUrl() {
-		return ConfigManager.getAuthDemoServiceBaseUrl()+":"+ConfigManager.getAuthDemoServicePort();
+		return ConfigManager.getAuthDemoServiceBaseUrl() + ":" + ConfigManager.getAuthDemoServicePort();
 	}
 }
