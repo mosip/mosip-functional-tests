@@ -89,7 +89,7 @@ SendOtpToUserId:
       output: '{
        "errors": [
     {
-      "errorCode": "RES-SER-410",
+      "errorCode": "RES-SER-418",
       "message": "Invalid Input Parameter- requesttime"
     }
   ],

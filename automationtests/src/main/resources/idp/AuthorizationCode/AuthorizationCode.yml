@@ -6,6 +6,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/AuthorizationCode/AuthorizationCodeResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
@@ -21,6 +22,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "transactionId",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
@@ -41,6 +43,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$REMOVE$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
@@ -61,6 +64,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
@@ -81,6 +85,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "null",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
@@ -101,6 +106,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "EvOHK0ewF4AlCAVAw-aVZD1JXDNBVNtkIPGrsvxPTkw",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
@@ -121,6 +127,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
@@ -142,6 +149,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
@@ -163,6 +171,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
@@ -184,6 +193,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "jsdgh#4$#"}]
@@ -204,6 +214,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/AuthorizationCode/AuthorizationCodeResult
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "$REMOVE$"}]
@@ -219,6 +230,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: ""}]
@@ -239,6 +251,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "null"}]
@@ -259,6 +272,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "2022-11-08T06:35:53",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
@@ -279,6 +293,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "2022-11-07T06:51:30.195Z",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
@@ -299,6 +314,7 @@ AuthorizationCode:
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "2033-11-07T06:51:30.195Z",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
