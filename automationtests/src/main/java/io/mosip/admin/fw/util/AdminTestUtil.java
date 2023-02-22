@@ -80,6 +80,7 @@ import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
@@ -287,22 +288,16 @@ public class AdminTestUtil extends BaseTestCase {
 				 transactionId = request.getJSONObject("request").get("transactionId").toString();
 			 }
 		}
-		 if (encodedResp.contains("\u200B")) {
-			 encodedResp = encodedResp.replaceAll("\u200B", "");
-			}
-		 if (encodedResp.contains("\\p{Cf}")) {
-			 encodedResp = encodedResp.replaceAll("\\p{Cf}", "");
-			}
-		
+		System.out.println("encodedhash = " + encodedResp);
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
 		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(request.toString()) + "</pre>");
 		try {
-			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
+			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, request.toString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					
@@ -338,9 +333,9 @@ public class AdminTestUtil extends BaseTestCase {
 		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(request.toString()) + "</pre>");
 		try {
-			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
+			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, request.toString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
@@ -1750,11 +1745,21 @@ public class AdminTestUtil extends BaseTestCase {
 						props.put(identifierKeyName, eachJSON.get(filedName));
 					}
 					else if(testCaseName.contains("_OAuthDetailsRequest_") && filedName.equals("encodedResp")) {
+						Gson gson = new Gson();
+						JsonObject json =  gson.fromJson(response.getBody().asString(), JsonObject.class);
+						String responseJsonString = json.getAsJsonObject("response").toString();
 						
+//						System.out.println("response string = " + responseJson.toString());
+//						ObjectMapper mapper = new ObjectMapper();
+//						String respBody = mapper.writeValueAsString(responseJson.toMap());
+						
+//						System.out.println("response mapper = " + respBody);
 						MessageDigest digest = MessageDigest.getInstance("SHA-256");
-						byte[] hash = digest.digest(responseJson.toString().getBytes(StandardCharsets.UTF_8));
+						byte[] hash = digest.digest(responseJsonString.getBytes(StandardCharsets.UTF_8));
 //						String hashResp = hash.toString();
-						String urlEncodedResp = Base64.getUrlEncoder().encodeToString(hash);
+//						String urlEncodedResp = Base64.getUrlEncoder().encodeToString(hash);
+						String urlEncodedResp = Base64.getUrlEncoder().withoutPadding().encodeToString(hash);
+						System.out.println("encoded response = " + urlEncodedResp);
 						props.put(identifierKeyName, urlEncodedResp);	
 					}
 					else
@@ -2447,7 +2452,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains("$IDPCLIENTPAYLOAD$")) {
 			String clientId = getValueFromActuator();
-			String idpBaseURI = ApplnURI.replace("-internal", "") + "/v1/idp/oauth/token";
+			String idpBaseURI = ApplnURI.replace("-internal", "") + propsKernel.getProperty("tokenEndpoint");
 			Instant instant = Instant.now();
 
 			// print Instant Value
@@ -3859,7 +3864,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String signJWKKey(String clientId, RSAKey jwkKey) {
-		String tempUrl = ApplnURI.replace("-internal", "") + "/v1/idp/oauth/token";
+		String tempUrl = ApplnURI.replace("-internal", "") + propsKernel.getProperty("tokenEndpoint");
 		// Create RSA-signer with the private key
 		JWSSigner signer;
 
@@ -3886,7 +3891,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	public static String getWlaToken(String individualId, RSAKey jwkKey, String certData) throws Exception {
-		String tempUrl = ApplnURI + "/v1/idpbinding/validate-binding";
+		String tempUrl = ApplnURI + propsKernel.getProperty("validateBindingEndpoint");
 		Instant instant = Instant.now();
 		long epochValue = instant.getEpochSecond();
 		
@@ -3997,5 +4002,5 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
-
+	
 }
