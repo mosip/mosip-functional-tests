@@ -202,6 +202,7 @@ public class DBManager {
 					statement.addBatch("delete from master.device_spec where id='743'");
 					statement.addBatch("delete from master.device_type where code='GST3'");
 					statement.addBatch("delete from master.loc_holiday where holiday_name='AutoTest user Eng'");
+					statement.addBatch("delete from master.loc_holiday where upd_by='masterdata-220005'");
 					statement.addBatch("delete from master.reg_center_type where code='ALT-3'");
 					statement.addBatch(
 							"delete FROM master.registration_center where name in ('Test123','HSR Center updated')");

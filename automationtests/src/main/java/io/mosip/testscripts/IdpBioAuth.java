@@ -114,7 +114,7 @@ public class IdpBioAuth extends AdminTestUtil implements ITest {
 		// https://api-internal.dev2.mosip.net
 
 		if (identityRequest.contains("$DOMAINURI$")) {
-			String domainUrl = ApplnURI.replace("api-internal", "idp");
+			String domainUrl = ApplnURI.replace("api-internal", "esignet");
 			identityRequest = identityRequest.replace("$DOMAINURI$", domainUrl);
 		}
 		String encryptedIdentityReq = null;
