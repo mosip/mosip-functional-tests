@@ -306,7 +306,7 @@ SendOtp:
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "@@#$#VGH",
@@ -372,7 +372,7 @@ SendOtp:
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
 	    "individualId": "null",
