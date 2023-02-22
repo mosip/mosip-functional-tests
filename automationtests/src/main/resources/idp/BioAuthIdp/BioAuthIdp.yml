@@ -561,7 +561,7 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-       "encodedHash": "$ID:OAuthDetailsRequest_3all_Valid_Smoke_sid_encodedResp$",
+       "encodedHash": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
         "transactionId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
