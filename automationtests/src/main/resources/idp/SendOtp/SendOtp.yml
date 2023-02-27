@@ -249,7 +249,7 @@ SendOtp:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction_id",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -271,7 +271,7 @@ SendOtp:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction_id",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -491,7 +491,7 @@ SendOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_otp_channel",
+      "errorCode": "invalid_request",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -513,7 +513,7 @@ SendOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "unknown_error",
+      "errorCode": "invalid_request",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -535,7 +535,7 @@ SendOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "unknown_error",
+      "errorCode": "invalid_request",
       "errorMessage": "$IGNORE$"
     }
   ]

@@ -15,7 +15,8 @@ KycCreateAuthReq:
       	"isPreLTS": "false",
       	"signWithMisp": "true",
       	"partnerName": "$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​",
-      	"Authtype": "demo"
+      	"Authtype": "demo",
+      	"moduleName": "$MODULENAME$"
 }'
       output: '{
         
