@@ -90,6 +90,8 @@ public class ConfigManager {
 	private static String AUTH_DEMO_SERVICE_PORT = "authDemoServicePort";
 	private static String AUTH_DEMO_SERVICE_BASE_URL = "authDemoServiceBaseURL";
 	private static String MOUNT_PATH = "mountPath";
+	private static String MOUNT_PATH_FOR_SCENARIO = "mountPathForScenario";
+	
 	private static String PACKET_UTILITY_BASE_URL = "packetUtilityBaseUrl";
 
 	private static String pms_client_secret;
@@ -170,6 +172,7 @@ public class ConfigManager {
 	private static String authDemoServiceBaseUrl;
 
 	private static String mountPath;
+	private static String mountPathForScenario;
 	private static String packetUtilityBaseUrl;
 	public static Properties propsKernel;
 
@@ -270,6 +273,10 @@ public class ConfigManager {
 
 		mountPath = System.getenv(MOUNT_PATH) == null ? propsKernel.getProperty(MOUNT_PATH) : System.getenv(MOUNT_PATH);
 		propsKernel.setProperty(MOUNT_PATH, mountPath);
+		
+		mountPathForScenario = System.getenv(MOUNT_PATH_FOR_SCENARIO) == null ? propsKernel.getProperty(MOUNT_PATH_FOR_SCENARIO) : System.getenv(MOUNT_PATH_FOR_SCENARIO);
+		propsKernel.setProperty(MOUNT_PATH_FOR_SCENARIO, mountPathForScenario);
+		
 		packetUtilityBaseUrl = System.getenv(PACKET_UTILITY_BASE_URL) == null ? propsKernel.getProperty(PACKET_UTILITY_BASE_URL) : System.getenv(PACKET_UTILITY_BASE_URL);
 		propsKernel.setProperty(PACKET_UTILITY_BASE_URL, packetUtilityBaseUrl);
 
@@ -286,6 +293,10 @@ public class ConfigManager {
 
 	public static String getmountPath() {
 		return mountPath;
+	}
+	
+	public static String getmountPathForScenario() {
+		return mountPathForScenario;
 	}
 	
 	public static String getpacketUtilityBaseUrl() {
