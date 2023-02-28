@@ -87,6 +87,7 @@ public class BaseTestCase {
 	public String mobileAuthCookie = null;
 	public String autoTstUsrCkie = null;
 	public static String currentModule = "masterdata";
+	public static String certsForModule = "DSL-IDA";
 	public static List<String> listOfModules = null;
 	public static List<String> languageList = new ArrayList<>();
 	public static List<String> supportedIdType = new ArrayList<>();
@@ -217,6 +218,7 @@ public class BaseTestCase {
 		if (listOfModules.contains("auth")) {
 			setReportName("auth");
 			BaseTestCase.currentModule = "auth";
+			BaseTestCase.certsForModule = "IDA";
 			AuthTestsUtil.initiateAuthTest();
 			//new PMPDataManager(true);
 		}
@@ -255,6 +257,7 @@ public class BaseTestCase {
 		if (listOfModules.contains("idp")){
 			
 			BaseTestCase.currentModule = "idp";
+			BaseTestCase.certsForModule = "esignet";
 			setReportName("idp");
 			AdminTestUtil.initiateidpTest();
 			
