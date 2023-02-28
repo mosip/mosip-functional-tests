@@ -28,6 +28,7 @@ import org.testng.Assert;
 import org.testng.ITest;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.kernel.util.ConfigManager;
 import io.mosip.testrunner.MosipTestRunner;
  
 
@@ -100,9 +101,10 @@ public class AuditDBManager extends AdminTestUtil {
 			Configuration config = new Configuration();
 			//config.setProperties(dbProps);
 			config.setProperty("hibernate.connection.driver_class", propsKernel.getProperty("driver_class"));
-			config.setProperty("hibernate.connection.url", propsKernel.getProperty(dbName+"_url"));
-			config.setProperty("hibernate.connection.username", propsKernel.getProperty(dbName+"_username"));
-			config.setProperty("hibernate.connection.password", propsKernel.getProperty(dbName+"_password"));
+			//config.setProperty("hibernate.connection.url", propsKernel.getProperty(dbName+"_url"));
+			config.setProperty("hibernate.connection.url", "jdbc:"+propsKernel.getProperty("postgresqlUser") +"://"+ ConfigManager.getValueForKey("db-server") +":"+ConfigManager.getValueForKey("db-port")+"/mosip_"+ConfigManager.getValueForKey("audit_db_schema"));;
+			config.setProperty("hibernate.connection.username", ConfigManager.getAuditDbUser());
+			config.setProperty("hibernate.connection.password", ConfigManager.getValueForKey("postgresql-password"));
 			config.setProperty("hibernate.default_schema", propsKernel.getProperty(dbName+"_default_schema"));
 			config.setProperty("hibernate.connection.pool_size", propsKernel.getProperty("pool_size"));
 			config.setProperty("hibernate.dialect", propsKernel.getProperty("dialect"));
