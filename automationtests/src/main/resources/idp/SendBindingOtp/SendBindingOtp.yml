@@ -285,7 +285,7 @@ SendBindingOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_individual_id",
+      "errorCode": "invalid_identifier",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -307,7 +307,7 @@ SendBindingOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_individual_id",
+      "errorCode": "invalid_identifier",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -329,7 +329,7 @@ SendBindingOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "unknown error",
+      "errorCode": "invalid_otp_channel",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -351,7 +351,7 @@ SendBindingOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_otpChannels",
+      "errorCode": "invalid_otp_channel",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -373,7 +373,7 @@ SendBindingOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_otpChannels",
+      "errorCode": "invalid_otp_channel",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -395,7 +395,7 @@ SendBindingOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_otpChannels",
+      "errorCode": "invalid_otp_channel",
       "errorMessage": "$IGNORE$"
     }
   ]

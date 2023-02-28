@@ -293,6 +293,10 @@ public class AuthRequestController {
 		applyRecursively(request, TIMESTAMP, requestTime);
 		applyRecursively(request, DATE_TIME, requestTime);
 		applyRecursively(request, TRANSACTION_ID, transactionId);
+		
+		if(isKyc && signWithMisp) {
+			reqValues.put(AUTH_TYPE, "kycauth");
+		}
 
 		if(needsEncryption) {
 			if (reqValues.get(BIO) != null && Boolean.valueOf(reqValues.get(BIO).toString())) {

@@ -3903,7 +3903,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 	
 	public static String getWlaToken(String individualId, RSAKey jwkKey, String certData) throws Exception {
-		String tempUrl = ApplnURI + propsKernel.getProperty("validateBindingEndpoint");
+		String tempUrl = propsKernel.getProperty("validateBindingEndpoint");
 		Instant instant = Instant.now();
 		long epochValue = instant.getEpochSecond();
 		
