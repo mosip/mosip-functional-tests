@@ -1,6 +1,6 @@
 SendBindingOtp:
    IDP_SendBindingOtp_all_Valid_Smoke_sid:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -18,7 +18,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Vid_Valid_Smoke_sid:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -36,7 +36,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Email_Valid_Smoke_sid:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -54,7 +54,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Phone_Valid_Smoke_sid:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -72,7 +72,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Invalid_RequestTime_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -94,7 +94,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Past_RequestTime_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -116,7 +116,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Future_RequestTime_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -138,7 +138,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Missing_RequestTime_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -160,7 +160,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Space_As_RequestTime_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -182,7 +182,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_invalid_individual_id_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -204,7 +204,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Invalid_Case_IndividualId_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -226,7 +226,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_NR_Email_IndividualId_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -248,7 +248,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_NR_Phone_IndividualId_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -270,7 +270,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Missing_IndividualId_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -292,7 +292,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Empty_IndividualId_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -314,7 +314,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Missing_OtpChannels_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtpEmptyOtpChannel
@@ -336,7 +336,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Empty_OtpChannels_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -358,7 +358,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Invalid_OtpChannels_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp
@@ -380,7 +380,7 @@ SendBindingOtp:
 }'
 
    IDP_SendBindingOtp_Space_Sep_OtpChannels_Neg:
-      endPoint: /v1/idpbinding/binding-otp
+      endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       restMethod: post
       inputTemplate: idp/SendBindingOtp/SendBindingOtp

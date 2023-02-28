@@ -78,16 +78,16 @@ public class MosipTestRunner {
 		
 		
 		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains("idp")) {
-			if(BaseTestCase.listOfModules.contains("auth")) {
-				LOGGER.info("waiting for " + "300000"
-				+ " mili secs for auth certificate generation");
-				try {
-					Thread.sleep(Long.parseLong("300000"));
-				} catch (NumberFormatException | InterruptedException e) {
-					// TODO Auto-generated catch block
-					LOGGER.error("Exception : " + e.getMessage());
-				}
-			}
+//			if(BaseTestCase.listOfModules.contains("auth")) {
+//				LOGGER.info("waiting for " + "300000"
+//				+ " mili secs for auth certificate generation");
+//				try {
+//					Thread.sleep(Long.parseLong("300000"));
+//				} catch (NumberFormatException | InterruptedException e) {
+//					// TODO Auto-generated catch block
+//					LOGGER.error("Exception : " + e.getMessage());
+//				}
+//			}
 			
 			PartnerRegistration.deleteCertificates();
 			CertificateGenerationUtil.getThumbprints();

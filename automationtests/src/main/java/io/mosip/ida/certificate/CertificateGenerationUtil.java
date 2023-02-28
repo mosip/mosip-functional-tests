@@ -29,6 +29,7 @@ import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.kernel.util.ConfigManager;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 
@@ -68,6 +69,10 @@ public class CertificateGenerationUtil extends AdminTestUtil{
 		JSONObject request=new JSONObject();
 		request.put("certData", idaCertValue);
 		//actualrequest.put("request", request);
+		
+		if (endPoint.contains("$MODULENAME$")) {
+			endPoint = endPoint.replace("$MODULENAME$", BaseTestCase.currentModule);
+		}
 		
 		Response reponse=RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl()+"/"+endPoint, request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 		System.out.println(reponse);
