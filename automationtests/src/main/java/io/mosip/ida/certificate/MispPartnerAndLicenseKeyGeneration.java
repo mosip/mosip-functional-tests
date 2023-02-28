@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.kernel.util.ConfigManager;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
@@ -92,12 +93,13 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	}
 	
 	public static JSONObject getCertificates(String partnerId, String partnerType) {
-		String url = localHostUrl + "v1/identity/generatePartnerKeys";
+		String url = localHostUrl + props.getProperty("getPartnerCertURL");
 		
 		HashMap<String, String> map = new HashMap<String, String>();
 		
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
+		map.put("moduleName", BaseTestCase.currentModule);
 //		map.put("keyFileNameByPartnerName", "true");
 		
 //		String token = kernelAuthLib.getTokenByRole("partner");
@@ -199,6 +201,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		HashMap<String, Object> queryParamMap = new HashMap<String, Object>();
 		
 		queryParamMap.put("partnerType", partnerType);
+		queryParamMap.put("moduleName", BaseTestCase.currentModule);
 		
 		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 		

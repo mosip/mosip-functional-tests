@@ -377,7 +377,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction_id",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ],
@@ -414,7 +414,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_transaction_id",
+      "errorCode": "invalid_transaction",
       "errorMessage": "$IGNORE$"
     }
   ],
@@ -973,6 +973,37 @@ AuthenticateUser:
       "errorMessage": "$IGNORE$"
     }
   ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   IDP_AuthenticateUserIDP_Other_Otp_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      inputTemplate: idp/AuthenticateUser/AuthenticateUser
+      outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111",
+        "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
+    }
+    }'
+      output: '{
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",

@@ -14,6 +14,7 @@ import org.json.JSONObject;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.kernel.util.ConfigManager;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 public class PartnerRegistration extends AdminTestUtil{
@@ -126,6 +127,7 @@ public class PartnerRegistration extends AdminTestUtil{
 		
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
+		map.put("moduleName", BaseTestCase.currentModule);
 		map.put("keyFileNameByPartnerName", "true");
 		
 		String token = kernelAuthLib.getTokenByRole("partner");
@@ -150,6 +152,7 @@ public class PartnerRegistration extends AdminTestUtil{
 		
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
+		map.put("moduleName", BaseTestCase.currentModule);
 		if (partnerType.equals("RELYING_PARTY") || partnerType.equals("MISP")){
 			map.put("keyFileNameByPartnerName", "true");
 		}
@@ -257,6 +260,7 @@ public class PartnerRegistration extends AdminTestUtil{
 		HashMap<String, Object> queryParamMap = new HashMap<String, Object>();
 		queryParamMap.put("partnerName", partnerId);
 		queryParamMap.put("partnerType", partnerType);
+		queryParamMap.put("moduleName", BaseTestCase.currentModule);
 		if (partnerType.equals("RELYING_PARTY")){
 			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
 		}
@@ -371,6 +375,10 @@ public class PartnerRegistration extends AdminTestUtil{
 			localHostUrl = getLocalHostUrl();
 		}
 		String url = localHostUrl + props.getProperty("clearCertificateURL");
+		
+		if (url.contains("$MODULENAME$")) {
+			url = url.replace("$MODULENAME$", BaseTestCase.currentModule);
+		}
 		
 		Response response = RestClient.deleteRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 		System.out.println(response);

@@ -1,6 +1,6 @@
 WalletBinding:
    IDP_WalletBinding_OTP_Valid_Smoke:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -23,7 +23,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -35,7 +35,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_OTP_Phone_Valid_Smoke:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -58,7 +58,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_WOEmail_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -70,7 +70,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_OTP_Email_Valid_Smoke:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -93,7 +93,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_WOPhone_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -105,7 +105,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Vid_OTP_Valid_Smoke:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -128,7 +128,7 @@ WalletBinding:
    	       "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -140,7 +140,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Invalid_RequestTime_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -163,7 +163,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -181,7 +181,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_PastVal_RequestTime_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -204,7 +204,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -222,7 +222,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Future_RequestTime_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -245,7 +245,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -263,7 +263,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Invalid_IndividualId_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -286,7 +286,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -304,7 +304,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Empty_IndividualId_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -327,7 +327,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -345,7 +345,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Null_IndividualId_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -368,7 +368,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -386,7 +386,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Missing_IndividualId_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -409,7 +409,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -427,7 +427,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_SpaceVal_IndividualId_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -450,7 +450,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -468,7 +468,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Invalid_AuthFactorType_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -491,7 +491,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -509,7 +509,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Missing_AuthFactorType_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -532,7 +532,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -550,7 +550,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_EmptyVal_AuthFactorType_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -573,7 +573,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -591,7 +591,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_SpaceVal_AuthFactorType_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -614,7 +614,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -632,7 +632,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Invalid_Challenge_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -655,7 +655,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -673,7 +673,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_EmptyVal_Challenge_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -696,7 +696,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -714,7 +714,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Missing_Challenge_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -737,7 +737,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -755,7 +755,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_SpaceVal_Challenge_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -778,7 +778,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -796,7 +796,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Invalid_Formate_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -819,7 +819,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -837,7 +837,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Missing_Formate_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -860,7 +860,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -878,7 +878,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_SpaceVal_Formate_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -901,7 +901,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -919,7 +919,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Empty_Formate_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -942,7 +942,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -960,7 +960,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Invalid_authFactorType1_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -983,7 +983,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -1001,7 +1001,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Missing_authFactorType1_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -1024,7 +1024,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -1042,7 +1042,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Empty_authFactorType1_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -1065,7 +1065,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -1083,7 +1083,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_SpaceVal_authFactorType1_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -1106,7 +1106,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -1124,7 +1124,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Invalid_format1_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -1147,7 +1147,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -1165,7 +1165,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Empty_format1_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -1188,7 +1188,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -1206,7 +1206,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Missing_format1_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -1229,7 +1229,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -1247,7 +1247,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_SpaceVal_format1_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -1270,7 +1270,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -1288,7 +1288,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Invalid_publicKey_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -1311,7 +1311,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
@@ -1329,7 +1329,7 @@ WalletBinding:
 }'
 
    IDP_WalletBinding_Null_publicKey_Neg:
-      endPoint: /v1/idpbinding/wallet-binding
+      endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       restMethod: post
       inputTemplate: idp/WalletBinding/WalletBinding
@@ -1352,7 +1352,7 @@ WalletBinding:
    	       "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
            "otpChannels": [{channel: "email"},{channel: "phone"}],
            "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-           "sendOtpEndPoint": "/v1/idpbinding/binding-otp"
+           "sendOtpEndPoint": "/v1/esignet/binding/binding-otp"
     }
 }'
       output: '{
