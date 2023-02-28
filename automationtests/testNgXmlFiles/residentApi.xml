@@ -266,7 +266,7 @@
 	<test name="OAuthDetailsRequest">
 		<parameter name="ymlFile"
 			value="resident/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
-			<parameter name="idKeyName"	value="transactionId" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
