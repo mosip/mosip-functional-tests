@@ -866,7 +866,7 @@ WalletBinding:
       output: '{
        "errors": [
     {
-      "errorCode": "unsupported_challenge_format",
+      "errorCode": "invalid_challenge_format",
       "errorMessage": "request.format: unsupported_challenge_format"
     }
   ],
@@ -907,7 +907,7 @@ WalletBinding:
       output: '{
       "errors": [
     {
-      "errorCode": "unsupported_challenge_format",
+      "errorCode": "invalid_challenge_format",
       "errorMessage": "request.challengeList[0].format: unsupported_challenge_format"
     }
   ],
@@ -989,7 +989,7 @@ WalletBinding:
       output: '{
       "errors": [
     {
-      "errorCode": "unsupported_challenge_format",
+      "errorCode": "invalid_challenge_format",
       "errorMessage": "unsupported_challenge_format"
     }
   ],
@@ -1112,7 +1112,7 @@ WalletBinding:
       output: '{
       "errors": [
     {
-      "errorCode": "unsupported_challenge_format",
+      "errorCode": "invalid_challenge_format",
       "errorMessage": "unsupported_challenge_format"
     }
   ],
@@ -1153,7 +1153,7 @@ WalletBinding:
       output: '{
        "errors": [
     {
-      "errorCode": "unsupported_challenge_format",
+      "errorCode": "invalid_challenge_format",
       "errorMessage": "request.format: unsupported_challenge_format"
     }
   ],
@@ -1194,7 +1194,7 @@ WalletBinding:
       output: '{
        "errors": [
     {
-      "errorCode": "unsupported_challenge_format",
+      "errorCode": "invalid_challenge_format",
       "errorMessage": "request.format: unsupported_challenge_format"
     }
   ],
@@ -1235,7 +1235,7 @@ WalletBinding:
       output: '{
        "errors": [
     {
-      "errorCode": "unsupported_challenge_format",
+      "errorCode": "invalid_challenge_format",
       "errorMessage": "request.format: unsupported_challenge_format"
     }
   ],
@@ -1276,7 +1276,7 @@ WalletBinding:
       output: '{
       "errors": [
     {
-      "errorCode": "unsupported_challenge_format",
+      "errorCode": "invalid_challenge_format",
       "errorMessage": "unsupported_challenge_format"
     }
   ],
@@ -1317,7 +1317,7 @@ WalletBinding:
       output: '{
       "errors": [
     {
-      "errorCode": "invalid_request",
+      "errorCode": "unknown_error",
       "errorMessage": "JSON parse error: Cannot construct instance of `java.util.LinkedHashMap` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value (\u0027ghj$4\u0027); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot construct instance of `java.util.LinkedHashMap` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value (\u0027ghj$4\u0027)\n at [Source: (PushbackInputStream); line: 1, column: 221] (through reference chain: io.mosip.idp.core.dto.RequestWrapper[\"request\"]-\u003eio.mosip.idp.core.dto.WalletBindingRequest[\"publicKey\"])"
     }
   ],

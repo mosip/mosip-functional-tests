@@ -450,9 +450,9 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-       "encodedHash": "$ID:OAuthDetailsRequest_13all_Valid_Smoke_sid_encodedResp$",
+       "encodedHash": "$ID:OAuthDetailsRequest_14all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
-        "transactionId": "$ID:OAuthDetailsRequest_13all_Valid_Smoke_sid_transactionId$",
+        "transactionId": "$ID:OAuthDetailsRequest_14all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "authFactorType" : "BIO",
         "challenge" : "$CHALLENGE$",
@@ -487,9 +487,9 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-       "encodedHash": "$ID:OAuthDetailsRequest_2all_Valid_Smoke_sid_encodedResp$",
+       "encodedHash": "$ID:OAuthDetailsRequest_15all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
-        "transactionId": "$ID:OAuthDetailsRequest_2all_Valid_Smoke_sid_transactionId$",
+        "transactionId": "$ID:OAuthDetailsRequest_15all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "authFactorType" : "BIO",
         "challenge" : "$CHALLENGE$",
@@ -524,9 +524,9 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_3all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_16all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
-        "transactionId": "$ID:OAuthDetailsRequest_3all_Valid_Smoke_sid_transactionId$",
+        "transactionId": "$ID:OAuthDetailsRequest_16all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "authFactorType" : "BIO",
         "challenge" : "$CHALLENGE$",
@@ -561,10 +561,10 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-       "encodedHash": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_encodedResp$",
+       "encodedHash": "$ID:OAuthDetailsRequest_17all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
-        "transactionId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
-        "individualId": "$ID:AddIdentity_BioAuth_smoke_Pos_UIN$",
+        "transactionId": "$ID:OAuthDetailsRequest_17all_Valid_Smoke_sid_transactionId$",
+        "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "authFactorType" : "BIO",
         "challenge" : "$CHALLENGE$",
         "identityRequest":{
@@ -598,9 +598,9 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_5all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_18all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
-        "transactionId": "$ID:OAuthDetailsRequest_5all_Valid_Smoke_sid_transactionId$",
+        "transactionId": "$ID:OAuthDetailsRequest_18all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "authFactorType" : "BIO",
         "challenge" : "$CHALLENGE$",
@@ -635,9 +635,9 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_6all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_19all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
-        "transactionId": "$ID:OAuthDetailsRequest_6all_Valid_Smoke_sid_transactionId$",
+        "transactionId": "$ID:OAuthDetailsRequest_19all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "authFactorType" : "BIO",
         "challenge" : "$CHALLENGE$",
@@ -672,9 +672,9 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_7all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_20all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
-        "transactionId": "$ID:OAuthDetailsRequest_7all_Valid_Smoke_sid_transactionId$",
+        "transactionId": "$ID:OAuthDetailsRequest_20all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "authFactorType" : "BIO",
         "challenge" : "$CHALLENGE$",
@@ -709,9 +709,9 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_8all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_21all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
-        "transactionId": "$ID:OAuthDetailsRequest_8all_Valid_Smoke_sid_transactionId$",
+        "transactionId": "$ID:OAuthDetailsRequest_21all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "authFactorType" : "BIO",
         "challenge" : "$CHALLENGE$",
@@ -746,9 +746,9 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_9all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_22all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
-        "transactionId": "$ID:OAuthDetailsRequest_9all_Valid_Smoke_sid_transactionId$",
+        "transactionId": "$ID:OAuthDetailsRequest_22all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "authFactorType" : "BIO",
         "challenge" : "$CHALLENGE$",
@@ -783,9 +783,9 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_10all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_23all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
-        "transactionId": "$ID:OAuthDetailsRequest_10all_Valid_Smoke_sid_transactionId$",
+        "transactionId": "$ID:OAuthDetailsRequest_23all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "authFactorType" : "BIO",
         "challenge" : "$CHALLENGE$",
@@ -820,9 +820,9 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_11all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_24all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
-        "transactionId": "$ID:OAuthDetailsRequest_11all_Valid_Smoke_sid_transactionId$",
+        "transactionId": "$ID:OAuthDetailsRequest_24all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "authFactorType" : "BIO",
         "challenge" : "$CHALLENGE$",
@@ -857,9 +857,9 @@ BioAuth:
       inputTemplate: idp/BioAuthIdp/bioAuth
       outputTemplate: idp/BioAuthIdp/bioAuthResult
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_12all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_25all_Valid_Smoke_sid_encodedResp$",
         "requestTime": "$TIMESTAMP$",
-        "transactionId": "$ID:OAuthDetailsRequest_12all_Valid_Smoke_sid_transactionId$",
+        "transactionId": "$ID:OAuthDetailsRequest_25all_Valid_Smoke_sid_transactionId$",
         "individualId": "$ID:Generate_Perpetual2_VID_Valid_Smoke_sid_vid$",
         "authFactorType" : "BIO",
         "challenge" : "$CHALLENGE$",
