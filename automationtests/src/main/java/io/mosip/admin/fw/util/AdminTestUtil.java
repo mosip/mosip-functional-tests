@@ -2124,7 +2124,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (uri.contains("$KEYCLOAKUSER2$"))
 			uri = uri.replace("$KEYCLOAKUSER2$", propsKernel.getProperty("KEYCLOAKUSER2"));
 		if (uri.contains("$MODULENAME$")) {
-			uri = uri.replace("$MODULENAME$", BaseTestCase.currentModule);
+			uri = uri.replace("$MODULENAME$", BaseTestCase.certsForModule);
 		}
 		if (uri.contains("$ID:")) {
 			String autoGenIdFileName = getAutoGenIdFileName(testCaseName);
@@ -2148,7 +2148,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$ENCRYPTEDSESSIONKEY$", encryptedSessionKeyString);
 		}
 		if (jsonString.contains("$MODULENAME$")) {
-			jsonString = jsonString.replace("$MODULENAME$", BaseTestCase.currentModule);
+			jsonString = jsonString.replace("$MODULENAME$", BaseTestCase.certsForModule);
 		}
 		if (jsonString.contains("$TIMESTAMP$"))
 			jsonString = jsonString.replace("$TIMESTAMP$", generateCurrentUTCTimeStamp());

@@ -71,7 +71,7 @@ public class CertificateGenerationUtil extends AdminTestUtil{
 		//actualrequest.put("request", request);
 		
 		if (endPoint.contains("$MODULENAME$")) {
-			endPoint = endPoint.replace("$MODULENAME$", BaseTestCase.currentModule);
+			endPoint = endPoint.replace("$MODULENAME$", BaseTestCase.certsForModule);
 		}
 		
 		Response reponse=RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl()+"/"+endPoint, request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);

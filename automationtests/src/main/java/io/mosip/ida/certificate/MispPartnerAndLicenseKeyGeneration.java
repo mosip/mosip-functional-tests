@@ -99,7 +99,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
-		map.put("moduleName", BaseTestCase.currentModule);
+		map.put("moduleName", BaseTestCase.certsForModule);
 //		map.put("keyFileNameByPartnerName", "true");
 		
 //		String token = kernelAuthLib.getTokenByRole("partner");
@@ -201,7 +201,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		HashMap<String, Object> queryParamMap = new HashMap<String, Object>();
 		
 		queryParamMap.put("partnerType", partnerType);
-		queryParamMap.put("moduleName", BaseTestCase.currentModule);
+		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
 		
 		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 		

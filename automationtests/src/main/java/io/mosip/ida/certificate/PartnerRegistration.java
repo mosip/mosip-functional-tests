@@ -127,7 +127,7 @@ public class PartnerRegistration extends AdminTestUtil{
 		
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
-		map.put("moduleName", BaseTestCase.currentModule);
+		map.put("moduleName", BaseTestCase.certsForModule);
 		map.put("keyFileNameByPartnerName", "true");
 		
 		String token = kernelAuthLib.getTokenByRole("partner");
@@ -152,7 +152,7 @@ public class PartnerRegistration extends AdminTestUtil{
 		
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
-		map.put("moduleName", BaseTestCase.currentModule);
+		map.put("moduleName", BaseTestCase.certsForModule);
 		if (partnerType.equals("RELYING_PARTY") || partnerType.equals("MISP")){
 			map.put("keyFileNameByPartnerName", "true");
 		}
@@ -260,7 +260,7 @@ public class PartnerRegistration extends AdminTestUtil{
 		HashMap<String, Object> queryParamMap = new HashMap<String, Object>();
 		queryParamMap.put("partnerName", partnerId);
 		queryParamMap.put("partnerType", partnerType);
-		queryParamMap.put("moduleName", BaseTestCase.currentModule);
+		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
 		if (partnerType.equals("RELYING_PARTY")){
 			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
 		}
@@ -377,7 +377,7 @@ public class PartnerRegistration extends AdminTestUtil{
 		String url = localHostUrl + props.getProperty("clearCertificateURL");
 		
 		if (url.contains("$MODULENAME$")) {
-			url = url.replace("$MODULENAME$", BaseTestCase.currentModule);
+			url = url.replace("$MODULENAME$", BaseTestCase.certsForModule);
 		}
 		
 		Response response = RestClient.deleteRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
