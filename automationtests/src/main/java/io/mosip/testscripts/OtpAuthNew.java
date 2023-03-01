@@ -103,7 +103,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		requestBody.put("id", individualId);
 		requestBody.put("keyFileNameByPartnerName", "true");
 		requestBody.put("partnerName", PartnerRegistration.partnerId);
-		requestBody.put("moduleName", BaseTestCase.currentModule);
+		requestBody.put("moduleName", BaseTestCase.certsForModule);
 
 		String token = kernelAuthLib.getTokenByRole("resident");
 
