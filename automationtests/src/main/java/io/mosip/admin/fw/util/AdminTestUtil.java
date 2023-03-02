@@ -2198,15 +2198,23 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$PARTNERID$"))
 			jsonString = jsonString.replace("$PARTNERID$", genPartnerName);
+		
+		if (jsonString.contains("$PARTNERIDFORDSL$"))
+			jsonString = jsonString.replace("$PARTNERIDFORDSL$", genPartnerNameForDsl);
 
 		if (jsonString.contains("$PARTNERID1$"))
 			jsonString = jsonString.replace("$PARTNERID1$", genPartnerName + "2n");
 
 		if (jsonString.contains("$PARTNEREMAIL1$"))
 			jsonString = jsonString.replace("$PARTNEREMAIL1$", "12d" + genPartnerEmail);
+		
+		
 
 		if (jsonString.contains("$PARTNEREMAIL$"))
 			jsonString = jsonString.replace("$PARTNEREMAIL$", genPartnerEmail);
+		
+		if (jsonString.contains("$PARTNEREMAILFORDSL$"))
+			jsonString = jsonString.replace("$PARTNEREMAILFORDSL$", genPartnerEmailForDsl);
 		
 		if (jsonString.contains("$MISPPOLICYGROUPDESC$"))
 			jsonString = jsonString.replace("$MISPPOLICYGROUPDESC$", genMispPolicyGroupDesc);
