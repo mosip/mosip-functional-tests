@@ -61,7 +61,8 @@ public class AuditDBManager extends AdminTestUtil {
 					}
 				}
 			}
-		});
+		});  
+		
 		DBCONNECTION_LOGGER.info("==========session  closed=============");
 		session.close();
 		System.out.println(record);
