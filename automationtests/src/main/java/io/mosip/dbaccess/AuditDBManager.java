@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList; 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,15 +30,13 @@ import org.testng.ITest;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.testrunner.MosipTestRunner;
- 
-
 
 public class AuditDBManager extends AdminTestUtil {
 	private static final Logger DBCONNECTION_LOGGER = Logger.getLogger(AuditDBManager.class);
 	private static Map<String, Object> records;
 	private static List<Map<String, Object>> allRecords;
 	public static String env = System.getProperty("env.user");
-	
+
 	/**
 	 * Execute query to get generated otp value
 	 * 
@@ -46,10 +44,7 @@ public class AuditDBManager extends AdminTestUtil {
 	 * @param moduleName
 	 * @return otp record
 	 */
-	
-	
-	
-	
+
 	public static Map<String, Object> executeQueryAndGetRecord(String moduleName, String query) {
 		Session session = getDataBaseConnection(moduleName);
 		Map<String, Object> record = new HashMap<String, Object>();
@@ -71,9 +66,9 @@ public class AuditDBManager extends AdminTestUtil {
 		session.close();
 		System.out.println(record);
 		return record;
-		
+
 	}
-	
+
 	public static void executeQueryAndDeleteRecord(String moduleName, String deleteQuery) {
 		Session session = getDataBaseConnection(moduleName);
 		session.doWork(new Work() {
@@ -82,37 +77,44 @@ public class AuditDBManager extends AdminTestUtil {
 				Statement statement = connection.createStatement();
 				int rs = statement.executeUpdate(deleteQuery);
 				if (rs > 0) {
-				    System.out.println("deleted successfully!");
+					System.out.println("deleted successfully!");
 				}
 			}
 		});
 		DBCONNECTION_LOGGER.info("==========session  closed=============");
 		session.close();
-		
+
 	}
-	
-	
+
 	private static Session getDataBaseConnection(String dbName) {
 		SessionFactory factory = null;
 		Session session = null;
-		String dbConfigXml = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbConfig.xml";
-		
+		String dbConfigXml = MosipTestRunner.getGlobalResourcePath() + "/dbFiles/dbConfig.xml";
+		String dbschema=ConfigManager.getValueForKey("audit_db_schema");
+		if(dbName.equalsIgnoreCase("partner"))
+			dbschema=ConfigManager.getValueForKey("ida_db_schema");
 		try {
 			Configuration config = new Configuration();
-			//config.setProperties(dbProps);
+			// config.setProperties(dbProps);
 			config.setProperty("hibernate.connection.driver_class", propsKernel.getProperty("driver_class"));
-			//config.setProperty("hibernate.connection.url", propsKernel.getProperty(dbName+"_url"));
-			config.setProperty("hibernate.connection.url", "jdbc:"+propsKernel.getProperty("postgresqlUser") +"://"+ ConfigManager.getValueForKey("db-server") +":"+ConfigManager.getValueForKey("db-port")+"/mosip_"+ConfigManager.getValueForKey("audit_db_schema"));;
+			// config.setProperty("hibernate.connection.url",
+			// propsKernel.getProperty(dbName+"_url"));
+			config.setProperty("hibernate.connection.url",
+					"jdbc:" + propsKernel.getProperty("postgresqlUser") + "://"
+							+ ConfigManager.getValueForKey("db-server") + ":" + ConfigManager.getValueForKey("db-port")
+							+ "/mosip_" + dbschema);
+			;
 			config.setProperty("hibernate.connection.username", ConfigManager.getAuditDbUser());
 			config.setProperty("hibernate.connection.password", ConfigManager.getValueForKey("postgresql-password"));
-			config.setProperty("hibernate.default_schema", propsKernel.getProperty(dbName+"_default_schema"));
+			config.setProperty("hibernate.default_schema", propsKernel.getProperty(dbName + "_default_schema"));
 			config.setProperty("hibernate.connection.pool_size", propsKernel.getProperty("pool_size"));
 			config.setProperty("hibernate.dialect", propsKernel.getProperty("dialect"));
 			config.setProperty("hibernate.show_sql", propsKernel.getProperty("show_sql"));
-			config.setProperty("hibernate.current_session_context_class", propsKernel.getProperty("current_session_context_class"));
+			config.setProperty("hibernate.current_session_context_class",
+					propsKernel.getProperty("current_session_context_class"));
 			config.addFile(new File(dbConfigXml));
-		factory = config.buildSessionFactory();
-		session = factory.getCurrentSession();
+			factory = config.buildSessionFactory();
+			session = factory.getCurrentSession();
 		} catch (HibernateException e) {
 			DBCONNECTION_LOGGER.info("Exception in Database Connection with following message: ");
 			DBCONNECTION_LOGGER.info(e.getMessage());
@@ -122,5 +124,5 @@ public class AuditDBManager extends AdminTestUtil {
 		session.beginTransaction();
 		DBCONNECTION_LOGGER.info("==========session  begins=============");
 		return session;
-	}	
+	}
 }
