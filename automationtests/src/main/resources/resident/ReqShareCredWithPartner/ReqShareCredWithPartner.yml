@@ -40,12 +40,12 @@ ReqShareCredWithPartner:
     ]
 }'
 
-   Resident_ReqShareCredWithPartner_Empty_Purpose_Pos:
+   Resident_ReqShareCredWithPartner_Empty_Purpose_Neg:
       endPoint: /resident/v1/share-credential
       role: residentNew
       restMethod: post
       inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
-      outputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartnerResult
+      outputTemplate: resident/error
       input: '{
 	        "purpose": "",
 	        "consent" : "Accepted",

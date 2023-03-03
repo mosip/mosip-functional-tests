@@ -71,9 +71,11 @@ public class KernelAuthentication extends BaseTestCase{
 	private static File IDPUINCookiesFile = new File("src/main/resources/IDPUINCookiesResponse.txt");
 	private static File IDPVIDCookiesFile = new File("src/main/resources/IDPVIDCookiesResponse.txt");
 
+	public String getTokenByRole(String role) {
+		return getTokenByRole(role, null);
+	}
 	
-	
-	public String getTokenByRole(String role)
+	public String getTokenByRole(String role, String tokenType)
 	{
 		String insensitiveRole = null;
 		if(role!=null)
@@ -137,13 +139,13 @@ public class KernelAuthentication extends BaseTestCase{
 				residentCookie = kernelAuthLib.getAuthForResident();
 			return residentCookie;
 		case "residentnew":
-			if(!kernelCmnLib.isValidToken(residentNewCookie))
+			if(!kernelCmnLib.isValidToken(residentNewCookie.get(tokenType)))
 				residentNewCookie = getAuthFromIdp(IDPUINCookiesFile);
-			return residentNewCookie;
+			return residentNewCookie.get(tokenType).toString();
 		case "residentnewvid":
-			if(!kernelCmnLib.isValidToken(residentNewVidCookie))
+			if(!kernelCmnLib.isValidToken(residentNewVidCookie.get(tokenType)))
 				residentNewVidCookie = getAuthFromIdp(IDPVIDCookiesFile);
-			return residentNewVidCookie;
+			return residentNewVidCookie.get(tokenType).toString();
 		case "residentnewKc":
 			if(!kernelCmnLib.isValidToken(residentNewCookieKc))
 				residentNewCookieKc = kernelAuthLib.getAuthForNewResidentKc();
@@ -176,8 +178,8 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	
 	@SuppressWarnings("unchecked")
-	public String getAuthFromIdp(File fileName) {
-		String token = null;
+	public HashMap<String, String> getAuthFromIdp(File fileName) {
+		HashMap<String, String> tokens = new HashMap<String, String>();
 		if (fileName.exists()) {
 			String IDPCookiesFileString = null;
 			try {
@@ -187,7 +189,8 @@ public class KernelAuthentication extends BaseTestCase{
 				e.printStackTrace();
 			}
 			org.json.JSONObject jsonCookies = new org.json.JSONObject(IDPCookiesFileString);
-			token = jsonCookies.get("access_token").toString();
+			tokens.put("access_token", jsonCookies.get("access_token").toString());
+			tokens.put("id_token", jsonCookies.get("id_token").toString());
 //			System.out.println("JSON " + jsonCookies);
 //			System.out.println("JSON " + token);
 //			System.out.println("id_token " + jsonCookies.get("id_token"));
@@ -195,7 +198,7 @@ public class KernelAuthentication extends BaseTestCase{
 		} else {
 			logger.error("IDPCookiesFile File not Found in location:" + fileName.getAbsolutePath());
 		}
-	return token;
+	return tokens;
 	}
 	
 	@SuppressWarnings("unchecked")

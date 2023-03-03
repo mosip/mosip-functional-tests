@@ -62,6 +62,8 @@ public class BaseTestCase {
 	protected static String regClientToken;
 	public String regProcToken;
 	public final String COOKIENAME = "Authorization";
+	public final String IDTOKENCOOKIENAME = "id_token";
+	public final String ACCESSTOKENCOOKIENAME = "access_token";
 	public final String COOKIENAMESTATE = "state";
 	public String individualCookie = null;
 	public String idaCookie = null;
@@ -78,8 +80,8 @@ public class BaseTestCase {
 	public String idpPartnerCookie = null;
 	public String policytestCookie = null;
 	public String residentCookie = null;
-	public String residentNewCookie = null;
-	public String residentNewVidCookie = null;
+	public HashMap<String, String> residentNewCookie = new HashMap<>();
+	public HashMap<String, String> residentNewVidCookie = new HashMap<>();
 	public String residentNewCookieKc = null;
 	public String hotlistCookie = null;
 	public String keycloakCookie = null;

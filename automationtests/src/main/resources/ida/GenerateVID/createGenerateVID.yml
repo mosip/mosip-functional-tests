@@ -25,7 +25,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
@@ -58,7 +58,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
@@ -91,7 +91,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
@@ -124,7 +124,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
