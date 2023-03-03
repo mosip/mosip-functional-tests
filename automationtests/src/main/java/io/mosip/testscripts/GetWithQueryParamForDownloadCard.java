@@ -38,6 +38,7 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 	public Response response = null;
 	public byte[] pdf=null;
 	public String pdfAsText =null;
+	public boolean sendIdpToken = false;
 	/**
 	 * get current testcaseName
 	 */
@@ -54,6 +55,7 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
+		sendIdpToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendIdpToken");
 		logger.info("Started executing yml: "+ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -104,7 +106,7 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 		}  
 		
 		else {
-			pdf = getWithQueryParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			pdf = getWithQueryParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendIdpToken);
 			try {
 				 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
 				} catch (IOException e) {

@@ -306,6 +306,7 @@
 		<parameter name="ymlFile"
 			value="resident/PersonalizedCard/PersonalizedCard.yml" />
 			<parameter name="idKeyName"	value="access_token" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithPdfDownload" />
 		</classes>
@@ -313,6 +314,7 @@
 	<test name="SendOtpForContactDet">
 		<parameter name="ymlFile"
 			value="resident/SendOtpForContactDet/SendOtpForContactDet.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -320,6 +322,7 @@
 	<test name="UpdateContactDetails">
 		<parameter name="ymlFile"
 			value="resident/UpdateContactDetails/UpdateContactDetails.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
@@ -327,6 +330,7 @@
 	<test name="ReqShareCredWithPartner">
 		<parameter name="ymlFile"
 			value="resident/ReqShareCredWithPartner/ReqShareCredWithPartner.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -334,6 +338,7 @@
 	<test name="SendOtpToUserId">
 		<parameter name="ymlFile"
 			value="resident/SendOtpToUserId/SendOtpToUserId.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -341,6 +346,7 @@
 	<test name="ValidateWithUserIdOtp">
 		<parameter name="ymlFile"
 			value="resident/ValidateWithUserIdOtp/ValidateWithUserIdOtp.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -350,11 +356,13 @@
 			value="resident/GetSupportingDoc/GetSupportingDoc.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
+			<parameter name="sendIdpToken"	value="true" />
 		</classes>
 	</test>
 	<test name="GetInputAttributeValues">
 		<parameter name="ymlFile"
 			value="resident/GetInputAttributeValues/GetInputAttributeValues.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -362,6 +370,7 @@
 	<test name="GetProfile">
 		<parameter name="ymlFile"
 			value="resident/GetProfile/GetProfile.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -369,6 +378,7 @@
 	<test name="GetLastClickNotification">
 		<parameter name="ymlFile"
 			value="resident/GetLastClickNotification/GetLastClickNotification.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -376,6 +386,7 @@
 	<test name="PutBellUpdatedTime">
 		<parameter name="ymlFile"
 			value="resident/PutBellUpdatedTime/PutBellUpdatedTime.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
@@ -383,6 +394,7 @@
 	<test name="DownloadNearestRegCen">
 		<parameter name="ymlFile"
 			value="resident/DownloadNearestRegCen/DownloadNearestRegCen.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
 		</classes>
@@ -390,6 +402,7 @@
 	<test name="DownloadRegCenterDetails">
 		<parameter name="ymlFile"
 			value="resident/DownloadRegCenterDetails/DownloadRegCenterDetails.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
 		</classes>
@@ -397,6 +410,7 @@
 	<test name="GetAllTemplateBylangCodeAndTemplateTypeCode">
 		<parameter name="ymlFile"
 			value="resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCode.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -404,6 +418,7 @@
 	<test name="AuditLog">
 		<parameter name="ymlFile"
 			value="resident/AuditLog/AuditLog.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -411,6 +426,7 @@
 	<test name="GetValidateToken">
 		<parameter name="ymlFile"
 			value="resident/GetValidateToken/GetValidateToken.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -418,6 +434,7 @@
 	<test name="AuthLockNew">
 		<parameter name="ymlFile"
 			value="resident/AuthLockNew/CreateAuthLockNew.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -425,6 +442,7 @@
 	<test name="GetAuthLockStatus">
 		<parameter name="ymlFile"
 			value="resident/GetAuthLockStatus/GetAuthLockStatus.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -432,6 +450,7 @@
 	<test name="AuthUnlockNew">
 		<parameter name="ymlFile"
 			value="resident/AuthUnlockNew/CreateAuthUnlockNew.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -439,6 +458,7 @@
 	<test name="GenerateVIDNew">
 		<parameter name="ymlFile"
 			value="resident/GenerateVID/createGenerateVIDNew.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 			<parameter name="idKeyName"	value="vid" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -447,6 +467,7 @@
 	<test name="GetRequestCardVid">
 		<parameter name="ymlFile"
 			value="resident/GetRequestCardVid/GetRequestCardVid.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 			<parameter name="idKeyName"	value="eventId" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
@@ -455,6 +476,7 @@
 	<test name="GetRetrieveVidPolicy">
 		<parameter name="ymlFile"
 			value="resident/GetRetrieveVidPolicy/GetRetrieveVidPolicy.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -462,6 +484,7 @@
 	<test name="GetPartnersByPartnerType">
 		<parameter name="ymlFile"
 			value="resident/GetPartnersByPartnerType/GetPartnersByPartnerType.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -469,6 +492,7 @@
 	<test name="RetrieveVID">
 		<parameter name="ymlFile"
 			value="resident/RetrieveVID/RetrieveVID.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -476,6 +500,7 @@
 	<test name="GetServiceHistory">
 		<parameter name="ymlFile"
 			value="resident/GetServiceHistory/GetServiceHistory.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 			<parameter name="idKeyName"	value="eventId" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
@@ -484,6 +509,7 @@
 	<test name="GrievanceTicket">
 		<parameter name="ymlFile"
 			value="resident/GrievanceTicket/GrievanceTicket.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -491,6 +517,7 @@
 	<test name="DownloadServiceHistory">
 		<parameter name="ymlFile"
 			value="resident/DownloadServiceHistory/DownloadServiceHistory.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
 		</classes>
@@ -498,6 +525,7 @@
 	<test name="DownloadUinCardByEventId">
 		<parameter name="ymlFile"
 			value="resident/DownloadUinCardByEventId/DownloadUinCardByEventId.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
@@ -505,6 +533,7 @@
 	<test name="GetCheckEventIdStatus">
 		<parameter name="ymlFile"
 			value="resident/GetCheckEventIdStatus/GetCheckEventIdStatus.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -512,6 +541,7 @@
 	<test name="PinStatus">
 		<parameter name="ymlFile"
 			value="resident/PinStatus/PinStatus.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 		</classes>
@@ -519,6 +549,7 @@
 	<test name="UnPinStatus">
 		<parameter name="ymlFile"
 			value="resident/UnPinStatus/UnPinStatus.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 		</classes>
@@ -526,6 +557,7 @@
 	<test name="RevokeVIDNew">
 		<parameter name="ymlFile"
 			value="resident/RevokeVIDNew/CreateRevokeVIDNew.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePatch" />
 		</classes>
@@ -533,6 +565,7 @@
 	<test name="UploadDocument">
 		<parameter name="ymlFile"
 			value="resident/DocumentController/UploadDocument/UploadDocument.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 			<parameter name="idKeyName"	value="docId" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithParamAndFile" />
@@ -541,6 +574,7 @@
 	<test name="UpdateUINNew">
 		<parameter name="ymlFile"
 			value="resident/UpdateUINNew/UpdateUINNew.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePatch" />
 		</classes>
@@ -548,6 +582,7 @@
 	<test name="GetDocByTransId">
 		<parameter name="ymlFile"
 			value="resident/DocumentController/GetDocByTransId/GetDocByTransId.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -555,6 +590,7 @@
 	<test name="GetDocByDocId">
 		<parameter name="ymlFile"
 			value="resident/DocumentController/GetDocByDocId/GetDocByDocId.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -562,6 +598,7 @@
 	<test name="DeleteDoc">
 		<parameter name="ymlFile"
 			value="resident/DocumentController/DeleteDoc/DeleteDoc.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.DeleteWithParam" />
 		</classes>
@@ -569,6 +606,7 @@
 	<test name="TranslitrateData">
 		<parameter name="ymlFile"
 			value="resident/TranslitrateData/TranslitrateData.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -576,6 +614,7 @@
 	<test name="DownloadSupportingDocs">
 		<parameter name="ymlFile"
 			value="resident/DownloadSupportingDocs/DownloadSupportingDocs.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
 		</classes>
@@ -583,6 +622,7 @@
 		<test name="GetDocumentTypes">
 		<parameter name="ymlFile"
 			value="resident/GetDocumentTypes/GetDocumentTypes.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -590,6 +630,7 @@
 	<test name="GetGenderCode">
 		<parameter name="ymlFile"
 			value="resident/GetGenderCode/GetGenderCode.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>

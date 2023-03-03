@@ -32,6 +32,7 @@ public class DeleteWithParam extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(DeleteWithParam.class);
 	protected String testCaseName = "";
 	public Response response = null;
+	public boolean sendIdpToken = false;
 
 	/**
 	 * get current testcaseName
@@ -49,6 +50,7 @@ public class DeleteWithParam extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
+		sendIdpToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendIdpToken");
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -95,7 +97,7 @@ public class DeleteWithParam extends AdminTestUtil implements ITest {
 		else {
 			response = deleteWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
-					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+					testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendIdpToken);
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
