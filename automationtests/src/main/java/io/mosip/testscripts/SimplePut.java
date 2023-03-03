@@ -34,6 +34,7 @@ public class SimplePut extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePut.class);
 	protected String testCaseName = "";
 	public Response response = null;
+	public boolean sendIdpToken = false;
 
 	/**
 	 * get current testcaseName
@@ -51,6 +52,7 @@ public class SimplePut extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
+		sendIdpToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendIdpToken");
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -98,7 +100,7 @@ public class SimplePut extends AdminTestUtil implements ITest {
 		else {
 			response = putWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
-					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+					testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendIdpToken);
 
 			Map<String, List<OutputValidationDto>> ouputValid = null;
 			if(testCaseName.contains("_StatusCode")) {

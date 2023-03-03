@@ -29,6 +29,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 	private static final Logger logger = Logger.getLogger(PostWithBodyWithOtpGenerate.class);
 	protected String testCaseName = "";
 	public Response response = null;
+	public boolean sendIdpToken = false;
 	/**
 	 * get current testcaseName
 	 */
@@ -45,6 +46,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
+		sendIdpToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendIdpToken");
 		logger.info("Started executing yml: "+ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -74,7 +76,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		otpReqJson.remove("sendOtpEndPoint");
 		Response otpResponse =null;
         if(testCaseDTO.getRole().contains("residentNew")) {
-        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"residentNew", testCaseDTO.getTestCaseName());
+        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"residentNew", testCaseDTO.getTestCaseName(), sendIdpToken);
         }
         else if(testCaseName.contains("IDP_WalletBinding")) {
         	otpResponse = postRequestWithCookieAuthHeader(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
@@ -116,7 +118,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 			response = postRequestWithCookieAuthHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		}
 		else {
-			response = postRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			response = postRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendIdpToken);
 		}
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()));

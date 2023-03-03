@@ -33,7 +33,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(GetWithParam.class);
 	protected String testCaseName = "";
 	public Response response = null;
-
+	public boolean sendIdpToken = false;
 	/**
 	 * get current testcaseName
 	 */
@@ -50,6 +50,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
+		sendIdpToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendIdpToken");
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -115,7 +116,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 			else {
 				response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
-						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+						testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendIdpToken);
 			}
 			Map<String, List<OutputValidationDto>> ouputValid = null;
 			if(testCaseName.contains("_StatusCode")) {
