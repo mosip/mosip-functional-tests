@@ -392,7 +392,7 @@ public class KeyMgrUtil {
       	String domain = environment.getProperty(DOMAIN_URL, "localhost").replace("https://", "").replace("http://", "").replace("/", "");
   		
           // Default to temp folder in the contianer where Authdemo service is running
-      	String certsTargetDir = System.getProperty("java.io.tmpdir");
+      	String certsTargetDir = System.getProperty("java.io.tmpdir")+ File.separator + "AUTHCERTS";
       	
   		// Default to IDA-
       	String certsModuleName = "IDA";
@@ -407,8 +407,8 @@ public class KeyMgrUtil {
   		if (moduleName != null && moduleName.length() != 0){
   		    certsModuleName = moduleName;
   		}
-  		
   		return certsTargetDir + File.separator + certsModuleName + "-" + domain;
+  		
   }
 
 }
