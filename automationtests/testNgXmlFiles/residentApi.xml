@@ -57,13 +57,6 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="GetRemainingupdatecountbyIndividualIdRequest2">
-		<parameter name="ymlFile"
-			value="resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
-		</classes>
-	</test>
 	<test name="ReqAidOtp">
 		<parameter name="ymlFile"
 			value="resident/ReqAidOtp/ReqAidOtp.yml" />
@@ -300,6 +293,13 @@
 			<parameter name="idKeyName"	value="access_token" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
+		</classes>
+	</test>
+	<test name="GetRemainingupdatecountbyIndividualIdRequest2">
+		<parameter name="ymlFile"
+			value="resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="PersonalizedCard">

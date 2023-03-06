@@ -40,4 +40,4 @@ PinStatus:
       input: '{
       	"eventId": "$ID:GetServiceHistory_all_Valid_Smoke_sid_eventId$"
 }'
-      output: "500"
+      output: "401"

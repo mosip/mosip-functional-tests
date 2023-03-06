@@ -698,4 +698,4 @@ GetServiceHistory:
 	    "statusFilter": "$REMOVE$",
 	    "searchText": "$REMOVE$"
 }'
-      output: "500"
+      output: "401"
