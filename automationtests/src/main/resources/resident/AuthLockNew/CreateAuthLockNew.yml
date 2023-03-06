@@ -479,7 +479,7 @@ AuthLockNew:
         "locked": "true",
         "unlockForSeconds": "null"
     }'
-      output: "500"
+      output: "401"
       
    Resident_AuthLockNew_Demo_Valid_Vid_All:
       endPoint: /resident/v1/auth-lock-unlock

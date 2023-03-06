@@ -90,7 +90,7 @@ TranslitrateData:
 	    "from_field_lang": "$1STLANG$",
 	    "to_field_lang": "$2NDLANG$"
 }'
-      output: "500"
+      output: "401"
 
    Resident_TranslitrateData_Invalid_FromLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate

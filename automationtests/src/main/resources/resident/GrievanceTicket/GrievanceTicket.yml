@@ -60,7 +60,7 @@ GrievanceTicket:
 	    "alternatePhoneNo" : "null", 
 	    "message" : "Share"
 }'
-      output: "500"
+      output: "401"
 
    Resident_GrievanceTicket_StatusCode_Empty_Token_Neg:
       endPoint: /resident/v1/grievance/ticket
@@ -78,7 +78,7 @@ GrievanceTicket:
 	    "alternatePhoneNo" : "null", 
 	    "message" : "Share"
 }'
-      output: "500"
+      output: "401"
 
    Resident_GrievanceTicket_Invalid_Eid_Neg:
       endPoint: /resident/v1/grievance/ticket
