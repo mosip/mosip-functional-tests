@@ -1,5 +1,5 @@
 GetDocByTransId:
-   Resident_GetDocByTransId_all_Valid_Smoke:
+   Resident_GetDocByTransId_uin_all_Valid_Smoke:
       endPoint: /resident/v1/documents/{transactionId}
       role: residentNew
       restMethod: get
@@ -12,7 +12,7 @@ GetDocByTransId:
             "transactionId": "1234567889"
 }'
 
-   Resident_GetDocByTransId_Invalid_TransactionId:
+   Resident_GetDocByTransId_uin_Invalid_TransactionId:
       endPoint: /resident/v1/documents/{transactionId}
       role: residentNew
       restMethod: get

@@ -1,19 +1,19 @@
 GetCheckEventIdStatus:
-   Resident_GetCheckEventIdStatus_all_Valid_Smoke:
+   Resident_GetCheckEventIdStatus_uin_all_Valid_Smoke:
       endPoint: /resident/v1/events/{eventId}?langCode={langCode}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetCheckEventIdStatus/GetCheckEventIdStatus
       outputTemplate: resident/GetCheckEventIdStatus/GetCheckEventIdStatusResult
       input: '{
-      	"eventId": "$ID:GetServiceHistory_all_Valid_Smoke_sid_eventId$",
+      	"eventId": "$ID:GetServiceHistory_uin_all_Valid_Smoke_sid_eventId$",
 		"langCode": "$1STLANG$"
 }'
       output: '{
         
 }'
 
-   Resident_GetCheckEventIdStatus_Invalid_eventId_Neg:
+   Resident_GetCheckEventIdStatus_uin_Invalid_eventId_Neg:
       endPoint: /resident/v1/events/{eventId}?langCode={langCode}
       role: residentNew
       restMethod: get
@@ -32,14 +32,14 @@ GetCheckEventIdStatus:
   ]
 }'
 
-   Resident_GetCheckEventIdStatus_Invalid_LangCode_Neg:
+   Resident_GetCheckEventIdStatus_uin_Invalid_LangCode_Neg:
       endPoint: /resident/v1/events/{eventId}?langCode={langCode}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetCheckEventIdStatus/GetCheckEventIdStatus
       outputTemplate: resident/error
       input: '{
-      	"eventId": "$ID:GetServiceHistory_all_Valid_Smoke_sid_eventId$",
+      	"eventId": "$ID:GetServiceHistory_uin_all_Valid_Smoke_sid_eventId$",
 		"langCode": "hinn"
 }'
       output: '{

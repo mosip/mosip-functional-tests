@@ -83,6 +83,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO)
 			throws AuthenticationTestException, AdminTestException, NoSuchAlgorithmException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
 		// filterHbs(testCaseDTO);

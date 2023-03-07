@@ -71,6 +71,7 @@ import org.json.simple.parser.ParseException;
 import org.springframework.http.HttpHeaders;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.SkipException;
 import org.yaml.snakeyaml.Yaml;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -4281,6 +4282,34 @@ public class AdminTestUtil extends BaseTestCase {
 			return clientId;
 		}
 
+	}
+	
+	public static String isTestCaseValidForExecution(TestCaseDTO testCaseDTO) {
+		String testCaseName = testCaseDTO.getTestCaseName();
+		if (BaseTestCase.currentModule.equalsIgnoreCase("resident")) {
+			if (testCaseDTO.getRole() != null && (testCaseDTO.getRole().equalsIgnoreCase("residentNew")
+					|| testCaseDTO.isValidityCheckRequired())) {
+				if (testCaseName.contains("uin") || testCaseName.contains("UIN") || testCaseName.contains("Uin")) {
+					if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+							|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
+						return testCaseName;
+					} else {
+						throw new SkipException("Idtype UIN not supported skipping the testcase");
+					}
+				}
+			} else if (testCaseDTO.getRole() != null && (testCaseDTO.getRole().equalsIgnoreCase("residentNewVid")
+					|| testCaseDTO.isValidityCheckRequired())) {
+				if (testCaseName.contains("vid") || testCaseName.contains("VID") || testCaseName.contains("Vid")) {
+					if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+							|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+						return testCaseName;
+					} else {
+						throw new SkipException("Idtype VID not supported skipping the testcase");
+					}
+				}
+			}
+		}
+		return testCaseName;
 	}
 	
 }

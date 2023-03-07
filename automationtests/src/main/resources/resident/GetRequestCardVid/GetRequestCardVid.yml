@@ -1,25 +1,26 @@
 GetRequestCardVid:
-   Resident_GetRequestCardVid_all_Valid_Smoke_sid:
+   Resident_GetRequestCardVid_uin_all_Valid_Smoke_sid:
       endPoint: /resident/v1/request-card/vid/{VID}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetRequestCardVid/GetRequestCardVid
       outputTemplate: resident/GetRequestCardVid/GetRequestCardVidResult
       input: '{
-      	"VID": "$ID:GenerateVID_Temporary_VID_Valid_Smoke_sid_vid$"
+      	"VID": "$ID:GenerateVID_uin_Temporary_VID_Valid_Smoke_sid_vid$"
 }'
       output: '{
         "status": "Success"
 }'
 
-   Resident_GetRequestCardVid_Invalid_User_Neg:
+   Resident_GetRequestCardVid_uin_Invalid_User_Neg:
       endPoint: /resident/v1/request-card/vid/{VID}
       role: partner
+      validityCheckRequired: true
       restMethod: get
       inputTemplate: resident/GetRequestCardVid/GetRequestCardVid
       outputTemplate: resident/error
       input: '{
-      	"VID": "$ID:GenerateVID_Temporary_VID_Valid_Smoke_sid_vid$"
+      	"VID": "$ID:GenerateVID_uin_Temporary_VID_Valid_Smoke_sid_vid$"
 }'
       output: '{
       "errors": [
@@ -30,7 +31,7 @@ GetRequestCardVid:
   ]
 }'
 
-   Resident_GetRequestCardVid_Invalid_Vid_Neg:
+   Resident_GetRequestCardVid_uin_Invalid_Vid_Neg:
       endPoint: /resident/v1/request-card/vid/{VID}
       role: residentNew
       restMethod: get
@@ -48,7 +49,7 @@ GetRequestCardVid:
   ]
 }'
 
-   Resident_GetRequestCardVid_Invalid_UserVid_Neg:
+   Resident_GetRequestCardVid_uin_Invalid_UserVid_Neg:
       endPoint: /resident/v1/request-card/vid/{VID}
       role: residentNew
       restMethod: get

@@ -1,5 +1,5 @@
 RetrieveVID:
-   Resident_RetrieveVID_all_Valid_Smoke:
+   Resident_RetrieveVID_uin_all_Valid_Smoke:
       endPoint: /resident/v1/vids
       role: residentNew
       restMethod: get

@@ -19,23 +19,7 @@ SendOtpToUserId:
   ]
 }'
 
-   Resident_SendOtpToUserId_all_Valid_Smoke:
-      endPoint: /resident/v1/contact-details/send-otp
-      role: residentNew
-      restMethod: post
-      inputTemplate: resident/SendOtpToUserId/SendOtpToUserId
-      outputTemplate: resident/SendOtpToUserId/SendOtpToUserIdResult
-      input: '{
-      	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "1234567890"
-}'
-      output: '{
-        "status": "Email Request submitted",
-        "message": "success"
-}'
-
-   Resident_SendOtpToUserId_Invalid_Requesttime_Neg:
+   Resident_SendOtpToUserId_uin_Invalid_Requesttime_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -55,7 +39,7 @@ SendOtpToUserId:
   ]
 }'
 
-   Resident_SendOtpToUserId_Missing_Requesttime_Neg:
+   Resident_SendOtpToUserId_uin_Missing_Requesttime_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -75,7 +59,7 @@ SendOtpToUserId:
   ]
 }'
 
-   Resident_SendOtpToUserId_Null_Requesttime_Neg:
+   Resident_SendOtpToUserId_uin_Null_Requesttime_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -97,7 +81,7 @@ SendOtpToUserId:
         "message": "success"
 }'
 
-   Resident_SendOtpToUserId_Invalid_userId_Neg:
+   Resident_SendOtpToUserId_uin_Invalid_userId_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -117,7 +101,7 @@ SendOtpToUserId:
   ]
 }'
 
-   Resident_SendOtpToUserId_Empty_userId_Neg:
+   Resident_SendOtpToUserId_uin_Empty_userId_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -137,7 +121,7 @@ SendOtpToUserId:
   ]
 }'
 
-   Resident_SendOtpToUserId_SpaceVal_userId_Neg:
+   Resident_SendOtpToUserId_uin_SpaceVal_userId_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -157,7 +141,7 @@ SendOtpToUserId:
   ]
 }'
 
-   Resident_SendOtpToUserId_Missing_userId_Neg:
+   Resident_SendOtpToUserId_uin_Missing_userId_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -177,7 +161,7 @@ SendOtpToUserId:
   ]
 }'
 
-   Resident_SendOtpToUserId_Null_userId_Neg:
+   Resident_SendOtpToUserId_uin_Null_userId_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -199,7 +183,7 @@ SendOtpToUserId:
         "message": "success"
 }'
 
-   Resident_SendOtpToUserId_Invalid_transactionID_Neg:
+   Resident_SendOtpToUserId_uin_Invalid_transactionID_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -219,7 +203,7 @@ SendOtpToUserId:
   ]
 }'
 
-   Resident_SendOtpToUserId_Empty_transactionID_Neg:
+   Resident_SendOtpToUserId_uin_Empty_transactionID_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -239,7 +223,7 @@ SendOtpToUserId:
   ]
 }'
 
-   Resident_SendOtpToUserId_SpaceVal_transactionID_Neg:
+   Resident_SendOtpToUserId_uin_SpaceVal_transactionID_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -259,7 +243,7 @@ SendOtpToUserId:
   ]
 }'
 
-   Resident_SendOtpToUserId_Missing_transactionID_Neg:
+   Resident_SendOtpToUserId_uin_Missing_transactionID_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -277,4 +261,20 @@ SendOtpToUserId:
       "message": "Invalid Input Parameter- transactionID"
     }
   ]
+}'
+
+   Resident_SendOtpToUserId_uin_all_Valid_Smoke:
+      endPoint: /resident/v1/contact-details/send-otp
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/SendOtpToUserId/SendOtpToUserId
+      outputTemplate: resident/SendOtpToUserId/SendOtpToUserIdResult
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "userId": "residentautomation@gmail.com",
+	    "transactionID": "1234567890"
+}'
+      output: '{
+        "status": "Email Request submitted",
+        "message": "success"
 }'

@@ -1,5 +1,5 @@
 DownloadSupportingDocs:
-   Resident_DownloadSupportingDocs_allValid_smoke:
+   Resident_DownloadSupportingDocs_all_Valid_smoke:
       endPoint: /resident/v1/download/supporting-documents
       role: resident
       restMethod: get
@@ -39,7 +39,7 @@ DownloadSupportingDocs:
 
    Resident_DownloadSupportingDocs_Invalid_token_Neg:
       endPoint: /resident/v1/download/supporting-documents
-      role: residentNew
+      role: invalid
       restMethod: get
       inputTemplate: resident/DownloadSupportingDocs/DownloadSupportingDocs
       outputTemplate: resident/error

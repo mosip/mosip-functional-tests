@@ -1,5 +1,5 @@
 TranslitrateData:
-   Resident_TranslitrateData_all_Valid_Smoke:
+   Resident_TranslitrateData_uin_all_Valid_Smoke:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -15,7 +15,7 @@ TranslitrateData:
         
 }'
 
-   Resident_TranslitrateData_Same_Lang_Neg:
+   Resident_TranslitrateData_uin_Same_Lang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -36,7 +36,7 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Invalid_UserToken_Neg:
+   Resident_TranslitrateData_uin_Invalid_UserToken_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: resident
       restMethod: post
@@ -57,7 +57,7 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Invalid_Token_Neg:
+   Resident_TranslitrateData_uin_Invalid_Token_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: resident
       restMethod: post
@@ -92,7 +92,7 @@ TranslitrateData:
 }'
       output: "401"
 
-   Resident_TranslitrateData_Invalid_FromLang_Neg:
+   Resident_TranslitrateData_uin_Invalid_FromLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -113,7 +113,7 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Missing_FromLang_Neg:
+   Resident_TranslitrateData_uin_Missing_FromLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -134,7 +134,7 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Empty_FromLang_Neg:
+   Resident_TranslitrateData_uin_Empty_FromLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -155,7 +155,7 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Invalid_ToLang_Neg:
+   Resident_TranslitrateData_uin_Invalid_ToLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -176,7 +176,7 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Missing_ToLang_Neg:
+   Resident_TranslitrateData_uin_Missing_ToLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -197,7 +197,7 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Empty_ToLang_Neg:
+   Resident_TranslitrateData_uin_Empty_ToLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post

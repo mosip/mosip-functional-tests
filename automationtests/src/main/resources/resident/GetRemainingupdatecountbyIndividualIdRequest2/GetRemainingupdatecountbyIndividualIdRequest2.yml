@@ -1,5 +1,5 @@
 GetRemainingupdatecountbyIndividualIdRequest2:
-   Resident_GetRemainingupdatecountbyIndividualIdRequest2_Valid_Smoke:
+   Resident_GetRemainingupdatecountbyIndividualIdRequest2_uin_Valid_Smoke:
       endPoint: /resident/v1/identity/update-count?filter_attribute_list={filter_attribute_list}
       role: residentNew
       restMethod: get
