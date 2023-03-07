@@ -1,5 +1,5 @@
 ValidateWithUserIdOtp:
-   Resident_ValidateWithUserIdOtp_all_Valid_Smoke:
+   Resident_ValidateWithUserIdOtp_uin_all_Valid_Smoke:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -29,7 +29,7 @@ ValidateWithUserIdOtp:
 }'
 
 
-   Resident_ValidateWithUserIdOtp_Invalid_RequestTime_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Invalid_RequestTime_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -62,7 +62,7 @@ ValidateWithUserIdOtp:
     }
 }'
 
-   Resident_ValidateWithUserIdOtp_Past_RequestTime_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Past_RequestTime_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -95,7 +95,7 @@ ValidateWithUserIdOtp:
     }
 }'
 
-   Resident_ValidateWithUserIdOtp_Future_RequestTime_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Future_RequestTime_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -128,7 +128,7 @@ ValidateWithUserIdOtp:
     }
 }'
 
-   Resident_ValidateWithUserIdOtp_Invalid_userId_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Invalid_userId_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -162,7 +162,7 @@ ValidateWithUserIdOtp:
         
 }'
 
-   Resident_ValidateWithUserIdOtp_Empty_userId_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Empty_userId_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -196,7 +196,7 @@ ValidateWithUserIdOtp:
       
 }'
 
-   Resident_ValidateWithUserIdOtp_SpaceVal_userId_Neg:
+   Resident_ValidateWithUserIdOtp_uin_SpaceVal_userId_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -230,7 +230,7 @@ ValidateWithUserIdOtp:
   
 }'
 
-   Resident_ValidateWithUserIdOtp_Missing_userId_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Missing_userId_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -263,7 +263,7 @@ ValidateWithUserIdOtp:
        
 }'
 
-   Resident_ValidateWithUserIdOtp_Null_userId_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Null_userId_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -296,7 +296,7 @@ ValidateWithUserIdOtp:
     }
 }'
 
-   Resident_ValidateWithUserIdOtp_Invalid_transactionID_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Invalid_transactionID_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -329,7 +329,7 @@ ValidateWithUserIdOtp:
     }
 }'
 
-   Resident_ValidateWithUserIdOtp_Empty_transactionID_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Empty_transactionID_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -356,7 +356,7 @@ ValidateWithUserIdOtp:
     }
 }'
 
-   Resident_ValidateWithUserIdOtp_Missing_transactionID_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Missing_transactionID_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -383,7 +383,7 @@ ValidateWithUserIdOtp:
     }
 }'
 
-   Resident_ValidateWithUserIdOtp_Space_val_transactionID_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Space_val_transactionID_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -412,7 +412,7 @@ ValidateWithUserIdOtp:
         "message": "success"
 }'
 
-   Resident_ValidateWithUserIdOtp_Null_transactionID_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Null_transactionID_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -439,7 +439,7 @@ ValidateWithUserIdOtp:
     }
 }'
 
-   Resident_ValidateWithUserIdOtp_Invalid_Otp_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Invalid_Otp_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -466,7 +466,7 @@ ValidateWithUserIdOtp:
     }
 }'
 
-   Resident_ValidateWithUserIdOtp_Missing_Otp_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Missing_Otp_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -493,7 +493,7 @@ ValidateWithUserIdOtp:
     }
 }'
 
-   Resident_ValidateWithUserIdOtp_Null_Otp_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Null_Otp_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -520,7 +520,7 @@ ValidateWithUserIdOtp:
     }
 }'
 
-   Resident_ValidateWithUserIdOtp_SpaceVal_Otp_Neg:
+   Resident_ValidateWithUserIdOtp_uin_SpaceVal_Otp_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
@@ -547,7 +547,7 @@ ValidateWithUserIdOtp:
     }
 }'
 
-   Resident_ValidateWithUserIdOtp_Empty_Otp_Neg:
+   Resident_ValidateWithUserIdOtp_uin_Empty_Otp_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post

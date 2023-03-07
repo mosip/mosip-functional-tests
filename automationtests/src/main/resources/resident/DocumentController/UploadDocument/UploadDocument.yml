@@ -1,5 +1,5 @@
 UploadDocument:
-   Resident_UploadDocument_all_Valid_Smoke_sid:
+   Resident_UploadDocument_uin_all_Valid_Smoke_sid:
       endPoint: /resident/v1/documents/{transactionId}?docCatCode={docCatCode}&docTypCode={docTypCode}&langCode={langCode}&referenceId={referenceId}
       role: residentNew
       restMethod: post
@@ -23,7 +23,7 @@ UploadDocument:
 	    "docFileFormat": "pdf"      
 }'
 
-   Resident_UploadDocument_StatusCode_Large_File_Neg:
+   Resident_UploadDocument_uin_StatusCode_Large_File_Neg:
       endPoint: /resident/v1/documents/{transactionId}?docCatCode={docCatCode}&docTypCode={docTypCode}&langCode={langCode}&referenceId={referenceId}
       role: residentNew
       restMethod: post
@@ -40,7 +40,7 @@ UploadDocument:
 }'
       output: "500"
 
-   Resident_UploadDocument_Invalid_File_Neg:
+   Resident_UploadDocument_uin_Invalid_File_Neg:
       endPoint: /resident/v1/documents/{transactionId}?docCatCode={docCatCode}&docTypCode={docTypCode}&langCode={langCode}&referenceId={referenceId}
       role: residentNew
       restMethod: post
@@ -64,7 +64,7 @@ UploadDocument:
   ]
 }'
 
-   Resident_UploadDocument_Empty_docTypCode:
+   Resident_UploadDocument_uin_Empty_docTypCode:
       endPoint: /resident/v1/documents/{transactionId}?docCatCode={docCatCode}&docTypCode={docTypCode}&langCode={langCode}&referenceId={referenceId}
       role: residentNew
       restMethod: post
@@ -88,7 +88,7 @@ UploadDocument:
   ]
 }'
 
-   Resident_UploadDocument_Blank_DoccatCode:
+   Resident_UploadDocument_uin_Blank_DoccatCode:
       endPoint: /resident/v1/documents/{transactionId}?docCatCode={docCatCode}&docTypCode={docTypCode}&langCode={langCode}&referenceId={referenceId}
       role: residentNew
       restMethod: post
@@ -112,7 +112,7 @@ UploadDocument:
   ]     
 }'
 
-   Resident_UploadDocument_Invalid_LangCode:
+   Resident_UploadDocument_uin_Invalid_LangCode:
       endPoint: /resident/v1/documents/{transactionId}?docCatCode={docCatCode}&docTypCode={docTypCode}&langCode={langCode}&referenceId={referenceId}
       role: residentNew
       restMethod: post
@@ -136,7 +136,7 @@ UploadDocument:
   ]     
 }'
 
-   Resident_UploadDocument_Empty_langCode:
+   Resident_UploadDocument_uin_Empty_langCode:
       endPoint: /resident/v1/documents/{transactionId}?docCatCode={docCatCode}&docTypCode={docTypCode}&langCode={langCode}&referenceId={referenceId}
       role: residentNew
       restMethod: post
@@ -186,7 +186,7 @@ UploadDocument:
 
    Resident_UploadDocument_StatusCode_Empty_Token:
       endPoint: /resident/v1/documents/{transactionId}?docCatCode={docCatCode}&docTypCode={docTypCode}&langCode={langCode}&referenceId={referenceId}
-      role:
+      role: 
       restMethod: post
       inputTemplate: resident/DocumentController/UploadDocument/UploadDocument
       outputTemplate: resident/error

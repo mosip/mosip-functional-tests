@@ -1,5 +1,5 @@
 residentNewVid:
-   Resident_GetAuthLockStatus_all_Valid_Smoke:
+   Resident_GetAuthLockStatus_uin_all_Valid_Smoke:
       endPoint: /resident/v1/auth-lock-status
       role: residentNew
       restMethod: get

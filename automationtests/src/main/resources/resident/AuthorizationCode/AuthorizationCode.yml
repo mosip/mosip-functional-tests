@@ -1,7 +1,8 @@
 AuthorizationCode:
-   Resident_IDP_AuthorizationCode_All_Valid_Smoke_sid:
+   Resident_IDP_AuthorizationCode_uin_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
+      validityCheckRequired: true
       restMethod: post
       inputTemplate: resident/AuthorizationCode/AuthorizationCode
       outputTemplate: resident/AuthorizationCode/AuthorizationCodeResult

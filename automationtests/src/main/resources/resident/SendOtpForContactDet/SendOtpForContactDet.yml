@@ -1,5 +1,5 @@
 SendOtpForContactDet:
-   Resident_SendOtpForContactDet_All_Valid_Smoke:
+   Resident_SendOtpForContactDet_uin_All_Valid_Smoke:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -14,7 +14,7 @@ SendOtpForContactDet:
 		"status": "Email Request submitted"
 }'
 
-   Resident_SendOtpForContactDet_Invalid_UserId_Neg:
+   Resident_SendOtpForContactDet_uin_Invalid_UserId_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -34,7 +34,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_Empty_UserId_Neg:
+   Resident_SendOtpForContactDet_uin_Empty_UserId_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -54,7 +54,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_UserId_Not_Present_Neg:
+   Resident_SendOtpForContactDet_uin_UserId_Not_Present_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -74,7 +74,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_Invalid_Transaction_Id_Neg:
+   Resident_SendOtpForContactDet_uin_Invalid_Transaction_Id_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -94,7 +94,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_Empty_Transaction_Id_Neg:
+   Resident_SendOtpForContactDet_uin_Empty_Transaction_Id_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -114,7 +114,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_Transaction_Id_Not_Present_Neg:
+   Resident_SendOtpForContactDet_uin_Transaction_Id_Not_Present_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -154,7 +154,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_Invalid_Req_Time_Neg:
+   Resident_SendOtpForContactDet_uin_Invalid_Req_Time_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -174,7 +174,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_Empty_Req_Time_Neg:
+   Resident_SendOtpForContactDet_uin_Empty_Req_Time_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post

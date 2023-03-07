@@ -1,5 +1,5 @@
 GenerateVIDNew:
-   Resident_GenerateVID_Temporary_VID_Valid_Smoke_sid:
+   Resident_GenerateVID_uin_Temporary_VID_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -19,7 +19,7 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_GenerateVID_Temporary_VID2_Valid_Smoke_sid:
+   Resident_GenerateVID_uin_Temporary_VID2_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -39,7 +39,7 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_GenerateVID_Onetimeuse_VID_Valid_Smoke_sid:
+   Resident_GenerateVID_uin_Onetimeuse_VID_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -59,7 +59,7 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_Generate_Perpetual_VID_Phone_Valid_Smoke_sid:
+   Resident_Generate_Perpetual_VID_uin_Phone_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -79,7 +79,7 @@ GenerateVIDNew:
 	    "maskedEmail": "$IGNORE$"
 }'
 
-   Resident_Generate_Perpetual_VID_Email_Valid_Smoke_sid:
+   Resident_Generate_Perpetual_VID_uin_Email_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -99,7 +99,7 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_Generate_Perpetual_VID_BothChannel_Valid_Smoke_sid:
+   Resident_Generate_Perpetual_VID_BothChannel_uin_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -118,7 +118,7 @@ GenerateVIDNew:
 	    "maskedPhone": "******3210",
 	    "maskedEmail": "res***************@gmail.com"
 }'
-   Resident_Generate_Perpetual_VID_TransID_Invalid_Pos:
+   Resident_Generate_Perpetual_VID_TransID_uin_Invalid_Pos:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -138,7 +138,7 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_Generate_Perpetual_VID_EmptyChannel_Pos:
+   Resident_Generate_Perpetual_VID_uin_EmptyChannel_Pos:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -158,7 +158,7 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_Generate_Perpetual_VID_Empty_TransID_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_Empty_TransID_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -180,7 +180,7 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_Empty_requesttime_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_Empty_requesttime_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -202,7 +202,7 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_Empty_Id_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_Empty_Id_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -224,7 +224,7 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_Empty_version_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_Empty_version_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -246,7 +246,7 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_Empty_vidType_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_Empty_vidType_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -270,7 +270,7 @@ GenerateVIDNew:
 
 
 
-   Resident_Generate_Perpetual_VID_requesttime_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_requesttime_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -292,7 +292,7 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_Id_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_Id_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -314,7 +314,7 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_version_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_version_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -336,7 +336,7 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_vidType_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_vidType_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -358,7 +358,7 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_GenerateVID_Perpetual_VID_Valid_Token_Smoke_sid:
+   Resident_GenerateVID_Perpetual_VID_uin_Valid_Token_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post

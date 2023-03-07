@@ -71,7 +71,7 @@ AuthLockNew:
   		"status": "Success"
 }'
 
-   Resident_AuthLockNew_Invalid_Requesttime_Neg:
+   Resident_AuthLockNew_uin_Invalid_Requesttime_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -94,7 +94,7 @@ AuthLockNew:
   ]
 }'
 
-   Resident_AuthLockNew_Invalid_Id_Neg:
+   Resident_AuthLockNew_uin_Invalid_Id_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -117,7 +117,7 @@ AuthLockNew:
   ]
 }'
 
-   Resident_AuthLockNew_Invalid_Version_Neg:
+   Resident_AuthLockNew_uin_Invalid_Version_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -140,7 +140,7 @@ AuthLockNew:
   ]
 }'
 
-   Resident_AuthLockNew_Invalid_AuthType_Neg:
+   Resident_AuthLockNew_uin_Invalid_AuthType_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -163,7 +163,7 @@ AuthLockNew:
 		  ]
 }'
 
-   Resident_AuthLockNew_Invalid_Locked_Status_Neg:
+   Resident_AuthLockNew_uin_Invalid_Locked_Status_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -186,7 +186,7 @@ AuthLockNew:
 		  ]
 }'
 
-   Resident_AuthLockNew_Invalid_Secs_Neg:
+   Resident_AuthLockNew_uin_Invalid_Secs_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -209,7 +209,7 @@ AuthLockNew:
 		  ]
 }'
 
-   Resident_AuthLockNew_Empty_Requesttime_Neg:
+   Resident_AuthLockNew_uin_Empty_Requesttime_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -232,7 +232,7 @@ AuthLockNew:
   ]
 }'
 
-   Resident_AuthLockNew_Empty_Id_Neg:
+   Resident_AuthLockNew_uin_Empty_Id_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -255,7 +255,7 @@ AuthLockNew:
   ]
   }'
 
-   Resident_AuthLockNew_Empty_Version_Neg:
+   Resident_AuthLockNew_uin_Empty_Version_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -278,7 +278,7 @@ AuthLockNew:
   ]
 }'
 
-   Resident_AuthLockNew_Empty_AuthType_Neg:
+   Resident_AuthLockNew_uin_Empty_AuthType_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -301,7 +301,7 @@ AuthLockNew:
 		  ]
 }'
 
-   Resident_AuthLockNew_Empty_Locked_Status_Pos:
+   Resident_AuthLockNew_uin_Empty_Locked_Status_Pos:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -319,7 +319,7 @@ AuthLockNew:
   		"status": "Success"
 }'
 
-   Resident_AuthLockNew_Empty_Secs_Pos:
+   Resident_AuthLockNew_uin_Empty_Secs_Pos:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -337,7 +337,7 @@ AuthLockNew:
   		"status": "Success"
 }'
 
-   Resident_AuthLockNew_Missing_Requesttime_Neg:
+   Resident_AuthLockNew_uin_Missing_Requesttime_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -360,7 +360,7 @@ AuthLockNew:
   ]
 }'
 
-   Resident_AuthLockNew_Missing_Id_Neg:
+   Resident_AuthLockNew_uin_Missing_Id_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -383,7 +383,7 @@ AuthLockNew:
   ]
 }'
 
-   Resident_AuthLockNew_Missing_Version_Neg:
+   Resident_AuthLockNew_uin_Missing_Version_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -406,7 +406,7 @@ AuthLockNew:
   ]
 }'
 
-   Resident_AuthLockNew_Missing_AuthType_Neg:
+   Resident_AuthLockNew_uin_Missing_AuthType_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -429,7 +429,7 @@ AuthLockNew:
 		  ]
 }'
 
-   Resident_AuthLockNew_Missing_Locked_Status_Pos:
+   Resident_AuthLockNew_uin_Missing_Locked_Status_Pos:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -447,7 +447,7 @@ AuthLockNew:
   		"status": "Success"
 }'
 
-   Resident_AuthLockNew_Missing_Secs_Pos:
+   Resident_AuthLockNew_uin_Missing_Secs_Pos:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post

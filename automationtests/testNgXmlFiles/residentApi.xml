@@ -356,7 +356,6 @@
 			value="resident/GetSupportingDoc/GetSupportingDoc.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
-			<parameter name="sendIdpToken"	value="true" />
 		</classes>
 	</test>
 	<test name="GetInputAttributeValues">

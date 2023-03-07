@@ -1,5 +1,5 @@
 PutBellUpdatedTime:
-   Resident_PutBellUpdatedTime_StatusCode_all_Valid_Smoke:
+   Resident_PutBellUpdatedTime_uin_StatusCode_all_Valid_Smoke:
       endPoint: /resident/v1/bell/updatedttime
       role: residentNew
       restMethod: put

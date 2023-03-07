@@ -1,5 +1,5 @@
 GetPartnersByPartnerType:
-   Resident_GetPartnersByPartnerType_all_Valid_Smoke:
+   Resident_GetPartnersByPartnerType_uin_all_Valid_Smoke:
       endPoint: /resident/v1/auth-proxy/partners?partnerType={partnerType}
       role: residentNew
       restMethod: get
@@ -11,7 +11,7 @@ GetPartnersByPartnerType:
       output: '{
 }'
 
-   Resident_GetPartnersByPartnerType_Empty_PartnerType_Valid_Smoke:
+   Resident_GetPartnersByPartnerType_uin_Empty_PartnerType_Valid_Smoke:
       endPoint: /resident/v1/auth-proxy/partners?partnerType={partnerType}
       role: residentNew
       restMethod: get

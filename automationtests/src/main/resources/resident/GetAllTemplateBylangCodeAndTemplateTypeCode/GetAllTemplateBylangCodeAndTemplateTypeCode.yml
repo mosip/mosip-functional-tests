@@ -1,5 +1,5 @@
 GetAllTemplateBylangCodeAndTemplateTypeCode:
-   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_1_Valid_Smoke:
+   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_uin_1_Valid_Smoke:
       endPoint: /resident/v1/auth-proxy/masterdata/templates/{langcode}/{templatetypecode}
       role: residentNew
       restMethod: get
@@ -13,7 +13,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
         
 }'
 
-   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_2_Valid_Smoke:
+   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_uin_2_Valid_Smoke:
       endPoint: /resident/v1/auth-proxy/masterdata/templates/{langcode}/{templatetypecode}
       role: residentNew
       restMethod: get
@@ -27,7 +27,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
         
 }'
 
-   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_3_Valid_Smoke:
+   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_uin_3_Valid_Smoke:
       endPoint: /resident/v1/auth-proxy/masterdata/templates/{langcode}/{templatetypecode}
       role: residentNew
       restMethod: get
@@ -41,7 +41,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
         
 }'
 
-   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_Invalid_Langcode:
+   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_uin_Invalid_Langcode:
       endPoint: /resident/v1/auth-proxy/masterdata/templates/{langcode}/{templatetypecode}
       role: residentNew
       restMethod: get
@@ -60,7 +60,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
   ]
 }'
 
-   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_Invalid_Templatetypecode:
+   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_uin_Invalid_Templatetypecode:
       endPoint: /resident/v1/auth-proxy/masterdata/templates/{langcode}/{templatetypecode}
       role: residentNew
       restMethod: get

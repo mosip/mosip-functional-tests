@@ -1,5 +1,5 @@
 PersonalizedCard:
-   Resident_PersonalizedCard_all_Valid_Smoke:
+   Resident_PersonalizedCard_uin_all_Valid_Smoke:
       endPoint: /resident/v1/download/personalized-card
       role: residentNew
       restMethod: post
@@ -44,7 +44,7 @@ PersonalizedCard:
        
 }'
 
-   Resident_PersonalizedCard_Invalid_Html_Neg:
+   Resident_PersonalizedCard_uin_Invalid_Html_Neg:
       endPoint: /resident/v1/download/personalized-card
       role: residentNew
       restMethod: post
@@ -60,7 +60,7 @@ PersonalizedCard:
 }'
 
 
-   Resident_PersonalizedCard_Empty_Html_Neg:
+   Resident_PersonalizedCard_uin_Empty_Html_Neg:
       endPoint: /resident/v1/download/personalized-card
       role: residentNew
       restMethod: post

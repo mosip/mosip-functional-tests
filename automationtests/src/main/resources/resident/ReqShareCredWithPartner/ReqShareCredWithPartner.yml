@@ -1,5 +1,5 @@
 ReqShareCredWithPartner:
-   Resident_ReqShareCredWithPartner_all_Valid_Smoke:
+   Resident_ReqShareCredWithPartner_uin_all_Valid_Smoke:
       endPoint: /resident/v1/share-credential
       role: residentNew
       restMethod: post
@@ -40,7 +40,7 @@ ReqShareCredWithPartner:
     ]
 }'
 
-   Resident_ReqShareCredWithPartner_Empty_Purpose_Neg:
+   Resident_ReqShareCredWithPartner_uin_Empty_Purpose_Neg:
       endPoint: /resident/v1/share-credential
       role: residentNew
       restMethod: post
@@ -64,7 +64,7 @@ ReqShareCredWithPartner:
    	   "status": "Success"
 }'
 
-   Resident_ReqShareCredWithPartner_Invalid_Space_Purpose_Neg:
+   Resident_ReqShareCredWithPartner_uin_Invalid_Space_Purpose_Neg:
       endPoint: /resident/v1/share-credential
       role: residentNew
       restMethod: post
@@ -87,7 +87,7 @@ ReqShareCredWithPartner:
     ]
 }'
 
-   Resident_ReqShareCredWithPartner_AplhaNumeric_Value_Purpose_Pos:
+   Resident_ReqShareCredWithPartner_uin_AplhaNumeric_Value_Purpose_Pos:
       endPoint: /resident/v1/share-credential
       role: residentNew
       restMethod: post
@@ -104,7 +104,7 @@ ReqShareCredWithPartner:
       output: '{
    		"status": "Success"
 }'
-   Resident_ReqShareCredWithPartner_Invalid_Purpose_Neg:
+   Resident_ReqShareCredWithPartner_uin_Invalid_Purpose_Neg:
       endPoint: /resident/v1/share-credential
       role: residentNew
       restMethod: post
@@ -127,7 +127,7 @@ ReqShareCredWithPartner:
     ]
 }'
 
-   Resident_ReqShareCredWithPartner_Empty_Consent_Neg:
+   Resident_ReqShareCredWithPartner_uin_Empty_Consent_Neg:
       endPoint: /resident/v1/share-credential
       role: residentNew
       restMethod: post
@@ -150,7 +150,7 @@ ReqShareCredWithPartner:
     ]
 }'
 
-   Resident_ReqShareCredWithPartner_Input_Consent_Absent_Neg:
+   Resident_ReqShareCredWithPartner_uin_Input_Consent_Absent_Neg:
       endPoint: /resident/v1/share-credential
       role: residentNew
       restMethod: post

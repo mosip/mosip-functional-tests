@@ -1,7 +1,8 @@
 AuthenticateUser:
-   Resident_IDP_AuthenticateUserIDP_Otp_Valid_Smoke:
+   Resident_IDP_AuthenticateUserIDP_uin_Otp_Valid_Smoke:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
+      validityCheckRequired: true
       restMethod: post
       inputTemplate: resident/AuthenticateUser/AuthenticateUser
       outputTemplate: resident/AuthenticateUser/AuthenticateUserResult
@@ -30,7 +31,7 @@ AuthenticateUser:
     }
 }'
 
-   Resident_IDP_AuthenticateUserIDP_Vid_Otp_Valid_Smoke:
+   Resident_IDP_AuthenticateUserIDP_vid_Otp_Valid_Smoke:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
