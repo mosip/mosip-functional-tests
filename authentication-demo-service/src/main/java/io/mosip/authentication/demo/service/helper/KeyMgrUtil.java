@@ -391,8 +391,13 @@ public class KeyMgrUtil {
     public String getKeysDirPath(String certsDir, String moduleName) {
       	String domain = environment.getProperty(DOMAIN_URL, "localhost").replace("https://", "").replace("http://", "").replace("/", "");
   		
-          // Default to temp folder in the contianer where Authdemo service is running
+          // Default to temp folder in the container and also windows where Authdemo service is running
       	String certsTargetDir = System.getProperty("java.io.tmpdir")+ File.separator + "AUTHCERTS";
+      	
+      	if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
+      		// if OS is non-windows override certsTargetDir with directory which works on docker
+      		certsTargetDir = "/home/mosip/authcerts";
+      	}
       	
   		// Default to IDA-
       	String certsModuleName = "IDA";
