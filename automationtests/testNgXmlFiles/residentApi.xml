@@ -298,6 +298,7 @@
 	<test name="GetRemainingupdatecountbyIndividualIdRequest2">
 		<parameter name="ymlFile"
 			value="resident/GetRemainingupdatecountbyIndividualIdRequest2/GetRemainingupdatecountbyIndividualIdRequest2.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>

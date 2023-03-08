@@ -76,9 +76,12 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		otpReqJson.remove("sendOtpEndPoint");
 		Response otpResponse =null;
-        if(testCaseDTO.getRole().contains("residentNew")) {
+        if(testCaseDTO.getRole().equalsIgnoreCase("residentNew")) {
         	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"residentNew", testCaseDTO.getTestCaseName(), sendIdpToken);
         }
+        else if(testCaseDTO.getRole().equalsIgnoreCase("residentNewVid")) {
+       	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"residentNewVid", testCaseDTO.getTestCaseName(), sendIdpToken);
+       }
         else if(testCaseName.contains("IDP_WalletBinding")) {
         	otpResponse = postRequestWithCookieAuthHeader(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
         }
