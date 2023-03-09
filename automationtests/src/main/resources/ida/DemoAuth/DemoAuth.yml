@@ -1,6 +1,6 @@
 DemoAuthNew:
   auth_DemoAuth_DOB_Valid_Smoke_UIN_Neg:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -21,7 +21,7 @@ DemoAuthNew:
         "authStatus": false
 }'
   auth_DemoAuth_DOB_Valid_Smoke_VID_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -36,7 +36,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_DOB_InValid_uin_Dateofbirth:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -57,7 +57,7 @@ DemoAuthNew:
   ]
 }'
   auth_DemoAuth_DOB_InValid_Dateofbirth_with_VID:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -78,7 +78,7 @@ DemoAuthNew:
   ]
 }'
   auth_DemoAuth_Email_Valid_Smoke_Pos_VID:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -93,7 +93,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_Email_Valid_Smoke_Poss_VID:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -108,7 +108,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_Email_InValid_uin_Email:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -129,7 +129,7 @@ DemoAuthNew:
   ]
 }'
   auth_DemoAuth_Email_InValid_Email_VID:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -150,7 +150,7 @@ DemoAuthNew:
   ]
 }'
   auth_DemoAuth_gender_Valid_uin_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
@@ -169,7 +169,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_gender_Valid_Smoke_Pos_VID:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
@@ -188,7 +188,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_InValid_gender_VID:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
@@ -214,7 +214,7 @@ DemoAuthNew:
         "authStatus": false
 }'
   auth_DemoAuth_InValid_uin_gender:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
@@ -240,7 +240,7 @@ DemoAuthNew:
         "authStatus": false
 }'
   auth_DemoAuth_Name_Valid_uin_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
@@ -259,7 +259,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_same_Name1_Valid_uin_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
@@ -278,7 +278,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_same_Name2_Valid_uin_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
@@ -297,7 +297,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_same_Name3_Valid_uin_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
@@ -316,7 +316,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_same_Name4_Valid_uin_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
@@ -335,7 +335,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_same_Name5_Valid_uin_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
@@ -354,7 +354,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_same_Name6_Valid_uin_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
@@ -373,7 +373,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_same_Name7_Valid_uin_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
@@ -392,7 +392,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_Name_Valid_Smoke_VID_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
@@ -411,7 +411,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_InValid_uin_name:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
@@ -437,7 +437,7 @@ DemoAuthNew:
         "authStatus": false
 }'
   auth_DemoAuth_InValid_Name_VID:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
@@ -463,7 +463,7 @@ DemoAuthNew:
         "authStatus": false
 }'
   auth_DemoAuth_age_Valid_uin_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -478,7 +478,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_age_Valid_Smoke_VID_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -493,7 +493,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_invalid_age_VID:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -514,7 +514,7 @@ DemoAuthNew:
   ]
 }'
   auth_DemoAuth_age_InValid_uin:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -535,7 +535,7 @@ DemoAuthNew:
   ]
 }'
   auth_DemoAuth_PhoneNumber_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -550,7 +550,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_PhoneNumber_InValid_uin_PhoneNumber:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -572,7 +572,7 @@ DemoAuthNew:
         "authStatus": false
 }'
   auth_DemoAuth_PhoneNumber_InValid_PhoneNumber_VID:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -594,7 +594,7 @@ DemoAuthNew:
         "authStatus": false
 }'
   auth_DemoAuth_PhoneNumber__with_Valid_TVID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -609,7 +609,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_DOB_InValid_individualId_VID:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=431592366363737337383388037$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=431592366363737337383388037$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -630,7 +630,7 @@ DemoAuthNew:
       "authStatus": false
 }'
   auth_DemoAuth_DOB_Missing_individualId:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -651,7 +651,7 @@ DemoAuthNew:
         "authStatus": false
 }'
   auth_DemoAuth_DOB_Blank_individualId:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -672,7 +672,7 @@ DemoAuthNew:
         "authStatus": false
 }'
   auth_DemoAuth_DOB_Invalid_transactionId_uin_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -687,7 +687,7 @@ DemoAuthNew:
         "authStatus": "true"
 }'
   auth_DemoAuth_DOB_Blank_transactionId_uin_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -702,7 +702,7 @@ DemoAuthNew:
       "authStatus": "true"
 }'
   auth_DemoAuth_DOB_Unlock_Valid_Smoke_UIN_Neg:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -724,7 +724,7 @@ DemoAuthNew:
 }'
 
   auth_DemoAuth_DOB_Lock_Permanent_Valid_UIN_Neg:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -745,7 +745,7 @@ DemoAuthNew:
             "authStatus": false
 }'
   auth_DemoAuth_revoke_vid_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -766,7 +766,7 @@ DemoAuthNew:
   ]
 }'
   auth_DemoAuth_dummy_partnerkey_uin_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -792,7 +792,7 @@ DemoAuthNew:
 }'
 
   auth_DemoAuth_DOB_Unlock_AllValid_UIN_Neg:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParams_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParams_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -814,7 +814,7 @@ DemoAuthNew:
 }'
 
   auth_DemoAuth_DOB_Lock_Permanent_AllValid_UIN_Neg:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParams_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParams_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth

@@ -257,6 +257,7 @@ public class BioDataUtility extends AdminTestUtil {
         HashMap<String, String> pathParamsMap = new HashMap<String, String>();
         pathParamsMap.put("partnerType", key);
         pathParamsMap.put("moduleName", BaseTestCase.certsForModule);
+        pathParamsMap.put("certsDir", ConfigManager.getauthCertsPath());
         //Response response = RestClient.postWithBodyAndCookie(EncryptUtilBaseUrl+props.get("signRequest")+"?"+"partnerType="+key, identityDataBlock, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", residentCookie);
 		Response response = RestClient.postRequestWithQueryParamBodyAndCookie(
 				EncryptUtilBaseUrl + props.get("signRequest"), identityDataBlock, pathParamsMap,
