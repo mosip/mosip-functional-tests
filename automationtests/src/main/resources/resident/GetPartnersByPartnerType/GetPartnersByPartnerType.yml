@@ -52,3 +52,27 @@ GetPartnersByPartnerType:
 }'
       output: '{
 }'
+
+   Resident_GetPartnersByPartnerType_vid_all_Valid_Smoke:
+      endPoint: /resident/v1/auth-proxy/partners?partnerType={partnerType}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetPartnersByPartnerType/getPartnersByPartnerType
+      outputTemplate: resident/GetPartnersByPartnerType/getPartnersByPartnerTypeResult
+      input: '{
+      	"partnerType": "Auth_Partner"
+}'
+      output: '{
+}'
+
+   Resident_GetPartnersByPartnerType_vid_Empty_PartnerType_Valid_Smoke:
+      endPoint: /resident/v1/auth-proxy/partners?partnerType={partnerType}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetPartnersByPartnerType/getPartnersByPartnerType
+      outputTemplate: resident/GetPartnersByPartnerType/getPartnersByPartnerTypeResult
+      input: '{
+      	"partnerType": ""
+}'
+      output: '{
+}'
