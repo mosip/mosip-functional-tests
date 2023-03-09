@@ -32,52 +32,52 @@ import io.mosip.kernel.util.ConfigManager;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
-
-public class CertificateGenerationUtil extends AdminTestUtil{
+public class CertificateGenerationUtil extends AdminTestUtil {
 	private static final Logger lOGGER = Logger.getLogger(CertificateGenerationUtil.class);
-	
-	
+
 	static {
 		System.out.println("EncryptUtilBaseUrl " + ConfigManager.getAuthDemoServiceUrl());
 		getThumbprints();
 	}
+
 	public static void getThumbprints() {
 		String appId = props.getProperty("appIdForCertificate");
 		getAndUploadIdaCertificate(appId, props.getProperty("partnerrefId"), props.getProperty("uploadPartnerurl"));
 		getAndUploadIdaCertificate(appId, props.getProperty("internalrefId"), props.getProperty("uploadInternalurl"));
 		getAndUploadIdaCertificate(appId, props.getProperty("idaFirRefId"), props.getProperty("uploadIdaFirurl"));
 	}
-	
-	
-	
+
 	public static void getAndUploadIdaCertificate(String applicationId, String referenceId, String endPoint) {
 		String token = kernelAuthLib.getTokenByRole("resident");
 		String url = ApplnURI + props.getProperty("getIdaCertificateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("applicationId", applicationId);
 		map.put("referenceId", referenceId);
-		lOGGER.info("Getting certificate for "+referenceId);
-		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		lOGGER.info("Getting certificate for " + referenceId);
+		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, "Authorization", token);
 		JSONObject responseJson = new JSONObject(response.asString());
 		JSONObject responseValue = (JSONObject) responseJson.get("response");
 		System.out.println(responseValue);
 		String idaCertValue = responseValue.getString("certificate");
 		System.out.println(idaCertValue);
-		
-		
-		
-		JSONObject request=new JSONObject();
+
+		JSONObject request = new JSONObject();
 		request.put("certData", idaCertValue);
-		//actualrequest.put("request", request);
-		
+		// actualrequest.put("request", request);
+
 		if (endPoint.contains("$MODULENAME$")) {
 			endPoint = endPoint.replace("$MODULENAME$", BaseTestCase.certsForModule);
 		}
-		
-		Response reponse=RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl()+"/"+endPoint, request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
+
+		if (endPoint.contains("$CERTSDIR$")) {
+			endPoint = endPoint.replace("$CERTSDIR$", ConfigManager.getauthCertsPath());
+		}
+
+		Response reponse = RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl() + "/" + endPoint,
+				request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 		System.out.println(reponse);
-		
-		
+
 	}
-	
+
 }
