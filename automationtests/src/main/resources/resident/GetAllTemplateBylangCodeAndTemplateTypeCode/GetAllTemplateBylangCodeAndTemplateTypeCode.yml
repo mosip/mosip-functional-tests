@@ -92,3 +92,83 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
       output: '{
         
 }'
+
+   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_vid_1_Valid_Smoke:
+      endPoint: /resident/v1/auth-proxy/masterdata/templates/{langcode}/{templatetypecode}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCode
+      outputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCodeResult
+      input: '{
+		"langcode": "$1STLANG$",
+		"templatetypecode": "tnc-update-demo"
+}'
+      output: '{
+        
+}'
+
+   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_vid_2_Valid_Smoke:
+      endPoint: /resident/v1/auth-proxy/masterdata/templates/{langcode}/{templatetypecode}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCode
+      outputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCodeResult
+      input: '{
+		"langcode": "$1STLANG$",
+		"templatetypecode": "tnc-share-cred-with-partner"
+}'
+      output: '{
+        
+}'
+
+   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_vid_3_Valid_Smoke:
+      endPoint: /resident/v1/auth-proxy/masterdata/templates/{langcode}/{templatetypecode}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCode
+      outputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCodeResult
+      input: '{
+		"langcode": "$1STLANG$",
+		"templatetypecode": "tnc-order-a-physical-card"
+}'
+      output: '{
+        
+}'
+
+   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_vid_Invalid_Langcode:
+      endPoint: /resident/v1/auth-proxy/masterdata/templates/{langcode}/{templatetypecode}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCode
+      outputTemplate: resident/error
+      input: '{
+		"langcode": "hinn",
+		"templatetypecode": "tnc-update-demo"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "RES-SER-415",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_vid_Invalid_Templatetypecode:
+      endPoint: /resident/v1/auth-proxy/masterdata/templates/{langcode}/{templatetypecode}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCode
+      outputTemplate: resident/error
+      input: '{
+		"langcode": "$1STLANG$",
+		"templatetypecode": "SFDV#$#$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "RES-SER-415",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
