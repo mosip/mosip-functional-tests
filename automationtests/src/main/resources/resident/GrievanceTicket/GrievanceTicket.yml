@@ -73,7 +73,7 @@ GrievanceTicket:
       outputTemplate: resident/error
       input: '{
 		"requesttime": "$TIMESTAMP$",
-	    "eventId" : "$ID:GetServiceHistory_uin_all_Valid_Smoke_sid_eventId$", 
+	    "eventId" : "gdbfgdh", 
 	    "name" : "FR",
 	    "emailId" : "residentautomation@gmail.com", 
 	    "alternateEmailId" : "null", 

@@ -12,9 +12,35 @@ DownloadUinCardByEventId:
         
 }'
 
+   Resident_DownloadUinCardByEventId_vid_all_Valid_Smoke:
+      endPoint: /resident/v1/download-card/event/{eventId}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventId
+      outputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventIdResult
+      input: '{
+      	"eventId": "$ID:GetServiceHistory_vid_all_Valid_Smoke_sid_eventId$"
+}'
+      output: '{
+        
+}'
+
    Resident_DownloadUinCardByEventId_uin_Invalid_EventId_Neg:
       endPoint: /resident/v1/download-card/event/{eventId}
       role: residentNew
+      restMethod: get
+      inputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventId
+      outputTemplate: resident/error
+      input: '{
+      	"eventId": "SDSD#$#"
+}'
+      output: '{
+        
+}'
+
+   Resident_DownloadUinCardByEventId_vid_Invalid_EventId_Neg:
+      endPoint: /resident/v1/download-card/event/{eventId}
+      role: residentNewVid
       restMethod: get
       inputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventId
       outputTemplate: resident/error
@@ -33,7 +59,7 @@ DownloadUinCardByEventId:
       inputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventId
       outputTemplate: resident/error
       input: '{
-      	"eventId": "$ID:GetServiceHistory_uin_all_Valid_Smoke_sid_eventId$"
+      	"eventId": "djnskdj"
 }'
       output: '{
         
