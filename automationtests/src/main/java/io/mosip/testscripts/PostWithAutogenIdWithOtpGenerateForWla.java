@@ -65,6 +65,7 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
 		if(req.has("sendOtp")) {
@@ -80,7 +81,7 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		Response otpResponse = null;
 		if(testCaseName.contains("IDP_")) {
 			String tempUrl = ApplnURI.replace("-internal", "");
-			otpResponse = postRequestWithCookieAuthHeaderForAutoGenId(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, "mobileauth", testCaseDTO.getTestCaseName(), idKeyName);
+			otpResponse = postRequestWithCookieAuthHeaderForAutoGenId(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, "mobileauth", testCaseDTO.getTestCaseName(), idKeyName);
 		}
 		else {
 			otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
@@ -124,7 +125,7 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		Response validateOtpResponse;
 		if(testCaseName.contains("IDP_")) {
 			String tempUrl = ApplnURI.replace("-internal", "");
-			validateOtpResponse = postRequestWithCookieAuthHeaderForAutoGenId(ApplnURI + validateOtpEndPoint, getJsonFromTemplate(validateOtpReqJson.toString(), validateOtpReqTemplate), COOKIENAME, "mobileauth", testCaseDTO.getTestCaseName(), idKeyName);
+			validateOtpResponse = postRequestWithCookieAuthHeaderForAutoGenId(tempUrl + validateOtpEndPoint, getJsonFromTemplate(validateOtpReqJson.toString(), validateOtpReqTemplate), COOKIENAME, "mobileauth", testCaseDTO.getTestCaseName(), idKeyName);
 		}
 		
 		if(testCaseName.contains("IDP_")) {

@@ -64,6 +64,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
+		String tempUrl = ApplnURI.replace("-internal", "");
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
 		if(req.has("sendOtp")) {
@@ -83,7 +84,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"residentNewVid", testCaseDTO.getTestCaseName(), sendIdpToken);
        }
         else if(testCaseName.contains("IDP_WalletBinding")) {
-        	otpResponse = postRequestWithCookieAuthHeader(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+        	otpResponse = postRequestWithCookieAuthHeader(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
         }
         else {
         	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
@@ -119,7 +120,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 			}
 		}
 		if(testCaseName.contains("IDP_WalletBinding")) {
-			response = postRequestWithCookieAuthHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			response = postRequestWithCookieAuthHeader(tempUrl + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		}
 		else {
 			response = postRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendIdpToken);
