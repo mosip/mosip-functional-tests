@@ -6,9 +6,9 @@ AuditLog:
       inputTemplate: resident/AuditLog/createAuditLog
       outputTemplate: resident/AuditLog/createAuditLogResult
       input: '{
-		  "eventId": "RES-SER-191",
-		  "eventName": "get vids",
-		  "eventType": "SYSTEM",
+		  "auditEventId": "RES-SER-191",
+		  "auditEventName": "get vids",
+		  "auditEventType": "SYSTEM",
 		  "actionTimeStamp": "$TIMESTAMP$",
 		  "hostName": "resident-6f6fb6c845-6frw4",
 		  "hostIp": "10.42.2.150",
@@ -32,9 +32,9 @@ AuditLog:
       inputTemplate: resident/AuditLog/createAuditLog
       outputTemplate: resident/AuditLog/createAuditLogResult
       input: '{
-		  "eventId": "RES-SER-191",
-		  "eventName": "get vids",
-		  "eventType": "SYSTEM",
+		  "auditEventId": "RES-SER-191",
+		  "auditEventName": "get vids",
+		  "auditEventType": "SYSTEM",
 		  "actionTimeStamp": "$TIMESTAMP$",
 		  "hostName": "resident-6f6fb6c845-6frw4",
 		  "hostIp": "10.42.2.150",
