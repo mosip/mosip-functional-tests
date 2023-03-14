@@ -86,6 +86,7 @@ public class KycAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 //		String jsonrequest = buildIdentityRequest(request.toString());
 //		String input = getJsonFromTemplate(jsonrequest, testCaseDTO.getInputTemplate());

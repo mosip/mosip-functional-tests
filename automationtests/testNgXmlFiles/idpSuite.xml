@@ -126,19 +126,19 @@
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
 	</test>
-	<test name="KycDemoAuth">
-		<parameter name="ymlFile" value="idp/KycDemoAuth/KycDemoAuth.yml" />
-		<parameter name="isInternal" value="false" />
-		<classes>
-			<class name="io.mosip.testscripts.KycAuth" />
-		</classes>
-	</test>	
 	<test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="idp/GenerateVID/createGenerateVID.yml" />
 			<parameter name="idKeyName"	value="vid" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="KycDemoAuth">
+		<parameter name="ymlFile" value="idp/KycDemoAuth/KycDemoAuth.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testscripts.KycAuth" />
 		</classes>
 	</test>
 	<test name="SendBindingOtp">
