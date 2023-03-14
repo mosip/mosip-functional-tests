@@ -4295,7 +4295,7 @@ public class AdminTestUtil extends BaseTestCase {
 	
 	public static String isTestCaseValidForExecution(TestCaseDTO testCaseDTO) {
 		String testCaseName = testCaseDTO.getTestCaseName();
-		if (BaseTestCase.currentModule.equalsIgnoreCase("resident")) {
+		if (BaseTestCase.currentModule.equalsIgnoreCase("resident") || BaseTestCase.currentModule.equalsIgnoreCase("idp")) {
 			if (testCaseDTO.getRole() != null && (testCaseDTO.getRole().equalsIgnoreCase("residentNew")
 					|| testCaseDTO.isValidityCheckRequired())) {
 				if (testCaseName.contains("uin") || testCaseName.contains("UIN") || testCaseName.contains("Uin")) {

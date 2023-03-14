@@ -110,12 +110,13 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		}
 
 		else {
+			String tempUrl = ApplnURI.replace("-internal", "");
 			if(testCaseName.contains("IDP_")) {
 				if(testCaseName.contains("IDP_SendBindingOtp")) {
-					response = postRequestWithCookieAuthHeader(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+					response = postRequestWithCookieAuthHeader(tempUrl + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 				}
 				else {
-					String tempUrl = ApplnURI.replace("-internal", "");
+//					String tempUrl = ApplnURI.replace("-internal", "");
 					response = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + testCaseDTO.getEndPoint(),
 							inputJson, COOKIENAME,
 							testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
