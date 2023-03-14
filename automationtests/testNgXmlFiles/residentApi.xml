@@ -506,6 +506,14 @@
 			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
 		</classes>
 	</test>
+	<test name="GetNotifications">
+		<parameter name="ymlFile"
+			value="resident/GetNotifications/GetNotifications.yml" />
+			<parameter name="sendIdpToken"	value="true" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="GrievanceTicket">
 		<parameter name="ymlFile"
 			value="resident/GrievanceTicket/GrievanceTicket.yml" />

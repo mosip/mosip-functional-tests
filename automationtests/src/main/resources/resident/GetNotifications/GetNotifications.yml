@@ -1,0 +1,192 @@
+GetNotifications:
+   Resident_GetNotifications_vid_all_Valid_Smoke:
+      endPoint: /resident/v1/notifications/{langCode}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetNotifications/GetNotifications
+      outputTemplate: resident/GetNotifications/GetNotificationsResult
+      input: '{
+		"langCode": "$1STLANG$",
+		"pageStart":"$REMOVE$",
+	    "pageFetch":"$REMOVE$"
+}'
+      output: '{
+        
+}'
+
+   Resident_GetNotifications_vid_pageFetch_all_Valid_Smoke:
+      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetNotifications/GetNotifications
+      outputTemplate: resident/GetNotifications/GetNotificationsResult
+      input: '{
+		"langCode": "$1STLANG$",
+		"pageStart":"$REMOVE$",
+	    "pageFetch":"2"
+}'
+      output: '{
+        
+}'
+
+   Resident_GetNotifications_vid_pageStart_all_Valid_Smoke:
+      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetNotifications/GetNotifications
+      outputTemplate: resident/GetNotifications/GetNotificationsResult
+      input: '{
+		"langCode": "$1STLANG$",
+		"pageStart":"2",
+	    "pageFetch":"$REMOVE$"
+}'
+      output: '{
+        
+}'
+
+   Resident_GetNotifications_vid_pageStart_all_Valid_Smoke:
+      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetNotifications/GetNotifications
+      outputTemplate: resident/GetNotifications/GetNotificationsResult
+      input: '{
+		"langCode": "$1STLANG$",
+		"pageStart":"$REMOVE$",
+	    "pageFetch":"$REMOVE$"
+}'
+      output: '{
+        
+}'
+
+
+   Resident_GetNotifications_vid_Invalid_Token_Neg:
+      endPoint: /resident/v1/notifications/{langCode}
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/GetNotifications/GetNotifications
+      outputTemplate: resident/error
+      input: '{
+		"langCode": "$1STLANG$",
+		"pageStart":"$REMOVE$",
+	    "pageFetch":"$REMOVE$"
+}'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "Authentication Failed"
+    }
+  ]
+}'
+
+   Resident_GetNotifications_vid_1_Invalid_PageNo_Neg:
+      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetNotifications/GetNotifications
+      outputTemplate: resident/error
+      input: '{
+		"langCode": "$1STLANG$",
+		"pageStart":"11",
+	    "pageFetch":"$REMOVE$"
+}'
+      output: '{
+       "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+        
+}'
+
+   Resident_GetNotifications_vid_all_InValid_langcode_Neg:
+      endPoint: /resident/v1/notifications/{langCode}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetNotifications/GetNotifications
+      outputTemplate: resident/error
+      input: '{
+		"langCode": "34Fg",
+		"pageStart":"$REMOVE$",
+	    "pageFetch":"$REMOVE$"
+}'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_GetNotifications_vid_empty_langcode_Neg:
+      endPoint: /resident/v1/notifications/{langCode}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetNotifications/GetNotifications
+      outputTemplate: resident/error
+      input: '{
+		"langCode": "",
+		"pageStart":"$REMOVE$",
+	    "pageFetch":"$REMOVE$"
+}'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_GetNotifications_vid_SpaceVal_langcode_Neg:
+      endPoint: /resident/v1/notifications/{langCode}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetNotifications/GetNotifications
+      outputTemplate: resident/error
+      input: '{
+		"langCode": " ",
+		"pageStart":"$REMOVE$",
+	    "pageFetch":"$REMOVE$"
+}'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_GetNotifications_vid_Neg_Value_PageStart_Neg:
+      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetNotifications/GetNotifications
+      outputTemplate: resident/error
+      input: '{
+		"langCode": "$1STLANG$",
+		"pageStart":"-2",
+	    "pageFetch":"$REMOVE$"
+}'
+      output: '{
+        
+}'
+
+   Resident_GetNotifications_vid_Neg_Value_pageFetch_Neg:
+      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/GetNotifications/GetNotifications
+      outputTemplate: resident/error
+      input: '{
+		"langCode": "$1STLANG$",
+		"pageStart":"$REMOVE$",
+	    "pageFetch":"-2"
+}'
+      output: '{
+        
+}'
