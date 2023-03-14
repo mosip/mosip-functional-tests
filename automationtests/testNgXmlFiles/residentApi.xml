@@ -540,7 +540,7 @@
 	</test>
 	<test name="GetCheckEventIdStatus">
 		<parameter name="ymlFile"
-			value="resident/GetCheckEventIdStatus/GetCheckEventIdStatus.yml" />
+			value="resident/GetCheckEventIdStatus/GetCheckEventIdStatus/GetCheckEventIdStatus.yml" />
 			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
