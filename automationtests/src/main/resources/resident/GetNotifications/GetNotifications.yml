@@ -264,7 +264,7 @@ GetNotifications:
       outputTemplate: resident/GetNotifications/GetNotificationsResult
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"$REMOVE$",
+		"pageStart":"2",
 	    "pageFetch":"2"
 }'
       output: '{
@@ -280,7 +280,7 @@ GetNotifications:
       input: '{
 		"langCode": "$1STLANG$",
 		"pageStart":"2",
-	    "pageFetch":"$REMOVE$"
+	    "pageFetch":"2"
 }'
       output: '{
         
@@ -295,7 +295,7 @@ GetNotifications:
       input: '{
 		"langCode": "$1STLANG$",
 		"pageStart":"11",
-	    "pageFetch":"$REMOVE$"
+	    "pageFetch":"2"
 }'
       output: '{
        "errors": [
@@ -315,8 +315,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "34Fg",
-		"pageStart":"$REMOVE$",
-	    "pageFetch":"$REMOVE$"
+		"pageStart":"2",
+	    "pageFetch":"2"
 }'
       output: '{
          "errors": [
@@ -335,8 +335,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "",
-		"pageStart":"$REMOVE$",
-	    "pageFetch":"$REMOVE$"
+		"pageStart":"2",
+	    "pageFetch":"2"
 }'
       output: '{
          "errors": [
@@ -355,8 +355,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": " ",
-		"pageStart":"$REMOVE$",
-	    "pageFetch":"$REMOVE$"
+		"pageStart":"2",
+	    "pageFetch":"2"
 }'
       output: '{
          "errors": [
@@ -376,7 +376,7 @@ GetNotifications:
       input: '{
 		"langCode": "$1STLANG$",
 		"pageStart":"-2",
-	    "pageFetch":"$REMOVE$"
+	    "pageFetch":"2"
 }'
       output: '{
         
@@ -390,7 +390,7 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"$REMOVE$",
+		"pageStart":"2",
 	    "pageFetch":"-2"
 }'
       output: '{
