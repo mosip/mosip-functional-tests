@@ -14,6 +14,21 @@ LinkAuthorizationCode:
         
 }'
 
+   IDP_LinkAuthorizationCode_vid_all_Valid_Smoke:
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: idp/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Vid_Valid_Smoke_sid_transactionId$",
+        "linkedCode": "$ID:GenerateLinkCode_vid_all_Valid_Smoke_sid_linkCode$"    	
+}'
+      output: '{
+        
+}'
+
    IDP_LinkAuthorizationCode_Invalid_requestTime_Neg:
       endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident

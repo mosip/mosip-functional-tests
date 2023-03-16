@@ -13,6 +13,20 @@ LinkedAuthorizationConsent:
     
 }'
 
+   IDP_LinkedAuthorizationConsent_vid_All_Valid_Smoke_sid:
+      endPoint: /v1/esignet/linked-authorization/consent
+      role: resident
+      restMethod: post
+      inputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      outputTemplate: idp/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"linkedTransactionId": "$ID:LinkTransaction_vid_all_Valid_Smoke_sid_linkTransactionId$"
+}'
+      output: '{
+    
+}'
+
    IDP_LinkedAuthorizationConsent_Invalid_RequestTime_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
