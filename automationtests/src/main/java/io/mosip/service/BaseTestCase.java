@@ -39,6 +39,7 @@ import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.kernel.util.KeycloakUserManager;
+import io.mosip.testrunner.MockSMTPListener;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -282,6 +283,8 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "resident";
 			setReportName("resident");
 			AdminTestUtil.copyResidentTestResource();
+//			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+//			mockSMTPListener.run();
 		}
 		if (listOfModules.contains("partner")) {
 			BaseTestCase.currentModule = "partner";
