@@ -41,6 +41,12 @@ PersonalizedCard:
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
 }'
       output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410 ",
+      "message": "$IGNORE$"
+    }
+  ]
        
 }'
 
@@ -56,6 +62,12 @@ PersonalizedCard:
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
 }'
       output: '{
+       "errors": [
+       {
+      "errorCode": "RES-SER-410 ",
+      "message": "$IGNORE$"
+      }
+      ]
        
 }'
 
@@ -71,7 +83,12 @@ PersonalizedCard:
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
 }'
       output: '{
-       
+             "errors": [
+       {
+      "errorCode": "RES-SER-410 ",
+      "message": "$IGNORE$"
+      }
+      ]
 }'
 
 
@@ -87,6 +104,12 @@ PersonalizedCard:
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
 }'
       output: '{
+         "errors": [
+       {
+      "errorCode": "RES-SER-410 ",
+      "message": "$IGNORE$"
+      }
+      ]
        
 }'
 
@@ -102,7 +125,12 @@ PersonalizedCard:
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
 }'
       output: '{
-       
+          "errors": [
+       {
+      "errorCode": "RES-SER-410 ",
+      "message": "$IGNORE$"
+      }
+      ]
 }'
 
 
@@ -118,5 +146,10 @@ PersonalizedCard:
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
 }'
       output: '{
-       
+          "errors": [
+       {
+      "errorCode": "RES-SER-410 ",
+      "message": "$IGNORE$"
+      }
+      ]
 }'

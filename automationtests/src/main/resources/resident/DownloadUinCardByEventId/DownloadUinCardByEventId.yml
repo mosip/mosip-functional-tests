@@ -48,7 +48,10 @@ DownloadUinCardByEventId:
       	"eventId": "SDSD#$#"
 }'
       output: '{
-        
+        "errors": {
+    "errorCode": "RES-SER-412",
+    "message": "$IGNORE$"
+  }
 }'
 
    Resident_DownloadUinCardByEventId_uin_Without_Token_Neg:
@@ -62,6 +65,12 @@ DownloadUinCardByEventId:
       	"eventId": "djnskdj"
 }'
       output: '{
+      [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "$IGNORE$"
+    }
+  ]
         
 }'
 
@@ -76,5 +85,10 @@ DownloadUinCardByEventId:
       	"eventId": "$ID:GetServiceHistory_uin_all_Valid_Smoke_sid_eventId$"
 }'
       output: '{
-        
+         [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "$IGNORE$"
+    }
+  ]
 }'

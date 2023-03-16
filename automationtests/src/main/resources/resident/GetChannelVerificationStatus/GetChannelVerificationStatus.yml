@@ -362,6 +362,12 @@ GetChannelVerificationStatus:
     }
 }'
       output: '{
+       "errors": [
+    {
+      "errorCode": "RES-OTP-011",
+      "message": "$IGNORE$"
+    }
+  ],
   "verificationStatus": "false",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
@@ -400,6 +406,12 @@ GetChannelVerificationStatus:
     }
 }'
       output: '{
+      "errors": [
+    {
+      "errorCode": "RES-OTP-010",
+      "message": "$IGNORE$"
+    }
+  ],
   "verificationStatus": false,
   "sendOtpResp":{
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
