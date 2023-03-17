@@ -24,7 +24,7 @@ UpdateUIN:
     }
     }'
       output: '{
-  "transactionID": "$IGNORE$",
+  "registrationId": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",

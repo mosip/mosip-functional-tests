@@ -75,7 +75,7 @@ DownloadUinCard:
           "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
           "requesttime": "$TIMESTAMP$",
 	      "sendOtp":{
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -109,7 +109,7 @@ DownloadUinCard:
           "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
           "requesttime": "$TIMESTAMP$",
 	      "sendOtp":{
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
