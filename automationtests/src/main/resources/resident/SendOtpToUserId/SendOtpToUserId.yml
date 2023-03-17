@@ -8,7 +8,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
   "errors": [
@@ -28,7 +28,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "2023-02-13T",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
       "errors": [
@@ -48,7 +48,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$REMOVE$",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
       "errors": [
@@ -90,7 +90,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "gy$45",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
       "errors": [
@@ -110,7 +110,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
       "errors": [
@@ -130,7 +130,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": " ",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
       "errors": [
@@ -150,7 +150,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "$REMOVE$",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
       "errors": [
@@ -170,7 +170,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "null",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
        "errors": [
@@ -192,7 +192,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "23hfd$"
+	    "transactionId": "23hfd$"
 }'
       output: '{
       "errors": [
@@ -232,7 +232,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": " "
+	    "transactionId": " "
 }'
       output: '{
       "errors": [
@@ -252,7 +252,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "$REMOVE$"
+	    "transactionId": "$REMOVE$"
 }'
       output: '{
       "errors": [
@@ -272,7 +272,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
         "status": "Email Request submitted",
@@ -288,7 +288,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "2023-02-13T",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
       "errors": [
@@ -308,7 +308,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$REMOVE$",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
       "errors": [
@@ -328,7 +328,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "null",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
        "errors": [
@@ -350,7 +350,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "gy$45",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
       "errors": [
@@ -370,7 +370,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
       "errors": [
@@ -390,7 +390,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": " ",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
       "errors": [
@@ -430,7 +430,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "null",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
        "errors": [
@@ -452,7 +452,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "23hfd$"
+	    "transactionId": "23hfd$"
 }'
       output: '{
       "errors": [
@@ -472,7 +472,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": ""
+	    "transactionId": ""
 }'
       output: '{
       "errors": [
@@ -492,7 +492,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": " "
+	    "transactionId": " "
 }'
       output: '{
       "errors": [
@@ -512,7 +512,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "$REMOVE$"
+	    "transactionId": "$REMOVE$"
 }'
       output: '{
       "errors": [
@@ -532,7 +532,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@gmail.com",
-	    "transactionID": "1234567890"
+	    "transactionId": "1234567890"
 }'
       output: '{
         "status": "Email Request submitted",

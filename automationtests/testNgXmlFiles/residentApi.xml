@@ -349,7 +349,7 @@
 			value="resident/ValidateWithUserIdOtp/ValidateWithUserIdOtp.yml" />
 			<parameter name="sendIdpToken"	value="true" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="GetSupportingDoc">

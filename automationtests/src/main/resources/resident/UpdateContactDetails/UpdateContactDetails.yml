@@ -8,12 +8,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "111111",
 		    "sendOtp": {
 			    "requesttime": "$TIMESTAMP$",
 			    "userId": "residentautomation@gmail.com",
-			    "transactionID": "1234567890",
+			    "transactionId": "1234567890",
 			    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 			    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 		    }
@@ -35,12 +35,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "111111",
 		    "sendOtp": {
 			    "requesttime": "$TIMESTAMP$",
 			    "userId": "residentautomation@gmail.com",
-			    "transactionID": "1234567890",
+			    "transactionId": "1234567890",
 			    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 			    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 		    }
@@ -62,12 +62,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "sdjgu34",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -94,12 +94,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -126,12 +126,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "$REMOVE$",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -158,12 +158,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "ass#2@h",
+		    "transactionId": "ass#2@h",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -190,12 +190,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "",
+		    "transactionId": "",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -222,12 +222,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "$REMOVE$",
+		    "transactionId": "$REMOVE$",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -254,12 +254,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "123456",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -286,12 +286,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -318,12 +318,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "$REMOVE$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -350,12 +350,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -382,12 +382,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "sdjgu34",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -414,12 +414,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -446,12 +446,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "$REMOVE$",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -478,12 +478,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "ass#2@h",
+		    "transactionId": "ass#2@h",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -510,12 +510,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "",
+		    "transactionId": "",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -542,12 +542,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "$REMOVE$",
+		    "transactionId": "$REMOVE$",
 		    "otp": "111111",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -574,12 +574,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "123456",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -606,12 +606,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
@@ -638,12 +638,12 @@ UpdateContactDetails:
       input: '{
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "otp": "$REMOVE$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
 		    "userId": "residentautomation@gmail.com",
-		    "transactionID": "1234567890",
+		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
 	    }
