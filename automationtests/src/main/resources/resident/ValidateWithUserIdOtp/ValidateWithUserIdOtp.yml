@@ -13,7 +13,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -43,7 +43,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -76,7 +76,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -107,20 +107,20 @@ ValidateWithUserIdOtp:
 	    "transactionID": "1234567890",
     	"otp":"111111",
     	 "sendOtp":{
-    	  "errors": [
-    {
-      "errorCode": "RES-SER-422",
-      "message": "OTP validation failed"
-    }
-  ],
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
 }'
       output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "message": "OTP validation failed"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -142,7 +142,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -176,7 +176,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -210,7 +210,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -244,7 +244,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -277,7 +277,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -310,7 +310,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -343,7 +343,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -370,7 +370,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -397,7 +397,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -426,7 +426,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -453,7 +453,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -480,7 +480,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -507,7 +507,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -534,7 +534,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -561,7 +561,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -588,7 +588,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -618,7 +618,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -651,7 +651,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -682,20 +682,21 @@ ValidateWithUserIdOtp:
 	    "transactionID": "1234567890",
     	"otp":"111111",
     	 "sendOtp":{
-    	  "errors": [
-    {
-      "errorCode": "RES-SER-422",
-      "message": "OTP validation failed"
-    }
-  ],
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
 }'
       output: '{
+      
+       "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "message": "OTP validation failed"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -717,7 +718,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -751,7 +752,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -785,7 +786,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -819,7 +820,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -852,7 +853,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -885,7 +886,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -918,7 +919,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -945,7 +946,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -972,7 +973,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -1001,7 +1002,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -1028,7 +1029,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -1055,7 +1056,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -1082,7 +1083,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -1109,7 +1110,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
@@ -1136,7 +1137,7 @@ ValidateWithUserIdOtp:
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
            "userId": "residentautomation@gmail.com",
-	       "transactionID": "1234567890",
+	       "transactionId": "1234567890",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
     }
