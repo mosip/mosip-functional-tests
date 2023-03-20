@@ -128,29 +128,32 @@ public class MockSMTPListener{
 			if(m.get(emailId)!=null) {
 				String html=(String) m.get(emailId);
 				otp = parseOtp(html);
-				// To Do Key entry found add parsing logic for OTP
-				
-//				Dear FR OTP for UIN XXXXXXXX02 is 111111 and is valid for 3 minutes. (Generated on 16-03-2023 at 15:43:39 Hrs)
-//
-//				عزيزي $ name OTP لـ $ idvidType $ idvid هو $ otp وهو صالح لـ $ validTime دقيقة. (تم إنشاؤه في $ date في $ time Hrs)
-//
-//				Cher $name_fra, OTP pour UIN XXXXXXXX02 est 111111 et est valide pour 3 minutes. (Généré le 16-03-2023 à 15:43:39 Hrs)
-				
+				return otp;
 			}
 			System.out.println("*******Checking the email for OTP...*******");
 			counter++;
 			try {
-				System.out.println("waiting for 10 Sec");
+				System.out.println("Not received Otp yet, waiting for 10 Sec");
 				Thread.sleep(10000);
 			} catch (InterruptedException e) {
 				System.out.println(e.getMessage());
 			}
+			
 		}
 		System.out.println("OTP not found even after " + repeatCounter + " retries");
 		return otp;
 	}
 	
 	public static String parseOtp(String message){
+		
+		// To Do Key entry found add parsing logic for OTP
+		
+//		Dear FR OTP for UIN XXXXXXXX02 is 111111 and is valid for 3 minutes. (Generated on 16-03-2023 at 15:43:39 Hrs)
+//
+//		عزيزي $ name OTP لـ $ idvidType $ idvid هو $ otp وهو صالح لـ $ validTime دقيقة. (تم إنشاؤه في $ date في $ time Hrs)
+//
+//		Cher $name_fra, OTP pour UIN XXXXXXXX02 est 111111 et est valide pour 3 minutes. (Généré le 16-03-2023 à 15:43:39 Hrs)
+		
 		//find any 6 digit number
 		Pattern mPattern = Pattern.compile("(|^)\\d{6}");
 		String otp = null;
@@ -158,7 +161,7 @@ public class MockSMTPListener{
 		    Matcher mMatcher = mPattern.matcher(message);
 		    if(mMatcher.find()) {
 		        otp = mMatcher.group(0);
-		        System.out.println("Final OTP: "+ otp);
+		        System.out.println("Extracted OTP: "+ otp);
 		    }else {
 		        //something went wrong
 		    	System.out.println("Failed to extract the OTP!! ");
