@@ -125,7 +125,7 @@ public class MosipTestRunner {
 		}
 		
 		//KeycloakUserManager.removeUser();
-//		MockSMTPListener.bTerminate = true;
+//	MockSMTPListener.bTerminate = true;
 		System.exit(0);
 		
 		

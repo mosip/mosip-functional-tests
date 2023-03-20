@@ -606,6 +606,21 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName, boolean bothAccessAndIdToken) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+//		JSONObject request = new JSONObject(inputJson);
+//		String emailId = null;
+//		String otp = null;
+//		
+//		if (request.has("request")) {
+//			if (request.getJSONObject("request").has("otp")) {
+//				if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+//					emailId = request.getJSONObject("request").get("otp").toString();
+////					Get the otp value from email notification
+//					otp = MockSMTPListener.getOtp(10, emailId);
+//					request.getJSONObject("request").put("otp", otp);
+//					inputJson = request.toString();
+//				}
+//			}
+//		}
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
@@ -711,12 +726,17 @@ public class AdminTestUtil extends BaseTestCase {
 //		JSONObject request = new JSONObject(inputJson);
 //		String emailId = null;
 //		String otp = null;
-//		if(request.getJSONObject("request").has("otp")) {
-//			emailId = request.getJSONObject("request").get("otp").toString();
-////			Get the otp value from email notification
-//			otp = MockSMTPListener.getOtp(10, emailId);
-//			request.getJSONObject("request").put("otp", otp);
-//			inputJson = request.toString();
+//		
+//		if (request.has("request")) {
+//			if (request.getJSONObject("request").has("otp")) {
+//				if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+//					emailId = request.getJSONObject("request").get("otp").toString();
+////					Get the otp value from email notification
+//					otp = MockSMTPListener.getOtp(10, emailId);
+//					request.getJSONObject("request").put("otp", otp);
+//					inputJson = request.toString();
+//				}
+//			}
 //		}
 		
 		if (bothAccessAndIdToken) {
