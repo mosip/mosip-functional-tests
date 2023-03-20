@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -125,6 +127,7 @@ public class MockSMTPListener{
 			m= emailNotificationMap;
 			if(m.get(emailId)!=null) {
 				String html=(String) m.get(emailId);
+				otp = parseOtp(html);
 				// To Do Key entry found add parsing logic for OTP
 				
 //				Dear FR OTP for UIN XXXXXXXX02 is 111111 and is valid for 3 minutes. (Generated on 16-03-2023 at 15:43:39 Hrs)
@@ -133,7 +136,6 @@ public class MockSMTPListener{
 //
 //				Cher $name_fra, OTP pour UIN XXXXXXXX02 est 111111 et est valide pour 3 minutes. (Généré le 16-03-2023 à 15:43:39 Hrs)
 				
-				otp = "111111";
 			}
 			System.out.println("*******Checking the email for OTP...*******");
 			counter++;
@@ -145,6 +147,23 @@ public class MockSMTPListener{
 			}
 		}
 		System.out.println("OTP not found even after " + repeatCounter + " retries");
+		return otp;
+	}
+	
+	public static String parseOtp(String message){
+		//find any 6 digit number
+		Pattern mPattern = Pattern.compile("(|^)\\d{6}");
+		String otp = null;
+		if(message!=null) {
+		    Matcher mMatcher = mPattern.matcher(message);
+		    if(mMatcher.find()) {
+		        otp = mMatcher.group(0);
+		        System.out.println("Final OTP: "+ otp);
+		    }else {
+		        //something went wrong
+		    	System.out.println("Failed to extract the OTP!! ");
+		    }
+		}
 		return otp;
 	}
 	

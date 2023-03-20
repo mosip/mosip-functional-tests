@@ -87,6 +87,7 @@ public class IdpBioAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		/*
 		 * if(testCaseDTO.getEndPoint().contains("$PartnerKeyURL$")) {
 		 * testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerKeyURL$",
