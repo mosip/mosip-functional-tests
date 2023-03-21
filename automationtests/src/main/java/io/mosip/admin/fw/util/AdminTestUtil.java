@@ -726,7 +726,7 @@ public class AdminTestUtil extends BaseTestCase {
 //		JSONObject request = new JSONObject(inputJson);
 //		String emailId = null;
 //		String otp = null;
-//		
+
 //		if (request.has("request")) {
 //			if (request.getJSONObject("request").has("otp")) {
 //				if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
@@ -2954,7 +2954,7 @@ public class AdminTestUtil extends BaseTestCase {
 		System.out.println(actualrequest);
 		org.json.simple.JSONObject identityObect = (org.json.simple.JSONObject) actualrequest.get("identity");
 		System.out.println(identityObect);
-		identityObect.replace("IDSchemaVersion", "IDSchemaVersion", props.getProperty("idSchemaVersion"));
+		identityObect.replace("IDSchemaVersion", "IDSchemaVersion", generateLatestSchemaVersion());
 		org.json.simple.JSONArray ja_data = (org.json.simple.JSONArray) identityObect.get("addressLine3");
 		System.out.println(actualrequest);
 		for (int i = 0; i < ja_data.size(); i++) {
