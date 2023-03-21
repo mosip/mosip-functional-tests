@@ -61,9 +61,11 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	 * @param testcaseName
 	 * @throws AuthenticationTestException
 	 * @throws AdminTestException
+	 * @throws InterruptedException 
+	 * @throws NumberFormatException 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException, NumberFormatException, InterruptedException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
@@ -79,16 +81,28 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		otpReqJson.remove("sendOtpEndPoint");
 		
 		Response otpResponse = null;
-		if(testCaseName.contains("IDP_")) {
-			String tempUrl = ApplnURI.replace("-internal", "");
-			otpResponse = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
-		}
-		else {
-			otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
-		}
-
-//		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
-
+//		int maxLoopCount =Integer.parseInt(props.getProperty("uinGenMaxLoopCount"));
+//		int currLoopCount = 0; 
+//		while (currLoopCount < maxLoopCount) {
+			if(testCaseName.contains("IDP_")) {
+				String tempUrl = ApplnURI.replace("-internal", "");
+				otpResponse = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
+			}
+			else {
+				otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
+			}
+			
+//			if (otpResponse.asString().contains("IDA-MLC-018")) {
+//				logger.info("waiting for: " + props.getProperty("uinGenDelayTime")
+//				+ " as UIN not available in database");
+//				Thread.sleep(Long.parseLong(props.getProperty("uinGenDelayTime")));
+//			}
+//			else {
+//				break;
+//			}
+//			
+//			currLoopCount++;
+//		}
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;

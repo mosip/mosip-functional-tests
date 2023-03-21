@@ -1,8 +1,9 @@
 SendOtp:
-   IDP_SendOtp_all_Valid_Smoke:
+   IDP_SendOtp_uin_all_Valid_Smoke:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/SendOtp/SendOtpResult
       input: '{
@@ -21,6 +22,7 @@ SendOtp:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -43,6 +45,7 @@ SendOtp:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -65,6 +68,7 @@ SendOtp:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/SendOtp/SendOtpResult
       input: '{
@@ -79,10 +83,11 @@ SendOtp:
     	"maskedMobile": "XXXXXX3210"
 }'
 
-   IDP_SendOtp_SpaceSeparated_otpChannels_Neg:
+   IDP_SendOtp_uin_SpaceSeparated_otpChannels_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -105,6 +110,7 @@ SendOtp:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -123,10 +129,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Invalid_RequestTime_Neg:
+   IDP_SendOtp_uin_Invalid_RequestTime_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -145,10 +152,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Diff_RequestTime_Neg:
+   IDP_SendOtp_uin_Diff_RequestTime_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -167,10 +175,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Future_RequestTime_Neg:
+   IDP_SendOtp_uin_Future_RequestTime_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -189,10 +198,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Invalid_transactionId_Neg:
+   IDP_SendOtp_uin_Invalid_transactionId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -211,10 +221,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Expired_transactionId_Neg:
+   IDP_SendOtp_uin_Expired_transactionId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -233,10 +244,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Missing_transactionId_Neg:
+   IDP_SendOtp_uin_Missing_transactionId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -255,10 +267,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Empty_transactionId_Neg:
+   IDP_SendOtp_uin_Empty_transactionId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -277,10 +290,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Null_transactionId_Neg:
+   IDP_SendOtp_uin_Null_transactionId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -299,10 +313,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Invalid_individualId_Neg:
+   IDP_SendOtp_uin_Invalid_individualId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -321,10 +336,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Missing_individualId_Neg:
+   IDP_SendOtp_uin_Missing_individualId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -343,10 +359,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Empty_individualId_Neg:
+   IDP_SendOtp_uin_Empty_individualId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -365,10 +382,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Null_individualId_Neg:
+   IDP_SendOtp_uin_Null_individualId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -387,10 +405,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Invalid_OtpChannels_Neg:
+   IDP_SendOtp_uin_Invalid_OtpChannels_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -409,10 +428,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Missing_OtpChannels_Neg:
+   IDP_SendOtp_uin_Missing_OtpChannels_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -431,10 +451,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Empty_OtpChannels_Neg:
+   IDP_SendOtp_uin_Empty_OtpChannels_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -453,10 +474,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Null_OtpChannels_Neg:
+   IDP_SendOtp_uin_Null_OtpChannels_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtp
       outputTemplate: idp/error
       input: '{
@@ -475,10 +497,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Missing_OtpChannel_Neg:
+   IDP_SendOtp_uin_Missing_OtpChannel_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtpEmptyOtpChannel
       outputTemplate: idp/error
       input: '{
@@ -497,10 +520,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Empty_OtpChannel_Neg:
+   IDP_SendOtp_uin_Empty_OtpChannel_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtpEmptyOtpChannel
       outputTemplate: idp/error
       input: '{
@@ -519,10 +543,11 @@ SendOtp:
   ]
 }'
 
-   IDP_SendOtp_Null_OtpChannel_Neg:
+   IDP_SendOtp_uin_Null_OtpChannel_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/SendOtp/SendOtpEmptyOtpChannel
       outputTemplate: idp/error
       input: '{
@@ -530,6 +555,443 @@ SendOtp:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
 	    "individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
+	    "otpChannels": "null"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Invalid_RequestTime_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "2022-11-08T06:35:53",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Diff_RequestTime_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "2022-11-07T06:51:30.195Z",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Future_RequestTime_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "2033-11-07T06:51:30.195Z",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Invalid_transactionId_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "transactionId",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Expired_transactionId_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Missing_transactionId_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$REMOVE$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Empty_transactionId_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Null_transactionId_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "null",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Invalid_individualId_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	    "individualId": "@@#$#VGH",
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Missing_individualId_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$REMOVE$",
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Empty_individualId_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "",
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Null_individualId_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+	    "individualId": "null",
+	    "otpChannels": [{channel: "email"},{channel: "phone"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Invalid_OtpChannels_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "Random1"},{channel: "Random2"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Missing_OtpChannels_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "$REMOVE$"},{channel: "$REMOVE$"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Empty_OtpChannels_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: ""},{channel: ""}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Null_OtpChannels_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtp
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "null"},{channel: "null"}]
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Missing_OtpChannel_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtpEmptyOtpChannel
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": "$REMOVE$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Empty_OtpChannel_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtpEmptyOtpChannel
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+	    "otpChannels": ""
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_SendOtp_vid_Null_OtpChannel_Neg:
+      endPoint: /v1/esignet/authorization/send-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/SendOtp/SendOtpEmptyOtpChannel
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
 	    "otpChannels": "null"
 }'
       output: '{
