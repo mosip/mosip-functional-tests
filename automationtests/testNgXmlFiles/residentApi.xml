@@ -530,6 +530,7 @@
 			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
 		</classes>
 	</test>
+	
 	<test name="DownloadUinCardByEventId">
 		<parameter name="ymlFile"
 			value="resident/DownloadUinCardByEventId/DownloadUinCardByEventId.yml" />
@@ -649,9 +650,10 @@
 	<test name="AcknowledgementController">
 		<parameter name="ymlFile"
 			value="resident/AcknowledgementController/AcknowledgementController.yml" />
+			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
-	</test>
--->
+	</test>-->
+
 </suite>
