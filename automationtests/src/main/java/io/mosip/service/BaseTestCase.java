@@ -257,8 +257,8 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "mobileid";
 			setReportName("mobileid");
 			AdminTestUtil.initiateMobileIdTestTest();
-		//	MockSMTPListener mockSMTPListener = new MockSMTPListener();
-		//	mockSMTPListener.run();
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.run();
 
 		}
 

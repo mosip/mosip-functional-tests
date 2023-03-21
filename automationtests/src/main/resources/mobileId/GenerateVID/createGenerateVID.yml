@@ -10,7 +10,7 @@ GenerateVID:
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -74,7 +74,7 @@ GenerateVID:
         "individualId": "253SDGSH@Y37",
         "individualIdType": "UIN",
         "vidType": "Perpetual",
-        "otp": "112637338",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -109,7 +109,7 @@ GenerateVID:
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -140,7 +140,7 @@ GenerateVID:
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",

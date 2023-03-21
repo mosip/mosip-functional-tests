@@ -155,12 +155,13 @@ public class MockSMTPListener{
 //		Cher $name_fra, OTP pour UIN XXXXXXXX02 est 111111 et est valide pour 3 minutes. (Généré le 16-03-2023 à 15:43:39 Hrs)
 		
 		//find any 6 digit number
-		Pattern mPattern = Pattern.compile("(|^)\\d{6}");
+		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");
 		String otp = null;
 		if(message!=null) {
 		    Matcher mMatcher = mPattern.matcher(message);
 		    if(mMatcher.find()) {
 		        otp = mMatcher.group(0);
+		        otp = otp.trim();
 		        System.out.println("Extracted OTP: "+ otp);
 		    }else {
 		        //something went wrong
