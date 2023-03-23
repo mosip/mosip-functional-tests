@@ -228,7 +228,23 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
-
+		
+		JSONObject request = new JSONObject(inputJson);
+		String emailId = null;
+		String otp = null;
+		
+		if (BaseTestCase.currentModule.equals("prereg")) {
+			if (request.has("request")) {
+				if(request.getJSONObject("request").has("otp")) {
+					emailId = request.getJSONObject("request").getString("userId");
+					// Get the otp value from email notification 
+					otp = MockSMTPListener.getOtp(10, emailId);
+					request.getJSONObject("request").put("otp", otp); 
+					inputJson = request.toString();
+				}
+			}
+		}
+	
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
