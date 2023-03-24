@@ -81,7 +81,7 @@ ReqShareCredWithPartner:
       output: '{
    		"errors": [
         {
-            "errorCode": "RES-SER-410",
+            "errorCode": "$IGNORE$",
             "message": "$IGNORE$"
         }
     ]
@@ -215,12 +215,12 @@ ReqShareCredWithPartner:
    	   "status": "Success"
 }'
 
-   Resident_ReqShareCredWithPartner_vid_Invalid_Space_Purpose_Neg:
+   Resident_ReqShareCredWithPartner_vid_Invalid_Space_Purpose:
       endPoint: /resident/v1/share-credential
       role: residentNewVid
       restMethod: post
       inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
-      outputTemplate: resident/error
+      outputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartnerResult
       input: '{
 	        "purpose": " string",
 	        "consent" : "Accepted",
