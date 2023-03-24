@@ -82,8 +82,8 @@ UploadDocument:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-410",
-      "message": "Bad Request"
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -260,8 +260,8 @@ UploadDocument:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-410",
-      "message": "Bad Request"
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
     }
   ]
 }'

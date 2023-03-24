@@ -66,7 +66,7 @@ GetNotifications:
 
    Resident_GetNotifications_vid_Invalid_Token_Neg:
       endPoint: /resident/v1/notifications/{langCode}
-      role: residentNew
+      role: resident
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
