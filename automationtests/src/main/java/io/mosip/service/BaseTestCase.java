@@ -308,6 +308,8 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "prereg";
 			setReportName("prereg");
 			AdminTestUtil.copyPreregTestResource();
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.run();
 
 		}
 		/*
