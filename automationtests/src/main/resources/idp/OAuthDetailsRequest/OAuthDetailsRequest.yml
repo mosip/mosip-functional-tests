@@ -114,6 +114,29 @@ OAuthDetailsRequest:
        
 }'
 
+   IDP_OAuthDetailsRequest_vid_Other_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: idp/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics mosip:idp:acr:generated-code",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+
    IDP_OAuthDetailsRequest_2all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
