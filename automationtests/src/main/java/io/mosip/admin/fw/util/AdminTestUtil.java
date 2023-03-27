@@ -228,23 +228,11 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
-		
-		JSONObject request = new JSONObject(inputJson);
-		String emailId = null;
-		String otp = null;
-		
 		if (BaseTestCase.currentModule.equals("prereg")) {
-			if (request.has("request")) {
-				if(request.getJSONObject("request").has("otp")) {
-					emailId = request.getJSONObject("request").getString("userId");
-					// Get the otp value from email notification 
-					otp = MockSMTPListener.getOtp(10, emailId);
-					request.getJSONObject("request").put("otp", otp); 
-					inputJson = request.toString();
-				}
-			}
+			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
-	
+		
+		
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
@@ -620,34 +608,9 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName, boolean bothAccessAndIdToken) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		
-		JSONObject request = new JSONObject(inputJson);
-		String emailId = null;
-		String otp = null;
 		if (BaseTestCase.currentModule.equals("mobileid")) {
-			if (request.has("otp")) {
-				if (request.getString("otp").endsWith("@mosip.net")) {
-					emailId = request.get("otp").toString();
-					// Get the otp value from email notification
-					otp = MockSMTPListener.getOtp(10, emailId);
-					request.put("otp", otp);
-					inputJson = request.toString();
-				}
-			}
+			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
-//		else {
-//			if (request.has("request")) {
-//				  if(request.getJSONObject("request").has("otp")) {
-//					  if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
-//						   emailId = request.getJSONObject("request").get("otp").toString();
-//						   // Get the otp value from email notification 
-//						   otp = MockSMTPListener.getOtp(10, emailId);
-//						   request.getJSONObject("request").put("otp", otp); 
-//						   inputJson = request.toString();
-//						   }
-//					  }
-//				  }
-//	   }
 		
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
@@ -746,34 +709,11 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = inputJsonKeyWordHandeler(url, testCaseName);
-
-		JSONObject request = new JSONObject(inputJson);
-		String emailId = null;
-		String otp = null;
 		if (BaseTestCase.currentModule.equals("mobileid")) {
-			if (request.has("otp")) {
-				if (request.getString("otp").endsWith("@mosip.net")) {
-					emailId = request.get("otp").toString();
-					// Get the otp value from email notification
-					otp = MockSMTPListener.getOtp(10, emailId);
-					request.put("otp", otp);
-					inputJson = request.toString();
-				}
-			}
-		} 
-//		else {
-//			if (request.has("request")) {
-//				  if(request.getJSONObject("request").has("otp")) {
-//					  if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
-//						   emailId = request.getJSONObject("request").get("otp").toString();
-//						   // Get the otp value from email notification 
-//						   otp = MockSMTPListener.getOtp(10, emailId);
-//						   request.getJSONObject("request").put("otp", otp); 
-//						   inputJson = request.toString();
-//						   }
-//					  }
-//				  }
-//		}
+			inputJson = smtpOtpHandler(inputJson, testCaseName);
+		}
+		
+		
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
@@ -4332,6 +4272,8 @@ public class AdminTestUtil extends BaseTestCase {
 			return null;
 		}
 	}
+	
+
 
 	public static String getValueFromActuator() {
 
@@ -4392,6 +4334,52 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 		}
 		return testCaseName;
+	}
+	
+	public static String smtpOtpHandler(String inputJson , String testCaseName) {
+		
+		JSONObject request = new JSONObject(inputJson);
+		String emailId = null;
+		String otp = null;
+		if (BaseTestCase.currentModule.equals("mobileid")) {
+			if (request.has("otp")) {
+				if (request.getString("otp").endsWith("@mosip.net")) {
+					emailId = request.get("otp").toString();
+					// Get the otp value from email notification
+					otp = MockSMTPListener.getOtp(10, emailId);
+					request.put("otp", otp);
+					inputJson = request.toString();
+					
+				}
+			}
+			return inputJson;
+		} 
+		if (BaseTestCase.currentModule.equals("prereg")) {
+			if (request.has("request")) {
+				if(request.getJSONObject("request").has("otp")) {
+					emailId = request.getJSONObject("request").getString("userId");
+					// Get the otp value from email notification 
+					otp = MockSMTPListener.getOtp(10, emailId);
+					request.getJSONObject("request").put("otp", otp); 
+					inputJson = request.toString();
+				}
+			}
+			return inputJson;
+		}
+//		else {
+//			if (request.has("request")) {
+//				  if(request.getJSONObject("request").has("otp")) {
+//					  if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+//						   emailId = request.getJSONObject("request").get("otp").toString();
+//						   // Get the otp value from email notification 
+//						   otp = MockSMTPListener.getOtp(10, emailId);
+//						   request.getJSONObject("request").put("otp", otp); 
+//						   inputJson = request.toString();
+//						   }
+//					  }
+//				  }
+//		}
+		return inputJson;
 	}
 
 }
