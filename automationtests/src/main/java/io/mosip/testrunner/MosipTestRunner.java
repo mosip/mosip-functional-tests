@@ -125,7 +125,12 @@ public class MosipTestRunner {
 		}
 		
 		//KeycloakUserManager.removeUser();
-//		MockSMTPListener.bTerminate = true;
+		if (BaseTestCase.currentModule.equals("mobileid")||BaseTestCase.currentModule.equals("prereg")) {
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.bTerminate = true;
+			//MockSMTPListener.bTerminate = true;
+		}
+		
 		System.exit(0);
 		
 		

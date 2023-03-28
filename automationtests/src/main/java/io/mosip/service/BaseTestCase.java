@@ -234,6 +234,9 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "auth";
 			BaseTestCase.certsForModule = "IDA";
 			AuthTestsUtil.initiateAuthTest();
+//			
+//			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+//			mockSMTPListener.run();
 			// new PMPDataManager(true);
 		}
 		if (listOfModules.contains("idrepo")) {
@@ -257,6 +260,8 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "mobileid";
 			setReportName("mobileid");
 			AdminTestUtil.initiateMobileIdTestTest();
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.run();
 
 		}
 
@@ -306,6 +311,8 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "prereg";
 			setReportName("prereg");
 			AdminTestUtil.copyPreregTestResource();
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.run();
 
 		}
 		/*

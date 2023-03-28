@@ -24,13 +24,13 @@ definePolicy:
       endPoint: /v1/policymanager/policies
       role: partner
       restMethod: post
-      inputTemplate: idp/PmsIntegration/DefinePolicy/definePolicy
+      inputTemplate: idp/PmsIntegration/DefinePolicy/definePolicyMisp
       outputTemplate: idp/PmsIntegration/DefinePolicy/definePolicyResult
       input: '{
 	"desc": "$MISPPOLICYDESC$",
 	"name": "$MISPPOLICYNAME$",
 	"policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$",
-	"policyType": "Auth",
+	"policyType": "MISP",
 	"version": "1.0",
 	"requesttime": "$TIMESTAMP$"
 }'
@@ -41,7 +41,7 @@ definePolicy:
     "is_Active": false
 }'
 
-   Idp_DefinePolicy_Valid_Smoke_sid:
+   Idp_DefinePolicy_Auth_Valid_Smoke_sid:
       endPoint: /v1/policymanager/policies
       role: partner
       restMethod: post
@@ -50,7 +50,7 @@ definePolicy:
       input: '{
 	"desc": "$POLICYDESC1$",
 	"name": "$POLICYNAME1$",
-	"policyGroupName": "$ID:DefinePolicyGroup_Valid_Smoke_sid_name$",
+	"policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$",
 	"policyType": "Auth",
 	"version": "1.0",
 	"requesttime": "$TIMESTAMP$"

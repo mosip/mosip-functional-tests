@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -125,26 +127,53 @@ public class MockSMTPListener{
 			m= emailNotificationMap;
 			if(m.get(emailId)!=null) {
 				String html=(String) m.get(emailId);
-				// To Do Key entry found add parsing logic for OTP
-				
-//				Dear FR OTP for UIN XXXXXXXX02 is 111111 and is valid for 3 minutes. (Generated on 16-03-2023 at 15:43:39 Hrs)
-//
-//				عزيزي $ name OTP لـ $ idvidType $ idvid هو $ otp وهو صالح لـ $ validTime دقيقة. (تم إنشاؤه في $ date في $ time Hrs)
-//
-//				Cher $name_fra, OTP pour UIN XXXXXXXX02 est 111111 et est valide pour 3 minutes. (Généré le 16-03-2023 à 15:43:39 Hrs)
-				
-				otp = "111111";
+				otp = parseOtp(html);
+				return otp;
 			}
 			System.out.println("*******Checking the email for OTP...*******");
 			counter++;
 			try {
-				System.out.println("waiting for 10 Sec");
+				System.out.println("Not received Otp yet, waiting for 10 Sec");
 				Thread.sleep(10000);
 			} catch (InterruptedException e) {
 				System.out.println(e.getMessage());
 			}
+			
 		}
 		System.out.println("OTP not found even after " + repeatCounter + " retries");
+		return otp;
+	}
+	
+	public static String parseOtp(String message){
+		
+		// To Do Key entry found add parsing logic for OTP
+		
+//		Dear FR OTP for UIN XXXXXXXX02 is 111111 and is valid for 3 minutes. (Generated on 16-03-2023 at 15:43:39 Hrs)
+//
+//		عزيزي $ name OTP لـ $ idvidType $ idvid هو $ otp وهو صالح لـ $ validTime دقيقة. (تم إنشاؤه في $ date في $ time Hrs)
+//
+//		Cher $name_fra, OTP pour UIN XXXXXXXX02 est 111111 et est valide pour 3 minutes. (Généré le 16-03-2023 à 15:43:39 Hrs)
+		
+//		"Dear FR OTP for UIN XXXXXXXX02 is 111111 and is valid for 3 minutes. (Generated on 16-03-2023 at 15:43:39 Hrs)\r\n"
+//		+ "\r\n"
+//		+ "عزيزي $ name OTP لـ $ idvidType $ idvid هو $ 101010 وهو صالح لـ $ validTime دقيقة. (تم إنشاؤه في $ date في $ time Hrs)\r\n"
+//		+ "\r\n"
+//		+ "Cher $name_fra, OTP pour UIN XXXXXXXX02 est 123456 et est valide pour 3 minutes. (Généré le 16-03-2023 à 15:43:39 Hrs)";
+		
+		//find any 6 digit number
+		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");
+		String otp = null;
+		if(message!=null) {
+		    Matcher mMatcher = mPattern.matcher(message);
+		    if(mMatcher.find()) {
+		        otp = mMatcher.group(0);
+		        otp = otp.trim();
+		        System.out.println("Extracted OTP: "+ otp);
+		    }else {
+		        //something went wrong
+		    	System.out.println("Failed to extract the OTP!! ");
+		    }
+		}
 		return otp;
 	}
 	

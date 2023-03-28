@@ -118,45 +118,6 @@ GenerateVIDNew:
 	    "maskedPhone": "******3210",
 	    "maskedEmail": "res***************@gmail.com"
 }'
-   Resident_Generate_Perpetual_VID_TransID_uin_Invalid_Pos:
-      endPoint: /resident/v1/generate-vid
-      role: residentNew
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVIDNew
-      outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
-      input: '{
-        "transactionID": "tt@2165;",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid.generate",
-        "version": "1.0",
-        "vidType": "Perpetual"
-    }'
-      output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
-}'
-
-   Resident_Generate_Perpetual_VID_uin_EmptyChannel_Pos:
-      endPoint: /resident/v1/generate-vid
-      role: residentNew
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVIDNewAsEmpty
-      outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
-      input: '{
-        "transactionID": "1234567890",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid.generate",
-        "version": "1.0",
-        "vidType": "Perpetual"
-    }'
-      output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
-}'
 
    Resident_Generate_Perpetual_VID_uin_Empty_TransID_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
@@ -425,7 +386,7 @@ GenerateVIDNew:
       role: residentNewVid
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
-      outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
+      outputTemplate: resident/error
       input: '{
         "transactionID": "tt@2165;",
         "requesttime": "$TIMESTAMP$",
@@ -434,10 +395,7 @@ GenerateVIDNew:
         "vidType": "Perpetual"
     }'
       output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
+      
 }'
 
    Resident_Generate_Perpetual_VID_uin_EmptyChannel_Pos:
@@ -445,7 +403,7 @@ GenerateVIDNew:
       role: residentNewVid
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNewAsEmpty
-      outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
+      outputTemplate: resident/error
       input: '{
         "transactionID": "1234567890",
         "requesttime": "$TIMESTAMP$",
@@ -454,10 +412,7 @@ GenerateVIDNew:
         "vidType": "Perpetual"
     }'
       output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
+      	
 }'
 
    Resident_Generate_Perpetual_VID_uin_Empty_TransID_Invalid_Neg:

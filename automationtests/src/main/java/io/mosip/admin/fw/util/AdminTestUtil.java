@@ -217,23 +217,26 @@ public class AdminTestUtil extends BaseTestCase {
 	 * @param role
 	 * @return Response
 	 */
-	
+
 	protected Response postWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
-		return postWithBodyAndCookie( url,  jsonInput,  cookieName,  role,
-				 testCaseName,  false);
+		return postWithBodyAndCookie(url, jsonInput, cookieName, role, testCaseName, false);
 	}
+
 	protected Response postWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName, boolean bothAccessAndIdToken) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
+		if (BaseTestCase.currentModule.equals("prereg")) {
+			inputJson = smtpOtpHandler(inputJson, testCaseName);
+		}
+		
 		
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
@@ -242,8 +245,7 @@ public class AdminTestUtil extends BaseTestCase {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
-			}
-			else {
+			} else {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
@@ -255,7 +257,6 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
 
 	protected Response DeleteWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
@@ -276,7 +277,7 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
+
 	protected Response postWithBodyAndCookieWithText(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
 		Response response = null;
@@ -286,8 +287,8 @@ public class AdminTestUtil extends BaseTestCase {
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
-			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
-					"*/*", cookieName, token);
+			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, "*/*", cookieName,
+					token);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -305,14 +306,14 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject request = new JSONObject(inputJson);
 		String encodedResp = null;
 		String transactionId = null;
-		 if(request.has("encodedHash")) {
-			 encodedResp = request.get("encodedHash").toString();
-			 request.remove("encodedHash");
+		if (request.has("encodedHash")) {
+			encodedResp = request.get("encodedHash").toString();
+			request.remove("encodedHash");
 		}
-		 if(request.has("request")) {
-			 if(request.getJSONObject("request").has("transactionId")) {
-				 transactionId = request.getJSONObject("request").get("transactionId").toString();
-			 }
+		if (request.has("request")) {
+			if (request.getJSONObject("request").has("transactionId")) {
+				transactionId = request.getJSONObject("request").get("transactionId").toString();
+			}
 		}
 		System.out.println("encodedhash = " + encodedResp);
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
@@ -323,10 +324,10 @@ public class AdminTestUtil extends BaseTestCase {
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(request.toString()) + "</pre>");
 		try {
-			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, request.toString(), MediaType.APPLICATION_JSON,
-					MediaType.APPLICATION_JSON, cookieName, token, headers);
+			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, request.toString(),
+					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					
+
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
 		} catch (Exception e) {
@@ -343,26 +344,26 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject request = new JSONObject(inputJson);
 		String encodedResp = null;
 		String transactionId = null;
-		 if(request.has("encodedHash")) {
-			 encodedResp = request.get("encodedHash").toString();
-			 request.remove("encodedHash");
+		if (request.has("encodedHash")) {
+			encodedResp = request.get("encodedHash").toString();
+			request.remove("encodedHash");
 		}
-		 if(request.has("request")) {
-			 if(request.getJSONObject("request").has("transactionId")) {
-				 transactionId = request.getJSONObject("request").get("transactionId").toString();
-			 }
+		if (request.has("request")) {
+			if (request.getJSONObject("request").has("transactionId")) {
+				transactionId = request.getJSONObject("request").get("transactionId").toString();
+			}
 		}
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
-		
+
 		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(request.toString()) + "</pre>");
 		try {
-			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, request.toString(), MediaType.APPLICATION_JSON,
-					MediaType.APPLICATION_JSON, cookieName, token, headers);
+			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, request.toString(),
+					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			if (testCaseName.toLowerCase().contains("_sid")) {
@@ -374,9 +375,9 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
-	protected Response postRequestWithCookieAuthHeaderForAutoGenId(String url, String jsonInput,
-			String cookieName, String role, String testCaseName, String idKeyName) {
+
+	protected Response postRequestWithCookieAuthHeaderForAutoGenId(String url, String jsonInput, String cookieName,
+			String role, String testCaseName, String idKeyName) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
@@ -386,22 +387,23 @@ public class AdminTestUtil extends BaseTestCase {
 		req.remove("apiKey");
 		partnerId = req.getString("partnerId");
 		req.remove("partnerId");
-		
+
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put("api-key", apiKey);
 		headers.put("partner-id", partnerId);
-		headers.put(cookieName, "Bearer "+ token);
+		headers.put(cookieName, "Bearer " + token);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
 		try {
-			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, req.toString(), MediaType.APPLICATION_JSON,
-					MediaType.APPLICATION_JSON, headers);
+			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, req.toString(),
+					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
-			if (testCaseName.contains("IDP_LinkedAuthenticationWla_uin_all_Valid_Smoke_sid") || testCaseName.contains("IDP_LinkedAuthenticationWla_vid_all_Valid_Smoke_sid")) {
+			if (testCaseName.contains("IDP_LinkedAuthenticationWla_uin_all_Valid_Smoke_sid")
+					|| testCaseName.contains("IDP_LinkedAuthenticationWla_vid_all_Valid_Smoke_sid")) {
 				File fileName = null;
 				if (testCaseName.contains("_uin_")) {
 					fileName = BINDINGCERTFile;
@@ -409,7 +411,8 @@ public class AdminTestUtil extends BaseTestCase {
 				if (testCaseName.contains("_vid_")) {
 					fileName = BINDINGCERTFileVid;
 				}
-				String certificateData = new JSONObject(response.getBody().asString()).getJSONObject("response").get("certificate").toString();
+				String certificateData = new JSONObject(response.getBody().asString()).getJSONObject("response")
+						.get("certificate").toString();
 				FileUtils.touch(fileName);// File got created
 				FileUtils.writeStringToFile(fileName, certificateData, StandardCharset.UTF_8.name());
 			}
@@ -419,9 +422,9 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
-	protected Response postRequestWithCookieAuthHeader(String url, String jsonInput,
-			String cookieName, String role, String testCaseName) {
+
+	protected Response postRequestWithCookieAuthHeader(String url, String jsonInput, String cookieName, String role,
+			String testCaseName) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
@@ -431,16 +434,16 @@ public class AdminTestUtil extends BaseTestCase {
 		req.remove("apiKey");
 		partnerId = req.getString("partnerId");
 		req.remove("partnerId");
-		
+
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put("api-key", apiKey);
 		headers.put("partner-id", partnerId);
-		headers.put(cookieName, "Bearer "+ token);
+		headers.put(cookieName, "Bearer " + token);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
 		try {
-			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, req.toString(), MediaType.APPLICATION_JSON,
-					MediaType.APPLICATION_JSON, headers);
+			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, req.toString(),
+					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -512,7 +515,7 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
+
 	protected Response postRequestWithAuthHeaderAndSignatureForOtp(String url, String jsonInput, String cookieName,
 			String token, HashMap<String, String> headers, String testCaseName) {
 		Response response = null;
@@ -595,22 +598,24 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
+
 	protected Response postRequestWithCookieAndHeader(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
-		return postRequestWithCookieAndHeader( url,  jsonInput,  cookieName,  role,
-				 testCaseName,  false);
+		return postRequestWithCookieAndHeader(url, jsonInput, cookieName, role, testCaseName, false);
 	}
 
 	protected Response postRequestWithCookieAndHeader(String url, String jsonInput, String cookieName, String role,
 			String testCaseName, boolean bothAccessAndIdToken) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		if (BaseTestCase.currentModule.equals("mobileid")) {
+			inputJson = smtpOtpHandler(inputJson, testCaseName);
+		}
+		
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
@@ -618,13 +623,13 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookieAndHeader(url, inputJson, MediaType.APPLICATION_JSON,
-						MediaType.APPLICATION_JSON, cookieName, token, AUTHORIZATHION_HEADERNAME, authHeaderValue, IDTOKENCOOKIENAME, idToken);
-			}
-			else {
+						MediaType.APPLICATION_JSON, cookieName, token, AUTHORIZATHION_HEADERNAME, authHeaderValue,
+						IDTOKENCOOKIENAME, idToken);
+			} else {
 				response = RestClient.postRequestWithCookieAndHeader(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token, AUTHORIZATHION_HEADERNAME, authHeaderValue);
 			}
-			
+
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -654,11 +659,10 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
+
 	protected Response patchWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
-		return patchWithBodyAndCookie( url,  jsonInput,  cookieName,  role,
-				 testCaseName,  false);
+		return patchWithBodyAndCookie(url, jsonInput, cookieName, role, testCaseName, false);
 	}
 
 	protected Response patchWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
@@ -671,8 +675,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
@@ -681,12 +684,11 @@ public class AdminTestUtil extends BaseTestCase {
 			if (bothAccessAndIdToken) {
 				response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
-			}
-			else {
+			} else {
 				response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
-			
+
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -695,11 +697,11 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
+
 	protected Response postWithBodyAndCookieForAutoGeneratedId(String url, String jsonInput, String cookieName,
 			String role, String testCaseName, String idKeyName) {
-		return postWithBodyAndCookieForAutoGeneratedId( url,  jsonInput,  cookieName,
-				 role,  testCaseName,  idKeyName,  false);
+		return postWithBodyAndCookieForAutoGeneratedId(url, jsonInput, cookieName, role, testCaseName, idKeyName,
+				false);
 	}
 
 	protected Response postWithBodyAndCookieForAutoGeneratedId(String url, String jsonInput, String cookieName,
@@ -707,23 +709,15 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = inputJsonKeyWordHandeler(url, testCaseName);
+		if (BaseTestCase.currentModule.equals("mobileid")) {
+			inputJson = smtpOtpHandler(inputJson, testCaseName);
+		}
 		
-//		JSONObject request = new JSONObject(inputJson);
-//		String emailId = null;
-//		String otp = null;
-//		if(request.getJSONObject("request").has("otp")) {
-//			emailId = request.getJSONObject("request").get("otp").toString();
-////			Get the otp value from email notification
-//			otp = MockSMTPListener.getOtp(10, emailId);
-//			request.getJSONObject("request").put("otp", otp);
-//			inputJson = request.toString();
-//		}
 		
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
@@ -732,8 +726,7 @@ public class AdminTestUtil extends BaseTestCase {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
-			}
-			else {
+			} else {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
@@ -870,11 +863,11 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
+
 	protected Response getWithPathParamAndCookieForAutoGeneratedId(String url, String jsonInput, String cookieName,
 			String role, String testCaseName, String idKeyName) {
-		return getWithPathParamAndCookieForAutoGeneratedId( url,  jsonInput,  cookieName,
-				 role,  testCaseName,  idKeyName,  false);
+		return getWithPathParamAndCookieForAutoGeneratedId(url, jsonInput, cookieName, role, testCaseName, idKeyName,
+				false);
 	}
 
 	protected Response getWithPathParamAndCookieForAutoGeneratedId(String url, String jsonInput, String cookieName,
@@ -902,8 +895,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 //		}
@@ -915,23 +907,20 @@ public class AdminTestUtil extends BaseTestCase {
 				if (bothAccessAndIdToken) {
 					response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
 							MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
-				}
-				else {
+				} else {
 					response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
 							MediaType.APPLICATION_JSON, cookieName, token);
 				}
-				
 
 			} else {
 				if (bothAccessAndIdToken) {
-					response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-							cookieName, token, IDTOKENCOOKIENAME, idToken);
+					response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
+							MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
+				} else {
+					response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
+							MediaType.APPLICATION_JSON, cookieName, token);
 				}
-				else {
-					response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-							cookieName, token);
-				}
-				
+
 			}
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
@@ -1052,11 +1041,10 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
+
 	protected Response postWithParamAndFile(String url, String jsonInput, String cookieName, String role,
 			String testCaseName, String idKeyName) {
-		return postWithParamAndFile( url,  jsonInput,  cookieName,  role,
-				 testCaseName,  idKeyName,  false);
+		return postWithParamAndFile(url, jsonInput, cookieName, role, testCaseName, idKeyName, false);
 	}
 
 	protected Response postWithParamAndFile(String url, String jsonInput, String cookieName, String role,
@@ -1086,8 +1074,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
@@ -1096,12 +1083,11 @@ public class AdminTestUtil extends BaseTestCase {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postWithParamsAndFile(url, map, filetoUpload, fileKeyName,
 						MediaType.MULTIPART_FORM_DATA, token, IDTOKENCOOKIENAME, idToken);
-			}
-			else {
+			} else {
 				response = RestClient.postWithParamsAndFile(url, map, filetoUpload, fileKeyName,
 						MediaType.MULTIPART_FORM_DATA, token);
 			}
-			
+
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 
@@ -1327,13 +1313,12 @@ public class AdminTestUtil extends BaseTestCase {
 	 * @param role
 	 * @return Response
 	 */
-	
+
 	protected Response putWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
-		return putWithBodyAndCookie( url,  jsonInput,  cookieName,  role,
-				 testCaseName,  false);
+		return putWithBodyAndCookie(url, jsonInput, cookieName, role, testCaseName, false);
 	}
-	
+
 	protected Response putWithBodyAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName, boolean bothAccessAndIdToken) {
 		Response response = null;
@@ -1341,8 +1326,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Put request Json to EndPointUrl: " + url + " *******");
@@ -1351,12 +1335,11 @@ public class AdminTestUtil extends BaseTestCase {
 			if (bothAccessAndIdToken) {
 				response = RestClient.putRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
-			}
-			else {
+			} else {
 				response = RestClient.putRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
-			
+
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -1523,17 +1506,16 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
-	protected Response postWithPathParamsBodyHeaderAndCookie(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, String pathParams) {
+
+	protected Response postWithPathParamsBodyHeaderAndCookie(String url, String jsonInput, String cookieName,
+			String role, String testCaseName, String pathParams) {
 		Response response = null;
 		String signature = null;
 		HashMap<String, String> headers = new HashMap<String, String>();
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		JSONObject req = new JSONObject(inputJson);
-		
-		
+
 		HashMap<String, String> pathParamsMap = new HashMap<String, String>();
 		String params[] = pathParams.split(",");
 		for (String param : params) {
@@ -1551,9 +1533,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (req.has("request")) {
 			req = new JSONObject(req.get("request").toString());
 		}
-		
+
 		inputJson = req.toString();
-		
+
 		if (inputJson.contains("\u200B")) {
 			inputJson = inputJson.replaceAll("\u200B", "");
 		}
@@ -1575,7 +1557,7 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
+
 	protected Response postWithQueryParamsBodyAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName, String queryParams, String idKeyName) {
 		Response response = null;
@@ -1653,13 +1635,12 @@ public class AdminTestUtil extends BaseTestCase {
 	 * @param role
 	 * @return Response
 	 */
-	
+
 	protected Response getWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
-		return getWithPathParamAndCookie( url,  jsonInput,  cookieName,  role,
-				 testCaseName,  false);
+		return getWithPathParamAndCookie(url, jsonInput, cookieName, role, testCaseName, false);
 	}
-	
+
 	protected Response getWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName, boolean bothAccessAndIdToken) {
 		Response response = null;
@@ -1675,8 +1656,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******get request to EndPointUrl: " + url + " *******");
@@ -1686,12 +1666,11 @@ public class AdminTestUtil extends BaseTestCase {
 				if (bothAccessAndIdToken) {
 					response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
 							MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
-				}
-				else {
+				} else {
 					response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
 							MediaType.APPLICATION_JSON, cookieName, token);
 				}
-				
+
 			} else if (testCaseName.contains("IdpAccessToken")) {
 				JSONObject request = new JSONObject(jsonInput);
 				if (request.has("idpAccessToken")) {
@@ -1702,14 +1681,13 @@ public class AdminTestUtil extends BaseTestCase {
 						MediaType.APPLICATION_JSON, cookieName, token);
 			} else {
 				if (bothAccessAndIdToken) {
-					response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-							cookieName, token, IDTOKENCOOKIENAME, idToken);
+					response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
+							MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
+				} else {
+					response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
+							MediaType.APPLICATION_JSON, cookieName, token);
 				}
-				else {
-					response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-							cookieName, token);
-				}
-				
+
 			}
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
@@ -1720,11 +1698,10 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
+
 	protected Response deleteWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
-		return deleteWithPathParamAndCookie( url,  jsonInput,  cookieName,  role,
-				 testCaseName,  false);
+		return deleteWithPathParamAndCookie(url, jsonInput, cookieName, role, testCaseName, false);
 	}
 
 	protected Response deleteWithPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
@@ -1742,8 +1719,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******get request to EndPointUrl: " + url + " *******");
@@ -1752,12 +1728,11 @@ public class AdminTestUtil extends BaseTestCase {
 			if (bothAccessAndIdToken) {
 				response = RestClient.deleteRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
-			}
-			else {
+			} else {
 				response = RestClient.deleteRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
-			
+
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -1797,11 +1772,10 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
+
 	protected byte[] getWithPathParamAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
-		return getWithPathParamAndCookieForPdf( url,  jsonInput,  cookieName,  role,
-				 testCaseName,  false);
+		return getWithPathParamAndCookieForPdf(url, jsonInput, cookieName, role, testCaseName, false);
 	}
 
 	protected byte[] getWithPathParamAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
@@ -1819,8 +1793,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******get request to EndPointUrl: " + url + " *******");
@@ -1829,23 +1802,21 @@ public class AdminTestUtil extends BaseTestCase {
 			if (bothAccessAndIdToken) {
 				pdf = RestClient.getPdf(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName,
 						token, IDTOKENCOOKIENAME, idToken);
-			}
-			else {
+			} else {
 				pdf = RestClient.getPdf(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName,
 						token);
 			}
-			
+
 			return pdf;
 		} catch (Exception e) {
 			logger.error("Exception " + e);
 			return pdf;
 		}
 	}
-	
+
 	protected byte[] postWithBodyAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
-		return postWithBodyAndCookieForPdf( url,  jsonInput,  cookieName,  role,
-				 testCaseName, false);
+		return postWithBodyAndCookieForPdf(url, jsonInput, cookieName, role, testCaseName, false);
 	}
 
 	protected byte[] postWithBodyAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
@@ -1855,20 +1826,18 @@ public class AdminTestUtil extends BaseTestCase {
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******post request to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
 		try {
 			if (bothAccessAndIdToken) {
-				pdf = RestClient.postWithBodyForPdf(url, jsonInput, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-						cookieName, token, IDTOKENCOOKIENAME, idToken);
-			}
-			else {
-				pdf = RestClient.postWithBodyForPdf(url, jsonInput, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-						cookieName, token);
+				pdf = RestClient.postWithBodyForPdf(url, jsonInput, MediaType.APPLICATION_JSON,
+						MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
+			} else {
+				pdf = RestClient.postWithBodyForPdf(url, jsonInput, MediaType.APPLICATION_JSON,
+						MediaType.APPLICATION_JSON, cookieName, token);
 			}
 			return pdf;
 		} catch (Exception e) {
@@ -1876,11 +1845,10 @@ public class AdminTestUtil extends BaseTestCase {
 			return pdf;
 		}
 	}
-	
+
 	protected byte[] getWithQueryParamAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
-		return getWithQueryParamAndCookieForPdf( url,  jsonInput,  cookieName,  role,
-				 testCaseName,  false);
+		return getWithQueryParamAndCookieForPdf(url, jsonInput, cookieName, role, testCaseName, false);
 	}
 
 	protected byte[] getWithQueryParamAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
@@ -1898,8 +1866,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******get request to EndPointUrl: " + url + " *******");
@@ -1908,12 +1875,11 @@ public class AdminTestUtil extends BaseTestCase {
 			if (bothAccessAndIdToken) {
 				pdf = RestClient.getPdfWithQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 						cookieName, token, IDTOKENCOOKIENAME, idToken);
-			}
-			else {
+			} else {
 				pdf = RestClient.getPdfWithQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 						cookieName, token);
 			}
-			
+
 			return pdf;
 		} catch (Exception e) {
 			logger.error("Exception " + e);
@@ -1986,7 +1952,7 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			if (testCaseName.contains("IDP_GenerateToken") || testCaseName.contains("Idp_KycCreateAuthReq")) {
 				responseBody = new JSONObject(response.getBody().asString());
-				if(testCaseName.contains("Idp_KycCreateAuthReq")) {
+				if (testCaseName.contains("Idp_KycCreateAuthReq")) {
 					signature = response.getHeader("signature");
 				}
 			} else {
@@ -2007,16 +1973,15 @@ public class AdminTestUtil extends BaseTestCase {
 						JSONObject eachJSON = (JSONObject) responseArray.get(0);
 						System.out.println(eachJSON.get(filedName));
 						props.put(identifierKeyName, eachJSON.get(filedName));
-					}
-					else if(testCaseName.contains("_OAuthDetailsRequest_") && filedName.equals("encodedResp")) {
+					} else if (testCaseName.contains("_OAuthDetailsRequest_") && filedName.equals("encodedResp")) {
 						Gson gson = new Gson();
-						JsonObject json =  gson.fromJson(response.getBody().asString(), JsonObject.class);
+						JsonObject json = gson.fromJson(response.getBody().asString(), JsonObject.class);
 						String responseJsonString = json.getAsJsonObject("response").toString();
-						
+
 //						System.out.println("response string = " + responseJson.toString());
 //						ObjectMapper mapper = new ObjectMapper();
 //						String respBody = mapper.writeValueAsString(responseJson.toMap());
-						
+
 //						System.out.println("response mapper = " + respBody);
 						MessageDigest digest = MessageDigest.getInstance("SHA-256");
 						byte[] hash = digest.digest(responseJsonString.getBytes(StandardCharsets.UTF_8));
@@ -2024,24 +1989,20 @@ public class AdminTestUtil extends BaseTestCase {
 //						String urlEncodedResp = Base64.getUrlEncoder().encodeToString(hash);
 						String urlEncodedResp = Base64.getUrlEncoder().withoutPadding().encodeToString(hash);
 						System.out.println("encoded response = " + urlEncodedResp);
-						props.put(identifierKeyName, urlEncodedResp);	
-					}
-					else
+						props.put(identifierKeyName, urlEncodedResp);
+					} else
 						props.put(identifierKeyName, responseJson.getJSONObject("identity").get(filedName));
 				} else if (responseBody != null) {
 					String identifierKeyName = getAutogenIdKeyName(testCaseName, filedName);
 					if (responseBody.has(filedName)) {
 						props.put(identifierKeyName, responseBody.get(filedName).toString());
-					}
-					else if(testCaseName.contains("Idp_KycCreateAuthReq")) {
-						if(filedName.equals("authReqBody")) {
+					} else if (testCaseName.contains("Idp_KycCreateAuthReq")) {
+						if (filedName.equals("authReqBody")) {
 							props.put(identifierKeyName, responseBody.toString());
-						}
-						else if(filedName.equals("authSignature")) {
+						} else if (filedName.equals("authSignature")) {
 							props.put(identifierKeyName, signature);
 						}
-					}
-					else
+					} else
 						logger.error("Response doesn't contain autogenerated field: " + filedName
 								+ " to write- Response : " + response.asString());
 				} else {
@@ -2390,12 +2351,11 @@ public class AdminTestUtil extends BaseTestCase {
 		if (uri.contains("$MODULENAME$")) {
 			uri = uri.replace("$MODULENAME$", BaseTestCase.certsForModule);
 		}
-		
+
 		if (uri.contains("$CERTSDIR$")) {
 			uri = uri.replace("$CERTSDIR$", ConfigManager.getauthCertsPath());
 		}
-		
-		
+
 		if (uri.contains("$ID:")) {
 			String autoGenIdFileName = getAutoGenIdFileName(testCaseName);
 			uri = replaceIdWithAutogeneratedId(uri, "$ID:", autoGenIdFileName);
@@ -2471,7 +2431,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$PARTNERID$"))
 			jsonString = jsonString.replace("$PARTNERID$", genPartnerName);
-		
+
 		if (jsonString.contains("$PARTNERIDFORDSL$"))
 			jsonString = jsonString.replace("$PARTNERIDFORDSL$", genPartnerNameForDsl);
 
@@ -2480,15 +2440,13 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$PARTNEREMAIL1$"))
 			jsonString = jsonString.replace("$PARTNEREMAIL1$", "12d" + genPartnerEmail);
-		
-		
 
 		if (jsonString.contains("$PARTNEREMAIL$"))
 			jsonString = jsonString.replace("$PARTNEREMAIL$", genPartnerEmail);
-		
+
 		if (jsonString.contains("$PARTNEREMAILFORDSL$"))
 			jsonString = jsonString.replace("$PARTNEREMAILFORDSL$", genPartnerEmailForDsl);
-		
+
 		if (jsonString.contains("$MISPPOLICYGROUPDESC$"))
 			jsonString = jsonString.replace("$MISPPOLICYGROUPDESC$", genMispPolicyGroupDesc);
 
@@ -2529,7 +2487,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$CACERT$", caFtmCertValue);
 
 		}
-		
+
 		if (jsonString.contains("$MISPCACERT$")) {
 			JSONObject request = new JSONObject(jsonString);
 			String partnerId = null;
@@ -2573,7 +2531,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$INTERCERT$", interFtmCertValue);
 
 		}
-		
+
 		if (jsonString.contains("$MISPINTERCERT$")) {
 			JSONObject request = new JSONObject(jsonString);
 			String partnerId = null;
@@ -2612,7 +2570,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$PARTNERCERT$", partnerFtmCertValue);
 
 		}
-		
+
 		if (jsonString.contains("$MISPPARTNERCERT$")) {
 			JSONObject request = new JSONObject(jsonString);
 			String partnerId = null;
@@ -2697,7 +2655,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			jsonString = jsonString.replace("$BINDINGJWKKEY$", bindingJwkKey.toString());
 		}
-		
+
 		if (jsonString.contains("$BINDINGJWKKEYVID$")) {
 			String bindingJwkKey = null;
 			if (triggerIdPKeyGen4) {
@@ -2780,7 +2738,7 @@ public class AdminTestUtil extends BaseTestCase {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			String individualId = null;
 			String wlaToken = null;
 			String certificate = getJWKKey(BINDINGCERTFile);
@@ -2794,7 +2752,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			jsonString = jsonString.replace("$WLATOKEN$", wlaToken);
 		}
-		
+
 		if (jsonString.contains("$WLATOKENVID$")) {
 			String bindingJWKKeyString = getJWKKey(bindingJWKVid);
 			System.out.println("bindingJWKKeyString =" + bindingJWKKeyString);
@@ -2805,7 +2763,7 @@ public class AdminTestUtil extends BaseTestCase {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 			String individualId = null;
 			String wlaToken = null;
 			String certificate = getJWKKey(BINDINGCERTFileVid);
@@ -2920,7 +2878,7 @@ public class AdminTestUtil extends BaseTestCase {
 		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
 		return dateFormat.format(date);
 	}
-	
+
 	public static String generateCurrentUTCDateStamp() {
 		Date date = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -2934,7 +2892,7 @@ public class AdminTestUtil extends BaseTestCase {
 		System.out.println(actualrequest);
 		org.json.simple.JSONObject identityObect = (org.json.simple.JSONObject) actualrequest.get("identity");
 		System.out.println(identityObect);
-		identityObect.replace("IDSchemaVersion", "IDSchemaVersion", props.getProperty("idSchemaVersion"));
+		identityObect.replace("IDSchemaVersion", "IDSchemaVersion", generateLatestSchemaVersion());
 		org.json.simple.JSONArray ja_data = (org.json.simple.JSONArray) identityObect.get("addressLine3");
 		System.out.println(actualrequest);
 		for (int i = 0; i < ja_data.size(); i++) {
@@ -3083,11 +3041,10 @@ public class AdminTestUtil extends BaseTestCase {
 		array = array + "]";
 		return array;
 	}
-	
+
 	protected Response postWithOnlyPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
-		return postWithOnlyPathParamAndCookie( url,  jsonInput,  cookieName,  role,
-				 testCaseName,  false);
+		return postWithOnlyPathParamAndCookie(url, jsonInput, cookieName, role, testCaseName, false);
 	}
 
 	protected Response postWithOnlyPathParamAndCookie(String url, String jsonInput, String cookieName, String role,
@@ -3105,8 +3062,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
-		}
-		else {
+		} else {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******get request to EndPointUrl: " + url + " *******");
@@ -3115,12 +3071,11 @@ public class AdminTestUtil extends BaseTestCase {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookieAndOnlyPathParm(url, map, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
-			}
-			else {
+			} else {
 				response = RestClient.postRequestWithCookieAndOnlyPathParm(url, map, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
-			
+
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -3129,7 +3084,7 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 		}
 	}
-	
+
 	protected Response postWithOnlyQueryParamAndCookie(String url, String jsonInput, String cookieName, String role,
 			String testCaseName) {
 		Response response = null;
@@ -3146,8 +3101,7 @@ public class AdminTestUtil extends BaseTestCase {
 		logger.info("******get request to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
 		try {
-			response = RestClient.postRequestWithQueryParm(url, map, "*/*",
-					"*/*", cookieName, token);
+			response = RestClient.postRequestWithQueryParm(url, map, "*/*", "*/*", cookieName, token);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -4238,19 +4192,19 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return clientAssertionToken;
 	}
-	
+
 	public static String getWlaToken(String individualId, RSAKey jwkKey, String certData) throws Exception {
 		String tempUrl = propsKernel.getProperty("validateBindingEndpoint");
 		Instant instant = Instant.now();
 		long epochValue = instant.getEpochSecond();
-		
+
 		JSONObject payload = new JSONObject();
 		payload.put("iss", "postman-inji");
 		payload.put("aud", tempUrl);
 		payload.put("sub", individualId);
 		payload.put("iat", epochValue);
 		payload.put("exp", epochValue + 5400);
-		
+
 		X509Certificate certificate = (X509Certificate) convertToCertificate(certData);
 		JsonWebSignature jwSign = new JsonWebSignature();
 		jwSign.setKeyIdHeaderValue(certificate.getSerialNumber().toString(10));
@@ -4260,8 +4214,7 @@ public class AdminTestUtil extends BaseTestCase {
 		jwSign.setKey(jwkKey.toPrivateKey());
 		jwSign.setDoKeyValidation(false);
 		return jwSign.getCompactSerialization();
-		
-		
+
 		// Create RSA-signer with the private key
 //		JWSSigner signer;
 //
@@ -4297,7 +4250,7 @@ public class AdminTestUtil extends BaseTestCase {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static Certificate convertToCertificate(String certData) {
 		try {
 			StringReader strReader = new StringReader(certData);
@@ -4313,12 +4266,14 @@ public class AdminTestUtil extends BaseTestCase {
 			byte[] certBytes = pemObject.getContent();
 			CertificateFactory certFactory = CertificateFactory.getInstance("X.509");
 			return certFactory.generateCertificate(new ByteArrayInputStream(certBytes));
-		} catch(IOException | CertificateException e) {
+		} catch (IOException | CertificateException e) {
 //			throw new KeymanagerServiceException(KeymanagerErrorConstant.CERTIFICATE_PARSING_ERROR.getErrorCode(),
 //					KeymanagerErrorConstant.CERTIFICATE_PARSING_ERROR.getErrorMessage() + e.getMessage());
 			return null;
 		}
 	}
+	
+
 
 	public static String getValueFromActuator() {
 
@@ -4351,10 +4306,11 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
-	
+
 	public static String isTestCaseValidForExecution(TestCaseDTO testCaseDTO) {
 		String testCaseName = testCaseDTO.getTestCaseName();
-		if (BaseTestCase.currentModule.equalsIgnoreCase("resident") || BaseTestCase.currentModule.equalsIgnoreCase("idp")) {
+		if (BaseTestCase.currentModule.equalsIgnoreCase("resident")
+				|| BaseTestCase.currentModule.equalsIgnoreCase("idp")) {
 			if (testCaseDTO.getRole() != null && (testCaseDTO.getRole().equalsIgnoreCase("residentNew")
 					|| testCaseDTO.isValidityCheckRequired())) {
 				if (testCaseName.contains("uin") || testCaseName.contains("UIN") || testCaseName.contains("Uin")) {
@@ -4380,4 +4336,50 @@ public class AdminTestUtil extends BaseTestCase {
 		return testCaseName;
 	}
 	
+	public static String smtpOtpHandler(String inputJson , String testCaseName) {
+		
+		JSONObject request = new JSONObject(inputJson);
+		String emailId = null;
+		String otp = null;
+		if (BaseTestCase.currentModule.equals("mobileid")) {
+			if (request.has("otp")) {
+				if (request.getString("otp").endsWith("@mosip.net")) {
+					emailId = request.get("otp").toString();
+					// Get the otp value from email notification
+					otp = MockSMTPListener.getOtp(10, emailId);
+					request.put("otp", otp);
+					inputJson = request.toString();
+					
+				}
+			}
+			return inputJson;
+		} 
+		if (BaseTestCase.currentModule.equals("prereg")) {
+			if (request.has("request")) {
+				if(request.getJSONObject("request").has("otp")) {
+					emailId = request.getJSONObject("request").getString("userId");
+					// Get the otp value from email notification 
+					otp = MockSMTPListener.getOtp(10, emailId);
+					request.getJSONObject("request").put("otp", otp); 
+					inputJson = request.toString();
+				}
+			}
+			return inputJson;
+		}
+//		else {
+//			if (request.has("request")) {
+//				  if(request.getJSONObject("request").has("otp")) {
+//					  if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+//						   emailId = request.getJSONObject("request").get("otp").toString();
+//						   // Get the otp value from email notification 
+//						   otp = MockSMTPListener.getOtp(10, emailId);
+//						   request.getJSONObject("request").put("otp", otp); 
+//						   inputJson = request.toString();
+//						   }
+//					  }
+//				  }
+//		}
+		return inputJson;
+	}
+
 }

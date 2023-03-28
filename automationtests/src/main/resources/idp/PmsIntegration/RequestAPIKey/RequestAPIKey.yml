@@ -38,7 +38,7 @@ RequestAPIKeyForAuthPartner:
       inputTemplate: idp/PmsIntegration/RequestAPIKey/requestApiKey
       outputTemplate: idp/PmsIntegration/RequestAPIKey/requestAPIKeyResult
       input: '{
-        "policyName": "$ID:DefinePolicy_Misp_Valid_Smoke_sid_name$",
+        "policyName": "$ID:DefinePolicy_Auth_Valid_Smoke_sid_name$",
         "useCaseDescription": "Need to submit the payment",
         "requesttime": "$TIMESTAMP$"
     }'

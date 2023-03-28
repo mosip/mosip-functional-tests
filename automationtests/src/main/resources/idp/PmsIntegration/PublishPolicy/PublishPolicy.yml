@@ -60,8 +60,8 @@ createPublishPolicy:
       inputTemplate: idp/PmsIntegration/PublishPolicy/publishPolicy
       outputTemplate: idp/PmsIntegration/PublishPolicy/publishPolicyResult
       input: '{
-		"policygroupId": "$ID:DefinePolicyGroup_Valid_Smoke_sid_id$",
-		"policyId": "$ID:DefinePolicy_Valid_Smoke_sid_id$",
+		"policygroupId": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_id$",
+		"policyId": "$ID:DefinePolicy_Auth_Valid_Smoke_sid_id$",
 		"requesttime": "$TIMESTAMP$"
 }'
       output: '{
