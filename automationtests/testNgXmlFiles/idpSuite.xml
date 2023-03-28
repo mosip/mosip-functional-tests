@@ -12,6 +12,13 @@
 		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
 		
+	<test name="AddIdentity">
+		<parameter name="ymlFile"
+			value="idp/AddIdentity/AddIdentity.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AddIdentity" />
+		</classes>
+	</test>
 	<test name="CreatePolicyGroup">
 		<parameter name="ymlFile"
 			value="idp/PmsIntegration/DefinePolicyGroup/DefinePolicyGroup.yml" />
@@ -119,13 +126,7 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="AddIdentity">
-		<parameter name="ymlFile"
-			value="idp/AddIdentity/AddIdentity.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.AddIdentity" />
-		</classes>
-	</test>
+
 	<test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="idp/GenerateVID/createGenerateVID.yml" />
