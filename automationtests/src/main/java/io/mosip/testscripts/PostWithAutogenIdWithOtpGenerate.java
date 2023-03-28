@@ -81,9 +81,9 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		otpReqJson.remove("sendOtpEndPoint");
 		
 		Response otpResponse = null;
-//		int maxLoopCount =Integer.parseInt(props.getProperty("uinGenMaxLoopCount"));
-//		int currLoopCount = 0; 
-//		while (currLoopCount < maxLoopCount) {
+		int maxLoopCount =Integer.parseInt(props.getProperty("uinGenMaxLoopCount"));
+		int currLoopCount = 0; 
+		while (currLoopCount < maxLoopCount) {
 			if(testCaseName.contains("IDP_")) {
 				String tempUrl = ApplnURI.replace("-internal", "");
 				otpResponse = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
@@ -92,17 +92,17 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 				otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
 			}
 			
-//			if (otpResponse.asString().contains("IDA-MLC-018")) {
-//				logger.info("waiting for: " + props.getProperty("uinGenDelayTime")
-//				+ " as UIN not available in database");
-//				Thread.sleep(Long.parseLong(props.getProperty("uinGenDelayTime")));
-//			}
-//			else {
-//				break;
-//			}
-//			
-//			currLoopCount++;
-//		}
+			if (otpResponse.asString().contains("IDA-MLC-018")) {
+				logger.info("waiting for: " + props.getProperty("uinGenDelayTime")
+				+ " as UIN not available in database");
+				Thread.sleep(Long.parseLong(props.getProperty("uinGenDelayTime")));
+			}
+			else {
+				break;
+			}
+			
+			currLoopCount++;
+		}
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;

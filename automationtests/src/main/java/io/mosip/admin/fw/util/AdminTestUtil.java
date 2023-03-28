@@ -389,8 +389,8 @@ public class AdminTestUtil extends BaseTestCase {
 		req.remove("partnerId");
 
 		HashMap<String, String> headers = new HashMap<String, String>();
-		headers.put("api-key", apiKey);
-		headers.put("partner-id", partnerId);
+		headers.put("PARTNER-API-KEY", apiKey);
+		headers.put("PARTNER-ID", partnerId);
 		headers.put(cookieName, "Bearer " + token);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
@@ -436,8 +436,8 @@ public class AdminTestUtil extends BaseTestCase {
 		req.remove("partnerId");
 
 		HashMap<String, String> headers = new HashMap<String, String>();
-		headers.put("api-key", apiKey);
-		headers.put("partner-id", partnerId);
+		headers.put("PARTNER-API-KEY", apiKey);
+		headers.put("PARTNER-ID", partnerId);
 		headers.put(cookieName, "Bearer " + token);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
