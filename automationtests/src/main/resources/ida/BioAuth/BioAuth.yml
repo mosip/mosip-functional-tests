@@ -1,6 +1,6 @@
 BioAuth:
   auth_BioAuth_Biometric_Face_With_Valid_uin_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth

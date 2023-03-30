@@ -8,8 +8,10 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.WebSocket;
 import java.net.http.WebSocket.Listener;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 import java.util.regex.Matcher;
@@ -39,8 +41,10 @@ import java.util.concurrent.CountDownLatch;
 
 public class MockSMTPListener{
 	Logger logger = Logger.getLogger(MockSMTPListener.class);
-	static HashMap emailNotificationMap=new HashMap<Object, Object>();
-
+	//static HashMap emailNotificationMapS=new HashMap<Object, Object>();
+	
+	 
+	static Map<Object, Object> emailNotificationMapS = Collections.synchronizedMap(new HashMap<Object, Object>()); 
 	static Boolean bTerminate = false;
 
 	public void run() {
@@ -85,7 +89,7 @@ public class MockSMTPListener{
 		@Override
 		public CompletionStage<?> onText(WebSocket webSocket, CharSequence data, boolean last) {
 			if(bTerminate) {
-				System.out.println(emailNotificationMap);
+				System.out.println(emailNotificationMapS);
 				System.out.println("End Closure of listner " );
 				onClose(webSocket, 0, "After suite invoked closing");
 			}
@@ -93,7 +97,7 @@ public class MockSMTPListener{
 				ObjectMapper om = new ObjectMapper();
 
 				root = om.readValue(data.toString(), Root.class);
-				emailNotificationMap.put(root.to.value.get(0).address,root.html);
+				emailNotificationMapS.put(root.to.value.get(0).address,root.html);
 				System.out.println(" After adding to emailNotificationMap key = " + root.to.value.get(0).address
 						+ " data " + data + " root " + root );
 			} catch (JsonMappingException e) {
@@ -121,14 +125,20 @@ public class MockSMTPListener{
 	public static String getOtp(int repeatCounter, String emailId){
 		int counter = 0;
 		
-		HashMap m=new HashMap<Object, Object>();
-		String otp = null;
+		//HashMap m=new HashMap<Object, Object>();
+		String otp = "";
 		while (counter < repeatCounter) {
-			m= emailNotificationMap;
-			if(m.get(emailId)!=null) {
-				String html=(String) m.get(emailId);
+		//	m= emailNotificationMap;
+			if(emailNotificationMapS.get(emailId)!=null) {
+				String html=(String) emailNotificationMapS.get(emailId);
+				//as we alredy consumed notification removed from map
+				emailNotificationMapS.remove(emailId);	
 				otp = parseOtp(html);
-				return otp;
+				if (otp != null && otp.length()>0) {
+//					Got the required OTP Ignore in between notification which doesn't have OTP
+					return otp;
+				}
+				
 			}
 			System.out.println("*******Checking the email for OTP...*******");
 			counter++;
@@ -162,16 +172,17 @@ public class MockSMTPListener{
 		
 		//find any 6 digit number
 		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");
-		String otp = null;
+		String otp = "";
 		if(message!=null) {
 		    Matcher mMatcher = mPattern.matcher(message);
 		    if(mMatcher.find()) {
 		        otp = mMatcher.group(0);
 		        otp = otp.trim();
-		        System.out.println("Extracted OTP: "+ otp);
+		        System.out.println("Extracted OTP: "+ otp+ " message : "+ message);
 		    }else {
 		        //something went wrong
-		    	System.out.println("Failed to extract the OTP!! ");
+		    	System.out.println("Failed to extract the OTP!! "+message);
+		    	
 		    }
 		}
 		return otp;

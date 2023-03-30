@@ -13,7 +13,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_create_vid_using_uin_for_revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -28,6 +28,6 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX8531",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXaXXtXXaXXoX@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
