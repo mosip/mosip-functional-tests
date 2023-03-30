@@ -80,7 +80,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-      "value": "idaautomation@gmail.com",
+      "value": "$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_EMAIL$",
         "key": "emailId"
     }'
       output: '{
@@ -95,7 +95,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-      "value": "idaautomation@gmail.com",
+      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "key": "emailId"
     }'
       output: '{
@@ -152,7 +152,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "1234567890",
-      "value": "idaautomation@gmail.com",
+      "value": "$ID:AddIdentity_create_vid_using_uin_for_revoke_smoke_Pos_EMAIL$",
         "key": "emailId"
     }'
       output: '{

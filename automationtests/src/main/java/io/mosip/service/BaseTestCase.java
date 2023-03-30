@@ -234,10 +234,10 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "auth";
 			BaseTestCase.certsForModule = "IDA";
 			AuthTestsUtil.initiateAuthTest();
-//			
-//			MockSMTPListener mockSMTPListener = new MockSMTPListener();
-//			mockSMTPListener.run();
-			// new PMPDataManager(true);
+			
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.run();
+			 //new PMPDataManager(true);
 		}
 		if (listOfModules.contains("idrepo")) {
 			setReportName("idrepo");

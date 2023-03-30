@@ -228,7 +228,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
-		if (BaseTestCase.currentModule.equals("prereg")) {
+		if (BaseTestCase.currentModule.equals("prereg")||BaseTestCase.currentModule.equals("auth")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		
@@ -608,7 +608,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName, boolean bothAccessAndIdToken) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		if (BaseTestCase.currentModule.equals("mobileid")) {
+		if (BaseTestCase.currentModule.equals("mobileid")||BaseTestCase.currentModule.equals("auth")){
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		
@@ -645,6 +645,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (url.contains("ID:"))
 			url = inputJsonKeyWordHandeler(url, testCaseName);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		if (BaseTestCase.currentModule.equals("auth")) {
+			inputJson = smtpOtpHandler(inputJson, testCaseName);
+		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
@@ -709,7 +712,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = inputJsonKeyWordHandeler(url, testCaseName);
-		if (BaseTestCase.currentModule.equals("mobileid")) {
+		if (BaseTestCase.currentModule.equals("mobileid")||BaseTestCase.currentModule.equals("auth")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		
@@ -4341,10 +4344,11 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject request = new JSONObject(inputJson);
 		String emailId = null;
 		String otp = null;
-		if (BaseTestCase.currentModule.equals("mobileid")) {
+		if (BaseTestCase.currentModule.equals("mobileid")||testCaseName.startsWith("auth_OTP_Auth")||testCaseName.startsWith("auth_EkycOtp")||testCaseName.startsWith("auth_MultiFactorAuth")) {
 			if (request.has("otp")) {
 				if (request.getString("otp").endsWith("@mosip.net")) {
 					emailId = request.get("otp").toString();
+					System.out.println(emailId);
 					// Get the otp value from email notification
 					otp = MockSMTPListener.getOtp(10, emailId);
 					request.put("otp", otp);
@@ -4358,6 +4362,7 @@ public class AdminTestUtil extends BaseTestCase {
 			if (request.has("request")) {
 				if(request.getJSONObject("request").has("otp")) {
 					emailId = request.getJSONObject("request").getString("userId");
+					System.out.println(emailId);
 					// Get the otp value from email notification 
 					otp = MockSMTPListener.getOtp(10, emailId);
 					request.getJSONObject("request").put("otp", otp); 
@@ -4366,19 +4371,26 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return inputJson;
 		}
-//		else {
-//			if (request.has("request")) {
-//				  if(request.getJSONObject("request").has("otp")) {
-//					  if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
-//						   emailId = request.getJSONObject("request").get("otp").toString();
-//						   // Get the otp value from email notification 
-//						   otp = MockSMTPListener.getOtp(10, emailId);
-//						   request.getJSONObject("request").put("otp", otp); 
-//						   inputJson = request.toString();
-//						   }
-//					  }
-//				  }
-//		}
+		
+		if (BaseTestCase.currentModule.equals("auth")) {
+			if(testCaseName.startsWith("auth_GenerateVID")||testCaseName.startsWith("auth_AuthLock")||testCaseName.startsWith("auth_AuthUnLock")||testCaseName.startsWith("auth_RevokeVID")) {
+				if (request.has("request")) {
+					if(request.getJSONObject("request").has("otp")) {
+						if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+							emailId = request.getJSONObject("request").get("otp").toString();
+							System.out.println(emailId);
+							// Get the otp value from email notification 
+							otp = MockSMTPListener.getOtp(10, emailId);
+							request.getJSONObject("request").put("otp", otp); 
+							inputJson = request.toString();
+						}
+					}
+				}
+			}
+			
+		}
+			
+		
 		return inputJson;
 	}
 

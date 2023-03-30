@@ -6,6 +6,7 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
+         "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
         "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -27,6 +28,7 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -47,6 +49,7 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
       	"individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -74,6 +77,7 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
+         "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
       	"individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -100,7 +104,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -126,7 +131,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
-      "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
+        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -152,7 +158,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -178,7 +185,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
-      "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
+        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -204,7 +212,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -230,7 +239,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
+        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "76544ddffgg@@@3444",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -250,7 +260,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "76544ddffgg@@@3444",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -270,7 +281,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
+        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -290,7 +302,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -310,7 +323,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
+        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "1234567892",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -330,7 +344,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -350,7 +365,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -370,7 +386,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",      
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -390,7 +407,8 @@ OtpAuth:
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
-      "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
