@@ -69,14 +69,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="GenerateMispLK">
-		<parameter name="ymlFile"
-			value="idp/PmsIntegration/GenerateMispLK/GenerateMispLK.yml" />
-		<parameter name="idKeyName"	value="licenseKey" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>
 	
 	<test name="RequestAPIKeyForAuthPartner">
 		<parameter name="ymlFile"
@@ -95,6 +87,15 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
+	<test name="GenerateMispLK">
+		<parameter name="ymlFile"
+			value="idp/PmsIntegration/GenerateMispLK/GenerateMispLK.yml" />
+		<parameter name="idKeyName"	value="licenseKey" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	
 	<test name="GenerateApiKey">
 		<parameter name="ymlFile"
 			value="idp/GenerateApiKey/GenerateApiKey.yml" />
