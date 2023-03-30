@@ -85,15 +85,17 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		String[] templateFields = testCaseDTO.getTemplateFields();
+		String inputJson = "";
 
-		// filterHbs(testCaseDTO);
-
-		// testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
-
-		//String inputJson = filterInputHbs(testCaseDTO);
-		// String outputJson = filterOutputHbs(testCaseDTO);
-
-		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+		
+       if(!(BaseTestCase.certsForModule.equals("DSL-IDA")&& (testCaseName.startsWith("Idp_CreateOIDCClient")))){
+    	    inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+       }
+       else {
+    	   inputJson = testCaseDTO.getInput();
+    	   
+       }
+		
 		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 		// filterOutputHbs(testCaseDTO);
 

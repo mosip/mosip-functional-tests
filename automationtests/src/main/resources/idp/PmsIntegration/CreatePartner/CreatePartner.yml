@@ -32,7 +32,7 @@ createPartnerSelfRegistration:
     "emailId": "$MISPPARTNEREMAIL$",
     "organizationName": "$MISPPARTNERID$",
     "partnerId": "$MISPPARTNERID$",
-    "partnerType": "Misp_Partner",
+    "partnerType": "MISP_Partner",
     "policyGroup": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$",
     "requesttime": "$TIMESTAMP$"
   }'

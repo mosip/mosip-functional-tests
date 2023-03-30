@@ -12,6 +12,13 @@
 		<listener class-name="io.mosip.customReport.EmailableReport" />
 	</listeners>
 		
+	<test name="AddIdentity">
+		<parameter name="ymlFile"
+			value="idp/AddIdentity/AddIdentity.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.AddIdentity" />
+		</classes>
+	</test>
 	<test name="CreatePolicyGroup">
 		<parameter name="ymlFile"
 			value="idp/PmsIntegration/DefinePolicyGroup/DefinePolicyGroup.yml" />
@@ -62,14 +69,6 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="GenerateMispLK">
-		<parameter name="ymlFile"
-			value="idp/PmsIntegration/GenerateMispLK/GenerateMispLK.yml" />
-		<parameter name="idKeyName"	value="licenseKey" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
-		</classes>
-	</test>
 	
 	<test name="RequestAPIKeyForAuthPartner">
 		<parameter name="ymlFile"
@@ -88,6 +87,15 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
+	<test name="GenerateMispLK">
+		<parameter name="ymlFile"
+			value="idp/PmsIntegration/GenerateMispLK/GenerateMispLK.yml" />
+		<parameter name="idKeyName"	value="licenseKey" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	
 	<test name="GenerateApiKey">
 		<parameter name="ymlFile"
 			value="idp/GenerateApiKey/GenerateApiKey.yml" />
@@ -119,13 +127,7 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="AddIdentity">
-		<parameter name="ymlFile"
-			value="idp/AddIdentity/AddIdentity.yml" />
-		<classes>
-			<class name="io.mosip.testscripts.AddIdentity" />
-		</classes>
-	</test>
+
 	<test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="idp/GenerateVID/createGenerateVID.yml" />
