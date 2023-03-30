@@ -1050,14 +1050,14 @@ AuthenticateUser:
         "encodedHash": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1085,17 +1085,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "2022-11-07T06:51:30",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1123,17 +1123,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "2022-11-07T06:51:30.195Z",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1161,17 +1161,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "2033-11-07T06:51:30.195Z",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1199,17 +1199,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "transactionId",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1237,17 +1237,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-      "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+      "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "eZJZ0j3EeZJ_d9CsSakCoA0-Trbm6fOECY6J_q3dZtc",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
-     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1275,17 +1275,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$REMOVE$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1313,17 +1313,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1351,17 +1351,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "null",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1389,17 +1389,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "@#WE$#",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1427,17 +1427,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$REMOVE$",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1465,17 +1465,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1503,17 +1503,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "null",
       	"authFactorType" : "OTP",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1541,17 +1541,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "#$%FDF",
       	"challenge" : "111111",
         "sendOtp":{
-     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1579,17 +1579,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "$REMOVE$",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1617,17 +1617,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1655,17 +1655,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "null",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1693,17 +1693,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "bio",
       	"challenge" : "111111",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1731,17 +1731,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "23432",
         "sendOtp":{
-     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1769,17 +1769,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "$REMOVE$",
         "sendOtp":{
-     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1807,17 +1807,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1845,17 +1845,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "null",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1883,17 +1883,17 @@ AuthenticateUser:
       inputTemplate: idp/AuthenticateUser/AuthenticateUser
       outputTemplate: idp/error
       input: '{
-      "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+      "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
       	"challenge" : "113453",
         "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
+    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
     "otpChannels": [{channel: "email"},{channel: "phone"}],
     "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
     "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
@@ -1906,38 +1906,6 @@ AuthenticateUser:
       "errorMessage": "$IGNORE$"
     }
   ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
-    }
-}'
-
-   IDP_AuthenticateUserIDP_vid_Other_Otp_Valid_Smoke:
-      endPoint: /v1/esignet/authorization/authenticate
-      role: resident
-      restMethod: post
-      validityCheckRequired: true
-      inputTemplate: idp/AuthenticateUser/AuthenticateUser
-      outputTemplate: idp/AuthenticateUser/AuthenticateUserResult
-      input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
-      	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
-      	"authFactorType" : "OTP",
-      	"challenge" : "111111",
-        "sendOtp":{
-    "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
-    "requestTime": "$TIMESTAMP$",
-    "transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
-	"individualId": "$ID:ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
-    "otpChannels": [{channel: "email"},{channel: "phone"}],
-    "sendOtpReqTemplate": "idp/SendOtp/SendOtp",
-    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
-    }
-    }'
-      output: '{
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",

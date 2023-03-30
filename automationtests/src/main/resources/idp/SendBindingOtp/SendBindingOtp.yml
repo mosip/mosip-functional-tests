@@ -207,7 +207,7 @@ SendBindingOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_individual_id",
+      "errorCode": "IDA-MLC-009",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -230,7 +230,7 @@ SendBindingOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_individual_id",
+      "errorCode": "IDA-MLC-009",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -253,7 +253,7 @@ SendBindingOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_individual_id",
+      "errorCode": "IDA-MLC-009",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -276,7 +276,7 @@ SendBindingOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_individual_id",
+      "errorCode": "IDA-MLC-009",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -552,7 +552,7 @@ SendBindingOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_individual_id",
+      "errorCode": "IDA-MLC-009",
       "errorMessage": "$IGNORE$"
     }
   ]
@@ -575,7 +575,7 @@ SendBindingOtp:
       output: '{
         "errors": [
     {
-      "errorCode": "invalid_individual_id",
+      "errorCode": "IDA-MLC-009",
       "errorMessage": "$IGNORE$"
     }
   ]
