@@ -7,7 +7,7 @@ AidGetIndividualId:
       outputTemplate: mobileId/AidGetIndividualId/aidGetIndividualIdResult
       input: '{
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
-        "transactionID": "1234567890",
+        "transactionID": "1234561111",
         "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
@@ -32,7 +32,7 @@ AidGetIndividualId:
       outputTemplate: mobileId/error
       input: '{
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
-        "transactionID": "1234567890",
+        "transactionID": "1234561111",
         "aid": "$yt55g",
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
@@ -41,7 +41,7 @@ AidGetIndividualId:
 	 }
 }'
       output: '{
-       "transactionID": "1234567890",
+       "transactionID": "1234561111",
         "sendOtpResp":{
 	        "maskedMobile": "XXXXXX3210",
 	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
@@ -57,7 +57,7 @@ AidGetIndividualId:
       outputTemplate: mobileId/error
       input: '{
         "otp": "1234",
-        "transactionID": "1234567890",
+        "transactionID": "1234561111",
         "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
@@ -66,7 +66,7 @@ AidGetIndividualId:
 	 }
 }'
       output: '{
-       "transactionID": "1234567890",
+       "transactionID": "1234561111",
         "sendOtpResp":{
 	        "maskedMobile": "XXXXXX3210",
 	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
@@ -82,7 +82,7 @@ AidGetIndividualId:
       outputTemplate: mobileId/AidGetIndividualId/aidGetIndividualIdResult
       input: '{
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
-        "transactionID": "1234567890",
+        "transactionID": "1234561111",
         "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
@@ -107,7 +107,7 @@ AidGetIndividualId:
       outputTemplate: mobileId/error
       input: '{
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
-        "transactionID": "1234567890",
+        "transactionID": "1234561111",
         "aid": "2745538921628455389216202302041241544770230204124154278477",
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
