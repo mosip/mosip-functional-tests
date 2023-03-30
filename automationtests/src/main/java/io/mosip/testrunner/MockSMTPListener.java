@@ -181,7 +181,7 @@ public class MockSMTPListener{
 		        System.out.println("Extracted OTP: "+ otp+ " message : "+ message);
 		    }else {
 		        //something went wrong
-		    	System.out.println("Failed to extract the OTP!! "+message);
+		    	System.out.println("Failed to extract the OTP!! "+ "message : " + message);
 		    	
 		    }
 		}
