@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 	<name>io.mosip.automationtests</name>
 	<url>http://maven.apache.org</url>
-	<version>1.2.1-SNAPSHOT</version>
+	<version>0.9</version>
 
 	<properties>
 		<!-- kernel versions -->
@@ -164,7 +164,7 @@
 		<rest.assured.version>3.0.7</rest.assured.version>
 		<testng.version>6.11</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
-		<fileName>automationtests-1.2.1-SNAPSHOT-jar-with-dependencies</fileName>
+		<fileName>automationtests-0.9-jar-with-dependencies</fileName>
 		<aws.javasdk.version>1.11.368</aws.javasdk.version>
 	</properties>
 	<dependencies>
@@ -448,7 +448,7 @@
 	 	<dependency>
 			<groupId>io.mosip.authentication</groupId>
 			<artifactId>authentication-demo-service</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>0.9</version>
 			<exclusions>
 				<exclusion>
 					<groupId>dom4j</groupId>
