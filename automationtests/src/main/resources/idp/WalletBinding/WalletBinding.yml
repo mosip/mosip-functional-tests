@@ -955,7 +955,7 @@ WalletBinding:
         "individualId": "$ID:AddIdentity_Valid_Params_BindOtp_smoke_Pos_UIN$",
         "authFactorType": "OTP",
         "challenge": "111111",
-        "format": "GT$r5",
+        "format": "",
         "authFactorType1": "WLA",
         "format1": "jwt",
         "publicKey": "$JWKKEY$",        
@@ -972,7 +972,7 @@ WalletBinding:
       output: '{
        "errors": [
     {
-      "errorCode": "unsupported_challenge_format",
+      "errorCode": "invalid_challenge_format",
       "errorMessage": "unsupported_challenge_format"
     }
   ],
@@ -2215,7 +2215,7 @@ WalletBinding:
         "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
         "authFactorType": "OTP",
         "challenge": "111111",
-        "format": "GT$r5",
+        "format": "",
         "authFactorType1": "WLA",
         "format1": "jwt",
         "publicKey": "$JWKKEY$",        
@@ -2232,7 +2232,7 @@ WalletBinding:
       output: '{
        "errors": [
     {
-      "errorCode": "unsupported_challenge_format",
+      "errorCode": "invalid_challenge_format",
       "errorMessage": "unsupported_challenge_format"
     }
   ],
