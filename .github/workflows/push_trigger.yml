@@ -9,6 +9,7 @@ on:
       - 1.*
       - develop
       - MOSIP-*
+      - "0.9"
 
 jobs:
   build-authentication-demo-service:
