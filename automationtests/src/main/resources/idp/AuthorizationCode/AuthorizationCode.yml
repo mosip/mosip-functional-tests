@@ -1,8 +1,9 @@
 AuthorizationCode:
-   IDP_AuthorizationCode_All_Valid_Smoke_sid:
+   IDP_AuthorizationCode_uin_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/AuthorizationCode/AuthorizationCodeResult
       input: '{
@@ -15,10 +16,11 @@ AuthorizationCode:
       	"redirectUri": "$IGNORE$"
 }'
 
-   IDP_AuthorizationCode_Invalid_TransactionId_Neg:
+   IDP_AuthorizationCode_uin_Invalid_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -36,10 +38,11 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Missing_TransactionId_Neg:
+   IDP_AuthorizationCode_uin_Missing_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -57,10 +60,11 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Empty_TransactionId_Neg:
+   IDP_AuthorizationCode_uin_Empty_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -78,10 +82,11 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Null_TransactionId_Neg:
+   IDP_AuthorizationCode_uin_Null_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -99,10 +104,11 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Expired_TransactionId_Neg:
+   IDP_AuthorizationCode_uin_Expired_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -120,10 +126,11 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Empty_PermittedAuthorizeScopes_Neg:
+   IDP_AuthorizationCode_uin_Empty_PermittedAuthorizeScopes_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -142,10 +149,11 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Invalid_PermittedAuthorizeScopes_Neg:
+   IDP_AuthorizationCode_uin_Invalid_PermittedAuthorizeScopes_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -164,10 +172,11 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Null_PermittedAuthorizeScopes_Neg:
+   IDP_AuthorizationCode_uin_Null_PermittedAuthorizeScopes_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -186,10 +195,11 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Invalid_acceptedClaims_Neg:
+   IDP_AuthorizationCode_uin_Invalid_acceptedClaims_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -207,10 +217,11 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Missing_Claims_Pos:
+   IDP_AuthorizationCode_uin_Missing_Claims_Pos:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/AuthorizationCode/AuthorizationCodeResult
       input: '{
@@ -223,10 +234,11 @@ AuthorizationCode:
       	"redirectUri": "$IGNORE$"
 }'
 
-   IDP_AuthorizationCode_Empty_acceptedClaims_Neg:
+   IDP_AuthorizationCode_uin_Empty_acceptedClaims_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -244,10 +256,11 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Null_acceptedClaims_Neg:
+   IDP_AuthorizationCode_uin_Null_acceptedClaims_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -265,10 +278,11 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Invalid_requestTime_Neg:
+   IDP_AuthorizationCode_uin_Invalid_requestTime_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -286,10 +300,11 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Diff_requestTime_Neg:
+   IDP_AuthorizationCode_uin_Diff_requestTime_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
@@ -307,10 +322,356 @@ AuthorizationCode:
   ]
 }'
 
-   IDP_AuthorizationCode_Future_RequestTime_Neg:
+   IDP_AuthorizationCode_uin_Future_RequestTime_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "2033-11-07T06:51:30.195Z",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_All_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/AuthorizationCode/AuthorizationCodeResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+}'
+      output: '{
+      	"redirectUri": "$IGNORE$"
+}'
+
+   IDP_AuthorizationCode_vid_Invalid_TransactionId_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "transactionId",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Missing_TransactionId_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$REMOVE$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Empty_TransactionId_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Null_TransactionId_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "null",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Expired_TransactionId_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "EvOHK0ewF4AlCAVAw-aVZD1JXDNBVNtkIPGrsvxPTkw",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Empty_PermittedAuthorizeScopes_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_2nd_vid_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_2nd_vid_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
+      	"permittedAuthorizeScopes": [{scope: ""}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_permitted_scope",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Invalid_PermittedAuthorizeScopes_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_2nd_vid_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_2nd_vid_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
+      	"permittedAuthorizeScopes": [{scope: "abc"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_permitted_scope",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Null_PermittedAuthorizeScopes_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_2nd_vid_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_2nd_vid_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
+      	"permittedAuthorizeScopes": [{scope: "null"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_permitted_scope",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Invalid_acceptedClaims_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: "jsdgh#4$#"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Missing_Claims_Pos:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/AuthorizationCode/AuthorizationCodeResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: "$REMOVE$"}]
+}'
+      output: '{
+      	"redirectUri": "$IGNORE$"
+}'
+
+   IDP_AuthorizationCode_vid_Empty_acceptedClaims_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: ""}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Null_acceptedClaims_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: "null"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Invalid_requestTime_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "2022-11-08T06:35:53",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Diff_requestTime_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/AuthorizationCode/AuthorizationCode
+      outputTemplate: idp/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "2022-11-07T06:51:30.195Z",
+      	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   IDP_AuthorizationCode_vid_Future_RequestTime_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/AuthorizationCode/AuthorizationCode
       outputTemplate: idp/error
       input: '{
