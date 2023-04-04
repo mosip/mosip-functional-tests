@@ -1,13 +1,14 @@
 GenerateToken:
-   IDP_GenerateToken_Valid_Smoke_sid:
+   IDP_GenerateToken_uin_Valid_Smoke_sid:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/GenerateToken/GenerateTokenResult
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -17,15 +18,16 @@ GenerateToken:
    		"token_type": "Bearer" 
 }'
  
-   IDP_GenerateToken_Invalid_ClientId_Neg:
+   IDP_GenerateToken_uin_Invalid_ClientId_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "Client_clientId",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -35,15 +37,16 @@ GenerateToken:
       	"error": "invalid_transaction"
  }'
  
-   IDP_GenerateToken_Missing_ClientId_Neg:
+   IDP_GenerateToken_uin_Missing_ClientId_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$REMOVE$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -53,15 +56,16 @@ GenerateToken:
       	"error": "invalid_transaction"
  }'
  
-   IDP_GenerateToken_Null_ClientId_Neg:
+   IDP_GenerateToken_uin_Null_ClientId_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "null",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -71,15 +75,16 @@ GenerateToken:
       	"error": "invalid_transaction"
  }'
  
-   IDP_GenerateToken_Empty_ClientId_Neg:
+   IDP_GenerateToken_uin_Empty_ClientId_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -89,15 +94,16 @@ GenerateToken:
       	"error": "invalid_transaction"
  }'
 
-   IDP_GenerateToken_Invalid_Grant_type_Neg:
+   IDP_GenerateToken_uin_Invalid_Grant_type_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "hbkd$#$@@",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -107,15 +113,16 @@ GenerateToken:
       	"error": "invalid_grant_type"
  }'
  
-   IDP_GenerateToken_Missing_Grant_type_Neg:
+   IDP_GenerateToken_uin_Missing_Grant_type_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "$REMOVE$",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -125,15 +132,16 @@ GenerateToken:
       	"error": "invalid_grant_type"
  }'
  
-   IDP_GenerateToken_Empty_Grant_type_Neg:
+   IDP_GenerateToken_uin_Empty_Grant_type_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -143,15 +151,16 @@ GenerateToken:
       	"error": "invalid_grant_type"
  }'
  
-   IDP_GenerateToken_Null_Grant_type_Neg:
+   IDP_GenerateToken_uin_Null_Grant_type_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "null",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -161,15 +170,16 @@ GenerateToken:
       	"error": "invalid_grant_type"
  }'
  
-   IDP_GenerateToken_SpaceFirst_Grant_type_Neg:
+   IDP_GenerateToken_uin_SpaceFirst_Grant_type_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": " authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -179,15 +189,16 @@ GenerateToken:
       	"error": "invalid_grant_type"
  }'
  
-   IDP_GenerateToken_SpaceLast_Grant_type_Neg:
+   IDP_GenerateToken_uin_SpaceLast_Grant_type_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code ",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -197,15 +208,16 @@ GenerateToken:
       	"error": "invalid_grant_type"
  }'
  
-   IDP_GenerateToken_Invalid_Code_Neg:
+   IDP_GenerateToken_uin_Invalid_Code_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "AuthorizationCode_All_Valid_Smoke_sid_code",
+		  "code": "AuthorizationCode_uin_All_Valid_Smoke_sid_code",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -215,10 +227,11 @@ GenerateToken:
       	"error": "invalid_transaction"
  }'
  
-   IDP_GenerateToken_Missing_Code_Neg:
+   IDP_GenerateToken_uin_Missing_Code_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
@@ -233,10 +246,11 @@ GenerateToken:
       	"error": "invalid_auth_code"
  }'
  
-   IDP_GenerateToken_Empty_Code_Neg:
+   IDP_GenerateToken_uin_Empty_Code_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
@@ -251,10 +265,11 @@ GenerateToken:
       	"error": "invalid_auth_code"
  }'
 
-   IDP_GenerateToken_Null_Code_Neg:
+   IDP_GenerateToken_uin_Null_Code_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
@@ -269,15 +284,16 @@ GenerateToken:
       	"error": "invalid_transaction"
  }'
  
-   IDP_GenerateToken_Used_Code_Neg:
+   IDP_GenerateToken_uin_Used_Code_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -287,15 +303,16 @@ GenerateToken:
       	"error": "invalid_transaction"
 }'
 
-   IDP_GenerateToken_Invalid_Redirect_uri_Neg:
+   IDP_GenerateToken_uin_Invalid_Redirect_uri_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -305,15 +322,16 @@ GenerateToken:
       	"error": "invalid_transaction"
 }'
 
-   IDP_GenerateToken_Missing_Redirect_uri_Neg:
+   IDP_GenerateToken_uin_Missing_Redirect_uri_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -323,15 +341,16 @@ GenerateToken:
       	"error": "invalid_redirect_uri"
 }'
 
-   IDP_GenerateToken_Empty_Redirect_uri_Neg:
+   IDP_GenerateToken_uin_Empty_Redirect_uri_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -341,15 +360,16 @@ GenerateToken:
       	"error": "invalid_redirect_uri"
 }'
 
-   IDP_GenerateToken_Null_Redirect_uri_Neg:
+   IDP_GenerateToken_uin_Null_Redirect_uri_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -359,15 +379,16 @@ GenerateToken:
       	"error": "invalid_redirect_uri"
 }'
 
-   IDP_GenerateToken_Incorrect_ClientAssertionType_Neg:
+   IDP_GenerateToken_uin_Incorrect_ClientAssertionType_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn ietf params oauth client-assertion-type jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -377,15 +398,16 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   IDP_GenerateToken_Missing_ClientAssertionType_Neg:
+   IDP_GenerateToken_uin_Missing_ClientAssertionType_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "$REMOVE$",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -395,15 +417,16 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   IDP_GenerateToken_Empty_ClientAssertionType_Neg:
+   IDP_GenerateToken_uin_Empty_ClientAssertionType_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -413,15 +436,16 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   IDP_GenerateToken_Null_ClientAssertionType_Neg:
+   IDP_GenerateToken_uin_Null_ClientAssertionType_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "null",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -431,15 +455,16 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   IDP_GenerateToken_SpaceFirst_ClientAssertionType_Neg:
+   IDP_GenerateToken_uin_SpaceFirst_ClientAssertionType_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": " urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -449,15 +474,16 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   IDP_GenerateToken_SpaceLast_ClientAssertionType_Neg:
+   IDP_GenerateToken_uin_SpaceLast_ClientAssertionType_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer ",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -467,15 +493,16 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   IDP_GenerateToken_Invalid_ClientAssertionType_Neg:
+   IDP_GenerateToken_uin_Invalid_ClientAssertionType_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "sdhb$$#@",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -485,15 +512,16 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   IDP_GenerateToken_Invalid_ClientAssertion_Neg:
+   IDP_GenerateToken_uin_Invalid_ClientAssertion_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "CLIENT_ASSERTION_JWK",
@@ -503,15 +531,16 @@ GenerateToken:
       	"error": "invalid_transaction"
 }'
 
-   IDP_GenerateToken_Missing_ClientAssertion_Neg:
+   IDP_GenerateToken_uin_Missing_ClientAssertion_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$REMOVE$",
@@ -521,15 +550,16 @@ GenerateToken:
       	"error": "invalid_assertion"
 }'
 
-   IDP_GenerateToken_Empty_ClientAssertion_Neg:
+   IDP_GenerateToken_uin_Empty_ClientAssertion_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "",
@@ -539,15 +569,605 @@ GenerateToken:
       	"error": "invalid_assertion"
 }'
 
-   IDP_GenerateToken_Null_ClientAssertion_Neg:
+   IDP_GenerateToken_uin_Null_ClientAssertion_Neg:
       endPoint: /v1/esignet/oauth/token
       role: resident
       restMethod: post
+      validityCheckRequired: true
       inputTemplate: idp/GenerateToken/GenerateToken
       outputTemplate: idp/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_uin_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "null",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_transaction"
+}'
+
+   IDP_GenerateToken_vid_Valid_Smoke_sid:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/GenerateToken/GenerateTokenResult
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+   		"token_type": "Bearer" 
+}'
+ 
+   IDP_GenerateToken_vid_Invalid_ClientId_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "Client_clientId",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_transaction"
+ }'
+ 
+   IDP_GenerateToken_vid_Missing_ClientId_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$REMOVE$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_transaction"
+ }'
+ 
+   IDP_GenerateToken_vid_Null_ClientId_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "null",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_transaction"
+ }'
+ 
+   IDP_GenerateToken_vid_Empty_ClientId_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_transaction"
+ }'
+
+   IDP_GenerateToken_vid_Invalid_Grant_type_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "hbkd$#$@@",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_grant_type"
+ }'
+ 
+   IDP_GenerateToken_vid_Missing_Grant_type_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "$REMOVE$",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_grant_type"
+ }'
+ 
+   IDP_GenerateToken_vid_Empty_Grant_type_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_grant_type"
+ }'
+ 
+   IDP_GenerateToken_vid_Null_Grant_type_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "null",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_grant_type"
+ }'
+ 
+   IDP_GenerateToken_vid_SpaceFirst_Grant_type_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": " authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_grant_type"
+ }'
+ 
+   IDP_GenerateToken_vid_SpaceLast_Grant_type_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code ",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_grant_type"
+ }'
+ 
+   IDP_GenerateToken_vid_Invalid_Code_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "AuthorizationCode_vid_All_Valid_Smoke_sid_code",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_transaction"
+ }'
+ 
+   IDP_GenerateToken_vid_Missing_Code_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$REMOVE$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_auth_code"
+ }'
+ 
+   IDP_GenerateToken_vid_Empty_Code_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_auth_code"
+ }'
+
+   IDP_GenerateToken_vid_Null_Code_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "null",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_transaction"
+ }'
+ 
+   IDP_GenerateToken_vid_Used_Code_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_transaction"
+}'
+
+   IDP_GenerateToken_vid_Invalid_Redirect_uri_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "https://new-services.com/newprofile"
+}'
+      output: '{
+      	"error": "invalid_transaction"
+}'
+
+   IDP_GenerateToken_vid_Missing_Redirect_uri_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$REMOVE$"
+}'
+      output: '{
+      	"error": "invalid_redirect_uri"
+}'
+
+   IDP_GenerateToken_vid_Empty_Redirect_uri_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": ""
+}'
+      output: '{
+      	"error": "invalid_redirect_uri"
+}'
+
+   IDP_GenerateToken_vid_Null_Redirect_uri_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "null"
+}'
+      output: '{
+      	"error": "invalid_redirect_uri"
+}'
+
+   IDP_GenerateToken_vid_Incorrect_ClientAssertionType_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn ietf params oauth client-assertion-type jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_assertion_type"
+}'
+
+   IDP_GenerateToken_vid_Missing_ClientAssertionType_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "$REMOVE$",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_assertion_type"
+}'
+
+   IDP_GenerateToken_vid_Empty_ClientAssertionType_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_assertion_type"
+}'
+
+   IDP_GenerateToken_vid_Null_ClientAssertionType_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "null",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_assertion_type"
+}'
+
+   IDP_GenerateToken_vid_SpaceFirst_ClientAssertionType_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": " urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_assertion_type"
+}'
+
+   IDP_GenerateToken_vid_SpaceLast_ClientAssertionType_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer ",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_assertion_type"
+}'
+
+   IDP_GenerateToken_vid_Invalid_ClientAssertionType_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "sdhb$$#@",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_assertion_type"
+}'
+
+   IDP_GenerateToken_vid_Invalid_ClientAssertion_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "CLIENT_ASSERTION_JWK",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_transaction"
+}'
+
+   IDP_GenerateToken_vid_Missing_ClientAssertion_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$REMOVE$",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_assertion"
+}'
+
+   IDP_GenerateToken_vid_Empty_ClientAssertion_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "",
+		  "redirect_uri": "$IDPREDIRECTURI$"
+}'
+      output: '{
+      	"error": "invalid_assertion"
+}'
+
+   IDP_GenerateToken_vid_Null_ClientAssertion_Neg:
+      endPoint: /v1/esignet/oauth/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: idp/GenerateToken/GenerateToken
+      outputTemplate: idp/error2
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "null",
