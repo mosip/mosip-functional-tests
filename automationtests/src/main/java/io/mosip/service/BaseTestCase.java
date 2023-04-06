@@ -288,8 +288,8 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "resident";
 			setReportName("resident");
 			AdminTestUtil.copyResidentTestResource();
-//			MockSMTPListener mockSMTPListener = new MockSMTPListener();
-//			mockSMTPListener.run();
+		MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.run();
 		}
 		if (listOfModules.contains("partner")) {
 			BaseTestCase.currentModule = "partner";

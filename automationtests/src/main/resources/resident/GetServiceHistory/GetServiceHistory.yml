@@ -419,7 +419,7 @@ GetServiceHistory:
       output: '{
       	"errors": [
     {
-      "errorCode": "RES-SER-418",
+      "errorCode": "RES-SER-447",
       "message": "$IGNORE$"
     }
   ]
@@ -1101,7 +1101,7 @@ GetServiceHistory:
       output: '{
       	"errors": [
     {
-      "errorCode": "RES-SER-418",
+      "errorCode": "RES-SER-447",
       "message": "$IGNORE$"
     }
   ]
@@ -1756,7 +1756,7 @@ GetServiceHistory:
       output: '{
       	"errors": [
     {
-      "errorCode": "RES-SER-418",
+      "errorCode": "RES-SER-447",
       "message": "$IGNORE$"
     }
   ]

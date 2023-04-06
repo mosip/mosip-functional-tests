@@ -13,7 +13,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -29,7 +29,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -47,7 +47,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -63,7 +63,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -81,7 +81,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "demo"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -97,7 +97,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Valid_VID_smoke_demo_Pos:
@@ -114,7 +114,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "demo"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -130,7 +130,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Valid_UIN_smoke_Face_Pos:
@@ -147,7 +147,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -163,7 +163,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Valid_VID_smoke_Face_Pos:
@@ -180,7 +180,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -196,7 +196,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Valid_UIN_smoke_Finger_Pos:
@@ -213,7 +213,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Finger"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TDEA_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -229,7 +229,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Valid_VID_smoke_Finger_Pos:
@@ -246,7 +246,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Finger"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -262,7 +262,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Valid_VID_smoke_Iris_Pos:
@@ -279,7 +279,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Iris"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -295,7 +295,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Valid_UIN_smoke_Iris_Pos:
@@ -312,7 +312,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Iris"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -328,7 +328,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Missing_individualIdType_Neg:
@@ -345,7 +345,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Iris"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TRE_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -361,7 +361,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_InValid_AuthType_Neg:
@@ -378,7 +378,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "@3###CE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TRE_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -398,7 +398,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_InValid_UIN_Neg:
@@ -415,7 +415,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TRE_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -435,7 +435,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_missing_UIN_Neg:
@@ -452,7 +452,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TRE_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -472,7 +472,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_InValid_OTP_Neg:
@@ -509,7 +509,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -547,7 +547,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -565,7 +565,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -585,7 +585,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Invalid_Id_Neg:
@@ -602,7 +602,7 @@ AuthLock:
         "id": "mothlock",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -622,7 +622,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_missing_Id_Neg:
@@ -639,7 +639,7 @@ AuthLock:
         "id": "$REMOVE$",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -659,7 +659,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_InValid_version_Neg:
@@ -676,7 +676,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "@333#1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -696,7 +696,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Missing_version_Neg:
@@ -713,7 +713,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "$REMOVE$",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -733,7 +733,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_InvalidTimestamp_Neg:
@@ -750,7 +750,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -770,7 +770,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Missing_Timestamp_Neg:
@@ -787,7 +787,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -807,7 +807,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -825,7 +825,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -845,7 +845,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -863,7 +863,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -883,7 +883,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -901,7 +901,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "otp"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -921,7 +921,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -939,7 +939,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -959,7 +959,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Empty_OTP_Neg:
@@ -996,7 +996,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Empty_TransactionId_Neg:
@@ -1013,7 +1013,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -1033,7 +1033,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_AuthLock_Empty_Id_Neg:
@@ -1050,7 +1050,7 @@ AuthLock:
         "id": "",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -1070,7 +1070,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1088,7 +1088,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -1108,7 +1108,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1126,7 +1126,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -1142,7 +1142,7 @@ AuthLock:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1160,7 +1160,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -1193,7 +1193,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -1208,7 +1208,7 @@ AuthLock:
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1226,7 +1226,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -1239,7 +1239,7 @@ AuthLock:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-422",
+      "errorCode": "$IGNORE$",
       "message": "$IGNORE$"
     }
   ],

@@ -85,7 +85,7 @@ GetNotifications:
 }'
 
    Resident_GetNotifications_vid_1_Invalid_PageNo_Neg:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}
+      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNewVid
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
@@ -93,7 +93,7 @@ GetNotifications:
       input: '{
 		"langCode": "$1STLANG$",
 		"pageStart":"11",
-	    "pageFetch":"$REMOVE$"
+	    "pageFetch":"2"
 }'
       output: '{
        "errors": [
@@ -257,7 +257,7 @@ GetNotifications:
 }'
 
    Resident_GetNotifications_uin_pageStart_all_Valid_Smoke:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}
+      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
@@ -272,7 +272,7 @@ GetNotifications:
 }'
 
    Resident_GetNotifications_uin_1_Invalid_PageNo_Neg:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}
+      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
@@ -293,7 +293,7 @@ GetNotifications:
 }'
 
    Resident_GetNotifications_uin_all_InValid_langcode_Neg:
-      endPoint: /resident/v1/notifications/{langCode}
+      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
@@ -312,8 +312,8 @@ GetNotifications:
   ]
 }'
 
-   Resident_GetNotifications_uin_empty_langcode_Neg:
-      endPoint: /resident/v1/notifications/{langCode}
+   Resident_GetNotifications_uin_StatusCode_empty_langcode_Neg:
+      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
@@ -323,17 +323,10 @@ GetNotifications:
 		"pageStart":"2",
 	    "pageFetch":"2"
 }'
-      output: '{
-         "errors": [
-    {
-      "errorCode": "RES-SER-410",
-      "message": "$IGNORE$"
-    }
-  ]
-}'
+      output: "404"
 
    Resident_GetNotifications_uin_SpaceVal_langcode_Neg:
-      endPoint: /resident/v1/notifications/{langCode}
+      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications

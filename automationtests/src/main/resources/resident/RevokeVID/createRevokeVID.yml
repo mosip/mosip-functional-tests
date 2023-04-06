@@ -13,7 +13,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -33,7 +33,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -51,7 +51,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -71,7 +71,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -89,7 +89,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -109,7 +109,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -127,7 +127,7 @@ RevokeVID:
         "id": "m@@@333dstus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -147,7 +147,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -165,7 +165,7 @@ RevokeVID:
         "id": "$REMOVE$",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -185,7 +185,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -203,7 +203,7 @@ RevokeVID:
         "id": "",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -223,7 +223,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -241,7 +241,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -261,7 +261,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_RevokeVID_Missing_Individual_Id:
@@ -278,7 +278,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -298,7 +298,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -316,7 +316,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -336,7 +336,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_RevokeVID_Missing_Request_Time:
@@ -353,7 +353,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -373,7 +373,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_RevokeVID_Invalid_Request_Time:
@@ -390,7 +390,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -410,7 +410,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -428,7 +428,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -448,7 +448,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -466,7 +466,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "@@223333243333####3",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -486,7 +486,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_RevokeVID_Missing_version:
@@ -503,7 +503,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "$REMOVE$",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -523,7 +523,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -541,7 +541,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -561,7 +561,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -579,7 +579,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -599,7 +599,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -617,7 +617,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -637,7 +637,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -655,7 +655,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -675,7 +675,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -693,7 +693,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "$REMOVE$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -713,7 +713,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_RevokeVID_Invalid_vidstatus:
@@ -730,7 +730,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "R@223344hKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -750,7 +750,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -768,7 +768,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -788,7 +788,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -806,7 +806,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -821,7 +821,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -839,7 +839,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -854,7 +854,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -872,7 +872,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -887,7 +887,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -905,7 +905,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -920,7 +920,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -938,7 +938,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -953,7 +953,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -971,7 +971,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -986,7 +986,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1004,7 +1004,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -1024,7 +1024,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1042,7 +1042,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -1062,7 +1062,7 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1080,7 +1080,7 @@ RevokeVID:
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -1100,6 +1100,6 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'

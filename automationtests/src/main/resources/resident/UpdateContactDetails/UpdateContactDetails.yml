@@ -7,12 +7,12 @@ UpdateContactDetails:
       outputTemplate: resident/UpdateContactDetails/UpdateContactDetailsResult
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "sendOtp": {
 			    "requesttime": "$TIMESTAMP$",
-			    "userId": "residentautomation@gmail.com",
+			    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 			    "transactionId": "1234567890",
 			    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 			    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -34,12 +34,12 @@ UpdateContactDetails:
       outputTemplate: resident/UpdateContactDetails/UpdateContactDetailsResult
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "sendOtp": {
 			    "requesttime": "$TIMESTAMP$",
-			    "userId": "residentautomation@gmail.com",
+			    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 			    "transactionId": "1234567890",
 			    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 			    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -63,10 +63,10 @@ UpdateContactDetails:
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "sdjgu34",
 		    "transactionId": "1234567890",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -95,10 +95,10 @@ UpdateContactDetails:
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "",
 		    "transactionId": "1234567890",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -127,10 +127,10 @@ UpdateContactDetails:
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "$REMOVE$",
 		    "transactionId": "1234567890",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -157,12 +157,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "ass#2@h",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -189,12 +189,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -221,12 +221,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "$REMOVE$",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -253,12 +253,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "otp": "123456",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -285,12 +285,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "otp": "",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -317,12 +317,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "otp": "$REMOVE$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -349,12 +349,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -383,10 +383,10 @@ UpdateContactDetails:
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "sdjgu34",
 		    "transactionId": "1234567890",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -415,10 +415,10 @@ UpdateContactDetails:
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "",
 		    "transactionId": "1234567890",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -447,10 +447,10 @@ UpdateContactDetails:
 			"requesttime": "$TIMESTAMP$",
 		    "userId": "$REMOVE$",
 		    "transactionId": "1234567890",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -477,12 +477,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "ass#2@h",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -509,12 +509,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -541,12 +541,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "$REMOVE$",
-		    "otp": "111111",
+		    "otp": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -573,12 +573,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "otp": "123456",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -605,12 +605,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "otp": "",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -637,12 +637,12 @@ UpdateContactDetails:
       outputTemplate: resident/error
       input: '{
 			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "otp": "$REMOVE$",
 	    "sendOtp":{
 		    "requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@gmail.com",
+		    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 		    "transactionId": "1234567890",
 		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
 		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"

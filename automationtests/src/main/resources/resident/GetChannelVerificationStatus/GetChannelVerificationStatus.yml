@@ -19,7 +19,7 @@ GetChannelVerificationStatus:
     "transactionId": "1234567890",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "otp": "111111",
+    "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
     "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
@@ -30,11 +30,11 @@ GetChannelVerificationStatus:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+        "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
     }
 }'
@@ -59,7 +59,7 @@ GetChannelVerificationStatus:
     "transactionId": "1234567890",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "otp": "111111",
+    "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
     "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
@@ -70,11 +70,11 @@ GetChannelVerificationStatus:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+        "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
     }
 }'
@@ -99,7 +99,7 @@ GetChannelVerificationStatus:
     "transactionId": "1234567890",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "otp": "111111",
+    "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
     "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
@@ -115,11 +115,11 @@ GetChannelVerificationStatus:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+        "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
     }
 }'
@@ -144,7 +144,7 @@ GetChannelVerificationStatus:
     "transactionId": "1234567890",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "otp": "111111",
+    "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
     "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
@@ -160,11 +160,11 @@ GetChannelVerificationStatus:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+        "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
     }
 }'
@@ -189,7 +189,7 @@ GetChannelVerificationStatus:
     "transactionId": "1234567890",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "otp": "111111",
+    "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
     "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
@@ -205,11 +205,11 @@ GetChannelVerificationStatus:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+        "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
     }
 }'
@@ -234,7 +234,7 @@ GetChannelVerificationStatus:
     "transactionId": "1234567890",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "otp": "111111",
+    "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
     "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
@@ -250,11 +250,11 @@ GetChannelVerificationStatus:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+        "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
     }
 }'
@@ -279,7 +279,7 @@ GetChannelVerificationStatus:
     "transactionId": "1234567890",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "otp": "111111",
+    "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
     "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
@@ -289,10 +289,10 @@ GetChannelVerificationStatus:
   "verificationStatus": true,
   "sendOtpResp":{
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+        "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
     }
 }'
@@ -317,7 +317,7 @@ GetChannelVerificationStatus:
     "transactionId": "1234567890",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "otp": "111111",
+    "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
     "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
@@ -355,7 +355,7 @@ GetChannelVerificationStatus:
     "transactionId": "1234567890",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
-    "otp": "111111",
+    "otp": "$ID:AddIdentity_Positive_PDEA_smoke_EMAIL$",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
     "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
@@ -399,7 +399,7 @@ GetChannelVerificationStatus:
     "transactionId": "1234567890",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
-    "otp": "111111",
+    "otp": "$ID:AddIdentity_Positive_PEXP_smoke_EMAIL$",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
     "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
@@ -415,10 +415,10 @@ GetChannelVerificationStatus:
   "verificationStatus": false,
   "sendOtpResp":{
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+        "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
     }
 }'
