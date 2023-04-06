@@ -47,7 +47,7 @@ UploadDocument:
 	    "docFileFormat": "pdf"      
 }'
 
-   Resident_UploadDocument_uin_StatusCode_Large_File_Neg:
+   Resident_UploadDocument_uin_Large_File_Neg:
       endPoint: /resident/v1/documents/{transactionId}?docCatCode={docCatCode}&docTypCode={docTypCode}&langCode={langCode}&referenceId={referenceId}
       role: residentNew
       restMethod: post
@@ -62,7 +62,14 @@ UploadDocument:
 		"filePath": "resident/DocumentController/UploadDocument/randomFile.pdf",
 		"fileKeyName": "file"
 }'
-      output: "500"
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-514",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
 
    Resident_UploadDocument_uin_Invalid_File_Neg:
       endPoint: /resident/v1/documents/{transactionId}?docCatCode={docCatCode}&docTypCode={docTypCode}&langCode={langCode}&referenceId={referenceId}
@@ -82,7 +89,7 @@ UploadDocument:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-418",
+      "errorCode": "RES-SER-516",
       "message": "$IGNORE$"
     }
   ]
@@ -225,7 +232,7 @@ UploadDocument:
 }'
       output: "401"
       
-   Resident_UploadDocument_vid_StatusCode_Large_File_Neg:
+   Resident_UploadDocument_vid_Large_File_Neg:
       endPoint: /resident/v1/documents/{transactionId}?docCatCode={docCatCode}&docTypCode={docTypCode}&langCode={langCode}&referenceId={referenceId}
       role: residentNewVid
       restMethod: post
@@ -240,7 +247,14 @@ UploadDocument:
 		"filePath": "resident/DocumentController/UploadDocument/randomFile.pdf",
 		"fileKeyName": "file"
 }'
-      output: "500"
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-514",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
 
    Resident_UploadDocument_vid_Invalid_File_Neg:
       endPoint: /resident/v1/documents/{transactionId}?docCatCode={docCatCode}&docTypCode={docTypCode}&langCode={langCode}&referenceId={referenceId}
@@ -260,7 +274,7 @@ UploadDocument:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-418",
+      "errorCode": "RES-SER-516",
       "message": "$IGNORE$"
     }
   ]

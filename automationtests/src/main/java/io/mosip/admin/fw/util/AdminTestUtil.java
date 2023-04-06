@@ -228,7 +228,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
-		if (BaseTestCase.currentModule.equals("prereg")||BaseTestCase.currentModule.equals("auth")) {
+		if (BaseTestCase.currentModule.equals("prereg")||BaseTestCase.currentModule.equals("auth")||BaseTestCase.currentModule.equals("resident")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		
@@ -356,13 +356,18 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
+		inputJson = request.toString();
+		if (BaseTestCase.currentModule.equals("resident")) {
+			inputJson = smtpOtpHandler(inputJson, testCaseName);
+		}
+		
 
 		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(request.toString()) + "</pre>");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
-			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, request.toString(),
+			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
@@ -608,7 +613,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName, boolean bothAccessAndIdToken) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		if (BaseTestCase.currentModule.equals("mobileid")||BaseTestCase.currentModule.equals("auth")){
+		if (BaseTestCase.currentModule.equals("mobileid")||BaseTestCase.currentModule.equals("auth")||BaseTestCase.currentModule.equals("resident")){
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		
@@ -645,7 +650,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (url.contains("ID:"))
 			url = inputJsonKeyWordHandeler(url, testCaseName);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		if (BaseTestCase.currentModule.equals("auth")) {
+		if (BaseTestCase.currentModule.equals("auth")||BaseTestCase.currentModule.equals("resident")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		token = kernelAuthLib.getTokenByRole(role);
@@ -712,7 +717,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = inputJsonKeyWordHandeler(url, testCaseName);
-		if (BaseTestCase.currentModule.equals("mobileid")||BaseTestCase.currentModule.equals("auth")) {
+		if (BaseTestCase.currentModule.equals("mobileid")||BaseTestCase.currentModule.equals("auth")||BaseTestCase.currentModule.equals("resident")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		
@@ -1824,6 +1829,12 @@ public class AdminTestUtil extends BaseTestCase {
 
 	protected byte[] postWithBodyAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
 			String testCaseName, boolean bothAccessAndIdToken) {
+		Response response = null;
+		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		url = inputJsonKeyWordHandeler(url, testCaseName);
+		if (BaseTestCase.currentModule.equals("resident")) {
+			inputJson = smtpOtpHandler(inputJson, testCaseName);
+		}
 		byte[] pdf = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		if (bothAccessAndIdToken) {
@@ -4387,10 +4398,39 @@ public class AdminTestUtil extends BaseTestCase {
 					}
 				}
 			}
-			
+			return inputJson;
 		}
 			
+		if (BaseTestCase.currentModule.equals("resident")){
+			if (request.has("request")) {
+				if(request.getJSONObject("request").has("otp")) {
+					if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+						emailId = request.getJSONObject("request").get("otp").toString();
+						System.out.println(emailId);
+						// Get the otp value from email notification 
+						otp = MockSMTPListener.getOtp(10, emailId);
+						request.getJSONObject("request").put("otp", otp); 
+						inputJson = request.toString();
+					}
+				}
+				else if(request.getJSONObject("request").has("challengeList")){
+					if(request.getJSONObject("request").getJSONArray("challengeList").length()>0){
+						if(request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).has("challenge")){
+							if(request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).getString("challenge").endsWith("@mosip.net")){
+								emailId = request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).getString("challenge");
+								System.out.println(emailId);
+								// Get the otp value from email notification
+								otp = MockSMTPListener.getOtp(10, emailId);
+								request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).put("challenge", otp);
+								inputJson = request.toString();
+							}
+						}
+					}
+				}
+			}
 		
+			return inputJson;
+		}
 		return inputJson;
 	}
 

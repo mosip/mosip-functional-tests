@@ -13,7 +13,7 @@ SendOTP:
 }'
       output: '{
         "maskedMobile": "XXXXXX3210",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }'
    Resident_SendOTP_Valid_UIN_Phone_Smoke:
       endPoint: /resident/v1/req/otp
@@ -47,7 +47,7 @@ SendOTP:
 }'
       output: '{
         "maskedMobile": "$IGNORE$",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }'
    Resident_SendOTP_RevokedVID_Invalid:
       endPoint: /resident/v1/req/otp
@@ -225,5 +225,5 @@ SendOTP:
 }'
       output: '{
         "maskedMobile": "XXXXXX3210",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }'

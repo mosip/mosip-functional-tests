@@ -12,7 +12,7 @@ AuthenticateUser:
       	"transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
         "sendOtp":{
             "encodedHash": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
 		    "requestTime": "$TIMESTAMP$",
@@ -27,7 +27,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOtpIdp/SendOtpIdpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -43,7 +43,7 @@ AuthenticateUser:
       	"transactionId": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:GenerateVID_Perpetual_IdP_Integ_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
         "sendOtp":{
             "encodedHash": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_encodedResp$",
 		    "requestTime": "$TIMESTAMP$",
@@ -58,6 +58,6 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOtpIdp/SendOtpIdpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'

@@ -7,7 +7,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "transactionId": "1234567890"
 }'
       output: '{
@@ -27,7 +27,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "2023-02-13T",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "transactionId": "1234567890"
 }'
       output: '{
@@ -47,7 +47,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$REMOVE$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "transactionId": "1234567890"
 }'
       output: '{
@@ -67,7 +67,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "null",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "transactionID": "1234567890"
 }'
       output: '{
@@ -191,7 +191,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "transactionId": "23hfd$"
 }'
       output: '{
@@ -211,7 +211,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "transactionID": ""
 }'
       output: '{
@@ -231,7 +231,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "transactionId": " "
 }'
       output: '{
@@ -251,7 +251,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "transactionId": "$REMOVE$"
 }'
       output: '{
@@ -271,7 +271,7 @@ SendOtpToUserId:
       outputTemplate: resident/SendOtpToUserId/SendOtpToUserIdResult
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "transactionId": "1234567890"
 }'
       output: '{
@@ -287,7 +287,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "2023-02-13T",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "transactionId": "1234567890"
 }'
       output: '{
@@ -307,7 +307,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$REMOVE$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "transactionId": "1234567890"
 }'
       output: '{
@@ -327,7 +327,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "null",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "transactionId": "1234567890"
 }'
       output: '{
@@ -451,7 +451,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "transactionId": "23hfd$"
 }'
       output: '{
@@ -471,7 +471,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "transactionId": ""
 }'
       output: '{
@@ -491,7 +491,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "transactionId": " "
 }'
       output: '{
@@ -511,7 +511,7 @@ SendOtpToUserId:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "transactionId": "$REMOVE$"
 }'
       output: '{
@@ -531,7 +531,7 @@ SendOtpToUserId:
       outputTemplate: resident/SendOtpToUserId/SendOtpToUserIdResult
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
 	    "transactionId": "1234567890"
 }'
       output: '{
