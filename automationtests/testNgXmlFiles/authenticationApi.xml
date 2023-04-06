@@ -30,7 +30,7 @@
 		</classes>
 	</test>
 
-	<!-- <test name="RevokeVID">
+	<test name="RevokeVID">
 		<parameter name="ymlFile"
 			value="ida/RevokeVID/createRevokeVID.yml" />
 		<classes>
@@ -201,5 +201,4 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
- -->
- </suite>
+</suite>
