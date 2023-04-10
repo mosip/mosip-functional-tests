@@ -129,7 +129,6 @@ public class MosipTestRunner {
 				|| BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("idp")) {
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.bTerminate = true;
-			// MockSMTPListener.bTerminate = true;
 		}
 		
 		System.exit(0);

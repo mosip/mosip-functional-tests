@@ -14,7 +14,7 @@ ReqAidOtp:
 }'
       output: '{
 	    "maskedMobile": XXXXXX3210,
-	    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+	    "maskedEmail": "$IGNORE$"
 }'
 
    Resident_ReqAidOtp_Invalid_IndividualId_Neg:
