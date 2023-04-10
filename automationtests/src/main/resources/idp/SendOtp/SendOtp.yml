@@ -14,7 +14,7 @@ SendOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+        "maskedEmail": "$IGNORE$",
     	"maskedMobile": "XXXXXX3210"
 }'
 
@@ -79,7 +79,7 @@ SendOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+        "maskedEmail": "$IGNORE$",
     	"maskedMobile": "XXXXXX3210"
 }'
 

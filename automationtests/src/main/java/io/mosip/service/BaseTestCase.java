@@ -278,6 +278,8 @@ public class BaseTestCase {
 			BaseTestCase.certsForModule = "esignet";
 			setReportName("idp");
 			AdminTestUtil.initiateidpTest();
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.run();
 
 		}
 		/*
