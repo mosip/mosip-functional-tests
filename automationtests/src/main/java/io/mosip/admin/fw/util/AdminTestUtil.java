@@ -356,15 +356,10 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
-<<<<<<< HEAD
 		
 		inputJson = request.toString();
 		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals("idp")) {
-=======
-		inputJson = request.toString();
-		if (BaseTestCase.currentModule.equals("resident")) {
->>>>>>> upstream/develop
+				|| BaseTestCase.currentModule.equals("idp") ||BaseTestCase.currentModule.equals("resident")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		
@@ -724,12 +719,8 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = inputJsonKeyWordHandeler(url, testCaseName);
-<<<<<<< HEAD
 		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals("idp")) {
-=======
-		if (BaseTestCase.currentModule.equals("mobileid")||BaseTestCase.currentModule.equals("auth")||BaseTestCase.currentModule.equals("resident")) {
->>>>>>> upstream/develop
+				|| BaseTestCase.currentModule.equals("idp")||BaseTestCase.currentModule.equals("resident")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}		
 		
