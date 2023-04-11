@@ -304,7 +304,7 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@gmail.com",
+	    "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
 	    "transactionID": "Tg$4",
     	"otp":"$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
     	 "sendOtp":{
