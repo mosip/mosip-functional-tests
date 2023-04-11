@@ -10,7 +10,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -40,7 +40,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -70,7 +70,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -100,7 +100,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -130,7 +130,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -160,7 +160,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -190,7 +190,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -220,7 +220,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$N56!&",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -250,7 +250,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$REMOVE$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -280,7 +280,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -310,7 +310,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": " ",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -340,7 +340,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "null",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -370,7 +370,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "4eKDB4GPk6fP8XXEDY7rktwtQF6WiwrOCehT2CwyVT0",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -400,7 +400,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$H%t!",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -430,7 +430,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$REMOVE$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -460,7 +460,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -490,7 +490,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": " ",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -520,7 +520,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "null",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -550,7 +550,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "!2r",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -580,7 +580,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -610,7 +610,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": " ",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -640,7 +640,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "$REMOVE$",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -670,7 +670,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "null",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "alpha-numeric",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -850,7 +850,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
          "format": "!$ra5",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -880,7 +880,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
          "format": "",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -910,7 +910,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
          "format": " ",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -940,7 +940,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "$REMOVE$",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
@@ -970,7 +970,7 @@ LinkedAuthenticationOtp:
     	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
     	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "OTP",
-        "challenge": "111111",
+        "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
          "format": "null",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
