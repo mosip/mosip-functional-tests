@@ -13,7 +13,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Vid_Generation_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -29,7 +29,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOTPRes/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -47,7 +47,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Vid_Generation_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -63,7 +63,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOTPRes/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -81,7 +81,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Vid_Generation_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -97,7 +97,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOTPRes/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -115,7 +115,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Vid_2_Generation_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -131,7 +131,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOTPRes/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -149,7 +149,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Vid_2_Generation_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -165,7 +165,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOTPRes/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -183,7 +183,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Vid_2_Generation_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -199,7 +199,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOTPRes/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -217,7 +217,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_KycAuth_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -233,7 +233,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOTPRes/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -251,7 +251,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -267,7 +267,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOTPRes/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -285,7 +285,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -301,7 +301,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOTPRes/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -319,7 +319,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -335,7 +335,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOTPRes/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -353,7 +353,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -369,6 +369,6 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOTPRes/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'

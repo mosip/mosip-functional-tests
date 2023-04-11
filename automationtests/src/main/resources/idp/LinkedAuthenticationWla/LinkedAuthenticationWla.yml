@@ -7,45 +7,45 @@ LinkedAuthenticationWla:
       inputTemplate: idp/LinkedAuthenticationWla/LinkedAuthenticationWla
       outputTemplate: idp/LinkedAuthenticationWla/LinkedAuthenticationWlaResult
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-    	"linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
-    	"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
+        "requestTime": "$TIMESTAMP$",
+      "linkTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
+      "individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
         "authFactorType": "WLA",
         "challenge": "$WLATOKEN$",
         "format": "jwt",
         "sendOtp":{
-			"apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
-			"partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
-			"requestTime": "$TIMESTAMP$",
-			"individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
-			"otpChannels": [{channel: "email"},{channel: "phone"}],
-		    "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-		    "sendOtpEndPoint": "/v1/esignet/binding/binding-otp",
-    	},
-    	"validateOtp":{
-			    "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
-			    "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
-			    "requestTime": "$TIMESTAMP$",
-			    "individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
-			    "authFactorType1": "WLA",
-			    "format1": "jwt",
-			    "authFactorType": "OTP",
-			    "challenge": "111111",
-			    "format": "alpha-numeric",
-			    "publicKey": "$BINDINGJWKKEY$",
-			    "validateOtpReqTemplate": "idp/WalletBinding/WalletBinding",
-			    "validateOtpEndPoint": "/v1/esignet/binding/wallet-binding"
-    	}
+      "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+      "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "email"},{channel: "phone"}],
+        "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+        "sendOtpEndPoint": "/v1/esignet/binding/binding-otp",
+      },
+      "validateOtp":{
+          "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+          "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+          "requestTime": "$TIMESTAMP$",
+          "individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
+          "authFactorType1": "WLA",
+          "format1": "jwt",
+          "authFactorType": "OTP",
+          "challenge": "111111",
+          "format": "alpha-numeric",
+          "publicKey": "$BINDINGJWKKEY$",
+          "validateOtpReqTemplate": "idp/WalletBinding/WalletBinding",
+          "validateOtpEndPoint": "/v1/esignet/binding/wallet-binding"
+      }
 }'
       output: '{
          "sendOtpResp":{
-	        "maskedMobile": "$IGNORE$",
-	        "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
-	        "maskedEmail": "$IGNORE$"
-    	 },
-    	 "validateOtpResp":{
-	        "sendOtpResTemplate":"idp/WalletBinding/WalletBindingResult"
-    	 }
+          "maskedMobile": "$IGNORE$",
+          "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+          "maskedEmail": "$IGNORE$"
+       },
+       "validateOtpResp":{
+          "sendOtpResTemplate":"idp/WalletBinding/WalletBindingResult"
+       }
 }'
 
    IDP_LinkedAuthenticationWla_vid_all_Valid_Smoke_sid:
@@ -56,43 +56,43 @@ LinkedAuthenticationWla:
       inputTemplate: idp/LinkedAuthenticationWla/LinkedAuthenticationWla
       outputTemplate: idp/LinkedAuthenticationWla/LinkedAuthenticationWlaResult
       input: '{
-      	"requestTime": "$TIMESTAMP$",
-    	"linkTransactionId": "$ID:LinkTransaction_vid_all_Valid_Smoke_sid_linkTransactionId$",
-    	"individualId": "$ID:Generate_Perpetual_VID_LinkedSce_Valid_Smoke_sid_vid$",
+        "requestTime": "$TIMESTAMP$",
+      "linkTransactionId": "$ID:LinkTransaction_vid_all_Valid_Smoke_sid_linkTransactionId$",
+      "individualId": "$ID:Generate_Perpetual_VID_LinkedSce_Valid_Smoke_sid_vid$",
         "authFactorType": "WLA",
         "challenge": "$WLATOKENVID$",
         "format": "jwt",
         "sendOtp":{
-			"apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
-			"partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
-			"requestTime": "$TIMESTAMP$",
-			"individualId": "$ID:Generate_Perpetual_VID_LinkedSce_Valid_Smoke_sid_vid$",
-			"otpChannels": [{channel: "email"},{channel: "phone"}],
-		    "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
-		    "sendOtpEndPoint": "/v1/esignet/binding/binding-otp",
-    	},
-    	"validateOtp":{
-			    "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
-			    "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
-			    "requestTime": "$TIMESTAMP$",
-			    "individualId": "$ID:Generate_Perpetual_VID_LinkedSce_Valid_Smoke_sid_vid$",
-			    "authFactorType1": "WLA",
-			    "format1": "jwt",
-			    "authFactorType": "OTP",
-			    "challenge": "111111",
-			    "format": "alpha-numeric",
-			    "publicKey": "$BINDINGJWKKEYVID$",
-			    "validateOtpReqTemplate": "idp/WalletBinding/WalletBinding",
-			    "validateOtpEndPoint": "/v1/esignet/binding/wallet-binding"
-    	}
+      "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+      "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_LinkedSce_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "email"},{channel: "phone"}],
+        "sendOtpReqTemplate": "idp/SendBindingOtp/SendBindingOtp",
+        "sendOtpEndPoint": "/v1/esignet/binding/binding-otp",
+      },
+      "validateOtp":{
+          "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
+          "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
+          "requestTime": "$TIMESTAMP$",
+          "individualId": "$ID:Generate_Perpetual_VID_LinkedSce_Valid_Smoke_sid_vid$",
+          "authFactorType1": "WLA",
+          "format1": "jwt",
+          "authFactorType": "OTP",
+          "challenge": "111111",
+          "format": "alpha-numeric",
+          "publicKey": "$BINDINGJWKKEYVID$",
+          "validateOtpReqTemplate": "idp/WalletBinding/WalletBinding",
+          "validateOtpEndPoint": "/v1/esignet/binding/wallet-binding"
+      }
 }'
       output: '{
          "sendOtpResp":{
-	        "maskedMobile": "$IGNORE$",
-	        "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
-	        "maskedEmail": "$IGNORE$"
-    	 },
-    	 "validateOtpResp":{
-	        "sendOtpResTemplate":"idp/WalletBinding/WalletBindingResult"
-    	 }
+          "maskedMobile": "$IGNORE$",
+          "sendOtpResTemplate":"idp/SendBindingOtp/SendBindingOtpResult",
+          "maskedEmail": "$IGNORE$"
+       },
+       "validateOtpResp":{
+          "sendOtpResTemplate":"idp/WalletBinding/WalletBindingResult"
+       }
 }'

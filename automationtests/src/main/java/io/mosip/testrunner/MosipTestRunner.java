@@ -125,10 +125,10 @@ public class MosipTestRunner {
 		}
 		
 		//KeycloakUserManager.removeUser();
-		if (BaseTestCase.currentModule.equals("mobileid")||BaseTestCase.currentModule.equals("prereg")||BaseTestCase.currentModule.equals("auth")||BaseTestCase.currentModule.equals("resident")) {
+		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("prereg")
+				|| BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("idp")) {
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.bTerminate = true;
-			//MockSMTPListener.bTerminate = true;
 		}
 		
 		System.exit(0);

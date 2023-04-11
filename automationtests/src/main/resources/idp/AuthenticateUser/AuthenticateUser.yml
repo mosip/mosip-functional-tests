@@ -12,7 +12,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Valid_Parameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -27,7 +27,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -44,7 +44,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Valid_Parameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_2nd_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -59,7 +59,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -76,7 +76,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_2nd_vid_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Valid_Parameters_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Valid_Parameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_2nd_vid_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -91,7 +91,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -108,7 +108,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Valid_Parameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Vid_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -123,7 +123,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -140,7 +140,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Temporary_VID_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Vid_Generation_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -161,7 +161,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -178,7 +178,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Valid_Parameters_Sce2_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Valid_Parameters_Sce2_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -199,7 +199,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -216,7 +216,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -237,7 +237,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -254,7 +254,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -275,7 +275,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -292,7 +292,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -313,7 +313,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -330,7 +330,7 @@ AuthenticateUser:
       	"transactionId": "transactionId",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -351,7 +351,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -368,7 +368,7 @@ AuthenticateUser:
       	"transactionId": "eZJZ0j3EeZJ_d9CsSakCoA0-Trbm6fOECY6J_q3dZtc",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
      "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -389,7 +389,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -406,7 +406,7 @@ AuthenticateUser:
       	"transactionId": "$REMOVE$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
@@ -427,7 +427,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -444,7 +444,7 @@ AuthenticateUser:
       	"transactionId": "",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -465,7 +465,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -482,7 +482,7 @@ AuthenticateUser:
       	"transactionId": "null",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -503,7 +503,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -520,7 +520,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "@#WE$#",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -541,7 +541,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -558,7 +558,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$REMOVE$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -579,7 +579,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -596,7 +596,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
@@ -617,7 +617,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -634,7 +634,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "null",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -655,7 +655,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -672,7 +672,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "#$%FDF",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
      "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -693,7 +693,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -710,7 +710,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "$REMOVE$",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -731,7 +731,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -748,7 +748,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -769,7 +769,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -786,7 +786,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "null",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -807,7 +807,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -824,7 +824,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "bio",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -845,7 +845,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -883,7 +883,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -921,7 +921,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -959,7 +959,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -997,7 +997,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1035,7 +1035,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1052,7 +1052,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:AddIdentity_Invalid_Scen_smoke_Pos_UIN$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1067,7 +1067,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1084,7 +1084,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1105,7 +1105,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1122,7 +1122,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1143,7 +1143,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1160,7 +1160,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1181,7 +1181,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1198,7 +1198,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1219,7 +1219,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1236,7 +1236,7 @@ AuthenticateUser:
       	"transactionId": "transactionId",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1257,7 +1257,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1274,7 +1274,7 @@ AuthenticateUser:
       	"transactionId": "eZJZ0j3EeZJ_d9CsSakCoA0-Trbm6fOECY6J_q3dZtc",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
      "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1295,7 +1295,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1312,7 +1312,7 @@ AuthenticateUser:
       	"transactionId": "$REMOVE$",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
@@ -1333,7 +1333,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1350,7 +1350,7 @@ AuthenticateUser:
       	"transactionId": "",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1371,7 +1371,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1388,7 +1388,7 @@ AuthenticateUser:
       	"transactionId": "null",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1409,7 +1409,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1426,7 +1426,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "@#WE$#",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1447,7 +1447,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1464,7 +1464,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$REMOVE$",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1485,7 +1485,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1502,7 +1502,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "requestTime": "$TIMESTAMP$",
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
@@ -1523,7 +1523,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1540,7 +1540,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "null",
       	"authFactorType" : "OTP",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1561,7 +1561,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1578,7 +1578,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "#$%FDF",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
      "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1599,7 +1599,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1616,7 +1616,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "$REMOVE$",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1637,7 +1637,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1654,7 +1654,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1675,7 +1675,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1692,7 +1692,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "null",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Valid_Parameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1713,7 +1713,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1730,7 +1730,7 @@ AuthenticateUser:
       	"transactionId": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_transactionId$",
       	"individualId": "$ID:Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid_vid$",
       	"authFactorType" : "bio",
-      	"challenge" : "111111",
+      	"challenge" : "$ID:AddIdentity_Invalid_Scen_smoke_Pos_EMAIL$",
         "sendOtp":{
     "encodedHash": "$ID:OAuthDetailsRequest_vid_Other_Valid_Smoke_sid_encodedResp$",
     "requestTime": "$TIMESTAMP$",
@@ -1751,7 +1751,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1789,7 +1789,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1827,7 +1827,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1865,7 +1865,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1903,7 +1903,7 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1941,6 +1941,6 @@ AuthenticateUser:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"idp/SendOtp/SendOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
