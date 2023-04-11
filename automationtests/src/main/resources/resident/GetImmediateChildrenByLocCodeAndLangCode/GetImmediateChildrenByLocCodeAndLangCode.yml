@@ -2,13 +2,12 @@ GetImmediateChildrenByLocCodeAndLangCode:
    Resident_GetImmediateChildrenByLocCodeAndLangCode_allValid_smoke:
       endPoint: /resident/v1/proxy/masterdata/locations/immediatechildren/{locationCode}/{langCode}
       role: resident
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCode
       outputTemplate: resident/GetImmediateChildrenByLocCodeAndLangCode/getImmediateChildrenByLocCodeAndLangCodeResult
       input: '{
       "locationCode":"MOR",
-      "langCode":"eng"
+      "langCode":"$1STLANG$"
 }'
       output: '{
 	"locations": [{
@@ -30,7 +29,7 @@ GetImmediateChildrenByLocCodeAndLangCode:
       outputTemplate: resident/error
       input: '{
       "locationCode":"abc",
-      "langCode":"tam"
+      "langCode":"$1STLANG$"
 }'
       output: '{
    "errors": [
