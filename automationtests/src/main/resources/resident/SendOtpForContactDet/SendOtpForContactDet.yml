@@ -7,7 +7,7 @@ SendOtpForContactDet:
       outputTemplate: resident/SendOtpForContactDet/SendOtpForContactDetResult
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		   "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
+		   "userId": "residentautomation@mosip.net",
 		   "transactionId": "1234567890"
 }'
       output: '{
@@ -22,7 +22,7 @@ SendOtpForContactDet:
       outputTemplate: resident/SendOtpForContactDet/SendOtpForContactDetResult
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		   "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
+		   "userId": "residentautomation@mosip.net",
 		   "transactionId": "1234567890"
 }'
       output: '{
@@ -97,7 +97,7 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		  "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
+		  "userId": "residentautomation@mosip.net",
 		  "transactionID": "adhs%^"
 }'
       output: '{
@@ -117,7 +117,7 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		  "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
+		  "userId": "residentautomation@mosip.net",
 		  "transactionId": ""
 }'
       output: '{
@@ -137,7 +137,7 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		  "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
+		  "userId": "residentautomation@mosip.net",
 		  "transactionId": "$REMOVE$"
 }'
       output: '{
@@ -157,7 +157,7 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		  "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
+		  "userId": "residentautomation@mosip.net",
 		  "transactionId": "1234567890"
 }'
       output: '{
@@ -177,7 +177,7 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "12323dqq",
-		  "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
+		  "userId": "residentautomation@mosip.net",
 		  "transactionID": "1234567890"
 }'
       output: '{
@@ -197,7 +197,7 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "",
-		  "userId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$",
+		  "userId": "residentautomation@mosip.net",
 		  "transactionID": "1234567890"
 }'
       output: '{
@@ -277,7 +277,7 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		  "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
+		  "userId": "residentautomation@mosip.net",
 		  "transactionId": "adhs%^"
 }'
       output: '{
@@ -297,7 +297,7 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		  "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
+		  "userId": "residentautomation@mosip.net",
 		  "transactionId": ""
 }'
       output: '{
@@ -317,7 +317,7 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		  "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
+		  "userId": "residentautomation@mosip.net",
 		  "transactionId": "$REMOVE$"
 }'
       output: '{
@@ -337,7 +337,7 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "12323dqq",
-		  "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
+		  "userId": "residentautomation@mosip.net",
 		  "transactionId": "1234567890"
 }'
       output: '{
@@ -357,7 +357,7 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "",
-		  "userId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$",
+		  "userId": "residentautomation@mosip.net",
 		  "transactionId": "1234567890"
 }'
       output: '{
