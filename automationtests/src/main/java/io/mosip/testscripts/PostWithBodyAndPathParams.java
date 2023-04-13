@@ -99,7 +99,7 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 		}  
 		
 		else {
-			if (testCaseName.contains("Idp_KycDemoAuth")) {
+			if (testCaseName.contains("Esignet_KycDemoAuth")) {
 				response = postWithPathParamsBodyHeaderAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 			}
 			else {

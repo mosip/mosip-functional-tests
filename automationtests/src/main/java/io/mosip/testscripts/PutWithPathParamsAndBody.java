@@ -99,7 +99,7 @@ public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		
 		else {
 //			To Do This Condition has to be removed
-			if(testCaseName.contains("IDP_")) {
+			if(testCaseName.contains("ESignet_")) {
 				String tempUrl = ApplnURI.replace("-internal", "");
 				response = putWithPathParamsBodyAndBearerToken(tempUrl + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 			}

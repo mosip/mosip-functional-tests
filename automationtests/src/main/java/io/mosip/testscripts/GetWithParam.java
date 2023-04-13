@@ -108,7 +108,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 		
 		else {
 //			To Do This Condition has to be removed
-			if(testCaseName.contains("IDP_")) {
+			if(testCaseName.contains("ESignet_")) {
 				String tempUrl = ApplnURI.replace("-internal", "");
 				response = getWithPathParamAndCookie(tempUrl + testCaseDTO.getEndPoint(),
 						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,

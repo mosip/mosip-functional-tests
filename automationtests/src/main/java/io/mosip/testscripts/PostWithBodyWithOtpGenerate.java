@@ -83,7 +83,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
         else if(testCaseDTO.getRole().equalsIgnoreCase("residentNewVid")) {
        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"residentNewVid", testCaseDTO.getTestCaseName(), sendIdpToken);
        }
-        else if(testCaseName.contains("IDP_WalletBinding")) {
+        else if(testCaseName.contains("ESignet_WalletBinding")) {
         	otpResponse = postRequestWithCookieAuthHeader(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
         }
         else {
@@ -119,7 +119,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 				e.printStackTrace();
 			}
 		}
-		if(testCaseName.contains("IDP_WalletBinding")) {
+		if(testCaseName.contains("ESignet_WalletBinding")) {
 			response = postRequestWithCookieAuthHeader(tempUrl + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		}
 		else {
