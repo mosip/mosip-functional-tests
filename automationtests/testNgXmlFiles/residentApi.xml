@@ -28,6 +28,13 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
+	<test name="SendOtpForExpiration">
+		<parameter name="ymlFile"
+			value="resident/SendOtpForExpiration/SendOtpForExpiration.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="RevokeVID">
 		<parameter name="ymlFile"
 			value="resident/RevokeVID/createRevokeVID.yml" />
@@ -256,6 +263,13 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name="ValidateExpiredOTP">
+		<parameter name="ymlFile"
+			value="resident/ValidateExpiredOTP/ValidateExpiredOTP.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="OAuthDetailsRequest">
 		<parameter name="ymlFile"
 			value="resident/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
@@ -312,44 +326,12 @@
 			<class name="io.mosip.testscripts.PostWithBodyWithPdfDownload" />
 		</classes>
 	</test>
-	<test name="SendOtpForContactDet">
-		<parameter name="ymlFile"
-			value="resident/SendOtpForContactDet/SendOtpForContactDet.yml" />
-			<parameter name="sendIdpToken"	value="true" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="UpdateContactDetails">
-		<parameter name="ymlFile"
-			value="resident/UpdateContactDetails/UpdateContactDetails.yml" />
-			<parameter name="sendIdpToken"	value="true" />
-		<classes>
-			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
-		</classes>
-	</test>
 	<test name="ReqShareCredWithPartner">
 		<parameter name="ymlFile"
 			value="resident/ReqShareCredWithPartner/ReqShareCredWithPartner.yml" />
 			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="SendOtpToUserId">
-		<parameter name="ymlFile"
-			value="resident/SendOtpToUserId/SendOtpToUserId.yml" />
-			<parameter name="sendIdpToken"	value="true" />
-		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name="ValidateWithUserIdOtp">
-		<parameter name="ymlFile"
-			value="resident/ValidateWithUserIdOtp/ValidateWithUserIdOtp.yml" />
-			<parameter name="sendIdpToken"	value="true" />
-		<classes>
-			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="GetSupportingDoc">
@@ -642,6 +624,42 @@
 			<parameter name="sendIdpToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<!-- Keep the below 4 API's (SendOtpForContactDet, UpdateContactDetails, SendOtpToUserId, ValidateWithUserIdOtp)
+	 at the bottom of the suite always. Because, Below we are updating the mail id of the UIN.
+	 Keeping it atlast will not impact any otp API's -->
+		
+	<test name="SendOtpForContactDet">
+		<parameter name="ymlFile"
+			value="resident/SendOtpForContactDet/SendOtpForContactDet.yml" />
+			<parameter name="sendIdpToken"	value="true" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdateContactDetails">
+		<parameter name="ymlFile"
+			value="resident/UpdateContactDetails/UpdateContactDetails.yml" />
+			<parameter name="sendIdpToken"	value="true" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="SendOtpToUserId">
+		<parameter name="ymlFile"
+			value="resident/SendOtpToUserId/SendOtpToUserId.yml" />
+			<parameter name="sendIdpToken"	value="true" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="ValidateWithUserIdOtp">
+		<parameter name="ymlFile"
+			value="resident/ValidateWithUserIdOtp/ValidateWithUserIdOtp.yml" />
+			<parameter name="sendIdpToken"	value="true" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
 

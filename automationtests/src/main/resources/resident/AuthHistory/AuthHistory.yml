@@ -460,43 +460,6 @@ AuthHistory:
     }
 }'
 
-   Resident_AuthHistory_With_UIN_eotp_Pos_Neg:
-      endPoint: /resident/v1/req/auth-history
-      role: resident
-      restMethod: post
-      inputTemplate: resident/AuthHistory/authHistory
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-        "individualIdType": "UIN",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.authhistory",
-        "version": "v1",
-        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-  "errors": [
-    {
-      "errorCode": "RES-SER-422",
-      "message": "$IGNORE$"
-    }
-  ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-
    Resident_AuthHistory_With_UIN_Phone_smoke_Pos:
       endPoint: /resident/v1/req/auth-history
       role: resident

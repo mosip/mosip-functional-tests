@@ -3,11 +3,10 @@ GetLocationDetailsByLocCodeAndLangCode:
       endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
       role: resident
       restMethod: get
-      templateFields: ["langCode"]
       inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
       outputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCodeResult
       input: '{
-      "langCode": "eng",
+      "langCode": "$1STLANG$",
    	  "loccode": "14022"
 }'
       output: '{
@@ -56,11 +55,10 @@ GetLocationDetailsByLocCodeAndLangCode:
       endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
       role: resident
       restMethod: get
-      templateFields: ["langCode"]
       inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
       outputTemplate: resident/error
       input: '{
-      "langCode": "eng",
+      "langCode": "$1STLANG$",
    	  "loccode": "kk"
 }'
       output: '{
@@ -89,11 +87,10 @@ GetLocationDetailsByLocCodeAndLangCode:
       endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
       role: resident
       restMethod: get
-      templateFields: ["langCode"]
       inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
       outputTemplate: resident/error
       input: '{
-      "langCode": "eng",
+      "langCode": "$1STLANG$",
    	  "loccode": ""
 }'
       output: '{
