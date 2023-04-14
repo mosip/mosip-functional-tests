@@ -162,7 +162,7 @@
 		<json-path.version>2.4.0</json-path.version>
 		<maven.model.version>3.3.9</maven.model.version>
 		<rest.assured.version>3.0.7</rest.assured.version>
-		<testng.version>6.11</testng.version>
+		<testng.version>7.7.0</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
 		<fileName>automationtests-1.2.0.1-SNAPSHOT-jar-with-dependencies</fileName>
 		<aws.javasdk.version>1.11.368</aws.javasdk.version>
