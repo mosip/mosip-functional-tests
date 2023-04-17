@@ -111,8 +111,8 @@ public class SimplePost extends AdminTestUtil implements ITest {
 
 		else {
 			String tempUrl = ApplnURI.replace("-internal", "");
-			if(testCaseName.contains("IDP_")) {
-				if(testCaseName.contains("IDP_SendBindingOtp")) {
+			if(testCaseName.contains("ESignet_")) {
+				if(testCaseName.contains("ESignet_SendBindingOtp")) {
 					response = postRequestWithCookieAuthHeader(tempUrl + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 				}
 				else {

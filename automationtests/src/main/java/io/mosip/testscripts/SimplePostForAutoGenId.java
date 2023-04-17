@@ -88,7 +88,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 		String inputJson = "";
 
 		
-       if(!(BaseTestCase.certsForModule.equals("DSL-IDA")&& (testCaseName.startsWith("Idp_CreateOIDCClient")))){
+       if(!(BaseTestCase.certsForModule.equals("DSL-IDA")&& (testCaseName.startsWith("Esignet_CreateOIDCClient")))){
     	    inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
        }
        else {
@@ -128,7 +128,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 			}
 		} else {
 //			To Do This Condition has to be removed
-			if(testCaseName.contains("IDP_")) {
+			if(testCaseName.contains("ESignet_")) {
 				String tempUrl = ApplnURI.replace("-internal", "");
 				if(testCaseName.contains("_AuthorizationCode_")) {
 					response = postRequestWithCookieAuthHeaderAndXsrfTokenForAutoGenId(tempUrl + testCaseDTO.getEndPoint(), inputJson,

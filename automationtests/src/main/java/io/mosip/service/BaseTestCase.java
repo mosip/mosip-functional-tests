@@ -143,7 +143,7 @@ public class BaseTestCase {
 			+ RandomStringUtils.randomNumeric(3);
 	public static String genPartnerName = "partnernameforautomationidp-" + RandomStringUtils.randomNumeric(6);
 	public String genPartnerNameForDsl = "partnernameforautomation-" + RandomStringUtils.randomNumeric(6);
-	public static String genMispPartnerName = "idp_" + RandomStringUtils.randomNumeric(6)
+	public static String genMispPartnerName = "esignet_" + RandomStringUtils.randomNumeric(6)
 			+ RandomStringUtils.randomNumeric(3);
 	public static String genPartnerEmail = "automationpartneridp" + RandomStringUtils.randomNumeric(7)
 			+ "@automationMosip.com";
@@ -272,11 +272,11 @@ public class BaseTestCase {
 
 		}
 
-		if (listOfModules.contains("idp")) {
+		if (listOfModules.contains("esignet")) {
 
-			BaseTestCase.currentModule = "idp";
+			BaseTestCase.currentModule = "esignet";
 			BaseTestCase.certsForModule = "esignet";
-			setReportName("idp");
+			setReportName("esignet");
 			AdminTestUtil.initiateidpTest();
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();

@@ -14,14 +14,14 @@
 		
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
-			value="idp/AddIdentity/AddIdentity.yml" />
+			value="esignet/AddIdentity/AddIdentity.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.AddIdentity" />
 		</classes>
 	</test>
 	<test name="CreatePolicyGroup">
 		<parameter name="ymlFile"
-			value="idp/PmsIntegration/DefinePolicyGroup/DefinePolicyGroup.yml" />
+			value="esignet/PmsIntegration/DefinePolicyGroup/DefinePolicyGroup.yml" />
 		<parameter name="idKeyName" value="id,name" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -30,7 +30,7 @@
 	
 	<test name="DefinePolicy">
 		<parameter name="ymlFile"
-			value="idp/PmsIntegration/DefinePolicy/DefinePolicy.yml" />
+			value="esignet/PmsIntegration/DefinePolicy/DefinePolicy.yml" />
 		<parameter name="idKeyName" value="id,name" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -39,7 +39,7 @@
 	
 	<test name="PublishPolicy">
 		<parameter name="ymlFile"
-			value="idp/PmsIntegration/PublishPolicy/PublishPolicy.yml" />
+			value="esignet/PmsIntegration/PublishPolicy/PublishPolicy.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithOnlyPathParam" />
 		</classes>
@@ -47,7 +47,7 @@
 	
 	 <test name="CreatePartner">
 		<parameter name="ymlFile"
-			value="idp/PmsIntegration/CreatePartner/CreatePartner.yml" />
+			value="esignet/PmsIntegration/CreatePartner/CreatePartner.yml" />
 			<parameter name="idKeyName" value="partnerId" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -56,7 +56,7 @@
 	
 	<test name ="UploadCACertificate">
 		<parameter name ="ymlFile"
-			value= "idp/PmsIntegration/UploadCertificate/UploadCertificate.yml" />
+			value= "esignet/PmsIntegration/UploadCertificate/UploadCertificate.yml" />
 	<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -64,7 +64,7 @@
 	
 	<test name ="UploadPartnerCertificate">
 		<parameter name ="ymlFile"
-			value= "idp/PmsIntegration/UploadCert/UploadCert.yml" />
+			value= "esignet/PmsIntegration/UploadCert/UploadCert.yml" />
 	<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
@@ -72,7 +72,7 @@
 	
 	<test name="RequestAPIKeyForAuthPartner">
 		<parameter name="ymlFile"
-			value="idp/PmsIntegration/RequestAPIKey/RequestAPIKey.yml" />
+			value="esignet/PmsIntegration/RequestAPIKey/RequestAPIKey.yml" />
 		<parameter name="idKeyName" value="mappingkey" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -81,7 +81,7 @@
 	
 	<test name="ApproveAPIKey">
 		<parameter name="ymlFile"
-			value="idp/PmsIntegration/ApproveAPIKey/ApproveAPIKey.yml" />
+			value="esignet/PmsIntegration/ApproveAPIKey/ApproveAPIKey.yml" />
 		<parameter name="pathParams" value="mappingkey" />
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
@@ -89,7 +89,7 @@
 	</test>
 	<test name="GenerateMispLK">
 		<parameter name="ymlFile"
-			value="idp/PmsIntegration/GenerateMispLK/GenerateMispLK.yml" />
+			value="esignet/PmsIntegration/GenerateMispLK/GenerateMispLK.yml" />
 		<parameter name="idKeyName"	value="licenseKey" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -98,7 +98,7 @@
 	
 	<test name="GenerateApiKey">
 		<parameter name="ymlFile"
-			value="idp/GenerateApiKey/GenerateApiKey.yml" />
+			value="esignet/GenerateApiKey/GenerateApiKey.yml" />
 		<parameter name="idKeyName"	value="apiKey" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePatchForAutoGenId" />
@@ -106,7 +106,7 @@
 	</test>
 	<test name="OIDCClient">
 		<parameter name="ymlFile"
-			value="idp/OidcClient/OIDCClient.yml" />
+			value="esignet/OidcClient/OIDCClient.yml" />
 			<parameter name="idKeyName"	value="clientId" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -114,7 +114,7 @@
 	</test>
 	<test name="OIDCClientUpdate">
 		<parameter name="ymlFile"
-			value="idp/UpdateOIDC/UpdateOIDC.yml" />
+			value="esignet/UpdateOIDC/UpdateOIDC.yml" />
 		<parameter name="pathParams" value="clientId" />
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
@@ -122,7 +122,7 @@
 	</test>
 	<test name="GetOidcClient">
 		<parameter name="ymlFile"
-			value="idp/GetOidcClient/GetOidcClient.yml" />
+			value="esignet/GetOidcClient/GetOidcClient.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
@@ -130,14 +130,14 @@
 
 	<test name="GenerateVID">
 		<parameter name="ymlFile"
-			value="idp/GenerateVID/createGenerateVID.yml" />
+			value="esignet/GenerateVID/createGenerateVID.yml" />
 			<parameter name="idKeyName"	value="vid" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="KycDemoAuth">
-		<parameter name="ymlFile" value="idp/KycDemoAuth/KycDemoAuth.yml" />
+		<parameter name="ymlFile" value="esignet/KycDemoAuth/KycDemoAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.KycAuth" />
@@ -145,21 +145,21 @@
 	</test>
 	<test name="SendBindingOtp">
 		<parameter name="ymlFile"
-			value="idp/SendBindingOtp/SendBindingOtp.yml" />
+			value="esignet/SendBindingOtp/SendBindingOtp.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="WalletBinding">
 		<parameter name="ymlFile"
-			value="idp/WalletBinding/WalletBinding.yml" />
+			value="esignet/WalletBinding/WalletBinding.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="OAuthDetailsRequestLinked">
 		<parameter name="ymlFile"
-			value="idp/OAuthDetailsRequestLinked/OAuthDetailsRequest.yml" />
+			value="esignet/OAuthDetailsRequestLinked/OAuthDetailsRequest.yml" />
 			<parameter name="idKeyName"	value="transactionId,encodedResp" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -167,7 +167,7 @@
 	</test>
 	<test name="GenerateLinkCode">
 		<parameter name="ymlFile"
-			value="idp/GenerateLinkCode/GenerateLinkCode.yml" />
+			value="esignet/GenerateLinkCode/GenerateLinkCode.yml" />
 			<parameter name="idKeyName"	value="linkCode" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -175,7 +175,7 @@
 	</test>
 	<test name="LinkTransaction">
 		<parameter name="ymlFile"
-			value="idp/LinkTransaction/LinkTransaction.yml" />
+			value="esignet/LinkTransaction/LinkTransaction.yml" />
 			<parameter name="idKeyName"	value="linkTransactionId" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -183,14 +183,14 @@
 	</test>
 	<test name="GetLinkStatus">
 		<parameter name="ymlFile"
-			value="idp/GetLinkStatus/GetLinkStatus.yml" />
+			value="esignet/GetLinkStatus/GetLinkStatus.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="LinkedAuthenticationWla">
 		<parameter name="ymlFile"
-			value="idp/LinkedAuthenticationWla/LinkedAuthenticationWla.yml" />
+			value="esignet/LinkedAuthenticationWla/LinkedAuthenticationWla.yml" />
 			<parameter name="idKeyName"	value="certificate" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerateForWla" />
@@ -198,14 +198,14 @@
 	</test>
 	<test name="LinkedAuthorizationConsent">
 		<parameter name="ymlFile"
-			value="idp/LinkedAuthorizationConsent/LinkedAuthorizationConsent.yml" />
+			value="esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="LinkAuthorizationCode">
 		<parameter name="ymlFile"
-			value="idp/LinkAuthorizationCode/LinkAuthorizationCode.yml" />
+			value="esignet/LinkAuthorizationCode/LinkAuthorizationCode.yml" />
 			<parameter name="idKeyName"	value="code" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -213,14 +213,14 @@
 	</test>
 	<test name="OAuthDetailsRequest">
 		<parameter name="ymlFile"
-			value="idp/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
+			value="esignet/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
 			<parameter name="idKeyName"	value="transactionId,encodedResp" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 	<test name="BioAuthIdp">
-		<parameter name="ymlFile" value="idp/BioAuthIdp/BioAuthIdp.yml" />
+		<parameter name="ymlFile" value="esignet/BioAuthIdp/BioAuthIdp.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.IdpBioAuth" />
@@ -228,21 +228,21 @@
 	</test>
 	<test name="SendOtp">
 		<parameter name="ymlFile"
-			value="idp/SendOtp/SendOtp.yml" />
+			value="esignet/SendOtp/SendOtp.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="AuthenticateUser">
 		<parameter name="ymlFile"
-			value="idp/AuthenticateUser/AuthenticateUser.yml" />
+			value="esignet/AuthenticateUser/AuthenticateUser.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="AuthorizationCode">
 		<parameter name="ymlFile"
-			value="idp/AuthorizationCode/AuthorizationCode.yml" />
+			value="esignet/AuthorizationCode/AuthorizationCode.yml" />
 			<parameter name="idKeyName"	value="code" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -250,7 +250,7 @@
 	</test>
 	<test name="GenerateToken">
 		<parameter name="ymlFile"
-			value="idp/GenerateToken/GenerateToken.yml" />
+			value="esignet/GenerateToken/GenerateToken.yml" />
 			<parameter name="idKeyName"	value="access_token" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
@@ -258,14 +258,14 @@
 	</test>
 	<test name="GetOidcUserInfo">
 		<parameter name="ymlFile"
-			value="idp/GetOidcUserInfo/GetOidcUserInfo.yml" />
+			value="esignet/GetOidcUserInfo/GetOidcUserInfo.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="CreateOIDCClient">
 		<parameter name="ymlFile"
-			value="idp/CreateOIDCClient/CreateOIDCClient.yml" />
+			value="esignet/CreateOIDCClient/CreateOIDCClient.yml" />
 			<parameter name="idKeyName"	value="clientId" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
@@ -273,7 +273,7 @@
 	</test> 
 	<test name="UpdateOIDCClient">
 		<parameter name="ymlFile"
-			value="idp/UpdateOIDCClient/UpdateOIDCClient.yml" />
+			value="esignet/UpdateOIDCClient/UpdateOIDCClient.yml" />
 		<parameter name="pathParams" value="clientId" />
 		<classes>
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
@@ -283,7 +283,7 @@
 
 <!--
 	<test name="KycCreateAuthReq">
-		<parameter name="ymlFile" value="idp/KycDemoAuth/KycCreateAuthReq.yml" />
+		<parameter name="ymlFile" value="esignet/KycDemoAuth/KycCreateAuthReq.yml" />
 		<parameter name="idKeyName"	value="authReqBody,authSignature" />
 		<parameter name="queryParams" value="id,idType,isKyc,Authtype,isInternal,transactionId,isNewInternalAuth,isPreLTS,signWithMisp,partnerName" />
 		<classes>
@@ -291,7 +291,7 @@
 		</classes>
 	</test>
 	<test name="KycAuth">
-		<parameter name="ymlFile" value="idp/KycDemoAuth/KycAuth.yml" />
+		<parameter name="ymlFile" value="esignet/KycDemoAuth/KycAuth.yml" />
 		<parameter name="pathParams" value="idpLk,partnerID,oidcClientId" />
 		<parameter name="headers" value="signature" />
 		<classes>
@@ -299,14 +299,14 @@
 		</classes>
 	</test>
 	<test name="KycDemoAuth">
-		<parameter name="ymlFile" value="idp/KycDemoAuth/KycDemoAuth.yml" />
+		<parameter name="ymlFile" value="esignet/KycDemoAuth/KycDemoAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.KycAuth" />
 		</classes>
 	</test>
 	<test name="KycAuth">
-		<parameter name="ymlFile" value="idp/KycAuth/KycAuth.yml" />
+		<parameter name="ymlFile" value="esignet/KycAuth/KycAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testscripts.KycAuth" />
@@ -314,49 +314,49 @@
 	</test>
 	<test name="LinkedSendOtp">
 		<parameter name="ymlFile"
-			value="idp/LinkedSendOtp/LinkedSendOtp.yml" />
+			value="esignet/LinkedSendOtp/LinkedSendOtp.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="LinkedValidateBinding">
 		<parameter name="ymlFile"
-			value="idp/LinkedValidateBinding/LinkedValidateBinding.yml" />
+			value="esignet/LinkedValidateBinding/LinkedValidateBinding.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="IntrospectToken">
 		<parameter name="ymlFile"
-			value="idp/IntrospectToken/IntrospectToken.yml" />
+			value="esignet/IntrospectToken/IntrospectToken.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
 	</test>
 	<test name="GetJSONWebKeySet">
 		<parameter name="ymlFile"
-			value="idp/GetJSONWebKeySet/GetJSONWebKeySet.yml" />
+			value="esignet/GetJSONWebKeySet/GetJSONWebKeySet.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="AuthorizationEndpoint">
 		<parameter name="ymlFile"
-			value="idp/AuthorizationEndpoint/AuthorizationEndpoint.yml" />
+			value="esignet/AuthorizationEndpoint/AuthorizationEndpoint.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParam" />
 		</classes>
 	</test>
  	<test name="ConfigurationEndpoint">
 		<parameter name="ymlFile"
-			value="idp/ConfigurationEndpoint/ConfigurationEndpoint.yml" />
+			value="esignet/ConfigurationEndpoint/ConfigurationEndpoint.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="LinkedAuthenticationOtp">
 		<parameter name="ymlFile"
-			value="idp/LinkedAuthenticationOtp/LinkedAuthenticationOtp.yml" />
+			value="esignet/LinkedAuthenticationOtp/LinkedAuthenticationOtp.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>

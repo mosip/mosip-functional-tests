@@ -84,7 +84,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		int maxLoopCount =Integer.parseInt(props.getProperty("uinGenMaxLoopCount"));
 		int currLoopCount = 0; 
 		while (currLoopCount < maxLoopCount) {
-			if(testCaseName.contains("IDP_")) {
+			if(testCaseName.contains("ESignet_")) {
 				String tempUrl = ApplnURI.replace("-internal", "");
 				otpResponse = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
 			}
@@ -134,7 +134,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 //			}
 //		}
 		
-		if(testCaseName.contains("IDP_")) {
+		if(testCaseName.contains("ESignet_")) {
 			String tempUrl = ApplnURI.replace("-internal", "");
 			response = postRequestWithCookieAuthHeaderAndXsrfTokenForAutoGenId(tempUrl + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 		}
@@ -176,7 +176,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
 		try {
-			if((!testCaseName.contains("IDP_")) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
+			if((!testCaseName.contains("ESignet_")) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
 				logger.info("waiting for" + props.getProperty("Delaytime")
 						+ " mili secs after VID Generation In RESIDENT SERVICES");
 				Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
