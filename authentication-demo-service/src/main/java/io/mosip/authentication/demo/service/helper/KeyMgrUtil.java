@@ -385,8 +385,8 @@ public class KeyMgrUtil {
     }
 
     
- // moduleName will be IDA or IDP or DSL-IDA
-    // IDA/IDP ---- Will passed while running the functional test rig for those modules.. this will address not able to run IDA/IDP in parallel
+ // moduleName will be IDA or ESignet or DSL-IDA
+    // IDA/ESignet ---- Will passed while running the functional test rig for those modules.. this will address not able to run IDA/ESignet in parallel
     // certsDir can be "" when we running from functional test rig..
     public String getKeysDirPath(String certsDir, String moduleName) {
       	String domain = environment.getProperty(DOMAIN_URL, "localhost").replace("https://", "").replace("http://", "").replace("/", "");

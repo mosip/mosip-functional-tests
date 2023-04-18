@@ -1,6 +1,6 @@
 KycDemoAuth:
    Esignet_KycDemoAuth_uin_all_Valid_Smoke:
-      endPoint: /v1/identity/createAuthRequest?id=$ID:AddIdentity_KycAuth_smoke_Pos_UIN$&idType=UIN&isKyc=true&isInternal=false&transactionId=1234567890&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=otp&moduleName=$MODULENAME$
+      endPoint: /v1/identity/createAuthRequest?id=$ID:AddIdentity_KycAuth_smoke_Pos_UIN$&idType=UIN&isKyc=true&isInternal=false&transactionId=$TRANSACTIONID$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=otp&moduleName=$MODULENAME$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -15,7 +15,7 @@ KycDemoAuth:
 }'
 
    Esignet_KycDemoAuth_vid_all_Valid_Smoke:
-      endPoint: /v1/identity/createAuthRequest?id=$ID:Generate_Perpetual_VID_Kyc_Valid_Smoke_sid_vid$&idType=VID&isKyc=true&isInternal=false&transactionId=1234567890&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=otp&moduleName=$MODULENAME$
+      endPoint: /v1/identity/createAuthRequest?id=$ID:Generate_Perpetual_VID_Kyc_Valid_Smoke_sid_vid$&idType=VID&isKyc=true&isInternal=false&transactionId=$TRANSACTIONID$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=otp&moduleName=$MODULENAME$
       role: resident
       restMethod: post
       validityCheckRequired: true

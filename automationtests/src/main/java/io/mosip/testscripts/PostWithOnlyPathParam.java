@@ -33,7 +33,7 @@ public class PostWithOnlyPathParam extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(PostWithOnlyPathParam.class);
 	protected String testCaseName = "";
 	public Response response = null;
-	public boolean sendIdpToken = false;
+	public boolean sendEsignetToken = false;
 	/**
 	 * get current testcaseName
 	 */
@@ -50,7 +50,7 @@ public class PostWithOnlyPathParam extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		sendIdpToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendIdpToken");
+		sendEsignetToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendEsignetToken");
 		logger.info("Started executing yml: "+ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -94,7 +94,7 @@ public class PostWithOnlyPathParam extends AdminTestUtil implements ITest {
 		}
 		
 		else {
-			response = postWithOnlyPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendIdpToken);
+			response = postWithOnlyPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
 			
 			Map<String, List<OutputValidationDto>> ouputValid = null;
 			if(testCaseName.contains("_StatusCode")) {

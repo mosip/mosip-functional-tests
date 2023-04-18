@@ -41,8 +41,8 @@ import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
-public class IdpBioAuth extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(IdpBioAuth.class);
+public class EsignetBioAuth extends AdminTestUtil implements ITest {
+	private static final Logger logger = Logger.getLogger(EsignetBioAuth.class);
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean isInternal = false;
