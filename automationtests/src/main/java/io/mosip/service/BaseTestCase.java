@@ -93,6 +93,7 @@ public class BaseTestCase {
 	public static String certsForModule = "DSL-IDA";
 	public static List<String> listOfModules = null;
 	public static List<String> languageList = new ArrayList<>();
+	public static String languageCode = null;
 	public static List<String> supportedIdType = new ArrayList<>();
 	public static KernelAuthentication kernelAuthLib = null;
 	public static CommonLibrary kernelCmnLib = null;
