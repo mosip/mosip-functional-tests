@@ -4364,49 +4364,53 @@ public class AdminTestUtil extends BaseTestCase {
 		return testCaseName;
 	}
 	
-	public static String smtpOtpHandler(String inputJson , String testCaseName) {
-		
+	public static String smtpOtpHandler(String inputJson, String testCaseName) {
+
 		JSONObject request = new JSONObject(inputJson);
 		String emailId = null;
 		String otp = null;
-		if (BaseTestCase.currentModule.equals("mobileid")||testCaseName.startsWith("auth_OTP_Auth")||testCaseName.startsWith("auth_EkycOtp")||testCaseName.startsWith("auth_MultiFactorAuth")) {
+		if (BaseTestCase.currentModule.equals("mobileid") || testCaseName.startsWith("auth_OTP_Auth")
+				|| testCaseName.startsWith("auth_EkycOtp") || testCaseName.startsWith("auth_MultiFactorAuth")
+				|| testCaseName.startsWith("Ida_EkycOtp") || testCaseName.startsWith("Ida_OTP_Auth")) {
 			if (request.has("otp")) {
-				if (request.getString("otp").endsWith("@mosip.net")) {
+				if (request.getString("otp").endsWith("@mosip.net")
+						|| request.getString("otp").endsWith("@mailinator.com")) {
 					emailId = request.get("otp").toString();
 					System.out.println(emailId);
 					// Get the otp value from email notification
 					otp = MockSMTPListener.getOtp(10, emailId);
 					request.put("otp", otp);
 					inputJson = request.toString();
-					
+
 				}
 			}
 			return inputJson;
-		} 
+		}
 		if (BaseTestCase.currentModule.equals("prereg")) {
 			if (request.has("request")) {
-				if(request.getJSONObject("request").has("otp")) {
+				if (request.getJSONObject("request").has("otp")) {
 					emailId = request.getJSONObject("request").getString("userId");
 					System.out.println(emailId);
-					// Get the otp value from email notification 
+					// Get the otp value from email notification
 					otp = MockSMTPListener.getOtp(10, emailId);
-					request.getJSONObject("request").put("otp", otp); 
+					request.getJSONObject("request").put("otp", otp);
 					inputJson = request.toString();
 				}
 			}
 			return inputJson;
 		}
-		
+
 		if (BaseTestCase.currentModule.equals("auth")) {
-			if(testCaseName.startsWith("auth_GenerateVID")||testCaseName.startsWith("auth_AuthLock")||testCaseName.startsWith("auth_AuthUnLock")||testCaseName.startsWith("auth_RevokeVID")) {
+			if (testCaseName.startsWith("auth_GenerateVID") || testCaseName.startsWith("auth_AuthLock")
+					|| testCaseName.startsWith("auth_AuthUnLock") || testCaseName.startsWith("auth_RevokeVID")) {
 				if (request.has("request")) {
-					if(request.getJSONObject("request").has("otp")) {
-						if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+					if (request.getJSONObject("request").has("otp")) {
+						if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
 							emailId = request.getJSONObject("request").get("otp").toString();
 							System.out.println(emailId);
-							// Get the otp value from email notification 
+							// Get the otp value from email notification
 							otp = MockSMTPListener.getOtp(10, emailId);
-							request.getJSONObject("request").put("otp", otp); 
+							request.getJSONObject("request").put("otp", otp);
 							inputJson = request.toString();
 						}
 					}
@@ -4414,29 +4418,33 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return inputJson;
 		}
-		
-		if (BaseTestCase.currentModule.equals("esignet")) {
+
+		if (BaseTestCase.currentModule.equals("masterdata")) {
+			if (testCaseName.startsWith("Resident_GenerateVID") || testCaseName.startsWith("IDP_AuthenticateUserIDP")) {
 				if (request.has("request")) {
-					if(request.getJSONObject("request").has("otp")) {
-						if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+					if (request.getJSONObject("request").has("otp")) {
+						if (request.getJSONObject("request").getString("otp").endsWith("@mailinator.com")) {
 							emailId = request.getJSONObject("request").get("otp").toString();
 							System.out.println(emailId);
-							// Get the otp value from email notification 
+							// Get the otp value from email notification
 							otp = MockSMTPListener.getOtp(10, emailId);
-							request.getJSONObject("request").put("otp", otp); 
+							request.getJSONObject("request").put("otp", otp);
 							inputJson = request.toString();
 						}
-					}
-					else if (request.has("request")) {
-						if(request.getJSONObject("request").has("challengeList")){
-							if(request.getJSONObject("request").getJSONArray("challengeList").length()>0){
-								if(request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).has("challenge")){
-									if(request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).getString("challenge").endsWith("@mosip.net")){
-										emailId = request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).getString("challenge");
+					} else if (request.has("request")) {
+						if (request.getJSONObject("request").has("challengeList")) {
+							if (request.getJSONObject("request").getJSONArray("challengeList").length() > 0) {
+								if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+										.has("challenge")) {
+									if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+											.getString("challenge").endsWith("@mailinator.com")) {
+										emailId = request.getJSONObject("request").getJSONArray("challengeList")
+												.getJSONObject(0).getString("challenge");
 										System.out.println(emailId);
 										// Get the otp value from email notification
 										otp = MockSMTPListener.getOtp(10, emailId);
-										request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).put("challenge", otp);
+										request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+												.put("challenge", otp);
 										inputJson = request.toString();
 									}
 								}
@@ -4444,39 +4452,79 @@ public class AdminTestUtil extends BaseTestCase {
 						}
 						return inputJson;
 					}
-					
 				}
-				return inputJson;
+
+			}
+			return inputJson;
 		}
-			
-		if (BaseTestCase.currentModule.equals("resident")){
+
+		if (BaseTestCase.currentModule.equals("esignet")) {
 			if (request.has("request")) {
-				if(request.getJSONObject("request").has("otp")) {
-					if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+				if (request.getJSONObject("request").has("otp")) {
+					if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
 						emailId = request.getJSONObject("request").get("otp").toString();
 						System.out.println(emailId);
-						// Get the otp value from email notification 
+						// Get the otp value from email notification
 						otp = MockSMTPListener.getOtp(10, emailId);
-						request.getJSONObject("request").put("otp", otp); 
+						request.getJSONObject("request").put("otp", otp);
 						inputJson = request.toString();
 					}
+				} else if (request.has("request")) {
+					if (request.getJSONObject("request").has("challengeList")) {
+						if (request.getJSONObject("request").getJSONArray("challengeList").length() > 0) {
+							if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+									.has("challenge")) {
+								if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+										.getString("challenge").endsWith("@mosip.net")) {
+									emailId = request.getJSONObject("request").getJSONArray("challengeList")
+											.getJSONObject(0).getString("challenge");
+									System.out.println(emailId);
+									// Get the otp value from email notification
+									otp = MockSMTPListener.getOtp(10, emailId);
+									request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+											.put("challenge", otp);
+									inputJson = request.toString();
+								}
+							}
+						}
+					}
+					return inputJson;
 				}
-				else if(request.getJSONObject("request").has("challengeList")){
-					if(request.getJSONObject("request").getJSONArray("challengeList").length()>0){
-						if(request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).has("challenge")){
-							if(request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).getString("challenge").endsWith("@mosip.net")){
-								emailId = request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).getString("challenge");
+			}
+
+		}
+
+		if (BaseTestCase.currentModule.equals("resident")) {
+			if (request.has("request")) {
+				if (request.getJSONObject("request").has("otp")) {
+					if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+						emailId = request.getJSONObject("request").get("otp").toString();
+						System.out.println(emailId);
+						// Get the otp value from email notification
+						otp = MockSMTPListener.getOtp(10, emailId);
+						request.getJSONObject("request").put("otp", otp);
+						inputJson = request.toString();
+					}
+				} else if (request.getJSONObject("request").has("challengeList")) {
+					if (request.getJSONObject("request").getJSONArray("challengeList").length() > 0) {
+						if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+								.has("challenge")) {
+							if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+									.getString("challenge").endsWith("@mosip.net")) {
+								emailId = request.getJSONObject("request").getJSONArray("challengeList")
+										.getJSONObject(0).getString("challenge");
 								System.out.println(emailId);
 								// Get the otp value from email notification
 								otp = MockSMTPListener.getOtp(10, emailId);
-								request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).put("challenge", otp);
+								request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+										.put("challenge", otp);
 								inputJson = request.toString();
 							}
 						}
 					}
 				}
 			}
-		
+
 			return inputJson;
 		}
 		return inputJson;
