@@ -1,0 +1,17 @@
+KycDemoAuth:
+   Esignet_KycDemoAuth_all_Valid_Smoke:
+      endPoint: /idauthentication/v1/kyc-auth/delegated/{idpLk}​/{partnerID}​/{oidcClientId}
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/KycDemoAuth/KycAuth
+      outputTemplate: esignet/KycDemoAuth/KycAuthResult
+      input: '{
+      	"idpLk": "$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​",
+      	"partnerID": "$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$",
+      	"oidcClientId": "$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$",
+      	"signature": "$ID:KycCreateAuthReq_AuthDemoUrl_all_Valid_Smoke_sid_authSignature$",
+      	"request": "$ID:KycCreateAuthReq_AuthDemoUrl_all_Valid_Smoke_sid_authReqBody$"
+}'
+      output: '{
+        "kycStatus": "true"
+}'

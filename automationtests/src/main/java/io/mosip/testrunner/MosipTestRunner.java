@@ -77,7 +77,7 @@ public class MosipTestRunner {
 		KeycloakUserManager.createUsers();  //Langauge Independent
 		
 		
-		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains("idp")) {
+		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains("esignet")) {
 //			if(BaseTestCase.listOfModules.contains("auth")) {
 //				LOGGER.info("waiting for " + "300000"
 //				+ " mili secs for auth certificate generation");
@@ -126,7 +126,7 @@ public class MosipTestRunner {
 		
 		//KeycloakUserManager.removeUser();
 		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("prereg")
-				|| BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("idp")) {
+				|| BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")) {
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.bTerminate = true;
 		}

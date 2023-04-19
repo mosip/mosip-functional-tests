@@ -78,7 +78,7 @@ public class BaseTestCase {
 	public String adminCookie = null;
 	public String partnerCookie = null;
 	public String partnerNewCookie = null;
-	public String idpPartnerCookie = null;
+	public String esignetPartnerCookie = null;
 	public String policytestCookie = null;
 	public String residentCookie = null;
 	public HashMap<String, String> residentNewCookie = new HashMap<>();
@@ -129,27 +129,27 @@ public class BaseTestCase {
 
 	public static String genPolicyNumber = "9" + RandomStringUtils.randomNumeric(5);
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
-	public String genPolicyGroupDesc = "policyGroupForAutomationIdp" + RandomStringUtils.randomNumeric(6);
-	public String genMispPolicyGroupDesc = "policyGroupForMispIdp" + RandomStringUtils.randomNumeric(6)
+	public String genPolicyGroupDesc = "policyGroupForAutomationEsi" + RandomStringUtils.randomNumeric(6);
+	public String genMispPolicyGroupDesc = "policyGroupForMispEsi" + RandomStringUtils.randomNumeric(6)
 			+ RandomStringUtils.randomNumeric(3);
-	public String genPolicyGroupName = "policyGroupNameForAutomationIdp" + RandomStringUtils.randomNumeric(5);
-	public String genMispPolicyGroupName = "policyGroupNameForMispIdp" + RandomStringUtils.randomNumeric(6)
+	public String genPolicyGroupName = "policyGroupNameForAutomationEsi" + RandomStringUtils.randomNumeric(5);
+	public String genMispPolicyGroupName = "policyGroupNameForMispEsi" + RandomStringUtils.randomNumeric(6)
 			+ RandomStringUtils.randomNumeric(3);
-	public String genPolicyDesc = "policyDescForAutomationIdp" + RandomStringUtils.randomNumeric(5);
-	public String genMispPolicyDesc = "policyDescForMispIdp" + RandomStringUtils.randomNumeric(6)
+	public String genPolicyDesc = "policyDescForAutomationEsi" + RandomStringUtils.randomNumeric(5);
+	public String genMispPolicyDesc = "policyDescForMispEsit" + RandomStringUtils.randomNumeric(6)
 			+ RandomStringUtils.randomNumeric(3);
-	public String genPolicyName = "policyNameForAutomationIdp" + RandomStringUtils.randomNumeric(4);
-	public String genMispPolicyName = "policyNameForMispIdp" + RandomStringUtils.randomNumeric(6)
+	public String genPolicyName = "policyNameForAutomationEsi" + RandomStringUtils.randomNumeric(4);
+	public String genMispPolicyName = "policyNameForMispEsi" + RandomStringUtils.randomNumeric(6)
 			+ RandomStringUtils.randomNumeric(3);
-	public static String genPartnerName = "partnernameforautomationidp-" + RandomStringUtils.randomNumeric(6);
-	public String genPartnerNameForDsl = "partnernameforautomation-" + RandomStringUtils.randomNumeric(6);
-	public static String genMispPartnerName = "idp_" + RandomStringUtils.randomNumeric(6)
+	public static String genPartnerName = "partnernameforautomationesi-" + RandomStringUtils.randomNumeric(6);
+	public String genPartnerNameForDsl = "partnernameforautomationesi-" + RandomStringUtils.randomNumeric(6);
+	public static String genMispPartnerName = "esignet_" + RandomStringUtils.randomNumeric(6)
 			+ RandomStringUtils.randomNumeric(3);
-	public static String genPartnerEmail = "automationpartneridp" + RandomStringUtils.randomNumeric(7)
+	public static String genPartnerEmail = "automationpartneresi" + RandomStringUtils.randomNumeric(7)
 			+ "@automationMosip.com";
-	public String genPartnerEmailForDsl = "automationpartneridp" + RandomStringUtils.randomNumeric(10)
+	public String genPartnerEmailForDsl = "automationpartneresi" + RandomStringUtils.randomNumeric(10)
 	+ "@automationMosip.com";
-	public String genMispPartnerEmail = "misppartneridp" + RandomStringUtils.randomNumeric(4)
+	public String genMispPartnerEmail = "misppartner" + RandomStringUtils.randomNumeric(4)
 			+ RandomStringUtils.randomNumeric(4) + "@automationMosip.com";
 	// public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
@@ -272,12 +272,12 @@ public class BaseTestCase {
 
 		}
 
-		if (listOfModules.contains("idp")) {
+		if (listOfModules.contains("esignet")) {
 
-			BaseTestCase.currentModule = "idp";
+			BaseTestCase.currentModule = "esignet";
 			BaseTestCase.certsForModule = "esignet";
-			setReportName("idp");
-			AdminTestUtil.initiateidpTest();
+			setReportName("esignet");
+			AdminTestUtil.initiateesignetTest();
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
 
