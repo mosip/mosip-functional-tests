@@ -13,7 +13,7 @@ SendNotifications:
 	"preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
 	"appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
 	"appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
-	"mobNum":"8249742850",
+	"mobNum":"9090872300",
 	"emailID":"mosipuser123@mailinator.com",
 	"additionalRecipient":false,
 	"isBatch":false      	   
@@ -35,7 +35,7 @@ SendNotifications:
 	"preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
 	"appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
 	"appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
-	"mobNum":"8249742850",
+	"mobNum":"9090872300",
 	"emailID":"mosipuser123@mailinator.com",
 	"isBatch":true      	   
 }'
@@ -56,7 +56,7 @@ SendNotifications:
 	"preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
 	"appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
 	"appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
-	"mobNum":"8249742850",
+	"mobNum":"9090872300",
 	"emailID":"mosipuser123@mailinator.com",
 	"additionalRecipient":false,
 	"isBatch":false      	   
@@ -83,7 +83,7 @@ SendNotifications:
 	"preRegistrationId":"sadgf",
 	"appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
 	"appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
-	"mobNum":"8249742850",
+	"mobNum":"9090872300",
 	"emailID":"mosipuser123@mailinator.com",
 	"additionalRecipient":false,
 	"isBatch":false      	   
