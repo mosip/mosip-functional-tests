@@ -31,7 +31,7 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	public String idKeyName = null;
 	public Response response = null;
-	public boolean sendIdpToken = false;
+	public boolean sendEsignetToken = false;
 	/**
 	 * get current testcaseName
 	 */
@@ -48,7 +48,7 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		sendIdpToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendIdpToken");
+		sendEsignetToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendEsignetToken");
 		idKeyName = context.getCurrentXmlTest().getLocalParameters().get("idKeyName");
 		logger.info("Started executing yml: "+ymlFile);
 		return getYmlTestData(ymlFile);
@@ -72,7 +72,7 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 
 		
 		
-		response = postWithParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName, sendIdpToken);
+		response = postWithParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName, sendEsignetToken);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = null;
 		if(testCaseName.contains("_StatusCode")) {

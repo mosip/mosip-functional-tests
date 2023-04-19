@@ -223,7 +223,7 @@
 		<parameter name="ymlFile" value="esignet/BioAuthIdp/BioAuthIdp.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
-			<class name="io.mosip.testscripts.IdpBioAuth" />
+			<class name="io.mosip.testscripts.EsignetBioAuth" />
 		</classes>
 	</test>
 	<test name="SendOtp">
