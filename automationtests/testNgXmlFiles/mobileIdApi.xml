@@ -115,5 +115,12 @@
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
+	<test name="BindingOtp">
+		<parameter name="ymlFile"
+			value="mobileId/BindingOtp/BindingOtp.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
 
 </suite>
