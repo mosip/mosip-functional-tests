@@ -35,7 +35,7 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 	public Response response = null;
 	public byte[] pdf=null;
 	public String pdfAsText =null;
-	public boolean sendIdpToken = false;
+	public boolean sendEsignetToken = false;
 	/**
 	 * get current testcaseName
 	 */
@@ -52,7 +52,7 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		sendIdpToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendIdpToken");
+		sendEsignetToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendEsignetToken");
 		logger.info("Started executing yml: "+ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -69,7 +69,7 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 	public void test(TestCaseDTO testCaseDTO) throws Exception {	
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
-		pdf = getWithPathParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendIdpToken);
+		pdf = getWithPathParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
 		 try {
 			 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
 			} catch (IOException e) {

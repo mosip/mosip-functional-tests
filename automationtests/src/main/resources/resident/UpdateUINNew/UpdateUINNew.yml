@@ -8,7 +8,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
         "status": "Success",
@@ -24,7 +25,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567789",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
         "status": "Success",
@@ -40,7 +42,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -60,7 +63,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "15sdsf#$%",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -80,7 +84,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "$REMOVE$",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -100,7 +105,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -120,7 +126,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
-        "consent" : "shbj$%^u"
+        "consent" : "shbj$%^u",
+        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -140,7 +147,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
-        "consent" : "$REMOVE$"
+        "consent" : "$REMOVE$",
+        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -160,7 +168,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
-        "consent" : ""
+        "consent" : "",
+        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -180,7 +189,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "dsg#$$",
 		"transactionID": "1234567889",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -200,7 +210,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$REMOVE$",
 		"transactionID": "1234567889",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -220,7 +231,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "",
 		"transactionID": "1234567889",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -240,7 +252,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "15sdsf#$%",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -260,7 +273,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "$REMOVE$",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -280,7 +294,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -300,7 +315,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567789",
-        "consent" : "shbj$%^u"
+        "consent" : "shbj$%^u",
+        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -320,7 +336,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567789",
-        "consent" : "$REMOVE$"
+        "consent" : "$REMOVE$",
+        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -340,7 +357,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567789",
-        "consent" : ""
+        "consent" : "",
+        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -360,7 +378,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "dsg#$$",
 		"transactionID": "1234567789",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -380,7 +399,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "$REMOVE$",
 		"transactionID": "1234567789",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -400,7 +420,8 @@ UpdateUINNew:
       input: '{
 		"requesttime": "",
 		"transactionID": "1234567789",
-        "consent" : "Accepted"
+        "consent" : "Accepted",
+        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [

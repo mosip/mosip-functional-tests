@@ -2,12 +2,11 @@ GetValidDocumentByLangCode:
    Resident_GetValidDocumentByLangCode_All_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
       role: resident
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
       outputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCodeResult
       input: '{
-      "langCode": "eng"
+      "langCode": "$1STLANG$"
 }'
       output: '{
 	  "response": [{
@@ -38,12 +37,11 @@ GetValidDocumentByLangCode:
    Resident_GetValidDocumentByLangCode_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
       role: resident
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
       outputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCodeResult
       input: '{
-      "langCode": "eng"
+      "langCode": "$1STLANG$"
 }'
       output: '{
 	  "response": [{

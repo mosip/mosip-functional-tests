@@ -2,12 +2,11 @@ GetRegistrationCenterWorkingDays:
    Resident_GetRegistrationCenterWorkingDays_allValid_smoke:
       endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: resident
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
       outputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDaysResult
       input: '{
-  "langCode": "eng",
+  "langCode": "$1STLANG$",
   "registrationCenterID": "10011"
 }'
       output: '{
@@ -36,12 +35,11 @@ GetRegistrationCenterWorkingDays:
    Resident_GetRegistrationCenterWorkingDays_Invalid_registrationCenterID:
       endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: resident
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
       outputTemplate: resident/error
       input: '{
-  "langCode": "eng",
+  "langCode": "$1STLANG$",
   "registrationCenterID": "1001112"
 }'
       output: '{

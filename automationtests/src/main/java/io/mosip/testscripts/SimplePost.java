@@ -36,7 +36,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePost.class);
 	protected String testCaseName = "";
 	public Response response = null;
-	public boolean sendIdpToken = false;
+	public boolean sendEsignetToken = false;
 	/**
 	 * get current testcaseName
 	 */
@@ -53,7 +53,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		sendIdpToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendIdpToken");
+		sendEsignetToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendEsignetToken");
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -111,8 +111,8 @@ public class SimplePost extends AdminTestUtil implements ITest {
 
 		else {
 			String tempUrl = ApplnURI.replace("-internal", "");
-			if(testCaseName.contains("IDP_")) {
-				if(testCaseName.contains("IDP_SendBindingOtp")) {
+			if(testCaseName.contains("ESignet_")) {
+				if(testCaseName.contains("ESignet_SendBindingOtp")) {
 					response = postRequestWithCookieAuthHeader(tempUrl + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 				}
 				else {
@@ -128,7 +128,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			else {
 				response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 						inputJson, COOKIENAME,
-						testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendIdpToken);
+						testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
 			}
 			Map<String, List<OutputValidationDto>> ouputValid = null;
 			if(testCaseName.contains("_StatusCode")) {

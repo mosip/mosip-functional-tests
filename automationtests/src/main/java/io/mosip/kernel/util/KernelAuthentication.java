@@ -68,8 +68,8 @@ public class KernelAuthentication extends BaseTestCase{
 	private String authInternalRequest="config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp= props.get("preregSendOtp");
 	private String preregValidateOtp= props.get("preregValidateOtp");
-	private static File IDPUINCookiesFile = new File("src/main/resources/IDPUINCookiesResponse.txt");
-	private static File IDPVIDCookiesFile = new File("src/main/resources/IDPVIDCookiesResponse.txt");
+	private static File ESignetUINCookiesFile = new File("src/main/resources/ESignetUINCookiesResponse.txt");
+	private static File ESignetVIDCookiesFile = new File("src/main/resources/ESignetVIDCookiesResponse.txt");
 
 	public String getTokenByRole(String role) {
 		return getTokenByRole(role, null);
@@ -116,10 +116,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(partnerNewCookie))
 				partnerNewCookie = kernelAuthLib.getAuthForNewPartner();
 			return partnerNewCookie;
-		case "idppartner":
-			if(!kernelCmnLib.isValidToken(idpPartnerCookie))
-				idpPartnerCookie = kernelAuthLib.getAuthForNewPartnerIdp();
-			return idpPartnerCookie;
+		case "esignetpartner":
+			if(!kernelCmnLib.isValidToken(esignetPartnerCookie))
+				esignetPartnerCookie = kernelAuthLib.getAuthForNewPartnerEsignet();
+			return esignetPartnerCookie;
 		case "policytest":
 			if(!kernelCmnLib.isValidToken(policytestCookie))
 				policytestCookie = kernelAuthLib.getAuthForPolicytest();
@@ -140,11 +140,11 @@ public class KernelAuthentication extends BaseTestCase{
 			return residentCookie;
 		case "residentnew":
 			if(!kernelCmnLib.isValidToken(residentNewCookie.get(tokenType)))
-				residentNewCookie = getAuthFromIdp(IDPUINCookiesFile);
+				residentNewCookie = getAuthFromEsignet(ESignetUINCookiesFile);
 			return residentNewCookie.get(tokenType).toString();
 		case "residentnewvid":
 			if(!kernelCmnLib.isValidToken(residentNewVidCookie.get(tokenType)))
-				residentNewVidCookie = getAuthFromIdp(IDPVIDCookiesFile);
+				residentNewVidCookie = getAuthFromEsignet(ESignetVIDCookiesFile);
 			return residentNewVidCookie.get(tokenType).toString();
 		case "residentnewKc":
 			if(!kernelCmnLib.isValidToken(residentNewCookieKc))
@@ -178,17 +178,17 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	
 	@SuppressWarnings("unchecked")
-	public HashMap<String, String> getAuthFromIdp(File fileName) {
+	public HashMap<String, String> getAuthFromEsignet(File fileName) {
 		HashMap<String, String> tokens = new HashMap<String, String>();
 		if (fileName.exists()) {
-			String IDPCookiesFileString = null;
+			String ESignetCookiesFileString = null;
 			try {
-				IDPCookiesFileString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
+				ESignetCookiesFileString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			org.json.JSONObject jsonCookies = new org.json.JSONObject(IDPCookiesFileString);
+			org.json.JSONObject jsonCookies = new org.json.JSONObject(ESignetCookiesFileString);
 			tokens.put("access_token", jsonCookies.get("access_token").toString());
 			tokens.put("id_token", jsonCookies.get("id_token").toString());
 //			System.out.println("JSON " + jsonCookies);
@@ -196,7 +196,7 @@ public class KernelAuthentication extends BaseTestCase{
 //			System.out.println("id_token " + jsonCookies.get("id_token"));
 //			System.out.println("access_token " + jsonCookies.get("access_token"));
 		} else {
-			logger.error("IDPCookiesFile File not Found in location:" + fileName.getAbsolutePath());
+			logger.error("ESignetCookiesFile File not Found in location:" + fileName.getAbsolutePath());
 		}
 	return tokens;
 	}
@@ -278,7 +278,7 @@ public class KernelAuthentication extends BaseTestCase{
 	}
 	
 	@SuppressWarnings({ "unchecked" })
-	public String getAuthForNewPartnerIdp() {		
+	public String getAuthForNewPartnerEsignet() {		
 		
 		JSONObject request=new JSONObject();
 		request.put("appId", ConfigManager.getPmsAppId());

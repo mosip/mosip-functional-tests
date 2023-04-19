@@ -2,12 +2,11 @@ GetCoordinateSpecificRegistrationCenters:
    Resident_GetCoordinateSpecificRegistrationCenters_allValid_smoke:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCentersResult
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "34.52117",
 	  "proximitydistance": "21",
 	  "longitude": "-6.453275"
@@ -66,12 +65,11 @@ GetCoordinateSpecificRegistrationCenters:
    Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Latitude:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/error
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "134.52117",
 	  "proximitydistance": "21",
 	  "longitude": "-6.453275"
@@ -89,12 +87,11 @@ GetCoordinateSpecificRegistrationCenters:
    Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Random_Proximity_Distance:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/error
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "34.52117",
 	  "proximitydistance": "tt",
 	  "longitude": "-6.453275"
@@ -111,12 +108,11 @@ GetCoordinateSpecificRegistrationCenters:
    Resident_GetCoordinateSpecificRegistrationCenters_Random_Longitude:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/error
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "34.52117",
 	  "proximitydistance": "21",
 	  "longitude": "tt"
@@ -133,12 +129,11 @@ GetCoordinateSpecificRegistrationCenters:
    Resident_GetCoordinateSpecificRegistrationCenters_Random_Latitude:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/error
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "tt",
 	  "proximitydistance": "21",
 	  "longitude": "-6.453275"
@@ -155,12 +150,11 @@ GetCoordinateSpecificRegistrationCenters:
    Resident_GetCoordinateSpecificRegistrationCenters_Valid_smoke:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCentersResult
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "34.52117",
 	  "proximitydistance": "100",
 	  "longitude": "-6.453275"
@@ -217,12 +211,11 @@ GetCoordinateSpecificRegistrationCenters:
    Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Latitude_Neg:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/error
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "134.52117",
 	  "proximitydistance": "100",
 	  "longitude": "-6.453275"
@@ -244,7 +237,7 @@ GetCoordinateSpecificRegistrationCenters:
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/error
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "34.52117",
 	  "proximitydistance": "0",
 	  "longitude": "-6.453275"
@@ -261,12 +254,11 @@ GetCoordinateSpecificRegistrationCenters:
    Resident_GetCoordinateSpecificRegistrationCenters_Invalid_Longitude:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/error
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "34.52117",
 	  "proximitydistance": "21",
 	  "longitude": "999"
@@ -299,12 +291,11 @@ GetCoordinateSpecificRegistrationCenters:
    Resident_GetCoordinateSpecificRegistrationCenters_Empty_Latitude_Neg:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/error
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "",
 	  "proximitydistance": "21",
 	  "longitude": "-6.453275"
@@ -316,12 +307,11 @@ GetCoordinateSpecificRegistrationCenters:
    Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/error
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "34.52117",
 	  "proximitydistance": "21",
 	  "longitude": ""

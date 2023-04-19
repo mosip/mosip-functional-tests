@@ -2,13 +2,12 @@ GetResidentValidDocuments:
    Resident_GetResidentValidDocuments_all_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
       role: resident
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
       outputTemplate: resident/GetResidentValidDocuments/getResidentValidDocumentsResult
       input: '{
       	"applicantId": "001",
-		"langCode":"tam"
+		"langCode":"$1STLANG$"
 }'
       output: '{
     	"code": "$IGNORE$",
@@ -40,13 +39,12 @@ GetResidentValidDocuments:
    Resident_GetResidentValidDocuments_Invalid_ApplicantId:
       endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
       role: resident
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
       outputTemplate: resident/error
       input: '{
       	"applicantId": "tt",
-		"langCode":"tam"
+		"langCode":"$1STLANG$"
 }'
       output: '{
     	"errors": [
@@ -73,13 +71,12 @@ GetResidentValidDocuments:
    Resident_GetResidentValidDocuments_Empty_ApplicantId_Neg:
       endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
       role: resident
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
       outputTemplate: resident/error
       input: '{
       	"applicantId": "",
-		"langCode":"tam"
+		"langCode":"$1STLANG$"
 }'
       output: '{
 }'

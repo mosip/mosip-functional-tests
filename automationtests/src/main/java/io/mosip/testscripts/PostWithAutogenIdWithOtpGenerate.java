@@ -84,7 +84,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		int maxLoopCount =Integer.parseInt(props.getProperty("uinGenMaxLoopCount"));
 		int currLoopCount = 0; 
 		while (currLoopCount < maxLoopCount) {
-			if(testCaseName.contains("IDP_")) {
+			if(testCaseName.contains("ESignet_")) {
 				String tempUrl = ApplnURI.replace("-internal", "");
 				otpResponse = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
 			}
@@ -120,21 +120,21 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at otp output validation");
 		
-		if(testCaseName.contains("_eotp")) {
-			try {
-				logger.info("waiting for " + props.getProperty("expireOtpTime")
-				+ " mili secs to test expire otp case in RESIDENT Service");
-				Thread.sleep(Long.parseLong(props.getProperty("expireOtpTime")));
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+//		if(testCaseName.contains("_eotp")) {
+//			try {
+//				logger.info("waiting for " + props.getProperty("expireOtpTime")
+//				+ " mili secs to test expire otp case in RESIDENT Service");
+//				Thread.sleep(Long.parseLong(props.getProperty("expireOtpTime")));
+//			} catch (NumberFormatException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
 		
-		if(testCaseName.contains("IDP_")) {
+		if(testCaseName.contains("ESignet_")) {
 			String tempUrl = ApplnURI.replace("-internal", "");
 			response = postRequestWithCookieAuthHeaderAndXsrfTokenForAutoGenId(tempUrl + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 		}
@@ -176,7 +176,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
 		try {
-			if((!testCaseName.contains("IDP_")) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
+			if((!testCaseName.contains("ESignet_")) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
 				logger.info("waiting for" + props.getProperty("Delaytime")
 						+ " mili secs after VID Generation In RESIDENT SERVICES");
 				Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
