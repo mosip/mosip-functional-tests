@@ -229,11 +229,11 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
-		if (BaseTestCase.currentModule.equals("prereg")||BaseTestCase.currentModule.equals("auth")||BaseTestCase.currentModule.equals("resident")) {
+		if (BaseTestCase.currentModule.equals("prereg") || BaseTestCase.currentModule.equals("auth")
+				|| BaseTestCase.currentModule.equals("resident") || BaseTestCase.currentModule.equals("masterdata")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
-		
-		
+
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
@@ -316,6 +316,10 @@ public class AdminTestUtil extends BaseTestCase {
 				transactionId = request.getJSONObject("request").get("transactionId").toString();
 			}
 		}
+		inputJson = request.toString();
+		if (BaseTestCase.currentModule.equals("masterdata")) {
+			inputJson = smtpOtpHandler(inputJson, testCaseName);
+		}
 		System.out.println("encodedhash = " + encodedResp);
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
@@ -323,10 +327,10 @@ public class AdminTestUtil extends BaseTestCase {
 		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(request.toString()) + "</pre>");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
-			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, request.toString(),
-					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
+			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, cookieName, token, headers);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
@@ -357,21 +361,20 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
-		
+
 		inputJson = request.toString();
 		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals("esignet") ||BaseTestCase.currentModule.equals("resident")) {
+				|| BaseTestCase.currentModule.equals("esignet") || BaseTestCase.currentModule.equals("resident")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
-		
 
 		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
-			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson,
-					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
+			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, cookieName, token, headers);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			if (testCaseName.toLowerCase().contains("_sid")) {
@@ -616,10 +619,11 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName, boolean bothAccessAndIdToken) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		if (BaseTestCase.currentModule.equals("mobileid")||BaseTestCase.currentModule.equals("auth")||BaseTestCase.currentModule.equals("resident")){
+		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("auth")
+				|| BaseTestCase.currentModule.equals("resident") || BaseTestCase.currentModule.equals("masterdata")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
-		
+
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
@@ -653,7 +657,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (url.contains("ID:"))
 			url = inputJsonKeyWordHandeler(url, testCaseName);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		if (BaseTestCase.currentModule.equals("auth")||BaseTestCase.currentModule.equals("resident")) {
+		if (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("resident")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		token = kernelAuthLib.getTokenByRole(role);
@@ -721,10 +725,11 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = inputJsonKeyWordHandeler(url, testCaseName);
 		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals("esignet")||BaseTestCase.currentModule.equals("resident")) {
+				|| BaseTestCase.currentModule.equals("esignet") || BaseTestCase.currentModule.equals("resident")
+				|| BaseTestCase.currentModule.equals("masterdata")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
-		}		
-		
+		}
+
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
