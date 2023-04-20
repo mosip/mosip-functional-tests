@@ -8,13 +8,13 @@ OTPInternalAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -26,7 +26,7 @@ OTPInternalAuth:
       output: '{
   "authStatus": "true",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "XXXXXX8538",
         "sendOtpResTemplate":"ida/OtpInternalAuth/sendOtpRes",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"
@@ -41,13 +41,13 @@ OTPInternalAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "6053189263576413",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "6053189263576413",
     "individualIdType": "VID",
@@ -59,7 +59,7 @@ OTPInternalAuth:
       output: '{
   "authStatus": "true",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "XXXXXX8538",
         "sendOtpResTemplate":"ida/OtpInternalAuth/sendOtpRes",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"
@@ -74,13 +74,13 @@ OTPInternalAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "45363739490101816352722838733773",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -98,7 +98,7 @@ OTPInternalAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "XXXXXX8538",
         "sendOtpResTemplate":"ida/OtpInternalAuth/sendOtpRes",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"
@@ -113,13 +113,13 @@ OTPInternalAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -137,7 +137,7 @@ OTPInternalAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "XXXXXX8538",
         "sendOtpResTemplate":"ida/OtpInternalAuth/sendOtpRes",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"
@@ -152,13 +152,13 @@ OTPInternalAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$REMOVE$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -176,7 +176,7 @@ OTPInternalAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "XXXXXX8538",
         "sendOtpResTemplate":"ida/OtpInternalAuth/sendOtpRes",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"
@@ -197,7 +197,7 @@ OTPInternalAuth:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -215,7 +215,7 @@ OTPInternalAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "XXXXXX8538",
         "sendOtpResTemplate":"ida/OtpInternalAuth/sendOtpRes",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"
@@ -236,7 +236,7 @@ OTPInternalAuth:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -254,7 +254,7 @@ OTPInternalAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "XXXXXX8538",
         "sendOtpResTemplate":"ida/OtpInternalAuth/sendOtpRes",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"
@@ -269,13 +269,13 @@ OTPInternalAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "dhduddb7e3737382828",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -293,7 +293,7 @@ OTPInternalAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "XXXXXX8538",
         "sendOtpResTemplate":"ida/OtpInternalAuth/sendOtpRes",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"
@@ -308,13 +308,13 @@ OTPInternalAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -332,7 +332,7 @@ OTPInternalAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "XXXXXX8538",
         "sendOtpResTemplate":"ida/OtpInternalAuth/sendOtpRes",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"
@@ -347,13 +347,13 @@ OTPInternalAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "$REMOVE$",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_InternalOTP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -371,7 +371,7 @@ OTPInternalAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "XXXXXX8538",
         "sendOtpResTemplate":"ida/OtpInternalAuth/sendOtpRes",
         "maskedEmail": "XXkXXiXXb@technoforte.co.in"

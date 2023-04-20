@@ -7,7 +7,7 @@ DemoAuthNew:
       outputTemplate: ida/DemoAuth/error
       input: '{
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
       "value": "1970/07/08",
         "key": "dob"
     }'
@@ -28,7 +28,7 @@ DemoAuthNew:
       outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
       "value": "1970/07/08",
         "key": "dob"
     }'
@@ -43,7 +43,7 @@ DemoAuthNew:
       outputTemplate: ida/DemoAuth/error
       input: '{
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
       "value": "04-11-1965",
         "key": "dob"
     }'
@@ -64,7 +64,7 @@ DemoAuthNew:
       outputTemplate: ida/DemoAuth/error
       input: '{
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
       "value": "04-11-1965",
         "key": "dob"
     }'
@@ -85,7 +85,7 @@ DemoAuthNew:
       outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
       "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "key": "emailId"
     }'
@@ -100,7 +100,7 @@ DemoAuthNew:
       outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
       "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "key": "emailId"
     }'
@@ -115,7 +115,7 @@ DemoAuthNew:
       outputTemplate: ida/DemoAuth/error
       input: '{
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
       "value": "raksdgdg@@#$%RFFGVgb",
         "key": "emailId"
     }'
@@ -136,7 +136,7 @@ DemoAuthNew:
       outputTemplate: ida/DemoAuth/error
       input: '{
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
       "value": "raksdgdg@@#$%RFFGVgb",
         "key": "emailId"
     }'
@@ -163,7 +163,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -182,7 +182,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -201,7 +201,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [
@@ -227,7 +227,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [
@@ -253,7 +253,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -272,7 +272,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -291,7 +291,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -310,7 +310,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -329,7 +329,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -348,7 +348,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -367,7 +367,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -386,7 +386,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -405,7 +405,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -424,7 +424,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [
@@ -450,7 +450,7 @@ DemoAuthNew:
     }
   ],
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [
@@ -472,7 +472,7 @@ DemoAuthNew:
     "value": "51",
   "key": "age",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -487,7 +487,7 @@ DemoAuthNew:
     "value": "51",
   "key": "age",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -502,7 +502,7 @@ DemoAuthNew:
     "value": "ehdhdh",
   "key": "age",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
     "authStatus": false,
@@ -523,7 +523,7 @@ DemoAuthNew:
     "value": "ehdhdh",
   "key": "age",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
     "authStatus": false,
@@ -544,7 +544,7 @@ DemoAuthNew:
     "value": "7019858531",
   "key": "phoneNumber",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -559,7 +559,7 @@ DemoAuthNew:
     "value": "7019878538dkssjw736352521g",
   "key": "phoneNumber",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [
@@ -581,7 +581,7 @@ DemoAuthNew:
     "value": "7019878538dkssjw736352521g",
   "key": "phoneNumber",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [
@@ -603,7 +603,7 @@ DemoAuthNew:
     "value": "7019858531",
   "key": "phoneNumber",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "true"
@@ -618,7 +618,7 @@ DemoAuthNew:
     "value": "1970/07/08",
   "key": "dob",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [
@@ -639,7 +639,7 @@ DemoAuthNew:
     "value": "1970/07/08",
   "key": "dob",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [
@@ -660,7 +660,7 @@ DemoAuthNew:
       "value": "1970/07/08",
     "key": "dob",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [
@@ -671,36 +671,7 @@ DemoAuthNew:
       ],
         "authStatus": false
 }'
-  auth_DemoAuth_DOB_Invalid_transactionId_uin_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/DemoAuth/DemoAuth
-      outputTemplate: ida/DemoAuth/DemoAuthResult
-      input: '{
-      "value": "1970/07/08",
-    "key": "dob",
-        "timestamp": "$TIMESTAMP$",
-        "transactionId": "123453636372829267890"
-    }'
-      output: '{
-        "authStatus": "true"
-}'
-  auth_DemoAuth_DOB_Blank_transactionId_uin_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/DemoAuth/DemoAuth
-      outputTemplate: ida/DemoAuth/DemoAuthResult
-      input: '{
-      "value": "1970/07/08",
-    "key": "dob",
-        "timestamp": "$TIMESTAMP$",
-        "transactionId": ""
-    }'
-      output: '{
-      "authStatus": "true"
-}'
+
   auth_DemoAuth_DOB_Unlock_Valid_Smoke_UIN_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -711,7 +682,7 @@ DemoAuthNew:
       "value": "1970/07/08",
     "key": "dob",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [
@@ -733,7 +704,7 @@ DemoAuthNew:
       "value": "1970/07/08",
     "key": "dob",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
     "errors": [
@@ -754,7 +725,7 @@ DemoAuthNew:
       "value": "1970/07/08",
     "key": "dob",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
   "authStatus": "false",
@@ -775,7 +746,7 @@ DemoAuthNew:
       "value": "1970/07/08",
     "key": "dob",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [
@@ -801,7 +772,7 @@ DemoAuthNew:
       "value": "1970/07/08",
     "key": "dob",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [
@@ -823,7 +794,7 @@ DemoAuthNew:
       "value": "1970/07/08",
     "key": "dob",
         "timestamp": "$TIMESTAMP$",
-        "transactionId": "1234567890"
+        "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
       "errors": [

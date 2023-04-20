@@ -8,7 +8,7 @@ DemoAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_Positive_EKYCUIN_valid_smoke_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": true,

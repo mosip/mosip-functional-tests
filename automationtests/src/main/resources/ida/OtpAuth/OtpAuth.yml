@@ -8,13 +8,13 @@ OtpAuth:
       input: '{
          "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
         "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -30,13 +30,13 @@ OtpAuth:
       input: '{
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -51,7 +51,7 @@ OtpAuth:
       input: '{
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
       	"individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -64,7 +64,7 @@ OtpAuth:
   ],
   "authStatus": "false",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -79,7 +79,7 @@ OtpAuth:
       input: '{
          "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
       	"individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -91,7 +91,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -106,7 +106,7 @@ OtpAuth:
       input: '{
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -118,7 +118,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -133,7 +133,7 @@ OtpAuth:
       input: '{
         "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
         "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -145,7 +145,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -160,7 +160,7 @@ OtpAuth:
       input: '{
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -172,7 +172,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -187,7 +187,7 @@ OtpAuth:
       input: '{
         "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
         "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -199,7 +199,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -214,7 +214,7 @@ OtpAuth:
       input: '{
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -226,117 +226,13 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_Invalid_transactionId_uin_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/OtpAuth/OtpAuth
-      outputTemplate: ida/OtpAuth/OtpAuthResult
-      input: '{
-        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
-        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
-      	"transactionID": "76544ddffgg@@@3444",
-  		"timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_OTP_Auth_With_Invalid_transactionId_VID_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/OtpAuth/OtpAuth
-      outputTemplate: ida/OtpAuth/OtpAuthResult
-      input: '{
-        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-      	"transactionID": "76544ddffgg@@@3444",
-  		"timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_OTP_Auth_With_Blank_transactionId_uin_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/OtpAuth/OtpAuth
-      outputTemplate: ida/OtpAuth/OtpAuthResult
-      input: '{
-        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
-        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
-      	"transactionID": "",
-  		"timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_OTP_Auth_With_Blank_transactionId_VID_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/OtpAuth/OtpAuth
-      outputTemplate: ida/OtpAuth/OtpAuthResult
-      input: '{
-        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-      	"transactionID": "",
-  		"timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_OTP_Auth_With_different_transactionId_uin_neg:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/OtpAuth/OtpAuth
-      outputTemplate: ida/OtpAuth/OtpAuthResult
-      input: '{
-        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
-        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
-      	"transactionID": "1234567892",
-  		"timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
+
   auth_OTP_Auth_With_Invalid_individualIdType_VID_neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=ndjshswhw3277272&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -346,13 +242,13 @@ OtpAuth:
       input: '{
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": true,
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -367,13 +263,13 @@ OtpAuth:
       input: '{
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": true,
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -388,13 +284,13 @@ OtpAuth:
       input: '{
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",      
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -409,7 +305,7 @@ OtpAuth:
       input: '{
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-      	"transactionID": "1234567890",
+      	"transactionID": "$TRANSACTIONID$",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -425,7 +321,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"

@@ -9,7 +9,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
         "status": "Success",
@@ -26,7 +26,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567789",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
         "status": "Success",
@@ -43,7 +43,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -64,7 +64,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "15sdsf#$%",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -85,7 +85,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "$REMOVE$",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -106,7 +106,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -127,7 +127,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "shbj$%^u",
-        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -148,7 +148,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "$REMOVE$",
-        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -169,7 +169,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "",
-        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -190,7 +190,7 @@ UpdateUINNew:
 		"requesttime": "dsg#$$",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -211,7 +211,7 @@ UpdateUINNew:
 		"requesttime": "$REMOVE$",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -232,7 +232,7 @@ UpdateUINNew:
 		"requesttime": "",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -253,7 +253,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "15sdsf#$%",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -274,7 +274,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "$REMOVE$",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -295,7 +295,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -316,7 +316,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567789",
         "consent" : "shbj$%^u",
-        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -337,7 +337,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567789",
         "consent" : "$REMOVE$",
-        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -358,7 +358,7 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567789",
         "consent" : "",
-        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -379,7 +379,7 @@ UpdateUINNew:
 		"requesttime": "dsg#$$",
 		"transactionID": "1234567789",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -400,7 +400,7 @@ UpdateUINNew:
 		"requesttime": "$REMOVE$",
 		"transactionID": "1234567789",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
@@ -421,7 +421,7 @@ UpdateUINNew:
 		"requesttime": "",
 		"transactionID": "1234567789",
         "consent" : "Accepted",
-        "email": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_EMAIL$"
+        "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
