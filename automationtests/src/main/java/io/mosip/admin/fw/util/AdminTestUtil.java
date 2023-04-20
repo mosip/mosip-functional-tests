@@ -197,7 +197,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String OAUTH_HASH_HEADERNAME = "oauth-details-hash";
 	public static final String OAUTH_TRANSID_HEADERNAME = "oauth-details-key";
 	public static String encryptedSessionKeyString;
-	// These variables are created to store esignet Cookie in a file and then use it for
+	// These variables are created to store esignet Cookie in a file and then use it
+	// for
 	// some apis
 	private static File ESignetUINCookiesFile = new File("src/main/resources/ESignetUINCookiesResponse.txt");
 	private static File ESignetVIDCookiesFile = new File("src/main/resources/ESignetVIDCookiesResponse.txt");
@@ -229,11 +230,11 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
-		if (BaseTestCase.currentModule.equals("prereg")||BaseTestCase.currentModule.equals("auth")||BaseTestCase.currentModule.equals("resident")) {
+		if (BaseTestCase.currentModule.equals("prereg") || BaseTestCase.currentModule.equals("auth")
+				|| BaseTestCase.currentModule.equals("resident") || BaseTestCase.currentModule.equals("masterdata")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
-		
-		
+
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
@@ -316,6 +317,10 @@ public class AdminTestUtil extends BaseTestCase {
 				transactionId = request.getJSONObject("request").get("transactionId").toString();
 			}
 		}
+		inputJson = request.toString();
+		if (BaseTestCase.currentModule.equals("masterdata")) {
+			inputJson = smtpOtpHandler(inputJson, testCaseName);
+		}
 		System.out.println("encodedhash = " + encodedResp);
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
@@ -323,10 +328,10 @@ public class AdminTestUtil extends BaseTestCase {
 		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(request.toString()) + "</pre>");
+		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
-			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, request.toString(),
-					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
+			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, cookieName, token, headers);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
@@ -357,21 +362,20 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
-		
+
 		inputJson = request.toString();
 		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals("esignet") ||BaseTestCase.currentModule.equals("resident")) {
+				|| BaseTestCase.currentModule.equals("esignet") || BaseTestCase.currentModule.equals("resident")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
-		
 
 		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
-			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson,
-					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
+			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, cookieName, token, headers);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			if (testCaseName.toLowerCase().contains("_sid")) {
@@ -529,7 +533,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
-				logger.info("******Post request Json to EndPointUrl: " + url + " *******");
+		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
 			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
@@ -616,10 +620,11 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName, boolean bothAccessAndIdToken) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		if (BaseTestCase.currentModule.equals("mobileid")||BaseTestCase.currentModule.equals("auth")||BaseTestCase.currentModule.equals("resident")){
+		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("auth")
+				|| BaseTestCase.currentModule.equals("resident") || BaseTestCase.currentModule.equals("masterdata")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
-		
+
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
@@ -653,7 +658,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (url.contains("ID:"))
 			url = inputJsonKeyWordHandeler(url, testCaseName);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		if (BaseTestCase.currentModule.equals("auth")||BaseTestCase.currentModule.equals("resident")) {
+		if (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("resident")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		token = kernelAuthLib.getTokenByRole(role);
@@ -721,10 +726,11 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = inputJsonKeyWordHandeler(url, testCaseName);
 		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals("esignet")||BaseTestCase.currentModule.equals("resident")) {
+				|| BaseTestCase.currentModule.equals("esignet") || BaseTestCase.currentModule.equals("resident")
+				|| BaseTestCase.currentModule.equals("masterdata")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
-		}		
-		
+		}
+
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
@@ -2376,7 +2382,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (uri.contains("$TRANSACTIONID$")) {
 			uri = uri.replace("$TRANSACTIONID$", transactionId);
 		}
-		
+
 		if (uri.contains("$ID:")) {
 			String autoGenIdFileName = getAutoGenIdFileName(testCaseName);
 			uri = replaceIdWithAutogeneratedId(uri, "$ID:", autoGenIdFileName);
@@ -2404,10 +2410,15 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$CERTSDIR$")) {
 			jsonString = jsonString.replace("$CERTSDIR$", ConfigManager.getauthCertsPath());
 		}
+
+		if (jsonString.contains("$BIOVALUE$")) {
+			jsonString = jsonString.replace("$BIOVALUE$", propsBio.getProperty("BioValue"));
+		}
+
 		if (jsonString.contains("$TIMESTAMP$"))
 			jsonString = jsonString.replace("$TIMESTAMP$", generateCurrentUTCTimeStamp());
 		if (jsonString.contains("$TRANSACTIONID$"))
-			jsonString = jsonString.replace("$TRANSACTIONID$", transactionId); 
+			jsonString = jsonString.replace("$TRANSACTIONID$", transactionId);
 		if (jsonString.contains("$DATESTAMP$"))
 			jsonString = jsonString.replace("$DATESTAMP$", generateCurrentUTCDateStamp());
 		if (jsonString.contains("$TIMESTAMPL$"))
@@ -4295,8 +4306,6 @@ public class AdminTestUtil extends BaseTestCase {
 			return null;
 		}
 	}
-	
-
 
 	public static String getValueFromActuator() {
 
@@ -4358,50 +4367,54 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return testCaseName;
 	}
-	
-	public static String smtpOtpHandler(String inputJson , String testCaseName) {
-		
+
+	public static String smtpOtpHandler(String inputJson, String testCaseName) {
+
 		JSONObject request = new JSONObject(inputJson);
 		String emailId = null;
 		String otp = null;
-		if (BaseTestCase.currentModule.equals("mobileid")||testCaseName.startsWith("auth_OTP_Auth")||testCaseName.startsWith("auth_EkycOtp")||testCaseName.startsWith("auth_MultiFactorAuth")) {
+		if (BaseTestCase.currentModule.equals("mobileid") || testCaseName.startsWith("auth_OTP_Auth")
+				|| testCaseName.startsWith("auth_EkycOtp") || testCaseName.startsWith("auth_MultiFactorAuth")
+				|| testCaseName.startsWith("Ida_EkycOtp") || testCaseName.startsWith("Ida_OTP_Auth")) {
 			if (request.has("otp")) {
-				if (request.getString("otp").endsWith("@mosip.net")) {
+				if (request.getString("otp").endsWith("@mosip.net")
+						|| request.getString("otp").endsWith("@mailinator.com")) {
 					emailId = request.get("otp").toString();
 					System.out.println(emailId);
 					// Get the otp value from email notification
 					otp = MockSMTPListener.getOtp(10, emailId);
 					request.put("otp", otp);
 					inputJson = request.toString();
-					
+
 				}
 			}
 			return inputJson;
-		} 
+		}
 		if (BaseTestCase.currentModule.equals("prereg")) {
 			if (request.has("request")) {
-				if(request.getJSONObject("request").has("otp")) {
+				if (request.getJSONObject("request").has("otp")) {
 					emailId = request.getJSONObject("request").getString("userId");
 					System.out.println(emailId);
-					// Get the otp value from email notification 
+					// Get the otp value from email notification
 					otp = MockSMTPListener.getOtp(10, emailId);
-					request.getJSONObject("request").put("otp", otp); 
+					request.getJSONObject("request").put("otp", otp);
 					inputJson = request.toString();
 				}
 			}
 			return inputJson;
 		}
-		
+
 		if (BaseTestCase.currentModule.equals("auth")) {
-			if(testCaseName.startsWith("auth_GenerateVID")||testCaseName.startsWith("auth_AuthLock")||testCaseName.startsWith("auth_AuthUnLock")||testCaseName.startsWith("auth_RevokeVID")) {
+			if (testCaseName.startsWith("auth_GenerateVID") || testCaseName.startsWith("auth_AuthLock")
+					|| testCaseName.startsWith("auth_AuthUnLock") || testCaseName.startsWith("auth_RevokeVID")) {
 				if (request.has("request")) {
-					if(request.getJSONObject("request").has("otp")) {
-						if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+					if (request.getJSONObject("request").has("otp")) {
+						if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
 							emailId = request.getJSONObject("request").get("otp").toString();
 							System.out.println(emailId);
-							// Get the otp value from email notification 
+							// Get the otp value from email notification
 							otp = MockSMTPListener.getOtp(10, emailId);
-							request.getJSONObject("request").put("otp", otp); 
+							request.getJSONObject("request").put("otp", otp);
 							inputJson = request.toString();
 						}
 					}
@@ -4409,29 +4422,33 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return inputJson;
 		}
-		
-		if (BaseTestCase.currentModule.equals("esignet")) {
+
+		if (BaseTestCase.currentModule.equals("masterdata")) {
+			if (testCaseName.startsWith("Resident_GenerateVID") || testCaseName.startsWith("IDP_AuthenticateUserIDP")) {
 				if (request.has("request")) {
-					if(request.getJSONObject("request").has("otp")) {
-						if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+					if (request.getJSONObject("request").has("otp")) {
+						if (request.getJSONObject("request").getString("otp").endsWith("@mailinator.com")) {
 							emailId = request.getJSONObject("request").get("otp").toString();
 							System.out.println(emailId);
-							// Get the otp value from email notification 
+							// Get the otp value from email notification
 							otp = MockSMTPListener.getOtp(10, emailId);
-							request.getJSONObject("request").put("otp", otp); 
+							request.getJSONObject("request").put("otp", otp);
 							inputJson = request.toString();
 						}
-					}
-					else if (request.has("request")) {
-						if(request.getJSONObject("request").has("challengeList")){
-							if(request.getJSONObject("request").getJSONArray("challengeList").length()>0){
-								if(request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).has("challenge")){
-									if(request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).getString("challenge").endsWith("@mosip.net")){
-										emailId = request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).getString("challenge");
+					} else if (request.has("request")) {
+						if (request.getJSONObject("request").has("challengeList")) {
+							if (request.getJSONObject("request").getJSONArray("challengeList").length() > 0) {
+								if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+										.has("challenge")) {
+									if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+											.getString("challenge").endsWith("@mailinator.com")) {
+										emailId = request.getJSONObject("request").getJSONArray("challengeList")
+												.getJSONObject(0).getString("challenge");
 										System.out.println(emailId);
 										// Get the otp value from email notification
 										otp = MockSMTPListener.getOtp(10, emailId);
-										request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).put("challenge", otp);
+										request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+												.put("challenge", otp);
 										inputJson = request.toString();
 									}
 								}
@@ -4439,39 +4456,79 @@ public class AdminTestUtil extends BaseTestCase {
 						}
 						return inputJson;
 					}
-					
 				}
-				return inputJson;
+
+			}
+			return inputJson;
 		}
-			
-		if (BaseTestCase.currentModule.equals("resident")){
+
+		if (BaseTestCase.currentModule.equals("esignet")) {
 			if (request.has("request")) {
-				if(request.getJSONObject("request").has("otp")) {
-					if(request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+				if (request.getJSONObject("request").has("otp")) {
+					if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
 						emailId = request.getJSONObject("request").get("otp").toString();
 						System.out.println(emailId);
-						// Get the otp value from email notification 
+						// Get the otp value from email notification
 						otp = MockSMTPListener.getOtp(10, emailId);
-						request.getJSONObject("request").put("otp", otp); 
+						request.getJSONObject("request").put("otp", otp);
 						inputJson = request.toString();
 					}
+				} else if (request.has("request")) {
+					if (request.getJSONObject("request").has("challengeList")) {
+						if (request.getJSONObject("request").getJSONArray("challengeList").length() > 0) {
+							if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+									.has("challenge")) {
+								if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+										.getString("challenge").endsWith("@mosip.net")) {
+									emailId = request.getJSONObject("request").getJSONArray("challengeList")
+											.getJSONObject(0).getString("challenge");
+									System.out.println(emailId);
+									// Get the otp value from email notification
+									otp = MockSMTPListener.getOtp(10, emailId);
+									request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+											.put("challenge", otp);
+									inputJson = request.toString();
+								}
+							}
+						}
+					}
+					return inputJson;
 				}
-				else if(request.getJSONObject("request").has("challengeList")){
-					if(request.getJSONObject("request").getJSONArray("challengeList").length()>0){
-						if(request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).has("challenge")){
-							if(request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).getString("challenge").endsWith("@mosip.net")){
-								emailId = request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).getString("challenge");
+			}
+
+		}
+
+		if (BaseTestCase.currentModule.equals("resident")) {
+			if (request.has("request")) {
+				if (request.getJSONObject("request").has("otp")) {
+					if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
+						emailId = request.getJSONObject("request").get("otp").toString();
+						System.out.println(emailId);
+						// Get the otp value from email notification
+						otp = MockSMTPListener.getOtp(10, emailId);
+						request.getJSONObject("request").put("otp", otp);
+						inputJson = request.toString();
+					}
+				} else if (request.getJSONObject("request").has("challengeList")) {
+					if (request.getJSONObject("request").getJSONArray("challengeList").length() > 0) {
+						if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+								.has("challenge")) {
+							if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+									.getString("challenge").endsWith("@mosip.net")) {
+								emailId = request.getJSONObject("request").getJSONArray("challengeList")
+										.getJSONObject(0).getString("challenge");
 								System.out.println(emailId);
 								// Get the otp value from email notification
 								otp = MockSMTPListener.getOtp(10, emailId);
-								request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0).put("challenge", otp);
+								request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+										.put("challenge", otp);
 								inputJson = request.toString();
 							}
 						}
 					}
 				}
 			}
-		
+
 			return inputJson;
 		}
 		return inputJson;

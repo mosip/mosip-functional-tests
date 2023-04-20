@@ -8,7 +8,7 @@ ValidateOtp:
       input: '{
   "version": "1.0",
   "requesttime": "$TIMESTAMP$",
-  "userId": "8249742850",
+  "userId": "9090872300",
   "otp": "111111",
   "id": "mosip.pre-registration.login.useridotp"
 }'
@@ -25,7 +25,7 @@ ValidateOtp:
       input: '{
   "version": "1.0",
   "requesttime": "$TIMESTAMP$",
-  "userId": "sohan.dey@technoforte.co.in",
+  "userId": "john.doe@mailinator.com",
   "otp": "111111",
   "id": "mosip.pre-registration.login.useridotp"
 }'
