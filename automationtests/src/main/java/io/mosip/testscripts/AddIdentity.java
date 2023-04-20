@@ -118,30 +118,6 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		String jsonInput = testCaseDTO.getInput();
 
 	
-		/*
-		 * int maxSupportedLang = 10; for(int i=BaseTestCase.languageList.size();
-		 * i<maxSupportedLang; i++) { String preFix = ", { \"language\": \"$"; String
-		 * suFix = "LANG$\", \"value\": "; int langNumber = i+1;
-		 * 
-		 * String eleMent ="\"FR\" }"; jsonInput = jsonInput.replace(preFix + langNumber
-		 * + suFix+ eleMent, "");
-		 * 
-		 * eleMent ="\"Female\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
-		 * suFix+ eleMent, "");
-		 * 
-		 * eleMent ="\"Mrs Madhu.GN\" }"; jsonInput = jsonInput.replace(preFix +
-		 * langNumber + suFix+ eleMent, "");
-		 * 
-		 * 
-		 * eleMent ="\"Line1\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
-		 * suFix+ eleMent, "");
-		 * 
-		 * eleMent ="\"Line2\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
-		 * suFix+ eleMent, "");
-		 * 
-		 * eleMent ="\"Line3\" }"; jsonInput = jsonInput.replace(preFix + langNumber +
-		 * suFix+ eleMent, ""); }
-		 */
 		
 		String inputJson = getJsonFromTemplate(jsonInput, testCaseDTO.getInputTemplate(), false);
 
