@@ -6,7 +6,7 @@ RevokeVID:
       inputTemplate: ida/RevokeVID/createRevokeVID
       outputTemplate: ida/RevokeVID/createRevokeVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_create_vid_using_uin_for_revoke_smoke_Pos_UIN$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -15,7 +15,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_create_vid_using_uin_for_revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_create_vid_using_uin_for_revoke_smoke_Pos_UIN$",
     "individualIdType": "VID",

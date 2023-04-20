@@ -6,7 +6,7 @@ AuthLock:
       inputTemplate: ida/AuthLock/createAuthLock
       outputTemplate: ida/AuthLock/createAuthLockResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -15,7 +15,7 @@ AuthLock:
         "authType": [{auth: "demo"},{auth: "bio-FACE"}],
         "otp": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_UIN$",
     "individualIdType": "UIN",
@@ -39,7 +39,7 @@ AuthLock:
       inputTemplate: ida/AuthLock/createAuthLock
       outputTemplate: ida/AuthLock/createAuthLockResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_LockUIN_For_bio_valid_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -48,7 +48,7 @@ AuthLock:
         "authType": [{auth: "bio-Finger"}],
         "otp": "$ID:AddIdentity_Positive_LockUIN_For_bio_valid_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_LockUIN_For_bio_valid_smoke_UIN$",
     "individualIdType": "UIN",

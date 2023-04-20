@@ -21,7 +21,7 @@ UpdateIdentity:
     ], 
       "version": "v1",
       "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -32,7 +32,7 @@ UpdateIdentity:
       output: '{
     "status": "ACTIVATED",
     "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/UpdateIdentity/sendOtpRes",
         "maskedEmail": "$IGNORE$"

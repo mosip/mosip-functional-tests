@@ -25,94 +25,19 @@ MultiFactorAuth:
           "type": "Face",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_Face_With_InValid_transactionId_uin_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-          "bioSubType": "",
-          "bioType": "FACE",
-          "bioValue": "$FACE$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
-          "type": "Face",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "123@@###4567890",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_Face_With_Missing_transactionId_uin_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-          "bioSubType": "",
-          "bioType": "FACE",
-          "bioValue": "$FACE$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
-          "type": "Face",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
+
   auth_MultiFactorAuth_Biometric_Face_With_Valid_vid_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -139,13 +64,13 @@ MultiFactorAuth:
           "type": "Face",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -177,7 +102,7 @@ MultiFactorAuth:
           "type": "Face",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -189,88 +114,13 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_Face_With_InValid_vid_transactionId_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-          "bioSubType": "",
-          "bioType": "FACE",
-          "bioValue": "$FACE$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
-          "type": "Face",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "123@@###4567890",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_Face_With_blank_vid_transactionId_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-          "bioSubType": "",
-          "bioType": "FACE",
-          "bioValue": "$FACE$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "1873299273",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Single",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467171",
-          "type": "Face",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
+
   auth_MultiFactorAuth_Biometric_RingFinger_With_Valid_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -297,175 +147,19 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_RingFinger_With_missing_transactionId_uin_Neg:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-          "bioSubType": "Left RingFinger",
-          "bioType": "Finger",
-          "bioValue": "$LEFTRINGFINGER$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Finger",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "$REMOVE$",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": false,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_RingFinger_With_invalid_transactionId_uin_Pov:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-          "bioSubType": "Left RingFinger",
-          "bioType": "Finger",
-          "bioValue": "$LEFTRINGFINGER$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Finger",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "123@@###4567890",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_RingFinger_With_vid_InValid_transactionId:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-          "bioSubType": "Left RingFinger",
-          "bioType": "Finger",
-          "bioValue": "$LEFTRINGFINGER$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Finger",
-          "value": "1970/07/08",
-        "transactionId": "123@@###4567890",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-DEA-003",
-      "errorMessage": "$IGNORE$"
-    }
-  ],
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_RingFinger_With_vid_blank_transactionId_Neg:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-          "bioSubType": "Left RingFinger",
-          "bioType": "Finger",
-          "bioValue": "$LEFTRINGFINGER$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Finger",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": false,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
+
   auth_MultiFactorAuth_Biometric_RingFinger_With_Valid_VID_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -492,13 +186,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -530,94 +224,19 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_uin_InValid_transactionId_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-          "bioSubType": "Left MiddleFinger",
-          "bioType": "Finger",
-          "bioValue": "$LEFTMIDDLEFINGER$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Finger",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "123@@###4567890",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_uin_blank_transactionId_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-          "bioSubType": "Left MiddleFinger",
-          "bioType": "Finger",
-          "bioValue": "$LEFTMIDDLEFINGER$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Finger",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
+
   auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_Valid_VID_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -644,13 +263,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -682,13 +301,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -720,13 +339,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -758,13 +377,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -796,13 +415,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -834,13 +453,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -872,13 +491,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -910,13 +529,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -948,13 +567,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -986,13 +605,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1024,13 +643,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1062,13 +681,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1100,13 +719,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1138,13 +757,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1176,13 +795,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1214,13 +833,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1252,13 +871,13 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1290,13 +909,13 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1328,13 +947,13 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1366,13 +985,13 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1404,170 +1023,19 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_VID_InValid_transactionId_Neg:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-          "bioSubType": "Left",
-          "bioType": "Iris",
-          "bioValue": "$LEFTIRIS$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Iris",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "123@@###4567890",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": false,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_InValid_transactionId_Neg:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-          "bioSubType": "Left",
-          "bioType": "Iris",
-          "bioValue": "$LEFTIRIS$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Iris",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "123@@###4567890",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": false,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_VID_blank_transactionId_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-          "bioSubType": "Left",
-          "bioType": "Iris",
-          "bioValue": "$LEFTIRIS$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Iris",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_MultiFactorAuth_Biometric_LeftIris_With_uin_blank_transactionId_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
-      input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-          "bioSubType": "Left",
-          "bioType": "Iris",
-          "bioValue": "$LEFTIRIS$",
-          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
-          "dateTime": "$DATETIME$",
-          "deviceProviderID": "SYNCBYTE.MC01A",
-          "deviceServiceID": "",
-          "deviceServiceVersion": "SB.WIN.001",
-          "deviceProvider": "SYNCBYTE",
-          "deviceProviderId": "SYNCBYTE.LTC165",
-          "deviceSubType": "Slap",
-          "make": "Logitech",
-          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
-          "serialNo": "78467175",
-          "type": "Iris",
-          "key": "dob",
-          "value": "1970/07/08",
-        "transactionId": "",
-        "timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-    "authStatus": true,
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
+
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_blank_individualIdType_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -1594,13 +1062,13 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": true,
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1632,13 +1100,13 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": true,
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1670,7 +1138,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -1682,7 +1150,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1714,7 +1182,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -1726,7 +1194,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1758,7 +1226,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -1770,7 +1238,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1802,7 +1270,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -1814,7 +1282,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1846,7 +1314,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -1858,7 +1326,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1890,7 +1358,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -1902,7 +1370,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1934,14 +1402,14 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
     "authStatus": "$IGNORE$",
    "errors": "$IGNORE$",
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -1973,7 +1441,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -1985,7 +1453,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2017,7 +1485,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2029,7 +1497,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2061,7 +1529,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2073,7 +1541,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2105,7 +1573,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2117,7 +1585,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2149,7 +1617,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2161,7 +1629,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2193,7 +1661,7 @@ MultiFactorAuth:
           "type": "dhdhhdh@3647",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2209,7 +1677,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2241,7 +1709,7 @@ MultiFactorAuth:
           "type": "dhdhhdh@3647",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2257,7 +1725,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2289,7 +1757,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2301,7 +1769,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2333,7 +1801,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2345,7 +1813,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2377,7 +1845,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2389,7 +1857,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2421,7 +1889,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2433,7 +1901,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2465,7 +1933,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2477,7 +1945,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2509,7 +1977,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2521,7 +1989,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2553,7 +2021,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2565,7 +2033,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2597,7 +2065,7 @@ MultiFactorAuth:
           "type": "Iris",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2609,7 +2077,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2641,7 +2109,7 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2653,7 +2121,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2685,7 +2153,7 @@ MultiFactorAuth:
           "type": "Finger",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2697,7 +2165,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -2729,7 +2197,7 @@ MultiFactorAuth:
           "type": "Face",
           "key": "dob",
           "value": "1970/07/08",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
@@ -2745,7 +2213,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"

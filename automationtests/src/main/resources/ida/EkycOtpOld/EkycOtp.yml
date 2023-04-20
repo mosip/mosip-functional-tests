@@ -8,13 +8,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
@@ -26,7 +26,7 @@ EkycOtp:
       output: '{
   "kycStatus": "true",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -41,13 +41,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "$REMOVE$",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
@@ -59,7 +59,7 @@ EkycOtp:
       output: '{
   "kycStatus": "true",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -74,13 +74,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -92,7 +92,7 @@ EkycOtp:
       output: '{
   "kycStatus": "true",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -107,13 +107,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -145,13 +145,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "@@###cndjdhe77473838",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
@@ -168,7 +168,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -183,13 +183,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "@@###cndjdhe77473838",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -206,7 +206,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -221,13 +221,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
@@ -244,7 +244,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -259,13 +259,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -282,7 +282,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -297,13 +297,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$REMOVE$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
@@ -320,7 +320,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -335,13 +335,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$REMOVE$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -358,7 +358,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -379,7 +379,7 @@ EkycOtp:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
@@ -396,7 +396,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -417,7 +417,7 @@ EkycOtp:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -434,7 +434,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -455,7 +455,7 @@ EkycOtp:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
@@ -472,7 +472,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -493,7 +493,7 @@ EkycOtp:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -510,7 +510,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -525,13 +525,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "ndjshswhw3277272",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
@@ -548,7 +548,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -563,13 +563,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "ndjshswhw3277272",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -586,7 +586,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -601,13 +601,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
@@ -624,7 +624,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -639,13 +639,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -662,7 +662,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -683,7 +683,7 @@ EkycOtp:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -700,7 +700,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -721,7 +721,7 @@ EkycOtp:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
@@ -738,7 +738,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -753,13 +753,13 @@ EkycOtp:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
     "individualIdType": "UIN",
@@ -780,7 +780,7 @@ EkycOtp:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
         "maskedEmail": "$IGNORE$"
