@@ -7,6 +7,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Properties;
 import java.security.KeyPairGenerator;
@@ -14,6 +15,7 @@ import java.security.SecureRandom;
 import java.security.interfaces.RSAPublicKey;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -228,6 +230,70 @@ public class MosipTestRunner {
 			e.printStackTrace();
 		}
 		return publicKey;
+	}
+	
+	public static String generatePublicKeyForMimoto() {
+		// Generate RSA key pair
+        KeyPairGenerator keyPairGen;
+        String publicKeyStr = "";
+        String formattedPublicKey = "";
+		try {
+			keyPairGen = KeyPairGenerator.getInstance("RSA");
+			keyPairGen.initialize(2048);
+	        KeyPair keyPair = keyPairGen.generateKeyPair();
+
+	        // Get public key and encode as string
+	        PublicKey publicKey = keyPair.getPublic();
+	        byte[] publicKeyBytes = publicKey.getEncoded();
+	        publicKeyStr = Base64.getEncoder().encodeToString(publicKeyBytes);
+	     // Format public key as string
+	        formattedPublicKey = "-----BEGIN RSA PUBLIC KEY-----\n" + publicKeyStr + "\n-----END RSA PUBLIC KEY-----\n";
+
+	        // Print public key string
+	        System.out.println("PublicKeyForMimoto = " + publicKeyStr);
+	        System.out.println("formattedPublicKey = " + formattedPublicKey);
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
+//			formattedPublicKey = formattedPublicKey.replaceAll("\r\n", "\\\\n");
+//		} else {
+//			formattedPublicKey = formattedPublicKey.replaceAll("\n", "\\\\n");
+//		}		
+
+        
+		return formattedPublicKey.toString();
+		
+//		--------------------------------------------------
+		
+
+		
+//		 // Generate RSA key pair
+//        KeyPairGenerator keyPairGen;
+//        String formattedPublicKey = "";
+//		try {
+//			keyPairGen = KeyPairGenerator.getInstance("RSA");
+//			keyPairGen.initialize(2048);
+//	        KeyPair keyPair = keyPairGen.generateKeyPair();
+//
+//	        // Get public key and encode as string
+//	        PublicKey publicKey = keyPair.getPublic();
+//	        byte[] publicKeyBytes = publicKey.getEncoded();
+//	        String publicKeyBase64 = Base64.encodeBase64String(publicKeyBytes);
+////	        import org.apache.commons.codec.binary.Base64;
+//
+//	        // Format public key as string
+//	        formattedPublicKey = "-----BEGIN RSA PUBLIC KEY-----\n" + publicKeyBase64 + "\n-----END RSA PUBLIC KEY-----\n";
+//		} catch (NoSuchAlgorithmException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//        
+//
+//        // Print formatted public key string
+//        System.out.println(formattedPublicKey);
+//        return formattedPublicKey;
 	}
 
 	public static String generateJWKPublicKey() {
