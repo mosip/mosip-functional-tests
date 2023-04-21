@@ -2627,6 +2627,13 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$PUBLICKEY$", MosipTestRunner.generatePulicKey());
 			publickey = JsonPrecondtion.getJsonValueFromJson(jsonString, "request.publicKey");
 		}
+		if (jsonString.contains("$PUBLICKEYFORBINDING$")) {
+			String formattedPublicKey = MosipTestRunner.generatePublicKeyForMimoto();
+//			publickey = JsonPrecondtion.getJsonValueFromJson(jsonString, "request.publicKey");
+			jsonString = JsonPrecondtion.parseAndReturnJsonContent(jsonString,
+					formattedPublicKey, "request.publicKey");
+			System.out.println("formattedPublicKey = " + formattedPublicKey);
+		}		
 		if (jsonString.contains("$PARTNERID$")) {
 			String getPartnerId = getPartnerId(jsonString, testCaseName);
 			// jsonString = getPartnerId(jsonString, getPartnerId);
@@ -4385,10 +4392,9 @@ public class AdminTestUtil extends BaseTestCase {
 					otp = MockSMTPListener.getOtp(10, emailId);
 					request.put("otp", otp);
 					inputJson = request.toString();
-
+					return inputJson;
 				}
 			}
-			return inputJson;
 		}
 		if (BaseTestCase.currentModule.equals("prereg")) {
 			if (request.has("request")) {
@@ -4399,9 +4405,9 @@ public class AdminTestUtil extends BaseTestCase {
 					otp = MockSMTPListener.getOtp(10, emailId);
 					request.getJSONObject("request").put("otp", otp);
 					inputJson = request.toString();
+					return inputJson;
 				}
 			}
-			return inputJson;
 		}
 
 		if (BaseTestCase.currentModule.equals("auth")) {
@@ -4416,13 +4422,12 @@ public class AdminTestUtil extends BaseTestCase {
 							otp = MockSMTPListener.getOtp(10, emailId);
 							request.getJSONObject("request").put("otp", otp);
 							inputJson = request.toString();
+							return inputJson;
 						}
 					}
 				}
 			}
-			return inputJson;
 		}
-
 		if (BaseTestCase.currentModule.equals("masterdata")) {
 			if (testCaseName.startsWith("Resident_GenerateVID") || testCaseName.startsWith("IDP_AuthenticateUserIDP")) {
 				if (request.has("request")) {
@@ -4434,6 +4439,7 @@ public class AdminTestUtil extends BaseTestCase {
 							otp = MockSMTPListener.getOtp(10, emailId);
 							request.getJSONObject("request").put("otp", otp);
 							inputJson = request.toString();
+							return inputJson;
 						}
 					} else if (request.has("request")) {
 						if (request.getJSONObject("request").has("challengeList")) {
@@ -4450,19 +4456,17 @@ public class AdminTestUtil extends BaseTestCase {
 										request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
 												.put("challenge", otp);
 										inputJson = request.toString();
+										return inputJson;
 									}
 								}
 							}
 						}
-						return inputJson;
 					}
 				}
-
 			}
-			return inputJson;
 		}
 
-		if (BaseTestCase.currentModule.equals("esignet")) {
+		if (BaseTestCase.currentModule.equals("esignet")|| testCaseName.startsWith("MobileId_WalletBinding")) {
 			if (request.has("request")) {
 				if (request.getJSONObject("request").has("otp")) {
 					if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
@@ -4472,6 +4476,7 @@ public class AdminTestUtil extends BaseTestCase {
 						otp = MockSMTPListener.getOtp(10, emailId);
 						request.getJSONObject("request").put("otp", otp);
 						inputJson = request.toString();
+						return inputJson;
 					}
 				} else if (request.has("request")) {
 					if (request.getJSONObject("request").has("challengeList")) {
@@ -4523,13 +4528,12 @@ public class AdminTestUtil extends BaseTestCase {
 								request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
 										.put("challenge", otp);
 								inputJson = request.toString();
+								return inputJson;
 							}
 						}
 					}
 				}
 			}
-
-			return inputJson;
 		}
 		return inputJson;
 	}
