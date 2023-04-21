@@ -387,3 +387,360 @@ BindingOtp:
     }
   ]
 }'
+
+   MobileId_BindingOtp_vid_Invalid_individualId_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$TIMESTAMP$",
+	    "individualId": "@#DSDFD@#",
+	    "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Missing_individualId_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$TIMESTAMP$",
+	    "individualId": "$REMOVE$",
+	    "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Empty_individualId_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$TIMESTAMP$",
+	    "individualId": "",
+	    "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_identifier",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Null_individualId_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$TIMESTAMP$",
+	    "individualId": "null",
+	    "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_SpaceSeparated_otpChannels_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "E M A I L"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Invalid_OtpChannels_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "sdsgsg"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Missing_OtpChannels_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "$IGNORE$"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Empty_OtpChannels_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: ""}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Null_OtpChannels_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "null"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Missing_OtpChannel_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": "$IGNORE$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Empty_OtpChannel_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": ""
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Null_OtpChannel_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$TIMESTAMP$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": "null"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Invalid_RequestTime_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "2022-11-08T06:35:53",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Past_RequestTime_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "2022-11-07T06:51:30.195Z",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Future_RequestTime_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "2033-11-07T06:51:30.195Z",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Missing_RequestTime_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "$IGNORE$",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MobileId_BindingOtp_vid_Empty_RequestTime_Neg:
+      endPoint: /v1/mimoto/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mobileId/BindingOtp/BindingOtp
+      outputTemplate: mobileId/error
+      input: '{
+	    "requestTime": "",
+	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+	    "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

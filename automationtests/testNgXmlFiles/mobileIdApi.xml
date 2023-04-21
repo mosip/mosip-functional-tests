@@ -122,5 +122,12 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="WalletBinding">
+		<parameter name="ymlFile"
+			value="mobileId/WalletBinding/WalletBinding.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+		</classes>
+	</test>
 
 </suite>
