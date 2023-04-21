@@ -6,7 +6,7 @@ GetOrderStatus:
       inputTemplate: resident/GetOrderStatus/GetOrderStatus
       outputTemplate: resident/GetOrderStatus/GetOrderStatusResult
       input: '{
-      	"transactionId": "1234567890",
+      	"transactionId": "$TRANSACTIONID$",
 		"individualId": "7423640250"
 }'
       output: "200"

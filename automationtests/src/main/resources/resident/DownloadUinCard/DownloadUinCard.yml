@@ -6,12 +6,12 @@ DownloadUinCard:
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
       outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
       input: '{
-      	 "transactionId": "1234567890",
+      	 "transactionId": "$TRANSACTIONID$",
           "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
           "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
           "requesttime": "$TIMESTAMP$",
 	      "sendOtp":{
-		    "transactionId": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -41,7 +41,7 @@ DownloadUinCard:
           "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
           "requesttime": "$TIMESTAMP$",
 	      "sendOtp":{
-		    "transactionId": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -75,7 +75,7 @@ DownloadUinCard:
           "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
           "requesttime": "$TIMESTAMP$",
 	      "sendOtp":{
-		    "transactionId": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -104,12 +104,12 @@ DownloadUinCard:
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
       outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
       input: '{
-      	 "transactionId": "1234567890",
+      	 "transactionId": "$TRANSACTIONID$",
           "otp": "123456",
           "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
           "requesttime": "$TIMESTAMP$",
 	      "sendOtp":{
-		    "transactionId": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -138,12 +138,12 @@ DownloadUinCard:
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
       outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
       input: '{
-      	 "transactionId": "1234567890",
+      	 "transactionId": "$TRANSACTIONID$",
           "otp": "",
           "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
           "requesttime": "$TIMESTAMP$",
 	      "sendOtp":{
-		    "transactionId": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -172,12 +172,12 @@ DownloadUinCard:
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
       outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
       input: '{
-      	 "transactionId": "1234567890",
+      	 "transactionId": "$TRANSACTIONID$",
           "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
           "individualId": "Asad#@11",
           "requesttime": "$TIMESTAMP$",
 	      "sendOtp":{
-		    "transactionId": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -206,12 +206,12 @@ DownloadUinCard:
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
       outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
       input: '{
-      	 "transactionId": "1234567890",
+      	 "transactionId": "$TRANSACTIONID$",
           "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
           "individualId": "",
           "requesttime": "$TIMESTAMP$",
 	      "sendOtp":{
-		    "transactionId": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
