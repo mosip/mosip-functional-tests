@@ -6,7 +6,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/UpdateUIN/UpdateUinResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -15,7 +15,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -40,7 +40,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -49,7 +49,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -78,7 +78,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -87,7 +87,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "@345esddd",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -116,7 +116,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -125,7 +125,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$REMOVE$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -163,7 +163,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -201,7 +201,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -230,7 +230,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "@345esddd",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -239,7 +239,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -268,7 +268,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$REMOVE$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -277,7 +277,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -306,7 +306,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -315,7 +315,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -344,7 +344,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -353,7 +353,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -382,7 +382,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$REMOVE$",
@@ -391,7 +391,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -420,7 +420,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "ESTA",
@@ -429,7 +429,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -458,7 +458,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -467,7 +467,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -496,7 +496,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -505,7 +505,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",

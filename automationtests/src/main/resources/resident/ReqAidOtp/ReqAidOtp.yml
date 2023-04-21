@@ -6,7 +6,7 @@ ReqAidOtp:
       inputTemplate: resident/ReqAidOtp/ReqAidOtp
       outputTemplate: resident/ReqAidOtp/ReqAidOtpResult
       input: '{
-      	"transactionId": "1234567890",
+      	"transactionId": "$TRANSACTIONID$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -24,7 +24,7 @@ ReqAidOtp:
       inputTemplate: resident/ReqAidOtp/ReqAidOtp
       outputTemplate: resident/error
       input: '{
-      	"transactionId": "1234567890",
+      	"transactionId": "$TRANSACTIONID$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "@$$#$#",
 		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -46,7 +46,7 @@ ReqAidOtp:
       inputTemplate: resident/ReqAidOtp/ReqAidOtp
       outputTemplate: resident/error
       input: '{
-      	"transactionId": "1234567890",
+      	"transactionId": "$TRANSACTIONID$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "",
 		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -112,7 +112,7 @@ ReqAidOtp:
       inputTemplate: resident/ReqAidOtp/ReqAidOtp
       outputTemplate: resident/error
       input: '{
-      	"transactionId": "1234567890",
+      	"transactionId": "$TRANSACTIONID$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		"otpChannel": [{channel: "@##$$#"}],

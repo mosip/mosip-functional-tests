@@ -6,7 +6,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -15,7 +15,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -44,7 +44,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -53,7 +53,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -82,7 +82,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Onetimeuse_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -91,7 +91,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Onetimeuse_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -120,7 +120,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -129,7 +129,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -158,7 +158,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -167,7 +167,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -196,7 +196,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -205,7 +205,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -234,7 +234,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -243,7 +243,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -271,7 +271,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$REMOVE$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -280,7 +280,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -309,7 +309,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -318,7 +318,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -346,7 +346,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$REMOVE$",
@@ -355,7 +355,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -383,7 +383,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "@22222ggdhh",
@@ -392,7 +392,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -421,7 +421,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "",
@@ -430,7 +430,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -459,7 +459,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -468,7 +468,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -496,7 +496,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -505,7 +505,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -534,7 +534,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -543,7 +543,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -581,7 +581,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -619,7 +619,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -657,7 +657,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -686,7 +686,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -695,7 +695,7 @@ RevokeVID:
         "vidStatus": "$REMOVE$",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -723,7 +723,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -732,7 +732,7 @@ RevokeVID:
         "vidStatus": "R@223344hKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -761,7 +761,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -770,7 +770,7 @@ RevokeVID:
         "vidStatus": "",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -799,7 +799,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/RevokeVID/createRevokeVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -808,7 +808,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -832,7 +832,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/RevokeVID/createRevokeVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Temporary_3_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -841,7 +841,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Temporary_3_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -865,7 +865,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/RevokeVID/createRevokeVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_Onetimeuse_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -874,7 +874,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Onetimeuse_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -898,7 +898,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/RevokeVID/createRevokeVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -907,7 +907,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -931,7 +931,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/RevokeVID/createRevokeVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -940,7 +940,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -964,7 +964,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/RevokeVID/createRevokeVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -973,7 +973,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -997,7 +997,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -1006,7 +1006,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -1035,7 +1035,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -1044,7 +1044,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -1073,7 +1073,7 @@ RevokeVID:
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -1082,7 +1082,7 @@ RevokeVID:
         "vidStatus": "REVOKED",
         "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",

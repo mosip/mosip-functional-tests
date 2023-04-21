@@ -6,7 +6,7 @@ RevokeVIDNew:
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.revoke",
         "version": "1.0",
@@ -23,7 +23,7 @@ RevokeVIDNew:
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.revoke",
         "version": "1.0",
@@ -40,7 +40,7 @@ RevokeVIDNew:
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.revoke",
         "version": "1.0",
@@ -57,7 +57,7 @@ RevokeVIDNew:
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.revoke",
         "version": "1.0",
@@ -72,7 +72,7 @@ RevokeVIDNew:
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.revoke",
         "version": "1.0",
@@ -93,7 +93,7 @@ RevokeVIDNew:
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.revoke",
         "version": "1.0",
@@ -110,7 +110,7 @@ RevokeVIDNew:
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.revoke",
         "version": "1.0",

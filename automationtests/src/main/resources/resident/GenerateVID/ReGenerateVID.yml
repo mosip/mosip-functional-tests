@@ -6,7 +6,7 @@ ReGenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -15,7 +15,7 @@ ReGenerateVID:
         "vidType": "Perpetual",
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -39,7 +39,7 @@ ReGenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -48,7 +48,7 @@ ReGenerateVID:
         "vidType": "Temporary",
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",

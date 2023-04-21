@@ -6,7 +6,7 @@ ValidateExpiredOTP:
       inputTemplate: resident/ValidateExpiredOTP/ValidateExpiredOTP
       outputTemplate: resident/error
       input: '{
-    "transactionId": "1234567890",
+    "transactionId": "$TRANSACTIONID$",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ForEotp_Scen_smoke_Pos_UIN$",
     "otp": "$ID:AddIdentity_ForEotp_Scen_smoke_Pos_EMAIL$"
@@ -27,7 +27,7 @@ ValidateExpiredOTP:
       inputTemplate: resident/ValidateExpiredOTP/ValidateExpiredOTP
       outputTemplate: resident/error
       input: '{
-    "transactionId": "1234567890",
+    "transactionId": "$TRANSACTIONID$",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Perpetual_ForEotp_Scen_Valid_Smoke_sid_vid$",
     "otp": "$ID:AddIdentity_ForEotp_Scen_Vid_smoke_Pos_EMAIL$"
@@ -48,7 +48,7 @@ ValidateExpiredOTP:
       inputTemplate: resident/ValidateExpiredOTP/ValidateExpiredOTP
       outputTemplate: resident/error
       input: '{
-    "transactionId": "1234567890",
+    "transactionId": "$TRANSACTIONID$",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Temporary_1_ForEotp_Scen_Valid_Smoke_sid_vid$",
     "otp": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_EMAIL$"
@@ -69,7 +69,7 @@ ValidateExpiredOTP:
       inputTemplate: resident/ValidateExpiredOTP/ValidateExpiredOTP
       outputTemplate: resident/error
       input: '{
-    "transactionId": "1234567890",
+    "transactionId": "$TRANSACTIONID$",
     "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_Onetimeuse_ForEotp_Scen_Valid_Smoke_sid_vid$",
     "otp": "$ID:AddIdentity_ForEotp_Onetime_Vid_smoke_Pos_EMAIL$"

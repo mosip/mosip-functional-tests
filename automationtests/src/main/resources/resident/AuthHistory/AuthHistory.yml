@@ -6,7 +6,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/AuthHistory/authHistoryResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -14,7 +14,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -37,7 +37,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/AuthHistory/authHistoryResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
@@ -45,7 +45,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -68,7 +68,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$RE7654f",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -76,7 +76,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -104,7 +104,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$REMOVE$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -112,7 +112,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -141,7 +141,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -149,7 +149,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$REMOVE$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -185,7 +185,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -213,7 +213,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -221,7 +221,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -249,7 +249,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -257,7 +257,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -285,7 +285,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -293,7 +293,7 @@ AuthHistory:
         "version": "v@@@@@@@@@@@3333331",
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -321,7 +321,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -329,7 +329,7 @@ AuthHistory:
         "version": "$REMOVE$",
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -357,7 +357,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "@@3333434444",
@@ -365,7 +365,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -393,7 +393,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$REMOVE$",
@@ -401,7 +401,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -430,7 +430,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -438,7 +438,7 @@ AuthHistory:
         "version": "v1",
         "otp": "1@@@@11",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -467,7 +467,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/AuthHistory/authHistoryResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -475,7 +475,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -498,7 +498,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/AuthHistory/authHistoryResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -506,7 +506,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -528,7 +528,7 @@ AuthHistory:
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -536,7 +536,7 @@ AuthHistory:
         "version": "v1",
         "otp": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
     "individualIdType": "UIN",
