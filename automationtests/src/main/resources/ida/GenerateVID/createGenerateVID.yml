@@ -6,7 +6,7 @@ GenerateVID:
       inputTemplate: ida/GenerateVID/createGenerateVID
       outputTemplate: ida/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -15,7 +15,7 @@ GenerateVID:
         "vidType": "Perpetual",
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -39,7 +39,7 @@ GenerateVID:
       inputTemplate: ida/GenerateVID/createGenerateVID
       outputTemplate: ida/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_create_vid_using_uin_for_revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -48,7 +48,7 @@ GenerateVID:
         "vidType": "Perpetual",
         "otp": "$ID:AddIdentity_create_vid_using_uin_for_revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_create_vid_using_uin_for_revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -72,7 +72,7 @@ GenerateVID:
       inputTemplate: ida/GenerateVID/createGenerateVID
       outputTemplate: ida/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_for_hotlist_id_service_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -81,7 +81,7 @@ GenerateVID:
         "vidType": "Perpetual",
         "otp": "$ID:AddIdentity_for_hotlist_id_service_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_for_hotlist_id_service_Pos_UIN$",
     "individualIdType": "UIN",
@@ -105,7 +105,7 @@ GenerateVID:
       inputTemplate: ida/GenerateVID/createGenerateVID
       outputTemplate: ida/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -114,7 +114,7 @@ GenerateVID:
         "vidType": "Temporary",
         "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",

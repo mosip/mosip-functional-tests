@@ -1,5 +1,5 @@
 OAuthDetailsRequest:
-   Resident_IDP_OAuthDetailsRequest_all_Valid_Smoke_sid:
+   Resident_ESignet_OAuthDetailsRequest_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
@@ -22,7 +22,7 @@ OAuthDetailsRequest:
        
 }'
 
-   Resident_IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid:
+   Resident_ESignet_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post

@@ -8,13 +8,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -26,7 +26,7 @@ OtpAuth:
       output: '{
   "authStatus": "true",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -41,13 +41,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -59,7 +59,7 @@ OtpAuth:
       output: '{
   "authStatus": "true",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -74,13 +74,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -114,13 +114,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "@@###cndjdhe77473838",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -139,7 +139,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -154,13 +154,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "@@###cndjdhe77473838",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -179,7 +179,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -194,13 +194,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -218,7 +218,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -233,13 +233,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -257,7 +257,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -272,13 +272,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$REMOVE$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "UIN",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -296,7 +296,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -311,13 +311,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$REMOVE$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -335,7 +335,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -356,7 +356,7 @@ OtpAuth:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -374,7 +374,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -395,7 +395,7 @@ OtpAuth:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -413,7 +413,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -434,7 +434,7 @@ OtpAuth:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -452,7 +452,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -473,7 +473,7 @@ OtpAuth:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -491,7 +491,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -512,7 +512,7 @@ OtpAuth:
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -530,7 +530,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -545,13 +545,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "ndjshswhw3277272",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -569,7 +569,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -584,13 +584,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "ndjshswhw3277272",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -608,7 +608,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -623,13 +623,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -647,7 +647,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -662,13 +662,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -686,7 +686,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -701,13 +701,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "$REMOVE$",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -719,7 +719,7 @@ OtpAuth:
       output: '{
   "authStatus": "true",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -734,13 +734,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "$REMOVE$",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -752,7 +752,7 @@ OtpAuth:
       output: '{
   "authStatus": "true",
  "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"
@@ -767,13 +767,13 @@ OtpAuth:
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "transactionId": "1234567890",
+        "transactionId": "$TRANSACTIONID$",
         "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
     "individualIdType": "VID",
@@ -795,7 +795,7 @@ OtpAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
         "maskedEmail": "$IGNORE$"

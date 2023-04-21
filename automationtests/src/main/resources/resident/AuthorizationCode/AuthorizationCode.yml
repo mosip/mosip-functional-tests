@@ -1,5 +1,5 @@
 AuthorizationCode:
-   Resident_IDP_AuthorizationCode_uin_All_Valid_Smoke_sid:
+   Resident_ESignet_AuthorizationCode_uin_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       validityCheckRequired: true
@@ -7,9 +7,9 @@ AuthorizationCode:
       inputTemplate: resident/AuthorizationCode/AuthorizationCode
       outputTemplate: resident/AuthorizationCode/AuthorizationCodeResult
       input: '{
-        "encodedHash": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:ESignet_OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:ESignet_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "birthdate"},{claim: "picture"},{claim: "individual_id"}],
       	"permittedAuthorizeScopes": [{scope: "Manage-Identity-Data"},{scope: "Manage-VID"},{scope: "Manage-Authentication"},{scope: "Manage-Service-Requests"},{scope: "Manage-Credentials"}]
 }'
@@ -17,16 +17,16 @@ AuthorizationCode:
       	"redirectUri": "$IGNORE$"
 }'
 
-   Resident_IDP_AuthorizationCode_Vid_All_Valid_Smoke_sid:
+   Resident_ESignet_AuthorizationCode_Vid_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       inputTemplate: resident/AuthorizationCode/AuthorizationCode
       outputTemplate: resident/AuthorizationCode/AuthorizationCodeResult
       input: '{
-        "encodedHash": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_encodedResp$",
+        "encodedHash": "$ID:ESignet_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_transactionId$",
+      	"transactionId": "$ID:ESignet_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "birthdate"},{claim: "picture"},{claim: "individual_id"}],
       	"permittedAuthorizeScopes": [{scope: "Manage-Identity-Data"},{scope: "Manage-VID"},{scope: "Manage-Authentication"},{scope: "Manage-Service-Requests"},{scope: "Manage-Credentials"}]
       	
