@@ -3675,35 +3675,12 @@ public class AdminTestUtil extends BaseTestCase {
 							if (objIDJson3.contains("fullName") && regenerateHbs == true) {
 								studentJSON.put("value", propsMap.getProperty(objIDJson3 + "1")); // fullName1
 							} else {
-								studentJSON.put("value", propsMap.getProperty(objIDJson3));
+								studentJSON.put("value", propsMap.getProperty(objIDJson3) + BaseTestCase.getLanguageList().get(j));
 							}
 							jArray.put(studentJSON);
 						}
 
-						// + BaseTestCase.getLanguageList().get(j) +",\n\t\t \"value\":
-						// \""+objIDJson3+"\\n\t\t}\"";
-						/*
-						 * if (j == BaseTestCase.getLanguageList().size() - 1) { ja3 = ja3 +
-						 * BaseTestCase.getLanguageList().get(j) + ",\n\t\t  \"value\": \"" + objIDJson3
-						 * + "\\n\t\t}\""; languageDetails.add(ja3); ja3 = "{\n\t\t  \"language\":";
-						 * 
-						 * } else { ja3 = ja3 + BaseTestCase.getLanguageList().get(j) +
-						 * ",\n\t\t  \"value\": \"" + objIDJson3 + "\\n\t\t}\"";
-						 * languageDetails.add(ja3); ja3 = "{\n\t\t  \"language\":"; }
-						 */
 					}
-
-					/*
-					 * String ja3 = "{{#each " + objIDJson3 + "}}\n\t\t" +
-					 * "{\n\t\t  \"language\": \"{{language}}\",\n\t\t  \"value\": \"{{value}}\"\n\t\t}"
-					 * + "\n\t\t{{#unless @last}},{{/unless}}\n\t\t{{/each}}";
-					 */
-
-					/*
-					 * for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) { ja3 =
-					 * "{\n\t\t  \"language\":" + BaseTestCase.getLanguageList().get(j) +
-					 * ",\n\t\t  \"value\": \"" + objIDJson3 + "\\n\t\t}\""; }
-					 */
 
 					JSONObject mainObj = new JSONObject();
 					mainObj.put("fullName", jArray);
