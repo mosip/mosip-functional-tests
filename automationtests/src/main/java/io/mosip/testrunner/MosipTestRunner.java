@@ -3,6 +3,7 @@ package io.mosip.testrunner;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
@@ -19,6 +20,7 @@ import java.security.PublicKey;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.testng.TestNG;
 
 import com.nimbusds.jose.jwk.KeyUse;
@@ -233,67 +235,30 @@ public class MosipTestRunner {
 	}
 	
 	public static String generatePublicKeyForMimoto() {
-		// Generate RSA key pair
         KeyPairGenerator keyPairGen;
-        String publicKeyStr = "";
-        String formattedPublicKey = "";
-		try {
-			keyPairGen = KeyPairGenerator.getInstance("RSA");
-			keyPairGen.initialize(2048);
-	        KeyPair keyPair = keyPairGen.generateKeyPair();
-
-	        // Get public key and encode as string
-	        PublicKey publicKey = keyPair.getPublic();
-	        byte[] publicKeyBytes = publicKey.getEncoded();
-	        publicKeyStr = Base64.getEncoder().encodeToString(publicKeyBytes);
-	     // Format public key as string
-	        formattedPublicKey = "-----BEGIN RSA PUBLIC KEY-----\n" + publicKeyStr + "\n-----END RSA PUBLIC KEY-----\n";
-
-	        // Print public key string
-	        System.out.println("PublicKeyForMimoto = " + publicKeyStr);
-	        System.out.println("formattedPublicKey = " + formattedPublicKey);
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        String vcString = null;
+        try {
+            keyPairGen = KeyPairGenerator.getInstance("RSA");
+            keyPairGen.initialize(2048);
+            KeyPair keyPair = keyPairGen.generateKeyPair();
+            PublicKey publicKey = keyPair.getPublic();
+            StringWriter stringWriter = new StringWriter();
+            try (JcaPEMWriter pemWriter = new JcaPEMWriter(stringWriter)) {
+                pemWriter.writeObject(publicKey);
+                pemWriter.flush();
+                vcString = stringWriter.toString();
+            } catch (Exception e) {
+                throw e;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 //		if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
-//			formattedPublicKey = formattedPublicKey.replaceAll("\r\n", "\\\\n");
+//			vcString = vcString.replaceAll("\r\n", "\\\\n");
 //		} else {
-//			formattedPublicKey = formattedPublicKey.replaceAll("\n", "\\\\n");
-//		}		
-
-        
-		return formattedPublicKey.toString();
-		
-//		--------------------------------------------------
-		
-
-		
-//		 // Generate RSA key pair
-//        KeyPairGenerator keyPairGen;
-//        String formattedPublicKey = "";
-//		try {
-//			keyPairGen = KeyPairGenerator.getInstance("RSA");
-//			keyPairGen.initialize(2048);
-//	        KeyPair keyPair = keyPairGen.generateKeyPair();
-//
-//	        // Get public key and encode as string
-//	        PublicKey publicKey = keyPair.getPublic();
-//	        byte[] publicKeyBytes = publicKey.getEncoded();
-//	        String publicKeyBase64 = Base64.encodeBase64String(publicKeyBytes);
-////	        import org.apache.commons.codec.binary.Base64;
-//
-//	        // Format public key as string
-//	        formattedPublicKey = "-----BEGIN RSA PUBLIC KEY-----\n" + publicKeyBase64 + "\n-----END RSA PUBLIC KEY-----\n";
-//		} catch (NoSuchAlgorithmException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
+//			vcString = vcString.replaceAll("\n", "\\\\n");
 //		}
-//        
-//
-//        // Print formatted public key string
-//        System.out.println(formattedPublicKey);
-//        return formattedPublicKey;
+        return vcString;
 	}
 
 	public static String generateJWKPublicKey() {
