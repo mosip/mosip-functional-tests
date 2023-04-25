@@ -1,58 +1,4 @@
 UpdateContactDetails:
-   Resident_UpdateContactDetails_uin_Valid_All_Smoke_Pos:
-      endPoint: /resident/v1/contact-details/update-data
-      role: residentNew
-      restMethod: post
-      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
-      outputTemplate: resident/UpdateContactDetails/UpdateContactDetailsResult
-      input: '{
-			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@mosip.net",
-		    "transactionId": "$TRANSACTIONID$",
-		    "otp": "residentautomation@mosip.net",
-		    "sendOtp": {
-			    "requesttime": "$TIMESTAMP$",
-			    "userId": "residentautomation@mosip.net",
-			    "transactionId": "$TRANSACTIONID$",
-			    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
-			    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
-		    }
-}'
-      output: '{
-			 "status": "success",
-		     "sendOtpResp": {
-			        "status": "Email Request submitted",
-			        "sendOtpResTemplate": "resident/SendOtpForContactDet/SendOtpForContactDetResult"
-		    }
-}'
-
-   Resident_UpdateContactDetails_vid_Valid_All_Smoke_Pos:
-      endPoint: /resident/v1/contact-details/update-data
-      role: residentNewVid
-      restMethod: post
-      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
-      outputTemplate: resident/UpdateContactDetails/UpdateContactDetailsResult
-      input: '{
-			"requesttime": "$TIMESTAMP$",
-		    "userId": "residentautomation@mosip.net",
-		    "transactionId": "$TRANSACTIONID$",
-		    "otp": "residentautomation@mosip.net",
-		    "sendOtp": {
-			    "requesttime": "$TIMESTAMP$",
-			    "userId": "residentautomation@mosip.net",
-			    "transactionId": "$TRANSACTIONID$",
-			    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
-			    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
-		    }
-}'
-      output: '{
-			 "status": "success",
-		     "sendOtpResp": {
-			        "status": "Email Request submitted",
-			        "sendOtpResTemplate": "resident/SendOtpForContactDet/SendOtpForContactDetResult"
-		    }
-}'
-
    Resident_UpdateContactDetails_uin_Invalid_User_Id_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
@@ -659,4 +605,58 @@ UpdateContactDetails:
 	        "status": "Email Request submitted",
 	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
     }
+}'
+
+   Resident_UpdateContactDetails_uin_Valid_All_Smoke_Pos:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/UpdateContactDetails/UpdateContactDetailsResult
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@mosip.net",
+		    "transactionId": "$TRANSACTIONID$",
+		    "otp": "residentautomation@mosip.net",
+		    "sendOtp": {
+			    "requesttime": "$TIMESTAMP$",
+			    "userId": "residentautomation@mosip.net",
+			    "transactionId": "$TRANSACTIONID$",
+			    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+			    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+		    }
+}'
+      output: '{
+			 "status": "success",
+		     "sendOtpResp": {
+			        "status": "Email Request submitted",
+			        "sendOtpResTemplate": "resident/SendOtpForContactDet/SendOtpForContactDetResult"
+		    }
+}'
+
+   Resident_UpdateContactDetails_vid_Valid_All_Smoke_Pos:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/UpdateContactDetails/UpdateContactDetailsResult
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@mosip.net",
+		    "transactionId": "$TRANSACTIONID$",
+		    "otp": "residentautomation@mosip.net",
+		    "sendOtp": {
+			    "requesttime": "$TIMESTAMP$",
+			    "userId": "residentautomation@mosip.net",
+			    "transactionId": "$TRANSACTIONID$",
+			    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+			    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+		    }
+}'
+      output: '{
+			 "status": "success",
+		     "sendOtpResp": {
+			        "status": "Email Request submitted",
+			        "sendOtpResTemplate": "resident/SendOtpForContactDet/SendOtpForContactDetResult"
+		    }
 }'
