@@ -1,34 +1,4 @@
 ValidateWithUserIdOtp:
-   Resident_ValidateWithUserIdOtp_uin_all_Valid_Smoke:
-      endPoint: /resident/v1/contact-details/update-data
-      role: residentNew
-      restMethod: post
-      inputTemplate: resident/ValidateWithUserIdOtp/ValidateWithUserIdOtp
-      outputTemplate: resident/ValidateWithUserIdOtp/ValidateWithUserIdOtpResult
-      input: '{
-      	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
-	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
-    	 "sendOtp":{
-           "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
-	       "transactionId": "$TRANSACTIONID$",
-           "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
-           "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
-    }
-}'
-      output: '{
-       "sendOtpResp":{
-        "status": "Email Request submitted",
-        "message": "success",
-        "sendOtpResTemplate":"resident/SendOtpToUserId/SendOtpToUserIdResult"
-    },
-        "status": "Email Request submitted",
-        "message": "success"
-}'
-
-
    Resident_ValidateWithUserIdOtp_uin_Invalid_RequestTime_Neg:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
@@ -37,12 +7,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "576",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -70,12 +40,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "2022-02-13T04:50:44.641Z",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -103,12 +73,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "2033-02-13T04:50:44.641Z",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -138,10 +108,10 @@ ValidateWithUserIdOtp:
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "6y6$",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -172,10 +142,10 @@ ValidateWithUserIdOtp:
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -206,10 +176,10 @@ ValidateWithUserIdOtp:
       	"requesttime": "$TIMESTAMP$",
 	    "userId": " ",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -240,10 +210,10 @@ ValidateWithUserIdOtp:
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "$REMOVE$",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -273,10 +243,10 @@ ValidateWithUserIdOtp:
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "null",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -304,12 +274,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "Tg$4",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -337,12 +307,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -364,12 +334,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$REMOVE$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -391,12 +361,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": " ",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -420,12 +390,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "null",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -447,12 +417,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
     	"otp":"cdw3$",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -474,12 +444,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
     	"otp":"$REMOVE$",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -501,12 +471,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
     	"otp":"null",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -528,12 +498,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
     	"otp":" ",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -555,12 +525,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
     	"otp":"",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -573,36 +543,6 @@ ValidateWithUserIdOtp:
         "sendOtpResTemplate":"resident/SendOtpToUserId/SendOtpToUserIdResult"
     }
 }'
-
-   Resident_ValidateWithUserIdOtp_vid_all_Valid_Smoke:
-      endPoint: /resident/v1/contact-details/update-data
-      role: residentNewVid
-      restMethod: post
-      inputTemplate: resident/ValidateWithUserIdOtp/ValidateWithUserIdOtp
-      outputTemplate: resident/ValidateWithUserIdOtp/ValidateWithUserIdOtpResult
-      input: '{
-      	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
-	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
-    	 "sendOtp":{
-           "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
-	       "transactionId": "$TRANSACTIONID$",
-           "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
-           "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
-    }
-}'
-      output: '{
-       "sendOtpResp":{
-        "status": "Email Request submitted",
-        "message": "success",
-        "sendOtpResTemplate":"resident/SendOtpToUserId/SendOtpToUserIdResult"
-    },
-        "status": "Email Request submitted",
-        "message": "success"
-}'
-
 
    Resident_ValidateWithUserIdOtp_vid_Invalid_RequestTime_Neg:
       endPoint: /resident/v1/contact-details/update-data
@@ -612,12 +552,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "576",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -645,12 +585,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "2022-02-13T04:50:44.641Z",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -678,12 +618,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "2033-02-13T04:50:44.641Z",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -714,10 +654,10 @@ ValidateWithUserIdOtp:
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "6y6$",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -748,10 +688,10 @@ ValidateWithUserIdOtp:
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -782,10 +722,10 @@ ValidateWithUserIdOtp:
       	"requesttime": "$TIMESTAMP$",
 	    "userId": " ",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -816,10 +756,10 @@ ValidateWithUserIdOtp:
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "$REMOVE$",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -849,10 +789,10 @@ ValidateWithUserIdOtp:
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "null",
 	    "transactionID": "$TRANSACTIONID$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -880,12 +820,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "Tg$4",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -913,12 +853,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -940,12 +880,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$REMOVE$",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -967,12 +907,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": " ",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -996,12 +936,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "null",
-    	"otp": "residentautomation@mosip.net",
+    	"otp": "residentautomation2@mosip.net",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -1023,12 +963,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
     	"otp":"cdw3$",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -1050,12 +990,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
     	"otp":"$REMOVE$",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -1077,12 +1017,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
     	"otp":"null",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -1104,12 +1044,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
     	"otp":" ",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -1131,12 +1071,12 @@ ValidateWithUserIdOtp:
       outputTemplate: resident/error
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionID": "$TRANSACTIONID$",
     	"otp":"",
     	 "sendOtp":{
            "requesttime": "$TIMESTAMP$",
-           "userId": "residentautomation@mosip.net",
+           "userId": "residentautomation2@mosip.net",
 	       "transactionId": "$TRANSACTIONID$",
            "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
            "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
@@ -1148,4 +1088,62 @@ ValidateWithUserIdOtp:
         "message": "success",
         "sendOtpResTemplate":"resident/SendOtpToUserId/SendOtpToUserIdResult"
     }
+}'
+
+   Resident_ValidateWithUserIdOtp_uin_all_Valid_Smoke:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/ValidateWithUserIdOtp/ValidateWithUserIdOtp
+      outputTemplate: resident/ValidateWithUserIdOtp/ValidateWithUserIdOtpResult
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "userId": "residentautomation2@mosip.net",
+	    "transactionID": "$TRANSACTIONID$",
+    	"otp": "residentautomation2@mosip.net",
+    	 "sendOtp":{
+           "requesttime": "$TIMESTAMP$",
+           "userId": "residentautomation2@mosip.net",
+	       "transactionId": "$TRANSACTIONID$",
+           "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
+           "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+    }
+}'
+      output: '{
+       "sendOtpResp":{
+        "status": "Email Request submitted",
+        "message": "success",
+        "sendOtpResTemplate":"resident/SendOtpToUserId/SendOtpToUserIdResult"
+    },
+        "status": "Email Request submitted",
+        "message": "success"
+}'
+
+   Resident_ValidateWithUserIdOtp_vid_all_Valid_Smoke:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/ValidateWithUserIdOtp/ValidateWithUserIdOtp
+      outputTemplate: resident/ValidateWithUserIdOtp/ValidateWithUserIdOtpResult
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "userId": "residentautomation2@mosip.net",
+	    "transactionID": "$TRANSACTIONID$",
+    	"otp": "residentautomation2@mosip.net",
+    	 "sendOtp":{
+           "requesttime": "$TIMESTAMP$",
+           "userId": "residentautomation2@mosip.net",
+	       "transactionId": "$TRANSACTIONID$",
+           "sendOtpReqTemplate": "resident/SendOtpToUserId/SendOtpToUserId",
+           "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+    }
+}'
+      output: '{
+       "sendOtpResp":{
+        "status": "Email Request submitted",
+        "message": "success",
+        "sendOtpResTemplate":"resident/SendOtpToUserId/SendOtpToUserIdResult"
+    },
+        "status": "Email Request submitted",
+        "message": "success"
 }'
