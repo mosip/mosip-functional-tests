@@ -8,7 +8,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@mosip.net",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
   "errors": [
@@ -28,7 +28,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "2023-02-13T",
 	    "userId": "residentautomation@mosip.net",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
       "errors": [
@@ -48,7 +48,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$REMOVE$",
 	    "userId": "residentautomation@mosip.net",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
       "errors": [
@@ -68,7 +68,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "null",
 	    "userId": "residentautomation@mosip.net",
-	    "transactionID": "1234567890"
+	    "transactionID": "$TRANSACTIONID$"
 }'
       output: '{
        "errors": [
@@ -90,7 +90,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "gy$45",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
       "errors": [
@@ -110,7 +110,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
       "errors": [
@@ -130,7 +130,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": " ",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
       "errors": [
@@ -150,7 +150,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "$REMOVE$",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
       "errors": [
@@ -170,7 +170,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "null",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
        "errors": [
@@ -272,7 +272,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@mosip.net",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
         "status": "Email Request submitted",
@@ -288,7 +288,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "2023-02-13T",
 	    "userId": "residentautomation@mosip.net",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
       "errors": [
@@ -308,7 +308,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$REMOVE$",
 	    "userId": "residentautomation@mosip.net",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
       "errors": [
@@ -328,7 +328,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "null",
 	    "userId": "residentautomation@mosip.net",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
        "errors": [
@@ -350,7 +350,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "gy$45",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
       "errors": [
@@ -370,7 +370,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
       "errors": [
@@ -390,7 +390,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": " ",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
       "errors": [
@@ -410,7 +410,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "$REMOVE$",
-	    "transactionID": "1234567890"
+	    "transactionID": "$TRANSACTIONID$"
 }'
       output: '{
       "errors": [
@@ -430,7 +430,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "null",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
        "errors": [
@@ -532,7 +532,7 @@ SendOtpToUserId:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "userId": "residentautomation@mosip.net",
-	    "transactionId": "1234567890"
+	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
         "status": "Email Request submitted",
