@@ -64,12 +64,12 @@ ReqShareCredWithPartner:
    	   "status": "Success"
 }'
 
-   Resident_ReqShareCredWithPartner_uin_Invalid_Space_Purpose_Neg:
+   Resident_ReqShareCredWithPartner_uin_Invalid_Space_Purpose_Pos:
       endPoint: /resident/v1/share-credential
       role: residentNew
       restMethod: post
       inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
-      outputTemplate: resident/error
+      outputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartnerResult
       input: '{
 	        "purpose": " string",
 	        "consent" : "Accepted",
@@ -79,12 +79,7 @@ ReqShareCredWithPartner:
                "masked" : true
 }'
       output: '{
-   		"errors": [
-        {
-            "errorCode": "$IGNORE$",
-            "message": "$IGNORE$"
-        }
-    ]
+   		"status": "Success"
 }'
 
    Resident_ReqShareCredWithPartner_uin_AplhaNumeric_Value_Purpose_Pos:

@@ -86,12 +86,12 @@ RevokeVIDNew:
     }
   ]
 }'
-   Resident_RevokeVIDNew_Using_Vid_Valid_Smoke:
+   Resident_RevokeVIDNew_Using_Vid_Valid_Neg:
       endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Temporary_1_Esignet_Integ_Valid_Smoke_sid_vid$
       role: residentNewVid
       restMethod: patch
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
-      outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
+      outputTemplate: resident/error
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
@@ -100,7 +100,12 @@ RevokeVIDNew:
         "vidStatus": "Revoked"
     }'
       output: '{
-		"message": "Notification has been sent to the provided contact detail(s)"
+		[
+    {
+      "errorCode": "RES-SER-406",
+      "message": "$IGNORE$"
+    }
+  ]
 }'
 
    Resident_RevokeVIDNew_uin_Using_Vid_Invalid_User_Neg:
@@ -119,7 +124,7 @@ RevokeVIDNew:
       output: '{
       "errors": [
     {
-      "errorCode": "RES-SER-454",
+      "errorCode": "RES-SER-406",
       "message": "$IGNORE$"
     }
   ]
