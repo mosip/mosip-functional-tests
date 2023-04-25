@@ -6,14 +6,14 @@ AuthUnlock:
       inputTemplate: mobileId/AuthUnLock/createAuthUnLock
       outputTemplate: mobileId/AuthUnLock/createAuthUnLockResult
       input: '{
-        "transactionID": "1234561111",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "unlockForSeconds": "1",
         "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234561111",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -37,14 +37,14 @@ AuthUnlock:
       inputTemplate: mobileId/AuthUnLock/createAuthUnLock
       outputTemplate: mobileId/AuthUnLock/createAuthUnLockResult
       input: '{
-        "transactionID": "1234561111",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "unlockForSeconds": "1",
         "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234561111",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -68,14 +68,14 @@ AuthUnlock:
       inputTemplate: mobileId/AuthUnLock/createAuthUnLock
       outputTemplate: mobileId/error
       input: '{
-        "transactionID": "1234561111",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "unlockForSeconds": "1",
         "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
         "otp": "111@@@###hhdhdh111",
         "sendOtp":{
-    "transactionID": "1234561111",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -103,14 +103,14 @@ AuthUnlock:
       inputTemplate: mobileId/AuthUnLock/createAuthUnLock
       outputTemplate: mobileId/error
       input: '{
-        "transactionID": "1234561111",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "unlockForSeconds": "1",
         "authType": [{auth: "bio-Iris"},{auth: "demo"},{auth: "bio-FACE"}],
         "otp": "11111@@###1",
         "sendOtp":{
-    "transactionID": "1234561111",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",

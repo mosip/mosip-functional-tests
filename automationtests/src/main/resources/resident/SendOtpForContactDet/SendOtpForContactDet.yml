@@ -8,7 +8,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "$TIMESTAMP$",
 		   "userId": "residentautomation@mosip.net",
-		   "transactionId": "1234567890"
+		   "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
 		"status": "Email Request submitted"
@@ -23,7 +23,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "$TIMESTAMP$",
 		   "userId": "residentautomation@mosip.net",
-		   "transactionId": "1234567890"
+		   "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
 		"status": "Email Request submitted"
@@ -38,7 +38,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "$TIMESTAMP$",
 		   "userId": "ahgasj#5",
-		   "transactionId": "1234567890"
+		   "transactionId": "$TRANSACTIONID$"
  }'
       output: '{
          "errors": [
@@ -58,7 +58,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "$TIMESTAMP$",
 		   "userId": "",
-		   "transactionId": "1234567890"
+		   "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
@@ -78,7 +78,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "$TIMESTAMP$",
 		  "userId": "$REMOVE$",
-		  "transactionId": "1234567890"
+		  "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
@@ -158,7 +158,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "$TIMESTAMP$",
 		  "userId": "residentautomation@mosip.net",
-		  "transactionId": "1234567890"
+		  "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
@@ -178,7 +178,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "12323dqq",
 		  "userId": "residentautomation@mosip.net",
-		  "transactionID": "1234567890"
+		  "transactionID": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
@@ -198,7 +198,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "",
 		  "userId": "residentautomation@mosip.net",
-		  "transactionID": "1234567890"
+		  "transactionID": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
@@ -218,7 +218,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "$TIMESTAMP$",
 		   "userId": "ahgasj#5",
-		   "transactionID": "1234567890"
+		   "transactionID": "$TRANSACTIONID$"
  }'
       output: '{
          "errors": [
@@ -238,7 +238,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "$TIMESTAMP$",
 		   "userId": "",
-		   "transactionId": "1234567890"
+		   "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
@@ -258,7 +258,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "$TIMESTAMP$",
 		  "userId": "$REMOVE$",
-		  "transactionId": "1234567890"
+		  "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
@@ -338,7 +338,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "12323dqq",
 		  "userId": "residentautomation@mosip.net",
-		  "transactionId": "1234567890"
+		  "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
@@ -358,7 +358,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "",
 		  "userId": "residentautomation@mosip.net",
-		  "transactionId": "1234567890"
+		  "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
