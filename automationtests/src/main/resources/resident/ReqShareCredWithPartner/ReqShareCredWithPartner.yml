@@ -69,7 +69,7 @@ ReqShareCredWithPartner:
       role: residentNew
       restMethod: post
       inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
-      outputTemplate: resident/error
+      outputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartnerResult
       input: '{
 	        "purpose": " string",
 	        "consent" : "Accepted",
