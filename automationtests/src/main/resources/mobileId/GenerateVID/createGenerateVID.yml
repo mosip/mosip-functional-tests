@@ -6,13 +6,13 @@ GenerateVID:
       inputTemplate: mobileId/GenerateVID/createGenerateVID
       outputTemplate: mobileId/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234561111",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "vidType": "Perpetual",
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234561111",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -36,13 +36,13 @@ GenerateVID:
       inputTemplate: mobileId/GenerateVID/createGenerateVID
       outputTemplate: mobileId/error
       input: '{
-        "transactionID": "1234561111",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "vidType": "Perpetual",
         "otp": "112637338",
         "sendOtp":{
-    "transactionID": "1234561111",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -70,13 +70,13 @@ GenerateVID:
       inputTemplate: mobileId/GenerateVID/createGenerateVID
       outputTemplate: mobileId/error
       input: '{
-        "transactionID": "1234561111",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "253SDGSH@Y37",
         "individualIdType": "UIN",
         "vidType": "Perpetual",
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234561111",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -105,13 +105,13 @@ GenerateVID:
       inputTemplate: mobileId/GenerateVID/createGenerateVID
       outputTemplate: mobileId/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234561111",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "vidType": "Temporary",
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234561111",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -142,7 +142,7 @@ GenerateVID:
         "vidType": "Perpetual",
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234561111",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -167,13 +167,13 @@ GenerateVID:
       inputTemplate: mobileId/GenerateVID/createGenerateVID
       outputTemplate: mobileId/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234561111",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "vidType": "Perpetual",
         "otp": "$ID:AddIdentity_Binding_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234561111",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
     "individualIdType": "UIN",
