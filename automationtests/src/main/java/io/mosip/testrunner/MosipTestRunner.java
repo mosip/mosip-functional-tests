@@ -253,11 +253,11 @@ public class MosipTestRunner {
         } catch (Exception e) {
             e.printStackTrace();
         }
-//		if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
-//			vcString = vcString.replaceAll("\r\n", "\\\\n");
-//		} else {
-//			vcString = vcString.replaceAll("\n", "\\\\n");
-//		}
+		if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
+			vcString = vcString.replaceAll("\r\n", "\\\\n");
+		} else {
+			vcString = vcString.replaceAll("\n", "\\\\n");
+		}
         return vcString;
 	}
 
