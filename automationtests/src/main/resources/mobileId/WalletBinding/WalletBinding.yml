@@ -90,7 +90,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_request",
       "message": "$IGNORE$"
     }
   ],
@@ -128,7 +128,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_request",
       "message": "$IGNORE$"
     }
   ],
@@ -166,7 +166,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_request",
       "message": "$IGNORE$"
     }
   ],      
@@ -204,7 +204,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_request",
       "message": "$IGNORE$"
     }
   ],      
@@ -242,7 +242,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_request",
       "message": "$IGNORE$"
     }
   ],      
@@ -280,7 +280,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "binding_auth_failed",
       "message": "$IGNORE$"
     }
   ],      
@@ -318,7 +318,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_individual_id",
       "message": "$IGNORE$"
     }
   ],      
@@ -356,7 +356,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "binding_auth_failed",
       "message": "$IGNORE$"
     }
   ],      
@@ -394,7 +394,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_individual_id",
       "message": "$IGNORE$"
     }
   ],      
@@ -432,7 +432,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_individual_id",
       "message": "$IGNORE$"
     }
   ],      
@@ -470,7 +470,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "key_binding_failed",
       "message": "$IGNORE$"
     }
   ],        
@@ -508,7 +508,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_auth_factor_type",
       "message": "$IGNORE$"
     }
   ],        
@@ -546,7 +546,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_auth_factor_type",
       "message": "$IGNORE$"
     }
   ],        
@@ -584,7 +584,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_auth_factor_type",
       "message": "$IGNORE$"
     }
   ],        
@@ -622,7 +622,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "key_binding_failed",
       "message": "$IGNORE$"
     }
   ],        
@@ -660,7 +660,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "binding_auth_failed",
       "message": "$IGNORE$"
     }
   ],       
@@ -698,7 +698,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge",
       "message": "$IGNORE$"
     }
   ],       
@@ -736,7 +736,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge",
       "message": "$IGNORE$"
     }
   ],       
@@ -774,7 +774,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge",
       "message": "$IGNORE$"
     }
   ],       
@@ -812,7 +812,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "binding_auth_failed",
       "message": "$IGNORE$"
     }
   ],       
@@ -850,7 +850,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "IDA",
       "message": "$IGNORE$"
     }
   ],      
@@ -888,7 +888,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],      
@@ -926,7 +926,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],      
@@ -964,7 +964,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],      
@@ -1002,7 +1002,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "IDA",
       "message": "$IGNORE$"
     }
   ],
@@ -1040,7 +1040,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -1078,7 +1078,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_auth_factor_type",
       "message": "$IGNORE$"
     }
   ],
@@ -1116,7 +1116,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_auth_factor_type",
       "message": "$IGNORE$"
     }
   ],
@@ -1154,7 +1154,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -1192,7 +1192,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -1230,7 +1230,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -1268,7 +1268,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -1306,7 +1306,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -1344,7 +1344,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -1382,7 +1382,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -1534,7 +1534,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_request",
       "message": "$IGNORE$"
     }
   ],
@@ -1572,7 +1572,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_request",
       "message": "$IGNORE$"
     }
   ],
@@ -1610,7 +1610,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_request",
       "message": "$IGNORE$"
     }
   ],      
@@ -1648,7 +1648,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_request",
       "message": "$IGNORE$"
     }
   ],      
@@ -1686,7 +1686,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_request",
       "message": "$IGNORE$"
     }
   ],      
@@ -1724,7 +1724,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "binding_auth_failed",
       "message": "$IGNORE$"
     }
   ],      
@@ -1762,7 +1762,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_individual_id",
       "message": "$IGNORE$"
     }
   ],      
@@ -1800,7 +1800,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "binding_auth_failed",
       "message": "$IGNORE$"
     }
   ],      
@@ -1838,7 +1838,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_individual_id",
       "message": "$IGNORE$"
     }
   ],      
@@ -1876,7 +1876,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_individual_id",
       "message": "$IGNORE$"
     }
   ],      
@@ -1914,7 +1914,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "key_binding_failed",
       "message": "$IGNORE$"
     }
   ],        
@@ -1952,7 +1952,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_auth_factor_type",
       "message": "$IGNORE$"
     }
   ],        
@@ -1990,7 +1990,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_auth_factor_type",
       "message": "$IGNORE$"
     }
   ],        
@@ -2028,7 +2028,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_auth_factor_type",
       "message": "$IGNORE$"
     }
   ],        
@@ -2066,7 +2066,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "key_binding_failed",
       "message": "$IGNORE$"
     }
   ],        
@@ -2104,7 +2104,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "binding_auth_failed",
       "message": "$IGNORE$"
     }
   ],       
@@ -2142,7 +2142,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge",
       "message": "$IGNORE$"
     }
   ],       
@@ -2180,7 +2180,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge",
       "message": "$IGNORE$"
     }
   ],       
@@ -2218,7 +2218,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge",
       "message": "$IGNORE$"
     }
   ],       
@@ -2256,7 +2256,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "binding_auth_failed",
       "message": "$IGNORE$"
     }
   ],       
@@ -2294,7 +2294,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "IDA",
       "message": "$IGNORE$"
     }
   ],      
@@ -2332,7 +2332,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],      
@@ -2370,7 +2370,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],      
@@ -2408,7 +2408,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],      
@@ -2446,7 +2446,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "IDA",
       "message": "$IGNORE$"
     }
   ],
@@ -2484,7 +2484,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -2522,7 +2522,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_auth_factor_type",
       "message": "$IGNORE$"
     }
   ],
@@ -2560,7 +2560,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_auth_factor_type",
       "message": "$IGNORE$"
     }
   ],
@@ -2598,7 +2598,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -2636,7 +2636,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -2674,7 +2674,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -2712,7 +2712,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -2750,7 +2750,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -2788,7 +2788,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
@@ -2826,7 +2826,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
+      "errorCode": "invalid_challenge_format",
       "message": "$IGNORE$"
     }
   ],
