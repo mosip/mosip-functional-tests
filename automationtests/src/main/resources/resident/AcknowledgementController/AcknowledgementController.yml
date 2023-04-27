@@ -1,6 +1,6 @@
 GetAcknowledgementController:
    Resident_GetAuthorizationtoken_uin_Valid_Smoke:
-      endPoint: /ack/download/pdf/event/{eventId}/language/{languageCode}
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
       role: residentNew
       restMethod: get
       inputTemplate: resident/AcknowledgementController/AcknowledgementController
@@ -14,7 +14,7 @@ GetAcknowledgementController:
 }'
 
    Resident_GetAuthorizationtoken_vid_Valid_Smoke:
-      endPoint: /ack/download/pdf/event/{eventId}/language/{languageCode}
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
       role: residentNewVid
       restMethod: get
       inputTemplate: resident/AcknowledgementController/AcknowledgementController
@@ -28,7 +28,7 @@ GetAcknowledgementController:
 }'
 
    Resident_GetAuthorizationtoken_uin_Invalid_languageCode_Negative:
-      endPoint: /ack/download/pdf/event/{eventId}/language/{languageCode}
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
       role: residentNew
       restMethod: get
       inputTemplate: resident/AcknowledgementController/AcknowledgementController
@@ -42,13 +42,13 @@ GetAcknowledgementController:
 }'
 
    Resident_GetAuthorizationtoken_uin_Invalid_eventId_Negative:
-      endPoint: /ack/download/pdf/event/{eventId}/language/{languageCode}
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
       role: residentNew
       restMethod: get
       inputTemplate: resident/AcknowledgementController/AcknowledgementController
       outputTemplate: resident/error
       input: '{
-		  "languageCode": "ar$!22",
+		  "languageCode": "$1STLANG$",
 		  "eventId":  "$df44"
 }'
       output: '{
@@ -56,7 +56,7 @@ GetAcknowledgementController:
 }'
 
    Resident_GetAuthorizationtoken_uin_Empty_languageCode_Negative:
-      endPoint: /ack/download/pdf/event/{eventId}/language/{languageCode}
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
       role: residentNew
       restMethod: get
       inputTemplate: resident/AcknowledgementController/AcknowledgementController
@@ -69,8 +69,36 @@ GetAcknowledgementController:
    		
 }'
 
+   Resident_GetAuthorizationtoken_uin_spaceVal_languagecode_Neg:
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/AcknowledgementController/AcknowledgementController
+      outputTemplate: resident/AcknowledgementController/AcknowledgementControllerResult
+      input: '{
+		  "languageCode": " ",
+		  "eventId":  "$ID:GetServiceHistory_uin_all_Valid_Smoke_sid_eventId$"
+}'
+      output: '{
+   		
+}'
+
+   Resident_GetAuthorizationtoken_uin_SpaceVal_enentId_Neg:
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/AcknowledgementController/AcknowledgementController
+      outputTemplate: resident/AcknowledgementController/AcknowledgementControllerResult
+      input: '{
+		  "languageCode": "$1STLANG$",
+		  "eventId":  " "
+}'
+      output: '{
+   		
+}'
+
    Resident_GetAuthorizationtoken_uin_Empty_eventId_Negative:
-      endPoint: /ack/download/pdf/event/{eventId}/language/{languageCode}
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
       role: residentNew
       restMethod: get
       inputTemplate: resident/AcknowledgementController/AcknowledgementController
@@ -84,7 +112,7 @@ GetAcknowledgementController:
 }'
 
    Resident_GetAuthorizationtoken_uin_Invalid_Role_Negative:
-      endPoint: /ack/download/pdf/event/{eventId}/language/{languageCode}
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
       role: resident
       restMethod: get
       inputTemplate: resident/AcknowledgementController/AcknowledgementController
@@ -98,7 +126,7 @@ GetAcknowledgementController:
 }'
 
    Resident_GetAuthorizationtoken_vid_Invalid_languageCode_Negative:
-      endPoint: /ack/download/pdf/event/{eventId}/language/{languageCode}
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
       role: residentNewVid
       restMethod: get
       inputTemplate: resident/AcknowledgementController/AcknowledgementController
@@ -112,13 +140,13 @@ GetAcknowledgementController:
 }'
 
    Resident_GetAuthorizationtoken_vid_Invalid_eventId_Negative:
-      endPoint: /ack/download/pdf/event/{eventId}/language/{languageCode}
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
       role: residentNewVid
       restMethod: get
       inputTemplate: resident/AcknowledgementController/AcknowledgementController
       outputTemplate: resident/error
       input: '{
-		  "languageCode": "ar$!22",
+		  "languageCode": "$1STLANG$",
 		  "eventId":  "$df44"
 }'
       output: '{
@@ -126,7 +154,7 @@ GetAcknowledgementController:
 }'
 
    Resident_GetAuthorizationtoken_vid_Empty_languageCode_Negative:
-      endPoint: /ack/download/pdf/event/{eventId}/language/{languageCode}
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
       role: residentNewVid
       restMethod: get
       inputTemplate: resident/AcknowledgementController/AcknowledgementController
@@ -140,7 +168,7 @@ GetAcknowledgementController:
 }'
 
    Resident_GetAuthorizationtoken_vid_Empty_eventId_Negative:
-      endPoint: /ack/download/pdf/event/{eventId}/language/{languageCode}
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
       role: residentNewVid
       restMethod: get
       inputTemplate: resident/AcknowledgementController/AcknowledgementController
@@ -152,3 +180,32 @@ GetAcknowledgementController:
       output: '{
    		
 }'
+
+   Resident_GetAuthorizationtoken_vid_SpaceVal_languageCode_Neg:
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/AcknowledgementController/AcknowledgementController
+      outputTemplate: resident/AcknowledgementController/AcknowledgementControllerResult
+      input: '{
+		  "languageCode": " ",
+		  "eventId":  "$ID:GetServiceHistory_vid_all_Valid_Smoke_sid_eventId$"
+}'
+      output: '{
+   		
+}'
+
+   Resident_GetAuthorizationtoken_vid_SpaceVal_eventId_Neg:
+      endPoint: /resident/v1/ack/download/pdf/event/{eventId}/language/{languageCode}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/AcknowledgementController/AcknowledgementController
+      outputTemplate: resident/AcknowledgementController/AcknowledgementControllerResult
+      input: '{
+		  "languageCode": "$1STLANG$",
+		  "eventId":  " "
+}'
+      output: '{
+   		
+}'
+
