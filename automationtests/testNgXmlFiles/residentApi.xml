@@ -678,15 +678,4 @@
 		</classes>
 	</test>
 
-
-<!-- On hold API's
-	<test name="AcknowledgementController">
-		<parameter name="ymlFile"
-			value="resident/AcknowledgementController/AcknowledgementController.yml" />
-			<parameter name="sendEsignetToken"	value="true" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
-		</classes>
-	</test>-->
-
 </suite>
