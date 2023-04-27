@@ -488,6 +488,14 @@
 			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
 		</classes>
 	</test>
+	<test name="AcknowledgementController">
+		<parameter name="ymlFile"
+			value="resident/AcknowledgementController/AcknowledgementController.yml" />
+			<parameter name="sendEsignetToken"	value="true" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
+		</classes>
+	</test>
 	<test name="GetNotifications">
 		<parameter name="ymlFile"
 			value="resident/GetNotifications/GetNotifications.yml" />
