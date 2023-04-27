@@ -2628,12 +2628,8 @@ public class AdminTestUtil extends BaseTestCase {
 			publickey = JsonPrecondtion.getJsonValueFromJson(jsonString, "request.publicKey");
 		}
 		if (jsonString.contains("$PUBLICKEYFORBINDING$")) {
-			String formattedPublicKey = MosipTestRunner.generatePublicKeyForMimoto();
-//			publickey = JsonPrecondtion.getJsonValueFromJson(jsonString, "request.publicKey");
-			jsonString = JsonPrecondtion.parseAndReturnJsonContent(jsonString,
-					formattedPublicKey, "request.publicKey");
-			System.out.println("formattedPublicKey = " + formattedPublicKey);
-		}		
+			jsonString = jsonString.replace("$PUBLICKEYFORBINDING$", MosipTestRunner.generatePublicKeyForMimoto());
+		}	
 		if (jsonString.contains("$PARTNERID$")) {
 			String getPartnerId = getPartnerId(jsonString, testCaseName);
 			// jsonString = getPartnerId(jsonString, getPartnerId);
