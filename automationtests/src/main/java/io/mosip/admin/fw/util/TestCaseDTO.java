@@ -15,4 +15,5 @@ public class TestCaseDTO {
 	private String restMethod;
 	private boolean regenerateHbs;
 	private boolean validityCheckRequired;
+	private boolean auditLogCheck;
 }
