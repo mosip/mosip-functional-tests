@@ -34,6 +34,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean sendEsignetToken = false;
+	public boolean auditLogCheck = false;
 	/**
 	 * get current testcaseName
 	 */
@@ -68,6 +69,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
+		auditLogCheck = testCaseDTO.isAuditLogCheck();
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
 		if (testCaseDTO.getInputTemplate().contains("$PRIMARYLANG$"))
@@ -116,7 +118,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 			}
 			else {
 				response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
+						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), auditLogCheck, COOKIENAME,
 						testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
 			}
 			Map<String, List<OutputValidationDto>> ouputValid = null;
