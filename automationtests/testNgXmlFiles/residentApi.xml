@@ -28,6 +28,13 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
+	<test name="GetOrderStatus">
+		<parameter name="ymlFile"
+			value="resident/GetOrderStatus/GetOrderStatus.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="SendOtpForExpiration">
 		<parameter name="ymlFile"
 			value="resident/SendOtpForExpiration/SendOtpForExpiration.yml" />
@@ -670,16 +677,5 @@
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
-
-
-<!-- On hold API's
-	<test name="AcknowledgementController">
-		<parameter name="ymlFile"
-			value="resident/AcknowledgementController/AcknowledgementController.yml" />
-			<parameter name="sendEsignetToken"	value="true" />
-		<classes>
-			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
-		</classes>
-	</test>-->
 
 </suite>
