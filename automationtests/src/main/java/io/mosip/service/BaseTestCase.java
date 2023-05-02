@@ -140,15 +140,19 @@ public class BaseTestCase {
 	public String genMispPolicyDesc = "policyDescForMispEsit" + RandomStringUtils.randomNumeric(6)
 			+ RandomStringUtils.randomNumeric(3);
 	public String genPolicyName = "policyNameForAutomationEsi" + RandomStringUtils.randomNumeric(4);
+	public String genPolicyNameNonAuth = "policyNameForEsignet" + RandomStringUtils.randomNumeric(4);
 	public String genMispPolicyName = "policyNameForMispEsi" + RandomStringUtils.randomNumeric(6)
 			+ RandomStringUtils.randomNumeric(3);
 	public static String genPartnerName = "partnernameforautomationesi-" + RandomStringUtils.randomNumeric(6);
+	public static String genPartnerNameNonAuth = "partnernameforesignet-" + RandomStringUtils.randomNumeric(6);
 	public String genPartnerNameForDsl = "partnernameforautomationesi-" + RandomStringUtils.randomNumeric(6);
 	public static String genMispPartnerName = "esignet_" + RandomStringUtils.randomNumeric(6)
 			+ RandomStringUtils.randomNumeric(3);
 	public static String genPartnerEmail = "automationpartneresi" + RandomStringUtils.randomNumeric(7)
 			+ "@automationMosip.com";
 	public String genPartnerEmailForDsl = "automationpartneresi" + RandomStringUtils.randomNumeric(10)
+	+ "@automationMosip.com";
+	public String genPartnerEmailNonAuth = "automationesignet" + RandomStringUtils.randomNumeric(10)
 	+ "@automationMosip.com";
 	public String genMispPartnerEmail = "misppartner" + RandomStringUtils.randomNumeric(4)
 			+ RandomStringUtils.randomNumeric(4) + "@automationMosip.com";

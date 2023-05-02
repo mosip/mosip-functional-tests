@@ -20,6 +20,27 @@ CreateOIDCClient:
         "status": "ACTIVE"
 }'
 
+   Esignet_CreateOIDCClient_NonAuth_all_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: esignet/OidcClient/OIDCClient
+      outputTemplate: esignet/OidcClient/OIDCClientResult
+      input: '{
+        "name": "$RANDOMID$",
+        "policyId": "$ID:DefinePolicy_NonAuth_All_Valid_Smoke_sid_id$",
+        "publicKey": "$JWKKEY$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_NonAuth_All_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "clientId": "$IGNORE$",
+        "status": "ACTIVE"
+}'
+
    Esignet_CreateOIDCClient_Misp_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/oidc/client
       role: partner

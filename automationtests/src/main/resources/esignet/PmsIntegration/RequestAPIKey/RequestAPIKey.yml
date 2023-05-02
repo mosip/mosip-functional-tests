@@ -46,3 +46,19 @@ RequestAPIKeyForAuthPartner:
         "mappingkey": "$IGNORE$",
         "message": "Policy mapping request submitted successfully."
 }'
+
+   Esignet_SubmitPartnerApiKeyRequest_Rejection_NonAuth_All_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/partners/$ID:PartnerSelfRegistration_NonAuth_All_Valid_Smoke_sid_partnerId$/policy/map
+      role: partner
+      restMethod: post 
+      inputTemplate: esignet/PmsIntegration/RequestAPIKey/requestApiKey
+      outputTemplate: esignet/PmsIntegration/RequestAPIKey/requestAPIKeyResult
+      input: '{
+        "policyName": "$ID:DefinePolicy_NonAuth_All_Valid_Smoke_sid_name$",
+        "useCaseDescription": "Need to submit the payment",
+        "requesttime": "$TIMESTAMP$"
+    }'
+      output: '{
+        "mappingkey": "$IGNORE$",
+        "message": "Policy mapping request submitted successfully."
+}'
