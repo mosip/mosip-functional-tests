@@ -43,3 +43,18 @@ ApproveAPIKey:
       output: '{
         "response": "Policy mapping approved successfully"
 }'
+
+   Esignet_ApproveRejectPartnerAPIKeyReq_NonAuth_All_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/policy/{mappingkey}
+      role: partner
+      restMethod: put
+      inputTemplate: esignet/PmsIntegration/ApproveAPIKey/approveAPIKey
+      outputTemplate: esignet/PmsIntegration/ApproveAPIKey/approveAPIKeyResult
+      input: '{
+      "status": "Approved",
+      "mappingkey": "$ID:SubmitPartnerApiKeyRequest_Rejection_NonAuth_All_Valid_Smoke_sid_mappingkey$",
+	  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "response": "Policy mapping approved successfully"
+}'

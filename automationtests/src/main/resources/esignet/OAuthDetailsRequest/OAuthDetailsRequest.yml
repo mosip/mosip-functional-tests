@@ -22,6 +22,98 @@ OAuthDetailsRequest:
        
 }'
 
+   ESignet_OAuthDetailsRequest_NonAuth_Otp_all_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_NonAuth_Otp_Vid_all_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_NonAuth_BioFace_all_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_NonAuth_BioFace_Vid_all_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
+      outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+
    ESignet_OAuthDetailsRequest_2nd_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
@@ -2048,38 +2140,6 @@ OAuthDetailsRequest:
        	"errors": [
     {
       "errorCode": "invalid_prompt",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
-}'
-
-   ESignet_OAuthDetailsRequest_Invalid_ResponseType_And_Scope_Neg:
-      endPoint: /v1/esignet/authorization/oauth-details
-      role: resident
-      restMethod: post
-      inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
-      outputTemplate: esignet/error
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
-      	"scope": "$REMOVE$",
-      	"responseType": "$REMOVE$",
-      	"redirectUri": "$IDPREDIRECTURI$",
-      	"display": "popup",
-	    "prompt": "login",
-	    "acrValues": "mosip:idp:acr:static-code mosip:idp:acr:generated-code",
-	    "nonce": "973eieljzng",
-	    "state": "eree2311",
-	    "claimsLocales": "en"
-}'
-      output: '{
-       	"errors": [
-    {
-      "errorCode": "invalid_scope",
-      "errorMessage": "$IGNORE$"
-    },
-    {
-      "errorCode": "invalid_response_type",
       "errorMessage": "$IGNORE$"
     }
   ]

@@ -1,0 +1,19 @@
+UpdatePolicy:
+   Esignet_UpdatePolicy_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies/{policyId}
+      role: partner
+      restMethod: put
+      inputTemplate: esignet/PmsIntegration/UpdatePolicy/UpdatePolicy
+      outputTemplate: esignet/PmsIntegration/UpdatePolicy/UpdatePolicyResult
+      input: '{
+		"desc": "$POLICYDESC$",
+		"name": "$POLICYNAME$",
+		"policyGroupName": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid_name$",
+		"policyType": "Auth",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$",
+		"policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$"
+}'
+      output: ' {
+        "is_Active": false
+}'

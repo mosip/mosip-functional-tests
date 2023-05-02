@@ -2495,6 +2495,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$POLICYNAME$"))
 			jsonString = jsonString.replace("$POLICYNAME$", genPolicyName);
+		
+		if (jsonString.contains("$POLICYNAMENONAUTH$"))
+			jsonString = jsonString.replace("$POLICYNAMENONAUTH$", genPolicyNameNonAuth);		
 
 		if (jsonString.contains("$POLICYNAME1$"))
 			jsonString = jsonString.replace("$POLICYNAME1$", genPolicyName + "pold");
@@ -2507,6 +2510,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$PARTNERID1$"))
 			jsonString = jsonString.replace("$PARTNERID1$", genPartnerName + "2n");
+		
+		if (jsonString.contains("$PARTNERIDNONAUTH$"))
+			jsonString = jsonString.replace("$PARTNERIDNONAUTH$", genPartnerNameNonAuth);
 
 		if (jsonString.contains("$PARTNEREMAIL1$"))
 			jsonString = jsonString.replace("$PARTNEREMAIL1$", "12d" + genPartnerEmail);
@@ -2516,6 +2522,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$PARTNEREMAILFORDSL$"))
 			jsonString = jsonString.replace("$PARTNEREMAILFORDSL$", genPartnerEmailForDsl);
+		
+		if (jsonString.contains("$PARTNEREMAILNONAUTH$"))
+			jsonString = jsonString.replace("$PARTNEREMAILNONAUTH$", genPartnerEmailNonAuth);
 
 		if (jsonString.contains("$MISPPOLICYGROUPDESC$"))
 			jsonString = jsonString.replace("$MISPPOLICYGROUPDESC$", genMispPolicyGroupDesc);
