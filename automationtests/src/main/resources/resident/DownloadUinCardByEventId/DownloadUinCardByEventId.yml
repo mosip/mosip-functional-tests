@@ -3,6 +3,7 @@ DownloadUinCardByEventId:
       endPoint: /resident/v1/download-card/event/{eventId}
       role: residentNew
       restMethod: get
+      auditLogCheck: true
       inputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventId
       outputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventIdResult
       input: '{

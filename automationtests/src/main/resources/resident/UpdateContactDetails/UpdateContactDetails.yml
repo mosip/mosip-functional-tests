@@ -611,6 +611,7 @@ UpdateContactDetails:
       endPoint: /resident/v1/contact-details/update-data
       role: residentNew
       restMethod: post
+      auditLogCheck: true
       inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
       outputTemplate: resident/UpdateContactDetails/UpdateContactDetailsResult
       input: '{

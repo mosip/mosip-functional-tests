@@ -3,6 +3,7 @@ SendOtpForContactDet:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
+      auditLogCheck: true
       inputTemplate: resident/SendOtpForContactDet/SendOtpForContactDet
       outputTemplate: resident/SendOtpForContactDet/SendOtpForContactDetResult
       input: '{

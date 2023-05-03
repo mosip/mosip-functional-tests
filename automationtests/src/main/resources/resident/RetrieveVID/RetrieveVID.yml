@@ -3,6 +3,7 @@ RetrieveVID:
       endPoint: /resident/v1/vids
       role: residentNew
       restMethod: get
+      auditLogCheck: true
       inputTemplate: resident/RetrieveVID/RetrieveVID
       outputTemplate: resident/RetrieveVID/RetrieveVIDResult
       input: '{
