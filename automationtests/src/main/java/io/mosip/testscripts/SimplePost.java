@@ -37,6 +37,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean sendEsignetToken = false;
+	public boolean auditLogCheck = false;
 	/**
 	 * get current testcaseName
 	 */
@@ -71,6 +72,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
+		auditLogCheck = testCaseDTO.isAuditLogCheck();
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
@@ -127,7 +129,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			}
 			else {
 				response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-						inputJson, COOKIENAME,
+						inputJson, auditLogCheck, COOKIENAME, 
 						testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
 			}
 			Map<String, List<OutputValidationDto>> ouputValid = null;

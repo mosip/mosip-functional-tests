@@ -3,6 +3,7 @@ ReqShareCredWithPartner:
       endPoint: /resident/v1/share-credential
       role: residentNew
       restMethod: post
+      auditLogCheck: true
       inputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartner
       outputTemplate: resident/ReqShareCredWithPartner/ReqShareCredWithPartnerResult
       input: '{

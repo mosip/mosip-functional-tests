@@ -3,6 +3,7 @@ GetPartnersByPartnerType:
       endPoint: /resident/v1/auth-proxy/partners?partnerType={partnerType}
       role: residentNew
       restMethod: get
+      auditLogCheck: true
       inputTemplate: resident/GetPartnersByPartnerType/getPartnersByPartnerType
       outputTemplate: resident/GetPartnersByPartnerType/getPartnersByPartnerTypeResult
       input: '{
