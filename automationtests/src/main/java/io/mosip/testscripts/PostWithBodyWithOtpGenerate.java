@@ -30,6 +30,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean sendEsignetToken = false;
+	public boolean auditLogCheck = false;
 	/**
 	 * get current testcaseName
 	 */
@@ -64,6 +65,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
+		auditLogCheck = testCaseDTO.isAuditLogCheck();
 		String tempUrl = ApplnURI.replace("-internal", "");
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
@@ -78,10 +80,10 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		otpReqJson.remove("sendOtpEndPoint");
 		Response otpResponse =null;
         if(testCaseDTO.getRole().equalsIgnoreCase("residentNew")) {
-        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"residentNew", testCaseDTO.getTestCaseName(), sendEsignetToken);
+        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), auditLogCheck, COOKIENAME,"residentNew", testCaseDTO.getTestCaseName(), sendEsignetToken);
         }
         else if(testCaseDTO.getRole().equalsIgnoreCase("residentNewVid")) {
-       	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"residentNewVid", testCaseDTO.getTestCaseName(), sendEsignetToken);
+       	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), auditLogCheck, COOKIENAME,"residentNewVid", testCaseDTO.getTestCaseName(), sendEsignetToken);
        }
         else if(testCaseName.contains("ESignet_WalletBinding")) {
         	otpResponse = postRequestWithCookieAuthHeader(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());

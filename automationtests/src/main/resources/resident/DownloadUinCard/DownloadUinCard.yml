@@ -3,6 +3,7 @@ DownloadUinCard:
       endPoint: /resident/v1/download-card
       role: resident
       restMethod: post
+      auditLogCheck: true
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
       outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
       input: '{

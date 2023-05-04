@@ -3,6 +3,7 @@ GetServiceHistory:
       endPoint: /resident/v1/service-history/{langcode}
       role: residentNew
       restMethod: get
+      auditLogCheck: true
       inputTemplate: resident/GetServiceHistory/GetServiceHistory
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{

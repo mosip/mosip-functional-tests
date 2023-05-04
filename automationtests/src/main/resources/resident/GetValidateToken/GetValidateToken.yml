@@ -3,6 +3,7 @@ GetValidateToken:
       endPoint: /resident/v1/authorize/admin/validateToken
       role: residentNew
       restMethod: get
+      auditLogCheck: true
       inputTemplate: resident/GetValidateToken/getValidateToken
       outputTemplate: resident/GetValidateToken/getValidateTokenResult
       input: '{
