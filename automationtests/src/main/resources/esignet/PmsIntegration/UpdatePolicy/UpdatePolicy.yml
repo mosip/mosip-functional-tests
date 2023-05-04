@@ -1,10 +1,10 @@
 UpdatePolicy:
-   Esignet_UpdatePolicy_All_Valid_Smoke_sid:
+   Esignet_UpdatePolicy__AfterPublished_Neg:
       endPoint: /v1/policymanager/policies/{policyId}
       role: partner
       restMethod: put
       inputTemplate: esignet/PmsIntegration/UpdatePolicy/UpdatePolicy
-      outputTemplate: esignet/PmsIntegration/UpdatePolicy/UpdatePolicyResult
+      outputTemplate: esignet/error
       input: '{
 		"desc": "$POLICYDESC$",
 		"name": "$POLICYNAME$",
@@ -15,5 +15,10 @@ UpdatePolicy:
 		"policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$"
 }'
       output: ' {
-        "is_Active": false
+  "errors": [
+    {
+      "errorCode": "PMS_POL_055",
+      "message": "Published policy cannot be updated."
+    }
+  ]
 }'
