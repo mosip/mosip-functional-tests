@@ -36,6 +36,8 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 	public byte[] pdf=null;
 	public String pdfAsText =null;
 	public boolean sendEsignetToken = false;
+	public boolean auditLogCheck = false;
+	
 	/**
 	 * get current testcaseName
 	 */
@@ -69,7 +71,8 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 	public void test(TestCaseDTO testCaseDTO) throws Exception {	
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
-		pdf = getWithPathParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
+		auditLogCheck = testCaseDTO.isAuditLogCheck();
+		pdf = getWithPathParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), auditLogCheck, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
 		 try {
 			 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
 			} catch (IOException e) {

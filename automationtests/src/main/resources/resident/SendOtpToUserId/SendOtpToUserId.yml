@@ -527,6 +527,7 @@ SendOtpToUserId:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNewVid
       restMethod: post
+      auditLogCheck: true
       inputTemplate: resident/SendOtpToUserId/SendOtpToUserId
       outputTemplate: resident/SendOtpToUserId/SendOtpToUserIdResult
       input: '{

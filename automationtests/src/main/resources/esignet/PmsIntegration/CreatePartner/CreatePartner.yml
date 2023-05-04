@@ -60,4 +60,25 @@ createPartnerSelfRegistration:
       output: ' {
         "partnerId": "$IGNORE$",
         "status": "InProgress"
-    }'
+}'
+
+   Esignet_PartnerSelfRegistration_NonAuth_All_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: esignet/PmsIntegration/CreatePartner/createPartner
+      outputTemplate: esignet/PmsIntegration/CreatePartner/createPartnerResult
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967372",
+    "emailId": "$PARTNEREMAILNONAUTH$",
+    "organizationName": "$PARTNERIDNONAUTH$",
+    "partnerId": "$PARTNERIDNONAUTH$",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid_name$",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "partnerId": "$IGNORE$",
+        "status": "InProgress"
+}'

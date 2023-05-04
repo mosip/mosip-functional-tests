@@ -3,6 +3,7 @@ GetDocByTransId:
       endPoint: /resident/v1/documents/{transactionId}
       role: residentNew
       restMethod: get
+      auditLogCheck: true
       inputTemplate: resident/DocumentController/GetDocByTransId/GetDocByTransId
       outputTemplate: resident/DocumentController/GetDocByTransId/GetDocByTransIdResult
       input: '{
