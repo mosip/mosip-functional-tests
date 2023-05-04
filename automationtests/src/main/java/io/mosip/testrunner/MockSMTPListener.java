@@ -44,7 +44,7 @@ public class MockSMTPListener{
 	//static HashMap emailNotificationMapS=new HashMap<Object, Object>();
 	
 	 
-	static Map<Object, Object> emailNotificationMapS = Collections.synchronizedMap(new HashMap<Object, Object>()); 
+	public static Map<Object, Object> emailNotificationMapS = Collections.synchronizedMap(new HashMap<Object, Object>()); 
 	public static Boolean bTerminate = false;
 
 	public void run() {
