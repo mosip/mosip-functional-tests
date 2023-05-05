@@ -4486,7 +4486,9 @@ public class AdminTestUtil extends BaseTestCase {
 				|| testCaseName.startsWith("Ida_EkycOtp") || testCaseName.startsWith("Ida_OTP_Auth")) {
 			if (request.has("otp")) {
 				if (request.getString("otp").endsWith("@mosip.net")
-						|| request.getString("otp").endsWith("@mailinator.com")) {
+						|| request.getString("otp").endsWith("@mailinator.com")
+						|| request.getString("otp").endsWith("@mosip.io")) {
+					
 					emailId = request.get("otp").toString();
 					System.out.println(emailId);
 					// Get the otp value from email notification
@@ -4533,7 +4535,8 @@ public class AdminTestUtil extends BaseTestCase {
 			if (testCaseName.startsWith("Resident_GenerateVID") || testCaseName.startsWith("IDP_AuthenticateUserIDP")) {
 				if (request.has("request")) {
 					if (request.getJSONObject("request").has("otp")) {
-						if (request.getJSONObject("request").getString("otp").endsWith("@mailinator.com")) {
+						if (request.getJSONObject("request").getString("otp").endsWith("@mailinator.com")
+								|| request.getJSONObject("request").getString("otp").endsWith("@mosip.io")) {
 							emailId = request.getJSONObject("request").get("otp").toString();
 							System.out.println(emailId);
 							// Get the otp value from email notification
@@ -4548,7 +4551,8 @@ public class AdminTestUtil extends BaseTestCase {
 								if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
 										.has("challenge")) {
 									if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
-											.getString("challenge").endsWith("@mailinator.com")) {
+											.getString("challenge").endsWith("@mailinator.com") || request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+											.getString("challenge").endsWith("@mosip.io")) {
 										emailId = request.getJSONObject("request").getJSONArray("challengeList")
 												.getJSONObject(0).getString("challenge");
 										System.out.println(emailId);
