@@ -87,6 +87,22 @@
 			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
+	<test name="UpdatePolicy">
+		<parameter name="ymlFile"
+			value="esignet/PmsIntegration/UpdatePolicy/UpdatePolicy.yml" />
+		<parameter name="pathParams" value="policyId" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="DeactivatePolicy">
+		<parameter name="ymlFile"
+			value="esignet/PmsIntegration/DeactivatePolicy/DeactivatePolicy.yml" />
+		<parameter name="pathParams" value="policygroupId,policyId" />
+		<classes>
+			<class name="io.mosip.testscripts.PatchWithPathParamsAndBody" />
+		</classes>
+	</test>
 	<test name="GenerateMispLK">
 		<parameter name="ymlFile"
 			value="esignet/PmsIntegration/GenerateMispLK/GenerateMispLK.yml" />
@@ -209,6 +225,28 @@
 			<parameter name="idKeyName"	value="code" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="OAuthDetailsRequestNonAuth">
+		<parameter name="ymlFile"
+			value="esignet/OAuthDetailsRequest/OAuthDetailsRequestNonAuth.yml" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="BioNonAuth">
+		<parameter name="ymlFile" value="esignet/BioAuthIdp/BioNonAuth.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testscripts.EsignetBioAuth" />
+		</classes>
+	</test>
+	<test name="AuthenticateUserNonAuth">
+		<parameter name="ymlFile"
+			value="esignet/AuthenticateUser/AuthenticateUserNonAuth.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="OAuthDetailsRequest">
