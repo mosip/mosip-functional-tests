@@ -4446,6 +4446,39 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
+	
+	public static String getRegprocWaitFromActuator() {
+
+		Response response = null;
+		JSONObject responseJson = null;
+		JSONArray responseArray = null;
+		String url = ApplnURI + propsKernel.getProperty("actuatorRegprocEndpoint");
+		String waitInterval= null;
+		try {
+			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+
+			responseJson = new JSONObject(response.getBody().asString());
+			responseArray = responseJson.getJSONArray("propertySources");
+
+			for (int i = 0, size = responseArray.length(); i < size; i++) {
+				JSONObject eachJson = responseArray.getJSONObject(i);
+				if (eachJson.get("name").toString().contains("registration-processor-default.properties")) {
+					waitInterval = eachJson.getJSONObject("properties").getJSONObject("registration.processor.reprocess.minutes")
+							.get("value").toString();
+					break;
+				}
+			}
+
+			return waitInterval;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return waitInterval;
+		}
+
+	}
+
 
 	public static String isTestCaseValidForExecution(TestCaseDTO testCaseDTO) {
 		String testCaseName = testCaseDTO.getTestCaseName();
