@@ -3,6 +3,7 @@ GetInputAttributeValues:
       endPoint: /resident/v1/identity/info/type/{schemaType}
       role: residentNew
       restMethod: get
+      auditLogCheck: true
       inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
       outputTemplate: resident/GetInputAttributeValues/getInputAttributeValuesResult
       input: '{
