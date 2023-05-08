@@ -47,8 +47,8 @@ CreateDraft:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "Invalid Request"
+      "errorCode": "IDR-IDC-012",
+      "message": "$IGNORE$"
     }
   ]
 }'
