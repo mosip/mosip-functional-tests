@@ -2874,7 +2874,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains("$IDPCLIENTPAYLOAD$")) {
 			String clientId = getValueFromActuator();
-			String esignetBaseURI = ApplnURI.replace("-internal", "") + propsKernel.getProperty("tokenEndpoint");
+			String esignetBaseURI = ApplnURI.replace("api-internal", "esignet") + propsKernel.getProperty("tokenEndpoint");
 			Instant instant = Instant.now();
 
 			// print Instant Value
