@@ -82,3 +82,72 @@ definePolicy:
     "desc": "$IGNORE$",
     "is_Active": false
 }'
+
+   Esignet_DefinePolicy_With_1_Policy_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: esignet/PmsIntegration/DefinePolicy/definePolicyMisp1
+      outputTemplate: esignet/error
+      input: '{
+	"desc": "$POLICYDESC$",
+	"name": "$RANDOMPOLICYNAME$",
+	"policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$",
+	"policyType": "MISP",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+	  "errors": [
+	    {
+	      "errorCode": "PMS_PV_006",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Esignet_DefinePolicy_With_2_Policy_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: esignet/PmsIntegration/DefinePolicy/definePolicyMisp2
+      outputTemplate: esignet/error
+      input: '{
+	"desc": "$POLICYDESC$",
+	"name": "$RANDOMPOLICYNAME$",
+	"policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$",
+	"policyType": "MISP",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+	  "errors": [
+	    {
+	      "errorCode": "PMS_PV_006",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
+
+   Esignet_DefinePolicy_Invalid_PolicyType_Neg:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: esignet/PmsIntegration/DefinePolicy/definePolicyMisp
+      outputTemplate: esignet/error
+      input: '{
+	"desc": "$MISPPOLICYDESC$",
+	"name": "$MISPPOLICYNAME$",
+	"policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$",
+	"policyType": "shdb",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+	  "errors": [
+	    {
+	      "errorCode": "PMS_PV_006",
+	      "message": "$IGNORE$"
+	    }
+	  ]
+}'
