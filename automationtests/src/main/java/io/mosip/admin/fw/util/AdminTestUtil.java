@@ -2620,6 +2620,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$MISPPOLICYNAME$"))
 			jsonString = jsonString.replace("$MISPPOLICYNAME$", genMispPolicyName);
+		
+		if (jsonString.contains("$RANDOMPOLICYNAME$"))
+			jsonString = jsonString.replace("$RANDOMPOLICYNAME$", RandomStringUtils.randomAlphanumeric(15));
 
 		if (jsonString.contains("$MISPPARTNERID$"))
 			jsonString = jsonString.replace("$MISPPARTNERID$", genMispPartnerName);
@@ -4309,7 +4312,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String signJWKKey(String clientId, RSAKey jwkKey) {
-		String tempUrl = ApplnURI.replace("-internal", "") + propsKernel.getProperty("tokenEndpoint");
+		String tempUrl = ApplnURI.replace("api-internal", "esignet") + propsKernel.getProperty("tokenEndpoint");
 		// Create RSA-signer with the private key
 		JWSSigner signer;
 
