@@ -4568,7 +4568,8 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 		}
 		if (BaseTestCase.currentModule.equals("masterdata")) {
-			if (testCaseName.startsWith("Resident_GenerateVID") || testCaseName.startsWith("IDP_AuthenticateUserIDP")) {
+			if (testCaseName.startsWith("Resident_GenerateVID") || testCaseName.startsWith("IDP_AuthenticateUserIDP")
+					|| testCaseName.startsWith("Resident_credential")) {
 				if (request.has("request")) {
 					if (request.getJSONObject("request").has("otp")) {
 						if (request.getJSONObject("request").getString("otp").endsWith("@mailinator.com")
