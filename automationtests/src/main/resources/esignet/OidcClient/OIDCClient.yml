@@ -62,6 +62,52 @@ CreateOIDCClient:
         "status": "ACTIVE"
 }'
 
+   Esignet_CreateOIDCClient_Auth_False_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: esignet/OidcClient/OIDCClient
+      outputTemplate: esignet/OidcClient/OIDCClientResult
+      input: '{
+        "name": "$RANDOMID$",
+        "policyId": "$ID:DefinePolicy_Auth_False_Valid_Smoke_sid_id$",
+        "publicKey": "$JWKKEY$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_Auth_False_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+        "clientId": "$IGNORE$",
+        "status": "ACTIVE"
+}'
+
+   Esignet_CreateOIDCClient_Auth_S2_Valid_Smoke_sid:
+      endPoint: /v1/partnermanager/oidc/client
+      role: partner
+      restMethod: post
+      inputTemplate: esignet/OidcClient/OIDCClient
+      outputTemplate: esignet/error
+      input: '{
+        "name": "$RANDOMID$",
+        "policyId": "$ID:DefinePolicy_Auth_S2_Valid_Smoke_sid_id$",
+        "publicKey": "$JWKKEY$",
+        "authPartnerId": "$ID:PartnerSelfRegistration_Auth_S2_Valid_Smoke_sid_partnerId$",
+        "logoUri": "https://health-services.com/logo.png",
+        "redirectUris": "$IDPREDIRECTURI$",
+        "grantTypes": "authorization_code",
+        "clientAuthMethods": "private_key_jwt"
+}'
+      output: '{
+	  "errors": [
+	    {
+	      "errorCode": "PMS_PRT_061",
+	      "message": "Partner policy mapping not exists."
+	    }
+	  ]
+}'
+
    Esignet_CreateOIDCClient_InValid_logoUri_sid:
       endPoint: /v1/partnermanager/oidc/client
       role: partner

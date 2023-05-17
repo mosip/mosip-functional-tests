@@ -58,3 +58,33 @@ ApproveAPIKey:
       output: '{
         "response": "Policy mapping approved successfully"
 }'
+
+   Esignet_ApproveRejectPartnerAPIKeyReq_Misp_False_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/policy/{mappingkey}
+      role: partner
+      restMethod: put
+      inputTemplate: esignet/PmsIntegration/ApproveAPIKey/approveAPIKey
+      outputTemplate: esignet/PmsIntegration/ApproveAPIKey/approveAPIKeyResult
+      input: '{
+      "status": "Approved",
+      "mappingkey": "$ID:SubmitPartnerApiKeyRequest_Rejection_Misp_False_Valid_Smoke_sid_mappingkey$",
+	  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "response": "Policy mapping approved successfully"
+}'
+
+   Esignet_ApproveRejectPartnerAPIKeyReq_Auth_False_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/policy/{mappingkey}
+      role: partner
+      restMethod: put
+      inputTemplate: esignet/PmsIntegration/ApproveAPIKey/approveAPIKey
+      outputTemplate: esignet/PmsIntegration/ApproveAPIKey/approveAPIKeyResult
+      input: '{
+      "status": "Approved",
+      "mappingkey": "$ID:SubmitPartnerApiKeyRequest_Rejection_Auth_False_Valid_Smoke_sid_mappingkey$",
+	  "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+        "response": "Policy mapping approved successfully"
+}'

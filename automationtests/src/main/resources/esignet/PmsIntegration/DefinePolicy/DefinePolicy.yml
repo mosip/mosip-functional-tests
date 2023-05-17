@@ -196,7 +196,7 @@ definePolicy:
     "is_Active": false
 }'
 
-   Esignet_DefinePolicy_Invalid_PolicyAdd_Neg:
+   Esignet_DefinePolicy_Invalid_MispPolicy_Neg:
       endPoint: /v1/policymanager/policies
       role: partner
       restMethod: post
@@ -238,4 +238,88 @@ definePolicy:
 	      "message": "$IGNORE$"
 	    }
 	  ]
+}'
+
+   Esignet_DefinePolicy_Misp_False_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: esignet/PmsIntegration/DefinePolicy/definePolicyMispFalse
+      outputTemplate: esignet/PmsIntegration/DefinePolicy/definePolicyResult
+      input: '{
+	"desc": "$MISPPOLICYDESC$",
+	"name": "$RANDOMPOLICYNAME$",
+	"policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$",
+	"policyType": "MISP",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "$IGNORE$",
+    "name": "$IGNORE$",
+    "desc": "$IGNORE$",
+    "is_Active": false
+}'
+
+   Esignet_DefinePolicy_Auth_False_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: esignet/PmsIntegration/DefinePolicy/definePolicyWOPhone
+      outputTemplate: esignet/PmsIntegration/DefinePolicy/definePolicyResult
+      input: '{
+	"desc": "$POLICYDESC1$",
+	"name": "$RANDOMPOLICYNAME$",
+	"policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "$IGNORE$",
+    "name": "$IGNORE$",
+    "desc": "$IGNORE$",
+    "is_Active": false
+}'
+
+   Esignet_DefinePolicy_Misp_S2_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: esignet/PmsIntegration/DefinePolicy/definePolicyMisp
+      outputTemplate: esignet/PmsIntegration/DefinePolicy/definePolicyResult
+      input: '{
+	"desc": "$MISPPOLICYDESC$",
+	"name": "$RANDOMPOLICYNAME$",
+	"policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$",
+	"policyType": "MISP",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "$IGNORE$",
+    "name": "$IGNORE$",
+    "desc": "$IGNORE$",
+    "is_Active": false
+}'
+
+   Esignet_DefinePolicy_Auth_S2_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: esignet/PmsIntegration/DefinePolicy/definePolicy
+      outputTemplate: esignet/PmsIntegration/DefinePolicy/definePolicyResult
+      input: '{
+	"desc": "$POLICYDESC1$",
+	"name": "$RANDOMPOLICYNAME$",
+	"policyGroupName": "$ID:DefinePolicyGroup_Misp_Valid_Smoke_sid_name$",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "$IGNORE$",
+    "name": "$IGNORE$",
+    "desc": "$IGNORE$",
+    "is_Active": false
 }'
