@@ -7,7 +7,7 @@ CreateDeviceSpecification:
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/DeviceSpecification/deviceSpecificationResult
       input: '{
-      "brand": "Technoforte",
+      "brand": "hogwarts",
       "description": "Test DeviceSpec",
       "deviceTypeCode": "GST4",
       "id": "743",

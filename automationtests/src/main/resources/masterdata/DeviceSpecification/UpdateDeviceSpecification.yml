@@ -7,7 +7,7 @@ UpdateDeviceSpecification:
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
       outputTemplate: masterdata/DeviceSpecification/deviceSpecificationResult
       input: '{
-      "brand": "Technoforte",
+      "brand": "Techno DeviceSpec",
       "description": "Test DeviceSpec updated",
       "deviceTypeCode": "GST4",
       "id": "$ID:CreateDeviceSpecification_All_Valid_Smoke_sid_id$",
