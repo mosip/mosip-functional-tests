@@ -58,7 +58,7 @@ DeviceSpecFilter:
 	"filters": [{
 		"columnName": "brand",
 		"type": "unique",
-		"text": "Technoforte"
+		"text": "hogwarts"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -67,7 +67,7 @@ DeviceSpecFilter:
     "filters": [
       {
         "fieldID": "brand",
-        "fieldValue": "Technoforte"
+        "fieldValue": "hogwarts"
       }
     ]
   }'
@@ -82,7 +82,7 @@ DeviceSpecFilter:
 	"filters": [{
 		"columnName": "brand",
 		"type": "all",
-		"text": "Technoforte"
+		"text": "hogwarts"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -91,7 +91,7 @@ DeviceSpecFilter:
     "filters": [
       {
         "fieldID": "brand",
-        "fieldValue": "Technoforte"
+        "fieldValue": "hogwarts"
       }
     ]
   }'
