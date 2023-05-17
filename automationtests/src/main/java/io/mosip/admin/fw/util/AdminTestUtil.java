@@ -2596,6 +2596,10 @@ public class AdminTestUtil extends BaseTestCase {
 		
 		if (jsonString.contains("$PARTNERIDNONAUTH$"))
 			jsonString = jsonString.replace("$PARTNERIDNONAUTH$", genPartnerNameNonAuth);
+		
+		if (jsonString.contains("$RANDOMPARTNEREMAIL$"))
+			jsonString = jsonString.replace("$RANDOMPARTNEREMAIL$", "automation" + RandomStringUtils.randomNumeric(15)
+			+ "@mosip.net");
 
 		if (jsonString.contains("$PARTNEREMAIL1$"))
 			jsonString = jsonString.replace("$PARTNEREMAIL1$", "12d" + genPartnerEmail);
@@ -2623,6 +2627,9 @@ public class AdminTestUtil extends BaseTestCase {
 		
 		if (jsonString.contains("$RANDOMPOLICYNAME$"))
 			jsonString = jsonString.replace("$RANDOMPOLICYNAME$", RandomStringUtils.randomAlphanumeric(15));
+		
+		if (jsonString.contains("$RANDOMPARTNERID$"))
+			jsonString = jsonString.replace("$RANDOMPARTNERID$", RandomStringUtils.randomAlphanumeric(15));
 
 		if (jsonString.contains("$MISPPARTNERID$"))
 			jsonString = jsonString.replace("$MISPPARTNERID$", genMispPartnerName);
