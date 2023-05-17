@@ -555,7 +555,7 @@ DeviceSpecSearch:
       {
         "columnName": "brand",
         "type": "contains",
-        "value": "Technoforte",
+        "value": "hogwarts",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
