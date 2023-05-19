@@ -35,6 +35,73 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
+
+  auth_DemoAuth_DOB_Invalid_Past_Timestamp_VID_Neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=2022-05-19T06:29:44.809Z&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+        "errors": [
+        {
+          "errorCode": "IDA-MLC-001",
+          "errorMessage": "$IGNORE$"
+        }
+      ],
+  		"authStatus": "false"
+}'
+
+  auth_DemoAuth_DOB_Invalid_Future_Timestamp_VID_Neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=2053-05-19T06:29:44.809Z&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+        "errors": [
+        {
+          "errorCode": "IDA-MLC-001",
+          "errorMessage": "$IGNORE$"
+        }
+      ],
+  		"authStatus": "false"
+}'
+
+  auth_DemoAuth_DOB_Empty_Timestamp_VID_Neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+        "errors": [
+        {
+          "errorCode": "IDA-MLC-001",
+          "errorMessage": "$IGNORE$"
+        }
+      ],
+  		"authStatus": "false"
+}'
+
   auth_DemoAuth_DOB_InValid_uin_Dateofbirth:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -92,6 +159,51 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
+
+  auth_DemoAuth_Email_Invalid_Past_Timestamp_VID_Neg_VID:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=2022-05-19T06:29:44.809Z&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "key": "emailId"
+    }'
+      output: '{
+        "errors": [
+        {
+          "errorCode": "IDA-MLC-001",
+          "errorMessage": "$IGNORE$"
+        }
+      ],
+  		"authStatus": "false"
+}'
+
+  auth_DemoAuth_Email_Invalid_Future_Timestamp_VID_Neg_VID:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=2052-05-19T06:29:44.809Z&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "key": "emailId"
+    }'
+      output: '{
+        "errors": [
+        {
+          "errorCode": "IDA-MLC-001",
+          "errorMessage": "$IGNORE$"
+        }
+      ],
+  		"authStatus": "false"
+}'
+
   auth_DemoAuth_Email_Valid_Smoke_Poss_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
