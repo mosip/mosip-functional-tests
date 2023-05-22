@@ -21,6 +21,8 @@ public class TestJava {
 				+ "\r\n"
 				+ "Cher $name_fra, OTP pour UIN XXXXXXXX02 est 123456 et est valide pour 3 minutes. (Généré le 16-03-2023 à 15:43:39 Hrs)";
 		
+		message = "Dear TEST_FULLNAMEeng OTP for UIN XXXXXXXX98 is 523478 and is valid for 3 minutes. (Generated on 22-05-2023 at 11:40:11 Hrs) عزيزي $ name OTP لـ $ idvidType $ idvid هو $ otp وهو صالح لـ $ validTime دقيقة. (تم إنشاؤه في $ date في $ time Hrs) UIN XXXXXXXX98 ಗಾಗಿ ಆತ್ಮೀಯ TEST_FULLNAMEkan OTP 523478 ಆಗಿದೆ ಮತ್ತು ಇದು 3 ನಿಮಿಷಗಳವರೆಗೆ ಮಾನ್ಯವಾಗಿರುತ್ತದೆ. (22-05-2023 ದಂದು 11:40:11 ಗಂಟೆಗೆ ರಚಿಸಲಾಗಿದೆ)";
+		
 		if(message!=null) {
 		    Matcher mMatcher = mPattern.matcher(message);
 		    if(mMatcher.find()) {

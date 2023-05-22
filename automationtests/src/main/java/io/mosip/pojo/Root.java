@@ -15,4 +15,5 @@ public class Root{
 	 public From from;
 	 public Cc cc;
 	 public String messageId;
+	 public String type;
 	}
