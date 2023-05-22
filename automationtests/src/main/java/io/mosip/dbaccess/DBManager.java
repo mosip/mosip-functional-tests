@@ -29,19 +29,30 @@ public class DBManager {
 					Statement statement = connection.createStatement();
 					statement.addBatch("delete from pms.partner_contact where partner_id='Tech-123'");
 					statement.addBatch("delete from partner_policy where part_id='Tech-123'");
+					statement.addBatch("delete from partner_policy where cr_by='partner-111997'");
 					statement.addBatch(
 							"delete from partner_policy where policy_id in (select id from auth_policy where name in ('mosip policy','mosip data share policy'))");
 					statement.addBatch("delete from partner_policy_request where part_id='Tech-123'");
+					statement.addBatch("delete from partner_policy_request where cr_by='partner-111997'");
 					statement.addBatch("delete from pms.partner_policy where label='string'");
 					statement.addBatch(
 							"delete from partner_policy_request where policy_id in (select id from auth_policy where name in ('mosip policy','mosip data share policy'))");
 					statement.addBatch(
 							"delete from partner_policy_bioextract where policy_id in (select id from auth_policy where name in ('mosip policy','mosip data share policy'))");
+					statement.addBatch("delete from partner_policy_bioextract where cr_by='partner-111997'");
 					statement.addBatch("delete from partner_policy_credential_type where part_id='MOVP'");
 					statement.addBatch(
+							"delete from pms.partner_policy_request where cr_by = 'partner-111997'");
+					statement.addBatch(
+							"delete from pms.partner_contact where cr_by = 'partner-111997'");
+					statement.addBatch(
+							"delete from pms.partner where cr_by = 'partner-111997'");
+					statement.addBatch(
 							"delete from pms.partner where id in ('Tech-123','MOVP','DPP','MISP','MISP2','FTP','111997','mosipprint','partner-111997','updatepolicy')");
+					statement.addBatch("delete from auth_policy where cr_by='partner-111997'");
 					statement.addBatch(
 							"delete from pms.auth_policy where name in('mosip policy','mosip policy2','mosip policy3','mosip data share policy','mosip data share policy2')");
+					statement.addBatch("delete from policy_group where cr_by='partner-111997'");
 					statement.addBatch(
 							"delete from pms.policy_group where name in ('mosip policy group','mosip policy role testing groupp','mosip policy group2','update_policy_group')");
 					statement.addBatch("delete from pms.misp_license where cr_by='pm_testuser'");
