@@ -31,6 +31,24 @@ CreateVID:
       output: '{
   "vidStatus":"ACTIVE"
 }'
+
+  IdRepository_CreateVID_withValidParameters_For_VidType_Smoke_Onetimeuse_sid:
+      endPoint: /idrepository/v1/vid
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/CreateVID/createVid
+      outputTemplate: idRepository/CreateVID/createVidResult
+      input: '{
+    "vidType": "onetimeuse",
+    "UIN": "$ID:AddIdentity_For_Onetimeusevid_smoke_Pos_UIN$",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+  "vidStatus":"ACTIVE"
+}'
+
   IdRepository_CreateVID_withValidParameters_positive_Smoke_Temporary_sid:
       endPoint: /idrepository/v1/vid
       role: idrepo
