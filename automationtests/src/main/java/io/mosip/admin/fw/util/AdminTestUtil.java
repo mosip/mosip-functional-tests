@@ -2533,7 +2533,8 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BIOVALUE$")) {
 			jsonString = jsonString.replace("$BIOVALUE$", propsBio.getProperty("BioValue"));
 		}
-
+		if (jsonString.contains("$CLAIMSFROMCONFIG$"))
+			jsonString = jsonString.replace("$CLAIMSFROMCONFIG$", getValueFromConfigActuator());
 		if (jsonString.contains("$TIMESTAMP$"))
 			jsonString = jsonString.replace("$TIMESTAMP$", generateCurrentUTCTimeStamp());
 		if (jsonString.contains("$TRANSACTIONID$"))
@@ -4453,6 +4454,39 @@ public class AdminTestUtil extends BaseTestCase {
 		} catch (Exception e) {
 			logger.error("Exception " + e);
 			return clientId;
+		}
+
+	}
+	
+	public static String getValueFromConfigActuator() {
+
+		Response response = null;
+		JSONObject responseJson = null;
+		JSONArray responseArray = null;
+		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
+		String claims = null;
+		try {
+			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+
+			responseJson = new JSONObject(response.getBody().asString());
+			responseArray = responseJson.getJSONArray("propertySources");
+
+			for (int i = 0, size = responseArray.length(); i < size; i++) {
+				JSONObject eachJson = responseArray.getJSONObject(i);
+				if (eachJson.get("name").toString().contains("resident-default.properties")) {
+					String claimVal = eachJson.getJSONObject("properties").getJSONObject("mosip.iam.module.login_flow.claims").getString("value");
+					JSONObject claimJson = new JSONObject(claimVal);
+					claims = claimJson.getJSONObject("userinfo").toString();					
+					break;
+				}
+			}
+
+			return claims;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return claims;
 		}
 
 	}
