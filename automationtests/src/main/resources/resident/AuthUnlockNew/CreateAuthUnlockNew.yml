@@ -71,7 +71,7 @@ AuthUnlockNew:
   		"status": "Success"
 }'
 
-   Resident_AuthUnlockNew_Invalid_Requesttime_Neg:
+   Resident_AuthUnlockNew_uin_Invalid_Requesttime_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -94,7 +94,7 @@ AuthUnlockNew:
   ]
 }'
 
-   Resident_AuthUnlockNew_Invalid_Id_Neg:
+   Resident_AuthUnlockNew_uin_Invalid_Id_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -117,7 +117,7 @@ AuthUnlockNew:
   ]
 }'
 
-   Resident_AuthUnlockNew_Invalid_Version_Neg:
+   Resident_AuthUnlockNew_uin_Invalid_Version_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -140,7 +140,7 @@ AuthUnlockNew:
   ]
 }'
 
-   Resident_AuthUnlockNew_Invalid_AuthType_Neg:
+   Resident_AuthUnlockNew_uin_Invalid_AuthType_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -163,7 +163,7 @@ AuthUnlockNew:
 		  ]
 }'
 
-   Resident_AuthUnlockNew_Invalid_Locked_Status_Neg:
+   Resident_AuthUnlockNew_uin_Invalid_Locked_Status_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -186,7 +186,7 @@ AuthUnlockNew:
 		  ]
 }'
 
-   Resident_AuthUnlockNew_Invalid_Secs_Neg:
+   Resident_AuthUnlockNew_uin_Invalid_Secs_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -209,7 +209,7 @@ AuthUnlockNew:
 		  ]
 }'
 
-   Resident_AuthUnlockNew_Empty_Requesttime_Neg:
+   Resident_AuthUnlockNew_uin_Empty_Requesttime_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -232,7 +232,7 @@ AuthUnlockNew:
 		  ]
 }'
 
-   Resident_AuthUnlockNew_Empty_Id_Neg:
+   Resident_AuthUnlockNew_uin_Empty_Id_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -255,7 +255,7 @@ AuthUnlockNew:
   ]
 }'
 
-   Resident_AuthUnlockNew_Empty_Version_Neg:
+   Resident_AuthUnlockNew_uin_Empty_Version_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -278,7 +278,7 @@ AuthUnlockNew:
   ]
 }'
 
-   Resident_AuthUnlockNew_Empty_AuthType_Neg:
+   Resident_AuthUnlockNew_uin_Empty_AuthType_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -301,7 +301,7 @@ AuthUnlockNew:
 		  ]
 }'
 
-   Resident_AuthUnlockNew_Empty_Locked_Status_Pos:
+   Resident_AuthUnlockNew_uin_Empty_Locked_Status_Pos:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -319,7 +319,7 @@ AuthUnlockNew:
   		"status": "Success"
 }'
 
-   Resident_AuthUnlockNew_Empty_Secs_Pos:
+   Resident_AuthUnlockNew_uin_Empty_Secs_Pos:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -337,7 +337,7 @@ AuthUnlockNew:
   		"status": "Success"
 }'
 
-   Resident_AuthUnlockNew_Missing_Requesttime_Neg:
+   Resident_AuthUnlockNew_uin_Missing_Requesttime_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -360,7 +360,7 @@ AuthUnlockNew:
   ]
 }'
 
-   Resident_AuthUnlockNew_Missing_Id_Neg:
+   Resident_AuthUnlockNew_uin_Missing_Id_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -383,7 +383,7 @@ AuthUnlockNew:
   ]
 }'
 
-   Resident_AuthUnlockNew_Missing_Version_Neg:
+   Resident_AuthUnlockNew_uin_Missing_Version_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -406,7 +406,7 @@ AuthUnlockNew:
   ]
 }'
 
-   Resident_AuthUnlockNew_Missingy_AuthType_Neg:
+   Resident_AuthUnlockNew_uin_Missingy_AuthType_Neg:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -429,7 +429,7 @@ AuthUnlockNew:
 		  ]
 }'
 
-   Resident_AuthUnlockNew_Missing_Locked_Status_Pos:
+   Resident_AuthUnlockNew_uin_Missing_Locked_Status_Pos:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -447,7 +447,7 @@ AuthUnlockNew:
   		"status": "Success"
 }'
 
-   Resident_AuthUnlockNew_Missing_Secs_Pos:
+   Resident_AuthUnlockNew_uin_Missing_Secs_Pos:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
       restMethod: post
@@ -555,6 +555,400 @@ AuthUnlockNew:
         "authType": "bio-FINGER",
         "locked": "false",
         "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_vid_Invalid_Requesttime_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "T@345IMP",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Invalid_Id_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mothlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Invalid_Version_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "@333#1",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Invalid_AuthType_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-Fing@@",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-410",
+		      "message": "Invalid Input Parameter- authTypes"
+		    }
+		  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Invalid_Locked_Status_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "tr$@s",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-418",
+		      "message": "$IGNORE$"
+		    }
+		  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Invalid_Secs_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "@#$"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-418",
+		      "message": "$IGNORE$"
+		    }
+		  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Empty_Requesttime_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-410",
+		      "message": "$IGNORE$"
+		    }
+		  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Empty_Id_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Empty_Version_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Empty_AuthType_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-410",
+		      "message": "Invalid Input Parameter- authTypes"
+		    }
+		  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Empty_Locked_Status_Pos:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_vid_Empty_Secs_Pos:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": ""
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_vid_Missing_Requesttime_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$REMOVE$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Missing_Id_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "$REMOVE$",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Missing_Version_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "$REMOVE$",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Missingy_AuthType_Neg:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/error
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "$REMOVE$",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"errors": [
+		    {
+		      "errorCode": "RES-SER-410",
+		      "message": "Invalid Input Parameter- authTypes"
+		    }
+		  ]
+}'
+
+   Resident_AuthUnlockNew_vid_Missing_Locked_Status_Pos:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "$REMOVE$",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_vid_Missing_Secs_Pos:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "$REMOVE$"
     }'
       output: '{
   		"status": "Success"

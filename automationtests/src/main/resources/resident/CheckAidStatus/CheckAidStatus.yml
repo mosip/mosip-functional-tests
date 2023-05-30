@@ -8,10 +8,10 @@ CheckAidStatus:
       input: '{
       	"requesttime": "$TIMESTAMP$",
 	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
-	    "otp": "111111",
-	    "transactionID": "1234567890",
+	    "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
+	    "transactionId": "$TRANSACTIONID$",
 	    "sendOtp":{
-		    "transactionID": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -24,7 +24,7 @@ CheckAidStatus:
         "sendOtpResp":{
 	        "maskedMobile": "XXXXXX3210",
 	        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
-	        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+	        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -37,10 +37,10 @@ CheckAidStatus:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 	    "aid": "123444sasa$%",
-	    "otp": "111111",
-	    "transactionID": "1234567890",
+	    "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
+	    "transactionId": "$TRANSACTIONID$",
 	    "sendOtp":{
-		    "transactionID": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -59,7 +59,7 @@ CheckAidStatus:
         "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -72,10 +72,10 @@ CheckAidStatus:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
-	    "otp": "111111",
-	    "transactionID": "213$@As",
+	    "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
+	    "transactionId": "213$@As",
 	    "sendOtp":{
-		    "transactionID": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -87,14 +87,14 @@ CheckAidStatus:
       output: '{
 		 "errors": [
 	    {
-	      "errorCode": "RES-SER-422",
+	      "errorCode": "RES-SER-410",
 	      "message": "$IGNORE$"
 	    }
   ],
         "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -108,9 +108,9 @@ CheckAidStatus:
 		"requesttime": "$TIMESTAMP$",
 	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 	    "otp": "123456",
-	    "transactionID": "1234567890",
+	    "transactionId": "$TRANSACTIONID$",
 	    "sendOtp":{
-		    "transactionID": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -129,7 +129,7 @@ CheckAidStatus:
         "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -142,10 +142,10 @@ CheckAidStatus:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 	    "aid": "",
-	    "otp": "111111",
-	    "transactionID": "1234567890",
+	    "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
+	    "transactionId": "$TRANSACTIONID$",
 	    "sendOtp":{
-		    "transactionID": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -164,7 +164,7 @@ CheckAidStatus:
         "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -177,10 +177,10 @@ CheckAidStatus:
       input: '{
 		"requesttime": "$TIMESTAMP$",
 	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
-	    "otp": "111111",
-	    "transactionID": "",
+	    "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
+	    "transactionId": "",
 	    "sendOtp":{
-		    "transactionID": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -192,14 +192,14 @@ CheckAidStatus:
       output: '{
 		 "errors": [
 	    {
-	      "errorCode": "RES-SER-422",
+	      "errorCode": "RES-SER-410",
 	      "message": "$IGNORE$"
 	    }
   ],
         "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -213,9 +213,9 @@ CheckAidStatus:
 		"requesttime": "$TIMESTAMP$",
 	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 	    "otp": "",
-	    "transactionID": "1234567890",
+	    "transactionId": "$TRANSACTIONID$",
 	    "sendOtp":{
-		    "transactionID": "1234567890",
+		    "transactionId": "$TRANSACTIONID$",
 		    "requestTime": "$TIMESTAMP$",
 		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -234,7 +234,7 @@ CheckAidStatus:
         "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 
 }'

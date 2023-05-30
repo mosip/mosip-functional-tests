@@ -99,6 +99,22 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		return postResponse;
 	}
+	
+	public static Response postWithParamsAndFile(String url, HashMap<String, String> pathParams, File file, String fileKeyName, String contentHeader, String cookieValue, String idTokenName, String idTokenValue) {
+		Map<String, String> tokens = new HashMap<String, String>();
+		tokens.put("Authorization", cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+		RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
+		RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
+//		Cookie.Builder builder = new Cookie.Builder("Authorization", cookieValue);
+		Response postResponse = given().cookies(tokens).relaxedHTTPSValidation().multiPart(fileKeyName, file)
+				.pathParams(pathParams).contentType(contentHeader).expect().when().post(url)
+				.then().log().all().extract().response();
+		// log then response
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
+		return postResponse;
+	}
 
 	public static Response postWithFormDataAndFile(String url, HashMap<String, String> formParams, String filePath,
 			String contentHeader, String cookie) {
@@ -328,6 +344,20 @@ public class RestClient {
 		return postResponse;
 	}
 	
+	public static Response postRequestWithCookie(String url, Object body, String contentHeader, String acceptHeader,
+			String cookieName, String cookieValue, String idTokenName, String idTokenValue) {
+		Map<String, String> tokens = new HashMap<String, String>();
+		tokens.put(cookieName, cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
+				.cookies(tokens).accept(acceptHeader).log().all().when().post(url).then().log().all()
+				.extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
+	
 	public static Response deleteRequestWithCookie(String url, Object body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
@@ -424,6 +454,20 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
 		return postResponse;
 	}
+	
+	public static Response postRequestWithCookieAndHeader(String url, Object body, String contentHeader,
+			String acceptHeader, String cookieName, String cookieValue, String authHeaderName, String authHeaderValue, String idTokenName, String idTokenValue) {
+		Map<String, String> tokens = new HashMap<String, String>();
+		tokens.put(cookieName, cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().header(authHeaderName, authHeaderValue)
+				.body(body).contentType(contentHeader).cookies(tokens).accept(acceptHeader).log().all()
+				.when().post(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
 
 	public static Response patchRequestWithCookieAndHeader(String url, Object body, String contentHeader,
 			String acceptHeader, String cookieName, String cookieValue, String authHeaderName, String authHeaderValue) {
@@ -457,6 +501,20 @@ public class RestClient {
 		return postResponse;
 	}
 	
+	public static Response patchRequestWithCookie(String url, String body, String contentHeader, String acceptHeader,
+			String cookieName, String cookieValue, String idTokenName, String idTokenValue) {
+		Map<String, String> tokens = new HashMap<String, String>();
+		tokens.put(cookieName, cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
+		Response postResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
+				.cookies(tokens).accept(acceptHeader).log().all().when().patch(url).then().log().all()
+				.extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		return postResponse;
+	}
+	
 	public static Response patchRequestWithCookie(String url, Object body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PATCH request to " + url);
@@ -472,6 +530,19 @@ public class RestClient {
 			String cookieName, String cookieValue) {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 		Response getResponse = given().config(config).relaxedHTTPSValidation().cookie(cookieName, cookieValue).log()
+				.all().when().get(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		return getResponse;
+	}
+	
+	public static Response getRequestWithCookie(String url, String contentHeader, String acceptHeader,
+			String cookieName, String cookieValue, String idTokenName, String idTokenValue) {
+		Map<String, String> tokens = new HashMap<String, String>();
+		tokens.put(cookieName, cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+		Response getResponse = given().config(config).relaxedHTTPSValidation().cookies(tokens).log()
 				.all().when().get(url).then().log().all().extract().response();
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + getResponse.time());
@@ -653,6 +724,20 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + putResponse.time());
 		return putResponse;
 	}
+	
+	public static Response putRequestWithCookie(String url, Object body, String contentHeader, String acceptHeader,
+			String cookieName, String cookieValue, String idTokenName, String idTokenValue) {
+		Map<String, String> tokens = new HashMap<String, String>();
+		tokens.put(cookieName, cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a PUT request to " + url);
+		Response putResponse = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
+				.cookies(tokens).accept(acceptHeader).log().all().when().put(url).then().log().all()
+				.extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + putResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + putResponse.time());
+		return putResponse;
+	}
 
 	// Added by Admin Test Team
 	public static Response getRequestWithCookieAndPathParm(String url, HashMap<String, String> body,
@@ -660,6 +745,19 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 		Response getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
 				.cookie(cookieName, cookieValue).log().all().when().get(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		return getResponse;
+	}
+	
+	public static Response getRequestWithCookieAndPathParm(String url, HashMap<String, String> body,
+			String contentHeader, String acceptHeader, String cookieName, String cookieValue, String idTokenName, String idTokenValue) {
+		Map<String, String> tokens = new HashMap<String, String>();
+		tokens.put(cookieName, cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+		Response getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
+				.cookies(tokens).log().all().when().get(url).then().log().all().extract().response();
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + getResponse.time());
 		return getResponse;
@@ -685,6 +783,18 @@ public class RestClient {
 		return pdf;
 	}
 	
+	public static byte[] getPdf(String url, HashMap<String, String> body, String contentHeader, String acceptHeader,
+			String cookieName, String cookieValue, String idTokenName, String idTokenValue) {
+		Map<String, String> tokens = new HashMap<String, String>();
+		tokens.put(cookieName, cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+		byte[] pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).contentType("application/pdf")
+				.accept("*/*").cookies(tokens).log().all().when().get(url).then().extract()
+				.asByteArray();
+		return pdf;
+	}
+	
 	public static byte[] postWithBodyForPdf(String url, String body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
@@ -694,11 +804,35 @@ public class RestClient {
 		return pdf;
 	}
 	
+	public static byte[] postWithBodyForPdf(String url, String body, String contentHeader, String acceptHeader,
+			String cookieName, String cookieValue, String idTokenName, String idTokenValue) {
+		Map<String, String> tokens = new HashMap<String, String>();
+		tokens.put(cookieName, cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+		byte[] pdf = given().config(config).relaxedHTTPSValidation().body(body).contentType(contentHeader)
+				.accept("*/*").cookies(tokens).log().all().when().get(url).then().extract()
+				.asByteArray();
+		return pdf;
+	}
+	
 	public static byte[] getPdfWithQueryParm(String url, HashMap<String, String> body, String contentHeader, String acceptHeader,
 			String cookieName, String cookieValue) {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 		byte[] pdf = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
 				.accept("*/*").cookie(cookieName, cookieValue).log().all().when().get(url).then().extract()
+				.asByteArray();
+		return pdf;
+	}
+	
+	public static byte[] getPdfWithQueryParm(String url, HashMap<String, String> body, String contentHeader, String acceptHeader,
+			String cookieName, String cookieValue, String idTokenName, String idTokenValue) {
+		Map<String, String> tokens = new HashMap<String, String>();
+		tokens.put(cookieName, cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+		byte[] pdf = given().config(config).relaxedHTTPSValidation().queryParams(body).contentType("application/pdf")
+				.accept("*/*").cookies(tokens).log().all().when().get(url).then().extract()
 				.asByteArray();
 		return pdf;
 	}
@@ -744,6 +878,18 @@ public class RestClient {
         return deleteResponse;
     }
 	
+	public static Response deleteRequestWithCookieAndPathParm(String url,HashMap<String, String> body, String contentHeader, String acceptHeader,String cookieName,String cookieValue, String idTokenName, String idTokenValue) {
+        RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
+        Map<String, String> tokens = new HashMap<String, String>();
+		tokens.put(cookieName, cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+        Response deleteResponse= given().config(config).relaxedHTTPSValidation().pathParams(body).cookies(tokens)
+                    .log().all().when().delete(url).then().log().all().extract().response();
+        RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + deleteResponse.asString());
+        RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + deleteResponse.time());
+        return deleteResponse;
+    }
+	
 	public static Response deleteRequest(String url, String contentHeader, String acceptHeader) {
         RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a DELETE request to " + url);
         Response deleteResponse= given().config(config).relaxedHTTPSValidation()
@@ -771,6 +917,19 @@ public class RestClient {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
 		Response getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
 				.cookie(cookieName, cookieValue).log().all().when().post(url).then().log().all().extract().response();
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
+		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		return getResponse;
+	}
+	
+	public static Response postRequestWithCookieAndOnlyPathParm(String url, HashMap<String, String> body,
+			String contentHeader, String acceptHeader, String cookieName, String cookieValue, String idTokenName, String idTokenValue) {
+		Map<String, String> tokens = new HashMap<String, String>();
+		tokens.put(cookieName, cookieValue);
+		tokens.put(idTokenName, idTokenValue);
+		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request to " + url);
+		Response getResponse = given().config(config).relaxedHTTPSValidation().pathParams(body)
+				.cookies(tokens).log().all().when().post(url).then().log().all().extract().response();
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response Time is: " + getResponse.time());
 		return getResponse;

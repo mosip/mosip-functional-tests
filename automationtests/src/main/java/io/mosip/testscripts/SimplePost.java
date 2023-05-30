@@ -36,6 +36,8 @@ public class SimplePost extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePost.class);
 	protected String testCaseName = "";
 	public Response response = null;
+	public boolean sendEsignetToken = false;
+	public boolean auditLogCheck = false;
 	/**
 	 * get current testcaseName
 	 */
@@ -52,6 +54,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
+		sendEsignetToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendEsignetToken");
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -68,6 +71,8 @@ public class SimplePost extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
+		auditLogCheck = testCaseDTO.isAuditLogCheck();
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
@@ -107,12 +112,13 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		}
 
 		else {
-			if(testCaseName.contains("IDP_")) {
-				if(testCaseName.contains("IDP_SendBindingOtp")) {
-					response = postRequestWithCookieAuthHeader(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			String tempUrl = ApplnURI.replace("-internal", "");
+			if(testCaseName.contains("ESignet_")) {
+				if(testCaseName.contains("ESignet_SendBindingOtp")) {
+					response = postRequestWithCookieAuthHeader(tempUrl + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 				}
 				else {
-					String tempUrl = ApplnURI.replace("-internal", "");
+//					String tempUrl = ApplnURI.replace("-internal", "");
 					response = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + testCaseDTO.getEndPoint(),
 							inputJson, COOKIENAME,
 							testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
@@ -123,8 +129,8 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			}
 			else {
 				response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-						inputJson, COOKIENAME,
-						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+						inputJson, auditLogCheck, COOKIENAME, 
+						testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
 			}
 			Map<String, List<OutputValidationDto>> ouputValid = null;
 			if(testCaseName.contains("_StatusCode")) {

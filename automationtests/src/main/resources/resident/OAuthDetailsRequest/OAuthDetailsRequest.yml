@@ -1,5 +1,5 @@
 OAuthDetailsRequest:
-   Resident_IDP_OAuthDetailsRequest_all_Valid_Smoke_sid:
+   Resident_ESignet_OAuthDetailsRequest_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
@@ -16,13 +16,14 @@ OAuthDetailsRequest:
 	    "acrValues": "mosip:idp:acr:generated-code",
 	    "nonce": "973eieljzng",
 	    "state": "$RANDOMUUID$",
-	    "claimsLocales": "en"
+	    "claimsLocales": "en",
+	    "userinfo": "$CLAIMSFROMCONFIG$"
 }'
       output: '{
        
 }'
 
-   Resident_IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid:
+   Resident_ESignet_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
@@ -39,7 +40,8 @@ OAuthDetailsRequest:
 	    "acrValues": "mosip:idp:acr:generated-code",
 	    "nonce": "973eieljzng",
 	    "state": "$RANDOMUUID$",
-	    "claimsLocales": "en"
+	    "claimsLocales": "en",
+	    "userinfo": "$CLAIMSFROMCONFIG$"
 }'
       output: '{
        

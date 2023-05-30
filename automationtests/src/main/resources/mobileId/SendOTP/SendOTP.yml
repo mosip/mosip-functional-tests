@@ -6,7 +6,7 @@ SendOTP:
       inputTemplate: resident/SendOTP/createSendOTP
       outputTemplate: resident/SendOTP/createSendOTPResult
       input: '{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN"
@@ -23,7 +23,7 @@ SendOTP:
       inputTemplate: resident/SendOTP/createSendOTP
       outputTemplate: resident/error
       input: '{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "34hgf$",
     "individualIdType": "UIN"
@@ -40,7 +40,7 @@ SendOTP:
       inputTemplate: resident/SendOTP/createSendOTP
       outputTemplate: resident/error
       input: '{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$45hgv",
     "individualIdType": "VID"

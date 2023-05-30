@@ -6,16 +6,16 @@ ReGenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -29,7 +29,7 @@ ReGenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_ReGenerateVID_All_Valid_Smoke_Temp_VID_sid:
@@ -39,16 +39,16 @@ ReGenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -62,6 +62,6 @@ ReGenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'

@@ -6,16 +6,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -29,7 +29,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -40,16 +40,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -63,7 +63,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -74,16 +74,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -97,7 +97,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -108,16 +108,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -131,7 +131,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -142,16 +142,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TDEA_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_TDEA_smoke_UIN$",
     "individualIdType": "UIN",
@@ -165,7 +165,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -176,16 +176,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -199,7 +199,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_GenerateVID_All_Valid_Smoke_Temp_VID_sid:
@@ -209,16 +209,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -232,7 +232,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -243,16 +243,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -266,45 +266,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
-    }
-}'
-
-   Resident_GenerateVID_Using_UIN_eotp_Perpetual_sid_Neg:
-      endPoint: /resident/v1/vid
-      role: resident
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVID
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "individualIdType": "UIN",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
-        "vidType": "Perpetual",
-        "otp": "111111",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-  "errors": [
-        {
-            "errorCode": "RES-SER-422",
-            "message": "$IGNORE$"
-        }
-    ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -315,16 +277,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -338,7 +300,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -349,16 +311,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Temp_VID_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Temp_VID_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -372,45 +334,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
-    }
-}'
-
-   Resident_Generate_Perpetual_VID_Using_Onetimeuse_VID_eotp_sid_Neg:
-      endPoint: /resident/v1/vid
-      role: resident
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVID
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_OneTimeUse_VID_sid_vid$",
-        "individualIdType": "VID",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
-        "vidType": "Perpetual",
-        "otp": "111111",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_OneTimeUse_VID_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-  "errors": [
-        {
-            "errorCode": "RES-SER-422",
-            "message": "$IGNORE$"
-        }
-    ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -421,16 +345,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Onetimeuse_VID_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TDEA_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Onetimeuse_VID_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -444,7 +368,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -455,16 +379,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "@er45",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -482,7 +406,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_GenerateVID_missing_version_Neg:
@@ -492,16 +416,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "$REMOVE$",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -519,45 +443,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
-    }
-}'
-
-   Resident_GenerateVID_Temp_VID_Using_UIN_Expired_eotp_Neg:
-      endPoint: /resident/v1/vid
-      role: resident
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVID
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-        "individualIdType": "UIN",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
-        "vidType": "Temporary",
-        "otp": "111111",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
-    "individualIdType": "UIN",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-  "errors": [
-        {
-            "errorCode": "RES-SER-422",
-            "message": "$IGNORE$"
-        }
-    ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -568,16 +454,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "@345esddd",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -595,7 +481,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_GenerateVID_missing_individualId_Neg:
@@ -605,16 +491,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$REMOVE$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -632,7 +518,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_GenerateVID_invalid_Timestamp_Neg:
@@ -642,16 +528,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "ESTA",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PEXP_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -669,7 +555,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -681,16 +567,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$REMOVE$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PEXP_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -708,7 +594,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_GenerateVID_MISSING_OTP_Neg:
@@ -718,7 +604,7 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -727,7 +613,7 @@ GenerateVID:
         "vidType": "Perpetual",
         "otp": "$REMOVE$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
     "individualIdType": "UIN",
@@ -745,7 +631,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_GenerateVID_Invalid_OTP_Temp_VID_Neg:
@@ -755,7 +641,7 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -764,7 +650,7 @@ GenerateVID:
         "vidType": "Temporary",
         "otp": "@34#dds",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
     "individualIdType": "UIN",
@@ -782,7 +668,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -793,7 +679,7 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -802,7 +688,7 @@ GenerateVID:
         "vidType": "Onetimeuse",
         "otp": "@34#dds",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
     "individualIdType": "UIN",
@@ -820,7 +706,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -831,7 +717,7 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -840,7 +726,7 @@ GenerateVID:
         "vidType": "Perpetual",
         "otp": "@34#dds",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
     "individualIdType": "UIN",
@@ -858,7 +744,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_GenerateVID_missing_Id_Neg:
@@ -868,16 +754,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "$REMOVE$",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PDEA_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
     "individualIdType": "UIN",
@@ -895,7 +781,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_GenerateVID_invalid_Id_Neg:
@@ -905,16 +791,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "@3453#",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PDEA_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
     "individualIdType": "UIN",
@@ -932,7 +818,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_GenerateVID_InValid_transactionId_Temp_VID:
@@ -949,9 +835,9 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PDEA_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
     "individualIdType": "UIN",
@@ -969,7 +855,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_GenerateVID_TransactionMismatch_Neg:
@@ -986,9 +872,9 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PDEA_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
     "individualIdType": "UIN",
@@ -1006,7 +892,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1017,16 +903,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
@@ -1044,7 +930,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1055,16 +941,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
@@ -1082,7 +968,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1093,16 +979,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_OneTimeUse_VID_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
@@ -1120,7 +1006,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1131,16 +1017,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
@@ -1158,7 +1044,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1169,16 +1055,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
@@ -1196,7 +1082,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1207,16 +1093,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_OneTimeUse_VID_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
@@ -1234,7 +1120,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1245,16 +1131,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
@@ -1272,7 +1158,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1283,16 +1169,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
@@ -1310,7 +1196,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1321,16 +1207,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_OneTimeUse_VID_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
         "individualIdType": "UIN",
@@ -1348,83 +1234,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
-    }
-}'
-
-   Resident_GenerateVID_Temp_VID_Using_Temp_VID_With_Expired_eotp_Neg:
-      endPoint: /resident/v1/vid
-      role: resident
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVID
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:Generate_Temporary_VID_Valid_Smoke_sid_vid$",
-        "individualIdType": "VID",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
-        "vidType": "Temporary",
-        "otp": "111111",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:Generate_Temporary_VID_Valid_Smoke_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-  "errors": [
-        {
-            "errorCode": "RES-SER-422",
-            "message": "$IGNORE$"
-        }
-    ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
-    }
-}'
-
-   Resident_Generate_Perpetual_VID_Using_Temp_VID_eotp_sid_Neg:
-      endPoint: /resident/v1/vid
-      role: resident
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVID
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_Temporary_Valid_Smoke_sid_vid$",
-        "individualIdType": "VID",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
-        "vidType": "Perpetual",
-        "otp": "111111",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_Temporary_Valid_Smoke_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-  "errors": [
-        {
-            "errorCode": "RES-SER-422",
-            "message": "$IGNORE$"
-        }
-    ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1435,16 +1245,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Temporary_VID_Using_Perp_VID_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Temporary_VID_Using_Perp_VID_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -1458,7 +1268,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1469,16 +1279,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Temporary_VID_Using_Temp_VID_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Temporary_VID_Using_Temp_VID_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -1492,7 +1302,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1503,16 +1313,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Perpetual_VID_Using_Onetimeuse_VID_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TDEA_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Perpetual_VID_Using_Onetimeuse_VID_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -1526,83 +1336,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
-    }
-}'
-
-   Resident_GenerateVID_Temp_VID_Using_Perp_VID_With_Expired_eotp_Neg:
-      endPoint: /resident/v1/vid
-      role: resident
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVID
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "individualIdType": "VID",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
-        "vidType": "Temporary",
-        "otp": "111111",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-  "errors": [
-        {
-            "errorCode": "RES-SER-422",
-            "message": "$IGNORE$"
-        }
-    ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
-    }
-}'
-
-   Resident_Generate_Perpetual_VID_Using_Perpetual_VID_eotp_Neg:
-      endPoint: /resident/v1/vid
-      role: resident
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVID
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "individualIdType": "VID",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid",
-        "version": "v1",
-        "vidType": "Perpetual",
-        "otp": "111111",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-  "errors": [
-        {
-            "errorCode": "RES-SER-422",
-            "message": "$IGNORE$"
-        }
-    ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1613,16 +1347,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Perpetual_VID_Using_Temp_VID_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Perpetual_VID_Using_Temp_VID_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -1640,7 +1374,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1651,16 +1385,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Onetimeuse_VID_Using_Temp_VID_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Onetimeuse_VID_Using_Temp_VID_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -1678,7 +1412,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1689,16 +1423,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Onetimeuse_VID_Using_Perp_VID_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TDEA_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Onetimeuse_VID_Using_Perp_VID_Smoke_sid_vid$",
     "individualIdType": "VID",
@@ -1712,7 +1446,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1730,9 +1464,9 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -1750,7 +1484,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1761,16 +1495,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -1788,7 +1522,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1799,16 +1533,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -1826,7 +1560,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1837,16 +1571,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -1864,7 +1598,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1875,16 +1609,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -1895,14 +1629,14 @@ GenerateVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-418",
+      "errorCode": "RES-SER-406",
       "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1913,7 +1647,7 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -1922,7 +1656,7 @@ GenerateVID:
         "vidType": "Perpetual",
         "otp": "",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -1940,7 +1674,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1951,16 +1685,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -1978,7 +1712,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -1989,16 +1723,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
         "individualIdType": "",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2012,7 +1746,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -2023,16 +1757,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Valid_Params_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Valid_Params_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2046,7 +1780,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -2057,16 +1791,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2090,16 +1824,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2112,7 +1846,7 @@ GenerateVID:
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -2123,16 +1857,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParameters_ChannelVerify_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2143,7 +1877,7 @@ GenerateVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-422",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ],
@@ -2158,16 +1892,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2181,7 +1915,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -2192,16 +1926,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2215,7 +1949,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -2226,16 +1960,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2249,7 +1983,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -2260,16 +1994,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2283,7 +2017,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -2294,16 +2028,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2317,7 +2051,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -2328,16 +2062,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2351,29 +2085,29 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
-   Resident_GenerateVID_Perpetual_IdP_Integ_Valid_Smoke_sid:
+   Resident_GenerateVID_Perpetual_Esignet_Integ_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -2385,28 +2119,28 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
-   Resident_GenerateVID_Temporary_1_IdP_Integ_Valid_Smoke_sid:
+   Resident_GenerateVID_Temporary_1_Esignet_Integ_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -2418,28 +2152,28 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
-   Resident_GenerateVID_Temporary_2_IdP_Integ_Valid_Smoke_sid:
+   Resident_GenerateVID_Temporary_2_Esignet_Integ_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -2451,28 +2185,28 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
-   Resident_GenerateVID_Temporary_3_IdP_Integ_Valid_Smoke_sid:
+   Resident_GenerateVID_Temporary_3_Esignet_Integ_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -2484,28 +2218,28 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
-   Resident_GenerateVID_Temporary_4_IdP_Integ_Valid_Smoke_sid:
+   Resident_GenerateVID_Temporary_4_Esignet_Integ_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -2517,28 +2251,28 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
-   Resident_GenerateVID_Onetimeuse_IdP_Integ_Valid_Smoke_sid:
+   Resident_GenerateVID_Onetimeuse_Esignet_Integ_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_Idp_Integ_Vid_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -2550,7 +2284,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -2561,16 +2295,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_GetRid_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "onetimeuse",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_GetRid_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_GetRid_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2584,7 +2318,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -2595,16 +2329,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_GetRid_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_GetRid_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_GetRid_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2618,7 +2352,7 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -2629,16 +2363,16 @@ GenerateVID:
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_GetRid_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_GetRid_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_GetRid_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -2652,6 +2386,239 @@ GenerateVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   Resident_GenerateVID_Perpetual_ForEotp_Scen_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_ForEotp_Scen_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_ForEotp_Scen_Vid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ForEotp_Scen_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+   Resident_GenerateVID_Temporary_1_ForEotp_Scen_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+   Resident_GenerateVID_Temporary_2_ForEotp_Scen_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+   Resident_GenerateVID_Temporary_3_ForEotp_Scen_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+   Resident_GenerateVID_Temporary_4_ForEotp_Scen_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ForEotp_Temp_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+   Resident_GenerateVID_Onetimeuse_ForEotp_Scen_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_ForEotp_Onetime_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "onetimeuse",
+        "otp": "$ID:AddIdentity_ForEotp_Onetime_Vid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ForEotp_Onetime_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   Resident_Generate_Perpetual_VID_OrdrSts_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_OrdrSts_Valid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_OrdrSts_Valid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_OrdrSts_Valid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
     }
 }'

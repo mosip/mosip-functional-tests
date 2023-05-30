@@ -2,12 +2,11 @@ DownloadNearestRegCen:
    Resident_DownloadNearestRegCen_allValid_smoke:
       endPoint: /resident/v1/download/nearestRegistrationcenters
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/DownloadNearestRegCen/DownloadNearestRegCen
       outputTemplate: resident/DownloadNearestRegCen/DownloadNearestRegCenResult
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "34.52117",
 	  "proximitydistance": "21",
 	  "longitude": "-6.453275"
@@ -35,12 +34,11 @@ DownloadNearestRegCen:
    Resident_DownloadNearestRegCen_Invalid_Latitude_Neg:
       endPoint: /resident/v1/download/nearestRegistrationcenters
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/DownloadNearestRegCen/DownloadNearestRegCen
       outputTemplate: resident/error
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "134.52117",
 	  "proximitydistance": "21",
 	  "longitude": "-6.453275"
@@ -52,12 +50,11 @@ DownloadNearestRegCen:
    Resident_DownloadNearestRegCen_Invalid_Proximitydistance_Neg:
       endPoint: /resident/v1/download/nearestRegistrationcenters
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/DownloadNearestRegCen/DownloadNearestRegCen
       outputTemplate: resident/error
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "34.52117",
 	  "proximitydistance": "tt",
 	  "longitude": "-6.453275"
@@ -69,12 +66,11 @@ DownloadNearestRegCen:
    Resident_DownloadNearestRegCen_Invalid_Longitude_Neg:
       endPoint: /resident/v1/download/nearestRegistrationcenters
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/DownloadNearestRegCen/DownloadNearestRegCen
       outputTemplate: resident/error
       input: '{
-      "langcode": "eng",
+      "langcode": "$1STLANG$",
 	  "latitude": "34.52117",
 	  "proximitydistance": "21",
 	  "longitude": "tt"

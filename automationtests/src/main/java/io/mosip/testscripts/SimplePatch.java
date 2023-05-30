@@ -33,6 +33,7 @@ public class SimplePatch extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePatch.class);
 	protected String testCaseName = "";
 	public Response response = null;
+	public boolean sendEsignetToken = false;
 
 	/**
 	 * get current testcaseName
@@ -50,6 +51,7 @@ public class SimplePatch extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
+		sendEsignetToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendEsignetToken");
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -66,6 +68,7 @@ public class SimplePatch extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
@@ -96,7 +99,7 @@ public class SimplePatch extends AdminTestUtil implements ITest {
 		else {
 			response = patchWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
-					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+					testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
 
 			Map<String, List<OutputValidationDto>> ouputValid = null;
 			if(testCaseName.contains("_StatusCode")) {

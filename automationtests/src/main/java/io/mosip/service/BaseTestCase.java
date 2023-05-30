@@ -39,6 +39,7 @@ import io.mosip.kernel.util.CommonLibrary;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.kernel.util.KeycloakUserManager;
+import io.mosip.testrunner.MockSMTPListener;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -62,6 +63,8 @@ public class BaseTestCase {
 	protected static String regClientToken;
 	public String regProcToken;
 	public final String COOKIENAME = "Authorization";
+	public final String IDTOKENCOOKIENAME = "id_token";
+	public final String ACCESSTOKENCOOKIENAME = "access_token";
 	public final String COOKIENAMESTATE = "state";
 	public String individualCookie = null;
 	public String idaCookie = null;
@@ -75,11 +78,11 @@ public class BaseTestCase {
 	public String adminCookie = null;
 	public String partnerCookie = null;
 	public String partnerNewCookie = null;
-	public String idpPartnerCookie = null;
+	public String esignetPartnerCookie = null;
 	public String policytestCookie = null;
 	public String residentCookie = null;
-	public String residentNewCookie = null;
-	public String residentNewVidCookie = null;
+	public HashMap<String, String> residentNewCookie = new HashMap<>();
+	public HashMap<String, String> residentNewVidCookie = new HashMap<>();
 	public String residentNewCookieKc = null;
 	public String hotlistCookie = null;
 	public String keycloakCookie = null;
@@ -90,6 +93,7 @@ public class BaseTestCase {
 	public static String certsForModule = "DSL-IDA";
 	public static List<String> listOfModules = null;
 	public static List<String> languageList = new ArrayList<>();
+	public static String languageCode = null;
 	public static List<String> supportedIdType = new ArrayList<>();
 	public static KernelAuthentication kernelAuthLib = null;
 	public static CommonLibrary kernelCmnLib = null;
@@ -100,7 +104,7 @@ public class BaseTestCase {
 	public String batchJobToken = null;
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
-	//static PreRegistrationLibrary lib = new PreRegistrationLibrary();
+	// static PreRegistrationLibrary lib = new PreRegistrationLibrary();
 	public static Map<?, ?> residentQueries;
 	public static Map<?, ?> partnerQueries;
 	public static boolean insertDevicedata = false;
@@ -123,28 +127,44 @@ public class BaseTestCase {
 	public static List<String> t = new ArrayList<>();
 	public static String currentRunningLanguage = "";
 	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
-	
+
 	public static String genPolicyNumber = "9" + RandomStringUtils.randomNumeric(5);
 	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
-	public static String genPolicyGroupDesc = "policyGroupForAutomationIdp" + RandomStringUtils.randomNumeric(6);
-	public static String genMispPolicyGroupDesc = "policyGroupForMispIdp" + RandomStringUtils.randomNumeric(6)+ RandomStringUtils.randomNumeric(3);
-	public static String genPolicyGroupName = "policyGroupNameForAutomationIdp" + RandomStringUtils.randomNumeric(5);
-	public static String genMispPolicyGroupName = "policyGroupNameForMispIdp" + RandomStringUtils.randomNumeric(6)+ RandomStringUtils.randomNumeric(3);
-	public static String genPolicyDesc = "policyDescForAutomationIdp" + RandomStringUtils.randomNumeric(5);
-	public static String genMispPolicyDesc = "policyDescForMispIdp" + RandomStringUtils.randomNumeric(6)+ RandomStringUtils.randomNumeric(3);
-	public static String genPolicyName = "policyNameForAutomationIdp" + RandomStringUtils.randomNumeric(4);
-	public static String genMispPolicyName = "policyNameForMispIdp" + RandomStringUtils.randomNumeric(6)+ RandomStringUtils.randomNumeric(3);
-	public static String genPartnerName = "partnernameforautomationidp-" + RandomStringUtils.randomNumeric(6);
-	public static String genMispPartnerName = "idp_" + RandomStringUtils.randomNumeric(6)+ RandomStringUtils.randomNumeric(3);
-	public static String genPartnerEmail = "automationpartneridp" + RandomStringUtils.randomNumeric(7) +"@automationMosip.com";
-	public static String genMispPartnerEmail = "misppartneridp" + RandomStringUtils.randomNumeric(4) + RandomStringUtils.randomNumeric(4) +"@automationMosip.com";
-	//public static HashMap<String, String> langcode = new HashMap<>();
+	public String genPolicyGroupDesc = "policyGroupForAutomationEsi" + RandomStringUtils.randomNumeric(6);
+	public String genMispPolicyGroupDesc = "policyGroupForMispEsi" + RandomStringUtils.randomNumeric(6)
+			+ RandomStringUtils.randomNumeric(3);
+	public String genPolicyGroupName = "policyGroupNameForAutomationEsi" + RandomStringUtils.randomNumeric(5);
+	public String genMispPolicyGroupName = "policyGroupNameForMispEsi" + RandomStringUtils.randomNumeric(6)
+			+ RandomStringUtils.randomNumeric(3);
+	public String genPolicyDesc = "policyDescForAutomationEsi" + RandomStringUtils.randomNumeric(5);
+	public String genMispPolicyDesc = "policyDescForMispEsit" + RandomStringUtils.randomNumeric(6)
+			+ RandomStringUtils.randomNumeric(3);
+	public String genPolicyName = "policyNameForAutomationEsi" + RandomStringUtils.randomNumeric(4);
+	public String genPolicyNameNonAuth = "policyNameForEsignet" + RandomStringUtils.randomNumeric(4);
+	public String genMispPolicyName = "policyNameForMispEsi" + RandomStringUtils.randomNumeric(6)
+			+ RandomStringUtils.randomNumeric(3);
+	public static String genPartnerName = "partnernameforautomationesi-" + RandomStringUtils.randomNumeric(6);
+	public static String genPartnerNameNonAuth = "partnernameforesignet-" + RandomStringUtils.randomNumeric(6);
+	public String genPartnerNameForDsl = "partnernameforautomationesi-" + RandomStringUtils.randomNumeric(6);
+	public static String genMispPartnerName = "esignet_" + RandomStringUtils.randomNumeric(6)
+			+ RandomStringUtils.randomNumeric(3);
+	public static String genPartnerEmail = "automationpartneresi" + RandomStringUtils.randomNumeric(7)
+			+ "@automationMosip.com";
+	public String genPartnerEmailForDsl = "automationpartneresi" + RandomStringUtils.randomNumeric(10)
+	+ "@automationMosip.com";
+	public String genPartnerEmailNonAuth = "automationesignet" + RandomStringUtils.randomNumeric(10)
+	+ "@automationMosip.com";
+	public String genMispPartnerEmail = "misppartner" + RandomStringUtils.randomNumeric(4)
+			+ RandomStringUtils.randomNumeric(4) + "@automationMosip.com";
+	// public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
 	public static RSAKey rsaJWK;
 	public static String clientAssertionToken;
-	private static String zoneMappingRequest="config/Authorization/zoneMappingRequest.json";
-	public static Properties props = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/application.properties");
-	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
+	private static String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
+	public static Properties props = getproperty(
+			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
+	public static Properties propsKernel = getproperty(
+			MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
@@ -180,9 +200,9 @@ public class BaseTestCase {
 		logger.info("Application URI ======" + ApplnURIForKeyCloak);
 		testLevel = System.getProperty("env.testLevel");
 		logger.info("Test Level ======" + testLevel);
-		//languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
-		
-		//langcode = System.getProperty("env.langcode");
+		// languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
+
+		// langcode = System.getProperty("env.langcode");
 		logger.info("Test Level ======" + languageList);
 
 		logger.info("Configs from properties file are set.");
@@ -196,7 +216,6 @@ public class BaseTestCase {
 	/*
 	 * Saving TestNG reports to be published
 	 */
-
 
 	public static void suiteSetup() {
 		File logFile = new File("./src/logs/mosip-api-test.log");
@@ -220,47 +239,53 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "auth";
 			BaseTestCase.certsForModule = "IDA";
 			AuthTestsUtil.initiateAuthTest();
-			//new PMPDataManager(true);
+			
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.run();
+			 //new PMPDataManager(true);
 		}
 		if (listOfModules.contains("idrepo")) {
 			setReportName("idrepo");
 			BaseTestCase.currentModule = "idrepo";
-			AdminTestUtil.copyIdrepoTestResource();			
+			AdminTestUtil.copyIdrepoTestResource();
 		}
 		/*
 		 * if (listOfModules.contains("admin")) { setReportName("admin");
 		 * BaseTestCase.currentModule = "admin"; AdminTestUtil.initiateAdminTest(); }
 		 */
-		
+
 		if (listOfModules.contains("masterdata")) {
 			DBManager.clearMasterDbData();
 			BaseTestCase.currentModule = "masterdata";
 			setReportName("masterdata");
 			AdminTestUtil.initiateMasterDataTest();
 		}
-		
-		if (listOfModules.contains("mobileid")){
+
+		if (listOfModules.contains("mobileid")) {
 			BaseTestCase.currentModule = "mobileid";
 			setReportName("mobileid");
 			AdminTestUtil.initiateMobileIdTestTest();
-			
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.run();
+
 		}
-		
-		
-		if (listOfModules.contains("mimoto")){
+
+		if (listOfModules.contains("mimoto")) {
 			BaseTestCase.currentModule = "mimoto";
 			setReportName("mimoto");
 			AdminTestUtil.initiateMimotoTest();
-			
+
 		}
-		
-		if (listOfModules.contains("idp")){
-			
-			BaseTestCase.currentModule = "idp";
+
+		if (listOfModules.contains("esignet")) {
+
+			BaseTestCase.currentModule = "esignet";
 			BaseTestCase.certsForModule = "esignet";
-			setReportName("idp");
-			AdminTestUtil.initiateidpTest();
-			
+			setReportName("esignet");
+			AdminTestUtil.initiateesignetTest();
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.run();
+
 		}
 		/*
 		 * if (listOfModules.contains("syncdata")) { setReportName("syncdata");
@@ -270,6 +295,8 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "resident";
 			setReportName("resident");
 			AdminTestUtil.copyResidentTestResource();
+		MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.run();
 		}
 		if (listOfModules.contains("partner")) {
 			BaseTestCase.currentModule = "partner";
@@ -291,19 +318,20 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = "prereg";
 			setReportName("prereg");
 			AdminTestUtil.copyPreregTestResource();
-			
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.run();
+
 		}
 		/*
 		 * if (listOfModules.contains("prerequisite")) { setReportName("prerequisite");
 		 * AdminTestUtil.copyPrerequisiteTestResource(); }
 		 */
 	}
-	
-	public static void  setReportName(String moduleName) {
-		System.getProperties().setProperty("emailable.report2.name", "mosip-"+ environment+"-" + moduleName+"-"  + System.currentTimeMillis() +"-report.html");
-	}
-		
 
+	public static void setReportName(String moduleName) {
+		System.getProperties().setProperty("emailable.report2.name",
+				"mosip-" + environment + "-" + moduleName + "-" + System.currentTimeMillis() + "-report.html");
+	}
 
 	/**
 	 * After the entire test suite clean up rest assured
@@ -314,12 +342,12 @@ public class BaseTestCase {
 		copyReportAndLog();
 		logger.info("\n\n");
 		logger.info("Rest Assured framework has been reset because all tests have been executed.");
-		logger.info("TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!");		
+		logger.info("TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!");
 	} // end testTearDown
 
 	public static Properties getproperty(String path) {
 		Properties prop = new Properties();
-		
+
 		try {
 			File file = new File(path);
 			prop.load(new FileInputStream(file));
@@ -328,6 +356,7 @@ public class BaseTestCase {
 		}
 		return prop;
 	}
+
 	private static Properties getLoggerPropertyConfig() {
 		Properties logProp = new Properties();
 		logProp.setProperty("log4j.rootLogger", "INFO, Appender1,Appender2");
@@ -341,222 +370,227 @@ public class BaseTestCase {
 		return logProp;
 	}
 
-	private void copyReportAndLog()
-	{
+	private void copyReportAndLog() {
 		String folderForReport = kernelCmnLib.readProperty("Kernel").get("reportLogPath");
-		String dirToReport = System.getProperty("user.home")+"/"+folderForReport;
+		String dirToReport = System.getProperty("user.home") + "/" + folderForReport;
 		File dest = new File(dirToReport);
-		if(!dest.exists())
+		if (!dest.exists())
 			dest.mkdir();
-		
-		String os=System.getProperty("os.name");
+
+		String os = System.getProperty("os.name");
 		String projDirPath = null;
-		 if(MosipTestRunner.checkRunType().contains("IDE") || os.toLowerCase().contains("windows")==false) 
-			 projDirPath = System.getProperty("user.dir");
-		else 
-			projDirPath=new File(System.getProperty("user.dir")).getParent();
-		 
-		File reportFolder = new File(projDirPath+"/testng-report");
-		File logFolder = new File(projDirPath+"/src/logs");
-		
+		if (MosipTestRunner.checkRunType().contains("IDE") || os.toLowerCase().contains("windows") == false)
+			projDirPath = System.getProperty("user.dir");
+		else
+			projDirPath = new File(System.getProperty("user.dir")).getParent();
+
+		File reportFolder = new File(projDirPath + "/testng-report");
+		File logFolder = new File(projDirPath + "/src/logs");
+
 		try {
-			if(dest.listFiles().length!=0)
-			FileUtils.cleanDirectory(dest);
+			if (dest.listFiles().length != 0)
+				FileUtils.cleanDirectory(dest);
 			FileUtils.copyDirectoryToDirectory(reportFolder, dest);
 			FileUtils.copyDirectoryToDirectory(logFolder, dest);
 		} catch (Exception e) {
-			logger.info("Not able to store the log and report at the specified path: "+dirToReport);
+			logger.info("Not able to store the log and report at the specified path: " + dirToReport);
 			logger.error(e.getMessage());
 		}
-		logger.info("Copied the logs and reports successfully in folder: "+dirToReport);
+		logger.info("Copied the logs and reports successfully in folder: " + dirToReport);
 	}
-	
-		@SuppressWarnings("unchecked")
-		public static void  mapUserToZone() {
-			
+
+	@SuppressWarnings("unchecked")
+	public static void mapUserToZone() {
+
 //			AdminTestUtil.initialUserCreation();
-				String token = kernelAuthLib.getTokenByRole("globalAdmin");
-				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
-				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
-				JSONObject request = new JSONObject();
-				request.put("zoneCode", props.get("zoneCode_to_beMapped"));
-				request.put("userId", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
-				request.put("langCode", BaseTestCase.getLanguageList().get(0));
-				request.put("isActive", "true");
-				actualrequest.put("request", request);
-				System.out.println(actualrequest);
-				Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-				logger.info(propsKernel.get("admin_userName") + "Mapped to"+props.get("zoneCode_to_beMapped")+ "Zone");
-				System.out.println(response);
-				
-			}
-		
-		@SuppressWarnings("unchecked")
-		public static void  mapUserToZone(String user,String zone) {
-			
+		String token = kernelAuthLib.getTokenByRole("globalAdmin");
+		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
+		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
+		JSONObject request = new JSONObject();
+		request.put("zoneCode", props.get("zoneCode_to_beMapped"));
+		request.put("userId", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		request.put("langCode", BaseTestCase.getLanguageList().get(0));
+		request.put("isActive", "true");
+		actualrequest.put("request", request);
+		System.out.println(actualrequest);
+		Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, "Authorization", token);
+		logger.info(propsKernel.get("admin_userName") + "Mapped to" + props.get("zoneCode_to_beMapped") + "Zone");
+		System.out.println(response);
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public static void mapUserToZone(String user, String zone) {
+
 //			AdminTestUtil.initialUserCreation();
-				String token = kernelAuthLib.getTokenByRole("globalAdmin");
-				String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
-				org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
-				JSONObject request = new JSONObject();
-				request.put("zoneCode", zone);
-				request.put("userId", user);
-				request.put("langCode", BaseTestCase.getLanguageList().get(0));
-				request.put("isActive", "true");
-				actualrequest.put("request", request);
-				System.out.println(actualrequest);
-				Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-				logger.info(user + "Mapped to"+zone+ "Zone");
-				System.out.println(response);
-				
-			}
-		
-		public static void mapZone() {
-			
-			String token = kernelAuthLib.getTokenByRole("globalAdmin");
-			String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
-			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("isActive", "true");
-			map.put("userId", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
-			Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-			System.out.println(response);
-		}
+		String token = kernelAuthLib.getTokenByRole("globalAdmin");
+		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
+		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
+		JSONObject request = new JSONObject();
+		request.put("zoneCode", zone);
+		request.put("userId", user);
+		request.put("langCode", BaseTestCase.getLanguageList().get(0));
+		request.put("isActive", "true");
+		actualrequest.put("request", request);
+		System.out.println(actualrequest);
+		Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, "Authorization", token);
+		logger.info(user + "Mapped to" + zone + "Zone");
+		System.out.println(response);
+
+	}
+
+	public static void mapZone() {
+
+		String token = kernelAuthLib.getTokenByRole("globalAdmin");
+		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("isActive", "true");
+		map.put("userId", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, "Authorization", token);
+		System.out.println(response);
+	}
+
 	public static void mapZone(String user) {
-			
-			String token = kernelAuthLib.getTokenByRole("globalAdmin");
-			String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
-			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("isActive", "true");
-			map.put("userId", user);
-			Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-			System.out.println(response);
+
+		String token = kernelAuthLib.getTokenByRole("globalAdmin");
+		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("isActive", "true");
+		map.put("userId", user);
+		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, "Authorization", token);
+		System.out.println(response);
+	}
+
+	public static boolean zoneName() {
+		boolean firstUser = true;
+		String token = kernelAuthLib.getTokenByRole("admin");
+		String url = ApplnURI + propsKernel.getProperty("zoneNameUrl");
+
+		HashMap<String, String> map = new HashMap<String, String>();
+
+		map.put("userID", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		map.put("langCode", BaseTestCase.getLanguageList().get(0));
+
+		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, "Authorization", token);
+		System.out.println(response);
+
+		String otpInput = response.getBody().asString();
+		if (otpInput.contains("KER-MSD-391")) {
+			firstUser = false;
 		}
-		
-		public static boolean zoneName() {
-			boolean firstUser = true; 
-        	String token = kernelAuthLib.getTokenByRole("admin");
-			String url = ApplnURI + propsKernel.getProperty("zoneNameUrl");
-    		
-    		HashMap<String, String> map = new HashMap<String, String>();
-    		
-    		map.put("userID", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
-    		map.put("langCode", BaseTestCase.getLanguageList().get(0));
-    		
-    		
-    		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-    		System.out.println(response);
-    		
-    		String otpInput = response.getBody().asString();
-    		if (otpInput.contains("KER-MSD-391")) {
-    			firstUser = false;
-    		}
-    		return firstUser;
-    		
+		return firstUser;
+
 	}
-		
-		public static void userCenterMapping() {
-			
-        	String token = kernelAuthLib.getTokenByRole("admin");
-			String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
-			
-			HashMap<String, String> requestMap = new HashMap<String, String>();
-			
-    		requestMap.put("id", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
-    		requestMap.put("name", "automation");
-    		requestMap.put("statusCode", "active");
-    		requestMap.put("regCenterId", "10005");
-    		requestMap.put("isActive", "true");
-    		requestMap.put("langCode", "eng");
-    		
-    		HashMap<String, Object> map = new HashMap<String, Object>();
-    		
-			map.put("id", "string");
-			map.put("version", "string");
-			map.put("requesttime", AdminTestUtil.generateCurrentUTCTimeStamp());
-			map.put("metadata", new HashMap<>());
-			map.put("request", requestMap);
-    		
-    		
-    		Response response = RestClient.postRequestWithCookie(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-    		System.out.println(response);
+
+	public static void userCenterMapping() {
+
+		String token = kernelAuthLib.getTokenByRole("admin");
+		String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
+
+		HashMap<String, String> requestMap = new HashMap<String, String>();
+
+		requestMap.put("id", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		requestMap.put("name", "automation");
+		requestMap.put("statusCode", "active");
+		requestMap.put("regCenterId", "10005");
+		requestMap.put("isActive", "true");
+		requestMap.put("langCode", "eng");
+
+		HashMap<String, Object> map = new HashMap<String, Object>();
+
+		map.put("id", "string");
+		map.put("version", "string");
+		map.put("requesttime", AdminTestUtil.generateCurrentUTCTimeStamp());
+		map.put("metadata", new HashMap<>());
+		map.put("request", requestMap);
+
+		Response response = RestClient.postRequestWithCookie(url, map, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, "Authorization", token);
+		System.out.println(response);
 	}
-		
-		public static void userCenterMappingStatus() {
-			
-        	String token = kernelAuthLib.getTokenByRole("admin");
-			String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
-			
-    		HashMap<String, String> map = new HashMap<String, String>();
-    		
-    		map.put("isActive", "true");
-    		map.put("id", BaseTestCase.currentModule +"-"+ propsKernel.get("admin_userName"));
-    		
-    		
-    		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-    		System.out.println(response);
+
+	public static void userCenterMappingStatus() {
+
+		String token = kernelAuthLib.getTokenByRole("admin");
+		String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
+
+		HashMap<String, String> map = new HashMap<String, String>();
+
+		map.put("isActive", "true");
+		map.put("id", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+
+		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, "Authorization", token);
+		System.out.println(response);
 	}
-		
-		
-         public static List<String> getLanguageList() {
-			if(!languageList.isEmpty()) {
-				return languageList;
-			}
-			//String token = kernelAuthLib.getTokenByRole("globalAdmin");
-			String url = ApplnURI + props.getProperty("preregLoginConfigUrl");
-			Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
-			org.json.JSONObject responseValue = (org.json.JSONObject) responseJson.get("response");
-			String mandatoryLanguage = (String) responseValue.get("mosip.mandatory-languages");
-			
-			languageList.add(mandatoryLanguage);
-			languageList.addAll(Arrays.asList(((String) responseValue.get("mosip.optional-languages")).split(",")));
-			
+
+	public static List<String> getLanguageList() {
+		if (!languageList.isEmpty()) {
 			return languageList;
 		}
-         
-		public static List<String> getSupportedIdTypesValueFromActuator() {
+		// String token = kernelAuthLib.getTokenByRole("globalAdmin");
+		String url = ApplnURI + props.getProperty("preregLoginConfigUrl");
+		Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
+		org.json.JSONObject responseValue = (org.json.JSONObject) responseJson.get("response");
+		String mandatoryLanguage = (String) responseValue.get("mosip.mandatory-languages");
 
-			if (!supportedIdType.isEmpty()) {
-				return supportedIdType;
-			}
-			Response response = null;
-			// supportedIdType.add("UIN");
-			// supportedIdType.add("VID");
+		languageList.add(mandatoryLanguage);
+		languageList.addAll(Arrays.asList(((String) responseValue.get("mosip.optional-languages")).split(",")));
 
-			org.json.JSONObject responseJson = null;
-			JSONArray responseArray = null;
-			String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
-			try {
-				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-				Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-						+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+		return languageList;
+	}
 
-				responseJson = new org.json.JSONObject(response.getBody().asString());
-				responseArray = responseJson.getJSONArray("propertySources");
+	public static List<String> getSupportedIdTypesValueFromActuator() {
 
-				for (int i = 0, size = responseArray.length(); i < size; i++) {
-				    org.json.JSONObject eachJson = responseArray.getJSONObject(i);
-				    System.out.println("eachJson is :" + eachJson.toString());
-				    if (eachJson.get("name").toString().contains("configService:https://github.com/mosip/mosip-config/id-authentication-default.properties")) {
-				    	org.json.JSONObject  idTypes = (org.json.JSONObject) eachJson.getJSONObject("properties").get("request.idtypes.allowed");
-                        String newIdTypes =  idTypes.getString("value");
-
-						supportedIdType.addAll(Arrays.asList((newIdTypes).split(",")));
-
-						break;
-					}
-				}
-
-				return supportedIdType;
-			} catch (Exception e) {
-				logger.error("Exception " + e);
-				return supportedIdType;
-			}
-
+		if (!supportedIdType.isEmpty()) {
+			return supportedIdType;
 		}
-	
-	public static JSONObject getRequestJson(String filepath){
+		Response response = null;
+		// supportedIdType.add("UIN");
+		// supportedIdType.add("VID");
+
+		org.json.JSONObject responseJson = null;
+		JSONArray responseArray = null;
+		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
+		try {
+			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+
+			responseJson = new org.json.JSONObject(response.getBody().asString());
+			responseArray = responseJson.getJSONArray("propertySources");
+
+			for (int i = 0, size = responseArray.length(); i < size; i++) {
+				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
+				System.out.println("eachJson is :" + eachJson.toString());
+				if (eachJson.get("name").toString().contains(
+						"configService:https://github.com/mosip/mosip-config/id-authentication-default.properties")) {
+					org.json.JSONObject idTypes = (org.json.JSONObject) eachJson.getJSONObject("properties")
+							.get("request.idtypes.allowed");
+					String newIdTypes = idTypes.getString("value");
+
+					supportedIdType.addAll(Arrays.asList((newIdTypes).split(",")));
+
+					break;
+				}
+			}
+
+			return supportedIdType;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return supportedIdType;
+		}
+
+	}
+
+	public static JSONObject getRequestJson(String filepath) {
 		return kernelCmnLib.readJsonData(filepath, true);
-		
+
 	}
 }

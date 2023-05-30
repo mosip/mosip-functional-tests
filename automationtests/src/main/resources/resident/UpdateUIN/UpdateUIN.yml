@@ -6,16 +6,16 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/UpdateUIN/UpdateUinResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
         "version": "v1",
         "identityJson": "$IDENTITYJSON$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -29,7 +29,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -40,7 +40,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -49,7 +49,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -67,7 +67,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -78,7 +78,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -87,7 +87,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "@345esddd",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -105,7 +105,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -116,7 +116,7 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
@@ -125,7 +125,7 @@ UpdateUIN:
         "identityJson": "$IDENTITYJSON$",
         "otp": "$REMOVE$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -143,7 +143,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -161,9 +161,9 @@ UpdateUIN:
         "id": "mosip.resident.updateuin",
         "version": "v1",
         "identityJson": "$IDENTITYJSON$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -181,7 +181,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -199,9 +199,9 @@ UpdateUIN:
         "id": "mosip.resident.updateuin",
         "version": "v1",
         "identityJson": "$IDENTITYJSON$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -219,7 +219,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -230,16 +230,16 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "@345esddd",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
         "version": "v1",
         "identityJson": "$IDENTITYJSON$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -257,7 +257,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -268,16 +268,16 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$REMOVE$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
         "version": "v1",
         "identityJson": "$IDENTITYJSON$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -295,7 +295,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -306,16 +306,16 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "@3453#",
         "version": "v1",
         "identityJson": "$IDENTITYJSON$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -333,7 +333,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -344,16 +344,16 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "$REMOVE$",
         "version": "v1",
         "identityJson": "$IDENTITYJSON$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -371,7 +371,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -382,16 +382,16 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$REMOVE$",
         "id": "mosip.resident.updateuin",
         "version": "v1",
         "identityJson": "$IDENTITYJSON$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -409,7 +409,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -420,16 +420,16 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "ESTA",
         "id": "mosip.resident.updateuin",
         "version": "v1",
         "identityJson": "$IDENTITYJSON$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -447,7 +447,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -458,16 +458,16 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
         "version": "@er45",
         "identityJson": "$IDENTITYJSON$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -485,7 +485,7 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -496,16 +496,16 @@ UpdateUIN:
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.updateuin",
         "version": "$REMOVE$",
         "identityJson": "$IDENTITYJSON$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
     "individualIdType": "UIN",
@@ -523,6 +523,6 @@ UpdateUIN:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'

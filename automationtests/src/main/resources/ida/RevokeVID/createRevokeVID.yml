@@ -6,18 +6,18 @@ RevokeVID:
       inputTemplate: ida/RevokeVID/createRevokeVID
       outputTemplate: ida/RevokeVID/createRevokeVIDResult
       input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_create_vid_using_uin_for_revoke_smoke_Pos_UIN$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
         "version": "v1",
         "vidStatus": "REVOKED",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_create_vid_using_uin_for_revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_to_revoke_Perpetual_sid_vid$",
+    "individualId": "$ID:AddIdentity_create_vid_using_uin_for_revoke_smoke_Pos_UIN$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "ida/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -28,6 +28,6 @@ RevokeVID:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX8531",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXaXXtXXaXXoX@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'

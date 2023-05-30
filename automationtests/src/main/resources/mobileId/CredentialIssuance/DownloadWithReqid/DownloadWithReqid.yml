@@ -13,7 +13,7 @@ DownloadCredential:
         "Content-Type": "application/pdf",
         "filename": "$IGNORE$"
 }'
-   MobileId_CredentialsStatus_InValid_Smoke_euin:
+   MobileId_CredentialsStatus_StatusCode_InValid_Smoke_euin:
       endPoint: /residentmobileapp/credentialshare/download
       role: resident
       restMethod: get
@@ -23,7 +23,4 @@ DownloadCredential:
         "requestId": "$ID:RequestCredentials__All_Valid_Smoke_sid_requestId$",
         "individualId": "965337484848041697"
 }'
-      output: ' {
-        "Content-Type": "$IGNORE$",
-        "filename": "$IGNORE$"
-}'
+      output: "404"

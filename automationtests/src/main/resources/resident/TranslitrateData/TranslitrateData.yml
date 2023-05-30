@@ -1,5 +1,5 @@
 TranslitrateData:
-   Resident_TranslitrateData_all_Valid_Smoke:
+   Resident_TranslitrateData_uin_all_Valid_Smoke:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -15,7 +15,23 @@ TranslitrateData:
         
 }'
 
-   Resident_TranslitrateData_Same_Lang_Neg:
+   Resident_TranslitrateData_vid_all_Valid_Smoke:
+      endPoint: /resident/v1/transliteration/transliterate
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/TranslitrateData/TranslitrateData
+      outputTemplate: resident/TranslitrateData/TranslitrateDataResult
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "from_field_value": "j",
+	    "from_field_lang": "$1STLANG$",
+	    "to_field_lang": "$2NDLANG$"
+}'
+      output: '{
+        
+}'
+
+   Resident_TranslitrateData_uin_Same_Lang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -30,13 +46,13 @@ TranslitrateData:
       output: '{
       	"errors": [
     {
-      "errorCode": "RES-SER-418",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ]
 }'
 
-   Resident_TranslitrateData_Invalid_UserToken_Neg:
+   Resident_TranslitrateData_uin_Invalid_UserToken_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: resident
       restMethod: post
@@ -57,7 +73,7 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Invalid_Token_Neg:
+   Resident_TranslitrateData_uin_Invalid_Token_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: resident
       restMethod: post
@@ -90,9 +106,9 @@ TranslitrateData:
 	    "from_field_lang": "$1STLANG$",
 	    "to_field_lang": "$2NDLANG$"
 }'
-      output: "500"
+      output: "401"
 
-   Resident_TranslitrateData_Invalid_FromLang_Neg:
+   Resident_TranslitrateData_uin_Invalid_FromLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -113,7 +129,7 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Missing_FromLang_Neg:
+   Resident_TranslitrateData_uin_Missing_FromLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -134,7 +150,7 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Empty_FromLang_Neg:
+   Resident_TranslitrateData_uin_Empty_FromLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -155,7 +171,7 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Invalid_ToLang_Neg:
+   Resident_TranslitrateData_uin_Invalid_ToLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -176,7 +192,7 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Missing_ToLang_Neg:
+   Resident_TranslitrateData_uin_Missing_ToLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
       restMethod: post
@@ -197,9 +213,156 @@ TranslitrateData:
   ]
 }'
 
-   Resident_TranslitrateData_Empty_ToLang_Neg:
+   Resident_TranslitrateData_uin_Empty_ToLang_Neg:
       endPoint: /resident/v1/transliteration/transliterate
       role: residentNew
+      restMethod: post
+      inputTemplate: resident/TranslitrateData/TranslitrateData
+      outputTemplate: resident/error
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "from_field_value": "j",
+	    "from_field_lang": "$1STLANG$",
+	    "to_field_lang": ""
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_TranslitrateData_vid_Same_Lang_Neg:
+      endPoint: /resident/v1/transliteration/transliterate
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/TranslitrateData/TranslitrateData
+      outputTemplate: resident/error
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "from_field_value": "j",
+	    "from_field_lang": "$1STLANG$",
+	    "to_field_lang": "$1STLANG$"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_TranslitrateData_vid_Invalid_FromLang_Neg:
+      endPoint: /resident/v1/transliteration/transliterate
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/TranslitrateData/TranslitrateData
+      outputTemplate: resident/error
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "from_field_value": "j",
+	    "from_field_lang": "hinnn",
+	    "to_field_lang": "$2NDLANG$"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_TranslitrateData_vid_Missing_FromLang_Neg:
+      endPoint: /resident/v1/transliteration/transliterate
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/TranslitrateData/TranslitrateData
+      outputTemplate: resident/error
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "from_field_value": "j",
+	    "from_field_lang": "$REMOVE$",
+	    "to_field_lang": "$2NDLANG$"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_TranslitrateData_vid_Empty_FromLang_Neg:
+      endPoint: /resident/v1/transliteration/transliterate
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/TranslitrateData/TranslitrateData
+      outputTemplate: resident/error
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "from_field_value": "j",
+	    "from_field_lang": "",
+	    "to_field_lang": "$2NDLANG$"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_TranslitrateData_vid_Invalid_ToLang_Neg:
+      endPoint: /resident/v1/transliteration/transliterate
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/TranslitrateData/TranslitrateData
+      outputTemplate: resident/error
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "from_field_value": "j",
+	    "from_field_lang": "$1STLANG$",
+	    "to_field_lang": "Hinnn"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_TranslitrateData_vid_Missing_ToLang_Neg:
+      endPoint: /resident/v1/transliteration/transliterate
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/TranslitrateData/TranslitrateData
+      outputTemplate: resident/error
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "from_field_value": "j",
+	    "from_field_lang": "$1STLANG$",
+	    "to_field_lang": "$REMOVE$"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_TranslitrateData_vid_Empty_ToLang_Neg:
+      endPoint: /resident/v1/transliteration/transliterate
+      role: residentNewVid
       restMethod: post
       inputTemplate: resident/TranslitrateData/TranslitrateData
       outputTemplate: resident/error

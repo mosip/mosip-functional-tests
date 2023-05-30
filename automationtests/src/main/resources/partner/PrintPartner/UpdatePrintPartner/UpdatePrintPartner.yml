@@ -7,6 +7,7 @@ UpdatePrintPartner:
       outputTemplate: partner/PrintPartner/UpdatePrintPartner/UpdatePrintPartnerResult
       input: '{
 		 "partnerId": "mosipprint",
+		 "address": "Benglore",
 		 "contactNumber": "9876453210",
 	     "requesttime": "$TIMESTAMP$"
 }'

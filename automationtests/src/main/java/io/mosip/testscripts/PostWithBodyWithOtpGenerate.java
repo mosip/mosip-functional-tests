@@ -29,6 +29,8 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 	private static final Logger logger = Logger.getLogger(PostWithBodyWithOtpGenerate.class);
 	protected String testCaseName = "";
 	public Response response = null;
+	public boolean sendEsignetToken = false;
+	public boolean auditLogCheck = false;
 	/**
 	 * get current testcaseName
 	 */
@@ -45,6 +47,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
+		sendEsignetToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendEsignetToken");
 		logger.info("Started executing yml: "+ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -59,8 +62,11 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+		testCaseName = testCaseDTO.getTestCaseName();
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
+		auditLogCheck = testCaseDTO.isAuditLogCheck();
+		String tempUrl = ApplnURI.replace("-internal", "");
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
 		if(req.has("sendOtp")) {
@@ -73,11 +79,14 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		otpReqJson.remove("sendOtpEndPoint");
 		Response otpResponse =null;
-        if(testCaseDTO.getRole().contains("residentNew")) {
-        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"residentNew", testCaseDTO.getTestCaseName());
+        if(testCaseDTO.getRole().equalsIgnoreCase("residentNew")) {
+        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), auditLogCheck, COOKIENAME,"residentNew", testCaseDTO.getTestCaseName(), sendEsignetToken);
         }
-        else if(testCaseName.contains("IDP_WalletBinding")) {
-        	otpResponse = postRequestWithCookieAuthHeader(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+        else if(testCaseDTO.getRole().equalsIgnoreCase("residentNewVid")) {
+       	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), auditLogCheck, COOKIENAME,"residentNewVid", testCaseDTO.getTestCaseName(), sendEsignetToken);
+       }
+        else if(testCaseName.contains("ESignet_WalletBinding")) {
+        	otpResponse = postRequestWithCookieAuthHeader(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
         }
         else {
         	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
@@ -112,11 +121,11 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 				e.printStackTrace();
 			}
 		}
-		if(testCaseName.contains("IDP_WalletBinding")) {
-			response = postRequestWithCookieAuthHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		if(testCaseName.contains("ESignet_WalletBinding")) {
+			response = postRequestWithCookieAuthHeader(tempUrl + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		}
 		else {
-			response = postRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			response = postRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
 		}
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()));

@@ -2,12 +2,11 @@ GetSupportingDoc:
    Resident_GetSupportingDoc_all_Valid_Smoke:
       endPoint: /resident/v1/download/supporting-documents
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/GetSupportingDoc/GetSupportingDoc
       outputTemplate: resident/GetSupportingDoc/GetSupportingDocResult
       input: '{
-      		"langcode": "eng"
+      		"langcode": "$1STLANG$"
 }'
       output: '{
         

@@ -1,7 +1,22 @@
 PersonalizedCard:
-   Resident_PersonalizedCard_all_Valid_Smoke:
+   Resident_PersonalizedCard_uin_all_Valid_Smoke:
       endPoint: /resident/v1/download/personalized-card
       role: residentNew
+      restMethod: post
+      inputTemplate: resident/PersonalizedCard/PersonalizedCard
+      outputTemplate: resident/PersonalizedCard/PersonalizedCardResult
+      input: '{
+       "requesttime": "$TIMESTAMP$",
+       "html": "YmFzZS02NC11cmwtZW5jb2RlZCBodG1sIGNvbnRlbnQ=",
+       "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
+}'
+      output: '{
+       
+}'
+
+   Resident_PersonalizedCard_vid_all_Valid_Smoke:
+      endPoint: /resident/v1/download/personalized-card
+      role: residentNewVid
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
       outputTemplate: resident/PersonalizedCard/PersonalizedCardResult
@@ -26,6 +41,12 @@ PersonalizedCard:
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
 }'
       output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410 ",
+      "message": "$IGNORE$"
+    }
+  ]
        
 }'
 
@@ -41,10 +62,16 @@ PersonalizedCard:
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
 }'
       output: '{
+       "errors": [
+       {
+      "errorCode": "RES-SER-410 ",
+      "message": "$IGNORE$"
+      }
+      ]
        
 }'
 
-   Resident_PersonalizedCard_Invalid_Html_Neg:
+   Resident_PersonalizedCard_uin_Invalid_Html_Neg:
       endPoint: /resident/v1/download/personalized-card
       role: residentNew
       restMethod: post
@@ -56,11 +83,16 @@ PersonalizedCard:
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
 }'
       output: '{
-       
+             "errors": [
+       {
+      "errorCode": "RES-SER-410 ",
+      "message": "$IGNORE$"
+      }
+      ]
 }'
 
 
-   Resident_PersonalizedCard_Empty_Html_Neg:
+   Resident_PersonalizedCard_uin_Empty_Html_Neg:
       endPoint: /resident/v1/download/personalized-card
       role: residentNew
       restMethod: post
@@ -72,5 +104,52 @@ PersonalizedCard:
        "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
 }'
       output: '{
+         "errors": [
+       {
+      "errorCode": "RES-SER-410 ",
+      "message": "$IGNORE$"
+      }
+      ]
        
+}'
+
+   Resident_PersonalizedCard_vid_Invalid_Html_Neg:
+      endPoint: /resident/v1/download/personalized-card
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/PersonalizedCard/PersonalizedCard
+      outputTemplate: resident/error
+      input: '{
+       "requesttime": "$TIMESTAMP$",
+       "html": "sfdr$=",
+       "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
+}'
+      output: '{
+          "errors": [
+       {
+      "errorCode": "RES-SER-410 ",
+      "message": "$IGNORE$"
+      }
+      ]
+}'
+
+
+   Resident_PersonalizedCard_vid_Empty_Html_Neg:
+      endPoint: /resident/v1/download/personalized-card
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/PersonalizedCard/PersonalizedCard
+      outputTemplate: resident/error
+      input: '{
+       "requesttime": "$TIMESTAMP$",
+       "html": "",
+       "attributes": [{attributesVal: "firstName"}, {attributesVal: "dateOfBirth"}, {attributesVal: "email"}]
+}'
+      output: '{
+          "errors": [
+       {
+      "errorCode": "RES-SER-410 ",
+      "message": "$IGNORE$"
+      }
+      ]
 }'

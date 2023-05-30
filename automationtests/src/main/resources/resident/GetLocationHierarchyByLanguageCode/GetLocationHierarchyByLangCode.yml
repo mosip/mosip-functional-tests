@@ -3,11 +3,10 @@ GetLocationHierarchyByLanguageCode:
       endPoint: /resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}
       role: resident
       restMethod: get
-      templateFields: ["langCode"]
       inputTemplate: resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCode
       outputTemplate: resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCodeResult
       input: '{
-      "langCode":"eng"
+      "langCode":"$1STLANG$"
 }'
       output: '{
         "hierarchyLevel": "$IGNORE$",

@@ -1,5 +1,5 @@
 GetProfile:
-   Resident_GetProfile_all_Valid_Smoke:
+   Resident_GetProfile_uin_all_Valid_Smoke:
       endPoint: /resident/v1/profile
       role: residentNew
       restMethod: get

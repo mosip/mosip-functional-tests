@@ -6,11 +6,12 @@ AidGetIndividualId:
       inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
       outputTemplate: mobileId/AidGetIndividualId/aidGetIndividualIdResult
       input: '{
-        "otp": "111111",
-        "transactionID": "1234567890",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "transactionID": "$TRANSACTIONID$",
         "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+		    "transactionID": "$TRANSACTIONID$",
 		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
 		    "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp"
 	 }
@@ -31,17 +32,18 @@ AidGetIndividualId:
       inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
       outputTemplate: mobileId/error
       input: '{
-        "otp": "111111",
-        "transactionID": "1234567890",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "transactionID": "$TRANSACTIONID$",
         "aid": "$yt55g",
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+		    "transactionID": "$TRANSACTIONID$",
 		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
 		    "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp"
 	 }
 }'
       output: '{
-       "transactionID": "1234567890",
+       "transactionID": "$TRANSACTIONID$",
         "sendOtpResp":{
 	        "maskedMobile": "XXXXXX3210",
 	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
@@ -57,16 +59,17 @@ AidGetIndividualId:
       outputTemplate: mobileId/error
       input: '{
         "otp": "1234",
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+		    "transactionID": "$TRANSACTIONID$",
 		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
 		    "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp"
 	 }
 }'
       output: '{
-       "transactionID": "1234567890",
+       "transactionID": "$TRANSACTIONID$",
         "sendOtpResp":{
 	        "maskedMobile": "XXXXXX3210",
 	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
@@ -81,11 +84,12 @@ AidGetIndividualId:
       inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
       outputTemplate: mobileId/AidGetIndividualId/aidGetIndividualIdResult
       input: '{
-        "otp": "111111",
-        "transactionID": "1234567890",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "transactionID": "$TRANSACTIONID$",
         "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+		    "transactionID": "$TRANSACTIONID$",
 		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
 		    "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp"
 	 }
@@ -106,11 +110,12 @@ AidGetIndividualId:
       inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
       outputTemplate: mobileId/error
       input: '{
-        "otp": "111111",
-        "transactionID": "1234567890",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "transactionID": "$TRANSACTIONID$",
         "aid": "2745538921628455389216202302041241544770230204124154278477",
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+		    "transactionID": "$TRANSACTIONID$",
 		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
 		    "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp"
 	 }

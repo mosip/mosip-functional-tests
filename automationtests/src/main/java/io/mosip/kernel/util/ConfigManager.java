@@ -53,6 +53,10 @@ public class ConfigManager {
 	private static String S3_SECRET_KEY = "s3-user-secret";
 	private static String S3_ACCOUNT = "s3-account";
 	private static String PUSH_TO_S3 = "push-reports-to-s3";
+	private static String ENABLE_DEBUG = "enableDebug";
+	private static String THREAD_COUNT = "threadCount";
+	private static String LANG_SELECT = "langselect";
+	
 
 	private static String DB_PORT = "db-port";
 	private static String DB_DOMAIN = "db-server";
@@ -90,6 +94,7 @@ public class ConfigManager {
 	private static String AUTH_DEMO_SERVICE_PORT = "authDemoServicePort";
 	private static String AUTH_DEMO_SERVICE_BASE_URL = "authDemoServiceBaseURL";
 	private static String MOUNT_PATH = "mountPath";
+	private static String AUTHCERTS_PATH = "authCertsPath";
 	private static String MOUNT_PATH_FOR_SCENARIO = "mountPathForScenario";
 	
 	private static String PACKET_UTILITY_BASE_URL = "packetUtilityBaseUrl";
@@ -135,6 +140,9 @@ public class ConfigManager {
 	private static String s3_account;
 	private static String s3_secret_key;
 	private static String push_reports_to_s3;
+	private static String enableDebug;
+	private static String threadCount;
+	private static String langselect;
 
 	private static String db_port;
 	private static String db_domain;
@@ -172,6 +180,7 @@ public class ConfigManager {
 	private static String authDemoServiceBaseUrl;
 
 	private static String mountPath;
+	private static String authCertsPath;
 	private static String mountPathForScenario;
 	private static String packetUtilityBaseUrl;
 	public static Properties propsKernel;
@@ -225,7 +234,7 @@ public class ConfigManager {
 		s3_user_key = getValueForKey(S3_USER_KEY);
 		s3_secret_key = getValueForKey(S3_SECRET_KEY);
 		s3_account = getValueForKey(S3_ACCOUNT);
-		push_reports_to_s3 = getValueForKey(PUSH_TO_S3);
+//		push_reports_to_s3 = getValueForKey(PUSH_TO_S3);
 		db_port = getValueForKey(DB_PORT);
 		db_domain = getValueForKey(DB_DOMAIN);
 		hibernate_connection_driver_class = getValueForKey(HIBERNATE_CONNECTION_DRIVER_CLASS);
@@ -274,11 +283,28 @@ public class ConfigManager {
 		mountPath = System.getenv(MOUNT_PATH) == null ? propsKernel.getProperty(MOUNT_PATH) : System.getenv(MOUNT_PATH);
 		propsKernel.setProperty(MOUNT_PATH, mountPath);
 		
+		authCertsPath = System.getenv(AUTHCERTS_PATH) == null ? propsKernel.getProperty(AUTHCERTS_PATH) : System.getenv(AUTHCERTS_PATH);
+		propsKernel.setProperty(AUTHCERTS_PATH, authCertsPath);
+		
 		mountPathForScenario = System.getenv(MOUNT_PATH_FOR_SCENARIO) == null ? propsKernel.getProperty(MOUNT_PATH_FOR_SCENARIO) : System.getenv(MOUNT_PATH_FOR_SCENARIO);
 		propsKernel.setProperty(MOUNT_PATH_FOR_SCENARIO, mountPathForScenario);
 		
 		packetUtilityBaseUrl = System.getenv(PACKET_UTILITY_BASE_URL) == null ? propsKernel.getProperty(PACKET_UTILITY_BASE_URL) : System.getenv(PACKET_UTILITY_BASE_URL);
 		propsKernel.setProperty(PACKET_UTILITY_BASE_URL, packetUtilityBaseUrl);
+		
+		push_reports_to_s3 =System.getenv(PUSH_TO_S3) == null ? propsKernel.getProperty(PUSH_TO_S3) : System.getenv(PUSH_TO_S3);
+		propsKernel.setProperty(PUSH_TO_S3, push_reports_to_s3);
+		
+		enableDebug =System.getenv(ENABLE_DEBUG) == null ? propsKernel.getProperty(ENABLE_DEBUG) : System.getenv(ENABLE_DEBUG);
+		propsKernel.setProperty(ENABLE_DEBUG, enableDebug);
+		
+		threadCount =System.getenv(THREAD_COUNT) == null ? propsKernel.getProperty(THREAD_COUNT) : System.getenv(THREAD_COUNT);
+		propsKernel.setProperty(THREAD_COUNT, threadCount);
+		
+		langselect =System.getenv(LANG_SELECT) == null ? propsKernel.getProperty(LANG_SELECT) : System.getenv(LANG_SELECT);
+		propsKernel.setProperty(LANG_SELECT, langselect);
+		
+		//enableDebug threadCount  langselect
 
 	}
 
@@ -288,6 +314,21 @@ public class ConfigManager {
 
 	public static String getAuthDemoServiceBaseUrl() {
 		return authDemoServiceBaseUrl;
+
+	}
+	
+	public static String getLangselect() {
+		return langselect;
+
+	}
+	
+	public static String getThreadCount() {
+		return threadCount;
+
+	}
+	
+	public static String getEnableDebug() {
+		return enableDebug;
 
 	}
 
@@ -301,6 +342,10 @@ public class ConfigManager {
 	
 	public static String getpacketUtilityBaseUrl() {
 		return packetUtilityBaseUrl;
+	}
+	
+	public static String getauthCertsPath() {
+		return authCertsPath;
 	}
 
 	public static Properties init(String abc) {

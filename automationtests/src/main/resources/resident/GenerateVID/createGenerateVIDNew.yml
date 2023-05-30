@@ -1,12 +1,12 @@
 GenerateVIDNew:
-   Resident_GenerateVID_Temporary_VID_Valid_Smoke_sid:
+   Resident_GenerateVID_uin_Temporary_VID_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -19,14 +19,14 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_GenerateVID_Temporary_VID2_Valid_Smoke_sid:
+   Resident_GenerateVID_uin_Temporary_VID2_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -39,14 +39,14 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_GenerateVID_Onetimeuse_VID_Valid_Smoke_sid:
+   Resident_GenerateVID_uin_Onetimeuse_VID_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -59,14 +59,14 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_Generate_Perpetual_VID_Phone_Valid_Smoke_sid:
+   Resident_Generate_Perpetual_VID_uin_Phone_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNewAsPhone
       outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -79,14 +79,14 @@ GenerateVIDNew:
 	    "maskedEmail": "$IGNORE$"
 }'
 
-   Resident_Generate_Perpetual_VID_Email_Valid_Smoke_sid:
+   Resident_Generate_Perpetual_VID_uin_Email_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNewAsEmail
       outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -99,33 +99,14 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_Generate_Perpetual_VID_BothChannel_Valid_Smoke_sid:
+   Resident_Generate_Perpetual_VID_BothChannel_uin_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
       input: '{
-        "transactionID": "1234567890",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid.generate",
-        "version": "1.0",
-        "vidType": "Perpetual"
-    }'
-      output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
-}'
-   Resident_Generate_Perpetual_VID_TransID_Invalid_Pos:
-      endPoint: /resident/v1/generate-vid
-      role: residentNew
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVIDNew
-      outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
-      input: '{
-        "transactionID": "tt@2165;",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -138,27 +119,7 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_Generate_Perpetual_VID_EmptyChannel_Pos:
-      endPoint: /resident/v1/generate-vid
-      role: residentNew
-      restMethod: post
-      inputTemplate: resident/GenerateVID/createGenerateVIDNewAsEmpty
-      outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
-      input: '{
-        "transactionID": "1234567890",
-        "requesttime": "$TIMESTAMP$",
-        "id": "mosip.resident.vid.generate",
-        "version": "1.0",
-        "vidType": "Perpetual"
-    }'
-      output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
-	    "maskedPhone": "******3210",
-	    "maskedEmail": "res***************@gmail.com"
-}'
-
-   Resident_Generate_Perpetual_VID_Empty_TransID_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_Empty_TransID_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
@@ -180,14 +141,14 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_Empty_requesttime_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_Empty_requesttime_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -202,14 +163,14 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_Empty_Id_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_Empty_Id_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "",
         "version": "1.0",
@@ -224,14 +185,14 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_Empty_version_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_Empty_version_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "",
@@ -246,14 +207,14 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_Empty_vidType_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_Empty_vidType_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -270,14 +231,14 @@ GenerateVIDNew:
 
 
 
-   Resident_Generate_Perpetual_VID_requesttime_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_requesttime_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "23553265",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -292,14 +253,14 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_Id_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_Id_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "khdfnsld",
         "version": "1.0",
@@ -314,14 +275,14 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_version_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_version_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "tt",
@@ -336,14 +297,14 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_Generate_Perpetual_VID_vidType_Invalid_Neg:
+   Resident_Generate_Perpetual_VID_uin_vidType_Invalid_Neg:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -358,14 +319,14 @@ GenerateVIDNew:
   ]
 }'
 
-   Resident_GenerateVID_Perpetual_VID_Valid_Token_Smoke_sid:
+   Resident_GenerateVID_Perpetual_VID_uin_Valid_Token_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -385,7 +346,7 @@ GenerateVIDNew:
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/error
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -407,7 +368,7 @@ GenerateVIDNew:
       inputTemplate: resident/GenerateVID/createGenerateVIDNew
       outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vid.generate",
         "version": "1.0",
@@ -418,4 +379,238 @@ GenerateVIDNew:
 	    "message": "Notification has been sent to the provided contact detail(s)",
 	    "maskedPhone": "******3210",
 	    "maskedEmail": "res***************@gmail.com"
+}'
+
+   Resident_Generate_Perpetual_VID_TransID_uin_Invalid_Pos:
+      endPoint: /resident/v1/generate-vid
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "tt@2165;",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
+        "vidType": "Perpetual"
+    }'
+      output: '{
+      
+}'
+
+   Resident_Generate_Perpetual_VID_uin_EmptyChannel_Pos:
+      endPoint: /resident/v1/generate-vid
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNewAsEmpty
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
+        "vidType": "Perpetual"
+    }'
+      output: '{
+      	
+}'
+
+   Resident_Generate_Perpetual_VID_uin_Empty_TransID_Invalid_Neg:
+      endPoint: /resident/v1/generate-vid
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
+        "vidType": "Perpetual"
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_Generate_Perpetual_VID_uin_Empty_requesttime_Invalid_Neg:
+      endPoint: /resident/v1/generate-vid
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "requesttime": "",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
+        "vidType": "Perpetual"
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_Generate_Perpetual_VID_uin_Empty_Id_Invalid_Neg:
+      endPoint: /resident/v1/generate-vid
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "requesttime": "$TIMESTAMP$",
+        "id": "",
+        "version": "1.0",
+        "vidType": "Perpetual"
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_Generate_Perpetual_VID_uin_Empty_version_Invalid_Neg:
+      endPoint: /resident/v1/generate-vid
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.generate",
+        "version": "",
+        "vidType": "Perpetual"
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_Generate_Perpetual_VID_uin_Empty_vidType_Invalid_Neg:
+      endPoint: /resident/v1/generate-vid
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
+        "vidType": ""
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+
+
+   Resident_Generate_Perpetual_VID_uin_requesttime_Invalid_Neg:
+      endPoint: /resident/v1/generate-vid
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "requesttime": "23553265",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
+        "vidType": "Perpetual"
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_Generate_Perpetual_VID_uin_Id_Invalid_Neg:
+      endPoint: /resident/v1/generate-vid
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "requesttime": "$TIMESTAMP$",
+        "id": "khdfnsld",
+        "version": "1.0",
+        "vidType": "Perpetual"
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_Generate_Perpetual_VID_uin_version_Invalid_Neg:
+      endPoint: /resident/v1/generate-vid
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.generate",
+        "version": "tt",
+        "vidType": "Perpetual"
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_Generate_Perpetual_VID_uin_vidType_Invalid_Neg:
+      endPoint: /resident/v1/generate-vid
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.generate",
+        "version": "1.0",
+        "vidType": "sdfsdf"
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
 }'

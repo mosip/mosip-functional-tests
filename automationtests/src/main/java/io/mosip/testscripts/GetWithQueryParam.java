@@ -95,8 +95,8 @@ public class GetWithQueryParam extends AdminTestUtil implements ITest {
 		
 		else {
 //			To Do This Condition has to be removed
-			if(testCaseName.contains("IDP_")) {
-				String tempUrl = ApplnURI.replace("api-internal", "idp");
+			if(testCaseName.contains("ESignet_")) {
+				String tempUrl = ApplnURI.replace("api-internal", "esignet");
 				response = getWithQueryParamAndCookie(tempUrl + testCaseDTO.getEndPoint(),
 						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
 						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());

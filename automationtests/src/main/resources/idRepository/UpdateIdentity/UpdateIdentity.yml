@@ -61,6 +61,57 @@ UpdateIdentity:
     }
   ]
 }'
+
+  IdRepository_UpdateIdentity_with_Empty_version:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: idRepository/UpdateIdentity/updateIdentity
+      outputTemplate: idRepository/error
+      input: '{
+      "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+      "email": "user@mailinator.com",
+      "phone": "8249742850",
+      "status": "ACTIVATED",
+      "dateOfBirth": "1992/04/15",
+      "requesttime": "$TIMESTAMP$",
+      "version": ""
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - version"
+    }
+  ]
+}'
+
+  IdRepository_UpdateIdentity_with_Space_version:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: idRepository/UpdateIdentity/updateIdentity
+      outputTemplate: idRepository/error
+      input: '{
+      "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+      "email": "user@mailinator.com",
+      "phone": "8249742850",
+      "status": "ACTIVATED",
+      "dateOfBirth": "1992/04/15",
+      "requesttime": "$TIMESTAMP$",
+      "version": " "
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - version"
+    }
+  ]
+}'
+
   IdRepository_UpdateIdentity_with_Invalid_requestTime:
       endPoint: /idrepository/v1/identity/
       role: idrepo
@@ -85,6 +136,107 @@ UpdateIdentity:
     }
   ]
 }'
+
+  IdRepository_UpdateIdentity_with_Empty_requestTime:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: idRepository/UpdateIdentity/updateIdentity
+      outputTemplate: idRepository/error
+      input: '{
+      "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+      "email": "user@mailinator.com",
+      "phone": "8249742850",
+      "status": "ACTIVATED",
+      "dateOfBirth": "1992/04/15",
+      "requesttime": "",
+      "version": "v1"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Invalid Input Parameter - requesttime"
+    }
+  ]
+}'
+
+  IdRepository_UpdateIdentity_with_SpaceVal_requestTime:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: idRepository/UpdateIdentity/updateIdentity
+      outputTemplate: idRepository/error
+      input: '{
+      "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+      "email": "user@mailinator.com",
+      "phone": "8249742850",
+      "status": "ACTIVATED",
+      "dateOfBirth": "1992/04/15",
+      "requesttime": " ",
+      "version": "v1"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Invalid Input Parameter - requesttime"
+    }
+  ]
+}'
+
+  IdRepository_UpdateIdentity_with_Past_requestTime:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: idRepository/UpdateIdentity/updateIdentity
+      outputTemplate: idRepository/error
+      input: '{
+      "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+      "email": "user@mailinator.com",
+      "phone": "8249742850",
+      "status": "ACTIVATED",
+      "dateOfBirth": "1992/04/15",
+      "requesttime": "2022-05-23T06:56:01.667Z",
+      "version": "v1"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - requesttime"
+    }
+  ]
+}'
+
+  IdRepository_UpdateIdentity_with_Future_requestTime:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: idRepository/UpdateIdentity/updateIdentity
+      outputTemplate: idRepository/error
+      input: '{
+      "registrationId":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
+      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+      "email": "user@mailinator.com",
+      "phone": "8249742850",
+      "status": "ACTIVATED",
+      "dateOfBirth": "1992/04/15",
+      "requesttime": "2072-05-23T06:56:01.667Z",
+      "version": "v1"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - requesttime"
+    }
+  ]
+}'
+
   IdRepository_UpdateIdentity_with_Missing_registrationId:
       endPoint: /idrepository/v1/identity/
       role: idrepo
@@ -109,6 +261,32 @@ UpdateIdentity:
     }
   ]
 }'
+
+  IdRepository_UpdateIdentity_with_Invalid_registrationId:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: idRepository/UpdateIdentity/updateIdentity
+      outputTemplate: idRepository/error
+      input: '{
+      "registrationId":"sdfdgdg",
+      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+      "email": "user@mailinator.com",
+      "phone": "8249742850",
+      "status": "ACTIVATED",
+      "dateOfBirth": "1992/04/15",
+      "requesttime": "$TIMESTAMP$",
+      "version": "v1"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "Missing Input Parameter - registrationId"
+    }
+  ]
+}'
+
   IdRepository_UpdateIdentity_with_Missing_version:
       endPoint: /idrepository/v1/identity/
       role: idrepo

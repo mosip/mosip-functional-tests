@@ -100,6 +100,7 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		requestBody.put("keyFileNameByPartnerName", "true");
 		requestBody.put("partnerName", PartnerRegistration.partnerId);
 		requestBody.put("moduleName", BaseTestCase.certsForModule);
+		requestBody.put("transactionId", "$TRANSACTIONID$");
 		
 		String token = kernelAuthLib.getTokenByRole("resident");
 

@@ -3,6 +3,7 @@ GetInputAttributeValues:
       endPoint: /resident/v1/identity/info/type/{schemaType}
       role: residentNew
       restMethod: get
+      auditLogCheck: true
       inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
       outputTemplate: resident/GetInputAttributeValues/getInputAttributeValuesResult
       input: '{
@@ -35,7 +36,7 @@ GetInputAttributeValues:
       output: '{
 }'
 
-   Resident_GetInputAttributeValues_Invalid_SchemaType_Neg:
+   Resident_GetInputAttributeValues_UIN_Invalid_SchemaType_Neg:
       endPoint: /resident/v1/identity/info/type/{schemaType}
       role: residentNew
       restMethod: get

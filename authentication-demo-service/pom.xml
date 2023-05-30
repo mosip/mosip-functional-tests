@@ -36,10 +36,7 @@
 	</repositories>
 
 	<properties>
-		<!-- Maven Plugins -->
-		<kernel.version>1.2.1-SNAPSHOT</kernel.version>
-		<ida.version>${kernel.version}</ida.version>
-		
+		<!-- Maven Plugins -->		
 		<spring.boot.version>2.0.2.RELEASE</spring.boot.version>
 		<spring-cloud-config.version>2.0.0.RELEASE</spring-cloud-config.version>
 		
@@ -51,7 +48,7 @@
 		<maven.jacoco.version>0.8.2</maven.jacoco.version>
 		<sonar.skip>true</sonar.skip>
 		
-		<kernel-websubclient-api.version>1.2.1-SNAPSHOT</kernel-websubclient-api.version>
+		<kernel-websubclient-api.version>1.2.0.1-B1</kernel-websubclient-api.version>
 		
 	</properties>
 
@@ -96,7 +93,7 @@
 		<dependency>
 			<groupId>io.mosip.authentication</groupId>
 			<artifactId>authentication-core</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>1.2.0.1-B3-SNAPSHOT</version>
 			<exclusions>
 				<exclusion>
 					<groupId>commons-codec</groupId>
@@ -119,7 +116,7 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-core</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>1.2.0.1-B1</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
@@ -204,7 +201,7 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-templatemanager-velocity</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>1.2.0.1-B1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -229,7 +226,7 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-keymanager-service</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>1.2.0.1-B2</version>
 			<classifier>lib</classifier>
 			<exclusions>
 				<exclusion>

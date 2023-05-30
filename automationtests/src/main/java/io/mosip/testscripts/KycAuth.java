@@ -86,6 +86,7 @@ public class KycAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 //		String jsonrequest = buildIdentityRequest(request.toString());
 //		String input = getJsonFromTemplate(jsonrequest, testCaseDTO.getInputTemplate());
@@ -96,7 +97,9 @@ public class KycAuth extends AdminTestUtil implements ITest {
 			request.remove("kycAuthEndPoint");
 		}
 		
-		String input = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
+		String requestString = buildIdentityRequest(request.toString());
+		
+		String input = getJsonFromTemplate(requestString, testCaseDTO.getInputTemplate());
 		
 		String url = ConfigManager.getAuthDemoServiceUrl();
 		

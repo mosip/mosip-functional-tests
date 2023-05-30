@@ -6,16 +6,16 @@ PrintUin:
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/PRINTUIN/createPrintUinResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "UIN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
@@ -29,7 +29,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_Empty_Cardtype_Neg:
@@ -46,7 +46,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "@4544sss",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567891",
     "requestTime": "$TIMESTAMP$",
@@ -66,7 +66,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_MaxLength10_Cardtype_Neg:
@@ -83,7 +83,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "UINNNNNNNNN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567892",
     "requestTime": "$TIMESTAMP$",
@@ -103,7 +103,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_Missing_Cardtype_Neg:
@@ -120,7 +120,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "$REMOVE$",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TDEA_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567893",
     "requestTime": "$TIMESTAMP$",
@@ -140,7 +140,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_IndividualIDType_Neg:
@@ -157,7 +157,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "UIN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567894",
     "requestTime": "$TIMESTAMP$",
@@ -177,7 +177,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_MaxLength3_IndividualIDType_Neg:
@@ -194,7 +194,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "UIN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TRE_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567895",
     "requestTime": "$TIMESTAMP$",
@@ -214,7 +214,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_Missing_IndividualID_Neg:
@@ -231,7 +231,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "UIN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TRE_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567896",
     "requestTime": "$TIMESTAMP$",
@@ -251,7 +251,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_Empty_Otp_Neg:
@@ -288,7 +288,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_MaxLength6_Otp_Neg:
@@ -325,7 +325,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_Otp_Neg:
@@ -362,7 +362,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_Empty_requestTime_Neg:
@@ -379,7 +379,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "UIN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567898",
     "requestTime": "$TIMESTAMP$",
@@ -399,7 +399,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_Empty_TrnxID_Neg:
@@ -416,7 +416,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "UIN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TDEA_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567898",
     "requestTime": "$TIMESTAMP$",
@@ -436,7 +436,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_Value_TrnxID_Neg:
@@ -453,7 +453,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "UIN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TDEA_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567898",
     "requestTime": "$TIMESTAMP$",
@@ -473,7 +473,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_Empty_version_Neg:
@@ -490,7 +490,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "",
         "cardType": "UIN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TDEA_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567898",
     "requestTime": "$TIMESTAMP$",
@@ -510,7 +510,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_version_Neg:
@@ -527,7 +527,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "@dfr32",
         "cardType": "UIN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_TDEA_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567898",
     "requestTime": "$TIMESTAMP$",
@@ -547,7 +547,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Invalid_Individual_Id_Neg:
@@ -564,7 +564,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "UIN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567898",
     "requestTime": "$TIMESTAMP$",
@@ -584,7 +584,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Missing_Individual_Id_Neg:
@@ -601,7 +601,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "UIN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567898",
     "requestTime": "$TIMESTAMP$",
@@ -621,7 +621,7 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'
    Resident_PrintUin_Empty_Individual_Id_Neg:
@@ -638,7 +638,7 @@ PrintUin:
         "id": "mosip.resident.printuin",
         "version": "v1",
         "cardType": "UIN",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567898",
     "requestTime": "$TIMESTAMP$",
@@ -658,6 +658,6 @@ PrintUin:
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedEmail": "$IGNORE$"
     }
 }'

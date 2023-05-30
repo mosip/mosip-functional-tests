@@ -6,7 +6,7 @@ SendOTP:
       inputTemplate: mobileId/SendOTP1/createSendOTP
       outputTemplate: mobileId/SendOTP1/createSendOTPResult
       input: '{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN"
@@ -23,7 +23,7 @@ SendOTP:
       inputTemplate: mobileId/SendOTP1/createSendOTP
       outputTemplate: mobileId/SendOTP1/createSendOTPResult
       input: '{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
     "individualIdType": "VID"
@@ -40,7 +40,7 @@ SendOTP:
       inputTemplate: mobileId/SendOTP1/createSendOTP
       outputTemplate: mobileId/error
       input: '{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "4Y4B4 N@&&&&",
     "individualIdType": "UIN"
@@ -61,7 +61,7 @@ SendOTP:
       inputTemplate: mobileId/SendOTP1/createSendOTP
       outputTemplate: mobileId/error
       input: '{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$gyx56",
     "individualIdType": "VID"

@@ -3,10 +3,11 @@ ReqAidOtp:
       endPoint: /resident/v1/individualId/otp
       role: resident
       restMethod: post
+      auditLogCheck: true
       inputTemplate: resident/ReqAidOtp/ReqAidOtp
       outputTemplate: resident/ReqAidOtp/ReqAidOtpResult
       input: '{
-      	"transactionID": "1234567890",
+      	"transactionId": "$TRANSACTIONID$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -14,7 +15,7 @@ ReqAidOtp:
 }'
       output: '{
 	    "maskedMobile": XXXXXX3210,
-	    "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+	    "maskedEmail": "$IGNORE$"
 }'
 
    Resident_ReqAidOtp_Invalid_IndividualId_Neg:
@@ -24,7 +25,7 @@ ReqAidOtp:
       inputTemplate: resident/ReqAidOtp/ReqAidOtp
       outputTemplate: resident/error
       input: '{
-      	"transactionID": "1234567890",
+      	"transactionId": "$TRANSACTIONID$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "@$$#$#",
 		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -46,7 +47,7 @@ ReqAidOtp:
       inputTemplate: resident/ReqAidOtp/ReqAidOtp
       outputTemplate: resident/error
       input: '{
-      	"transactionID": "1234567890",
+      	"transactionId": "$TRANSACTIONID$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "",
 		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -68,7 +69,7 @@ ReqAidOtp:
       inputTemplate: resident/ReqAidOtp/ReqAidOtp
       outputTemplate: resident/error
       input: '{
-      	"transactionID": "@#$###$",
+      	"transactionId": "@#$###$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -90,7 +91,7 @@ ReqAidOtp:
       inputTemplate: resident/ReqAidOtp/ReqAidOtp
       outputTemplate: resident/error
       input: '{
-      	"transactionID": "",
+      	"transactionId": "",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
@@ -112,7 +113,7 @@ ReqAidOtp:
       inputTemplate: resident/ReqAidOtp/ReqAidOtp
       outputTemplate: resident/error
       input: '{
-      	"transactionID": "1234567890",
+      	"transactionId": "$TRANSACTIONID$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
 		"otpChannel": [{channel: "@##$$#"}],

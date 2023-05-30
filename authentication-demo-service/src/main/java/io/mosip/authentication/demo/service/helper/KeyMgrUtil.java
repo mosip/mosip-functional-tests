@@ -385,14 +385,19 @@ public class KeyMgrUtil {
     }
 
     
- // moduleName will be IDA or IDP or DSL-IDA
-    // IDA/IDP ---- Will passed while running the functional test rig for those modules.. this will address not able to run IDA/IDP in parallel
+ // moduleName will be IDA or ESignet or DSL-IDA
+    // IDA/ESignet ---- Will passed while running the functional test rig for those modules.. this will address not able to run IDA/ESignet in parallel
     // certsDir can be "" when we running from functional test rig..
     public String getKeysDirPath(String certsDir, String moduleName) {
       	String domain = environment.getProperty(DOMAIN_URL, "localhost").replace("https://", "").replace("http://", "").replace("/", "");
   		
-          // Default to temp folder in the contianer where Authdemo service is running
-      	String certsTargetDir = System.getProperty("java.io.tmpdir");
+          // Default to temp folder in the container and also windows where Authdemo service is running
+      	String certsTargetDir = System.getProperty("java.io.tmpdir")+ File.separator + "AUTHCERTS";
+      	
+      	if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
+      		// if OS is non-windows override certsTargetDir with directory which works on docker
+      		certsTargetDir = "/home/mosip/authcerts";
+      	}
       	
   		// Default to IDA-
       	String certsModuleName = "IDA";
@@ -407,8 +412,8 @@ public class KeyMgrUtil {
   		if (moduleName != null && moduleName.length() != 0){
   		    certsModuleName = moduleName;
   		}
-  		
   		return certsTargetDir + File.separator + certsModuleName + "-" + domain;
+  		
   }
 
 }

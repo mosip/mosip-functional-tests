@@ -1,5 +1,5 @@
 DownloadServiceHistory:
-   Resident_DownloadServiceHistory_all_Valid_Smoke:
+   Resident_DownloadServiceHistory_uin_all_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
       restMethod: get
@@ -21,7 +21,7 @@ DownloadServiceHistory:
       
 }'
 
-   Resident_DownloadServiceHistory_Invalid_User_Neg:
+   Resident_DownloadServiceHistory_uin_Invalid_User_Neg:
       endPoint: /resident/v1/download/service-history
       role: resident
       restMethod: get
@@ -43,7 +43,7 @@ DownloadServiceHistory:
       
 }'
 
-   Resident_DownloadServiceHistory_Missing_LangCode_Neg:
+   Resident_DownloadServiceHistory_uin_Missing_LangCode_Neg:
       endPoint: /resident/v1/download/service-history
       role: residentNew
       restMethod: get
@@ -65,7 +65,7 @@ DownloadServiceHistory:
       
 }'
 
-   Resident_DownloadServiceHistory_FromDate_Valid_Smoke:
+   Resident_DownloadServiceHistory_uin_FromDate_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
       restMethod: get
@@ -87,7 +87,7 @@ DownloadServiceHistory:
       
 }'
 
-   Resident_DownloadServiceHistory_ToDate_Valid_Smoke:
+   Resident_DownloadServiceHistory_uin_ToDate_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
       restMethod: get
@@ -109,7 +109,7 @@ DownloadServiceHistory:
       
 }'
 
-   Resident_DownloadServiceHistory_PageStart_Valid_Smoke:
+   Resident_DownloadServiceHistory_uin_PageStart_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
       restMethod: get
@@ -131,7 +131,7 @@ DownloadServiceHistory:
       
 }'
 
-   Resident_DownloadServiceHistory_ServiceType_Valid_Smoke:
+   Resident_DownloadServiceHistory_uin_ServiceType_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
       restMethod: get
@@ -153,7 +153,7 @@ DownloadServiceHistory:
       
 }'
 
-   Resident_DownloadServiceHistory_SortType_Valid_Smoke:
+   Resident_DownloadServiceHistory_uin_SortType_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
       restMethod: get
@@ -175,9 +175,185 @@ DownloadServiceHistory:
       
 }'
 
-   Resident_DownloadServiceHistory_StatusFilter_Valid_Smoke:
+   Resident_DownloadServiceHistory_uin_StatusFilter_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
+      restMethod: get
+      inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
+      outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
+      input: '{
+      	"languageCode": "$1STLANG$",
+		"pageStart": "$REMOVE$",
+		"pageFetch": "$REMOVE$",
+		"fromDateTime": "$REMOVE$",
+		"toDateTime": "$REMOVE$",
+		"sortType": "$REMOVE$",
+		"serviceType": "$REMOVE$",
+		"statusFilter": "in-progress,success,failed",
+		"searchText": "$REMOVE$",
+		"eventReqDateTime": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_DownloadServiceHistory_vid_all_Valid_Smoke:
+      endPoint: /resident/v1/download/service-history
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
+      outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
+      input: '{
+      	"languageCode": "$1STLANG$",
+		"pageStart": "$REMOVE$",
+		"pageFetch": "$REMOVE$",
+		"fromDateTime": "$REMOVE$",
+		"toDateTime": "$REMOVE$",
+		"sortType": "$REMOVE$",
+		"serviceType": "$REMOVE$",
+		"statusFilter": "$REMOVE$",
+		"searchText": "$REMOVE$",
+		"eventReqDateTime": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_DownloadServiceHistory_vid_Missing_LangCode_Neg:
+      endPoint: /resident/v1/download/service-history
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
+      outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
+      input: '{
+      	"languageCode": "$REMOVE$",
+		"pageStart": "$REMOVE$",
+		"pageFetch": "$REMOVE$",
+		"fromDateTime": "$REMOVE$",
+		"toDateTime": "$REMOVE$",
+		"sortType": "$REMOVE$",
+		"serviceType": "$REMOVE$",
+		"statusFilter": "$REMOVE$",
+		"searchText": "$REMOVE$",
+		"eventReqDateTime": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_DownloadServiceHistory_vid_FromDate_Valid_Smoke:
+      endPoint: /resident/v1/download/service-history
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
+      outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
+      input: '{
+      	"languageCode": "$1STLANG$",
+		"pageStart": "$REMOVE$",
+		"pageFetch": "$REMOVE$",
+		"fromDateTime": "2022-12-07T12:35:23.994Z",
+		"toDateTime": "$REMOVE$",
+		"sortType": "$REMOVE$",
+		"serviceType": "$REMOVE$",
+		"statusFilter": "$REMOVE$",
+		"searchText": "$REMOVE$",
+		"eventReqDateTime": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_DownloadServiceHistory_vid_ToDate_Valid_Smoke:
+      endPoint: /resident/v1/download/service-history
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
+      outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
+      input: '{
+      	"languageCode": "$1STLANG$",
+		"pageStart": "$REMOVE$",
+		"pageFetch": "$REMOVE$",
+		"fromDateTime": "$REMOVE$",
+		"toDateTime": "$TIMESTAMP$",
+		"sortType": "$REMOVE$",
+		"serviceType": "$REMOVE$",
+		"statusFilter": "$REMOVE$",
+		"searchText": "$REMOVE$",
+		"eventReqDateTime": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_DownloadServiceHistory_vid_PageStart_Valid_Smoke:
+      endPoint: /resident/v1/download/service-history
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
+      outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
+      input: '{
+      	"languageCode": "$1STLANG$",
+		"pageStart": "0",
+		"pageFetch": "$REMOVE$",
+		"fromDateTime": "$REMOVE$",
+		"toDateTime": "$REMOVE$",
+		"sortType": "$REMOVE$",
+		"serviceType": "$REMOVE$",
+		"statusFilter": "$REMOVE$",
+		"searchText": "$REMOVE$",
+		"eventReqDateTime": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_DownloadServiceHistory_vid_ServiceType_Valid_Smoke:
+      endPoint: /resident/v1/download/service-history
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
+      outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
+      input: '{
+      	"languageCode": "$1STLANG$",
+		"pageStart": "$REMOVE$",
+		"pageFetch": "$REMOVE$",
+		"fromDateTime": "$REMOVE$",
+		"toDateTime": "$REMOVE$",
+		"sortType": "$REMOVE$",
+		"serviceType": "ID_MANAGEMENT_REQUEST",
+		"statusFilter": "$REMOVE$",
+		"searchText": "$REMOVE$",
+		"eventReqDateTime": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_DownloadServiceHistory_vid_SortType_Valid_Smoke:
+      endPoint: /resident/v1/download/service-history
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
+      outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
+      input: '{
+      	"languageCode": "$1STLANG$",
+		"pageStart": "$REMOVE$",
+		"pageFetch": "$REMOVE$",
+		"fromDateTime": "$REMOVE$",
+		"toDateTime": "$REMOVE$",
+		"sortType": "ASC",
+		"serviceType": "$REMOVE$",
+		"statusFilter": "$REMOVE$",
+		"searchText": "$REMOVE$",
+		"eventReqDateTime": "$REMOVE$"
+}'
+      output: '{
+      
+}'
+
+   Resident_DownloadServiceHistory_vid_StatusFilter_Valid_Smoke:
+      endPoint: /resident/v1/download/service-history
+      role: residentNewVid
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult

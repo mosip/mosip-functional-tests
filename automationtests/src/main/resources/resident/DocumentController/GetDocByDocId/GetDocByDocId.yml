@@ -1,5 +1,5 @@
 GetDocByDocId:
-   Resident_GetDocByDocId_all_Valid_Smoke:
+   Resident_GetDocByDocId_uin_all_Valid_Smoke:
       endPoint: /resident/v1/document/{docId}?transactionId={transactionId}
       role: residentNew
       restMethod: get
@@ -7,13 +7,27 @@ GetDocByDocId:
       outputTemplate: resident/DocumentController/GetDocByDocId/GetDocByDocIdResult
       input: '{
       	"transactionId": "1234567889",
-		"docId": "$ID:UploadDocument_all_Valid_Smoke_sid_docId$"
+		"docId": "$ID:UploadDocument_uin_all_Valid_Smoke_sid_docId$"
 }'
       output: '{
       
 }'
 
-   Resident_GetDocByDocId_Invalid_TransactionId:
+   Resident_GetDocByDocId_vid_all_Valid_Smoke:
+      endPoint: /resident/v1/document/{docId}?transactionId={transactionId}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/DocumentController/GetDocByDocId/GetDocByDocId
+      outputTemplate: resident/DocumentController/GetDocByDocId/GetDocByDocIdResult
+      input: '{
+      	"transactionId": "1234567789",
+		"docId": "$ID:UploadDocument_vid_all_Valid_Smoke_sid_docId$"
+}'
+      output: '{
+      
+}'
+
+   Resident_GetDocByDocId_uin_Invalid_TransactionId:
       endPoint: /resident/v1/document/{docId}?transactionId={transactionId}
       role: residentNew
       restMethod: get
@@ -21,7 +35,7 @@ GetDocByDocId:
       outputTemplate: resident/error
       input: '{
       	"transactionId": "jhgf4324",
-		"docId": "$ID:UploadDocument_all_Valid_Smoke_sid_docId$"
+		"docId": "$ID:UploadDocument_uin_all_Valid_Smoke_sid_docId$"
 }'
       output: '{
   "errors": [
@@ -32,7 +46,7 @@ GetDocByDocId:
   ]
 }'
 
-   Resident_GetDocByDocId_Invalid_docId:
+   Resident_GetDocByDocId_uin_Invalid_docId:
       endPoint: /resident/v1/document/{docId}?transactionId={transactionId}
       role: residentNew
       restMethod: get
@@ -51,21 +65,60 @@ GetDocByDocId:
   ]
 }'
 
-   Resident_GetDocByDocId_Invalid_Token:
+   Resident_GetDocByDocId_uin_Invalid_Token:
       endPoint: /resident/v1/document/{docId}?transactionId={transactionId}
       role: partner
+      validityCheckRequired: true
       restMethod: get
       inputTemplate: resident/DocumentController/GetDocByDocId/GetDocByDocId
       outputTemplate: resident/error
       input: '{
       	"transactionId": "1234567889",
-		"docId": "$ID:UploadDocument_all_Valid_Smoke_sid_docId$"
+		"docId": "$ID:UploadDocument_uin_all_Valid_Smoke_sid_docId$"
 }'
       output: '{
       	"errors": [
     {
       "errorCode": "KER-ATH-401",
       "message": "Authentication Failed"
+    }
+  ]
+}'
+
+   Resident_GetDocByDocId_vid_Invalid_TransactionId:
+      endPoint: /resident/v1/document/{docId}?transactionId={transactionId}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/DocumentController/GetDocByDocId/GetDocByDocId
+      outputTemplate: resident/error
+      input: '{
+      	"transactionId": "jhgf4324",
+		"docId": "$ID:UploadDocument_vid_all_Valid_Smoke_sid_docId$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- transactionId"
+    }
+  ]
+}'
+
+   Resident_GetDocByDocId_vid_Invalid_docId:
+      endPoint: /resident/v1/document/{docId}?transactionId={transactionId}
+      role: residentNewVid
+      restMethod: get
+      inputTemplate: resident/DocumentController/GetDocByDocId/GetDocByDocId
+      outputTemplate: resident/error
+      input: '{
+      	"transactionId": "1234567889",
+		"docId": "jhgf4324"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "Invalid Input Parameter- documentId"
     }
   ]
 }'

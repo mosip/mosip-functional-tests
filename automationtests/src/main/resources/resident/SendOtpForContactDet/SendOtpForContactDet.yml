@@ -1,20 +1,36 @@
 SendOtpForContactDet:
-   Resident_SendOtpForContactDet_All_Valid_Smoke:
+   Resident_SendOtpForContactDet_uin_All_Valid_Smoke:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
+      auditLogCheck: true
       inputTemplate: resident/SendOtpForContactDet/SendOtpForContactDet
       outputTemplate: resident/SendOtpForContactDet/SendOtpForContactDetResult
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		   "userId": "residentautomation@gmail.com",
-		   "transactionID": "1234567890"
+		   "userId": "residentautomation@mosip.net",
+		   "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
 		"status": "Email Request submitted"
 }'
 
-   Resident_SendOtpForContactDet_Invalid_UserId_Neg:
+   Resident_SendOtpForContactDet_vid_All_Valid_Smoke:
+      endPoint: /resident/v1/contact-details/send-otp
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/SendOtpForContactDet/SendOtpForContactDet
+      outputTemplate: resident/SendOtpForContactDet/SendOtpForContactDetResult
+      input: '{
+		  "requesttime": "$TIMESTAMP$",
+		   "userId": "residentautomation@mosip.net",
+		   "transactionId": "$TRANSACTIONID$"
+}'
+      output: '{
+		"status": "Email Request submitted"
+}'
+
+   Resident_SendOtpForContactDet_uin_Invalid_UserId_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -23,7 +39,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "$TIMESTAMP$",
 		   "userId": "ahgasj#5",
-		   "transactionID": "1234567890"
+		   "transactionId": "$TRANSACTIONID$"
  }'
       output: '{
          "errors": [
@@ -34,7 +50,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_Empty_UserId_Neg:
+   Resident_SendOtpForContactDet_uin_Empty_UserId_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -43,7 +59,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "$TIMESTAMP$",
 		   "userId": "",
-		   "transactionID": "1234567890"
+		   "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
@@ -54,7 +70,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_UserId_Not_Present_Neg:
+   Resident_SendOtpForContactDet_uin_UserId_Not_Present_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -63,7 +79,7 @@ SendOtpForContactDet:
       input: '{
 		  "requesttime": "$TIMESTAMP$",
 		  "userId": "$REMOVE$",
-		  "transactionID": "1234567890"
+		  "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
@@ -74,7 +90,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_Invalid_Transaction_Id_Neg:
+   Resident_SendOtpForContactDet_uin_Invalid_Transaction_Id_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -82,7 +98,7 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		  "userId": "residentautomation@gmail.com",
+		  "userId": "residentautomation@mosip.net",
 		  "transactionID": "adhs%^"
 }'
       output: '{
@@ -94,7 +110,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_Empty_Transaction_Id_Neg:
+   Resident_SendOtpForContactDet_uin_Empty_Transaction_Id_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -102,8 +118,8 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		  "userId": "residentautomation@gmail.com",
-		  "transactionID": ""
+		  "userId": "residentautomation@mosip.net",
+		  "transactionId": ""
 }'
       output: '{
          "errors": [
@@ -114,7 +130,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_Transaction_Id_Not_Present_Neg:
+   Resident_SendOtpForContactDet_uin_Transaction_Id_Not_Present_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -122,8 +138,8 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		  "userId": "residentautomation@gmail.com",
-		  "transactionID": "$REMOVE$"
+		  "userId": "residentautomation@mosip.net",
+		  "transactionId": "$REMOVE$"
 }'
       output: '{
          "errors": [
@@ -142,8 +158,8 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "$TIMESTAMP$",
-		  "userId": "residentautomation@gmail.com",
-		  "transactionID": "1234567890"
+		  "userId": "residentautomation@mosip.net",
+		  "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
@@ -154,7 +170,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_Invalid_Req_Time_Neg:
+   Resident_SendOtpForContactDet_uin_Invalid_Req_Time_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -162,8 +178,8 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "12323dqq",
-		  "userId": "residentautomation@gmail.com",
-		  "transactionID": "1234567890"
+		  "userId": "residentautomation@mosip.net",
+		  "transactionID": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [
@@ -174,7 +190,7 @@ SendOtpForContactDet:
   ]
 }'
 
-   Resident_SendOtpForContactDet_Empty_Req_Time_Neg:
+   Resident_SendOtpForContactDet_uin_Empty_Req_Time_Neg:
       endPoint: /resident/v1/contact-details/send-otp
       role: residentNew
       restMethod: post
@@ -182,8 +198,168 @@ SendOtpForContactDet:
       outputTemplate: resident/error
       input: '{
 		  "requesttime": "",
-		  "userId": "residentautomation@gmail.com",
-		  "transactionID": "1234567890"
+		  "userId": "residentautomation@mosip.net",
+		  "transactionID": "$TRANSACTIONID$"
+}'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_SendOtpForContactDet_vid_Invalid_UserId_Neg:
+      endPoint: /resident/v1/contact-details/send-otp
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/SendOtpForContactDet/SendOtpForContactDet
+      outputTemplate: resident/error
+      input: '{
+		  "requesttime": "$TIMESTAMP$",
+		   "userId": "ahgasj#5",
+		   "transactionID": "$TRANSACTIONID$"
+ }'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+}
+  ]
+}'
+
+   Resident_SendOtpForContactDet_Vid_Empty_UserId_Neg:
+      endPoint: /resident/v1/contact-details/send-otp
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/SendOtpForContactDet/SendOtpForContactDet
+      outputTemplate: resident/error
+      input: '{
+		  "requesttime": "$TIMESTAMP$",
+		   "userId": "",
+		   "transactionId": "$TRANSACTIONID$"
+}'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_SendOtpForContactDet_vid_UserId_Not_Present_Neg:
+      endPoint: /resident/v1/contact-details/send-otp
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/SendOtpForContactDet/SendOtpForContactDet
+      outputTemplate: resident/error
+      input: '{
+		  "requesttime": "$TIMESTAMP$",
+		  "userId": "$REMOVE$",
+		  "transactionId": "$TRANSACTIONID$"
+}'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_SendOtpForContactDet_vid_Invalid_Transaction_Id_Neg:
+      endPoint: /resident/v1/contact-details/send-otp
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/SendOtpForContactDet/SendOtpForContactDet
+      outputTemplate: resident/error
+      input: '{
+		  "requesttime": "$TIMESTAMP$",
+		  "userId": "residentautomation@mosip.net",
+		  "transactionId": "adhs%^"
+}'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_SendOtpForContactDet_vid_Empty_Transaction_Id_Neg:
+      endPoint: /resident/v1/contact-details/send-otp
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/SendOtpForContactDet/SendOtpForContactDet
+      outputTemplate: resident/error
+      input: '{
+		  "requesttime": "$TIMESTAMP$",
+		  "userId": "residentautomation@mosip.net",
+		  "transactionId": ""
+}'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_SendOtpForContactDet_vid_Transaction_Id_Not_Present_Neg:
+      endPoint: /resident/v1/contact-details/send-otp
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/SendOtpForContactDet/SendOtpForContactDet
+      outputTemplate: resident/error
+      input: '{
+		  "requesttime": "$TIMESTAMP$",
+		  "userId": "residentautomation@mosip.net",
+		  "transactionId": "$REMOVE$"
+}'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_SendOtpForContactDet_vid_Invalid_Req_Time_Neg:
+      endPoint: /resident/v1/contact-details/send-otp
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/SendOtpForContactDet/SendOtpForContactDet
+      outputTemplate: resident/error
+      input: '{
+		  "requesttime": "12323dqq",
+		  "userId": "residentautomation@mosip.net",
+		  "transactionId": "$TRANSACTIONID$"
+}'
+      output: '{
+         "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Resident_SendOtpForContactDet_vid_Empty_Req_Time_Neg:
+      endPoint: /resident/v1/contact-details/send-otp
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/SendOtpForContactDet/SendOtpForContactDet
+      outputTemplate: resident/error
+      input: '{
+		  "requesttime": "",
+		  "userId": "residentautomation@mosip.net",
+		  "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
          "errors": [

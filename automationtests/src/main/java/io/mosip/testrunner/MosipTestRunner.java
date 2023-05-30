@@ -3,10 +3,12 @@ package io.mosip.testrunner;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Properties;
 import java.security.KeyPairGenerator;
@@ -14,9 +16,11 @@ import java.security.SecureRandom;
 import java.security.interfaces.RSAPublicKey;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.testng.TestNG;
 
 import com.nimbusds.jose.jwk.KeyUse;
@@ -77,7 +81,7 @@ public class MosipTestRunner {
 		KeycloakUserManager.createUsers();  //Langauge Independent
 		
 		
-		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains("idp")) {
+		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains("esignet")) {
 //			if(BaseTestCase.listOfModules.contains("auth")) {
 //				LOGGER.info("waiting for " + "300000"
 //				+ " mili secs for auth certificate generation");
@@ -125,6 +129,12 @@ public class MosipTestRunner {
 		}
 		
 		//KeycloakUserManager.removeUser();
+		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("prereg")
+				|| BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")) {
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.bTerminate = true;
+		}
+		
 		System.exit(0);
 		
 		
@@ -222,6 +232,33 @@ public class MosipTestRunner {
 			e.printStackTrace();
 		}
 		return publicKey;
+	}
+	
+	public static String generatePublicKeyForMimoto() {
+        KeyPairGenerator keyPairGen;
+        String vcString = null;
+        try {
+            keyPairGen = KeyPairGenerator.getInstance("RSA");
+            keyPairGen.initialize(2048);
+            KeyPair keyPair = keyPairGen.generateKeyPair();
+            PublicKey publicKey = keyPair.getPublic();
+            StringWriter stringWriter = new StringWriter();
+            try (JcaPEMWriter pemWriter = new JcaPEMWriter(stringWriter)) {
+                pemWriter.writeObject(publicKey);
+                pemWriter.flush();
+                vcString = stringWriter.toString();
+            } catch (Exception e) {
+                throw e;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+		if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
+			vcString = vcString.replaceAll("\r\n", "\\\\n");
+		} else {
+			vcString = vcString.replaceAll("\n", "\\\\n");
+		}
+        return vcString;
 	}
 
 	public static String generateJWKPublicKey() {

@@ -2,12 +2,11 @@ DownloadRegCenterDetails:
    Resident_DownloadRegCenterDetails_all_Valid_Smoke:
       endPoint: /resident/v1/download/registrationcenters
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/DownloadRegCenterDetails/DownloadRegCenterDetails
       outputTemplate: resident/DownloadRegCenterDetails/DownloadRegCenterDetailsResult
       input: '{
-		  "langcode": "eng",
+		  "langcode": "$1STLANG$",
 		  "hierarchylevel": "5",
 		  "name": "10112"
 }'
@@ -33,12 +32,11 @@ DownloadRegCenterDetails:
    Resident_DownloadRegCenterDetails_Invalid_Hierarchylevel_Neg:
       endPoint: /resident/v1/download/registrationcenters
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/DownloadRegCenterDetails/DownloadRegCenterDetails
       outputTemplate: resident/error
       input: '{
-		  "langcode": "eng",
+		  "langcode": "$1STLANG$",
 		  "hierarchylevel": "sdsd#@",
 		  "name": "10112"
 }'
@@ -49,12 +47,11 @@ DownloadRegCenterDetails:
    Resident_DownloadRegCenterDetails_Invalid_Name_Neg:
       endPoint: /resident/v1/download/registrationcenters
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/DownloadRegCenterDetails/DownloadRegCenterDetails
       outputTemplate: resident/error
       input: '{
-		  "langcode": "eng",
+		  "langcode": "$1STLANG$",
 		  "hierarchylevel": "5",
 		  "name": "10@##112"
 }'
@@ -65,7 +62,6 @@ DownloadRegCenterDetails:
    Resident_DownloadRegCenterDetails_Invalid_All_Input_Neg:
       endPoint: /resident/v1/download/registrationcenters
       role: resident
-      templateFields: ["langcode"]
       restMethod: get
       inputTemplate: resident/DownloadRegCenterDetails/DownloadRegCenterDetails
       outputTemplate: resident/error

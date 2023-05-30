@@ -31,7 +31,8 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	protected String testCaseName = "";
 	public String idKeyName = null;
 	public Response response = null;
-	
+	public boolean auditLogCheck = false;
+
 	/**
 	 * get current testcaseName
 	 */
@@ -49,7 +50,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		idKeyName = context.getCurrentXmlTest().getLocalParameters().get("idKeyName");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
 
@@ -61,13 +62,18 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	 * @param testcaseName
 	 * @throws AuthenticationTestException
 	 * @throws AdminTestException
+	 * @throws InterruptedException
+	 * @throws NumberFormatException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
+	public void test(TestCaseDTO testCaseDTO)
+			throws AuthenticationTestException, AdminTestException, NumberFormatException, InterruptedException {
+		testCaseName = testCaseDTO.getTestCaseName();
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
+		auditLogCheck = testCaseDTO.isAuditLogCheck();
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
-		if(req.has("sendOtp")) {
+		if (req.has("sendOtp")) {
 			otpRequest = req.get("sendOtp").toString();
 			req.remove("sendOtp");
 		}
@@ -76,63 +82,80 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		otpReqJson.remove("sendOtpReqTemplate");
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		otpReqJson.remove("sendOtpEndPoint");
-		
+
 		Response otpResponse = null;
-		if(testCaseName.contains("IDP_")) {
-			String tempUrl = ApplnURI.replace("-internal", "");
-			otpResponse = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
-		}
-		else {
-			otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
+		int maxLoopCount = Integer.parseInt(props.getProperty("uinGenMaxLoopCount"));
+		int currLoopCount = 0;
+		while (currLoopCount < maxLoopCount) {
+			if (testCaseName.contains("ESignet_")) {
+				String tempUrl = ApplnURI.replace("-internal", "");
+				otpResponse = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + sendOtpEndPoint,
+						getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, "resident",
+						testCaseDTO.getTestCaseName());
+			} else {
+				otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint,
+						getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, "resident",
+						testCaseDTO.getTestCaseName());
+			}
+
+			if (otpResponse.asString().contains("IDA-MLC-018")) {
+				logger.info(
+						"waiting for: " + props.getProperty("uinGenDelayTime") + " as UIN not available in database");
+				Thread.sleep(Long.parseLong(props.getProperty("uinGenDelayTime")));
+			} else {
+				break;
+			}
+
+			currLoopCount++;
 		}
 
-//		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
-
-		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if(res.has("sendOtpResp")) {
+		if (res.has("sendOtpResp")) {
 			sendOtpResp = res.get("sendOtpResp").toString();
 			res.remove("sendOtpResp");
 		}
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
-		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
+				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValidOtp));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at otp output validation");
-		
-		if(testCaseName.contains("_eotp")) {
-			try {
-				logger.info("waiting for " + props.getProperty("expireOtpTime")
-				+ " mili secs to test expire otp case in RESIDENT Service");
-				Thread.sleep(Long.parseLong(props.getProperty("expireOtpTime")));
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		if(testCaseName.contains("IDP_")) {
+
+//		if(testCaseName.contains("_eotp")) {
+//			try {
+//				logger.info("waiting for " + props.getProperty("expireOtpTime")
+//				+ " mili secs to test expire otp case in RESIDENT Service");
+//				Thread.sleep(Long.parseLong(props.getProperty("expireOtpTime")));
+//			} catch (NumberFormatException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+
+		if (testCaseName.contains("ESignet_")) {
 			String tempUrl = ApplnURI.replace("-internal", "");
-			response = postRequestWithCookieAuthHeaderAndXsrfTokenForAutoGenId(tempUrl + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
+			response = postRequestWithCookieAuthHeaderAndXsrfTokenForAutoGenId(tempUrl + testCaseDTO.getEndPoint(),
+					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
+					testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
+		} else {
+			response = postWithBodyAndCookieForAutoGeneratedId(ApplnURI + testCaseDTO.getEndPoint(),
+					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), auditLogCheck,
+					COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 		}
-		else {
-			response = postWithBodyAndCookieForAutoGeneratedId(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
-		}
-		
+
 //		response = postWithBodyAndCookieForAutoGeneratedId(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()));
+
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()));
 		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
@@ -157,11 +180,11 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 			Reporter.log("Exception : " + e.getMessage());
 		}
 	}
-	
+
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
 		try {
-			if((!testCaseName.contains("IDP_")) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
+			if ((!testCaseName.contains("ESignet_")) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
 				logger.info("waiting for" + props.getProperty("Delaytime")
 						+ " mili secs after VID Generation In RESIDENT SERVICES");
 				Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));

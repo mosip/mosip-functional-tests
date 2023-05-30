@@ -107,8 +107,8 @@ public class SimpleDelete extends AdminTestUtil implements ITest {
 		}
 
 		else {
-			if(testCaseName.contains("IDP_")) {
-				if(testCaseName.contains("IDP_SendBindingOtp")) {
+			if(testCaseName.contains("ESignet_")) {
+				if(testCaseName.contains("ESignet_SendBindingOtp")) {
 					response = postRequestWithCookieAuthHeader(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 				}
 				else {

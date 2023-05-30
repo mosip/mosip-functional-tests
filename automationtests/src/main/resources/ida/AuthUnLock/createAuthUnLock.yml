@@ -6,16 +6,16 @@ AuthUnlock:
       inputTemplate: ida/AuthUnLock/createAuthUnLock
       outputTemplate: ida/AuthUnLock/createAuthUnLockResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authunlock",
         "version": "v1",
         "authType": [{auth: "demo"},{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_UIN$",
     "individualIdType": "UIN",
@@ -39,16 +39,16 @@ AuthUnlock:
       inputTemplate: ida/AuthUnLock/createAuthUnLock
       outputTemplate: ida/AuthUnLock/createAuthUnLockResult
       input: '{
-        "transactionID": "1234567890",
+        "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$",
         "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.authunlock",
         "version": "v1",
         "authType": [{auth: "demo"},{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_EMAIL$",
         "sendOtp":{
-    "transactionID": "1234567890",
+    "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
