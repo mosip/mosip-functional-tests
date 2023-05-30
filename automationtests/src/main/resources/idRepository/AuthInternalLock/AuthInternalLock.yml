@@ -6,11 +6,11 @@ AuthInternalLock:
       inputTemplate: idRepository/AuthInternalLock/authInternalLock
       outputTemplate: idRepository/AuthInternalLock/AuthInternalLockResult
       input: '{
-    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$",
     "individualIdType": "UIN",
-    "authType": "Bio",
-    "authSubType": "Iris",
-    "locked": false,
+    "authType": "demo",
+    "authSubType": "",
+    "locked": true,
     "unlockForSeconds": 0
 }'
       output: '{

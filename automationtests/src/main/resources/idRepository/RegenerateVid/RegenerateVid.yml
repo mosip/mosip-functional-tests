@@ -12,3 +12,75 @@ RegenerateVid:
     "vidStatus": "ACTIVE",
     "VID": "$IGNORE$"
 }'
+
+  IdRepository_RegenerateVid_Uin_Neg:
+      endPoint: /idrepository/v1/vid/{VID}/regenerate
+      role: resident
+      restMethod: post
+      inputTemplate: idRepository/RegenerateVid/regenerateVid
+      outputTemplate: idRepository/error
+      input: '{
+      "VID":"$ID:AddIdentity_For_Onetimeusevid_smoke_Pos_UIN$"
+      }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "Invalid Input Parameter - vid"
+    }
+  ]
+}'
+
+  IdRepository_RegenerateVid_Invalid_Vid:
+      endPoint: /idrepository/v1/vid/{VID}/regenerate
+      role: resident
+      restMethod: post
+      inputTemplate: idRepository/RegenerateVid/regenerateVid
+      outputTemplate: idRepository/error
+      input: '{
+      "VID":"sdfgsfgsg"
+      }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+  IdRepository_RegenerateVid_Empty_Vid:
+      endPoint: /idrepository/v1/vid/{VID}/regenerate
+      role: resident
+      restMethod: post
+      inputTemplate: idRepository/RegenerateVid/regenerateVid
+      outputTemplate: idRepository/error
+      input: '{
+      "VID":""
+      }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-003",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+  IdRepository_RegenerateVid_SpaceVal_Vid:
+      endPoint: /idrepository/v1/vid/{VID}/regenerate
+      role: resident
+      restMethod: post
+      inputTemplate: idRepository/RegenerateVid/regenerateVid
+      outputTemplate: idRepository/error
+      input: '{
+      "VID":" "
+      }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'

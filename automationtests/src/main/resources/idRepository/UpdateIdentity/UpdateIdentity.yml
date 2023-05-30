@@ -407,3 +407,23 @@ UpdateIdentity:
     }
   ]
 }'
+
+  IdRepository_UpdateIdentity_DEACTIVATED_Full_all_valid_smoke:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: patch
+      inputTemplate: idRepository/UpdateIdentity/updateIdentity
+      outputTemplate: idRepository/UpdateIdentity/updateIdentityResult
+      input: '{
+      "registrationId":"$RID$",
+      "UIN":"$ID:AddIdentity_For_DeactivateScen_smoke_Pos_UIN$",
+      "email": "user@mailinator.com",
+      "status": "DEACTIVATED",
+      "phone": "8249742850",
+      "dateOfBirth": "1992/04/15",
+      "requesttime": "$TIMESTAMP$",
+      "version": "v1"
+      }'
+      output: '{
+    "status": "DEACTIVATED"
+}'
