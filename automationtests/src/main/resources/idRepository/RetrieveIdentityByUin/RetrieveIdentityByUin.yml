@@ -12,6 +12,19 @@ RetrieveIdentity:
 
 }'
 
+  IdRepository_RetrieveIdentity_With_Deactivated_UIN_Smoke_Pos:
+      endPoint: /idrepository/v1/identity/idvid/{id}
+      role: idrepo
+      restMethod: get
+      inputTemplate: idRepository/RetrieveIdentityByUin/retrieveIdentityByUin
+      outputTemplate: idRepository/error
+      input: '{
+    "id": "$ID:AddIdentity_For_DeactivateScen_smoke_Pos_UIN$"
+}'
+      output: '{
+
+}'
+
   IdRepository_RetrieveIdentity_With_Valid_Vid_Smoke_Pos:
       endPoint: /idrepository/v1/identity/idvid/{id}
       role: idrepo

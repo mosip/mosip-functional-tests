@@ -16,7 +16,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - version"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -37,7 +37,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - requesttime"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -58,7 +58,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - vidStatus"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -79,7 +79,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - id"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -100,7 +100,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - version"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -121,7 +121,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - requesttime"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -142,7 +142,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - id"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -163,7 +163,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - vidStatus"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -200,7 +200,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - version"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -221,7 +221,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - vidStatus"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -242,7 +242,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - requesttime"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -263,7 +263,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - id"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -284,7 +284,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - version"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -305,7 +305,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - requesttime"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -326,7 +326,7 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - vidStatus"
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -347,10 +347,457 @@ UpdateVidStatus:
    "errors": [
     {
       "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - id"
+      "message": "$IGNORE$"
     }
   ]
 }'
+  IdRepository_UpdateVidStatus_withEmptyversion_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "REVOKED",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
+  "version": "",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withEmptyRequestTime_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "REVOKED",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
+  "version": "v1",
+  "requesttime": ""
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withEmptyVIDStatus_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withEmptyId_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "REVOKED",
+    "id": "",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withSpaceValverion_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "REVOKED",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
+  "version": " ",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withSpaceValRequestTime_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "REVOKED",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
+  "version": "v1",
+  "requesttime": " "
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withSpaceValId_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "REVOKED",
+    "id": " ",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withSpaceValVIDStatus_ForVidType_Temporary:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": " ",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$",
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withEmptyversion_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
+  "version": "",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withEmptyVIDStatus_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withEmptyRequestTime_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
+  "version": "v1",
+  "requesttime": ""
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withEmptyId_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withSpaceValverion_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
+  "version": " ",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withSpaceValRequestTime_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
+  "version": "v1",
+  "requesttime": " "
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-001",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withSpaceValVIDStatus_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": " ",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+  IdRepository_UpdateVidStatus_withSpaceValId_ForVidType_Perpetual:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": " ",
+    "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$",
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+  IdRepository_UpdateVidStatus_EXPIRE_Invalid_IndividualId:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "EXPIRED",
+    "id": "mosip.vid.update",
+    "VID": "dfgdgsj",
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+  IdRepository_UpdateVidStatus_EXPIRE_Empty_IndividualId:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "EXPIRED",
+    "id": "mosip.vid.update",
+    "VID": "",
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-003",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+  IdRepository_UpdateVidStatus_EXPIRE_SpaceVal_IndividualId:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "EXPIRED",
+    "id": "mosip.vid.update",
+    "VID": " ",
+  "version": "v1",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+  IdRepository_UpdateVidStatus_withPastRequestTime_Neg:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_Smoke_Temp3_sid_VID$",
+  "version": "v1",
+  "requesttime": "2022-05-23T06:56:01.667Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+  IdRepository_UpdateVidStatus_withFutureRequestTime_Neg:
+      endPoint: /idrepository/v1/vid/{VID}
+      role: idrepo
+      restMethod: PATCH
+      inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
+      outputTemplate: idRepository/error
+      input: '{
+    "vidStatus": "USED",
+    "id": "mosip.vid.update",
+    "VID": "$ID:CreateVID_withValidParameters_Smoke_Temp3_sid_VID$",
+  "version": "v1",
+  "requesttime": "2072-05-23T06:56:01.667Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
   IdRepository_UpdateVidStatus_EXPIRE_For_Vid_Type_Perpetual_smoke:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
