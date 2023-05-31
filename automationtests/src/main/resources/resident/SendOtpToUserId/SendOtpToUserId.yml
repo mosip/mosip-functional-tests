@@ -271,7 +271,7 @@ SendOtpToUserId:
       outputTemplate: resident/SendOtpToUserId/SendOtpToUserIdResult
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
@@ -532,7 +532,7 @@ SendOtpToUserId:
       outputTemplate: resident/SendOtpToUserId/SendOtpToUserIdResult
       input: '{
       	"requesttime": "$TIMESTAMP$",
-	    "userId": "residentautomation@mosip.net",
+	    "userId": "residentautomation2@mosip.net",
 	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
