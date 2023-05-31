@@ -71,6 +71,7 @@ import io.mosip.authentication.core.logger.IdaLogger;
 import io.mosip.authentication.core.util.BytesUtil;
 import io.mosip.authentication.demo.service.controller.Encrypt.SplittedEncryptedData;
 import io.mosip.authentication.demo.service.dto.CryptomanagerRequestDto;
+import io.mosip.authentication.demo.service.helper.CryptoCoreUtil;
 import io.mosip.authentication.demo.service.helper.KeyMgrUtil;
 import io.mosip.authentication.demo.service.helper.PartnerTypes;
 import io.mosip.kernel.core.http.RequestWrapper;
@@ -117,6 +118,9 @@ public class Decrypt {
 
 	@Autowired
 	Encrypt encrypt;
+	
+	@Autowired
+	CryptoCoreUtil cryptoCoreUtil;
 	
 	/** The logger. */
 	private static Logger logger = IdaLogger.getLogger(Decrypt.class);
@@ -457,17 +461,29 @@ public class Decrypt {
 			encKycData = CryptoUtil.decodeURLSafeBase64(identity);
 		}
 		
-		byte[] decSecKey = decryptSecretKey(ekycKey.getPrivateKey(), encSecKey);
+		byte[] decryptedSecrectKey = decryptSecretKey(ekycKey.getPrivateKey(), encSecKey);
 	     
 	    Cipher cipher = Cipher.getInstance("AES/GCM/PKCS5Padding"); //NoPadding
 	    byte[] nonce = Arrays.copyOfRange(encKycData, encKycData.length - cipher.getBlockSize(), encKycData.length);
 	    byte[] encryptedKycData = Arrays.copyOf(encKycData, encKycData.length - cipher.getBlockSize());
 		
-		SecretKey secretKey =  new SecretKeySpec(decSecKey, 0, decSecKey.length, "AES");
+		SecretKey secretKey =  new SecretKeySpec(decryptedSecrectKey, 0, decryptedSecrectKey.length, "AES");
 		GCMParameterSpec gcmParameterSpec = new GCMParameterSpec(TAG_LENGTH, nonce); 
 		cipher.init(Cipher.DECRYPT_MODE, secretKey, gcmParameterSpec);
 
 		return new String(cipher.doFinal(encryptedKycData), "UTF-8");
+	}
+	
+	@PostMapping(path = "/decryptWithPartnerKey", produces = MediaType.TEXT_PLAIN_VALUE)
+	public String decryptWithPartnerKey(
+			@RequestBody String data,
+			@RequestParam(name = "partnerName", required = false) String partnerName,
+			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
+			@RequestParam(name = "certsDir", required = false) String certsDir,
+			@RequestParam(name = "moduleName", required = false) String moduleName
+			) throws Exception {
+		PrivateKeyEntry ekycKey = keyMgrUtil.getKeyEntry(keyMgrUtil.getKeysDirPath(certsDir, moduleName), PartnerTypes.EKYC, partnerName, keyFileNameByPartnerName);
+		return cryptoCoreUtil.decrypt(data, ekycKey);
 	}
 
 	private byte[] decryptSecretKey(PrivateKey privKey, byte[] encKey) throws NoSuchAlgorithmException, NoSuchPaddingException, 
