@@ -259,7 +259,11 @@ public class Encrypt {
 	public SplittedEncryptedData splitEncryptedData(@RequestBody String data) {
 		byte[] dataBytes = CryptoUtil.decodeURLSafeBase64(data);
 		byte[][] splits = splitAtFirstOccurance(dataBytes, keySplitter.getBytes());
-		return new SplittedEncryptedData(CryptoUtil.encodeToURLSafeBase64(splits[0]), CryptoUtil.encodeToURLSafeBase64(splits[1]));
+		byte[] thumbPrintAndSessionKey = splits[0];	
+		byte[] thumbPrint = Arrays.copyOfRange(thumbPrintAndSessionKey, 6, 38);//Skip the 6 bytes version and take 32 bytes
+		byte[] sessionKey = Arrays.copyOfRange(thumbPrintAndSessionKey, 38, thumbPrintAndSessionKey.length);
+		byte[] encryptedData = splits[1];
+		return new SplittedEncryptedData(CryptoUtil.encodeToURLSafeBase64(sessionKey), CryptoUtil.encodeToURLSafeBase64(encryptedData), digestAsPlainText(thumbPrint));
 	}
 
 	@PostMapping(path = "/combineDataToEncrypt", consumes = MediaType.APPLICATION_JSON_VALUE)
