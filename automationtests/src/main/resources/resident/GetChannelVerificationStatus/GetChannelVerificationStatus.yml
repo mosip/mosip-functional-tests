@@ -153,7 +153,7 @@ GetChannelVerificationStatus:
       output: '{
       "errors": [
     {
-      "errorCode": "RES-SER-410",
+      "errorCode": "RES-SER-522",
       "message": "$IGNORE$"
     }
   ],
@@ -243,7 +243,7 @@ GetChannelVerificationStatus:
       output: '{
       "errors": [
     {
-      "errorCode": "RES-SER-410",
+      "errorCode": "RES-SER-522",
       "message": "$IGNORE$"
     }
   ],
