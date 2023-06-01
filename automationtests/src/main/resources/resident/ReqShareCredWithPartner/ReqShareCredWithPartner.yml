@@ -226,12 +226,7 @@ ReqShareCredWithPartner:
                "masked" : true
 }'
       output: '{
-   		"errors": [
-        {
-            "errorCode": "RES-SER-410",
-            "message": "$IGNORE$"
-        }
-    ]
+   		"status": "Success"
 }'
 
    Resident_ReqShareCredWithPartner_Vid_AplhaNumeric_Value_Purpose_Pos:

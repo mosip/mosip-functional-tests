@@ -156,4 +156,11 @@
 	</classes>
 	</test> 
 	
+	<test name="AuthInternalUnlock">
+		<parameter name="ymlFile"	value="idRepository/AuthInternalUnlock/AuthInternalUnlock.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+	</classes>
+	</test>
+	
 </suite>
