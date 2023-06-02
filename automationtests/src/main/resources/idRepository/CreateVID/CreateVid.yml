@@ -894,3 +894,20 @@ CreateVID:
       output: '{
   "vidStatus":"ACTIVE"
 }'
+
+  IdRepository_CreateVID_UpdateCount_Smoke_Perpetual_sid:
+      endPoint: /idrepository/v1/vid
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/CreateVID/createVid
+      outputTemplate: idRepository/CreateVID/createVidResult
+      input: '{
+    "vidType": "Perpetual",
+    "UIN": "$ID:AddIdentity_UpdateCount_Vid_smoke_Pos_UIN$",
+    "version": "v1",
+    "id": "mosip.vid.create",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+  "vidStatus":"ACTIVE"
+}'
