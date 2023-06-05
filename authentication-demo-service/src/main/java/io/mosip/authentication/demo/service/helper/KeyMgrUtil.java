@@ -392,7 +392,7 @@ public class KeyMgrUtil {
       	String domain = environment.getProperty(DOMAIN_URL, "localhost").replace("https://", "").replace("http://", "").replace("/", "");
   		
           // Default to temp folder in the container and also windows where Authdemo service is running
-      	String certsTargetDir = System.getProperty("java.io.tmpdir")+ File.separator + "AUTHCERTS";
+      	String certsTargetDir = System.getProperty("java.io.tmpdir")+ File.separator + System.getProperty("parent.certs.folder.name", "AUTHCERTS");
       	
       	if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
       		// if OS is non-windows override certsTargetDir with directory which works on docker
