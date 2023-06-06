@@ -2533,6 +2533,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BIOVALUE$")) {
 			jsonString = jsonString.replace("$BIOVALUE$", propsBio.getProperty("BioValue"));
 		}
+		if (jsonString.contains("$BIOVALUEWITHOUTFACE$")) {
+			jsonString = jsonString.replace("$BIOVALUEWITHOUTFACE$", propsBio.getProperty("BioValueWithoutFace"));
+		}
 		if (jsonString.contains("$CLAIMSFROMCONFIG$"))
 			jsonString = jsonString.replace("$CLAIMSFROMCONFIG$", getValueFromConfigActuator());
 		if (jsonString.contains("$TIMESTAMP$"))
