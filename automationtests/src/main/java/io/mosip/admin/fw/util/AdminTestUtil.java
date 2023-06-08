@@ -166,7 +166,6 @@ public class AdminTestUtil extends BaseTestCase {
 			MosipTestRunner.getGlobalResourcePath() + "/" + "config/bioValue.properties");
 	public static Properties propsKernel = getproperty(
 			MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
-	public static int otpLoopCount = Integer.parseInt(propsKernel.getProperty("otpLoopCount"));
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
 	public static EncryptionDecrptionUtil encryptDecryptUtil = new EncryptionDecrptionUtil();
 	public static String idField = null;
@@ -217,6 +216,7 @@ public class AdminTestUtil extends BaseTestCase {
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
 	private static final String JSONArray = null;
+	public static final int OTP_CHECK_INTERVAL =  10000; //10 secs
 
 	/**
 	 * This method will hit post request and return the response
@@ -4482,6 +4482,43 @@ public class AdminTestUtil extends BaseTestCase {
 			return null;
 		}
 	}
+	
+	public static int getOtpExpTimeFromActuator() {
+		Response response = null;
+		int otpExpTime = 10; // 10secs
+		org.json.JSONObject responseJson = null;
+		JSONArray responseArray = null;
+		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
+		try {
+			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+
+			responseJson = new org.json.JSONObject(response.getBody().asString());
+			responseArray = responseJson.getJSONArray("propertySources");
+
+			for (int i = 0, size = responseArray.length(); i < size; i++) {
+				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
+				System.out.println("eachJson is :" + eachJson.toString());
+				if (eachJson.get("name").toString().contains(
+						"configService:https://github.com/mosip/mosip-config/application-default.properties")) {
+					
+					
+					org.json.JSONObject otpExpiryTime = (org.json.JSONObject) eachJson.getJSONObject("properties")
+							.get("mosip.kernel.otp.expiry-time");
+					String otpExpiryTimeVal = otpExpiryTime.getString("value");
+					otpExpTime = Integer.parseInt(otpExpiryTimeVal);
+					break;
+				}
+			}
+
+			return otpExpTime;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return otpExpTime;
+		}
+
+	}
 
 	public static String getValueFromActuator(String section, String key) {
 
@@ -4626,7 +4663,7 @@ public class AdminTestUtil extends BaseTestCase {
 					emailId = request.get("otp").toString();
 					System.out.println(emailId);
 					// Get the otp value from email notification
-					otp = MockSMTPListener.getOtp(otpLoopCount, emailId);
+					otp = MockSMTPListener.getOtp(emailId);
 					request.put("otp", otp);
 					inputJson = request.toString();
 					return inputJson;
@@ -4639,7 +4676,7 @@ public class AdminTestUtil extends BaseTestCase {
 					emailId = request.getJSONObject("request").getString("userId");
 					System.out.println(emailId);
 					// Get the otp value from email notification
-					otp = MockSMTPListener.getOtp(otpLoopCount, emailId);
+					otp = MockSMTPListener.getOtp(emailId);
 					request.getJSONObject("request").put("otp", otp);
 					inputJson = request.toString();
 					return inputJson;
@@ -4656,7 +4693,7 @@ public class AdminTestUtil extends BaseTestCase {
 							emailId = request.getJSONObject("request").get("otp").toString();
 							System.out.println(emailId);
 							// Get the otp value from email notification
-							otp = MockSMTPListener.getOtp(otpLoopCount, emailId);
+							otp = MockSMTPListener.getOtp(emailId);
 							request.getJSONObject("request").put("otp", otp);
 							inputJson = request.toString();
 							return inputJson;
@@ -4675,7 +4712,7 @@ public class AdminTestUtil extends BaseTestCase {
 							emailId = request.getJSONObject("request").get("otp").toString();
 							System.out.println(emailId);
 							// Get the otp value from email notification
-							otp = MockSMTPListener.getOtp(otpLoopCount, emailId);
+							otp = MockSMTPListener.getOtp(emailId);
 							request.getJSONObject("request").put("otp", otp);
 							inputJson = request.toString();
 							return inputJson;
@@ -4692,7 +4729,7 @@ public class AdminTestUtil extends BaseTestCase {
 												.getJSONObject(0).getString("challenge");
 										System.out.println(emailId);
 										// Get the otp value from email notification
-										otp = MockSMTPListener.getOtp(otpLoopCount, emailId);
+										otp = MockSMTPListener.getOtp(emailId);
 										request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
 												.put("challenge", otp);
 										inputJson = request.toString();
@@ -4713,7 +4750,7 @@ public class AdminTestUtil extends BaseTestCase {
 						emailId = request.getJSONObject("request").get("otp").toString();
 						System.out.println(emailId);
 						// Get the otp value from email notification
-						otp = MockSMTPListener.getOtp(otpLoopCount, emailId);
+						otp = MockSMTPListener.getOtp(emailId);
 						request.getJSONObject("request").put("otp", otp);
 						inputJson = request.toString();
 						return inputJson;
@@ -4729,7 +4766,7 @@ public class AdminTestUtil extends BaseTestCase {
 											.getJSONObject(0).getString("challenge");
 									System.out.println(emailId);
 									// Get the otp value from email notification
-									otp = MockSMTPListener.getOtp(otpLoopCount, emailId);
+									otp = MockSMTPListener.getOtp(emailId);
 									request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
 											.put("challenge", otp);
 									inputJson = request.toString();
@@ -4750,7 +4787,7 @@ public class AdminTestUtil extends BaseTestCase {
 						emailId = request.getJSONObject("request").get("otp").toString();
 						System.out.println(emailId);
 						// Get the otp value from email notification
-						otp = MockSMTPListener.getOtp(Integer.parseInt(propsKernel.getProperty("otpLoopCount")), emailId);
+						otp = MockSMTPListener.getOtp(emailId);
 						request.getJSONObject("request").put("otp", otp);
 						inputJson = request.toString();
 					}
@@ -4764,7 +4801,7 @@ public class AdminTestUtil extends BaseTestCase {
 										.getJSONObject(0).getString("challenge");
 								System.out.println(emailId);
 								// Get the otp value from email notification
-								otp = MockSMTPListener.getOtp(otpLoopCount, emailId);
+								otp = MockSMTPListener.getOtp(emailId);
 								request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
 										.put("challenge", otp);
 								inputJson = request.toString();

@@ -122,12 +122,15 @@ public class MockSMTPListener{
 		}
 	}
 	
-	public static String getOtp(int repeatCounter, String emailId){
+	public static String getOtp(String emailId){
+		int otpExpTime = AdminTestUtil.getOtpExpTimeFromActuator();
+		int otpCheckLoopCount = (otpExpTime * 1000)/AdminTestUtil.OTP_CHECK_INTERVAL;
+		
 		int counter = 0;
 		
 		//HashMap m=new HashMap<Object, Object>();
 		String otp = "";
-		while (counter < repeatCounter) {
+		while (counter < otpCheckLoopCount) {
 		//	m= emailNotificationMap;
 			if(emailNotificationMapS.get(emailId)!=null) {
 				String html=(String) emailNotificationMapS.get(emailId);
@@ -144,13 +147,13 @@ public class MockSMTPListener{
 			counter++;
 			try {
 				System.out.println("Not received Otp yet, waiting for 10 Sec");
-				Thread.sleep(10000);
+				Thread.sleep(AdminTestUtil.OTP_CHECK_INTERVAL);
 			} catch (InterruptedException e) {
 				System.out.println(e.getMessage());
 			}
 			
 		}
-		System.out.println("OTP not found even after " + repeatCounter + " retries");
+		System.out.println("OTP not found even after " + otpCheckLoopCount + " retries");
 		return otp;
 	}
 	
