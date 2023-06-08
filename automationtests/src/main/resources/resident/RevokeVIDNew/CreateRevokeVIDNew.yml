@@ -100,10 +100,10 @@ RevokeVIDNew:
         "vidStatus": "Revoked"
     }'
       output: '{
-		[
+  "errors": [
     {
       "errorCode": "RES-SER-406",
-      "message": "$IGNORE$"
+      "message": "Exception while creating VID"
     }
   ]
 }'

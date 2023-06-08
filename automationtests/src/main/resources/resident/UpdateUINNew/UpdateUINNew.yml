@@ -75,12 +75,12 @@ UpdateUINNew:
   ]
 }'
 
-   Resident_UpdateUINNew_Missing_TransactionID_Neg:
+   Resident_UpdateUINNew_Missing_TransactionID_Pos:
       endPoint: /resident/v1/update-uin
       role: residentNew
       restMethod: patch
       inputTemplate: resident/UpdateUINNew/UpdateUINNew
-      outputTemplate: resident/error
+      outputTemplate: resident/UpdateUINNew/UpdateUINNewResult
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "$REMOVE$",
@@ -88,12 +88,8 @@ UpdateUINNew:
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "RES-SER-410",
-      "message": "$REMOVE$"
-    }
-  ]
+        "status": "Success",
+        "message": "Notification has been sent to the provided contact detail(s)"
 }'
 
    Resident_UpdateUINNew_Empty_TransactionID_Neg:
@@ -111,7 +107,7 @@ UpdateUINNew:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-410",
+      "errorCode": "RES-SER-435",
       "message": "$REMOVE$"
     }
   ]
@@ -264,12 +260,12 @@ UpdateUINNew:
   ]
 }'
 
-   Resident_UpdateUINNew_vid_Missing_TransactionID_Neg:
+   Resident_UpdateUINNew_vid_Missing_TransactionID_Pos:
       endPoint: /resident/v1/update-uin
       role: residentNewVid
       restMethod: patch
       inputTemplate: resident/UpdateUINNew/UpdateUINNew
-      outputTemplate: resident/error
+      outputTemplate: resident/UpdateUINNew/UpdateUINNewResult
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "$REMOVE$",
@@ -277,12 +273,8 @@ UpdateUINNew:
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "RES-SER-410",
-      "message": "$REMOVE$"
-    }
-  ]
+        "status": "Success",
+        "message": "Notification has been sent to the provided contact detail(s)"
 }'
 
    Resident_UpdateUINNew_vid_Empty_TransactionID_Neg:
@@ -300,7 +292,7 @@ UpdateUINNew:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-410",
+      "errorCode": "RES-SER-435",
       "message": "$REMOVE$"
     }
   ]
@@ -422,6 +414,90 @@ UpdateUINNew:
 		"transactionID": "1234567789",
         "consent" : "Accepted",
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Invalid_Identity_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNewInvalid
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567889",
+        "consent" : "Accepted",
+        "jndffk": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Vid_Invalid_Identity_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNewInvalid
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567889",
+        "consent" : "Accepted",
+        "jndffk": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Missing_Identity_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNewInvalid
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567889",
+        "consent" : "Accepted",
+        "jndffk": "$REMOVE$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Vid_Missing_Identity_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNewInvalid
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567889",
+        "consent" : "Accepted",
+        "jndffk": "$REMOVE$"
 }'
       output: '{
   "errors": [

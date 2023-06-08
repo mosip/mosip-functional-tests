@@ -318,26 +318,26 @@ public class AuthRequestController {
 
 			if (templateValue != null) {
 				IOUtils.copy(templateValue, writer, StandardCharsets.UTF_8);
-				String res = writer.toString();
+				String requestString = writer.toString();
 				if(!needsEncryption) {
-					Map<String, Object> resMap = mapper.readValue(res.getBytes(StandardCharsets.UTF_8), Map.class);
+					Map<String, Object> resMap = mapper.readValue(requestString.getBytes(StandardCharsets.UTF_8), Map.class);
 					resMap.put("request", request);
 					resMap.put("requestHMAC", null);
 					resMap.put("requestSessionKey", null);
 					resMap.put("thumbprint", null);
 					
-					res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
+					requestString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 				}
 				if (reqValues.containsKey(SECONDARY_LANG_CODE)) {
-					Map<String, Object> resMap = mapper.readValue(res.getBytes(StandardCharsets.UTF_8), Map.class);
+					Map<String, Object> resMap = mapper.readValue(requestString.getBytes(StandardCharsets.UTF_8), Map.class);
 					resMap.put(SECONDARY_LANG_CODE, reqValues.get(SECONDARY_LANG_CODE));
-					res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
+					requestString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
 				}
 				if(isPreLTS) {
-					Map<String, Object> resMap = mapper.readValue(res.getBytes(StandardCharsets.UTF_8), Map.class);
+					Map<String, Object> requestMap = mapper.readValue(requestString.getBytes(StandardCharsets.UTF_8), Map.class);
 					Map<String, Object> requestedAuth = new HashMap<>();
-					resMap.put("individualIdType", idType == null || idType.trim().length() == 0 ? IdType.UIN.toString() : idType);
-					resMap.put("requestedAuth", requestedAuth);
+					requestMap.put("individualIdType", idType == null || idType.trim().length() == 0 ? IdType.UIN.toString() : idType);
+					requestMap.put("requestedAuth", requestedAuth);
 					if(Boolean.valueOf(String.valueOf(reqValues.get(OTP)))) {
 						requestedAuth.put("otp", true);
 					}
@@ -350,18 +350,14 @@ public class AuthRequestController {
 					if(Boolean.valueOf(String.valueOf(reqValues.get(PIN)))) {
 						requestedAuth.put("pin", true);
 					}
-					res = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
+					requestString = mapper.writeValueAsString(requestMap);
 				}
-				ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
-				
 				HttpHeaders httpHeaders = new HttpHeaders();
-				String responseStr = response.toString();
-				//httpHeaders.add("signature", jWSSignAndVerifyController.sign(responseStr, false));
 				PartnerTypes partnerTypes = isKyc ? PartnerTypes.EKYC : PartnerTypes.RELYING_PARTY;
 
-				String rpSignature = signRequest(signWithMisp ? PartnerTypes.MISP : partnerTypes, partnerName, keyFileNameByPartnerName, responseStr, certsDir, moduleName);
+				String rpSignature = signRequest(signWithMisp ? PartnerTypes.MISP : partnerTypes, partnerName, keyFileNameByPartnerName, requestString, certsDir, moduleName);
 				httpHeaders.add("signature", rpSignature);
-				return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
+				return new ResponseEntity<>(requestString, httpHeaders, HttpStatus.OK);
 			} else {
 				throw new IdAuthenticationBusinessException(
 						IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(), String.format(

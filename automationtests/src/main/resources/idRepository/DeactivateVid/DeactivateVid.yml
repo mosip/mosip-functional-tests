@@ -15,6 +15,22 @@ DeactivateVIDs:
     "vidStatus": "DEACTIVATED"
 }'
 
+  IdRepository_DeactivateVIDs_Deactivated_Uin_Smoke_Pos:
+      endPoint: /idrepository/v1/vid/deactivate
+      role: resident
+      restMethod: post
+      inputTemplate: idRepository/DeactivateVid/deactivateVid
+      outputTemplate: idRepository/DeactivateVid/deactivateVidResult
+      input: '{
+    "UIN": "$ID:AddIdentity_For_DeactivateScen_smoke_Pos_UIN$",
+    "requesttime": "$TIMESTAMP$",
+    "id": "mosip.vid.deactivate",
+    "version": "v1"
+}'  
+      output: '{
+    "vidStatus": "DEACTIVATED"
+}'
+
   IdRepository_DeactivateVIDs_Onetime_Smoke_Pos:
       endPoint: /idrepository/v1/vid/deactivate
       role: resident

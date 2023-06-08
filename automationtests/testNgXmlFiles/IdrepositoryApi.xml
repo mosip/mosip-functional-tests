@@ -28,6 +28,13 @@
 		<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 	</classes>
 	</test>
+	<test name="GetUpdateCount">
+		<parameter name="ymlFile"
+			value="idRepository/GetUpdateCount/GetUpdateCount.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="RetrieveIdentityByRid">
 		<parameter name="ymlFile"	value="idRepository/RetrieveIdentityByRid/RetrieveIdentityByRid.yml" />
 	<classes>
@@ -155,5 +162,12 @@
 		<class name="io.mosip.testscripts.GetWithParam" />
 	</classes>
 	</test> 
+	
+	<test name="AuthInternalUnlock">
+		<parameter name="ymlFile"	value="idRepository/AuthInternalUnlock/AuthInternalUnlock.yml" />
+	<classes>
+		<class name="io.mosip.testscripts.SimplePost" />
+	</classes>
+	</test>
 	
 </suite>

@@ -56,8 +56,8 @@ ValidateExpiredOTP:
       output: '{
 	  "errors": [
 	    {
-	      "errorCode": "RES-SER-422",
-	      "message": "OTP has expired"
+	      "errorCode": "RES-SER-406",
+	      "message": "$IGNORE$"
 	    }
 	  ]
 }'
@@ -77,8 +77,8 @@ ValidateExpiredOTP:
       output: '{
 	  "errors": [
 	    {
-	      "errorCode": "RES-SER-422",
-	      "message": "OTP has expired"
+	      "errorCode": "RES-SER-406",
+	      "message": "$IGNORE$"
 	    }
 	  ]
 }'

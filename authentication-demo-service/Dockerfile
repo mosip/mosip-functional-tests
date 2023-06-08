@@ -84,7 +84,6 @@ USER ${container_user_uid}:${container_user_gid}
 
 EXPOSE 8384
 
-ENV ENABLE_INSECURE=false
 ENV authCertsPath=/home/${container_user}/authcerts
 
 ENTRYPOINT ["/bin/bash", "-c", "./entrypoint.sh"]

@@ -1378,12 +1378,12 @@ GenerateVID:
     }
 }'
 
-   Resident_Generate_Onetimeuse_VID_Using_Onetimeuse_VID_Neg:
+   Resident_Generate_Onetimeuse_VID_Using_Onetimeuse_VID_Pos:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVID
-      outputTemplate: resident/error
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Onetimeuse_VID_Using_Temp_VID_Smoke_sid_vid$",
@@ -1403,12 +1403,8 @@ GenerateVID:
     }
     }'
       output: '{
-  "errors": [
-        {
-            "errorCode": "RES-SER-29",
-            "message": "$IGNORE$"
-        }
-    ],
+  "vid": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",

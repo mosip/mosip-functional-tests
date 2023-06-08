@@ -16,7 +16,8 @@ OAuthDetailsRequest:
 	    "acrValues": "mosip:idp:acr:generated-code",
 	    "nonce": "973eieljzng",
 	    "state": "$RANDOMUUID$",
-	    "claimsLocales": "en"
+	    "claimsLocales": "en",
+	    "userinfo": "$CLAIMSFROMCONFIG$"
 }'
       output: '{
        
@@ -39,7 +40,8 @@ OAuthDetailsRequest:
 	    "acrValues": "mosip:idp:acr:generated-code",
 	    "nonce": "973eieljzng",
 	    "state": "$RANDOMUUID$",
-	    "claimsLocales": "en"
+	    "claimsLocales": "en",
+	    "userinfo": "$CLAIMSFROMCONFIG$"
 }'
       output: '{
        
