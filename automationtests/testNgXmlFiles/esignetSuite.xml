@@ -256,6 +256,44 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
+	<test name="OAuthDetailsRequestConsent">
+		<parameter name="ymlFile"
+			value="esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsent.yml" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthenticateUserConsent">
+		<parameter name="ymlFile"
+			value="esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="AuthorizationCodeConsent">
+		<parameter name="ymlFile"
+			value="esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsent.yml" />
+			<parameter name="idKeyName"	value="code" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GenerateTokenConsent">
+		<parameter name="ymlFile"
+			value="esignet/Consent/GenerateTokenConsent/GenerateTokenConsent.yml" />
+			<parameter name="idKeyName"	value="access_token" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
+		</classes>
+	</test>
+	<test name="GetOidcUserInfoConsent">
+		<parameter name="ymlFile"
+			value="esignet/Consent/GetOidcUserInfoConsent/GetOidcUserInfoConsent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="OAuthDetailsRequest">
 		<parameter name="ymlFile"
 			value="esignet/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
