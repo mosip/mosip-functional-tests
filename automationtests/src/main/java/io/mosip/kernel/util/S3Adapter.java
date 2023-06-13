@@ -35,7 +35,7 @@ public class S3Adapter {
 
 	private static final String SEPARATOR = "/";
 	
-	private int withExpirationInDays = Integer.parseInt(ConfigManager.getReportExpirationInDays());
+	private int reportExpirationInDays = Integer.parseInt(ConfigManager.getReportExpirationInDays());
 
 	private List<String> existingBuckets = new ArrayList<>();
 
@@ -113,7 +113,7 @@ public class S3Adapter {
 			}
 			PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, finalObjectName, file);
 			ObjectMetadata objectMetadata = new ObjectMetadata();
-			objectMetadata.setHttpExpiresDate(new DateTime().plusDays(withExpirationInDays).toDate());
+			objectMetadata.setHttpExpiresDate(new DateTime().plusDays(reportExpirationInDays).toDate());
 			putObjectRequest.setMetadata(objectMetadata);
 			connection.putObject(putObjectRequest);
 			return true;
