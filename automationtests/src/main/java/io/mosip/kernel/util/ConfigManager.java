@@ -98,6 +98,8 @@ public class ConfigManager {
 	private static String MOUNT_PATH_FOR_SCENARIO = "mountPathForScenario";
 	
 	private static String PACKET_UTILITY_BASE_URL = "packetUtilityBaseUrl";
+	
+	private static String REPORT_EXPIRATION_IN_DAYS = "withExpirationInDays";
 
 	private static String pms_client_secret;
 	private static String pms_client_id;
@@ -184,6 +186,7 @@ public class ConfigManager {
 	private static String mountPathForScenario;
 	private static String packetUtilityBaseUrl;
 	public static Properties propsKernel;
+	private static String withExpirationInDays;
 
 	public static void setProperty(String key, String value) {
 		// Overwrite the value with only if the key exists
@@ -274,6 +277,12 @@ public class ConfigManager {
 				? propsKernel.getProperty(AUTH_DEMO_SERVICE_PORT)
 				: System.getenv(AUTH_DEMO_SERVICE_PORT);
 		propsKernel.setProperty(AUTH_DEMO_SERVICE_PORT, authDemoServicePort);
+		
+		withExpirationInDays = System.getenv(REPORT_EXPIRATION_IN_DAYS) == null
+				? propsKernel.getProperty(REPORT_EXPIRATION_IN_DAYS)
+				: System.getenv(REPORT_EXPIRATION_IN_DAYS);
+		propsKernel.setProperty(REPORT_EXPIRATION_IN_DAYS, withExpirationInDays);
+		
 
 		authDemoServiceBaseUrl = System.getenv(AUTH_DEMO_SERVICE_BASE_URL) == null
 				? propsKernel.getProperty(AUTH_DEMO_SERVICE_BASE_URL)
@@ -310,6 +319,10 @@ public class ConfigManager {
 
 	public static String getAuthDemoServicePort() {
 		return authDemoServicePort;
+	}
+	
+	public static String getReportExpirationInDays() {
+		return withExpirationInDays;
 	}
 
 	public static String getAuthDemoServiceBaseUrl() {
