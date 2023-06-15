@@ -45,8 +45,8 @@ import java.util.Map;
  */
 public class MosipTestRunner {
 	private static final Logger LOGGER = Logger.getLogger(MosipTestRunner.class);
+	
 
-	private static final boolean String = false;
 //	public static Properties props = getproperty(
 //			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
 
@@ -77,6 +77,11 @@ public class MosipTestRunner {
 		// Initializing or setting up execution
 		ConfigManager.init(); //Langauge Independent
 		BaseTestCase.suiteSetup();
+		
+		HealthChecker healthcheck = new HealthChecker();
+		Thread trigger = new Thread(healthcheck);
+		trigger.start();
+		
 //		KeycloakUserManager.removeUser();  //Langauge Independent
 		KeycloakUserManager.createUsers();  //Langauge Independent
 		
@@ -134,6 +139,8 @@ public class MosipTestRunner {
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.bTerminate = true;
 		}
+		
+		HealthChecker.bTerminate = true;
 		
 		System.exit(0);
 		

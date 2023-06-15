@@ -16,7 +16,9 @@ import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -34,6 +36,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.kernel.util.KernelAuthentication;
+import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
 public class MassUINGenerator extends AdminTestUtil implements ITest {
@@ -61,6 +64,13 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 		perTCUinCount = Long.parseLong(context.getCurrentXmlTest().getLocalParameters().get("perTCUinCount"));
 		logger.info("Started executing yml: "+ymlFile);
 		return getYmlTestData(ymlFile);
+	}
+	
+	@BeforeMethod
+	public void performHealthCheck() {
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
+		}
 	}
 
 	/**
