@@ -9,7 +9,9 @@ import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -23,6 +25,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.service.BaseTestCase;
+import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
 public class PatchWithPathParamsAndBody extends AdminTestUtil implements ITest {
@@ -49,6 +52,13 @@ public class PatchWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		pathParams = context.getCurrentXmlTest().getLocalParameters().get("pathParams");
 		logger.info("Started executing yml: "+ymlFile);
 		return getYmlTestData(ymlFile);
+	}
+	
+	@BeforeMethod
+	public void performHealthCheck() {
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
+		}
 	}
 
 	/**
