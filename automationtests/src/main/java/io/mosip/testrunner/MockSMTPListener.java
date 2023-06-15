@@ -97,9 +97,16 @@ public class MockSMTPListener{
 				ObjectMapper om = new ObjectMapper();
 
 				root = om.readValue(data.toString(), Root.class);
-				emailNotificationMapS.put(root.to.value.get(0).address,root.html);
-				System.out.println(" After adding to emailNotificationMap key = " + root.to.value.get(0).address
-						+ " data " + data + " root " + root );
+				// As we need only OTP notifications skip all other notifications
+				if (!parseOtp(root.html).isEmpty()) {
+					emailNotificationMapS.put(root.to.value.get(0).address,root.html);
+					System.out.println(" After adding to emailNotificationMap key = " + root.to.value.get(0).address
+							+ " data " + data + " root " + root );
+				}
+				else {
+					System.out.println(" Skip adding to emailNotificationMap key = " + root.to.value.get(0).address
+							+ " data " + data + " root " + root );
+				}
 			} catch (JsonMappingException e) {
 
 				e.printStackTrace();
@@ -112,6 +119,8 @@ public class MockSMTPListener{
 
 			return WebSocket.Listener.super.onText(webSocket, data, last);
 		}
+	
+		
 
 		@Override
 		public void onError(WebSocket webSocket, Throwable error) {
