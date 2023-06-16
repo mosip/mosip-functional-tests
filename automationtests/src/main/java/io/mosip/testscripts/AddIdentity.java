@@ -18,8 +18,11 @@ import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -40,6 +43,7 @@ import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.service.BaseTestCase;
+import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
 public class AddIdentity extends AdminTestUtil implements ITest {
@@ -67,6 +71,13 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
+	
+	@BeforeMethod
+	public void performHealthCheck() {
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
+		}
+	}
 
 	/**
 	 * Test method for OTP Generation execution
@@ -76,7 +87,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	 * @param testcaseName
 	 * @throws AuthenticationTestException
 	 * @throws AdminTestException
-	 */
+	 */	
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
