@@ -55,12 +55,6 @@ public class PostWithPathParamsAndBodyForKeyCloak extends AdminTestUtil implemen
 		return getYmlTestData(ymlFile);
 	}
 	
-	@BeforeMethod
-	public void performHealthCheck() {
-		if (HealthChecker.signalTerminateExecution == true) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
-		}
-	}
 
 	/**
 	 * Test method for OTP Generation execution
@@ -74,7 +68,9 @@ public class PostWithPathParamsAndBodyForKeyCloak extends AdminTestUtil implemen
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
-		
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
 		Response response = postWithPathParamsBodyAndCookie(ApplnURIForKeyCloak + testCaseDTO.getEndPoint(), testCaseDTO.getInput(), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil

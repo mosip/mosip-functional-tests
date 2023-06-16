@@ -56,12 +56,6 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		return getYmlTestData(ymlFile);
 	}
 	
-	@BeforeMethod
-	public void performHealthCheck() {
-		if (HealthChecker.signalTerminateExecution == true) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
-		}
-	}
 
 	/**
 	 * Test method for OTP Generation execution
@@ -75,6 +69,9 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;

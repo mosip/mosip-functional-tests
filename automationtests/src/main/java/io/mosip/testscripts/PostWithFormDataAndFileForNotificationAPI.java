@@ -59,12 +59,6 @@ public class PostWithFormDataAndFileForNotificationAPI extends AdminTestUtil imp
 		return getYmlTestData(ymlFile);
 	}
 	
-	@BeforeMethod
-	public void performHealthCheck() {
-		if (HealthChecker.signalTerminateExecution == true) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
-		}
-	}
 
 	/**
 	 * Test method for OTP Generation execution
@@ -79,7 +73,9 @@ public class PostWithFormDataAndFileForNotificationAPI extends AdminTestUtil imp
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
-		
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
 		String inputJson = filterInputHbs(testCaseDTO);
 		
 		response = postWithMultipartFormDataAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(),idKeyName);

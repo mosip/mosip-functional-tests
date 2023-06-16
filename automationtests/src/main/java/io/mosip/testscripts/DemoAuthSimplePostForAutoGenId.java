@@ -74,12 +74,7 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 		return getYmlTestData(ymlFile);
 	}
 	
-	@BeforeMethod
-	public void performHealthCheck() {
-		if (HealthChecker.signalTerminateExecution == true) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
-		}
-	}
+	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -95,6 +90,9 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 	public void test(TestCaseDTO testCaseDTO)
 			throws AuthenticationTestException, AdminTestException, NoSuchAlgorithmException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
 		if (testCaseDTO.getEndPoint().contains("$PartnerKeyURL$")) {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));

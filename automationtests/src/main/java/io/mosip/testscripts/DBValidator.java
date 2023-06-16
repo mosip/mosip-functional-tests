@@ -57,12 +57,7 @@ public class DBValidator extends AdminTestUtil implements ITest {
 		return getYmlTestData(ymlFile);
 	}
 	
-	@BeforeMethod
-	public void performHealthCheck() {
-		if (HealthChecker.signalTerminateExecution == true) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
-		}
-	}
+	
 	
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
@@ -71,6 +66,9 @@ public class DBValidator extends AdminTestUtil implements ITest {
 		//List<String> queryProp = Arrays.asList(templateFields);
 		//System.out.println(queryProp);
 		//Arrays.asList(templateFields.split(","));
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
 		
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		String replaceId = inputJsonKeyWordHandeler(inputJson, testCaseName);

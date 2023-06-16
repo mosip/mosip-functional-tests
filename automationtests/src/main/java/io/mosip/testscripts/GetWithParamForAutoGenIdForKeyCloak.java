@@ -59,12 +59,7 @@ public class GetWithParamForAutoGenIdForKeyCloak extends AdminTestUtil implement
 		return getYmlTestData(ymlFile);
 	}
 	
-	@BeforeMethod
-	public void performHealthCheck() {
-		if (HealthChecker.signalTerminateExecution == true) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
-		}
-	}
+	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -78,6 +73,10 @@ public class GetWithParamForAutoGenIdForKeyCloak extends AdminTestUtil implement
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
         
 		
         

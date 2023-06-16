@@ -77,12 +77,7 @@ public class KycAuth extends AdminTestUtil implements ITest {
 		return getYmlTestData(ymlFile);
 	}
 	
-	@BeforeMethod
-	public void performHealthCheck() {
-		if (HealthChecker.signalTerminateExecution == true) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
-		}
-	}
+	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -96,6 +91,9 @@ public class KycAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 //		String jsonrequest = buildIdentityRequest(request.toString());
