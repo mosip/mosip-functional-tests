@@ -139,6 +139,10 @@ public class MockSMTPListener{
 		
 		//HashMap m=new HashMap<Object, Object>();
 		String otp = "";
+		if(ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase("true"))
+		{
+			return ConfigManager.getPreConfiguredOtp();
+		}
 		while (counter < otpCheckLoopCount) {
 		//	m= emailNotificationMap;
 			if(emailNotificationMapS.get(emailId)!=null) {

@@ -56,8 +56,10 @@ public class ConfigManager {
 	private static String ENABLE_DEBUG = "enableDebug";
 	private static String THREAD_COUNT = "threadCount";
 	private static String LANG_SELECT = "langselect";
-	
 
+	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
+
+	private static String PRECONFIGOTP = "preconfiguredOtp";
 	private static String DB_PORT = "db-port";
 	private static String DB_DOMAIN = "db-server";
 	private static String HIBERNATE_CONNECTION_DRIVER_CLASS = "hibernate.connection.driver_class";
@@ -145,7 +147,9 @@ public class ConfigManager {
 	private static String enableDebug;
 	private static String threadCount;
 	private static String langselect;
-
+	private static String usePreConfiguredOtp;
+	private static String preconfiguredOtp;
+	
 	private static String db_port;
 	private static String db_domain;
 	private static String hibernate_connection_driver_class;
@@ -313,6 +317,14 @@ public class ConfigManager {
 		langselect =System.getenv(LANG_SELECT) == null ? propsKernel.getProperty(LANG_SELECT) : System.getenv(LANG_SELECT);
 		propsKernel.setProperty(LANG_SELECT, langselect);
 		
+		
+		usePreConfiguredOtp =System.getenv(USEPRECONFIGOTP) == null ? propsKernel.getProperty(USEPRECONFIGOTP) : System.getenv(USEPRECONFIGOTP);
+		propsKernel.setProperty(USEPRECONFIGOTP, usePreConfiguredOtp);
+		
+		preconfiguredOtp =System.getenv(PRECONFIGOTP) == null ? propsKernel.getProperty(PRECONFIGOTP) : System.getenv(PRECONFIGOTP);
+		propsKernel.setProperty(PRECONFIGOTP, preconfiguredOtp);
+		
+		
 		//enableDebug threadCount  langselect
 
 	}
@@ -335,6 +347,14 @@ public class ConfigManager {
 
 	}
 	
+	public static String getUsePreConfiguredOtp() {
+		return usePreConfiguredOtp;
+
+	}
+	public static String getPreConfiguredOtp() {
+		return preconfiguredOtp;
+
+	}
 	public static String getThreadCount() {
 		return threadCount;
 
