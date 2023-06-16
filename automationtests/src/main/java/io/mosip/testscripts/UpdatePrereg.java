@@ -57,12 +57,6 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 		return getYmlTestData(ymlFile);
 	}
 	
-	@BeforeMethod
-	public void performHealthCheck() {
-		if (HealthChecker.signalTerminateExecution == true) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
-		}
-	}
 
 	/**
 	 * Test method for OTP Generation execution
@@ -78,6 +72,9 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseDTO.setInputTemplate(AdminTestUtil.generateHbsForPrereg(true));
 		String[] templateFields = testCaseDTO.getTemplateFields();
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
 		
 		//filterHbs(testCaseDTO);
 		//testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);

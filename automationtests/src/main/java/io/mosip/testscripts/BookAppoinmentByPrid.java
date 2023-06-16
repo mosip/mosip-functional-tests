@@ -54,12 +54,7 @@ public class BookAppoinmentByPrid extends AdminTestUtil implements ITest {
 		return getYmlTestData(ymlFile);
 	}
 	
-	@BeforeMethod
-	public void performHealthCheck() {
-		if (HealthChecker.signalTerminateExecution == true) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
-		}
-	}
+	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -77,6 +72,9 @@ public class BookAppoinmentByPrid extends AdminTestUtil implements ITest {
 		String timeSlotFrom = null;
 		String timeSlotTo = null;
 		testCaseName = testCaseDTO.getTestCaseName(); 
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
 		Response slotAvailabilityResponse=RestClient.getRequestWithCookie(ApplnURI+props.getProperty("appointmentavailabilityurl")+props.getProperty("regcentretobookappointment"), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole()));
 		//PreRegistrationLibrary liberary= new PreRegistrationLibrary();
 		List<String> appointmentDetails = AdminTestUtil.getAppointmentDetails(slotAvailabilityResponse);

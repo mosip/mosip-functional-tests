@@ -60,12 +60,6 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 		return getYmlTestData(ymlFile);
 	}
 	
-	@BeforeMethod
-	public void performHealthCheck() {
-		if (HealthChecker.signalTerminateExecution == true) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckMapS);
-		}
-	}
 
 	/**
 	 * Test method for OTP Generation execution
@@ -81,7 +75,9 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 		testCaseName = testCaseDTO.getTestCaseName();
 		
 		String input = testCaseDTO.getInput();
-		
+		if (HealthChecker.signalTerminateExecution == true) {
+			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
 		
 		if(testCaseName.contains("_AuthDemoUrl_")) {
 			String url = ConfigManager.getAuthDemoServiceUrl();

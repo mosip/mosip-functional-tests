@@ -27,7 +27,7 @@ public class HealthChecker implements Runnable {
 	public static boolean bTerminate = false;
 	public static String propsHealthCheckURL = MosipTestRunner.getResourcePath() + "/" + "config/healthCheckEndpoint.properties";
 	public static boolean signalTerminateExecution = false;
-	public static Map<Object, Object> healthCheckMapS = Collections.synchronizedMap(new HashMap<Object, Object>());
+	public static Map<Object, Object> healthCheckFailureMapS = Collections.synchronizedMap(new HashMap<Object, Object>());
 
 	public void run() {
 		
@@ -62,8 +62,9 @@ public class HealthChecker implements Runnable {
 				
 				if (serviceStatus.equalsIgnoreCase("UP") == false) {
 					isAllServicesUp = false;
+					healthCheckFailureMapS.put(controllerPaths.get(i), serviceStatus);
 				}
-				healthCheckMapS.put(controllerPaths.get(i), serviceStatus);
+				
 			}
 			if (isAllServicesUp == false) {
 				signalTerminateExecution = true;
