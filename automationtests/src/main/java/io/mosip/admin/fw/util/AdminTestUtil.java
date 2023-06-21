@@ -4839,7 +4839,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (!OutputValidationUtil.publishOutputResult(objMap))
 			throw new AdminTestException("Failed at output validation");
-		Reporter.log(ReportUtil.getOutputValiReport(objMap));
+		Reporter.log(ReportUtil.getOutputValidationReport(objMap));
 	}
 
 }

@@ -152,7 +152,11 @@ public class MockSMTPListener{
 				otp = parseOtp(html);
 				if (otp != null && otp.length()>0) {
 //					Got the required OTP Ignore in between notification which doesn't have OTP
+					System.out.println("Found the OTP = " + otp);
 					return otp;
+				}
+				else {
+					System.out.println("html Message = " + html + " Email = " + emailId);
 				}
 				
 			}

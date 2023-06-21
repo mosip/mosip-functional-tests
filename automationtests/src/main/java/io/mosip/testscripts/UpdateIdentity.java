@@ -142,7 +142,7 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
-		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		Assert.assertEquals(OutputValidationUtil.publishOutputResult(ouputValid), true);
 
 		if (otpReqJson != null) {
@@ -155,7 +155,7 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 			sendOtpRespJson.remove("sendOtpResTemplate");
 			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
 					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
-			Reporter.log(ReportUtil.getOutputValiReport(ouputValidOtp));
+			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 				throw new AdminTestException("Failed at Send OTP output validation");

@@ -90,7 +90,7 @@ public class PostWithFormPathParamAndFile extends AdminTestUtil implements ITest
 		}
 		
 		System.out.println(ouputValid);
-		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");

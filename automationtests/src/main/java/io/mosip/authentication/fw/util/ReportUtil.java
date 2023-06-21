@@ -23,7 +23,7 @@ public class ReportUtil {
 	 * @param outputresultRunConfigUtil.getResourcePath()
 	 * @return html table
 	 */
-	public static String getOutputValiReport(Map<String, List<OutputValidationDto>> outputresult) {
+	public static String getOutputValidationReport(Map<String, List<OutputValidationDto>> outputresult) {
 		String htmlforReport = "<table width='90%' charset='UTF8'>\r\n" + "  <tr>\r\n" + "    <th>FieldName</th>\r\n"
 				+ "    <th>Expected Value</th> \r\n" + "    <th>Actual Value</th>\r\n" + "    <th>Status</th>\r\n"
 				+ "  </tr>\r\n";
