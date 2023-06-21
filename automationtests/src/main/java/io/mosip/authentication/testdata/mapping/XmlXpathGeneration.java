@@ -22,6 +22,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.precon.XmlPrecondtion;
 
 /**
@@ -82,33 +83,41 @@ public class XmlXpathGeneration extends DefaultHandler {
 	}
 
 	public static void generateXpath(String filePath, String ouputFilePath) {
+		FileInputStream inputStream = null;
 		try {
 			SAXParserFactory saxFactory = SAXParserFactory.newInstance();
 			saxFactory.setNamespaceAware(false);
 			SAXParser saxParser = saxFactory.newSAXParser();
 			XMLReader xmlReader = saxParser.getXMLReader();
 			xmlReader.setContentHandler(new XmlXpathGeneration(xmlReader));
-			xmlReader.parse(new InputSource(new FileInputStream(filePath)));
+			inputStream = new FileInputStream(filePath);
+			xmlReader.parse(new InputSource(inputStream));
 			refactorFieldValueName();
 			generateXmlMappingDic(ouputFilePath);
 		} catch (Exception e) {
 			xmlXpathLogger.info("Exception occured: " + e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 	}
 	
 	public static Map<String,String> generateXpath(String filePath) {
+		FileInputStream inputStream = null;
 		try {
 			SAXParserFactory saxFactory = SAXParserFactory.newInstance();
 			saxFactory.setNamespaceAware(false);
 			SAXParser saxParser = saxFactory.newSAXParser();
 			XMLReader xmlReader = saxParser.getXMLReader();
 			xmlReader.setContentHandler(new XmlXpathGeneration(xmlReader));
-			xmlReader.parse(new InputSource(new FileInputStream(filePath)));
+			inputStream = new FileInputStream(filePath);
+			xmlReader.parse(new InputSource(inputStream));
 			refactorFieldValueName();
 			return mappingFieldvalue;
 		} catch (Exception e) {
 			xmlXpathLogger.info("Exception occured: " + e.getMessage());
 			return mappingFieldvalue;
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 	}
 
@@ -119,15 +128,17 @@ public class XmlXpathGeneration extends DefaultHandler {
 	 */
 	public static void generateXmlMappingDic(String filePath) {
 		Properties prop = new Properties();
-		OutputStream output = null;
+		FileOutputStream outputStream = null;
 		try {
-			output = new FileOutputStream(filePath);
+			outputStream = new FileOutputStream(filePath);
 			for (Entry<String, String> entry : mappingFieldvalue.entrySet()) {
 				prop.setProperty(entry.getKey(), entry.getValue());
 			}
-			prop.store(output, "UTF-8");
+			prop.store(outputStream, "UTF-8");
 		} catch (Exception e) {
 			xmlXpathLogger.error(e.getMessage());
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 

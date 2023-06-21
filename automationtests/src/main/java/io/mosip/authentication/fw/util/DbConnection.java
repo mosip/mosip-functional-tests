@@ -26,6 +26,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.jdbc.Work;
 import org.testng.Assert;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.testrunner.MosipTestRunner;
  
 
@@ -191,11 +192,11 @@ public class DbConnection {
 		Session session = null;
 		String dbConfigXml = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbConfig.xml";
 		String dbPropsPath = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbProps"+env+".properties";
-		
+		FileInputStream inputStream = null;
 		try {
-			InputStream iStream = new FileInputStream(new File(dbPropsPath));
+			inputStream = new FileInputStream(new File(dbPropsPath));
 			Properties dbProps = new Properties();
-			dbProps.load(iStream);
+			dbProps.load(inputStream);
 			Configuration config = new Configuration();
 			//config.setProperties(dbProps);
 			config.setProperty("hibernate.connection.driver_class", dbProps.getProperty("driver_class"));
@@ -215,6 +216,8 @@ public class DbConnection {
 			DBCONNECTION_LOGGER.info(e.getMessage());
 		} catch (NullPointerException e) {
 			Assert.assertTrue(false, "Exception in getting the session");
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 		session.beginTransaction();
 		DBCONNECTION_LOGGER.info("==========session  begins=============");

@@ -13,6 +13,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.testng.Assert;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.testrunner.MosipTestRunner;
 
 public class AuditDbRead {
@@ -25,11 +26,11 @@ public class AuditDbRead {
 	public static Session getDataBaseConnection(String dbName) {
 		String dbConfigXml = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbConfig.xml";
 		String dbPropsPath = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbProps"+env+".properties";
-		
+		FileInputStream inputStream = null;
 		try {
-			InputStream iStream = new FileInputStream(new File(dbPropsPath));
+			inputStream = new FileInputStream(new File(dbPropsPath));
 			Properties dbProps = new Properties();
-			dbProps.load(iStream);
+			dbProps.load(inputStream);
 			Configuration config = new Configuration();
 			//config.setProperties(dbProps);
 			config.setProperty("hibernate.connection.driver_class", dbProps.getProperty("driver_class"));
@@ -52,6 +53,8 @@ public class AuditDbRead {
 			Assert.assertTrue(false, "Exception in creating the sessionFactory");
 		}catch (NullPointerException e) {
 			Assert.assertTrue(false, "Exception in getting the session");
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 		session.beginTransaction();
 		logger.info("==========session  begins=============");

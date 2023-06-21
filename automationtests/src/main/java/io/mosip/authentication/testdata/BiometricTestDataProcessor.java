@@ -11,6 +11,7 @@ import java.util.Random;
 import org.apache.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.dto.BiometricDto;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 
@@ -20,13 +21,15 @@ public class BiometricTestDataProcessor {
 	
 	@SuppressWarnings("unchecked")
 	public static void loadBiometricTestData(File filePath) {
+		FileInputStream inputStream = null;
 		try {
 			Yaml yaml = new Yaml();
-			InputStream inputStream = new FileInputStream(filePath.getAbsoluteFile());
+			inputStream = new FileInputStream(filePath.getAbsoluteFile());
 			BiometricDto.setBiometric((Map<String, Map<String, Map<String, Map<String, List<Object>>>>>) yaml.load(inputStream));
-			inputStream.close();
 		} catch (Exception e) {
 			bioMetricTestDataProcLogger.error("Exception Occured in biometric testdata processor : " + e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 	}
 	

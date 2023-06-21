@@ -28,6 +28,7 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.util.StandardCharset;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
 import io.mosip.dbaccess.DBManager;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
 import io.mosip.ida.certificate.PartnerRegistration;
@@ -77,7 +78,7 @@ public class MosipTestRunner {
 		// Initializing or setting up execution
 		ConfigManager.init(); //Langauge Independent
 		BaseTestCase.suiteSetup();
-		
+		AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
 		HealthChecker healthcheck = new HealthChecker();
 		Thread trigger = new Thread(healthcheck);
 		trigger.start();
@@ -291,12 +292,16 @@ public class MosipTestRunner {
 	}
 	
 	public static Properties getproperty(String path) {
-		Properties prop = new Properties();		
+		Properties prop = new Properties();
+		FileInputStream inputStream = null;
 		try {
 			File file = new File(path);
-			prop.load(new FileInputStream(file));
-		} catch (IOException e) {
+			inputStream = new FileInputStream(file);
+			prop.load(inputStream);
+		} catch (Exception e) {
 			LOGGER.error("Exception " + e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 		return prop;
 	}

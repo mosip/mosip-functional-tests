@@ -13,6 +13,7 @@ import java.util.Map.Entry;
 import org.apache.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.RunConfig;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.testDataDTO.YamlDTO;
@@ -61,13 +62,12 @@ public class TestDataProcessor {
 	public static String getYamlData(String modulename, String apiname, String testData, String dataParam) {
 		Yaml yaml = new Yaml();
 		String testdata = null;
-		InputStream inputStream;
+		FileInputStream inputStream = null;
 		try {
 			inputStream = new FileInputStream(
 					RunConfigUtil.getResourcePath() + modulename + "/" + apiname + "/" + testData + ".yaml");
 			YamlDTO obj = new YamlDTO();
 			obj.setYamlObject((Map<String, List<Object>>) yaml.load(inputStream));
-			inputStream.close();
 			List<Object> list = obj.getYamlObject().get(dataParam);
 			Random random = new Random();
 			testdata = (String) list.get(random.nextInt(list.size())).toString();
@@ -75,6 +75,8 @@ public class TestDataProcessor {
 			TESTDATAPROC_LOGGER.error("File is not available :" + e.getMessage());
 		} catch (IOException e) {
 			TESTDATAPROC_LOGGER.error("File is not available :" + e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 		return testdata;
 	}

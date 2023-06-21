@@ -12,6 +12,8 @@ import java.util.List;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
+
 public class CSVHelper {
 
 	String fileName;
@@ -35,15 +37,17 @@ public class CSVHelper {
 	}
 	public void open() throws FileNotFoundException, UnsupportedEncodingException {
 		
-		FileInputStream inStream = new FileInputStream(fileName);
+		FileInputStream inputStream = null;
 		
-		InputStreamReader filereader = new InputStreamReader(inStream , "UTF-8");
-		
-				//new FileReader(fileName); 
-			   
-        csvReader = new CSVReaderBuilder(filereader)
+		try {
+			inputStream = new FileInputStream(fileName);		
+			InputStreamReader filereader = new InputStreamReader(inputStream , "UTF-8");
+			csvReader = new CSVReaderBuilder(filereader)
         								.withSkipLines(1)
         								.build();
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
+		}
         
 	}
 	
