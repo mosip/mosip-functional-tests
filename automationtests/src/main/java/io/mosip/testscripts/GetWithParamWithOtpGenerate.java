@@ -101,7 +101,7 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
 				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
-		Reporter.log(ReportUtil.getOutputValiReport(ouputValidOtp));
+		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at otp output validation");
@@ -157,7 +157,7 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 								response.asString(),
 								getJsonFromTemplate(outputtestcase.get(j).toString(), testCaseDTO.getOutputTemplate()));
-						Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+						Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
 							throw new AdminTestException("Failed at output validation");
@@ -172,7 +172,7 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
-			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
 		}

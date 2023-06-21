@@ -131,7 +131,7 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 						JSONObject json = new JSONObject(response.asString());
 						idField = json.getJSONObject("response").get("id").toString();
 					}
-					Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+					Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 					if (!OutputValidationUtil.publishOutputResult(ouputValid))
 						throw new AdminTestException("Failed at output validation");
@@ -174,7 +174,7 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 					.doJsonOutputValidation(response.asString(), ActualOPJson);
-			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
 		}

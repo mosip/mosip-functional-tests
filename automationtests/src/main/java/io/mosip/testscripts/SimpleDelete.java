@@ -103,7 +103,7 @@ public class SimpleDelete extends AdminTestUtil implements ITest {
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 								response.asString(),
 								getJsonFromTemplate(outputtestcase.get(j).toString(), testCaseDTO.getOutputTemplate()));
-						Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+						Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
 							throw new AdminTestException("Failed at output validation");
@@ -145,7 +145,7 @@ public class SimpleDelete extends AdminTestUtil implements ITest {
 			}
 			
 			System.out.println(ouputValid);
-			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");

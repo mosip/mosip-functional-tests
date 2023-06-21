@@ -161,7 +161,7 @@ public class CreatePreReg extends AdminTestUtil implements ITest {
 						JSONObject json = new JSONObject(response.asString());
 						idField = json.getJSONObject("response").get("id").toString();
 					}
-					Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+					Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 					if (!OutputValidationUtil.publishOutputResult(ouputValid))
 						throw new AdminTestException("Failed at output validation");
@@ -173,7 +173,7 @@ public class CreatePreReg extends AdminTestUtil implements ITest {
 					COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 					.doJsonOutputValidation(response.asString(), outputJson);
-			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
 		}

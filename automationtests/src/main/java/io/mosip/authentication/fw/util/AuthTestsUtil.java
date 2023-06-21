@@ -247,7 +247,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response,expCode));
 			objMap.put("Status Code", objList);
-			Reporter.log(ReportUtil.getOutputValiReport(objMap));
+			Reporter.log(ReportUtil.getOutputValidationReport(objMap));
 			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
 			return response;
 		} catch (Exception e) {
@@ -265,7 +265,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response,expCode));
 			objMap.put("Status Code", objList);
-			Reporter.log(ReportUtil.getOutputValiReport(objMap));
+			Reporter.log(ReportUtil.getOutputValidationReport(objMap));
 			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
 			return response;
 		} catch (Exception e) {
@@ -401,7 +401,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response,expCode));
 			objMap.put("Status Code", objList);
-			Reporter.log(ReportUtil.getOutputValiReport(objMap));
+			Reporter.log(ReportUtil.getOutputValidationReport(objMap));
 			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
 			return response.asString();
 		} catch (Exception e) {
@@ -445,7 +445,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response,expCode));
 			objMap.put("Status Code", objList);
-			Reporter.log(ReportUtil.getOutputValiReport(objMap));
+			Reporter.log(ReportUtil.getOutputValidationReport(objMap));
 			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
 			return response;
 		} catch (Exception e) {
@@ -1263,7 +1263,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response,expCode));
 			objMap.put("Status Code", objList);
-			Reporter.log(ReportUtil.getOutputValiReport(objMap));
+			Reporter.log(ReportUtil.getOutputValidationReport(objMap));
 			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
 			return response;
 		} catch (Exception e) {
