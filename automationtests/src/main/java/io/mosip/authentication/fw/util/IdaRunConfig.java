@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.dto.ErrorsDto;
 import io.mosip.testrunner.MosipTestRunner;
 
@@ -706,13 +707,16 @@ public class IdaRunConfig extends RunConfig{
 	 */
 	@SuppressWarnings("unchecked")
 	private  void loadErrorsData(String path) {
+		FileInputStream inputStream = null;
 		try {
 			Yaml yaml = new Yaml();
-			InputStream inputStream = new FileInputStream(
+			inputStream = new FileInputStream(
 					new File(RunConfigUtil.getResourcePath() + path).getAbsoluteFile());
 			ErrorsDto.setErrors((Map<String, Map<String, Map<String, String>>>) yaml.load(inputStream));
 		} catch (Exception e) {
 			logger.error(e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 	}
 	

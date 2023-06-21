@@ -21,6 +21,7 @@ import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 
@@ -50,12 +51,16 @@ public class KeycloakUserManager {
 	}
 
 	public static Properties getproperty(String path) {
-		Properties prop = new Properties();		
+		Properties prop = new Properties();	
+		FileInputStream inputStream = null;
 		try {
 			File file = new File(path);
-			prop.load(new FileInputStream(file));
-		} catch (IOException e) {
+			inputStream = new FileInputStream(file);
+			prop.load(inputStream);
+		} catch (Exception e) {
 			logger.error("Exception " + e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 		return prop;
 	}

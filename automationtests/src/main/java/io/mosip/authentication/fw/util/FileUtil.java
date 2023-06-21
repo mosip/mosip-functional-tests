@@ -21,6 +21,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 
 /**
@@ -187,13 +188,16 @@ public class FileUtil{
 	 * @param content
 	 */
 	public void writeOutput(String filePath, String content) {
+		FileOutputStream outputStream = null;
 		try {
-			FileOutputStream fos = new FileOutputStream(filePath);
-			Writer out = new OutputStreamWriter(fos, "UTF8");
+			outputStream = new FileOutputStream(filePath);
+			Writer out = new OutputStreamWriter(outputStream, "UTF8");
 			out.write(content);
 			out.close();
 		} catch (IOException e) {
 			FILEUTILITY_LOGGER.error("Exception : " + e.getMessage());
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 
@@ -205,9 +209,10 @@ public class FileUtil{
 	 */
 	public static String readInput(String filePath) {
 		StringBuffer buffer = new StringBuffer();
+		FileInputStream inputStream = null;
 		try {
-			FileInputStream fis = new FileInputStream(filePath);
-			InputStreamReader isr = new InputStreamReader(fis, "UTF8");
+			inputStream = new FileInputStream(filePath);
+			InputStreamReader isr = new InputStreamReader(inputStream, "UTF8");
 			Reader in = new BufferedReader(isr);
 			int ch;
 			while ((ch = in.read()) > -1) {
@@ -218,6 +223,8 @@ public class FileUtil{
 		} catch (IOException e) {
 			FILEUTILITY_LOGGER.error("Exception : " + e.getMessage());
 			return null;
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 	}
 	  
@@ -229,16 +236,17 @@ public class FileUtil{
 	 * @return true or false
 	 */
 	public static boolean createFile(File fileName, String content) {
+		FileOutputStream outputStream = null;
 		try {
 			makeDir(fileName.getParentFile().toString());
-			FileOutputStream fos = new FileOutputStream(fileName);
-			fos.write(content.getBytes());
-			fos.flush();
-			fos.close();
+			outputStream = new FileOutputStream(fileName);
+			outputStream.write(content.getBytes());
 			return true;
 		} catch (Exception e) {
 			FILEUTILITY_LOGGER.error("Exception " + e);
 			return false;
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	

@@ -41,6 +41,7 @@ import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import io.mosip.admin.fw.util.AdminTestException;
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
@@ -167,21 +168,22 @@ public class CommonLibrary extends BaseTestCase {
 		if(isRelative)
 			path = getResourcePath() + path;
 		logger.info("Relativepath : " + path);
-		File fileToRead = new File(path);
-		InputStream isOfFile = null;
+		FileInputStream inputStream = null;
+		JSONObject jsonData = null;
 		try {
+			File fileToRead = new File(path);
 			logger.info("fileToRead : " + fileToRead);
-			isOfFile = new FileInputStream(fileToRead);
+			inputStream = new FileInputStream(fileToRead);
+			jsonData = (JSONObject) new JSONParser().parse(new InputStreamReader(inputStream, "UTF-8"));
 		} catch (FileNotFoundException e1) {
 			logger.info("error while reading the file : " + e1.getLocalizedMessage() );
 			e1.printStackTrace();
 			logger.info("File Not Found at the given path");
 		}
-		JSONObject jsonData = null;
-		try {
-			jsonData = (JSONObject) new JSONParser().parse(new InputStreamReader(isOfFile, "UTF-8"));
-		} catch (IOException | ParseException | NullPointerException e) {
+		catch (IOException | ParseException | NullPointerException e) {
 			logger.info(e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 		return jsonData;
 	}
@@ -193,19 +195,22 @@ public class CommonLibrary extends BaseTestCase {
 	 */
 	public Map<String, String> readProperty(String propertyFileName) {
 		Properties prop = new Properties();
+		FileInputStream inputStream = null;
+		Map<String, String> mapProp = null;
 		try {
 			System.out.println("propertyFileName:  " + propertyFileName + "Path :" + getResourcePathForKernel() + "config/" + propertyFileName + ".properties");
 			logger.info("propertyFileName:  " + propertyFileName + "Path :" + getResourcePathForKernel() + "config/" + propertyFileName + ".properties");
 			File propertyFile = new File(getResourcePathForKernel() + "config/" + propertyFileName + ".properties");
-			prop.load(new FileInputStream(propertyFile));
-
+			inputStream = new FileInputStream(propertyFile);
+			prop.load(inputStream);
+			mapProp = prop.entrySet().stream()
+					.collect(Collectors.toMap(e -> (String) e.getKey(), e -> (String) e.getValue()));
 		} catch (IOException e) {
 			System.out.println("Error occrued while reading propertyFileName " + propertyFileName + e.getMessage());
 			logger.info(e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
-
-		Map<String, String> mapProp = prop.entrySet().stream()
-				.collect(Collectors.toMap(e -> (String) e.getKey(), e -> (String) e.getValue()));
 
 		return mapProp;
 	}

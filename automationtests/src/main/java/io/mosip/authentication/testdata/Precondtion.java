@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 import org.testng.Reporter;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.testdata.keywords.KeywordUtil;
 
@@ -36,6 +37,7 @@ public class Precondtion {
 	 */
 	public static Map<String, String> parseAndWritePropertyFile(String auditMappingPath,Map<String, String> fieldvalue,
 			String outputFilePath) {
+		FileOutputStream outputStream = null;
 		try {
 			fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);// New Code . Need to add
 			Map<String, String> auditTxnValue = new HashMap<String, String>();
@@ -44,16 +46,18 @@ public class Precondtion {
 				auditTxnValue.put(orgKey, entry.getValue());
 			}
 			Properties prop = new Properties();
-			OutputStream output = new FileOutputStream(outputFilePath);
+			outputStream = new FileOutputStream(outputFilePath);
 				for (Entry<String, String> entry : auditTxnValue.entrySet()) {
 					prop.setProperty(entry.getKey(), entry.getValue());
 				}
-				prop.store(output, "UTF-8");
+				prop.store(outputStream, "UTF-8");
 			return auditTxnValue;
 		} catch (Exception e) {
 			PRECON_LOGGER.error("Exception Occured: " + e.getMessage());
 			Reporter.log("Exception Occured: " + e.getMessage());
 			return null;
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	/**
@@ -66,6 +70,7 @@ public class Precondtion {
 	 */
 	public static Map<String, String> parseAndWriteEmailNotificationPropertyFile(String emailMappingPath,
 			Map<String, String> fieldvalue, String outputFilePath) {
+		FileOutputStream outputStream = null;
 		try {
 			fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);// New Code . Need to
 																									// add
@@ -83,12 +88,15 @@ public class Precondtion {
 			for (Entry<String, String> entry : emailTemplatevalue.entrySet()) {
 				prop.setProperty(entry.getKey(), entry.getValue());
 			}
-			prop.store(new OutputStreamWriter(new FileOutputStream(outputFilePath), "UTF-8"), null);
+			outputStream = new FileOutputStream(outputFilePath);
+			prop.store(new OutputStreamWriter(outputStream, "UTF-8"), null);
 			return emailTemplatevalue;
 		} catch (Exception e) {
 			PRECON_LOGGER.error("Exception Occured: " + e.getMessage());
 			Reporter.log("Exception Occured: " + e.getMessage());
 			return null;
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	
@@ -100,24 +108,25 @@ public class Precondtion {
 	 * @return map
 	 */
 	public static Map<String, String> parseAndWritePropertyFile(Map<String, String> fieldvalue, String outputFilePath) {
+		FileOutputStream outputStream = null;
 		try {
 			fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);// New Code . Need to
 																									// add
 			Properties prop = new Properties();
 			if (!new File(outputFilePath).exists())
 				new File(outputFilePath).getParentFile().mkdirs();
-			FileOutputStream output = new FileOutputStream(outputFilePath);
+			outputStream = new FileOutputStream(outputFilePath);
 			for (Entry<String, String> entry : fieldvalue.entrySet()) {
 				prop.setProperty(entry.getKey(), entry.getValue());
 			}
-			prop.store(output, null);
-			output.close();
-			output.flush();
+			prop.store(outputStream, null);
 			return fieldvalue;
 		} catch (Exception e) {
 			PRECON_LOGGER.error("Exception Occured: " + e.getMessage());
 			Reporter.log("Exception Occured: " + e.getMessage());
 			return null;
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	

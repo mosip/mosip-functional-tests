@@ -19,6 +19,7 @@ import org.hibernate.cfg.Configuration;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 //import io.mosip.dbentity.OtpEntity;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
@@ -35,11 +36,11 @@ public class PreRegDbread {
 	public static Session getDataBaseConnection(String dbName) {
 		String dbConfigXml = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbConfig.xml";
 		String dbPropsPath = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbProps"+env+".properties";
-		
+		FileInputStream inputStream = null;
 		try {
-			InputStream iStream = new FileInputStream(new File(dbPropsPath));
+			inputStream = new FileInputStream(new File(dbPropsPath));
 			Properties dbProps = new Properties();
-			dbProps.load(iStream);
+			dbProps.load(inputStream);
 			Configuration config = new Configuration();
 			//config.setProperties(dbProps);
 			config.setProperty("hibernate.connection.driver_class", dbProps.getProperty("driver_class"));
@@ -62,6 +63,8 @@ public class PreRegDbread {
 			Assert.assertTrue(false, "Exception in creating the sessionFactory");
 		}catch (NullPointerException e) {
 			Assert.assertTrue(false, "Exception in getting the session");
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 		session.beginTransaction();
 		logger.info("==========session  begins=============");

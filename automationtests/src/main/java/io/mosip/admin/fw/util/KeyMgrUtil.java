@@ -58,6 +58,7 @@ import org.bouncycastle.util.io.pem.PemReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+import io.mosip.admin.fw.util.AdminTestUtil;
 
 
 
@@ -216,10 +217,15 @@ public class KeyMgrUtil {
         Path path = Paths.get(filePath);
         if (Files.exists(path)){
             KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
-	            try(InputStream p12FileStream = new FileInputStream(filePath);) {
-	            keyStore.load(p12FileStream, getP12Pass());
-	            return (PrivateKeyEntry) keyStore.getEntry(KEY_ALIAS, new PasswordProtection (getP12Pass()));
-            }
+            FileInputStream p12FileStream = null;
+            
+			try {
+				p12FileStream = new FileInputStream(filePath);
+				keyStore.load(p12FileStream, getP12Pass());
+				return (PrivateKeyEntry) keyStore.getEntry(KEY_ALIAS, new PasswordProtection(getP12Pass()));
+			} finally {
+				AdminTestUtil.closeInputStream(p12FileStream);
+			}
         }
         return null;
     }
@@ -280,10 +286,13 @@ public class KeyMgrUtil {
         if (parentPath != null && !Files.exists(parentPath)) {
             Files.createDirectories(parentPath);
         }
-        OutputStream outputStream = new FileOutputStream(p12FilePath);
-        keyStore.store(outputStream, getP12Pass());
-        outputStream.flush();
-        outputStream.close();
+        FileOutputStream outputStream =null;
+        try {
+        	outputStream = new FileOutputStream(p12FilePath);
+            keyStore.store(outputStream, getP12Pass());
+        }finally {
+			AdminTestUtil.closeOutputStream(outputStream);
+        }
         return new PrivateKeyEntry(keyPair.getPrivate(), chain);
     }
 
@@ -396,10 +405,14 @@ public class KeyMgrUtil {
             keyStore.load(null, getP12Pass());
             keyStore.setEntry(KEY_ALIAS, newPrivateKeyEntry, new PasswordProtection (getP12Pass()));
             
-            OutputStream outputStream = new FileOutputStream(partnerFilePath);
-            keyStore.store(outputStream, getP12Pass());
-            outputStream.flush();
-            outputStream.close();
+            FileOutputStream outputStream = null;
+            
+            try {
+            	outputStream = new FileOutputStream(partnerFilePath);
+                keyStore.store(outputStream, getP12Pass());
+            }finally {
+            	AdminTestUtil.closeOutputStream(outputStream);
+            }
             return true;
         }
         return false;

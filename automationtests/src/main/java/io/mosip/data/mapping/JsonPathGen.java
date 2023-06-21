@@ -14,6 +14,8 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
+
 /**
  * This class is to generate jsonpath/object mapper from json file in a properties file
  * 
@@ -103,16 +105,18 @@ public class JsonPathGen {
 	
 	public void generateJsonMappingDic(String filePath) {
 		Properties prop = new Properties();
-		OutputStream output = null;
+		FileOutputStream outputStream = null;
 		try {
-			output = new FileOutputStream(filePath);
+			outputStream = new FileOutputStream(filePath);
 			// set the properties value
 			for (Entry<String, String> entry : getPathList(filePath).entrySet()) {
 				prop.setProperty(entry.getKey(), entry.getValue());
 			}
-			prop.store(output, null);
+			prop.store(outputStream, null);
 		} catch (Exception e) {
 			//logger.info(e);
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 

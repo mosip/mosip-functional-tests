@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 import org.apache.log4j.Logger;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.testrunner.MosipTestRunner;
 
 public class ConfigManager {
@@ -644,11 +645,15 @@ public class ConfigManager {
 
 	private static Properties getproperty(String path) {
 		Properties prop = new Properties();
+		FileInputStream inputStream = null;
 		try {
 			File file = new File(path);
-			prop.load(new FileInputStream(file));
+			inputStream = new FileInputStream(file);
+			prop.load(inputStream);
 		} catch (IOException e) {
 			LOGGER.error("Exception " + e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 		return prop;
 	}

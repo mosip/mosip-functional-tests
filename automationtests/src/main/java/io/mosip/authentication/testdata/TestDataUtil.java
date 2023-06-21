@@ -16,6 +16,7 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.precon.XmlPrecondtion;
@@ -128,15 +129,17 @@ public class TestDataUtil {
 	 */
 	@SuppressWarnings("unchecked")
 	public static void loadTestData(File filePath) throws FileNotFoundException {
+		FileInputStream inputStream = null;
 		try {
 			Yaml yaml = new Yaml();
-			InputStream inputStream = new FileInputStream(filePath.getAbsoluteFile());
+			inputStream = new FileInputStream(filePath.getAbsoluteFile());
 			TestDataDto
 					.setTestdata((Map<String, Map<String, Map<String, Map<String, Object>>>>) yaml.load(inputStream));
-			inputStream.close();
 			setFilePathFromTestdataFileName(filePath);
 		} catch (IOException e) {
 			TESTDATAUTILITY_LOGGER.error("Exception Occured in testdata processor : " + e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 	}	
 	/**
