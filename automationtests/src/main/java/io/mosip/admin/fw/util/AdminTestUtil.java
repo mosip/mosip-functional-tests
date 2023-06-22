@@ -4839,7 +4839,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 		}
 		if (BaseTestCase.currentModule.equals("masterdata")) {
-			if (testCaseName.startsWith("Resident_GenerateVID") || testCaseName.startsWith("IDP_AuthenticateUserIDP")
+			if (testCaseName.startsWith("Resident_GenerateVID") || testCaseName.startsWith("ESignet_AuthenticateUserIDP")
 					|| testCaseName.startsWith("Resident_credential")) {
 				if (request.has("request")) {
 					if (request.getJSONObject("request").has("otp")) {
