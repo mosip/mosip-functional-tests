@@ -61,6 +61,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	 */
 	public Map<String, String> parseAndWriteFile(String inputFilePath, Map<String, String> fieldvalue,
 			String outputFilePath, String propFileName) {
+		FileOutputStream outputStream = null;
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			Object jsonObj = mapper.readValue(
@@ -89,7 +90,8 @@ public class JsonPrecondtion extends MessagePrecondtion{
 							map.getValue());
 			}
 			mapper.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
-			mapper.writeValue(new FileOutputStream(outputFilePath), jsonObj);
+			outputStream = new FileOutputStream(outputFilePath);
+			mapper.writeValue(outputStream, jsonObj);
 			String outputJson = new String(Files.readAllBytes(Paths.get(outputFilePath)), StandardCharsets.UTF_8);
 			// Replacing the version in request
 			/*
@@ -117,6 +119,8 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			JSONPRECONDATION_LOGGER.error("Exception Occured in precondtion message: " + e.getMessage());
 			Reporter.log("Exception Occured in precondtion message: " + e.getMessage());
 			return fieldvalue;
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	@Override

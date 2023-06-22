@@ -5,6 +5,7 @@ import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.util.CryptoUtil;
@@ -114,12 +115,14 @@ public class BiometricDataUtility extends AuthTestsUtil {
 	}
 	
 	private static String getSignedData(String identityDataBlock) {
+		FileInputStream pkeyfis = null;
+		FileInputStream certfis = null;
 		try {
 			// Extract Certificate
 			String resourcePath = RunConfigUtil.getResourcePath();
-			FileInputStream pkeyfis = new FileInputStream(resourcePath + "ida/TestData/RunConfig/keys/privateKey.pem");
+			pkeyfis = new FileInputStream(resourcePath + "ida/TestData/RunConfig/keys/privateKey.pem");
 			String pKey = FileUtil.getFileContent(pkeyfis, "UTF-8");
-			FileInputStream certfis = new FileInputStream(resourcePath + "ida/TestData/RunConfig/keys/cert.pem");
+			certfis = new FileInputStream(resourcePath + "ida/TestData/RunConfig/keys/cert.pem");
 			String cert = FileUtil.getFileContent(certfis, "UTF-8");
 			pKey = pKey.replaceAll("-----BEGIN (.*)-----\n", "");
 			pKey = pKey.replaceAll("-----END (.*)----\n", "");
@@ -138,6 +141,9 @@ public class BiometricDataUtility extends AuthTestsUtil {
 		} catch (Exception e) {
 			logger.error("Exception Occured in signing the bio data:" + e.getStackTrace());
 			return "Automation error occured: "+e.getMessage();
+		}finally {
+			AdminTestUtil.closeInputStream(pkeyfis);
+			AdminTestUtil.closeInputStream(certfis);
 		}
 	}
 	

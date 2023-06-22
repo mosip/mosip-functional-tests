@@ -127,7 +127,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 						JSONObject json = new JSONObject(response.asString());
 						idField = json.getJSONObject("response").get("id").toString();
 					}
-					Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+					Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 					if (!OutputValidationUtil.publishOutputResult(ouputValid))
 						throw new AdminTestException("Failed at output validation");
@@ -163,7 +163,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 			}
-			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
 		}

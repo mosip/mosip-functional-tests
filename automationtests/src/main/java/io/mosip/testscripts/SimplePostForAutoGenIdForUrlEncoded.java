@@ -117,7 +117,7 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 						JSONObject json = new JSONObject(response.asString());
 						idField = json.getJSONObject("response").get("id").toString();
 					}
-					Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+					Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 					if (!OutputValidationUtil.publishOutputResult(ouputValid))
 						throw new AdminTestException("Failed at output validation");
@@ -140,7 +140,7 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 					.doJsonOutputValidation(response.asString(), outputJson);
-			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
 		}

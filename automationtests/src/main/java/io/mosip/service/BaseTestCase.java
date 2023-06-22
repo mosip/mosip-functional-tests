@@ -347,12 +347,15 @@ public class BaseTestCase {
 
 	public static Properties getproperty(String path) {
 		Properties prop = new Properties();
-
+		FileInputStream inputStream = null;
 		try {
 			File file = new File(path);
-			prop.load(new FileInputStream(file));
-		} catch (IOException e) {
+			inputStream = new FileInputStream(file);
+			prop.load(inputStream);
+		} catch (Exception e) {
 			logger.error("Exception " + e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 		return prop;
 	}

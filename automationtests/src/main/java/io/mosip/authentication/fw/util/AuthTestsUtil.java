@@ -133,10 +133,11 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	protected boolean postRequestAndGenerateOuputFile(File[] listOfFiles, String urlPath, String keywordToFind,
 			String generateOutputFileKeyword, int code) {
+		FileOutputStream outputStream = null;
 		try {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
+					outputStream = new FileOutputStream(
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					Response response=null;
 					String responseJson = "";
@@ -150,15 +151,15 @@ public class AuthTestsUtil extends BaseTestCase {
 					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
 							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
 					responseJson=JsonPrecondtion.toPrettyFormat(responseJson);
-					fos.write(responseJson.getBytes());
-					fos.flush();
-					fos.close();
+					outputStream.write(responseJson.getBytes());
 				}
 			}
 			return true;
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception " + e);
 			return false;
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	
@@ -174,10 +175,11 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	protected boolean postRequestAndGenerateOuputFileForIntenalAuth(File[] listOfFiles, String urlPath, String keywordToFind,
 			String generateOutputFileKeyword,String cookieName, String cookieValue,int code) {
+		FileOutputStream outputStream = null;
 		try {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
+					outputStream = new FileOutputStream(
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					Response response;
 					if (code == 0)
@@ -188,15 +190,15 @@ public class AuthTestsUtil extends BaseTestCase {
 					responseDigitalSignatureValue=response.getHeader(responseDigitalSignatureKey);
 					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
 							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
-					fos.write(response.asString().getBytes());
-					fos.flush();
-					fos.close();
+					outputStream.write(response.asString().getBytes());
 				}
 			}
 			return true;
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception " + e);
 			return false;
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	
@@ -212,10 +214,11 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	protected String postRequestAndGenerateOuputFileWithResponse(File[] listOfFiles, String urlPath,
 			String keywordToFind, String generateOutputFileKeyword,String cookieName,String cookieValue, int code) {
+		FileOutputStream outputStream = null;
 		try {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
+					outputStream = new FileOutputStream(
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					Response responseJson;
 					if (code == 0)
@@ -224,9 +227,7 @@ public class AuthTestsUtil extends BaseTestCase {
 						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code,cookieName,cookieValue);
 					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
 							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson.asString()) + "</pre>");
-					fos.write(responseJson.asString().getBytes());
-					fos.flush();
-					fos.close();
+					outputStream.write(responseJson.asString().getBytes());
 					return responseJson.asString().toString();
 				}
 			}
@@ -234,6 +235,8 @@ public class AuthTestsUtil extends BaseTestCase {
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception " + e);
 			return e.getMessage();
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	
@@ -247,7 +250,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response,expCode));
 			objMap.put("Status Code", objList);
-			Reporter.log(ReportUtil.getOutputValiReport(objMap));
+			Reporter.log(ReportUtil.getOutputValidationReport(objMap));
 			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
 			return response;
 		} catch (Exception e) {
@@ -265,7 +268,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response,expCode));
 			objMap.put("Status Code", objList);
-			Reporter.log(ReportUtil.getOutputValiReport(objMap));
+			Reporter.log(ReportUtil.getOutputValidationReport(objMap));
 			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
 			return response;
 		} catch (Exception e) {
@@ -286,10 +289,11 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	protected boolean postRequestAndGenerateOuputFileForUINGeneration(File[] listOfFiles, String urlPath,
 			String keywordToFind, String generateOutputFileKeyword,String cookieName,String cookieValue,int code) {
+		FileOutputStream outputStream = null;
 		try {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
+					outputStream = new FileOutputStream(
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					Response responseJson;
 					if (code == 0)
@@ -297,15 +301,11 @@ public class AuthTestsUtil extends BaseTestCase {
 					else
 						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code,cookieName,cookieValue);
 					if (responseJson.asString().contains("Invalid UIN")) {
-						fos.flush();
-						fos.close();
 						return false;
 					} else {
 						Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
 								+ ReportUtil.getTextAreaJsonMsgHtml(responseJson.asString()) + "</pre>");
-						fos.write(responseJson.asString().getBytes());
-						fos.flush();
-						fos.close();
+						outputStream.write(responseJson.asString().getBytes());
 						return true;
 					}
 				}
@@ -314,6 +314,8 @@ public class AuthTestsUtil extends BaseTestCase {
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception " + e);
 			return false;
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	
@@ -329,10 +331,11 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	protected boolean postRequestAndGenerateOuputFileForUINUpdate(File[] listOfFiles, String urlPath, String keywordToFind,
 			String generateOutputFileKeyword, String cookieName,String cookieValue,int code) {
+		FileOutputStream outputStream = null;
 		try {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
+					outputStream = new FileOutputStream(
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					String responseJson = "";
 					if (code == 0)
@@ -341,9 +344,7 @@ public class AuthTestsUtil extends BaseTestCase {
 						responseJson = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code);*/
 					Reporter.log("<b><u>Actual Patch Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
 							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
-					fos.write(responseJson.getBytes());
-					fos.flush();
-					fos.close();
+					outputStream.write(responseJson.getBytes());
 					return true;
 				}
 			}
@@ -351,6 +352,8 @@ public class AuthTestsUtil extends BaseTestCase {
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception " + e);
 			return false;
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	
@@ -401,7 +404,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response,expCode));
 			objMap.put("Status Code", objList);
-			Reporter.log(ReportUtil.getOutputValiReport(objMap));
+			Reporter.log(ReportUtil.getOutputValidationReport(objMap));
 			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
 			return response.asString();
 		} catch (Exception e) {
@@ -445,7 +448,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response,expCode));
 			objMap.put("Status Code", objList);
-			Reporter.log(ReportUtil.getOutputValiReport(objMap));
+			Reporter.log(ReportUtil.getOutputValidationReport(objMap));
 			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
 			return response;
 		} catch (Exception e) {
@@ -712,15 +715,19 @@ public class AuthTestsUtil extends BaseTestCase {
 	private static Properties getRunConfigData() {
 		Properties prop = new Properties();
 		InputStream input = null;
+		FileInputStream inputStream = null;
 		try {
 			RunConfigUtil.objRunConfig.setUserDirectory();
-			input = new FileInputStream(new File(RunConfigUtil.getResourcePath()+"/ida/TestData/RunConfig/envRunConfig.properties").getAbsolutePath());
+			inputStream = new FileInputStream(new File(RunConfigUtil.getResourcePath()+"/ida/TestData/RunConfig/envRunConfig.properties").getAbsolutePath());
+			input = inputStream;
 			prop.load(input);
 			input.close();
 			return prop;
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e.getMessage());
 			return prop;
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 	}
 	
@@ -800,17 +807,17 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	public static void generateMappingDic(String filePath, Map<String, String> map) {
 		Properties prop = new Properties();
-		OutputStream output = null;
+		FileOutputStream outputStream = null;
 		try {
-			output = new FileOutputStream(filePath);
+			outputStream = new FileOutputStream(filePath);
 			for (Entry<String, String> entry : map.entrySet()) {
 				prop.setProperty(entry.getKey(), entry.getValue());
 			}
-			prop.store(output, null);
-			output.close();
-			output.flush();
+			prop.store(outputStream, null);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Excpetion in storing the data in propertyFile" + e.getMessage());
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	
@@ -821,20 +828,22 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @param map
 	 */
 	public static void updateMappingDic(String filePath, Map<String, String> map) {
+		FileInputStream inputStream = null;
+		FileOutputStream outputStream = null;
 		try {
-			FileInputStream in = new FileInputStream(filePath);
+			inputStream = new FileInputStream(filePath);
 			Properties props = new Properties();
-			props.load(in);
-			in.close();
-			FileOutputStream out = new FileOutputStream(filePath);
+			props.load(inputStream);
+			outputStream = new FileOutputStream(filePath);
 			for (Entry<String, String> entry : map.entrySet()) {
 				props.setProperty(entry.getKey(), entry.getValue());
 			}
-			props.store(out, null);
-			out.close();
-			out.flush();
+			props.store(outputStream, null);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception in updating the property file" + e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	
@@ -845,11 +854,12 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @param map
 	 */
 	public void updateMappingDicForEmailOtpNotification(String filePath, Map<String, String> map) {
+		FileInputStream inputStream = null;
+		FileOutputStream outputStream = null;
 		try {
-			FileInputStream in = new FileInputStream(filePath);
+			inputStream = new FileInputStream(filePath);
 			Properties props = new Properties();
-			props.load(in);
-			in.close();
+			props.load(inputStream);
 			for (Entry<String, String> entry : map.entrySet()) {
 				if (entry.getValue().contains("$otp$")) {
 					String value = entry.getValue().replace("$otp$", map.get("email.otp"));
@@ -857,9 +867,13 @@ public class AuthTestsUtil extends BaseTestCase {
 				} else
 					props.setProperty(entry.getKey(), entry.getValue());
 			}
-			props.store(new OutputStreamWriter(new FileOutputStream(filePath), "UTF-8"), null);
+			outputStream = new FileOutputStream(filePath);
+			props.store(new OutputStreamWriter(outputStream, "UTF-8"), null);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception in updating the property file" + e.getMessage());
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	
@@ -872,15 +886,16 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	public static String getValueFromPropertyFile(String filepath, String key) {
 		Properties prop = new Properties();
-		InputStream input = null;
+		FileInputStream inputStream = null;
 		try {
-			input = new FileInputStream(filepath);
-			prop.load(input);
-			input.close();
+			inputStream = new FileInputStream(filepath);
+			prop.load(inputStream);
 			return prop.getProperty(key).toString();
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e.getMessage());
 			return e.getMessage();
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
 	}
 	
@@ -892,16 +907,17 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	public static Properties getPropertyFromFilePath(String filepath) {
 		Properties prop = new Properties();
-		InputStream input = null;
+		FileInputStream inputStream = null;
 		try {
-			input = new FileInputStream(filepath);
-			prop.load(input);
-			input.close();
-			return prop;
+			inputStream = new FileInputStream(filepath);
+			prop.load(inputStream);
+			
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e.getMessage());
-			return prop;
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
+		return prop;
 	}
     /**
      * The method will get property from relative file path
@@ -911,16 +927,17 @@ public class AuthTestsUtil extends BaseTestCase {
      */
 	public static Properties getPropertyFromRelativeFilePath(String path) {
 		Properties prop = new Properties();
-		InputStream input = null;
+		FileInputStream inputStream = null;
 		try {
-			input = new FileInputStream(new File(RunConfigUtil.getResourcePath() + path).getAbsolutePath());
-			prop.load(input);
-			input.close();
-			return prop;
+			inputStream = new FileInputStream(new File(RunConfigUtil.getResourcePath() + path).getAbsolutePath());
+			prop.load(inputStream);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception occured in fetching data property file " + e.getMessage());
-			return prop;
+			
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
+		return prop;
 	}
 	/**
 	 * The method will get property as map
@@ -930,20 +947,20 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	public static Map<String, String> getPropertyAsMap(String filepath) {
 		Properties prop = new Properties();
-		InputStream input = null;
+		FileInputStream inputStream = null;
 		Map<String, String> map = new HashMap<String, String>();
 		try {
-			input = new FileInputStream(filepath);
-			prop.load(input);
+			inputStream = new FileInputStream(filepath);
+			prop.load(inputStream);
 			for (String key : prop.stringPropertyNames()) {
 				map.put(key, prop.getProperty(key));
 			}
-			input.close();
-			return map;
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e.getMessage());
-			return map;
+		}finally {
+			AdminTestUtil.closeInputStream(inputStream);
 		}
+		return map;
 	}
 	
 	
@@ -959,6 +976,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * The method will create bat or sh file to run demoApp jar in windows or linux OS respectively
 	 */
 	public static void createBatOrShFileForDemoApp() {
+		FileOutputStream outputStream = null;
 		try {
 			String javaHome = System.getenv("JAVA_HOME");
 			String demoAppJarPath = null;
@@ -995,14 +1013,14 @@ public class AuthTestsUtil extends BaseTestCase {
 			}
 			IDASCRIPT_LOGGER.info("DemoApp Jar: " + demoAppJarPath);
 			IDASCRIPT_LOGGER.info("Cmd Path: " + content);
-			FileOutputStream fos = new FileOutputStream(demoAppBatchFilePath);
-			DataOutputStream dos = new DataOutputStream(fos);
+			outputStream = new FileOutputStream(demoAppBatchFilePath);
+			DataOutputStream dos = new DataOutputStream(outputStream);
 			dos.writeBytes(content);
 			dos.close();
-			fos.flush();
-			fos.close();
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception in creating the bat file for demoApp application " + e.getMessage());
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	
@@ -1263,7 +1281,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response,expCode));
 			objMap.put("Status Code", objList);
-			Reporter.log(ReportUtil.getOutputValiReport(objMap));
+			Reporter.log(ReportUtil.getOutputValidationReport(objMap));
 			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
 			return response;
 		} catch (Exception e) {
@@ -1376,19 +1394,20 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	protected String getRequestAndGenerateOuputFileWithResponse(String parentFile,String urlPath,
 			String generateOutputFileKeyword,String cookieName,String cookieValue) {
+		FileOutputStream outputStream = null;
 		try {
-					FileOutputStream fos = new FileOutputStream(
+			outputStream = new FileOutputStream(
 							parentFile + "/" + generateOutputFileKeyword + ".json");
-					String responseJson = getResponseWithCookie(urlPath, cookieName, cookieValue);
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
-					fos.write(responseJson.getBytes());
-					fos.flush();
-					fos.close();
-					return responseJson.toString();
+			String responseJson = getResponseWithCookie(urlPath, cookieName, cookieValue);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
+			outputStream.write(responseJson.getBytes());
+			return responseJson.toString();
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception " + e);
 			return e.getMessage();
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	
@@ -1461,10 +1480,11 @@ public class AuthTestsUtil extends BaseTestCase {
 	
 	protected boolean patchRequestAndGenerateOuputFileForIntenalAuth(File[] listOfFiles, String urlPath, String keywordToFind,
 			String generateOutputFileKeyword,String cookieName, String cookieValue,int code) {
+		FileOutputStream outputStream = null;
 		try {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
+					outputStream = new FileOutputStream(
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					Response response;
 					if (code == 0)
@@ -1475,25 +1495,26 @@ public class AuthTestsUtil extends BaseTestCase {
 					responseDigitalSignatureValue=response.getHeader(responseDigitalSignatureKey);
 					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
 							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
-					fos.write(response.asString().getBytes());
-					fos.flush();
-					fos.close();
+					outputStream.write(response.asString().getBytes());
 				}
 			}
 			return true;
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception " + e);
 			return false;
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	
 	protected Response postRequestAndGenerateOuputFileAndReturnResponse(File[] listOfFiles, String urlPath, String keywordToFind,
 			String generateOutputFileKeyword,String cookieName, String cookieValue,int code) {
+		FileOutputStream outputStream = null;
 		Response response=null;
 		try {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					FileOutputStream fos = new FileOutputStream(
+					outputStream = new FileOutputStream(
 							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					
 					if (code == 0)
@@ -1504,15 +1525,15 @@ public class AuthTestsUtil extends BaseTestCase {
 					responseDigitalSignatureValue=response.getHeader(responseDigitalSignatureKey);
 					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
 							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
-					fos.write(response.asString().getBytes());
-					fos.flush();
-					fos.close();
+					outputStream.write(response.asString().getBytes());
 				}
 			}
 			return response;
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception " + e);
 			return response;
+		}finally {
+			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 	

@@ -147,7 +147,7 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
 				otpRespon.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
-		Reporter.log(ReportUtil.getOutputValiReport(ouputValidOtp));
+		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at Send OTP output validation");
@@ -194,7 +194,7 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), ActualOPJson);
-		Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
+		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
