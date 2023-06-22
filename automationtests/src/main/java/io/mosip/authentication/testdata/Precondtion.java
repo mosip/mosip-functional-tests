@@ -38,9 +38,9 @@ public class Precondtion {
 	public static Map<String, String> parseAndWritePropertyFile(String auditMappingPath,Map<String, String> fieldvalue,
 			String outputFilePath) {
 		FileOutputStream outputStream = null;
+		Map<String, String> auditTxnValue = new HashMap<String, String>();
 		try {
 			fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);// New Code . Need to add
-			Map<String, String> auditTxnValue = new HashMap<String, String>();
 			for (Entry<String, String> entry : fieldvalue.entrySet()) {
 				String orgKey = AuthTestsUtil.getPropertyFromFilePath(auditMappingPath).get(entry.getKey()).toString();
 				auditTxnValue.put(orgKey, entry.getValue());
@@ -51,14 +51,12 @@ public class Precondtion {
 					prop.setProperty(entry.getKey(), entry.getValue());
 				}
 				prop.store(outputStream, "UTF-8");
-			return auditTxnValue;
 		} catch (Exception e) {
 			PRECON_LOGGER.error("Exception Occured: " + e.getMessage());
-			Reporter.log("Exception Occured: " + e.getMessage());
-			return null;
 		}finally {
 			AdminTestUtil.closeOutputStream(outputStream);
 		}
+		return auditTxnValue;
 	}
 	/**
 	 * Method update the property file and return map of property
@@ -71,10 +69,9 @@ public class Precondtion {
 	public static Map<String, String> parseAndWriteEmailNotificationPropertyFile(String emailMappingPath,
 			Map<String, String> fieldvalue, String outputFilePath) {
 		FileOutputStream outputStream = null;
+		Map<String, String> emailTemplatevalue = new HashMap<String, String>();
 		try {
-			fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);// New Code . Need to
-																									// add
-			Map<String, String> emailTemplatevalue = new HashMap<String, String>();
+			fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
 			for (Entry<String, String> entry : fieldvalue.entrySet()) {
 				String key = entry.getKey().toString();
 				if (key.matches("email.template.*")) {
@@ -90,14 +87,13 @@ public class Precondtion {
 			}
 			outputStream = new FileOutputStream(outputFilePath);
 			prop.store(new OutputStreamWriter(outputStream, "UTF-8"), null);
-			return emailTemplatevalue;
+			
 		} catch (Exception e) {
 			PRECON_LOGGER.error("Exception Occured: " + e.getMessage());
-			Reporter.log("Exception Occured: " + e.getMessage());
-			return null;
 		}finally {
 			AdminTestUtil.closeOutputStream(outputStream);
 		}
+		return emailTemplatevalue;
 	}
 	
 	/**
@@ -109,25 +105,23 @@ public class Precondtion {
 	 */
 	public static Map<String, String> parseAndWritePropertyFile(Map<String, String> fieldvalue, String outputFilePath) {
 		FileOutputStream outputStream = null;
+		Map<String, String> returnFieldValue = null;
 		try {
-			fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);// New Code . Need to
-																									// add
+			returnFieldValue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
 			Properties prop = new Properties();
 			if (!new File(outputFilePath).exists())
 				new File(outputFilePath).getParentFile().mkdirs();
 			outputStream = new FileOutputStream(outputFilePath);
-			for (Entry<String, String> entry : fieldvalue.entrySet()) {
+			for (Entry<String, String> entry : returnFieldValue.entrySet()) {
 				prop.setProperty(entry.getKey(), entry.getValue());
 			}
 			prop.store(outputStream, null);
-			return fieldvalue;
 		} catch (Exception e) {
 			PRECON_LOGGER.error("Exception Occured: " + e.getMessage());
-			Reporter.log("Exception Occured: " + e.getMessage());
-			return null;
 		}finally {
 			AdminTestUtil.closeOutputStream(outputStream);
 		}
+		return returnFieldValue;
 	}
 	
 	

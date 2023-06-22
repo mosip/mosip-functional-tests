@@ -158,7 +158,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			bReturn = true;
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception " + e);
-		}finally {
+		} finally {
 			AdminTestUtil.closeOutputStream(outputStream);
 		}
 		return bReturn;
@@ -397,8 +397,9 @@ public class AuthTestsUtil extends BaseTestCase {
      * @return
      */
 	protected String patchRequest(String filename, String url, int expCode) {
-		Response response=null;
+		String responseString = "";
 		try {
+			Response response = null;
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
 			response = RestClient.patchRequest(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON);
@@ -408,11 +409,11 @@ public class AuthTestsUtil extends BaseTestCase {
 			objMap.put("Status Code", objList);
 			Reporter.log(ReportUtil.getOutputValidationReport(objMap));
 			Verify.verify(OutputValidationUtil.publishOutputResult(objMap));
-			return response.asString();
+			responseString = response.asString();
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e);
-			return response.asString();
 		}
+		return responseString;
 	}
 	
 	/**
@@ -1194,16 +1195,17 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 	
 	protected static String getAuthorizationCookie(String filename, String urlPath,String cookieName) {
-		JSONObject objectData = null;
+		String authorizationCookie = "";
 		try {
 			String json = getContentFromFile(new File(filename));
 			json=json.replace("$TIMESTAMPZ$", AdminTestUtil.generateCurrentUTCTimeStamp());
-			objectData = (JSONObject) new JSONParser().parse(json);
+			JSONObject objectData = (JSONObject) new JSONParser().parse(json);
+			authorizationCookie = RestClient.getCookie(urlPath, objectData.toJSONString(), MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON,cookieName);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception Occured :" + e.getMessage());
 		}
-		return RestClient.getCookie(urlPath, objectData.toJSONString(), MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON,cookieName);
+		return authorizationCookie;
 	}
 	
 	protected Response postRequestWithCookie(String filename, String url,String cookieName, String cookieValue) {
@@ -1490,6 +1492,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	protected boolean patchRequestAndGenerateOuputFileForIntenalAuth(File[] listOfFiles, String urlPath, String keywordToFind,
 			String generateOutputFileKeyword,String cookieName, String cookieValue,int code) {
 		FileOutputStream outputStream = null;
+		boolean bReturn = false;
 		try {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
@@ -1507,13 +1510,13 @@ public class AuthTestsUtil extends BaseTestCase {
 					outputStream.write(response.asString().getBytes());
 				}
 			}
-			return true;
+			bReturn = true;
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception " + e);
-			return false;
 		}finally {
 			AdminTestUtil.closeOutputStream(outputStream);
 		}
+		return bReturn;
 	}
 	
 	protected Response postRequestAndGenerateOuputFileAndReturnResponse(File[] listOfFiles, String urlPath,

@@ -56,9 +56,14 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	}
 	public static void getThumbprints() {
 		String appId = props.getProperty("appIdForCertificate");
-		partnerThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("partnerrefId")));
-		internalThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("internalrefId")));
-		idaFirThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("idaFirRefId")));	
+		try {
+			partnerThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("partnerrefId")));
+			internalThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("internalrefId")));
+			idaFirThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("idaFirRefId")));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public static String getEncryptUtilBaseUrl() {
@@ -399,22 +404,31 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	}
 	
 	public boolean validateThumbPrint( String thumbPrint, String partnerId) {
-		String expectedThumbPrint = getCertificateThumbprint(getPartnerCertificate(partnerId));
+		String expectedThumbPrint = "";
+		try {
+			expectedThumbPrint = getCertificateThumbprint(getPartnerCertificate(partnerId));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return expectedThumbPrint.equals(thumbPrint);
 	}
 	
 	public boolean validateEkycResponseIdentity(String identity, String partnerId, boolean isInternal) {
 		String decryptedKycIdentity = getDecyptFromStr(identity, partnerId, isInternal);
-		Reporter.log("<b><u>Decrypted Kyc Response: </u></b>(EndPointUrl: " + EncryptUtilBaseUrl + props.get("decryptPath") + ") <pre>"
-				+ ReportUtil.getTextAreaJsonMsgHtml(decryptedKycIdentity) + "</pre>");
+		boolean bReturn = true;
+		Reporter.log(
+				"<b><u>Decrypted Kyc Response: </u></b>(EndPointUrl: " + EncryptUtilBaseUrl + props.get("decryptPath")
+						+ ") <pre>" + ReportUtil.getTextAreaJsonMsgHtml(decryptedKycIdentity) + "</pre>");
 		String keysToValidateInKYC[] = props.getProperty("keysToValidateInKYC").split(",");
 		JSONObject decryptedKycJson = new JSONObject(decryptedKycIdentity);
-		if(decryptedKycJson!=null ) {
-		for(String key : keysToValidateInKYC) 
-			if(!decryptedKycJson.has(key)) return false;
-		}
-		else return false;
-		return true;
+		if (decryptedKycJson.length() != 0) {
+			for (String key : keysToValidateInKYC)
+				if (!decryptedKycJson.has(key))
+					bReturn = false;
+		} else
+			bReturn = false;
+		return bReturn;
 	}
 	
 

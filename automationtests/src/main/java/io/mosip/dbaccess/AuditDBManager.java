@@ -54,13 +54,17 @@ public class AuditDBManager extends AdminTestUtil {
 				@Override
 				public void execute(Connection connection) throws SQLException {
 					Statement statement = connection.createStatement();
-					ResultSet rs = statement.executeQuery(query);
-					ResultSetMetaData md = rs.getMetaData();
-					int columns = md.getColumnCount();
-					while (rs.next()) {
-						for (int i = 1; i <= columns; i++) {
-							record.put(md.getColumnName(i), rs.getObject(i));
+					try {
+						ResultSet rs = statement.executeQuery(query);
+						ResultSetMetaData md = rs.getMetaData();
+						int columns = md.getColumnCount();
+						while (rs.next()) {
+							for (int i = 1; i <= columns; i++) {
+								record.put(md.getColumnName(i), rs.getObject(i));
+							}
 						}
+					} finally {
+						statement.close();
 					}
 				}
 			});
@@ -88,9 +92,13 @@ public class AuditDBManager extends AdminTestUtil {
 				@Override
 				public void execute(Connection connection) throws SQLException {
 					Statement statement = connection.createStatement();
-					int rs = statement.executeUpdate(deleteQuery);
-					if (rs > 0) {
-						System.out.println("deleted successfully!");
+					try {
+						int rs = statement.executeUpdate(deleteQuery);
+						if (rs > 0) {
+							System.out.println("deleted successfully!");
+						}
+					} finally {
+						statement.close();
 					}
 				}
 			});
@@ -130,14 +138,13 @@ public class AuditDBManager extends AdminTestUtil {
 			config.addFile(new File(dbConfigXml));
 			factory = config.buildSessionFactory();
 			session = factory.getCurrentSession();
+			session.beginTransaction();
+			DBCONNECTION_LOGGER.info("==========session  begins=============");
 		} catch (HibernateException e) {
-			DBCONNECTION_LOGGER.info("Exception in Database Connection with following message: ");
-			DBCONNECTION_LOGGER.info(e.getMessage());
+			DBCONNECTION_LOGGER.error("Exception in Database Connection with following message: " + e.getMessage());
 		} catch (NullPointerException e) {
 			Assert.assertTrue(false, "Exception in getting the session");
 		}
-		session.beginTransaction();
-		DBCONNECTION_LOGGER.info("==========session  begins=============");
 		return session;
 	}
 }
