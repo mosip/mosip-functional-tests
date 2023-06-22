@@ -1,6 +1,8 @@
 package io.mosip.authentication.fw.util;
 
 import java.io.File;
+import java.io.IOException;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -28,8 +30,9 @@ public class StoreAuthenticationAppLogs {
 					pathExp };
 			Process process = Runtime.getRuntime().exec(cmdarray);
 			process.waitFor();
-		} catch (Exception e) {
-			storeAuthAppLogger.error("Exception occured in storing the log");
+		} catch (InterruptedException | IOException e) {
+			storeAuthAppLogger.error("Exception occured in storing the log " + e.getMessage());
+			Thread.currentThread().interrupt();
 		}
 	}
 

@@ -32,14 +32,15 @@ public class HealthChecker implements Runnable {
 	public void run() {
 		
 		File file = new File(propsHealthCheckURL);
-		FileReader fr = null;
+		FileReader fileReader = null;
 		List<String> controllerPaths = new ArrayList<String>();
+		BufferedReader bufferedReader = null;
 		try {
-			fr = new FileReader(file);
-		BufferedReader br = new BufferedReader(fr);
-		String line;
+			fileReader = new FileReader(file);
+			bufferedReader = new BufferedReader(fileReader);
+			String line;
 		
-			while ((line = br.readLine()) != null) {
+			while ((line = bufferedReader.readLine()) != null) {
 				if (line.trim().equals(""))
 					continue;
 				String[] parts = line.trim().split("=");
@@ -47,11 +48,12 @@ public class HealthChecker implements Runnable {
 					controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
 				}
 			}
-		
-		    fr.close();
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		} finally {
+			AdminTestUtil.closeBufferedReader(bufferedReader);
+			AdminTestUtil.closeFileReader(fileReader);
 		}
 
 		while (bTerminate == false) {
@@ -74,6 +76,7 @@ public class HealthChecker implements Runnable {
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				Thread.currentThread().interrupt();
 			}
 		}
 	}

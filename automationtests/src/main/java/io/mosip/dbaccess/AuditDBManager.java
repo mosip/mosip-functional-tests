@@ -46,45 +46,59 @@ public class AuditDBManager extends AdminTestUtil {
 	 */
 
 	public static Map<String, Object> executeQueryAndGetRecord(String moduleName, String query) {
-		Session session = getDataBaseConnection(moduleName);
+		Session session = null;
 		Map<String, Object> record = new HashMap<String, Object>();
-		session.doWork(new Work() {
-			@Override
-			public void execute(Connection connection) throws SQLException {
-				Statement statement = connection.createStatement();
-				ResultSet rs = statement.executeQuery(query);
-				ResultSetMetaData md = rs.getMetaData();
-				int columns = md.getColumnCount();
-				while (rs.next()) {
-					for (int i = 1; i <= columns; i++) {
-						record.put(md.getColumnName(i), rs.getObject(i));
+		try {
+			session = getDataBaseConnection(moduleName);
+			session.doWork(new Work() {
+				@Override
+				public void execute(Connection connection) throws SQLException {
+					Statement statement = connection.createStatement();
+					ResultSet rs = statement.executeQuery(query);
+					ResultSetMetaData md = rs.getMetaData();
+					int columns = md.getColumnCount();
+					while (rs.next()) {
+						for (int i = 1; i <= columns; i++) {
+							record.put(md.getColumnName(i), rs.getObject(i));
+						}
 					}
 				}
-			}
-		});  
-		
-		DBCONNECTION_LOGGER.info("==========session  closed=============");
-		session.close();
-		System.out.println(record);
+			});
+		} catch (NullPointerException e) {
+			DBCONNECTION_LOGGER.error("Exception occured " + e.getMessage());
+		} finally {
+			closeDataBaseConnection(session);
+		}
 		return record;
 
 	}
+	
+	public static void closeDataBaseConnection(Session session) {
+		if (session != null) {
+			DBCONNECTION_LOGGER.info("==========session  closed=============");
+			session.close();
+		}
+	}
 
 	public static void executeQueryAndDeleteRecord(String moduleName, String deleteQuery) {
-		Session session = getDataBaseConnection(moduleName);
-		session.doWork(new Work() {
-			@Override
-			public void execute(Connection connection) throws SQLException {
-				Statement statement = connection.createStatement();
-				int rs = statement.executeUpdate(deleteQuery);
-				if (rs > 0) {
-					System.out.println("deleted successfully!");
+		Session session = null;
+		try {
+			session = getDataBaseConnection(moduleName);
+			session.doWork(new Work() {
+				@Override
+				public void execute(Connection connection) throws SQLException {
+					Statement statement = connection.createStatement();
+					int rs = statement.executeUpdate(deleteQuery);
+					if (rs > 0) {
+						System.out.println("deleted successfully!");
+					}
 				}
-			}
-		});
-		DBCONNECTION_LOGGER.info("==========session  closed=============");
-		session.close();
-
+			});
+		} catch (NullPointerException e) {
+			DBCONNECTION_LOGGER.error("Exception occured " + e.getMessage());
+		} finally {
+			closeDataBaseConnection(session);
+		}
 	}
 
 	private static Session getDataBaseConnection(String dbName) {

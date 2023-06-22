@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -32,6 +33,7 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.xml.XmlSuite;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 
@@ -63,6 +65,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
+		FileWriter fileWriter = null;
 		try {
 			// Get content data in TestNG report template file.
 			customReportTemplateStr = this.readEmailabelReportTemplate();
@@ -80,13 +83,12 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 			removeOldCustomMosipReport(outputDirectory);
 
 			File targetFile = new File(outputDirectory + "/"+reportProfixFileName/*getCurrentDateForReport()*/+".html");
-			FileWriter fw = new FileWriter(targetFile);
-			fw.write(finalcustomReport);
-			fw.flush();
-			fw.close();
-
-		} catch (Exception ex) {
+			fileWriter = new FileWriter(targetFile);
+			fileWriter.write(finalcustomReport);
+		} catch (NullPointerException | IOException ex) {
 			ex.printStackTrace();
+		} finally {
+			AdminTestUtil.closeFileWriter(fileWriter);
 		}
 	}
 
@@ -100,24 +102,27 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 	/* Read template content. */
 	private StringBuffer readEmailabelReportTemplate() {
 		StringBuffer retBuf = new StringBuffer();
-
+		FileReader fileReader = null;
+		BufferedReader bufferedReader = null;
 		try {
 
 			File file = new File(emailableReportTemplateFile);
-			FileReader fr = new FileReader(file);
-			BufferedReader br = new BufferedReader(fr);
+			fileReader = new FileReader(file);
+			bufferedReader = new BufferedReader(fileReader);
 
-			String line = br.readLine();
+			String line = bufferedReader.readLine();
 			while (line != null) {
 				retBuf.append(line);
-				line = br.readLine();
+				line = bufferedReader.readLine();
 			}
 
-		} catch (FileNotFoundException ex) {
+		} catch (NullPointerException | IOException ex) {
 			ex.printStackTrace();
 		} finally {
-			return retBuf;
+			AdminTestUtil.closeBufferedReader(bufferedReader);
+			AdminTestUtil.closeFileReader(fileReader);
 		}
+		return retBuf;
 	}
 
 	/* Build custom report title. */
@@ -212,7 +217,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 					retBuf.append("<td>");
 					retBuf.append(deltaTimeStr);
 					retBuf.append("</td>");
-					
+
 					/* Build Number */
 					String deploymentVersion = getAppDepolymentVersion();
 					retBuf.append("<td>");
@@ -232,29 +237,25 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 					retBuf.append("</tr>");
 				}
 				/* Additing of total testcaseCount */
-/*				retBuf.append("<tr>");
-
-				retBuf.append("<td>");
-				retBuf.append("Total Execution Count");
-				retBuf.append("</td>");
-
-				retBuf.append("<td>");
-				retBuf.append(totalCount);
-				retBuf.append("</td>");
-
-				retBuf.append("<td bgcolor=#3cb353>");
-				retBuf.append(passTestCount);
-				retBuf.append("</td>");
-
-				retBuf.append("<td bgcolor=#EEE8AA>");
-				retBuf.append(skipTestCount);
-				retBuf.append("</td>");
-
-				retBuf.append("<td bgcolor=#FF4500>");
-				retBuf.append(failTestCount);
-				retBuf.append("</td>");
-
-				retBuf.append("<tr>");*/
+				/*
+				 * retBuf.append("<tr>");
+				 * 
+				 * retBuf.append("<td>"); retBuf.append("Total Execution Count");
+				 * retBuf.append("</td>");
+				 * 
+				 * retBuf.append("<td>"); retBuf.append(totalCount); retBuf.append("</td>");
+				 * 
+				 * retBuf.append("<td bgcolor=#3cb353>"); retBuf.append(passTestCount);
+				 * retBuf.append("</td>");
+				 * 
+				 * retBuf.append("<td bgcolor=#EEE8AA>"); retBuf.append(skipTestCount);
+				 * retBuf.append("</td>");
+				 * 
+				 * retBuf.append("<td bgcolor=#FF4500>"); retBuf.append(failTestCount);
+				 * retBuf.append("</td>");
+				 * 
+				 * retBuf.append("<tr>");
+				 */
 			}
 			retBuf.append("<tr>");
 
@@ -281,9 +282,8 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 			retBuf.append("<tr>");
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		} finally {
-			return retBuf.toString();
 		}
+		return retBuf.toString();
 	}
 
 	/* Get date string format value. */
@@ -390,9 +390,8 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
-		} finally {
-			return retBuf.toString();
 		}
+		return retBuf.toString();
 	}
 
 	/* Get failed, passed or skipped test methods report. */

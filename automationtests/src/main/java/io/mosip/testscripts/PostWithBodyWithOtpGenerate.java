@@ -126,6 +126,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				Thread.currentThread().interrupt();
 			}
 		}
 		if(testCaseName.contains("ESignet_WalletBinding")) {

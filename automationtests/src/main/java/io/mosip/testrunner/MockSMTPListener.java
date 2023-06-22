@@ -167,6 +167,7 @@ public class MockSMTPListener{
 				Thread.sleep(AdminTestUtil.OTP_CHECK_INTERVAL);
 			} catch (InterruptedException e) {
 				System.out.println(e.getMessage());
+				Thread.currentThread().interrupt();
 			}
 			
 		}
