@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.DateFormat;
@@ -23,6 +24,8 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.xml.XmlSuite;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
+
 public class CustomTestNGReporter implements IReporter {
 	
 	//This is the customize emailabel report template file path.
@@ -30,7 +33,7 @@ public class CustomTestNGReporter implements IReporter {
 	
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
-		
+		FileWriter fileWriter = null;
 		try
 		{
 			// Get content data in TestNG report template file.
@@ -56,14 +59,15 @@ public class CustomTestNGReporter implements IReporter {
 			
 			// Write replaced test report content to custom-emailable-report.html.
 			File targetFile = new File(outputDirectory + "/custom-emailable-report.html");
-			FileWriter fw = new FileWriter(targetFile);
-			fw.write(customReportTemplateStr);
-			fw.flush();
-			fw.close();
+			fileWriter = new FileWriter(targetFile);
+			fileWriter.write(customReportTemplateStr);
 			
 		}catch(Exception ex)
 		{
 			ex.printStackTrace();
+		}
+		finally {
+			AdminTestUtil.closeFileWriter(fileWriter);
 		}
 	}
 	
@@ -71,26 +75,28 @@ public class CustomTestNGReporter implements IReporter {
 	private String readEmailabelReportTemplate()
 	{
 		StringBuffer retBuf = new StringBuffer();
-		
+		BufferedReader bufferedReader = null;
+		FileReader fileReader = null;
 		try {
 		
 			File file = new File(this.emailableReportTemplateFile);
-			FileReader fr = new FileReader(file);
-			BufferedReader br = new BufferedReader(fr);
+			fileReader = new FileReader(file);
+			bufferedReader = new BufferedReader(fileReader);
 			
-			String line = br.readLine();
+			String line = bufferedReader.readLine();
 			while(line!=null)
 			{
 				retBuf.append(line);
-				line = br.readLine();
+				line = bufferedReader.readLine();
 			}
 			
-		} catch (FileNotFoundException ex) {
+		} catch (NullPointerException |IOException ex) {
 			ex.printStackTrace();
-		}finally
-		{
-			return retBuf.toString();
+		}finally{
+			AdminTestUtil.closeBufferedReader(bufferedReader);
+			AdminTestUtil.closeFileReader(fileReader);
 		}
+		return retBuf.toString();
 	}
 	
 	/* Build custom report title. */
@@ -102,100 +108,93 @@ public class CustomTestNGReporter implements IReporter {
 	}
 	
 	/* Build test suite summary data. */
-	private String getTestSuiteSummary(List<ISuite> suites)
-	{
+	private String getTestSuiteSummary(List<ISuite> suites) {
 		StringBuffer retBuf = new StringBuffer();
-		
-		try
-		{
+
+		try {
 			int totalTestCount = 0;
 			int totalTestPassed = 0;
 			int totalTestFailed = 0;
 			int totalTestSkipped = 0;
-			
-			for(ISuite tempSuite: suites)
-			{
+
+			for (ISuite tempSuite : suites) {
 				retBuf.append("<tr><td colspan=11><center><b></b></center></td></tr>");
-				
+
 				Map<String, ISuiteResult> testResults = tempSuite.getResults();
-				
+
 				for (ISuiteResult result : testResults.values()) {
-				
+
 					retBuf.append("<tr>");
-					
+
 					ITestContext testObj = result.getTestContext();
-					
+
 					totalTestPassed = testObj.getPassedTests().getAllMethods().size();
 					totalTestSkipped = testObj.getSkippedTests().getAllMethods().size();
 					totalTestFailed = testObj.getFailedTests().getAllMethods().size();
-					
+
 					totalTestCount = totalTestPassed + totalTestSkipped + totalTestFailed;
-					
+
 					/* Test name. */
 					retBuf.append("<td>");
 					retBuf.append(testObj.getName());
 					retBuf.append("</td>");
-					
+
 					/* Total method count. */
 					retBuf.append("<td>");
 					retBuf.append(totalTestCount);
 					retBuf.append("</td>");
-					
+
 					/* Passed method count. */
 					retBuf.append("<td bgcolor=green>");
 					retBuf.append(totalTestPassed);
 					retBuf.append("</td>");
-					
+
 					/* Skipped method count. */
 					retBuf.append("<td bgcolor=yellow>");
 					retBuf.append(totalTestSkipped);
 					retBuf.append("</td>");
-					
+
 					/* Failed method count. */
 					retBuf.append("<td bgcolor=red>");
 					retBuf.append(totalTestFailed);
 					retBuf.append("</td>");
-					
-					
-					/* Start Date*/
+
+					/* Start Date */
 					Date startDate = testObj.getStartDate();
 					retBuf.append("<td>");
 					retBuf.append(this.getDateInStringFormat(startDate));
 					retBuf.append("</td>");
-					
-					/* End Date*/
+
+					/* End Date */
 					Date endDate = testObj.getEndDate();
 					retBuf.append("<td>");
 					retBuf.append(this.getDateInStringFormat(endDate));
 					retBuf.append("</td>");
-					
+
 					/* Execute Time */
 					long deltaTime = endDate.getTime() - startDate.getTime();
 					String deltaTimeStr = this.convertDeltaTimeToString(deltaTime);
 					retBuf.append("<td>");
 					retBuf.append(deltaTimeStr);
 					retBuf.append("</td>");
-					
+
 					/* Include groups. */
 					retBuf.append("<td>");
 					retBuf.append(this.stringArrayToString(testObj.getIncludedGroups()));
 					retBuf.append("</td>");
-					
+
 					/* Exclude groups. */
 					retBuf.append("<td>");
 					retBuf.append(this.stringArrayToString(testObj.getExcludedGroups()));
 					retBuf.append("</td>");
-					
+
 					retBuf.append("</tr>");
 				}
 			}
-		}catch(Exception ex)
-		{
+		} catch (Exception ex) {
 			ex.printStackTrace();
-		}finally
-		{
-			return retBuf.toString();
 		}
+		return retBuf.toString();
 	}
 
 	/* Get date string format value. */
@@ -230,47 +229,41 @@ public class CustomTestNGReporter implements IReporter {
 	}
 	
 	/* Get test method summary info. */
-	private String getTestMehodSummary(List<ISuite> suites)
-	{
+	private String getTestMehodSummary(List<ISuite> suites) {
 		StringBuffer retBuf = new StringBuffer();
-		
-		try
-		{
-			for(ISuite tempSuite: suites)
-			{
+
+		try {
+			for (ISuite tempSuite : suites) {
 				retBuf.append("<tr><td colspan=7><center><b></b></center></td></tr>");
-				
+
 				Map<String, ISuiteResult> testResults = tempSuite.getResults();
-				
+
 				for (ISuiteResult result : testResults.values()) {
-					
+
 					ITestContext testObj = result.getTestContext();
 
 					String testName = testObj.getName();
-					
+
 					/* Get failed test method related data. */
 					IResultMap testFailedResult = testObj.getFailedTests();
 					String failedTestMethodInfo = this.getTestMethodReport(testName, testFailedResult, false, false);
 					retBuf.append(failedTestMethodInfo);
-					
+
 					/* Get skipped test method related data. */
 					IResultMap testSkippedResult = testObj.getSkippedTests();
 					String skippedTestMethodInfo = this.getTestMethodReport(testName, testSkippedResult, false, true);
 					retBuf.append(skippedTestMethodInfo);
-					
+
 					/* Get passed test method related data. */
 					IResultMap testPassedResult = testObj.getPassedTests();
 					String passedTestMethodInfo = this.getTestMethodReport(testName, testPassedResult, true, false);
 					retBuf.append(passedTestMethodInfo);
 				}
 			}
-		}catch(Exception ex)
-		{
+		} catch (Exception ex) {
 			ex.printStackTrace();
-		}finally
-		{
-			return retBuf.toString();
 		}
+		return retBuf.toString();
 	}
 	
 	/* Get failed, passed or skipped test methods report. */

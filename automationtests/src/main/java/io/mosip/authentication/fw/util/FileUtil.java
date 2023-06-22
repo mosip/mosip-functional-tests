@@ -106,18 +106,20 @@ public class FileUtil{
 	 * @return True or false
 	 */
 	public static boolean createAndWriteFile(String fileName, String content) {
+		BufferedWriter bufferedWriter = null;
+		boolean bReturn = false;
 		try {
 			Path path = Paths.get(AuthTestsUtil.getTestFolder().getAbsolutePath() + "/" + fileName);
 			Charset charset = Charset.forName("UTF-8");
-			BufferedWriter writer = Files.newBufferedWriter(path, charset);
-			writer.write(content);
-			writer.flush();
-			writer.close();
-			return true;
+			bufferedWriter = Files.newBufferedWriter(path, charset);
+			bufferedWriter.write(content);
+			bReturn = true;
 		} catch (Exception e) {
 			FILEUTILITY_LOGGER.error("Exception " + e);
-			return false;
+		}finally {
+			AdminTestUtil.closeBufferedWriter(bufferedWriter);
 		}
+		return bReturn;
 	}
 	
 	/**
@@ -128,17 +130,19 @@ public class FileUtil{
 	 * @return true or false
 	 */
 	public static boolean writeFile(String filePath, String content) {
+		BufferedWriter bufferedWriter = null;
+		boolean bReturn = false;
 		try {
 			Path path = Paths.get(filePath);
-			BufferedWriter writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8);
-			writer.write(content);
-			writer.flush();
-			writer.close();
-			return true;
+			bufferedWriter = Files.newBufferedWriter(path, StandardCharsets.UTF_8);
+			bufferedWriter.write(content);
+			bReturn =  true;
 		} catch (Exception e) {
 			FILEUTILITY_LOGGER.error("Exception " + e);
-			return false;
+		}finally {
+			AdminTestUtil.closeBufferedWriter(bufferedWriter);
 		}
+		return bReturn;
 	}
 	
 	/**
@@ -150,6 +154,8 @@ public class FileUtil{
 	 */
 	public static boolean createAndWriteFileForIdRepo(String fileName, String content) {
 		FILEUTILITY_LOGGER.info("Retrieved identity Response from get Request is: "+content);
+		BufferedWriter bufferedWriter = null;
+		boolean bReturn = false;
 		try {
 			Path path = Paths
 					.get(new File(RunConfigUtil.getResourcePath() + RunConfigUtil.objRunConfig.getStoreUINDataPath() + "/" + fileName)
@@ -157,16 +163,16 @@ public class FileUtil{
 			if (!path.toFile().exists()) {
 				Charset charset = Charset.forName("UTF-8");
 				createFile(path.toFile(), "");
-				BufferedWriter writer = Files.newBufferedWriter(path, charset);
-				writer.write(JsonPrecondtion.convertJsonContentToXml(content));
-				writer.flush();
-				writer.close();
+				bufferedWriter = Files.newBufferedWriter(path, charset);
+				bufferedWriter.write(JsonPrecondtion.convertJsonContentToXml(content));
 			}
-			return true;
+			bReturn =  true;
 		} catch (Exception e) {
 			FILEUTILITY_LOGGER.error("Exception " + e);
-			return false;
+		}finally {
+			AdminTestUtil.closeBufferedWriter(bufferedWriter);
 		}
+		return bReturn;
 	}	
 	
 	/**
@@ -189,15 +195,16 @@ public class FileUtil{
 	 */
 	public void writeOutput(String filePath, String content) {
 		FileOutputStream outputStream = null;
+		OutputStreamWriter outputStreamWriter = null;
 		try {
 			outputStream = new FileOutputStream(filePath);
-			Writer out = new OutputStreamWriter(outputStream, "UTF8");
-			out.write(content);
-			out.close();
+			outputStreamWriter = new OutputStreamWriter(outputStream, "UTF8");
+			outputStreamWriter.write(content);
 		} catch (IOException e) {
 			FILEUTILITY_LOGGER.error("Exception : " + e.getMessage());
 		}finally {
 			AdminTestUtil.closeOutputStream(outputStream);
+			AdminTestUtil.closeOutputStreamWriter(outputStreamWriter);
 		}
 	}
 
@@ -210,22 +217,22 @@ public class FileUtil{
 	public static String readInput(String filePath) {
 		StringBuffer buffer = new StringBuffer();
 		FileInputStream inputStream = null;
+		BufferedReader bufferedReader = null;
 		try {
 			inputStream = new FileInputStream(filePath);
 			InputStreamReader isr = new InputStreamReader(inputStream, "UTF8");
-			Reader in = new BufferedReader(isr);
+			bufferedReader = new BufferedReader(isr);
 			int ch;
-			while ((ch = in.read()) > -1) {
+			while ((ch = bufferedReader.read()) > -1) {
 				buffer.append((char) ch);
 			}
-			in.close();
-			return buffer.toString();
 		} catch (IOException e) {
 			FILEUTILITY_LOGGER.error("Exception : " + e.getMessage());
-			return null;
 		}finally {
 			AdminTestUtil.closeInputStream(inputStream);
+			AdminTestUtil.closeBufferedReader(bufferedReader);
 		}
+		return buffer.toString();
 	}
 	  
 	/**

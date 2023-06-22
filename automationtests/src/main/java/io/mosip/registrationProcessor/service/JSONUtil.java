@@ -9,6 +9,8 @@ import org.json.simple.JSONObject;
 
 import com.google.gson.Gson;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
+
 /**
  * @author Gaurav Sharan
  *
@@ -57,15 +59,16 @@ public class JSONUtil {
 	}
 
 	public void writeJSONToFile(String packetMetaInfoFile, JSONObject jsonObject) {
-
+		FileWriter fileWriter = null;
 		try {
-			FileWriter file = new FileWriter(packetMetaInfoFile);
-			file.write(jsonObject.toJSONString());
-			file.close();
-		} catch (IOException e) {
+			fileWriter = new FileWriter(packetMetaInfoFile);
+			fileWriter.write(jsonObject.toJSONString());
+		} catch (NullPointerException | IOException e) {
 			e.printStackTrace();
 		} catch (Exception e1) {
 			e1.printStackTrace();
+		} finally {
+			AdminTestUtil.closeFileWriter(fileWriter);
 		}
 
 	}

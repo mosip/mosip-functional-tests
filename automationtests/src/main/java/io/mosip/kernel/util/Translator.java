@@ -31,7 +31,7 @@ public class Translator {
 			while ((rec = csv.readRecord()) != null) {
 				if (rec[0].toLowerCase().equals(langIsoCode.toLowerCase())) {
 					String val = rec[2].trim();
-					if (val != "")
+					if (val.equals(""))
 						v = val;
 					break;
 				}

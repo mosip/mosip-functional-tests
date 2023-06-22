@@ -10,6 +10,8 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
+
 /**
  * The class to extract resource from jar 
  * 
@@ -64,13 +66,14 @@ public class ExtractResource {
 	 * @param key
 	 */
 	public static void getListOfFilesFromJarAndCopyToExternalResource(String key) {
+		ZipInputStream zipInputStream = null;
 		try {
 			CodeSource src = MosipTestRunner.class.getProtectionDomain().getCodeSource();
 			if (src != null) {
 				URL jar = src.getLocation();
-				ZipInputStream zip = new ZipInputStream(jar.openStream());
+				zipInputStream = new ZipInputStream(jar.openStream());
 				while (true) {
-					ZipEntry e = zip.getNextEntry();
+					ZipEntry e = zipInputStream.getNextEntry();
 					if (e == null)
 						break;
 					String name = e.getName();
@@ -86,6 +89,8 @@ public class ExtractResource {
 			}
 		} catch (Exception e) {
 			LOGGER.error("Exception occured in extracting resource: " + e.getMessage());
+		} finally {
+			AdminTestUtil.closeZipInputStream(zipInputStream);
 		}
 	}
 	

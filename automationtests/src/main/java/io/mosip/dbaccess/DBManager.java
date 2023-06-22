@@ -261,7 +261,9 @@ public class DBManager {
 		} catch (Exception e) {
 			logger.error("Error:: While executing MASTER DB Quiries." + e.getMessage());
 		} finally {
-			session.close();
+			if (session != null) {
+				session.close();
+			}
 		}
 
 	}
