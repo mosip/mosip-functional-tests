@@ -79,17 +79,19 @@ public class DbConnection {
 			}
 			Map<String, String> returnMap = new HashMap<String, String>();
 			for (Entry<String, Object> entry : records.entrySet()) {
-				if (entry.getValue() == null || entry.getValue().equals(null) || entry.getValue() == "null"
-						|| entry.getValue().equals("null"))
-					returnMap.put(entry.getKey(), "null".toString());
-				else
+				
+				if (entry.getValue() != null && entry.getValue() != "null"
+						&& entry.getValue().equals("null") == false)
 					returnMap.put(entry.getKey(), entry.getValue().toString());
+					
+				else
+					returnMap.put(entry.getKey(), "null".toString());
 			}
 			return returnMap;
 		} catch (Exception e) {
 			DBCONNECTION_LOGGER.error("Execption in execution statement: " + e);
-			return null;
 		}
+		return null;
 	}
 	
 	public static List<Map<String, String>> getAllDataForQuery(String query, String moduleName) {
@@ -109,19 +111,27 @@ public class DbConnection {
 			for (int i = 0; i < allRecords.size(); i++) {
 				Map<String, String> records = new HashMap<String, String>();
 				for (Entry<String, Object> entry : allRecords.get(i).entrySet()) {
-					if (entry.getValue() == null || entry.getValue().equals(null) || entry.getValue() == "null"
-							|| entry.getValue().equals("null"))
-						records.put(entry.getKey(), "null".toString());
-					else
+					
+					if (entry.getValue() != null && entry.getValue() != "null"
+							&& entry.getValue().equals("null") == false)
 						records.put(entry.getKey(), entry.getValue().toString());
+						
+					else
+						records.put(entry.getKey(), "null".toString());
+					
+//					if (entry.getValue() == null || entry.getValue().equals(null) || entry.getValue() == "null"
+//							|| entry.getValue().equals("null"))
+//						records.put(entry.getKey(), "null".toString());
+//					else
+//						records.put(entry.getKey(), entry.getValue().toString());
 				}
 				listOfRecordsToBeReturn.add(records);
 			}
 			return listOfRecordsToBeReturn;
 		} catch (Exception e) {
 			DBCONNECTION_LOGGER.error("Execption in execution statement: " + e);
-			return null;
 		}
+		return null;
 	}
 	
 	private static List<Map<String, Object>> executeQueryAndGetAllRecord(String moduleName, String query) {
@@ -133,15 +143,19 @@ public class DbConnection {
 				@Override
 				public void execute(Connection connection) throws SQLException {
 					Statement statement = connection.createStatement();
-					ResultSet rs = statement.executeQuery(query);
-					ResultSetMetaData md = rs.getMetaData();
-					int columns = md.getColumnCount();
-					while (rs.next()) {
-						Map<String, Object> record = new HashMap<String, Object>(columns);
-						for (int i = 1; i <= columns; i++) {
-							record.put(md.getColumnName(i), rs.getObject(i));
+					try {
+						ResultSet rs = statement.executeQuery(query);
+						ResultSetMetaData md = rs.getMetaData();
+						int columns = md.getColumnCount();
+						while (rs.next()) {
+							Map<String, Object> record = new HashMap<String, Object>(columns);
+							for (int i = 1; i <= columns; i++) {
+								record.put(md.getColumnName(i), rs.getObject(i));
+							}
+							allRecords.add(record);
 						}
-						allRecords.add(record);
+					} finally {
+						statement.close();
 					}
 				}
 			});
@@ -169,13 +183,17 @@ public class DbConnection {
 				@Override
 				public void execute(Connection connection) throws SQLException {
 					Statement statement = connection.createStatement();
-					ResultSet rs = statement.executeQuery(query);
-					ResultSetMetaData md = rs.getMetaData();
-					int columns = md.getColumnCount();
-					while (rs.next()) {
-						for (int i = 1; i <= columns; i++) {
-							record.put(md.getColumnName(i), rs.getObject(i));
+					try {
+						ResultSet rs = statement.executeQuery(query);
+						ResultSetMetaData md = rs.getMetaData();
+						int columns = md.getColumnCount();
+						while (rs.next()) {
+							for (int i = 1; i <= columns; i++) {
+								record.put(md.getColumnName(i), rs.getObject(i));
+							}
 						}
+					} finally {
+						statement.close();
 					}
 				}
 			});
@@ -196,9 +214,13 @@ public class DbConnection {
 				@Override
 				public void execute(Connection connection) throws SQLException {
 					Statement statement = connection.createStatement();
-					int count = statement.executeUpdate(query);
-					rowData.put("delete", "true");
-					rowData.put("count", String.valueOf(count));
+					try {
+						int count = statement.executeUpdate(query);
+						rowData.put("delete", "true");
+						rowData.put("count", String.valueOf(count));
+					} finally {
+						statement.close();
+					}
 				}
 			});
 		}catch(NullPointerException e){
@@ -213,37 +235,37 @@ public class DbConnection {
 	private static Session getDataBaseConnection(String dbName) {
 		SessionFactory factory = null;
 		Session session = null;
-		String dbConfigXml = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbConfig.xml";
-		String dbPropsPath = MosipTestRunner.getGlobalResourcePath()+"/dbFiles/dbProps"+env+".properties";
+		String dbConfigXml = MosipTestRunner.getGlobalResourcePath() + "/dbFiles/dbConfig.xml";
+		String dbPropsPath = MosipTestRunner.getGlobalResourcePath() + "/dbFiles/dbProps" + env + ".properties";
 		FileInputStream inputStream = null;
 		try {
 			inputStream = new FileInputStream(new File(dbPropsPath));
 			Properties dbProps = new Properties();
 			dbProps.load(inputStream);
 			Configuration config = new Configuration();
-			//config.setProperties(dbProps);
+			// config.setProperties(dbProps);
 			config.setProperty("hibernate.connection.driver_class", dbProps.getProperty("driver_class"));
-			config.setProperty("hibernate.connection.url", dbProps.getProperty(dbName+"_url"));
-			config.setProperty("hibernate.connection.username", dbProps.getProperty(dbName+"_username"));
-			config.setProperty("hibernate.connection.password", dbProps.getProperty(dbName+"_password"));
-			config.setProperty("hibernate.default_schema", dbProps.getProperty(dbName+"_default_schema"));
+			config.setProperty("hibernate.connection.url", dbProps.getProperty(dbName + "_url"));
+			config.setProperty("hibernate.connection.username", dbProps.getProperty(dbName + "_username"));
+			config.setProperty("hibernate.connection.password", dbProps.getProperty(dbName + "_password"));
+			config.setProperty("hibernate.default_schema", dbProps.getProperty(dbName + "_default_schema"));
 			config.setProperty("hibernate.connection.pool_size", dbProps.getProperty("pool_size"));
 			config.setProperty("hibernate.dialect", dbProps.getProperty("dialect"));
 			config.setProperty("hibernate.show_sql", dbProps.getProperty("show_sql"));
-			config.setProperty("hibernate.current_session_context_class", dbProps.getProperty("current_session_context_class"));
+			config.setProperty("hibernate.current_session_context_class",
+					dbProps.getProperty("current_session_context_class"));
 			config.addFile(new File(dbConfigXml));
-		factory = config.buildSessionFactory();
-		session = factory.getCurrentSession();
+			factory = config.buildSessionFactory();
+			session = factory.getCurrentSession();
+			session.beginTransaction();
+			DBCONNECTION_LOGGER.info("==========session  begins=============");
 		} catch (HibernateException | IOException e) {
-			DBCONNECTION_LOGGER.info("Exception in Database Connection with following message: ");
-			DBCONNECTION_LOGGER.info(e.getMessage());
+			DBCONNECTION_LOGGER.info("Exception in Database Connection with following message: " + e.getMessage());
 		} catch (NullPointerException e) {
 			Assert.assertTrue(false, "Exception in getting the session");
-		}finally {
+		} finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}
-		session.beginTransaction();
-		DBCONNECTION_LOGGER.info("==========session  begins=============");
 		return session;
-	}	
+	}
 }

@@ -2307,7 +2307,7 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 				String fieldNames[] = idKeyName.split(",");
 				for (String filedName : fieldNames) {
-					if (responseJson != null) {
+					if (responseJson.length() != 0) {
 						String identifierKeyName = getAutogenIdKeyName(testCaseName, filedName);
 						if (responseOutputJson.has(filedName))
 							props.put(identifierKeyName, responseOutputJson.get(filedName).toString());
@@ -3133,16 +3133,12 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public String getPartnerId(String jsonString, String partnerId) {
 		String uriParts[] = PartnerRegistration.partnerKeyUrl.split("/");
-		partnerId = uriParts[uriParts.length - 2];
-		// String partnerId = null;
-		return partnerId;
+		return uriParts[uriParts.length - 2];
 	}
 
 	public String getAPIKey(String jsonString, String apiKey) {
 		String uriParts[] = PartnerRegistration.partnerKeyUrl.split("/");
-		apiKey = uriParts[uriParts.length - 1];
-		// String partnerId = null;
-		return apiKey;
+		return uriParts[uriParts.length - 1];
 	}
 
 	public String getAutoGenIdFileName(String testCaseName) {
@@ -4553,37 +4549,16 @@ public class AdminTestUtil extends BaseTestCase {
 
 		X509Certificate certificate = (X509Certificate) convertToCertificate(certData);
 		JsonWebSignature jwSign = new JsonWebSignature();
-		jwSign.setKeyIdHeaderValue(certificate.getSerialNumber().toString(10));
-		jwSign.setX509CertSha256ThumbprintHeaderValue(certificate);
-		jwSign.setPayload(payload.toString());
-		jwSign.setAlgorithmHeaderValue("RS256");
-		jwSign.setKey(jwkKey.toPrivateKey());
-		jwSign.setDoKeyValidation(false);
-		return jwSign.getCompactSerialization();
-
-		// Create RSA-signer with the private key
-//		JWSSigner signer;
-//
-//		try {
-//			signer = new RSASSASigner(jwkKey);
-//
-//			// Prepare JWT with claims set
-//			JWTClaimsSet claimsSet = new JWTClaimsSet.Builder().subject(individualId)//
-//					.audience(tempUrl)//
-//					.issuer("inji-app")//
-//					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + 180 * 1000)).build();
-//
-//			SignedJWT signedJWT = new SignedJWT(
-//					new JWSHeader.Builder(JWSAlgorithm.RS256).x509CertSHA256Thumbprint(null).build(), claimsSet);
-//
-//			// Compute the RSA signature
-//			signedJWT.sign(signer);
-//			clientAssertionToken = signedJWT.serialize();
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			logger.error("Exception while signing oidcJWKKey for client assertion: " + e.getMessage());
-//		}
-//		return clientAssertionToken;
+		if (certificate != null) {
+			jwSign.setKeyIdHeaderValue(certificate.getSerialNumber().toString(10));
+			jwSign.setX509CertSha256ThumbprintHeaderValue(certificate);
+			jwSign.setPayload(payload.toString());
+			jwSign.setAlgorithmHeaderValue("RS256");
+			jwSign.setKey(jwkKey.toPrivateKey());
+			jwSign.setDoKeyValidation(false);
+			return jwSign.getCompactSerialization();
+		}
+		return "";
 	}
 
 	public static void writeFileAsString(File fileName, String content) {

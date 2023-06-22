@@ -56,6 +56,7 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 			Thread.sleep(120000);
 		} catch (Exception e) {
 			DEMOAPP_LOGGER.error("Exception occured in starting the demo auth partner processor");
+			Thread.currentThread().interrupt();
 		}
 	}
 	
@@ -86,14 +87,13 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 	 * @return string
 	 */
 	private static String getJavaPath() {
+		String path = "java";
 		if (getOSType().toString().equals("WINDOWS")) {
 			String javaHome = System.getenv("JAVA_HOME");
-			if (javaHome != null || javaHome != "")
-				return javaHome + "/bin/java";
-			else
-				return "java";
-		} else
-			return "java";
+			if (javaHome != null && javaHome.isEmpty() == false)
+				path = javaHome + "/bin/java";
+		}
+		return path;
 	}
 
 }

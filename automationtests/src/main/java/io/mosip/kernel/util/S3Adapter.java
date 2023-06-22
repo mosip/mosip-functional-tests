@@ -96,6 +96,7 @@ public class S3Adapter {
 	public boolean putObject(String account, final String container, String source, String process, String objectName, File file) {
 		String finalObjectName = null;
 		String bucketName = null;
+		boolean bReturn = false;
 	        System.out.println("useAccountAsBucketname:: "+useAccountAsBucketname);
 		if (useAccountAsBucketname) {
 				finalObjectName = getName(container, source, process, objectName);
@@ -106,6 +107,7 @@ public class S3Adapter {
 		}
 		System.out.println("bucketName :: "+bucketName);
 		AmazonS3 connection = getConnection(bucketName);
+		if (connection != null) {
 			if (!doesBucketExists(bucketName)) {
 				connection.createBucket(bucketName);
 				if (useAccountAsBucketname)
@@ -116,8 +118,10 @@ public class S3Adapter {
 			objectMetadata.setHttpExpiresDate(new DateTime().plusDays(reportExpirationInDays).toDate());
 			putObjectRequest.setMetadata(objectMetadata);
 			connection.putObject(putObjectRequest);
-			return true;
+			bReturn = true;
 		}
+		return bReturn;
+	}
 
 	private boolean doesBucketExists(String bucketName) {
 		// use account as bucket name and bucket name is present in existing bucket list

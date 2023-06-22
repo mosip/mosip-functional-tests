@@ -75,65 +75,34 @@ public class OutputValidationUtil extends AuthTestsUtil{
 	 * @throws JsonParseException 
 	 */
 	public static Map<String, List<OutputValidationDto>> compareActuExpValue(Map<String, String> actual,
-			Map<String, String> exp, String actVsExp){
+			Map<String, String> exp, String actVsExp) {
 		Map<String, List<OutputValidationDto>> objMap = new HashMap<String, List<OutputValidationDto>>();
 		List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
-		for (Entry<String, String> actualEntry : actual.entrySet()) {
-			OutputValidationDto objOpDto = new OutputValidationDto();
-			if (!exp.containsKey(actualEntry.getKey())) {
-				objOpDto.setFieldName(actualEntry.getKey());
-				objOpDto.setFieldHierarchy(actualEntry.getKey());
-				objOpDto.setActualValue(actualEntry.getValue());
-				objOpDto.setExpValue("NOT VERIFIED");
-				objOpDto.setStatus("WARNING");
-				objList.add(objOpDto);
+		try {
+			for (Entry<String, String> actualEntry : actual.entrySet()) {
+				OutputValidationDto objOpDto = new OutputValidationDto();
+				if (!exp.containsKey(actualEntry.getKey())) {
+					objOpDto.setFieldName(actualEntry.getKey());
+					objOpDto.setFieldHierarchy(actualEntry.getKey());
+					objOpDto.setActualValue(actualEntry.getValue());
+					objOpDto.setExpValue("NOT VERIFIED");
+					objOpDto.setStatus("WARNING");
+					objList.add(objOpDto);
+				}
 			}
-		}
-		// Comparing value with actual json
-		for (Entry<String, String> expEntry : exp.entrySet()) {
-			OutputValidationDto objOpDto = new OutputValidationDto();
-			if (actual.containsKey(expEntry.getKey())) {
-				if (!expEntry.getValue().equals("$IGNORE$") && !expEntry.getValue().contains("$DECODE$")) {
-					if (expEntry.getValue().equals(actual.get(expEntry.getKey()))) {
-						objOpDto.setFieldName(expEntry.getKey());
-						objOpDto.setFieldHierarchy(expEntry.getKey());
-						objOpDto.setActualValue(actual.get(expEntry.getKey()));
-						objOpDto.setExpValue(expEntry.getValue());
-						objOpDto.setStatus("PASS");
-					} else if (expEntry.getValue().equals("$TIMESTAMP$")) {
-						if (validateTimestampZ(actual.get(expEntry.getKey()))) {
+			// Comparing value with actual json
+			for (Entry<String, String> expEntry : exp.entrySet()) {
+				OutputValidationDto objOpDto = new OutputValidationDto();
+				if (actual.containsKey(expEntry.getKey())) {
+					if (!expEntry.getValue().equals("$IGNORE$") && !expEntry.getValue().contains("$DECODE$")) {
+						if (expEntry.getValue().equals(actual.get(expEntry.getKey()))) {
 							objOpDto.setFieldName(expEntry.getKey());
 							objOpDto.setFieldHierarchy(expEntry.getKey());
 							objOpDto.setActualValue(actual.get(expEntry.getKey()));
 							objOpDto.setExpValue(expEntry.getValue());
 							objOpDto.setStatus("PASS");
-						} else {
-							objOpDto.setFieldName(expEntry.getKey());
-							objOpDto.setFieldHierarchy(expEntry.getKey());
-							objOpDto.setActualValue(actual.get(expEntry.getKey()));
-							objOpDto.setExpValue(expEntry.getValue());
-							objOpDto.setStatus("FAIL");
-						}
-					} else if (expEntry.getValue().equals("$TIMESTAMPZ$")) {
-						if (validateTimestampZ(actual.get(expEntry.getKey()))) {
-							objOpDto.setFieldName(expEntry.getKey());
-							objOpDto.setFieldHierarchy(expEntry.getKey());
-							objOpDto.setActualValue(actual.get(expEntry.getKey()));
-							objOpDto.setExpValue(expEntry.getValue());
-							objOpDto.setStatus("PASS");
-						} else {
-							objOpDto.setFieldName(expEntry.getKey());
-							objOpDto.setFieldHierarchy(expEntry.getKey());
-							objOpDto.setActualValue(actual.get(expEntry.getKey()));
-							objOpDto.setExpValue(expEntry.getValue());
-							objOpDto.setStatus("FAIL");
-						}
-					} else if (expEntry.getValue().contains("TOKENID:") && expEntry.getValue().contains(".")) {
-						String key = expEntry.getValue().replace("TOKENID:", "");
-						String[] keys = key.split(Pattern.quote("."));
-						String tokenid = RunConfigUtil.getTokenId(keys[0], keys[1]);
-						if (!tokenid.contains("TOKENID")) {
-							if (tokenid.equals(actual.get(expEntry.getKey()))) {
+						} else if (expEntry.getValue().equals("$TIMESTAMP$")) {
+							if (validateTimestampZ(actual.get(expEntry.getKey()))) {
 								objOpDto.setFieldName(expEntry.getKey());
 								objOpDto.setFieldHierarchy(expEntry.getKey());
 								objOpDto.setActualValue(actual.get(expEntry.getKey()));
@@ -146,28 +115,67 @@ public class OutputValidationUtil extends AuthTestsUtil{
 								objOpDto.setExpValue(expEntry.getValue());
 								objOpDto.setStatus("FAIL");
 							}
-						} else if (tokenid.contains("TOKENID")) {
-							tokenid = tokenid.replace("TOKENID:", "");
-							String[] values = tokenid.split(Pattern.quote("."));
-							String id = values[0];
-							String pid = values[1];
-							performTokenIdOper(id, pid, actual.get(expEntry.getKey()));
-							objOpDto.setFieldName(expEntry.getKey());
-							objOpDto.setFieldHierarchy(expEntry.getKey());
-							objOpDto.setActualValue(actual.get(expEntry.getKey()));
-							objOpDto.setExpValue(expEntry.getValue());
-							objOpDto.setStatus("PASS");
-						}
-					} else if (expEntry.getValue().contains("$REGEXP")) {
-						String extractRegex = expEntry.getValue().replace("$", "");
-						String[] array = extractRegex.split(":");
-						String regex = array[1];
-						if (validateRegularExpression(actual.get(expEntry.getKey()), regex)) {
-							objOpDto.setFieldName(expEntry.getKey());
-							objOpDto.setFieldHierarchy(expEntry.getKey());
-							objOpDto.setActualValue(actual.get(expEntry.getKey()));
-							objOpDto.setExpValue(expEntry.getValue());
-							objOpDto.setStatus("PASS");
+						} else if (expEntry.getValue().equals("$TIMESTAMPZ$")) {
+							if (validateTimestampZ(actual.get(expEntry.getKey()))) {
+								objOpDto.setFieldName(expEntry.getKey());
+								objOpDto.setFieldHierarchy(expEntry.getKey());
+								objOpDto.setActualValue(actual.get(expEntry.getKey()));
+								objOpDto.setExpValue(expEntry.getValue());
+								objOpDto.setStatus("PASS");
+							} else {
+								objOpDto.setFieldName(expEntry.getKey());
+								objOpDto.setFieldHierarchy(expEntry.getKey());
+								objOpDto.setActualValue(actual.get(expEntry.getKey()));
+								objOpDto.setExpValue(expEntry.getValue());
+								objOpDto.setStatus("FAIL");
+							}
+						} else if (expEntry.getValue().contains("TOKENID:") && expEntry.getValue().contains(".")) {
+							String key = expEntry.getValue().replace("TOKENID:", "");
+							String[] keys = key.split(Pattern.quote("."));
+							String tokenid = RunConfigUtil.getTokenId(keys[0], keys[1]);
+							if (!tokenid.contains("TOKENID")) {
+								if (tokenid.equals(actual.get(expEntry.getKey()))) {
+									objOpDto.setFieldName(expEntry.getKey());
+									objOpDto.setFieldHierarchy(expEntry.getKey());
+									objOpDto.setActualValue(actual.get(expEntry.getKey()));
+									objOpDto.setExpValue(expEntry.getValue());
+									objOpDto.setStatus("PASS");
+								} else {
+									objOpDto.setFieldName(expEntry.getKey());
+									objOpDto.setFieldHierarchy(expEntry.getKey());
+									objOpDto.setActualValue(actual.get(expEntry.getKey()));
+									objOpDto.setExpValue(expEntry.getValue());
+									objOpDto.setStatus("FAIL");
+								}
+							} else if (tokenid.contains("TOKENID")) {
+								tokenid = tokenid.replace("TOKENID:", "");
+								String[] values = tokenid.split(Pattern.quote("."));
+								String id = values[0];
+								String pid = values[1];
+								performTokenIdOper(id, pid, actual.get(expEntry.getKey()));
+								objOpDto.setFieldName(expEntry.getKey());
+								objOpDto.setFieldHierarchy(expEntry.getKey());
+								objOpDto.setActualValue(actual.get(expEntry.getKey()));
+								objOpDto.setExpValue(expEntry.getValue());
+								objOpDto.setStatus("PASS");
+							}
+						} else if (expEntry.getValue().contains("$REGEXP")) {
+							String extractRegex = expEntry.getValue().replace("$", "");
+							String[] array = extractRegex.split(":");
+							String regex = array[1];
+							if (validateRegularExpression(actual.get(expEntry.getKey()), regex)) {
+								objOpDto.setFieldName(expEntry.getKey());
+								objOpDto.setFieldHierarchy(expEntry.getKey());
+								objOpDto.setActualValue(actual.get(expEntry.getKey()));
+								objOpDto.setExpValue(expEntry.getValue());
+								objOpDto.setStatus("PASS");
+							} else {
+								objOpDto.setFieldName(expEntry.getKey());
+								objOpDto.setFieldHierarchy(expEntry.getKey());
+								objOpDto.setActualValue(actual.get(expEntry.getKey()));
+								objOpDto.setExpValue(expEntry.getValue());
+								objOpDto.setStatus("FAIL");
+							}
 						} else {
 							objOpDto.setFieldName(expEntry.getKey());
 							objOpDto.setFieldHierarchy(expEntry.getKey());
@@ -175,66 +183,53 @@ public class OutputValidationUtil extends AuthTestsUtil{
 							objOpDto.setExpValue(expEntry.getValue());
 							objOpDto.setStatus("FAIL");
 						}
-					} else {
-						objOpDto.setFieldName(expEntry.getKey());
-						objOpDto.setFieldHierarchy(expEntry.getKey());
-						objOpDto.setActualValue(actual.get(expEntry.getKey()));
-						objOpDto.setExpValue(expEntry.getValue());
-						objOpDto.setStatus("FAIL");
+						objList.add(objOpDto);
+					} else if (expEntry.getValue().contains("$DECODE$")) {
+						String keyword = expEntry.getValue().toString();
+						String content = actual.get(expEntry.getKey());
+						String expKeyword = keyword.substring(keyword.lastIndexOf("->") + 2, keyword.length());
+						String actKeyword = expKeyword.replace("expected", "actual");
+						Map<String, Object> actualMap = JsonPrecondtion.jsonToMap(new JSONObject(
+								JsonPrecondtion.getJsonInOrder(EncryptDecrptUtil.getDecyptFromStr(content))));
+						Map<String, Object> expMap = null;
+						expMap = JsonPrecondtion.jsonToMap(
+								new JSONObject(getContentFromFile(FileUtil.getFilePath(getTestFolder(), expKeyword))));
+						FileUtil.createAndWriteFile(actKeyword,
+								JsonPrecondtion.getJsonInOrder(EncryptDecrptUtil.getDecyptFromStr(content)));
+						if (compareTwoKycMap(expMap, actualMap)) {
+							Reporter.log("Kyc verification passed");
+							OUTPUTVALIDATION_LOGGER.info("Kyc Verification Passed \\n Expected Kyc: " + expMap + "\\n Actual Kyc: " + actualMap);
+							objOpDto.setFieldName(expEntry.getKey());
+							objOpDto.setFieldHierarchy(expEntry.getKey());
+							objOpDto.setActualValue(actualMap.toString());
+							objOpDto.setExpValue(expMap.toString());
+							objOpDto.setStatus("PASS");
+						} else {
+							Reporter.log("Kyc verification failed");
+							OUTPUTVALIDATION_LOGGER.error("Kyc Verification failed \\n Expected Kyc: " + expMap + "\\n Actual Kyc: " + actualMap);
+							objOpDto.setFieldName(expEntry.getKey());
+							objOpDto.setFieldHierarchy(expEntry.getKey());
+							objOpDto.setActualValue(actualMap.toString());
+							objOpDto.setExpValue(expMap.toString());
+							objOpDto.setStatus("FAIL");
+						}
+						// Verify.verify(compareTwoKycMap(expMap,actualMap));
 					}
+				} else if (!expEntry.getValue().equals("$IGNORE$")) {
+					objOpDto.setFieldName(expEntry.getKey());
+					objOpDto.setFieldHierarchy(expEntry.getKey());
+					objOpDto.setActualValue("NOT AVAILABLE");
+					objOpDto.setExpValue(expEntry.getValue());
+					objOpDto.setStatus("FAIL");
 					objList.add(objOpDto);
-				} else if (expEntry.getValue().contains("$DECODE$")) {
-					String keyword = expEntry.getValue().toString();
-					String content = actual.get(expEntry.getKey());
-					String expKeyword = keyword.substring(keyword.lastIndexOf("->") + 2, keyword.length());
-					String actKeyword = expKeyword.replace("expected", "actual");	
-					Map<String,Object> actualMap=JsonPrecondtion.jsonToMap(new JSONObject(JsonPrecondtion.getJsonInOrder(EncryptDecrptUtil.getDecyptFromStr(content))));
-					Map<String,Object> expMap=null;
-					try {
-						expMap=JsonPrecondtion.jsonToMap(new JSONObject(getContentFromFile(FileUtil.getFilePath(getTestFolder(), expKeyword))));
-					} catch (JSONException | IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					FileUtil.createAndWriteFile(actKeyword,JsonPrecondtion.getJsonInOrder(EncryptDecrptUtil.getDecyptFromStr(content)));
-					if(compareTwoKycMap(expMap,actualMap))
-					{
-						Reporter.log("Kyc verification passed");
-						OUTPUTVALIDATION_LOGGER.info("Kyc Verification Passed");
-						OUTPUTVALIDATION_LOGGER.info("Expected Kyc: "+expMap);
-						OUTPUTVALIDATION_LOGGER.info("Actual Kyc: "+actualMap);
-						objOpDto.setFieldName(expEntry.getKey());
-						objOpDto.setFieldHierarchy(expEntry.getKey());
-						objOpDto.setActualValue(actualMap.toString());
-						objOpDto.setExpValue(expMap.toString());
-						objOpDto.setStatus("PASS");
-					}
-					else
-					{
-						Reporter.log("Kyc verification failed");
-						OUTPUTVALIDATION_LOGGER.error("Kyc Verification failed");
-						OUTPUTVALIDATION_LOGGER.error("Expected Kyc: "+expMap);
-						OUTPUTVALIDATION_LOGGER.error("Actual Kyc: "+actualMap);
-						objOpDto.setFieldName(expEntry.getKey());
-						objOpDto.setFieldHierarchy(expEntry.getKey());
-						objOpDto.setActualValue(actualMap.toString());
-						objOpDto.setExpValue(expMap.toString());
-						objOpDto.setStatus("FAIL");
-					}
-					//Verify.verify(compareTwoKycMap(expMap,actualMap));
+					OUTPUTVALIDATION_LOGGER
+							.error("The expected json path " + expEntry.getKey() + " is not available in actual json");
 				}
-			} else if (!expEntry.getValue().equals("$IGNORE$")) {
-				objOpDto.setFieldName(expEntry.getKey());
-				objOpDto.setFieldHierarchy(expEntry.getKey());
-				objOpDto.setActualValue("NOT AVAILABLE");
-				objOpDto.setExpValue(expEntry.getValue());
-				objOpDto.setStatus("FAIL");
-				objList.add(objOpDto);
-				OUTPUTVALIDATION_LOGGER
-						.error("The expected json path " + expEntry.getKey() + " is not available in actual json");
 			}
+			objMap.put(actVsExp, objList);
+		} catch (JSONException | IOException e) {
+			OUTPUTVALIDATION_LOGGER.error("Kyc Verification failed " + e.getMessage());
 		}
-		objMap.put(actVsExp, objList);
 		return objMap;
 	}
 	

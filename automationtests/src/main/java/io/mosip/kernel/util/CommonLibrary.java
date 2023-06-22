@@ -240,15 +240,14 @@ public class CommonLibrary extends BaseTestCase {
 			try {
 				errorCode = ((JSONObject) errors.get(0)).get("errorCode").toString();
 				errorMessage = ((JSONObject) errors.get(0)).get("message").toString();
+				if (errorCode.contains("ATH")) {
+					Assert.assertTrue(false,
+							"Failed due to Authentication failure. Error message is='" + errorMessage + "'");
+				}
 			} catch (IndexOutOfBoundsException aibe) {
 				Assert.assertTrue(false,
 						"Not able to find the errorCode or errorMessage from errors array and exception is "
 								+ aibe.getClass());
-			}
-
-			if (errorCode.contains("ATH")) {
-				Assert.assertTrue(false,
-						"Failed due to Authentication failure. Error message is='" + errorMessage + "'");
 			}
 		}
 	}

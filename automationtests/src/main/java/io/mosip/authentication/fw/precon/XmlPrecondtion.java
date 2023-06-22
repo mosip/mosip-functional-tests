@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -219,37 +220,47 @@ public class XmlPrecondtion extends MessagePrecondtion{
 	}
 
 	private static void updateNodeValue(XPath xpath, String normalisedExpression, String newValue) {
-		if (newValue.equalsIgnoreCase("$REMOVE$")) {
-			normalisedExpression = normalisedExpression.replace("/text()", "");
-			NodeList nodes = evaluateXpath(xpath, normalisedExpression);
-			for (int i = 0, len = nodes.getLength(); i < len; i++) {
-				Node node = nodes.item(i);
-				node.getParentNode().removeChild(node);
+		try {
+			if (newValue.equalsIgnoreCase("$REMOVE$")) {
+				normalisedExpression = normalisedExpression.replace("/text()", "");
+				NodeList nodes = evaluateXpath(xpath, normalisedExpression);
+				for (int i = 0, len = nodes.getLength(); i < len; i++) {
+					Node node = nodes.item(i);
+					node.getParentNode().removeChild(node);
+				}
+			} else if (!newValue.equalsIgnoreCase("$IGNORE$")) {
+				NodeList nodes = evaluateXpath(xpath, normalisedExpression);
+				for (int i = 0, len = nodes.getLength(); i < len; i++) {
+					Node node = nodes.item(i);
+					node.setTextContent(newValue);
+				}
 			}
-		} else if (!newValue.equalsIgnoreCase("$IGNORE$")) {
-			NodeList nodes = evaluateXpath(xpath, normalisedExpression);
-			for (int i = 0, len = nodes.getLength(); i < len; i++) {
-				Node node = nodes.item(i);
-				node.setTextContent(newValue);
-			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
 	private static void updateAttributeValue(XPath xpath, String expression, String normalisedExpression,
 			String newValue) {
-		String attr = expression.substring(expression.indexOf("@") + 1, expression.length());
-		normalisedExpression = normalisedExpression.substring(0, normalisedExpression.indexOf("@") - 1);
-		NodeList nodes = evaluateXpath(xpath, normalisedExpression);
-		for (int i = 0, len = nodes.getLength(); i < len; i++) {
-			Node node = nodes.item(i);
-			NamedNodeMap attrNode = node.getAttributes();
-			Node nodeAttr = attrNode.getNamedItem(attr);
-			if(nodeAttr!=null)
-				nodeAttr.setTextContent(newValue);
-			else
-				((Element) node).setAttribute(attr, newValue);
-			if (newValue.equalsIgnoreCase("$REMOVE$"))
-				node.getAttributes().removeNamedItem(attr);
+		try {
+			String attr = expression.substring(expression.indexOf("@") + 1, expression.length());
+			normalisedExpression = normalisedExpression.substring(0, normalisedExpression.indexOf("@") - 1);
+			NodeList nodes = evaluateXpath(xpath, normalisedExpression);
+			for (int i = 0, len = nodes.getLength(); i < len; i++) {
+				Node node = nodes.item(i);
+				NamedNodeMap attrNode = node.getAttributes();
+				Node nodeAttr = attrNode.getNamedItem(attr);
+				if(nodeAttr!=null)
+					nodeAttr.setTextContent(newValue);
+				else
+					((Element) node).setAttribute(attr, newValue);
+				if (newValue.equalsIgnoreCase("$REMOVE$"))
+					node.getAttributes().removeNamedItem(attr);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
