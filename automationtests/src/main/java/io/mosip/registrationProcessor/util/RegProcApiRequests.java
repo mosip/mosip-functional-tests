@@ -60,15 +60,13 @@ public class RegProcApiRequests extends BaseTestCase {
 			 */
 			newResponse = given().cookie(builder.build()).baseUri(ApplnURI).basePath(url)
 					.multiPart("file", file, "application/octet-stream").post().then().log().all().extract().response();
+			logger.info("REST:ASSURED: The response from request is:" + newResponse.asString());
+			logger.info("REST-ASSURED: the response time is: " + newResponse.time());
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		logger.info("REST:ASSURED: The response from request is:" + newResponse.asString());
-		logger.info("REST-ASSURED: the response time is: " + newResponse.time());
 		return newResponse;
-
 	}
 
 	public Response regProcGetRequest(String url, HashMap<String, String> valueMap, String regProcAuthToken) {
@@ -79,13 +77,13 @@ public class RegProcApiRequests extends BaseTestCase {
 		try {
 			getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().queryParams(valueMap).log().all()
 					.when().post(ApplnURI + url).then().log().all().extract().response();
+			
+			// log then response
+			logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
+			logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
 		return getResponse;
 	}
 

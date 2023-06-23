@@ -1,7 +1,9 @@
 package io.mosip.report;
 
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
 
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.testrunner.MosipTestRunner;
 
 import java.io.FileReader;
@@ -21,13 +23,19 @@ public class Reporter {
 	public static String getAppDepolymentVersion() {
 		MavenXpp3Reader reader = new MavenXpp3Reader();
 		Model model = null;
+		String version = null;
+		FileReader fileReader = null;
 		try {
-			model = reader.read(new FileReader(MosipTestRunner.getGlobalResourcePath()+"/metadata.xml"));
+			fileReader = new FileReader(MosipTestRunner.getGlobalResourcePath()+"/metadata.xml");
+			model = reader.read(fileReader);
+			version = model.getParent().getVersion();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			REPORTLOG.error("Exception in tagging the build number" + e.getMessage());
+		} finally {
+			AdminTestUtil.closeFileReader(fileReader);
 		}
-		return model.getParent().getVersion();
+		return version;
 	}
 	
 	public static String getAppEnvironment() {

@@ -184,6 +184,7 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 			}
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
+			Thread.currentThread().interrupt();
 		}
 
 	}

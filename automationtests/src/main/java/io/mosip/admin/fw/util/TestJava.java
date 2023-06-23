@@ -1,11 +1,18 @@
 package io.mosip.admin.fw.util;
 
+import java.security.SecureRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TestJava {
-
+	private static final SecureRandom secureRandom = new SecureRandom();
 	public static void main(String[] args) {
+		
+		String randomAlphaNum = generateRandomAlphanumericString(6);
+		String randomNum = generateRandomAlphanumericString(10);
+		String randomNum1 = generateRandomNumericString(10);
+		
+		
 		// TODO Auto-generated method stub
 
 		//find any 6 digit number
@@ -35,5 +42,25 @@ public class TestJava {
 		    }
 		}
 	}
+	public static String generateRandomAlphanumericString(int length)  {
+        byte[] bytes = new byte[length];
+        secureRandom.nextBytes(bytes);
+        String randomString = new String(bytes);
+        return randomString.replaceAll("[^0-9a-zA-Z]", "");
+    }
+	
+	 public static String generateRandomString(int length) {
+	        byte[] bytes = new byte[length];
+	        secureRandom.nextBytes(bytes);
+	        String randomString = new String(bytes);
+	        return randomString;
+	    }
+	 
+	 public static String generateRandomNumericString(int length) {
+	        byte[] bytes = new byte[length];
+	        secureRandom.nextBytes(bytes);
+	        String randomString = new String(bytes);
+	        return randomString.replaceAll("[^0-9]", "");
+	    }
 
 }

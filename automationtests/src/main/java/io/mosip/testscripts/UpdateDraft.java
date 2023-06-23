@@ -167,6 +167,7 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 			Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
+			Thread.currentThread().interrupt();
 		}
 
 	}

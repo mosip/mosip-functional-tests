@@ -244,7 +244,7 @@ public class MosipTestRunner {
 	
 	public static String generatePublicKeyForMimoto() {
         KeyPairGenerator keyPairGen;
-        String vcString = null;
+        String vcString = "";
         try {
             keyPairGen = KeyPairGenerator.getInstance("RSA");
             keyPairGen.initialize(2048);
@@ -255,17 +255,17 @@ public class MosipTestRunner {
                 pemWriter.writeObject(publicKey);
                 pemWriter.flush();
                 vcString = stringWriter.toString();
+        		if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
+        			vcString = vcString.replaceAll("\r\n", "\\\\n");
+        		} else {
+        			vcString = vcString.replaceAll("\n", "\\\\n");
+        		}
             } catch (Exception e) {
                 throw e;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-		if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
-			vcString = vcString.replaceAll("\r\n", "\\\\n");
-		} else {
-			vcString = vcString.replaceAll("\n", "\\\\n");
-		}
         return vcString;
 	}
 

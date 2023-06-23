@@ -3842,6 +3842,11 @@ public class AdminTestUtil extends BaseTestCase {
 		String schemaJsonData = schemaData.getString("schemaJson");
 
 		String schemaFile = schemaJsonData.toString();
+		FileWriter fileWriter1 = null;
+		FileWriter fileWriter2 = null;
+		FileWriter fileWriter3 = null;
+		FileReader fileReader = null;
+		BufferedReader bufferedReader = null;
 
 		try {
 			JSONObject jObj = new JSONObject(schemaFile);
@@ -3850,15 +3855,15 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject objIDJson2 = objIDJson.getJSONObject("properties");
 			JSONArray objIDJson1 = objIDJson.getJSONArray("required");
 
-			FileWriter myFile = new FileWriter("addIdentity.hbs");
-			myFile.write("{\n");
-			myFile.write("  \"id\": \"{{id}}\",\n");
-			myFile.write("  \"request\": {\n");
-			myFile.write("\t  \"registrationId\": \"{{registrationId}}\",\n");
+			fileWriter1 = new FileWriter("addIdentity.hbs");
+			fileWriter1.write("{\n");
+			fileWriter1.write("  \"id\": \"{{id}}\",\n");
+			fileWriter1.write("  \"request\": {\n");
+			fileWriter1.write("\t  \"registrationId\": \"{{registrationId}}\",\n");
 
-			myFile.write("    \"identity\": {\n");
-			myFile.write("\t  \"UIN\": \"{{UIN}}\",\n");
-			myFile.close();
+			fileWriter1.write("    \"identity\": {\n");
+			fileWriter1.write("\t  \"UIN\": \"{{UIN}}\",\n");
+			fileWriter1.close();
 
 			boolean flag = true;
 			for (int i = 0, size = objIDJson1.length(); i < size; i++) {
@@ -3879,7 +3884,8 @@ public class AdminTestUtil extends BaseTestCase {
 							if (objIDJson3.contains("fullName") && regenerateHbs == true) {
 								studentJSON.put("value", propsMap.getProperty(objIDJson3 + "1")); // fullName1
 							} else {
-								studentJSON.put("value", propsMap.getProperty(objIDJson3) + BaseTestCase.getLanguageList().get(j));
+								studentJSON.put("value",
+										propsMap.getProperty(objIDJson3) + BaseTestCase.getLanguageList().get(j));
 							}
 							jArray.put(studentJSON);
 						}
@@ -3891,82 +3897,82 @@ public class AdminTestUtil extends BaseTestCase {
 
 					System.out.println(mainObj);
 
-					FileWriter myWriter = new FileWriter("addIdentity.hbs", flag);
+					fileWriter2 = new FileWriter("addIdentity.hbs", flag);
 					flag = true;
-					myWriter.write("\t  \"" + objIDJson3 + "\": \n\t   ");
+					fileWriter2.write("\t  \"" + objIDJson3 + "\": \n\t   ");
 
-					/*
-					 * for (String list : languageDetails) { myWriter.write(list); }
-					 */
-
-					myWriter.write(jArray.toString());
-					// myWriter.write(ja3);
-					myWriter.write("\n\t,\n");
-					myWriter.close();
+					fileWriter2.write(jArray.toString());
+					fileWriter2.write("\n\t,\n");
+					fileWriter2.close();
 
 				} else {
 
-					FileWriter myWriter = new FileWriter("addIdentity.hbs", flag);
+					fileWriter2 = new FileWriter("addIdentity.hbs", flag);
 					flag = true;
 
 					if (objIDJson3.equals("proofOfIdentity")) {
-						myWriter.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
+						fileWriter2.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
 								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
 					}
 
 					else if (objIDJson3.equals("individualBiometrics")) {
-						myWriter.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
+						fileWriter2.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
 								+ "\t\t\"version\": 1,\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  }\n");
 					}
 
 					else if (objIDJson3.equals("IDSchemaVersion")) {
-						myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
+						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
 					}
 
 					else {
-						myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+						fileWriter2
+								.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
 
 					}
-					myWriter.close();
+					fileWriter2.close();
 
 				}
 
 			}
-			FileWriter myFile2 = new FileWriter("addIdentity.hbs", true);
+			fileWriter3 = new FileWriter("addIdentity.hbs", true);
 
-			myFile2.write("\t},\n");
-			myFile2.write("\t\"documents\": [\n" + "\t  {\n" + "\t\t\"value\": \"{{value}}\",\n"
+			fileWriter3.write("\t},\n");
+			fileWriter3.write("\t\"documents\": [\n" + "\t  {\n" + "\t\t\"value\": \"{{value}}\",\n"
 					+ "\t\t\"category\": \"{{category}}\"\n" + "\t  }\n" + "\t]\n");
-			myFile2.write("},\n");
+			fileWriter3.write("},\n");
 
-			myFile2.write("\t\"requesttime\": \"{{requesttime}}\",\n");
-			myFile2.write("\t\"version\": \"{{version}}\"\n");
-			myFile2.write("}\n");
-			myFile2.close();
+			fileWriter3.write("\t\"requesttime\": \"{{requesttime}}\",\n");
+			fileWriter3.write("\t\"version\": \"{{version}}\"\n");
+			fileWriter3.write("}\n");
+			fileWriter3.close();
 
-			BufferedReader br = new BufferedReader(new FileReader("addIdentity.hbs"));
+			fileReader = new FileReader("addIdentity.hbs");
+			bufferedReader = new BufferedReader(fileReader);
 			try {
 				StringBuilder sb = new StringBuilder();
-				String line = br.readLine();
+				String line = bufferedReader.readLine();
 
 				while (line != null) {
 					sb.append(line);
 					sb.append(System.lineSeparator());
-					line = br.readLine();
+					line = bufferedReader.readLine();
 
 					StringBuffer everythingtrue = new StringBuffer(sb.toString());
 					everything = everythingtrue;
-
 				}
 
 			} finally {
-				br.close();
+				bufferedReader.close();
 			}
 
-		} catch (FileNotFoundException e) {
+		} catch (NullPointerException | IOException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} finally {
+			closeFileWriter(fileWriter1);
+			closeFileWriter(fileWriter2);
+			closeFileWriter(fileWriter3);
+			closeFileReader(fileReader);
+			closeBufferedReader(bufferedReader);
 		}
 		identityHbs = everything.toString();
 		return identityHbs;
@@ -4015,6 +4021,12 @@ public class AdminTestUtil extends BaseTestCase {
 		String schemaJsonData = schemaData.getString("schemaJson");
 
 		String schemaFile = schemaJsonData.toString();
+		
+		FileWriter fileWriter1 = null;
+		FileWriter fileWriter2 = null;
+		FileWriter fileWriter3 = null;
+		FileReader fileReader = null;
+		BufferedReader bufferedReader = null;
 
 		try {
 			JSONObject jObj = new JSONObject(schemaFile);
@@ -4023,16 +4035,16 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject objIDJson2 = objIDJson.getJSONObject("properties");
 			JSONArray objIDJson1 = objIDJson.getJSONArray("required");
 
-			FileWriter myFile = new FileWriter("updateDraft.hbs");
-			myFile.write("{\n");
-			myFile.write("  \"id\": \"{{id}}\",\n");
-			myFile.write("  \"requesttime\": \"{{requesttime}}\",\n");
-			myFile.write("  \"version\": \"{{version}}\",\n");
-			myFile.write("  \"registrationId\": \"{{registrationId}}\",\n");
-			myFile.write("  \"request\": {\n");
+			fileWriter1 = new FileWriter("updateDraft.hbs");
+			fileWriter1.write("{\n");
+			fileWriter1.write("  \"id\": \"{{id}}\",\n");
+			fileWriter1.write("  \"requesttime\": \"{{requesttime}}\",\n");
+			fileWriter1.write("  \"version\": \"{{version}}\",\n");
+			fileWriter1.write("  \"registrationId\": \"{{registrationId}}\",\n");
+			fileWriter1.write("  \"request\": {\n");
 
-			myFile.write("    \"identity\": {\n");
-			myFile.close();
+			fileWriter1.write("    \"identity\": {\n");
+			fileWriter1.close();
 
 			boolean flag = true;
 			for (int i = 0, size = objIDJson1.length(); i < size; i++) {
@@ -4058,65 +4070,66 @@ public class AdminTestUtil extends BaseTestCase {
 
 					System.out.println(mainObj);
 
-					FileWriter myWriter = new FileWriter("updateDraft.hbs", flag);
+					fileWriter2 = new FileWriter("updateDraft.hbs", flag);
 					flag = true;
-					myWriter.write("\t  \"" + objIDJson3 + "\": \n\t   ");
+					fileWriter2.write("\t  \"" + objIDJson3 + "\": \n\t   ");
 
 					/*
 					 * for (String list : languageDetails) { myWriter.write(list); }
 					 */
 
-					myWriter.write(jArray.toString());
-					myWriter.write("\n\t  ,\n");
-					myWriter.close();
+					fileWriter2.write(jArray.toString());
+					fileWriter2.write("\n\t  ,\n");
+					fileWriter2.close();
 
 				} else {
 
-					FileWriter myWriter = new FileWriter("updateDraft.hbs", flag);
+					fileWriter2 = new FileWriter("updateDraft.hbs", flag);
 					flag = true;
 
 					if (objIDJson3.equals("proofOfIdentity")) {
-						myWriter.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
+						fileWriter2.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
 								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
 					}
 
 					else if (objIDJson3.equals("individualBiometrics")) {
-						myWriter.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
+						fileWriter2.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
 								+ "\t\t\"version\": 1,\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  }\n");
 					}
 
 					else if (objIDJson3.equals("IDSchemaVersion")) {
-						myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
+						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
 					}
 
 					else {
-						myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
 
 					}
-					myWriter.close();
+					fileWriter2.close();
 
 				}
 
 			}
-			FileWriter myFile2 = new FileWriter("updateDraft.hbs", true);
+			fileWriter3 = new FileWriter("updateDraft.hbs", true);
 
-			myFile2.write("\t},\n");
-			myFile2.write("\t\"documents\": [\n" + "\t  {\n" + "\t\t\"value\": \"{{value}}\",\n"
+			fileWriter3.write("\t},\n");
+			fileWriter3.write("\t\"documents\": [\n" + "\t  {\n" + "\t\t\"value\": \"{{value}}\",\n"
 					+ "\t\t\"category\": \"{{category}}\"\n" + "\t  }\n" + "\t]\n");
-			myFile2.write("},\n");
+			fileWriter3.write("},\n");
 
-			myFile2.write("}\n");
-			myFile2.close();
+			fileWriter3.write("}\n");
+			fileWriter3.close();
 
-			BufferedReader br = new BufferedReader(new FileReader("updateDraft.hbs"));
+			fileReader = new FileReader("updateDraft.hbs");
+			bufferedReader = new BufferedReader(fileReader);
 			try {
 				StringBuilder sb = new StringBuilder();
-				String line = br.readLine();
+				String line = bufferedReader.readLine();
 
 				while (line != null) {
 					sb.append(line);
 					sb.append(System.lineSeparator());
-					line = br.readLine();
+					line = bufferedReader.readLine();
 
 					StringBuffer everythingtrue = new StringBuffer(sb.toString());
 					everything = everythingtrue;
@@ -4124,13 +4137,17 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 
 			} finally {
-				br.close();
+				bufferedReader.close();
 			}
 
-		} catch (FileNotFoundException e) {
+		} catch (NullPointerException | IOException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} finally {
+			closeFileWriter(fileWriter1);
+			closeFileWriter(fileWriter2);
+			closeFileWriter(fileWriter3);
+			closeFileReader(fileReader);
+			closeBufferedReader(bufferedReader);
 		}
 		draftHbs = everything.toString();
 		return draftHbs;
@@ -4162,6 +4179,12 @@ public class AdminTestUtil extends BaseTestCase {
 		String schemaJsonData = schemaData.getString("schemaJson");
 
 		String schemaFile = schemaJsonData.toString();
+		
+		FileWriter fileWriter1 = null;
+		FileWriter fileWriter2 = null;
+		FileWriter fileWriter3 = null;
+		FileReader fileReader = null;
+		BufferedReader bufferedReader = null;
 
 		try {
 			JSONObject jObj = new JSONObject(schemaFile);
@@ -4195,23 +4218,23 @@ public class AdminTestUtil extends BaseTestCase {
 			// Recreate JSON Array
 			JSONArray newIdJson = new JSONArray(list);
 
-			FileWriter myFile = new FileWriter("createPrereg.hbs");
-			myFile.write("{\n");
-			myFile.write("  \"id\": \"{{id}}\",\n");
+			fileWriter1 = new FileWriter("createPrereg.hbs");
+			fileWriter1.write("{\n");
+			fileWriter1.write("  \"id\": \"{{id}}\",\n");
 			if (isItUpdate) {
-				myFile.write("  \"preRegistrationId\": \"{{preRegistrationId}}\",\n");
+				fileWriter1.write("  \"preRegistrationId\": \"{{preRegistrationId}}\",\n");
 			}
 
-			myFile.write("  \"requesttime\": \"{{requesttime}}\",\n");
-			myFile.write("  \"version\": \"{{version}}\",\n");
-			myFile.write("  \"request\": {\n");
-			myFile.write("    \"langCode\": \"{{langCode}}\",\n");
-			myFile.write("    \"requiredFields\": " + newIdJson + ",\n");
-			myFile.write("    \"demographicDetails\": {\n");
+			fileWriter1.write("  \"requesttime\": \"{{requesttime}}\",\n");
+			fileWriter1.write("  \"version\": \"{{version}}\",\n");
+			fileWriter1.write("  \"request\": {\n");
+			fileWriter1.write("    \"langCode\": \"{{langCode}}\",\n");
+			fileWriter1.write("    \"requiredFields\": " + newIdJson + ",\n");
+			fileWriter1.write("    \"demographicDetails\": {\n");
 
-			myFile.write("      \"identity\": {\n");
+			fileWriter1.write("      \"identity\": {\n");
 
-			myFile.close();
+			fileWriter1.close();
 
 			boolean flag = true;
 			for (int i = 0, size = newIdJson.length(); i < size; i++) {
@@ -4240,59 +4263,61 @@ public class AdminTestUtil extends BaseTestCase {
 
 					System.out.println(mainObj);
 
-					FileWriter myWriter = new FileWriter("createPrereg.hbs", flag);
+					fileWriter2 = new FileWriter("createPrereg.hbs", flag);
 					flag = true;
-					myWriter.write("\t  ,\"" + objIDJson3 + "\": ");
+					fileWriter2.write("\t  ,\"" + objIDJson3 + "\": ");
 
-					myWriter.write(jArray.toString());
+					fileWriter2.write(jArray.toString());
 					// myWriter.write("\n\t ,\n");
-					myWriter.write("\t");
+					fileWriter2.write("\t");
 					if (jArray.toString().contains("residenceStatus") || objIDJson3.contains("residenceStatus")) {
-						myWriter.write("\n\t  \n}\n}\n}\n}\n");
+						fileWriter2.write("\n\t  \n}\n}\n}\n}\n");
 					} else {
-						myWriter.write("\n\t  \n");
+						fileWriter2.write("\n\t  \n");
 					}
 
-					myWriter.close();
+					fileWriter2.close();
 
 				} else {
 
-					FileWriter myWriter = new FileWriter("createPrereg.hbs", flag);
+					fileWriter2 = new FileWriter("createPrereg.hbs", flag);
 					flag = true;
 
 					if (i == size - 1) {
-						myWriter.write("\t  ,\"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\""
+						fileWriter2.write("\t  ,\"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\""
 								+ "\n}\n}\n}\n}");
 
 					}
 
 					else if (objIDJson3.equals("IDSchemaVersion")) {
-						myWriter.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + "\n");
+						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + "\n");
 					}
 
 					else {
-						myWriter.write("\t  ,\"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
+						fileWriter2.write("\t  ,\"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
 
 					}
 
-					myWriter.close();
+					fileWriter2.close();
 
 				}
 
 			}
-			FileWriter myFile2 = new FileWriter("createPrereg.hbs", true);
+			fileWriter3 = new FileWriter("createPrereg.hbs", true);
 
-			myFile2.close();
+			fileWriter3.close();
+			
+			fileReader = new FileReader("createPrereg.hbs");
 
-			BufferedReader br = new BufferedReader(new FileReader("createPrereg.hbs"));
+			bufferedReader = new BufferedReader(fileReader);
 			try {
 				StringBuilder sb = new StringBuilder();
-				String line = br.readLine();
+				String line = bufferedReader.readLine();
 
 				while (line != null) {
 					sb.append(line);
 					sb.append(System.lineSeparator());
-					line = br.readLine();
+					line = bufferedReader.readLine();
 
 					StringBuffer everythingtrue = new StringBuffer(sb.toString());
 					everything = everythingtrue;
@@ -4300,13 +4325,17 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 
 			} finally {
-				br.close();
+				bufferedReader.close();
 			}
 
-		} catch (FileNotFoundException e) {
+		} catch (IOException | NullPointerException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} finally {
+			closeFileWriter(fileWriter1);
+			closeFileWriter(fileWriter2);
+			closeFileWriter(fileWriter3);
+			closeFileReader(fileReader);
+			closeBufferedReader(bufferedReader);
 		}
 		if (isItUpdate) {
 
