@@ -92,7 +92,7 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 	public void createUins(TestCaseDTO testCaseDTO, int count) throws AuthenticationTestException, AdminTestException {
 		String uin = JsonPrecondtion
 				.getValueFromJson(RestClient.getRequestWithCookie(ApplnURI+"/v1/idgenerator/uin", MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(), "response.uin");
-		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
+		DateFormat dateFormatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
 		//String genRid = "278476573600025" + timestampValue;

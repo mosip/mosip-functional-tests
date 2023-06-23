@@ -124,7 +124,7 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 			testCaseDTO.setOutput(res.toString());
 		}
 
-		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
+		DateFormat dateFormatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
 		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;

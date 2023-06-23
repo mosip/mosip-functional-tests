@@ -42,18 +42,18 @@ public class JSONUtil {
 	public JSONObject loadJsonFromFile(String jsonFile) {
 
 		Gson gson = new Gson();
-		BufferedReader br = null;
+		BufferedReader bufferedReader = null;
+		JSONObject json = null;
+		FileReader fileReader = null;
 		try {
-			br = new BufferedReader(new FileReader(jsonFile));
-		} catch (FileNotFoundException e) {
+			fileReader = new FileReader(jsonFile);
+			bufferedReader = new BufferedReader(fileReader);
+			json = gson.fromJson(bufferedReader, JSONObject.class);
+		} catch (FileNotFoundException | NullPointerException e) {
 			e.printStackTrace();
-		}
-
-		JSONObject json = gson.fromJson(br, JSONObject.class);
-		try {
-			br.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} finally {
+			AdminTestUtil.closeBufferedReader(bufferedReader);
+			AdminTestUtil.closeFileReader(fileReader);
 		}
 		return json;
 	}

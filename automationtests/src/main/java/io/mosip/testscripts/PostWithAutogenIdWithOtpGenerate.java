@@ -105,10 +105,15 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 						testCaseDTO.getTestCaseName());
 			}
 
-			if (otpResponse.asString().contains("IDA-MLC-018")) {
+			if (otpResponse != null && otpResponse.asString().contains("IDA-MLC-018")) {
 				logger.info(
 						"waiting for: " + props.getProperty("uinGenDelayTime") + " as UIN not available in database");
-				Thread.sleep(Long.parseLong(props.getProperty("uinGenDelayTime")));
+				try {
+					Thread.sleep(Long.parseLong(props.getProperty("uinGenDelayTime")));
+				} catch (NumberFormatException | InterruptedException e) {
+					e.printStackTrace();
+					Thread.currentThread().interrupt();
+				} 
 			} else {
 				break;
 			}
@@ -125,26 +130,20 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
-		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
-				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
-		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
+		if (otpResponse != null) {
+			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
+					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
+			
+			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
+				throw new AdminTestException("Failed at otp output validation");
+		}
+		else {
+			throw new AdminTestException("Invalid otp response");
+		}
+		
 
-		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
-			throw new AdminTestException("Failed at otp output validation");
 
-//		if(testCaseName.contains("_eotp")) {
-//			try {
-//				logger.info("waiting for " + props.getProperty("expireOtpTime")
-//				+ " mili secs to test expire otp case in RESIDENT Service");
-//				Thread.sleep(Long.parseLong(props.getProperty("expireOtpTime")));
-//			} catch (NumberFormatException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
 
 		if (testCaseName.contains("ESignet_")) {
 			String tempUrl = ApplnURI.replace("-internal", "");
