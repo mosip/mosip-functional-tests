@@ -237,7 +237,7 @@ public class MosipTestRunner {
 			final KeyPair keypair = keyGenerator.generateKeyPair();
 			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			LOGGER.error(e.getStackTrace());
 		}
 		return publicKey;
 	}
@@ -264,7 +264,7 @@ public class MosipTestRunner {
                 throw e;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+        	LOGGER.error(e.getStackTrace());
         }
         return vcString;
 	}
@@ -285,7 +285,7 @@ public class MosipTestRunner {
 //			FileUtils.writeStringToFile(oidcJWK1, jwk.toJSONString(), StandardCharset.UTF_8.name());
 			return jwk.toJSONString();
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			LOGGER.error(e.getStackTrace());
 			return null;
 		}
 //		return jwk.toJSONString();

@@ -143,8 +143,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identyEnryptRequest,
 					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, false);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 
 		if (Arrays.asList(testCaseDTO.getTestCaseName().split("_")).contains("MultiFactorAuth")) {

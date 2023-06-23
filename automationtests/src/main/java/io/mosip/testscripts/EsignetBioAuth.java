@@ -130,8 +130,7 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
 					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 
 		JSONObject encryptedIdentityReqObject = new JSONObject(encryptedIdentityReq);

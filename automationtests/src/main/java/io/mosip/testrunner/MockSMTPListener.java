@@ -40,7 +40,7 @@ import java.util.concurrent.CountDownLatch;
 
 
 public class MockSMTPListener{
-	Logger logger = Logger.getLogger(MockSMTPListener.class);
+	private static Logger logger = Logger.getLogger(MockSMTPListener.class);
 	//static HashMap emailNotificationMapS=new HashMap<Object, Object>();
 	
 	 
@@ -61,7 +61,7 @@ public class MockSMTPListener{
 					.buildAsync(URI.create(a1+a2+a3), new WebSocketClient())
 					.join();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 
 	}
@@ -107,14 +107,9 @@ public class MockSMTPListener{
 					System.out.println(" Skip adding to emailNotificationMap key = " + root.to.value.get(0).address
 							+ " data " + data + " root " + root );
 				}
-			} catch (JsonMappingException e) {
+			} catch (JsonProcessingException | JSONException e) {
 
-				e.printStackTrace();
-			} catch (JsonProcessingException e) {
-				e.printStackTrace();
-			} 	catch(JSONException e)
-			{
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 
 			return WebSocket.Listener.super.onText(webSocket, data, last);
@@ -126,7 +121,7 @@ public class MockSMTPListener{
 		public void onError(WebSocket webSocket, Throwable error) {
 
 			System.out.println("Bad day! " + webSocket.toString());
-			error.printStackTrace();
+			logger.error(error.getStackTrace());
 			WebSocket.Listener.super.onError(webSocket, error);
 		}
 	}

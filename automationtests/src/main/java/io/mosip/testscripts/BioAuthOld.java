@@ -116,8 +116,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
 					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 
 		Map<String, String> bioAuthTempMap = (isInternal)
@@ -154,8 +153,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 			try {
 				res = resJsonObject.get("response").toString();
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
 			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 

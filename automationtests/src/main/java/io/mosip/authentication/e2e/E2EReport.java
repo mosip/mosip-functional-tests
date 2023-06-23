@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.testng.IReporter;
 import org.testng.IResultMap;
 import org.testng.ISuite;
@@ -13,8 +14,10 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.xml.XmlSuite;
 
-public class E2EReport implements IReporter{
+import io.mosip.testscripts.BioAuth;
 
+public class E2EReport implements IReporter{
+	private static final Logger logger = Logger.getLogger(E2EReport.class);
 	public static Map<String,String> e2eReport = new HashMap<String,String>();
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
@@ -42,8 +45,8 @@ public class E2EReport implements IReporter{
 					}
 				}
 			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			logger.error(e.getStackTrace());
 		} finally {
 			return e2eReport;
 		}

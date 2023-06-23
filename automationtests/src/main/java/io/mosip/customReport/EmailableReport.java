@@ -87,7 +87,7 @@ public class EmailableReport implements IReporter {
 				System.out.println("isStoreSuccess:: " + isStoreSuccess);
 			} catch (Exception e) {
 				System.out.println("error occured while pushing the object" + e.getLocalizedMessage());
-				e.printStackTrace();
+				LOG.error(e.getStackTrace());
 			}
 			if (isStoreSuccess) {
 				System.out.println("Pushed file to S3");
@@ -107,8 +107,8 @@ public class EmailableReport implements IReporter {
 			//branch = properties.getProperty("git.branch");
 			return "Commit Id is: " + properties.getProperty("git.commit.id.abbrev") + " & Branch Name is:" + properties.getProperty("git.branch");
 
-		} catch (IOException io) {
-			io.printStackTrace();
+		} catch (IOException e) {
+			LOG.error(e.getStackTrace());
 			return "";
 		}
 		

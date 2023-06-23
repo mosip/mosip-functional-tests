@@ -61,8 +61,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			internalThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("internalrefId")));
 			idaFirThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("idaFirRefId")));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			lOGGER.error(e.getStackTrace());
 		}
 	}
 	
@@ -408,8 +407,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		try {
 			expectedThumbPrint = getCertificateThumbprint(getPartnerCertificate(partnerId));
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			lOGGER.error(e.getStackTrace());
 		}
 		return expectedThumbPrint.equals(thumbPrint);
 	}

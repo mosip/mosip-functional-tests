@@ -89,7 +89,7 @@ public class CommonLibrary extends BaseTestCase {
 
 		} catch (java.text.ParseException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 
 	}
@@ -175,9 +175,9 @@ public class CommonLibrary extends BaseTestCase {
 			logger.info("fileToRead : " + fileToRead);
 			inputStream = new FileInputStream(fileToRead);
 			jsonData = (JSONObject) new JSONParser().parse(new InputStreamReader(inputStream, "UTF-8"));
-		} catch (FileNotFoundException e1) {
-			logger.info("error while reading the file : " + e1.getLocalizedMessage() );
-			e1.printStackTrace();
+		} catch (FileNotFoundException e) {
+			logger.info("error while reading the file : " + e.getLocalizedMessage() );
+			logger.error(e.getStackTrace());
 			logger.info("File Not Found at the given path");
 		}
 		catch (IOException | ParseException | NullPointerException e) {
@@ -343,8 +343,7 @@ public class CommonLibrary extends BaseTestCase {
 				
 			
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 			return jsnString;
 			

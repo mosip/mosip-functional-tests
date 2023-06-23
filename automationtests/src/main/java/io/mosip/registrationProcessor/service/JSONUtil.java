@@ -5,18 +5,21 @@ package io.mosip.registrationProcessor.service;
 
 import java.io.*;
 
+import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 
 import com.google.gson.Gson;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.testscripts.BioAuth;
 
 /**
  * @author Gaurav Sharan
  *
  */
 public class JSONUtil {
-
+	
+	private static final Logger logger = Logger.getLogger(JSONUtil.class);
 	/*
 	 * public RegProcIdDto mapJsonFileToObject(String idJsonPath) { RegProcIdDto obj
 	 * = null; try { Gson gson = new Gson(); InputStream in = new
@@ -35,7 +38,7 @@ public class JSONUtil {
 			file.flush();
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 	}
 
@@ -50,7 +53,7 @@ public class JSONUtil {
 			bufferedReader = new BufferedReader(fileReader);
 			json = gson.fromJson(bufferedReader, JSONObject.class);
 		} catch (FileNotFoundException | NullPointerException e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		} finally {
 			AdminTestUtil.closeBufferedReader(bufferedReader);
 			AdminTestUtil.closeFileReader(fileReader);
@@ -64,10 +67,8 @@ public class JSONUtil {
 			fileWriter = new FileWriter(packetMetaInfoFile);
 			fileWriter.write(jsonObject.toJSONString());
 		} catch (NullPointerException | IOException e) {
-			e.printStackTrace();
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		} finally {
+			logger.error(e.getStackTrace());
+		}finally {
 			AdminTestUtil.closeFileWriter(fileWriter);
 		}
 

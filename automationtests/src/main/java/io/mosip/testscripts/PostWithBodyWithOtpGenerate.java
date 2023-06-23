@@ -120,12 +120,8 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 				logger.info("waiting for " + props.getProperty("expireOtpTime")
 				+ " mili secs to test expire otp case in RESIDENT Service");
 				Thread.sleep(Long.parseLong(props.getProperty("expireOtpTime")));
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			} catch (NumberFormatException | InterruptedException e) {
+				logger.error(e.getStackTrace());
 				Thread.currentThread().interrupt();
 			}
 		}
