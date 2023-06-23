@@ -50,24 +50,26 @@ public class AuditDBManager extends AdminTestUtil {
 		Map<String, Object> record = new HashMap<String, Object>();
 		try {
 			session = getDataBaseConnection(moduleName);
-			session.doWork(new Work() {
-				@Override
-				public void execute(Connection connection) throws SQLException {
-					Statement statement = connection.createStatement();
-					try {
-						ResultSet rs = statement.executeQuery(query);
-						ResultSetMetaData md = rs.getMetaData();
-						int columns = md.getColumnCount();
-						while (rs.next()) {
-							for (int i = 1; i <= columns; i++) {
-								record.put(md.getColumnName(i), rs.getObject(i));
+			if (session != null) {
+				session.doWork(new Work() {
+					@Override
+					public void execute(Connection connection) throws SQLException {
+						Statement statement = connection.createStatement();
+						try {
+							ResultSet rs = statement.executeQuery(query);
+							ResultSetMetaData md = rs.getMetaData();
+							int columns = md.getColumnCount();
+							while (rs.next()) {
+								for (int i = 1; i <= columns; i++) {
+									record.put(md.getColumnName(i), rs.getObject(i));
+								}
 							}
+						} finally {
+							statement.close();
 						}
-					} finally {
-						statement.close();
 					}
-				}
-			});
+				});
+			}
 		} catch (NullPointerException e) {
 			DBCONNECTION_LOGGER.error("Exception occured " + e.getMessage());
 		} finally {
@@ -88,20 +90,22 @@ public class AuditDBManager extends AdminTestUtil {
 		Session session = null;
 		try {
 			session = getDataBaseConnection(moduleName);
-			session.doWork(new Work() {
-				@Override
-				public void execute(Connection connection) throws SQLException {
-					Statement statement = connection.createStatement();
-					try {
-						int rs = statement.executeUpdate(deleteQuery);
-						if (rs > 0) {
-							System.out.println("deleted successfully!");
+			if (session != null) {
+				session.doWork(new Work() {
+					@Override
+					public void execute(Connection connection) throws SQLException {
+						Statement statement = connection.createStatement();
+						try {
+							int rs = statement.executeUpdate(deleteQuery);
+							if (rs > 0) {
+								System.out.println("deleted successfully!");
+							}
+						} finally {
+							statement.close();
 						}
-					} finally {
-						statement.close();
 					}
-				}
-			});
+				});
+			}
 		} catch (NullPointerException e) {
 			DBCONNECTION_LOGGER.error("Exception occured " + e.getMessage());
 		} finally {

@@ -40,17 +40,19 @@ public class Precondtion {
 		FileOutputStream outputStream = null;
 		Map<String, String> auditTxnValue = new HashMap<String, String>();
 		try {
-			fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);// New Code . Need to add
-			for (Entry<String, String> entry : fieldvalue.entrySet()) {
-				String orgKey = AuthTestsUtil.getPropertyFromFilePath(auditMappingPath).get(entry.getKey()).toString();
-				auditTxnValue.put(orgKey, entry.getValue());
-			}
-			Properties prop = new Properties();
-			outputStream = new FileOutputStream(outputFilePath);
-				for (Entry<String, String> entry : auditTxnValue.entrySet()) {
-					prop.setProperty(entry.getKey(), entry.getValue());
+			fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
+			if (fieldvalue != null) {
+				for (Entry<String, String> entry : fieldvalue.entrySet()) {
+					String orgKey = AuthTestsUtil.getPropertyFromFilePath(auditMappingPath).get(entry.getKey()).toString();
+					auditTxnValue.put(orgKey, entry.getValue());
 				}
-				prop.store(outputStream, "UTF-8");
+				Properties prop = new Properties();
+				outputStream = new FileOutputStream(outputFilePath);
+					for (Entry<String, String> entry : auditTxnValue.entrySet()) {
+						prop.setProperty(entry.getKey(), entry.getValue());
+					}
+					prop.store(outputStream, "UTF-8");
+			}
 		} catch (Exception e) {
 			PRECON_LOGGER.error("Exception Occured: " + e.getMessage());
 		}finally {
@@ -72,22 +74,23 @@ public class Precondtion {
 		Map<String, String> emailTemplatevalue = new HashMap<String, String>();
 		try {
 			fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
-			for (Entry<String, String> entry : fieldvalue.entrySet()) {
-				String key = entry.getKey().toString();
-				if (key.matches("email.template.*")) {
-					String[] templates = entry.getValue().split(Pattern.quote("|"));
-					emailTemplatevalue.put(templates[0], templates[1]);
-				} else if (entry.getKey().toString().contains("email.otp")) {
-					emailTemplatevalue.put(entry.getKey(), entry.getValue());
+			if (fieldvalue != null) {
+				for (Entry<String, String> entry : fieldvalue.entrySet()) {
+					String key = entry.getKey().toString();
+					if (key.matches("email.template.*")) {
+						String[] templates = entry.getValue().split(Pattern.quote("|"));
+						emailTemplatevalue.put(templates[0], templates[1]);
+					} else if (entry.getKey().toString().contains("email.otp")) {
+						emailTemplatevalue.put(entry.getKey(), entry.getValue());
+					}
 				}
+				Properties prop = new Properties();
+				for (Entry<String, String> entry : emailTemplatevalue.entrySet()) {
+					prop.setProperty(entry.getKey(), entry.getValue());
+				}
+				outputStream = new FileOutputStream(outputFilePath);
+				prop.store(new OutputStreamWriter(outputStream, "UTF-8"), null);
 			}
-			Properties prop = new Properties();
-			for (Entry<String, String> entry : emailTemplatevalue.entrySet()) {
-				prop.setProperty(entry.getKey(), entry.getValue());
-			}
-			outputStream = new FileOutputStream(outputFilePath);
-			prop.store(new OutputStreamWriter(outputStream, "UTF-8"), null);
-			
 		} catch (Exception e) {
 			PRECON_LOGGER.error("Exception Occured: " + e.getMessage());
 		}finally {
@@ -108,14 +111,16 @@ public class Precondtion {
 		Map<String, String> returnFieldValue = null;
 		try {
 			returnFieldValue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
-			Properties prop = new Properties();
-			if (!new File(outputFilePath).exists())
-				new File(outputFilePath).getParentFile().mkdirs();
-			outputStream = new FileOutputStream(outputFilePath);
-			for (Entry<String, String> entry : returnFieldValue.entrySet()) {
-				prop.setProperty(entry.getKey(), entry.getValue());
+			if (returnFieldValue != null) {
+				Properties prop = new Properties();
+				if (!new File(outputFilePath).exists())
+					new File(outputFilePath).getParentFile().mkdirs();
+				outputStream = new FileOutputStream(outputFilePath);
+				for (Entry<String, String> entry : returnFieldValue.entrySet()) {
+					prop.setProperty(entry.getKey(), entry.getValue());
+				}
+				prop.store(outputStream, null);
 			}
-			prop.store(outputStream, null);
 		} catch (Exception e) {
 			PRECON_LOGGER.error("Exception Occured: " + e.getMessage());
 		}finally {

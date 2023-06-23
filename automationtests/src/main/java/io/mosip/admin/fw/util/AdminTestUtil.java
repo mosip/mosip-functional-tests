@@ -2411,9 +2411,14 @@ public class AdminTestUtil extends BaseTestCase {
 			FileUtils.copyDirectoryToDirectory(source, destination);
 			logger.info("Copied the test resource successfully for " + moduleName);
 		} catch (Exception e) {
-			logger.error("Exception occured while copying the file for : " + moduleName + " Source path : "
-					+ source.getAbsolutePath() + " Destination path : " + destination.getAbsolutePath() + " Error : "
-					+ e.getMessage());
+			if (source != null && destination != null)
+				logger.error("Exception occured while copying the file for : " + moduleName + " Source path : "
+						+ source.getAbsolutePath() + " Destination path : " + destination.getAbsolutePath()
+						+ " Error : " + e.getMessage());
+			else
+				logger.error(
+						"Exception occured while copying the file for : " + moduleName + " Error : " + e.getMessage());
+
 		}
 	}
 
@@ -3394,29 +3399,14 @@ public class AdminTestUtil extends BaseTestCase {
 	private static File updateCSV(String fileToUpdate, String replace, int row, int col) {
 		File inputFile = new File(fileToUpdate);
 		List<String[]> csvBody;
-		CSVWriter csvWriter = null;
-		CSVReader csvReader = null;
-		try {
-			csvReader = new CSVReader(new FileReader(inputFile), ',');
+		
+		try(CSVReader csvReader = new CSVReader(new FileReader(inputFile), ',');
+			     CSVWriter csvWriter = new CSVWriter(new FileWriter(inputFile), ',')) {
 			csvBody = csvReader.readAll();
 			csvBody.get(row)[col] = replace;
-			csvWriter = new CSVWriter(new FileWriter(inputFile), ',');
 			csvWriter.writeAll(csvBody);
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if (csvReader != null) {
-					csvReader.close();
-				}
-				if (csvWriter != null) {
-					csvWriter.flush();
-					csvWriter.close();
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 		return inputFile;
 	}

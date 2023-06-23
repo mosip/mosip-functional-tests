@@ -66,6 +66,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	protected static String responseDigitalSignatureValue;
 	protected static String responseDigitalSignatureKey="response-signature";
 	protected static String logFileName="id-auth.log";
+	public static final Random randomValue = new Random();
 	
 	/**
 	 * The method will get current test execution folder
@@ -1312,10 +1313,9 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @return string
 	 */
 	public static String randomize(int digit){
-        Random r = new Random();
         String randomNumber="";
         for (int i = 0; i < digit; i++) {
-        	randomNumber=randomNumber+r.nextInt(9);
+        	randomNumber=randomNumber+randomValue.nextInt(9);
         }
         return randomNumber;
     }
@@ -1452,8 +1452,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 	
 	public static int generateRandomIntRange(int min, int max) {
-	    Random r = new Random();
-	    return r.nextInt((max - min) + 1) + min;
+	    return randomValue.nextInt((max - min) + 1) + min;
 	}
 	
 	// Added by Admin Test Team

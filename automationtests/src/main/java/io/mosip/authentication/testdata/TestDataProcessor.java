@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.RunConfig;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.testDataDTO.YamlDTO;
@@ -69,13 +70,10 @@ public class TestDataProcessor {
 			YamlDTO obj = new YamlDTO();
 			obj.setYamlObject((Map<String, List<Object>>) yaml.load(inputStream));
 			List<Object> list = obj.getYamlObject().get(dataParam);
-			Random random = new Random();
-			testdata = (String) list.get(random.nextInt(list.size())).toString();
+			testdata = (String) list.get(AuthTestsUtil.randomValue.nextInt(list.size())).toString();
 		} catch (FileNotFoundException e) {
 			TESTDATAPROC_LOGGER.error("File is not available :" + e.getMessage());
-		} catch (IOException e) {
-			TESTDATAPROC_LOGGER.error("File is not available :" + e.getMessage());
-		}finally {
+		} finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}
 		return testdata;

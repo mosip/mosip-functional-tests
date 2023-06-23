@@ -199,8 +199,8 @@ public class XmlPrecondtion extends MessagePrecondtion{
 		} catch (Exception exp) {
 			XMLPRECONDTION_LOGGER
 					.error("Exception occured in xpath. Check correct xpath used in mapping" + exp.getMessage());
-			return null;
 		}
+		return null;
 	}
 
 	private static String normalisedXpath(String xpath) {
@@ -220,19 +220,24 @@ public class XmlPrecondtion extends MessagePrecondtion{
 	}
 
 	private static void updateNodeValue(XPath xpath, String normalisedExpression, String newValue) {
+		NodeList nodes = null;
 		try {
 			if (newValue.equalsIgnoreCase("$REMOVE$")) {
 				normalisedExpression = normalisedExpression.replace("/text()", "");
-				NodeList nodes = evaluateXpath(xpath, normalisedExpression);
-				for (int i = 0, len = nodes.getLength(); i < len; i++) {
-					Node node = nodes.item(i);
-					node.getParentNode().removeChild(node);
+				nodes = evaluateXpath(xpath, normalisedExpression);
+				if (nodes != null) {
+					for (int i = 0, len = nodes.getLength(); i < len; i++) {
+						Node node = nodes.item(i);
+						node.getParentNode().removeChild(node);
+					}
 				}
 			} else if (!newValue.equalsIgnoreCase("$IGNORE$")) {
-				NodeList nodes = evaluateXpath(xpath, normalisedExpression);
-				for (int i = 0, len = nodes.getLength(); i < len; i++) {
-					Node node = nodes.item(i);
-					node.setTextContent(newValue);
+				nodes = evaluateXpath(xpath, normalisedExpression);
+				if (nodes != null) {
+					for (int i = 0, len = nodes.getLength(); i < len; i++) {
+						Node node = nodes.item(i);
+						node.setTextContent(newValue);
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -247,16 +252,18 @@ public class XmlPrecondtion extends MessagePrecondtion{
 			String attr = expression.substring(expression.indexOf("@") + 1, expression.length());
 			normalisedExpression = normalisedExpression.substring(0, normalisedExpression.indexOf("@") - 1);
 			NodeList nodes = evaluateXpath(xpath, normalisedExpression);
-			for (int i = 0, len = nodes.getLength(); i < len; i++) {
-				Node node = nodes.item(i);
-				NamedNodeMap attrNode = node.getAttributes();
-				Node nodeAttr = attrNode.getNamedItem(attr);
-				if(nodeAttr!=null)
-					nodeAttr.setTextContent(newValue);
-				else
-					((Element) node).setAttribute(attr, newValue);
-				if (newValue.equalsIgnoreCase("$REMOVE$"))
-					node.getAttributes().removeNamedItem(attr);
+			if (nodes != null) {
+				for (int i = 0, len = nodes.getLength(); i < len; i++) {
+					Node node = nodes.item(i);
+					NamedNodeMap attrNode = node.getAttributes();
+					Node nodeAttr = attrNode.getNamedItem(attr);
+					if(nodeAttr!=null)
+						nodeAttr.setTextContent(newValue);
+					else
+						((Element) node).setAttribute(attr, newValue);
+					if (newValue.equalsIgnoreCase("$REMOVE$"))
+						node.getAttributes().removeNamedItem(attr);
+				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
