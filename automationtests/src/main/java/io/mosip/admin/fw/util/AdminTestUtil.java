@@ -167,7 +167,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static Properties propsMap = getproperty(
 			MosipTestRunner.getResourcePath() + "/" + "config/valueMapping.properties");
 	public static Properties propsBio = getproperty(
-			MosipTestRunner.getResourcePath() + "/" + "config/bioValue.properties");
+			MosipTestRunner.getGlobalResourcePath() + "/" + "config/bioValue.properties");
 	public static Properties propsKernel = getproperty(
 			MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
@@ -3590,6 +3590,8 @@ public class AdminTestUtil extends BaseTestCase {
 			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/idRepository");
 			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/" + RunConfigUtil.resourceFolderName);
 			FileUtils.copyDirectoryToDirectory(source, destination);
+			File config = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
+			FileUtils.copyDirectoryToDirectory(config, destination);
 			logger.info("Copied the idrepository test resource successfully");
 		} catch (Exception e) {
 			logger.error("Exception occured while copying the file: " + e.getMessage());
@@ -3601,6 +3603,8 @@ public class AdminTestUtil extends BaseTestCase {
 			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/resident");
 			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/" + RunConfigUtil.resourceFolderName);
 			FileUtils.copyDirectoryToDirectory(source, destination);
+			File config = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
+			FileUtils.copyDirectoryToDirectory(config, destination);
 			logger.info("Copied the Resident test resource successfully");
 		} catch (Exception e) {
 			logger.error("Exception occured while copying the file: " + e.getMessage());
@@ -3612,6 +3616,8 @@ public class AdminTestUtil extends BaseTestCase {
 			File source = new File(RunConfigUtil.getGlobalResourcePath() + "/partner");
 			File destination = new File(RunConfigUtil.getGlobalResourcePath() + "/" + RunConfigUtil.resourceFolderName);
 			FileUtils.copyDirectoryToDirectory(source, destination);
+			File config = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
+			FileUtils.copyDirectoryToDirectory(config, destination);
 			logger.info("Copied the partner test resource successfully");
 		} catch (Exception e) {
 			logger.error("Exception occured while copying the file: " + e.getMessage());
