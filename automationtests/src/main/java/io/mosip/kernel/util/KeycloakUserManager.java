@@ -449,8 +449,7 @@ try {
 }
 catch(Exception e)
 {
-	logger.error(e.getMessage(),e);
-	e.printStackTrace();
+	logger.error(e.getStackTrace());
 	
 }
 			

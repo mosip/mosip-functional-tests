@@ -280,9 +280,8 @@ public class AdminTestUtil extends BaseTestCase {
 				String dbChecker = "TEST_FULLNAME" + BaseTestCase.getLanguageList().get(0);
 				try {
 					checkDbAndValidate(timeStamp, dbChecker);
-				} catch (AdminTestException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				} catch (AdminTestException e) {
+					logger.error(e.getStackTrace());
 				}
 			}
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
@@ -816,9 +815,8 @@ public class AdminTestUtil extends BaseTestCase {
 				String dbChecker = "TEST_FULLNAME" + BaseTestCase.getLanguageList().get(0);
 				try {
 					checkDbAndValidate(timeStamp, dbChecker);
-				} catch (AdminTestException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				} catch (AdminTestException e) {
+					logger.error(e.getStackTrace());
 				}
 			}
 			if (testCaseName.toLowerCase().contains("_sid")) {
@@ -869,9 +867,8 @@ public class AdminTestUtil extends BaseTestCase {
 		Map<String, String> map = null;
 		try {
 			map = mapper.readValue(inputJson, Map.class);
-		} catch (JsonProcessingException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
+		} catch (JsonProcessingException e) {
+			logger.error(e.getStackTrace());
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		System.out.println(inputJson);
@@ -1036,9 +1033,8 @@ public class AdminTestUtil extends BaseTestCase {
 				String dbChecker = "TEST_FULLNAME" + BaseTestCase.getLanguageList().get(0);
 				try {
 					checkDbAndValidate(timeStamp, dbChecker);
-				} catch (AdminTestException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				} catch (AdminTestException e) {
+					logger.error(e.getStackTrace());
 				}
 			}
 			
@@ -1099,8 +1095,7 @@ public class AdminTestUtil extends BaseTestCase {
 			encodedStr = encoder.encodeToString(value.getBytes());
 			return encodedStr;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 			return "Error While EncodeingBase64";
 		}
 
@@ -1130,8 +1125,7 @@ public class AdminTestUtil extends BaseTestCase {
 			try {
 				formParams.put("request", encodeBase64(req.toString()));
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 		} else {
 			pathParams.put("preRegistrationId", req.get("preRegistrationId").toString());
@@ -1819,9 +1813,8 @@ public class AdminTestUtil extends BaseTestCase {
 					String dbChecker = "TEST_FULLNAME" + BaseTestCase.getLanguageList().get(0);
 					try {
 						checkDbAndValidate(timeStamp, dbChecker);
-					} catch (AdminTestException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+					} catch (AdminTestException e) {
+						logger.error(e.getStackTrace());
 					}
 				}
 				
@@ -1961,9 +1954,8 @@ public class AdminTestUtil extends BaseTestCase {
 				String dbChecker = "TEST_FULLNAME" + BaseTestCase.getLanguageList().get(0);
 				try {
 					checkDbAndValidate(timeStamp, dbChecker);
-				} catch (AdminTestException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				} catch (AdminTestException e) {
+					logger.error(e.getStackTrace());
 				}
 			}
 			return pdf;
@@ -2518,7 +2510,7 @@ public class AdminTestUtil extends BaseTestCase {
 			Context context = Context.newBuilder(map).build();
 			resultJson = compiledTemplate.apply(context);
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 		return resultJson;
 	}
@@ -2956,8 +2948,7 @@ public class AdminTestUtil extends BaseTestCase {
 				oidcJWKKey1 = RSAKey.parse(oidcJWKKeyString);
 				System.out.println("oidcJWKKey1 =" + oidcJWKKey1);
 			} catch (java.text.ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 			JSONObject request = new JSONObject(jsonString);
 			String client_id = null;
@@ -2994,8 +2985,7 @@ public class AdminTestUtil extends BaseTestCase {
 				bindingJWKKey = RSAKey.parse(bindingJWKKeyString);
 				System.out.println("bindingJWKKey =" + bindingJWKKey);
 			} catch (java.text.ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 
 			String individualId = null;
@@ -3006,8 +2996,7 @@ public class AdminTestUtil extends BaseTestCase {
 			try {
 				wlaToken = getWlaToken(individualId, bindingJWKKey, certificate);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 			jsonString = jsonString.replace("$WLATOKEN$", wlaToken);
 		}
@@ -3019,8 +3008,7 @@ public class AdminTestUtil extends BaseTestCase {
 				bindingJWKKeyVid = RSAKey.parse(bindingJWKKeyString);
 				System.out.println("bindingJWKKey =" + bindingJWKKeyVid);
 			} catch (java.text.ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 
 			String individualId = null;
@@ -3031,8 +3019,7 @@ public class AdminTestUtil extends BaseTestCase {
 			try {
 				wlaToken = getWlaToken(individualId, bindingJWKKeyVid, certificate);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 			jsonString = jsonString.replace("$WLATOKENVID$", wlaToken);
 		}
@@ -3043,8 +3030,7 @@ public class AdminTestUtil extends BaseTestCase {
 				bindingConsentJWKKey = RSAKey.parse(bindingConsentJWKKeyString);
 				System.out.println("bindingJWKKey =" + bindingConsentJWKKey);
 			} catch (java.text.ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 
 			String individualId = null;
@@ -3055,8 +3041,7 @@ public class AdminTestUtil extends BaseTestCase {
 			try {
 				wlaToken = getWlaToken(individualId, bindingConsentJWKKey, certificate);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 			jsonString = jsonString.replace("$WLATOKENCONSENT$", wlaToken);
 		}
@@ -3196,8 +3181,7 @@ public class AdminTestUtil extends BaseTestCase {
 			try {
 				finalObject.put("identity", parser.parse(finalString));
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 		}
 		String body = Base64.getEncoder().encodeToString(finalObject.toString().getBytes());
@@ -3406,7 +3390,7 @@ public class AdminTestUtil extends BaseTestCase {
 			csvBody.get(row)[col] = replace;
 			csvWriter.writeAll(csvBody);
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 		return inputFile;
 	}
@@ -3433,7 +3417,7 @@ public class AdminTestUtil extends BaseTestCase {
 			singResponse = sign(Request, false, true, false, null, getKeysDirPath(), partnerId);
 		} catch (NoSuchAlgorithmException | UnrecoverableEntryException | KeyStoreException | CertificateException
 				| OperatorCreationException | JoseException | IOException e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 		return singResponse;
 
@@ -3966,7 +3950,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		} catch (NullPointerException | IOException e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		} finally {
 			closeFileWriter(fileWriter1);
 			closeFileWriter(fileWriter2);
@@ -4141,7 +4125,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		} catch (NullPointerException | IOException e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		} finally {
 			closeFileWriter(fileWriter1);
 			closeFileWriter(fileWriter2);
@@ -4329,7 +4313,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		} catch (IOException | NullPointerException e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		} finally {
 			closeFileWriter(fileWriter1);
 			closeFileWriter(fileWriter2);
@@ -4476,8 +4460,7 @@ public class AdminTestUtil extends BaseTestCase {
 			FileUtils.touch(fileName);// File got created
 			FileUtils.writeStringToFile(fileName, content, StandardCharset.UTF_8.name());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 	}
 

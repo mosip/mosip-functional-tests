@@ -103,7 +103,7 @@ public class AssertKernel {
 			}
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 		logger.info("equal");
 		return true;

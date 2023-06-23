@@ -14,16 +14,19 @@ import java.util.Properties;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.service.BaseTestCase;
+import io.mosip.testscripts.BioAuth;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
 public class HealthChecker implements Runnable {
+	private static final Logger logger = Logger.getLogger(HealthChecker.class);
 	public static boolean bTerminate = false;
 	public static String propsHealthCheckURL = MosipTestRunner.getResourcePath() + "/" + "config/healthCheckEndpoint.properties";
 	public static boolean signalTerminateExecution = false;
@@ -48,9 +51,8 @@ public class HealthChecker implements Runnable {
 					controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
 				}
 			}
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		} catch (Exception e) {
+			logger.error(e.getStackTrace());
 		} finally {
 			AdminTestUtil.closeBufferedReader(bufferedReader);
 			AdminTestUtil.closeFileReader(fileReader);
@@ -74,8 +76,7 @@ public class HealthChecker implements Runnable {
 			try {
 				Thread.sleep(60000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 				Thread.currentThread().interrupt();
 			}
 		}

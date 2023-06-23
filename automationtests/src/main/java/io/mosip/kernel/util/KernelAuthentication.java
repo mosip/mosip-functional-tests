@@ -185,8 +185,7 @@ public class KernelAuthentication extends BaseTestCase{
 			try {
 				ESignetCookiesFileString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 			org.json.JSONObject jsonCookies = new org.json.JSONObject(ESignetCookiesFileString);
 			tokens.put("access_token", jsonCookies.get("access_token").toString());

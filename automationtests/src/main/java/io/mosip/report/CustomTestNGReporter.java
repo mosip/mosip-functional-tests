@@ -85,8 +85,8 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 			File targetFile = new File(outputDirectory + "/"+reportProfixFileName/*getCurrentDateForReport()*/+".html");
 			fileWriter = new FileWriter(targetFile);
 			fileWriter.write(finalcustomReport);
-		} catch (NullPointerException | IOException ex) {
-			ex.printStackTrace();
+		} catch (NullPointerException | IOException e) {
+			CustomTestNGReporterLog.error(e.getStackTrace());
 		} finally {
 			AdminTestUtil.closeFileWriter(fileWriter);
 		}
@@ -116,8 +116,8 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 				line = bufferedReader.readLine();
 			}
 
-		} catch (NullPointerException | IOException ex) {
-			ex.printStackTrace();
+		} catch (NullPointerException | IOException e) {
+			CustomTestNGReporterLog.error(e.getStackTrace());
 		} finally {
 			AdminTestUtil.closeBufferedReader(bufferedReader);
 			AdminTestUtil.closeFileReader(fileReader);
@@ -280,8 +280,8 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 			retBuf.append("</td>");
 
 			retBuf.append("<tr>");
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			CustomTestNGReporterLog.error(e.getStackTrace());
 		}
 		return retBuf.toString();
 	}
@@ -388,8 +388,8 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 						retBuf.append(passedTestMethodInfo);
 				}
 			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			CustomTestNGReporterLog.error(e.getStackTrace());
 		}
 		return retBuf.toString();
 	}

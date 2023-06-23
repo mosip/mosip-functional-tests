@@ -111,7 +111,7 @@ public class ExtractResource {
 	private static boolean copyFilesFromJarToOutsideResource(String path) {
 		try {
 			File resourceFile = new File(MosipTestRunner.jarUrl).getParentFile();
-			File destinationFile = new File(resourceFile.getAbsolutePath()+"/MosipTestResource/" + path);
+			File destinationFile = new File(resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
 			org.apache.commons.io.FileUtils.copyInputStreamToFile(MosipTestRunner.class.getResourceAsStream("/" + path),
 					destinationFile);
 			return true;
@@ -160,8 +160,7 @@ public class ExtractResource {
 			FileUtils.copyDirectory(db,targetDb);
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error(e.getStackTrace());
 		}
 	}
 

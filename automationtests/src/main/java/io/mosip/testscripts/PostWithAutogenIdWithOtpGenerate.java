@@ -111,7 +111,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 				try {
 					Thread.sleep(Long.parseLong(props.getProperty("uinGenDelayTime")));
 				} catch (NumberFormatException | InterruptedException e) {
-					e.printStackTrace();
+					logger.error(e.getStackTrace());
 					Thread.currentThread().interrupt();
 				} 
 			} else {
