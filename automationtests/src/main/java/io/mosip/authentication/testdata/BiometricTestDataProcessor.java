@@ -13,6 +13,7 @@ import org.yaml.snakeyaml.Yaml;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.dto.BiometricDto;
+import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 
 public class BiometricTestDataProcessor {
@@ -37,7 +38,6 @@ public class BiometricTestDataProcessor {
 		loadBiometricTestData(new File(RunConfigUtil.getBioTestDataPath()));
 		List<Object> listOfBioData = BiometricDto.getBiometric().get("biometrics").get(bioType).get(bioSubType)
 				.get(thresholdPercentage);
-		Random random = new Random();
-		return (String) listOfBioData.get(random.nextInt(listOfBioData.size())).toString();
+		return (String) listOfBioData.get(AuthTestsUtil.randomValue.nextInt(listOfBioData.size())).toString();
 	}
 }

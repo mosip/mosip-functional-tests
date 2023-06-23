@@ -139,26 +139,28 @@ public class DbConnection {
 		List<Map<String, Object>> allRecords = new ArrayList<Map<String, Object>>();
 		try {
 			session = getDataBaseConnection(moduleName);
-			session.doWork(new Work() {
-				@Override
-				public void execute(Connection connection) throws SQLException {
-					Statement statement = connection.createStatement();
-					try {
-						ResultSet rs = statement.executeQuery(query);
-						ResultSetMetaData md = rs.getMetaData();
-						int columns = md.getColumnCount();
-						while (rs.next()) {
-							Map<String, Object> record = new HashMap<String, Object>(columns);
-							for (int i = 1; i <= columns; i++) {
-								record.put(md.getColumnName(i), rs.getObject(i));
+			if (session != null) {
+				session.doWork(new Work() {
+					@Override
+					public void execute(Connection connection) throws SQLException {
+						Statement statement = connection.createStatement();
+						try {
+							ResultSet rs = statement.executeQuery(query);
+							ResultSetMetaData md = rs.getMetaData();
+							int columns = md.getColumnCount();
+							while (rs.next()) {
+								Map<String, Object> record = new HashMap<String, Object>(columns);
+								for (int i = 1; i <= columns; i++) {
+									record.put(md.getColumnName(i), rs.getObject(i));
+								}
+								allRecords.add(record);
 							}
-							allRecords.add(record);
+						} finally {
+							statement.close();
 						}
-					} finally {
-						statement.close();
 					}
-				}
-			});
+				});
+			}
 		}catch(NullPointerException e){
 			DBCONNECTION_LOGGER.error("Exception in executeQueryAndGetAllRecord: " + e);
 		}finally {
@@ -179,24 +181,26 @@ public class DbConnection {
 		Map<String, Object> record = new HashMap<String, Object>();
 		try {
 			session = getDataBaseConnection(moduleName);
-			session.doWork(new Work() {
-				@Override
-				public void execute(Connection connection) throws SQLException {
-					Statement statement = connection.createStatement();
-					try {
-						ResultSet rs = statement.executeQuery(query);
-						ResultSetMetaData md = rs.getMetaData();
-						int columns = md.getColumnCount();
-						while (rs.next()) {
-							for (int i = 1; i <= columns; i++) {
-								record.put(md.getColumnName(i), rs.getObject(i));
+			if (session != null) {
+				session.doWork(new Work() {
+					@Override
+					public void execute(Connection connection) throws SQLException {
+						Statement statement = connection.createStatement();
+						try {
+							ResultSet rs = statement.executeQuery(query);
+							ResultSetMetaData md = rs.getMetaData();
+							int columns = md.getColumnCount();
+							while (rs.next()) {
+								for (int i = 1; i <= columns; i++) {
+									record.put(md.getColumnName(i), rs.getObject(i));
+								}
 							}
+						} finally {
+							statement.close();
 						}
-					} finally {
-						statement.close();
 					}
-				}
-			});
+				});
+			}
 		}catch(NullPointerException e){
 			DBCONNECTION_LOGGER.error("Exception in executeQueryAndGetRecord: " + e);
 		}finally {
@@ -210,19 +214,21 @@ public class DbConnection {
 		Session session = null;
 		try {
 			session = getDataBaseConnection(moduleName);
-			session.doWork(new Work() {
-				@Override
-				public void execute(Connection connection) throws SQLException {
-					Statement statement = connection.createStatement();
-					try {
-						int count = statement.executeUpdate(query);
-						rowData.put("delete", "true");
-						rowData.put("count", String.valueOf(count));
-					} finally {
-						statement.close();
+			if (session != null) {
+				session.doWork(new Work() {
+					@Override
+					public void execute(Connection connection) throws SQLException {
+						Statement statement = connection.createStatement();
+						try {
+							int count = statement.executeUpdate(query);
+							rowData.put("delete", "true");
+							rowData.put("count", String.valueOf(count));
+						} finally {
+							statement.close();
+						}
 					}
-				}
-			});
+				});
+			}
 		}catch(NullPointerException e){
 			DBCONNECTION_LOGGER.error("Exception in executeUpdateQuery: " + e);
 		}
