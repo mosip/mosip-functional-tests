@@ -167,7 +167,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static Properties propsMap = getproperty(
 			MosipTestRunner.getResourcePath() + "/" + "config/valueMapping.properties");
 	public static Properties propsBio = getproperty(
-			MosipTestRunner.getGlobalResourcePath() + "/" + "config/bioValue.properties");
+			MosipTestRunner.getResourcePath() + "/" + "config/bioValue.properties");
 	public static Properties propsKernel = getproperty(
 			MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
