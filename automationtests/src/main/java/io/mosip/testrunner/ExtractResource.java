@@ -32,12 +32,10 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("syncdata/");
 		getListOfFilesFromJarAndCopyToExternalResource("ida/");
 		getListOfFilesFromJarAndCopyToExternalResource("kernel/");
-		getListOfFilesFromJarAndCopyToExternalResource("preReg/");
-		getListOfFilesFromJarAndCopyToExternalResource("config/");
 		getListOfFilesFromJarAndCopyToExternalResource("regProc/");
     	getListOfFilesFromJarAndCopyToExternalResource("idRepository/");
 		/* getListOfFilesFromJarAndCopyToExternalResource("Registration/"); */
-		getListOfFilesFromJarAndCopyToExternalResource("admin/");
+//		getListOfFilesFromJarAndCopyToExternalResource("admin/");
 		getListOfFilesFromJarAndCopyToExternalResource("resident/");
 		getListOfFilesFromJarAndCopyToExternalResource("partner/");
 		/* getListOfFilesFromJarAndCopyToExternalResource("reg/"); */
@@ -46,12 +44,12 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("log4j.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("healthCheck/");
-		getListOfFilesFromJarAndCopyToExternalResource("labels_ar.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("labels_en.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("labels_fr.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("messages_en.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("messages_ar.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("messages_fr.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("labels_ar.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("labels_en.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("labels_fr.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("messages_en.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("messages_ar.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("messages_fr.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("spring.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("validations.properties");
 		/* getListOfFilesFromJarAndCopyToExternalResource("db"); */
@@ -90,8 +88,18 @@ public class ExtractResource {
 		} catch (Exception e) {
 			LOGGER.error("Exception occured in extracting resource: " + e.getMessage());
 		} finally {
-			AdminTestUtil.closeZipInputStream(zipInputStream);
+			closeZipInputStream(zipInputStream);
 		}
+	}
+	
+	public static void closeZipInputStream(ZipInputStream zipInputStream) {
+		if (zipInputStream != null) {
+	        try {
+	        	zipInputStream.close();
+	        } catch (IOException e) {
+	            // Handle the exception
+	        }
+	    }
 	}
 	
 	/**
