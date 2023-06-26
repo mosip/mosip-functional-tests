@@ -234,7 +234,7 @@ public class MosipTestRunner {
 		String publicKey = null;
 		try {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
-			keyGenerator.initialize(2048, AuthTestsUtil.secureRandom);
+			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
 			final KeyPair keypair = keyGenerator.generateKeyPair();
 			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
 		} catch (NoSuchAlgorithmException e) {
@@ -274,7 +274,7 @@ public class MosipTestRunner {
 //		String publicKey = null;
 		try {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
-			keyGenerator.initialize(2048, AuthTestsUtil.secureRandom);
+			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
 			final KeyPair keypair = keyGenerator.generateKeyPair();
 			RSAKey jwk = new RSAKey.Builder((RSAPublicKey) keypair.getPublic()).keyID("RSAKeyID").keyUse(KeyUse.SIGNATURE)
 				    .privateKey(keypair.getPrivate())

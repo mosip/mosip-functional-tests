@@ -1,8 +1,10 @@
 package io.mosip.service;
 
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -125,37 +127,42 @@ public class BaseTestCase {
 	public static String SEPRATOR = "";
 	public static String buildNumber = "";
 	public static List<String> t = new ArrayList<>();
+	private static final char[] alphaNumericAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ0123456789"
+			.toCharArray();
+	private static final char[] nNumericAllowed = "0123456789".toCharArray();
+	public static SecureRandom secureRandom = new SecureRandom();
+	
 	public static String currentRunningLanguage = "";
-	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
+	public static String genRid = "27847" + generateRandomNumberString(10);
 
-	public static String genPolicyNumber = "9" + RandomStringUtils.randomNumeric(5);
-	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
-	public String genPolicyGroupDesc = "policyGroupForAutomationEsi" + RandomStringUtils.randomNumeric(6);
-	public String genMispPolicyGroupDesc = "policyGroupForMispEsi" + RandomStringUtils.randomNumeric(6)
-			+ RandomStringUtils.randomNumeric(3);
-	public String genPolicyGroupName = "policyGroupNameForAutomationEsi" + RandomStringUtils.randomNumeric(5);
-	public String genMispPolicyGroupName = "policyGroupNameForMispEsi" + RandomStringUtils.randomNumeric(6)
-			+ RandomStringUtils.randomNumeric(3);
-	public String genPolicyDesc = "policyDescForAutomationEsi" + RandomStringUtils.randomNumeric(5);
-	public String genMispPolicyDesc = "policyDescForMispEsit" + RandomStringUtils.randomNumeric(6)
-			+ RandomStringUtils.randomNumeric(3);
-	public String genPolicyName = "policyNameForAutomationEsi" + RandomStringUtils.randomNumeric(4);
-	public String genPolicyNameNonAuth = "policyNameForEsignet" + RandomStringUtils.randomNumeric(4);
-	public String genMispPolicyName = "policyNameForMispEsi" + RandomStringUtils.randomNumeric(6)
-			+ RandomStringUtils.randomNumeric(3);
-	public static String genPartnerName = "partnernameforautomationesi-" + RandomStringUtils.randomNumeric(6);
-	public static String genPartnerNameNonAuth = "partnernameforesignet-" + RandomStringUtils.randomNumeric(6);
-	public String genPartnerNameForDsl = "partnernameforautomationesi-" + RandomStringUtils.randomNumeric(6);
-	public static String genMispPartnerName = "esignet_" + RandomStringUtils.randomNumeric(6)
-			+ RandomStringUtils.randomNumeric(3);
-	public static String genPartnerEmail = "automationpartneresi" + RandomStringUtils.randomNumeric(7)
+	public static String genPolicyNumber = "9" + generateRandomNumberString(5);
+	public static String genRidDel = "2785" + generateRandomNumberString(10);
+	public String genPolicyGroupDesc = "policyGroupForAutomationEsi" + generateRandomNumberString(6);
+	public String genMispPolicyGroupDesc = "policyGroupForMispEsi" + generateRandomNumberString(6)
+			+ generateRandomNumberString(3);
+	public String genPolicyGroupName = "policyGroupNameForAutomationEsi" + generateRandomNumberString(5);
+	public String genMispPolicyGroupName = "policyGroupNameForMispEsi" + generateRandomNumberString(6)
+			+ generateRandomNumberString(3);
+	public String genPolicyDesc = "policyDescForAutomationEsi" + generateRandomNumberString(5);
+	public String genMispPolicyDesc = "policyDescForMispEsit" + generateRandomNumberString(6)
+			+ generateRandomNumberString(3);
+	public String genPolicyName = "policyNameForAutomationEsi" + generateRandomNumberString(4);
+	public String genPolicyNameNonAuth = "policyNameForEsignet" + generateRandomNumberString(4);
+	public String genMispPolicyName = "policyNameForMispEsi" + generateRandomNumberString(6)
+			+ generateRandomNumberString(3);
+	public static String genPartnerName = "partnernameforautomationesi-" + generateRandomNumberString(6);
+	public static String genPartnerNameNonAuth = "partnernameforesignet-" + generateRandomNumberString(6);
+	public String genPartnerNameForDsl = "partnernameforautomationesi-" + generateRandomNumberString(6);
+	public static String genMispPartnerName = "esignet_" + generateRandomNumberString(6)
+			+ generateRandomNumberString(3);
+	public static String genPartnerEmail = "automationpartneresi" + generateRandomNumberString(7)
 			+ "@automationMosip.com";
-	public String genPartnerEmailForDsl = "automationpartneresi" + RandomStringUtils.randomNumeric(10)
+	public String genPartnerEmailForDsl = "automationpartneresi" + generateRandomNumberString(10)
 	+ "@automationMosip.com";
-	public String genPartnerEmailNonAuth = "automationesignet" + RandomStringUtils.randomNumeric(10)
+	public String genPartnerEmailNonAuth = "automationesignet" + generateRandomNumberString(10)
 	+ "@automationMosip.com";
-	public String genMispPartnerEmail = "misppartner" + RandomStringUtils.randomNumeric(4)
-			+ RandomStringUtils.randomNumeric(4) + "@automationMosip.com";
+	public String genMispPartnerEmail = "misppartner" + generateRandomNumberString(4)
+			+ generateRandomNumberString(4) + "@automationMosip.com";
 	// public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
 	public static RSAKey rsaJWK;
@@ -595,5 +602,20 @@ public class BaseTestCase {
 	public static JSONObject getRequestJson(String filepath) {
 		return kernelCmnLib.readJsonData(filepath, true);
 
+	}
+	public static String generateRandomAlphaNumericString(int length) {
+		StringBuilder alphaNumericString = new StringBuilder();
+		for (int i = 0; i < length; i++) {
+			alphaNumericString.append(alphaNumericAllowed[secureRandom.nextInt(alphaNumericAllowed.length)]);
+		}
+		return alphaNumericString.toString();
+	}
+
+	public static String generateRandomNumberString(int length) {
+		StringBuilder numericString = new StringBuilder();
+		for (int i = 0; i < length; i++) {
+			numericString.append(nNumericAllowed[secureRandom.nextInt(nNumericAllowed.length)]);
+		}
+		return numericString.toString();
 	}
 }

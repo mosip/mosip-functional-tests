@@ -67,10 +67,6 @@ public class AuthTestsUtil extends BaseTestCase {
 	protected static String responseDigitalSignatureValue;
 	protected static String responseDigitalSignatureKey = "response-signature";
 	protected static String logFileName = "id-auth.log";
-	private static final char[] alphaNumericAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ0123456789"
-			.toCharArray();
-	private static final char[] nNumericAllowed = "0123456789".toCharArray();
-	public static SecureRandom secureRandom = new SecureRandom();
 
 	/**
 	 * The method will get current test execution folder
@@ -1627,19 +1623,4 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}
 
-	public static String generateRandomAlphaNumericString(int length) {
-		StringBuilder alphaNumericString = new StringBuilder();
-		for (int i = 0; i < length; i++) {
-			alphaNumericString.append(alphaNumericAllowed[secureRandom.nextInt(alphaNumericAllowed.length)]);
-		}
-		return alphaNumericString.toString();
-	}
-
-	public static String generateRandomNumberString(int length) {
-		StringBuilder numericString = new StringBuilder();
-		for (int i = 0; i < length; i++) {
-			numericString.append(nNumericAllowed[secureRandom.nextInt(nNumericAllowed.length)]);
-		}
-		return numericString.toString();
-	}
 }
