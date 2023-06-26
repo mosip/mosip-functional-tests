@@ -31,7 +31,7 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 	static String emailId = PartnerRegistration.emailId;
 	static String role = PartnerRegistration.partnerType;
 	static String policyGroup = PartnerRegistration.policyGroup;
-	static String randomAbbreviation = RandomStringUtils.randomAlphabetic(4).toUpperCase();
+	static String randomAbbreviation = generateRandomAlphabeticString(4).toUpperCase();
 	static String policyName = AdminTestUtil.policyName;
 	
 	public static String createKCUserAndGetAPIKey() {

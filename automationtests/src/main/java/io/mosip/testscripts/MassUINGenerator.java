@@ -96,7 +96,7 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
 		//String genRid = "278476573600025" + timestampValue;
-		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
+		String genRid = "27847" + generateRandomNumberString(10) + timestampValue;
 		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		inputJson = inputJson.replace("$UIN$", uin);
 		inputJson = inputJson.replace("$RID$", genRid);
