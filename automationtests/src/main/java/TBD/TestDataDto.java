@@ -1,4 +1,4 @@
-package io.mosip.authentication.testdata;
+package TBD;
 
 import java.util.Map;
 

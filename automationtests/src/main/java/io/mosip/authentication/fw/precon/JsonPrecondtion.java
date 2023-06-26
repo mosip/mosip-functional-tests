@@ -35,8 +35,6 @@ import com.google.gson.JsonParser;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.FileUtil;
-import io.mosip.authentication.testdata.Precondtion;
-import io.mosip.authentication.testdata.TestDataConfig;
 import io.mosip.service.BaseTestCase;
  
 /**
@@ -61,67 +59,68 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	 */
 	public Map<String, String> parseAndWriteFile(String inputFilePath, Map<String, String> fieldvalue,
 			String outputFilePath, String propFileName) {
-		FileOutputStream outputStream = null;
-		try {
-			ObjectMapper mapper = new ObjectMapper();
-			Object jsonObj = mapper.readValue(
-					new String(Files.readAllBytes(Paths.get(inputFilePath)), StandardCharsets.UTF_8), Object.class);
-			fieldvalue = Precondtion.getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);// New Code . Need to
-				Properties props = 	AdminTestUtil.getproperty(propFileName);																// add
-			for (Entry<String, String> map : fieldvalue.entrySet()) {
-				if (map.getValue().contains("LONG:")) {
-					String value = map.getValue().replace("LONG:", "");
-					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
-							Long.parseLong(value));
-				} else if (map.getValue().contains("DOUBLE:")) {
-					String value = map.getValue().replace("DOUBLE:", "");
-					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
-							Double.parseDouble(value));
-				} else if (map.getValue().contains("BOOLEAN:")) {
-					String value = map.getValue();
-					if (value.contains("true"))
-						PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
-								true);
-					if (value.contains("false"))
-						PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
-								false);
-				} else
-					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
-							map.getValue());
-			}
-			mapper.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
-			outputStream = new FileOutputStream(outputFilePath);
-			mapper.writeValue(outputStream, jsonObj);
-			String outputJson = new String(Files.readAllBytes(Paths.get(outputFilePath)), StandardCharsets.UTF_8);
-			// Replacing the version in request
-			/*
-			 * outputJson = outputJson.replace("$version$",
-			 * RunConfigUtil.objRunConfig.getAuthVersion()); outputJson =
-			 * outputJson.replaceAll("$version$",
-			 * RunConfigUtil.objRunConfig.getAuthVersion()); outputJson =
-			 * outputJson.replace("$idrepoVersion$",
-			 * RunConfigUtil.objRunConfig.getIdRepoVersion()); outputJson =
-			 * outputJson.replaceAll("$idrepoVersion$",
-			 * RunConfigUtil.objRunConfig.getIdRepoVersion());
-			 */
-			// Replacing the domainuri and env in request
-			while(outputJson.contains("$env$") || outputJson.contains("$domainUri$")) {
-			outputJson = outputJson.replace("$domainUri$", BaseTestCase.ApplnURI);
-			outputJson = outputJson.replace("$env$", BaseTestCase.ApplnURI);
-			}
-			if (outputJson.contains("$REMOVE$"))
-				outputJson = removeObject(new JSONObject(outputJson));
-			outputJson=JsonPrecondtion.toPrettyFormat(outputJson);
-			FileUtil.writeFile(outputFilePath, outputJson);
-			JSONPRECONDATION_LOGGER.info("Updated json file content: " + JsonPrecondtion.toPrettyFormat(outputJson.toString()));
-			return fieldvalue;
-		} catch (Exception e) {
-			JSONPRECONDATION_LOGGER.error("Exception Occured in precondtion message: " + e.getMessage());
-			Reporter.log("Exception Occured in precondtion message: " + e.getMessage());
-			return fieldvalue;
-		}finally {
-			AdminTestUtil.closeOutputStream(outputStream);
-		}
+		return null;
+//		FileOutputStream outputStream = null;
+//		try {
+//			ObjectMapper mapper = new ObjectMapper();
+//			Object jsonObj = mapper.readValue(
+//					new String(Files.readAllBytes(Paths.get(inputFilePath)), StandardCharsets.UTF_8), Object.class);
+//			fieldvalue = Precondtion.getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);// New Code . Need to
+//				Properties props = 	AdminTestUtil.getproperty(propFileName);																// add
+//			for (Entry<String, String> map : fieldvalue.entrySet()) {
+//				if (map.getValue().contains("LONG:")) {
+//					String value = map.getValue().replace("LONG:", "");
+//					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
+//							Long.parseLong(value));
+//				} else if (map.getValue().contains("DOUBLE:")) {
+//					String value = map.getValue().replace("DOUBLE:", "");
+//					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
+//							Double.parseDouble(value));
+//				} else if (map.getValue().contains("BOOLEAN:")) {
+//					String value = map.getValue();
+//					if (value.contains("true"))
+//						PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
+//								true);
+//					if (value.contains("false"))
+//						PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
+//								false);
+//				} else
+//					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
+//							map.getValue());
+//			}
+//			mapper.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
+//			outputStream = new FileOutputStream(outputFilePath);
+//			mapper.writeValue(outputStream, jsonObj);
+//			String outputJson = new String(Files.readAllBytes(Paths.get(outputFilePath)), StandardCharsets.UTF_8);
+//			// Replacing the version in request
+//			/*
+//			 * outputJson = outputJson.replace("$version$",
+//			 * RunConfigUtil.objRunConfig.getAuthVersion()); outputJson =
+//			 * outputJson.replaceAll("$version$",
+//			 * RunConfigUtil.objRunConfig.getAuthVersion()); outputJson =
+//			 * outputJson.replace("$idrepoVersion$",
+//			 * RunConfigUtil.objRunConfig.getIdRepoVersion()); outputJson =
+//			 * outputJson.replaceAll("$idrepoVersion$",
+//			 * RunConfigUtil.objRunConfig.getIdRepoVersion());
+//			 */
+//			// Replacing the domainuri and env in request
+//			while(outputJson.contains("$env$") || outputJson.contains("$domainUri$")) {
+//			outputJson = outputJson.replace("$domainUri$", BaseTestCase.ApplnURI);
+//			outputJson = outputJson.replace("$env$", BaseTestCase.ApplnURI);
+//			}
+//			if (outputJson.contains("$REMOVE$"))
+//				outputJson = removeObject(new JSONObject(outputJson));
+//			outputJson=JsonPrecondtion.toPrettyFormat(outputJson);
+//			FileUtil.writeFile(outputFilePath, outputJson);
+//			JSONPRECONDATION_LOGGER.info("Updated json file content: " + JsonPrecondtion.toPrettyFormat(outputJson.toString()));
+//			return fieldvalue;
+//		} catch (Exception e) {
+//			JSONPRECONDATION_LOGGER.error("Exception Occured in precondtion message: " + e.getMessage());
+//			Reporter.log("Exception Occured in precondtion message: " + e.getMessage());
+//			return fieldvalue;
+//		}finally {
+//			AdminTestUtil.closeOutputStream(outputStream);
+//		}
 	}
 	@Override
 	public String parseAndUpdateJson(String inputJson, Map<String, String> fieldvalue, String propFileName) {

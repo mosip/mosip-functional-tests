@@ -650,22 +650,22 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @param keywordinFile
 	 * @return true or false
 	 */
-	protected boolean modifyRequest(File[] listOfFiles, Map<String, String> fieldvalue, String propFileName,
-			String keywordinFile) {
-		try {
-			for (int j = 0; j < listOfFiles.length; j++) {
-				if (listOfFiles[j].getName().contains(keywordinFile)) {
-					MessagePrecondtion jsonPrecon = new JsonPrecondtion();
-					jsonPrecon.parseAndWriteFile(listOfFiles[j].getAbsolutePath(), fieldvalue,
-							listOfFiles[j].getAbsolutePath(), propFileName);
-				}
-			}
-			return true;
-		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Exception occured:" + e.getMessage());
-			return false;
-		}
-	}
+//	protected boolean modifyRequest(File[] listOfFiles, Map<String, String> fieldvalue, String propFileName,
+//			String keywordinFile) {
+//		try {
+//			for (int j = 0; j < listOfFiles.length; j++) {
+//				if (listOfFiles[j].getName().contains(keywordinFile)) {
+//					MessagePrecondtion jsonPrecon = new JsonPrecondtion();
+//					jsonPrecon.parseAndWriteFile(listOfFiles[j].getAbsolutePath(), fieldvalue,
+//							listOfFiles[j].getAbsolutePath(), propFileName);
+//				}
+//			}
+//			return true;
+//		} catch (Exception e) {
+//			IDASCRIPT_LOGGER.error("Exception occured:" + e.getMessage());
+//			return false;
+//		}
+//	}
 
 	/**
 	 * The method get encryptedsessionkey, request and hmac value
