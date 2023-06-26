@@ -1067,9 +1067,10 @@ public class AuthTestsUtil extends BaseTestCase {
 			perms.add(PosixFilePermission.GROUP_WRITE);
 			perms.add(PosixFilePermission.GROUP_READ);
 			perms.add(PosixFilePermission.GROUP_EXECUTE);
-			perms.add(PosixFilePermission.OTHERS_WRITE);
-			perms.add(PosixFilePermission.OTHERS_READ);
-			perms.add(PosixFilePermission.OTHERS_EXECUTE);
+			// Removed these 3 lines reported by sonar
+//			perms.add(PosixFilePermission.OTHERS_WRITE);   
+//			perms.add(PosixFilePermission.OTHERS_READ);
+//			perms.add(PosixFilePermission.OTHERS_EXECUTE); 
 			Files.setPosixFilePermissions(path, perms);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception in change the file permission:" + e.getMessage());
