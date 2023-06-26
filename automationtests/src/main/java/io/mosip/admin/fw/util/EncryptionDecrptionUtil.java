@@ -51,7 +51,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	static {
 		if(EncryptUtilBaseUrl==null)			
 			EncryptUtilBaseUrl = getEncryptUtilBaseUrl();
-		System.out.println("EncryptUtilBaseUrl " + EncryptUtilBaseUrl);
+		lOGGER.info("EncryptUtilBaseUrl " + EncryptUtilBaseUrl);
 		getThumbprints();
 	}
 	public static void getThumbprints() {

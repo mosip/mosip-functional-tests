@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 
 import com.amazonaws.ClientConfiguration;
@@ -19,9 +20,11 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.util.BinaryUtils;
 import com.amazonaws.util.Md5Utils;
 
+import io.mosip.authentication.fw.util.BytesUtil;
 import io.mosip.kernel.core.util.StringUtils;
 
 public class S3Adapter {
+	private static final Logger logger = Logger.getLogger(S3Adapter.class);
 
 	private AmazonS3 connection = null;
 
@@ -43,10 +46,10 @@ public class S3Adapter {
 		if (connection != null)
 			return connection;
 
-		System.out.println("ConfigManager.getS3UserKey() :: "+ConfigManager.getS3UserKey());
-		System.out.println("ConfigManager.getS3Host() :: "+ConfigManager.getS3Host());
-		System.out.println("ConfigManager.getS3Region() :: "+ConfigManager.getS3Region());
-		System.out.println("ConfigManager.getS3SecretKey() :: "+ConfigManager.getS3SecretKey());
+		logger.info("ConfigManager.getS3UserKey() :: "+ConfigManager.getS3UserKey());
+		logger.info("ConfigManager.getS3Host() :: "+ConfigManager.getS3Host());
+		logger.info("ConfigManager.getS3Region() :: "+ConfigManager.getS3Region());
+		logger.info("ConfigManager.getS3SecretKey() :: "+ConfigManager.getS3SecretKey());
 		try {
 			AWSCredentials awsCredentials = new BasicAWSCredentials(ConfigManager.getS3UserKey(),
 					ConfigManager.getS3SecretKey());
@@ -81,11 +84,11 @@ public class S3Adapter {
 	 * public boolean putObject(String account, final String container, String
 	 * source, String process, String objectName, File file) { String
 	 * finalObjectName = null; String bucketName = null;
-	 * System.out.println("useAccountAsBucketname:: "+useAccountAsBucketname); if
+	 * logger.info("useAccountAsBucketname:: "+useAccountAsBucketname); if
 	 * (useAccountAsBucketname) { finalObjectName = getName(container, source,
 	 * process, objectName); bucketName = account; } else { finalObjectName =
 	 * getName(source, process, objectName); bucketName = container; }
-	 * System.out.println("bucketName :: "+bucketName); AmazonS3 connection =
+	 * logger.info("bucketName :: "+bucketName); AmazonS3 connection =
 	 * getConnection(bucketName); if (!doesBucketExists(bucketName)) {
 	 * connection.createBucket(bucketName); if (useAccountAsBucketname)
 	 * existingBuckets.add(bucketName); }
@@ -97,7 +100,7 @@ public class S3Adapter {
 		String finalObjectName = null;
 		String bucketName = null;
 		boolean bReturn = false;
-	        System.out.println("useAccountAsBucketname:: "+useAccountAsBucketname);
+	        logger.info("useAccountAsBucketname:: "+useAccountAsBucketname);
 		if (useAccountAsBucketname) {
 				finalObjectName = getName(container, source, process, objectName);
 				bucketName = account;
@@ -105,7 +108,7 @@ public class S3Adapter {
 				finalObjectName = getName(source, process, objectName);
 				bucketName = container;
 		}
-		System.out.println("bucketName :: "+bucketName);
+		logger.info("bucketName :: "+bucketName);
 		AmazonS3 connection = getConnection(bucketName);
 		if (connection != null) {
 			if (!doesBucketExists(bucketName)) {
@@ -141,7 +144,7 @@ public class S3Adapter {
 	/*
 	 * public boolean reportRetentionPolicy(String bucketName) {
 	 * 
-	 * ObjectMetadata metadata = new ObjectMetadata(); System.out.println("size:" +
+	 * ObjectMetadata metadata = new ObjectMetadata(); logger.info("size:" +
 	 * bytes.length); metadata.setContentLength(bytes.length);
 	 * metadata.setContentType(contentType); Date expirationTime = new Date(2025, 5,
 	 * 10); metadata.setExpirationTime(DateTime.now().toDate());

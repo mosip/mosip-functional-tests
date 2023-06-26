@@ -108,19 +108,19 @@ public class CSVHelper {
 	 * 
 	 * try { CSVHelper helper = new
 	 * CSVHelper(DataProviderConstants.RESOURCE+"Names/en/surnames.csv");
-	 * System.out.println(helper.getRecordCount()); helper.open(); List<String[]>
+	 * logger.info(helper.getRecordCount()); helper.open(); List<String[]>
 	 * recs = helper.readRecords( new int[] {0,15,10,20, 12}); for(String[] r: recs)
 	 * {
 	 * 
-	 * System.out.println( toCaptialize(r[0])); } helper.close();
+	 * logger.info( toCaptialize(r[0])); } helper.close();
 	 * 
 	 * 
 	 * helper = new
 	 * CSVHelper(DataProviderConstants.RESOURCE+"Names/ara/boy_names.csv");
-	 * System.out.println(helper.getRecordCount()); helper.open(); recs =
+	 * logger.info(helper.getRecordCount()); helper.open(); recs =
 	 * helper.readRecords( new int[] {1,15,10,20, 12}); for(String[] r: recs) {
 	 * 
-	 * System.out.println( r[1]); } helper.close(); } catch (IOException e) { //
+	 * logger.info( r[1]); } helper.close(); } catch (IOException e) { //
 	 * TODO Auto-generated catch block e.printStackTrace(); }
 	 * 
 	 * }

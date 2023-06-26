@@ -36,7 +36,7 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 	private static final Logger lOGGER = Logger.getLogger(CertificateGenerationUtil.class);
 
 	static {
-		System.out.println("EncryptUtilBaseUrl " + ConfigManager.getAuthDemoServiceUrl());
+		lOGGER.info("EncryptUtilBaseUrl " + ConfigManager.getAuthDemoServiceUrl());
 		getThumbprints();
 	}
 
@@ -58,9 +58,9 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 				MediaType.APPLICATION_JSON, "Authorization", token);
 		JSONObject responseJson = new JSONObject(response.asString());
 		JSONObject responseValue = (JSONObject) responseJson.get("response");
-		System.out.println(responseValue);
+		lOGGER.info(responseValue);
 		String idaCertValue = responseValue.getString("certificate");
-		System.out.println(idaCertValue);
+		lOGGER.info(idaCertValue);
 
 		JSONObject request = new JSONObject();
 		request.put("certData", idaCertValue);
@@ -76,7 +76,7 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 
 		Response reponse = RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl() + "/" + endPoint,
 				request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
-		System.out.println(reponse);
+		lOGGER.info(reponse);
 
 	}
 

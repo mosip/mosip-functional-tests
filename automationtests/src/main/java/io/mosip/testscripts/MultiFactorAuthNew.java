@@ -119,11 +119,11 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		
 		
 		String otpInput = sendOtpReqResp.getBody().asString();
-		System.out.println(otpInput);
+		logger.info(otpInput);
 		String signature = sendOtpReqResp.getHeader("signature");
 		Object sendOtpBody = otpInput;
 		// JSONObject sendOtpBody = new JSONObject(otpInput);
-		System.out.println(sendOtpBody);
+		logger.info(sendOtpBody);
 
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(AUTHORIZATHION_HEADERNAME, token);
@@ -171,7 +171,7 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		
 //		response = RestClient.postRequest(url + endPoint, authRequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON );
 
-		System.out.println(response);
+		logger.info(response);
 		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 
 		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {

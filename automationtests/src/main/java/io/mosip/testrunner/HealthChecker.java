@@ -59,7 +59,7 @@ public class HealthChecker implements Runnable {
 		}
 
 		while (bTerminate == false) {
-			System.out.println("Checking Health");
+			logger.info("Checking Health");
 			boolean isAllServicesUp = true;
 			for (int i = 0; i < controllerPaths.size(); i++) {
 				String serviceStatus = checkActuatorNoAuth(controllerPaths.get(i));
@@ -87,7 +87,7 @@ public class HealthChecker implements Runnable {
 		Response response =null;
 		response = given().contentType(ContentType.JSON).get(urlAct);
 		if(response != null && 	response.getStatusCode() == 200 ) {
-			System.out.println(response.getBody().asString());        	
+			logger.info(response.getBody().asString());        	
 			JSONObject jsonResponse = new JSONObject(response.getBody().asString());
 			return jsonResponse.getString("status");
 		}

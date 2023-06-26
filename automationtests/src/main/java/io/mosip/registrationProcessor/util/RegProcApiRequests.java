@@ -143,7 +143,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		Cookie.Builder builder = new Cookie.Builder("Authorization", token);
 		Response response = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when()
 				.get(ApplnURI + url).then().log().all().extract().response();
-		System.out.println(response.asString());
+		logger.info(response.asString());
 		List<String> errors = response.jsonPath().get("errors");
 		if (errors == null) {
 			return true;
@@ -182,7 +182,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		Response idRepoResponse = given().cookie(builder.build()).relaxedHTTPSValidation().when()
 				.get(ApplnURI + idRepoUrl + uin).then().extract().response();
 		String uinResponse = idRepoResponse.jsonPath().get("response.status").toString();
-		System.out.println(uinResponse);
+		logger.info(uinResponse);
 		if (uinResponse.equals(expectedUinResponse)) {
 			status = true;
 		}
@@ -294,7 +294,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		String url = "https://qa.mosip.io/T5CloudService/1.0/processRequest";
 		Response getResponse = given().relaxedHTTPSValidation().body(deleteRequest)
 				.contentType(MediaType.APPLICATION_JSON).log().all().when().post(url);
-		System.out.println(getResponse.asString());
+		logger.info(getResponse.asString());
 	}
 
 	public Response postRequestWithRequestResponseHeaders(String url, Object body, String contentHeader, String acceptHeader,
@@ -320,7 +320,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		Response postResponse = null;
 		try {
 			Cookie.Builder builder = new Cookie.Builder("Authorization", token);
-			System.out.println("Sending sign request to: " + ApplnURI + url);
+			logger.info("Sending sign request to: " + ApplnURI + url);
 			postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 					.contentType(contentHeader).accept(acceptHeader).log().all().when().post(ApplnURI + url).then()
 					.log().all().extract().response();

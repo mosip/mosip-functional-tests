@@ -36,11 +36,11 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		mispPartnerGeneration();
 		JSONObject certificateValue = getCertificates(mispPartnerId, getPartnerType);
 		String mispCACertValue = certificateValue.getString("caCertificate");
-		System.out.println(mispCACertValue);
+		lOGGER.info(mispCACertValue);
 		String mispInterCertValue = certificateValue.getString("interCertificate");
-		System.out.println(mispInterCertValue);
+		lOGGER.info(mispInterCertValue);
 		String mispPartnerCertValue = certificateValue.getString("partnerCertificate");
-		System.out.println(mispPartnerCertValue);
+		lOGGER.info(mispPartnerCertValue);
 		
 		
 		uploadCACertificate(mispCACertValue, "Auth");
@@ -49,10 +49,10 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		JSONObject mispSignedcertificateValue = uploadPartnerCertificate(mispPartnerCertValue, "Auth", mispPartnerId);
 		
 		String mispCertValueSigned = mispSignedcertificateValue.getString("signedCertificateData");
-		System.out.println(mispCertValueSigned);
+		lOGGER.info(mispCertValueSigned);
 		uploadSignedCertificate(mispCertValueSigned, getPartnerType);
 		String mispLicKey = generateMispLicKey(mispPartnerId);
-		System.out.println(mispLicKey);
+		lOGGER.info(mispLicKey);
 		
 		return mispLicKey;
 	}
@@ -85,11 +85,11 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		body.put("version", "string");
 		
 		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
-		System.out.println(responseValue);
+		lOGGER.info(responseValue);
 	}
 	
 	public static JSONObject getCertificates(String partnerId, String partnerType) {
@@ -105,9 +105,9 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 //		String token = kernelAuthLib.getTokenByRole("partner");
 		
 		Response response = RestClient.getRequestWithQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-		System.out.println(response);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 		
 		return responseJson;
 	}
@@ -133,7 +133,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 		
 		JSONObject reponseValue = new JSONObject(response.asString());
-		System.out.println(reponseValue);
+		lOGGER.info(reponseValue);
 	}
 	
 	public static void uploadIntermediateCertificate(String certValueIntermediate, String partnerDomain) {
@@ -157,7 +157,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 		
 		JSONObject reponseValue = new JSONObject(response.asString());
-		System.out.println(reponseValue);
+		lOGGER.info(reponseValue);
 	}
 	
 	public static JSONObject uploadPartnerCertificate(String certValuePartner, String partnerDomain, String partnerId) {
@@ -180,13 +180,13 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		body.put("version", "string");
 		
 		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		lOGGER.info(response);
 		
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 		
 		JSONObject responseValue = (JSONObject) responseJson.get("response");
-		System.out.println(responseValue);
+		lOGGER.info(responseValue);
 		
 		return responseValue;
 	}
@@ -205,7 +205,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		
 		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 		
-		System.out.println(response);
+		lOGGER.info(response);
 	}
 	
 	public static String generateMispLicKey(String partnerId) {
@@ -227,13 +227,13 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		
 		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
 		
-		System.out.println(response);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
-		System.out.println(responseValue);
+		lOGGER.info(responseValue);
 		String licenseKey = responseValue.getString("licenseKey");
-		System.out.println(licenseKey);
+		lOGGER.info(licenseKey);
 		
 		return licenseKey;
 	}

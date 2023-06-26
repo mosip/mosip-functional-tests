@@ -15,7 +15,7 @@ public class Translator {
 	private static final Logger logger = Logger.getLogger(Translator.class);
 	public static void main(String[] args) {
 		String text = "Mohandas Karamchand Ghandhi"; // Translated text: Hallo Welt!
-		System.out.println("Text:" + text + ",Translated text: " + translate("heb", text));
+		logger.info("Text:" + text + ",Translated text: " + translate("heb", text));
 	}
 
 	static String getLanguageID(String langIsoCode) {

@@ -3,6 +3,7 @@ package io.mosip.report;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.log4j.Logger;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;
@@ -13,6 +14,8 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import io.mosip.authentication.fw.util.BytesUtil;
+
 /**
  * Extent Report Listener
  * 
@@ -20,6 +23,7 @@ import com.relevantcodes.extentreports.LogStatus;
  *
  */
 public class ExtentReportListener extends Reporter implements ITestListener {
+	private static final Logger logger = Logger.getLogger(ExtentReportListener.class);
 	protected static ExtentReports reports;
 	protected static ExtentTest test;
 
@@ -44,7 +48,7 @@ public class ExtentReportListener extends Reporter implements ITestListener {
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		System.out.println("on test sucess within percentage");
+		logger.info("on test sucess within percentage");
 	}
 
 	public void onStart(ITestContext context) {	

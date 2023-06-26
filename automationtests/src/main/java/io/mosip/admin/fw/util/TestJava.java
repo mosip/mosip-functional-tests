@@ -4,7 +4,10 @@ import java.security.SecureRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
+
 public class TestJava {
+	private static final Logger lOGGER = Logger.getLogger(EncryptionDecrptionUtil.class);
 	private static final SecureRandom secureRandom = new SecureRandom();
 	public static void main(String[] args) {
 		
@@ -35,10 +38,10 @@ public class TestJava {
 		    if(mMatcher.find()) {
 		        String otp = mMatcher.group(0);
 		        otp = otp.trim();
-		        System.out.println("Final OTP: "+ otp);
+		        lOGGER.info("Final OTP: "+ otp);
 		    }else {
 		        //something went wrong
-		    	System.out.println("Failed to extract the OTP!! ");
+		    	lOGGER.info("Failed to extract the OTP!! ");
 		    }
 		}
 	}

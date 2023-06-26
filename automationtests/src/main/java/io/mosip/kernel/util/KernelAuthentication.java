@@ -190,10 +190,10 @@ public class KernelAuthentication extends BaseTestCase{
 			org.json.JSONObject jsonCookies = new org.json.JSONObject(ESignetCookiesFileString);
 			tokens.put("access_token", jsonCookies.get("access_token").toString());
 			tokens.put("id_token", jsonCookies.get("id_token").toString());
-//			System.out.println("JSON " + jsonCookies);
-//			System.out.println("JSON " + token);
-//			System.out.println("id_token " + jsonCookies.get("id_token"));
-//			System.out.println("access_token " + jsonCookies.get("access_token"));
+//			logger.info("JSON " + jsonCookies);
+//			logger.info("JSON " + token);
+//			logger.info("id_token " + jsonCookies.get("id_token"));
+//			logger.info("access_token " + jsonCookies.get("access_token"));
 		} else {
 			logger.error("ESignetCookiesFile File not Found in location:" + fileName.getAbsolutePath());
 		}
@@ -318,10 +318,10 @@ public class KernelAuthentication extends BaseTestCase{
 		request.put("appId", ConfigManager.getResidentAppId());
 		request.put("clientId", ConfigManager.getResidentClientId());
 		request.put("secretKey", ConfigManager.getResidentClientSecret());
-		System.out.println("request for  Resident: " + request);
+		logger.info("request for  Resident: " + request);
 		logger.info("request for  Resident " + request);
 		actualrequest.put("request", request);
-		System.out.println("Actual Auth Request for Resident: " + actualrequest);
+		logger.info("Actual Auth Request for Resident: " + actualrequest);
 		logger.info("Actual Auth Request for Resident: " + actualrequest);
 		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
 		cookie=reponse.getCookie("Authorization");
@@ -336,10 +336,10 @@ public class KernelAuthentication extends BaseTestCase{
 		request.put("appId", ConfigManager.getPmsAppId());
 		request.put("clientId", ConfigManager.getMPartnerMobileClientId());
 		request.put("secretKey", ConfigManager.getMPartnerMobileClientSecret());
-		System.out.println("request for  Resident: " + request);
+		logger.info("request for  Resident: " + request);
 		logger.info("request for  Resident " + request);
 		actualrequest.put("request", request);
-		System.out.println("Actual Auth Request for Resident: " + actualrequest);
+		logger.info("Actual Auth Request for Resident: " + actualrequest);
 		logger.info("Actual Auth Request for Resident: " + actualrequest);
 		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
 		cookie=reponse.getCookie("Authorization");
@@ -376,11 +376,11 @@ public class KernelAuthentication extends BaseTestCase{
 				.formParam("username", props.get("keycloak_username"))
 				.formParam("password", props.get("keycloak_password")).when()
 				.post(ApplnURIForKeyCloak + props.get("keycloakAuthURL"));
-		System.out.println(response.getBody().asString());
+		logger.info(response.getBody().asString());
 		
 		String responseBody = response.getBody().asString();
 		String token = new org.json.JSONObject(responseBody).getString("access_token");
-		System.out.println(token);
+		logger.info(token);
 		return token;
 	}
 	
@@ -455,7 +455,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
 	cookie=reponse.getCookie("Authorization");
-	System.out.println("Regproc Cookie is:: " + cookie);
+	logger.info("Regproc Cookie is:: " + cookie);
 	return cookie;
 }
 	

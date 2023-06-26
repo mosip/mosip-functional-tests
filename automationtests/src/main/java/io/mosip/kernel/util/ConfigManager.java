@@ -266,7 +266,7 @@ public class ConfigManager {
 		masterDBPass = getValueForKey(MASTER_DB_PASS);
 		masterDBSchema = getValueForKey(MASTER_DB_SCHEMA);
 		iamExternalURL = getValueForKey(IAM_EXTERNAL_URL);
-		System.out.println("keycloakendpoint from config manager::" + iamExternalURL);
+		LOGGER.info("keycloakendpoint from config manager::" + iamExternalURL);
 
 		iamRealmID = getValueForKey(IAM_REALM_ID);
 		iamUsersToCreate = getValueForKey(IAM_USERS_TO_CREATE);
@@ -549,7 +549,7 @@ public class ConfigManager {
 	}
 
 	public static String getAuditDbPass() {
-		System.out.println("DB Password from ENV::: " + System.getenv(AUDIT_DB_PASS));
+		LOGGER.info("DB Password from ENV::: " + System.getenv(AUDIT_DB_PASS));
 		return auditDBPass;
 	}
 
@@ -619,10 +619,10 @@ public class ConfigManager {
 
 	// from docker env getting only host url
 	public static String getIAMUrl() {
-		System.out.println("keycloak url from ENV::: " + System.getenv(IAM_EXTERNAL_URL) + "/auth");
-		System.out.println("keycloak url from Property::: " + System.getProperty(IAM_EXTERNAL_URL) + "/auth");
-		System.out.println("keycloak url from Config::: " + propsKernel.getProperty(IAM_EXTERNAL_URL) + "/auth");
-		System.out.println("keycloak url is:::" + iamExternalURL + "/auth");
+		LOGGER.info("keycloak url from ENV::: " + System.getenv(IAM_EXTERNAL_URL) + "/auth");
+		LOGGER.info("keycloak url from Property::: " + System.getProperty(IAM_EXTERNAL_URL) + "/auth");
+		LOGGER.info("keycloak url from Config::: " + propsKernel.getProperty(IAM_EXTERNAL_URL) + "/auth");
+		LOGGER.info("keycloak url is:::" + iamExternalURL + "/auth");
 		return iamExternalURL + "/auth";
 	}
 

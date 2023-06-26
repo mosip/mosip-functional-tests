@@ -2,7 +2,12 @@ package io.mosip.authentication.fw.util;
 
 import java.util.Arrays;
 
+import org.apache.log4j.Logger;
+
+import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
+
 public final class BytesUtil {
+	private static final Logger logger = Logger.getLogger(BytesUtil.class);
 
 	private BytesUtil() {
 	}
@@ -66,7 +71,7 @@ public final class BytesUtil {
 	public static void main(String[]args) {
 		byte[] xor = BytesUtil.getXOR("1234567890", "abcde");
 		byte[] lastBytes = getLastBytes(xor, 3);
-		System.out.println(new String(lastBytes));
+		logger.info(new String(lastBytes));
 	}
 
 }

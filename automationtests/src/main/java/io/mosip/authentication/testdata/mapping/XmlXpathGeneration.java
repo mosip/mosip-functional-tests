@@ -74,7 +74,7 @@ public class XmlXpathGeneration extends DefaultHandler {
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		String value = characters.toString().trim();
 		if (value.length() > 0) {
-			// System.out.println(xPath + "='" + characters.toString() + "'");
+			// logger.info(xPath + "='" + characters.toString() + "'");
 			xpathList.add(xPath + "/text()");
 		}
 		xmlReader.setContentHandler(parent);
@@ -159,7 +159,7 @@ public class XmlXpathGeneration extends DefaultHandler {
 	 * Method to modify xpath value name
 	 */
 	private static void refactorFieldValueName() {
-		System.out.println(xpathList);
+		xmlXpathLogger.info(xpathList);
 		for (String entry : xpathList) {
 			String tempValue = entry.replace("[", "").replace("]", "").replace("/text()", "").replace("@", "");
 			String[] listValue = tempValue.split(Pattern.quote("/"));
