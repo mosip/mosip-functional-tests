@@ -1,6 +1,6 @@
 package io.mosip.authentication.fw.precon;
 
-import static io.mosip.authentication.fw.util.AuthTestsUtil.getPropertyFromFilePath; 
+import static io.mosip.authentication.fw.util.AuthTestsUtil.getPropertyFromFilePath;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -21,6 +21,7 @@ import io.mosip.authentication.testdata.Precondtion;
 import io.mosip.authentication.testdata.TestDataConfig;
 import io.mosip.authentication.testdata.mapping.XmlXpathGeneration;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
@@ -45,16 +46,18 @@ import org.apache.log4j.Logger;
  * @author Vignesh
  *
  */
-public class XmlPrecondtion extends MessagePrecondtion{
+public class XmlPrecondtion extends MessagePrecondtion {
 	private static final Logger XMLPRECONDTION_LOGGER = Logger.getLogger(XmlPrecondtion.class);
 	private static Document xmlDocument;
 	private static final String FEATURE = "http://apache.org/xml/features/disallow-doctype-decl";
 	private static final String EXTERNAL_DTD_FEATURE = "http://apache.org/xml/features/nonvalidating/load-external-dtd";
+	private static final String SAX_EXTERNAL_GENERAL_FEATURE = "http://xml.org/sax/features/external-general-entities";
+	private static final String SAX_EXTERNAL_PARAMETER_FEATURE = "http://xml.org/sax/features/external-parameter-entities";
 
 	/**
 	 * The method get node value from xml file
 	 * 
-	 * @param path, xml file path
+	 * @param path,       xml file path
 	 * @param expression, xml xpath
 	 * @return value, xml node or attribute value
 	 */
@@ -77,11 +80,11 @@ public class XmlPrecondtion extends MessagePrecondtion{
 			return "Cannot retrieve data or content for the xpath from  XML";
 		}
 	}
-	
+
 	/**
 	 * The method get node value from xml file
 	 * 
-	 * @param path, xml file path
+	 * @param path,       xml file path
 	 * @param expression, xml xpath
 	 * @return value, xml node or attribute value
 	 */
@@ -109,7 +112,8 @@ public class XmlPrecondtion extends MessagePrecondtion{
 			}
 			return returnMap;
 		} catch (Exception e) {
-			XMLPRECONDTION_LOGGER.error("Exception in xml precondtion, while retrieving the value from xml : " + e.getMessage());
+			XMLPRECONDTION_LOGGER
+					.error("Exception in xml precondtion, while retrieving the value from xml : " + e.getMessage());
 			return returnMap;
 		}
 	}
@@ -117,7 +121,7 @@ public class XmlPrecondtion extends MessagePrecondtion{
 	/**
 	 * The method get node value from xml content
 	 * 
-	 * @param content, XML content
+	 * @param content,    XML content
 	 * @param expression, XML xpath
 	 * @return value, xml node or attribute value
 	 */
@@ -146,8 +150,8 @@ public class XmlPrecondtion extends MessagePrecondtion{
 	/**
 	 * The method get the value from XML using mapping dic
 	 * 
-	 * @param inputFilePath, XML file path
-	 * @param mappingFileName, Mapping file path
+	 * @param inputFilePath,    XML file path
+	 * @param mappingFileName,  Mapping file path
 	 * @param mappingFieldName, Mapping field name
 	 * @return value, xml node or attribute value
 	 */
@@ -184,7 +188,7 @@ public class XmlPrecondtion extends MessagePrecondtion{
 		try {
 			fieldvalue = Precondtion.getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-			//docFactory.setNamespaceAware(false);
+			// docFactory.setNamespaceAware(false);
 			docFactory.setFeature(FEATURE, true);
 			docFactory.setFeature(EXTERNAL_DTD_FEATURE, false);
 			docFactory.setXIncludeAware(false);
@@ -201,7 +205,12 @@ public class XmlPrecondtion extends MessagePrecondtion{
 				else
 					updateNodeValue(xpath, normalisedExpression, entry.getValue());
 			}
-			Transformer xformer = TransformerFactory.newInstance().newTransformer();
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			transformerFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+			transformerFactory.setFeature(SAX_EXTERNAL_GENERAL_FEATURE, false);
+			transformerFactory.setFeature(SAX_EXTERNAL_PARAMETER_FEATURE, false);
+
+			Transformer xformer = transformerFactory.newTransformer();
 			xformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
 			xformer.transform(new DOMSource(xmlDocument), new StreamResult(new File(outputFilePath)));
 			return fieldvalue;
@@ -274,7 +283,7 @@ public class XmlPrecondtion extends MessagePrecondtion{
 					Node node = nodes.item(i);
 					NamedNodeMap attrNode = node.getAttributes();
 					Node nodeAttr = attrNode.getNamedItem(attr);
-					if(nodeAttr!=null)
+					if (nodeAttr != null)
 						nodeAttr.setTextContent(newValue);
 					else
 						((Element) node).setAttribute(attr, newValue);

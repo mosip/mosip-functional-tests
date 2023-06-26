@@ -40,6 +40,9 @@ public class XmlXpathGeneration extends DefaultHandler {
 	XmlXpathGeneration parent;
 	StringBuilder characters = new StringBuilder();
 	Map<String, Integer> elementNameCount = new HashMap<String, Integer>();
+	private static final String SAX_FEATURE = "http://apache.org/xml/features/disallow-doctype-decl";
+	private static final String SAX_EXTERNAL_GENERAL_FEATURE = "http://xml.org/sax/features/external-general-entities";
+	private static final String SAX_EXTERNAL_PARAMETER_FEATURE = "http://xml.org/sax/features/external-parameter-entities";
 
 	public XmlXpathGeneration(XMLReader xmlReader) {
 		this.xmlReader = xmlReader;
@@ -86,6 +89,11 @@ public class XmlXpathGeneration extends DefaultHandler {
 		FileInputStream inputStream = null;
 		try {
 			SAXParserFactory saxFactory = SAXParserFactory.newInstance();
+			  // to be compliant, completely disable DOCTYPE declaration:
+			saxFactory.setFeature(SAX_FEATURE, true);
+			  // or completely disable external entities declarations:
+			saxFactory.setFeature(SAX_EXTERNAL_GENERAL_FEATURE, false);
+			saxFactory.setFeature(SAX_EXTERNAL_PARAMETER_FEATURE, false);
 			saxFactory.setNamespaceAware(false);
 			SAXParser saxParser = saxFactory.newSAXParser();
 			XMLReader xmlReader = saxParser.getXMLReader();
@@ -105,6 +113,11 @@ public class XmlXpathGeneration extends DefaultHandler {
 		FileInputStream inputStream = null;
 		try {
 			SAXParserFactory saxFactory = SAXParserFactory.newInstance();
+			  // to be compliant, completely disable DOCTYPE declaration:
+			saxFactory.setFeature(SAX_FEATURE, true);
+			  // or completely disable external entities declarations:
+			saxFactory.setFeature(SAX_EXTERNAL_GENERAL_FEATURE, false);
+			saxFactory.setFeature(SAX_EXTERNAL_PARAMETER_FEATURE, false);
 			saxFactory.setNamespaceAware(false);
 			SAXParser saxParser = saxFactory.newSAXParser();
 			XMLReader xmlReader = saxParser.getXMLReader();
