@@ -38,6 +38,7 @@ public class BiometricTestDataProcessor {
 		loadBiometricTestData(new File(RunConfigUtil.getBioTestDataPath()));
 		List<Object> listOfBioData = BiometricDto.getBiometric().get("biometrics").get(bioType).get(bioSubType)
 				.get(thresholdPercentage);
-		return (String) listOfBioData.get(AuthTestsUtil.randomValue.nextInt(listOfBioData.size())).toString();
+		int randomNumber = Integer.parseInt(AuthTestsUtil.generateRandomNumberString(listOfBioData.size()));
+		return listOfBioData.get(randomNumber).toString();
 	}
 }

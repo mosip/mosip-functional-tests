@@ -70,7 +70,8 @@ public class TestDataProcessor {
 			YamlDTO obj = new YamlDTO();
 			obj.setYamlObject((Map<String, List<Object>>) yaml.load(inputStream));
 			List<Object> list = obj.getYamlObject().get(dataParam);
-			testdata = (String) list.get(AuthTestsUtil.randomValue.nextInt(list.size())).toString();
+			int randomNumber = Integer.parseInt(AuthTestsUtil.generateRandomNumberString(list.size()));
+			testdata = list.get(randomNumber).toString();
 		} catch (FileNotFoundException e) {
 			TESTDATAPROC_LOGGER.error("File is not available :" + e.getMessage());
 		} finally {

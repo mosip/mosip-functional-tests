@@ -30,7 +30,7 @@ public class JSONUtil {
 	 * } return obj; }
 	 */
 
-	public void writeJsonToFile(String data, String filePath) {
+	public void writeDataToFile(String data, String filePath) {
 
 		try (FileWriter file = new FileWriter(filePath)) {
 

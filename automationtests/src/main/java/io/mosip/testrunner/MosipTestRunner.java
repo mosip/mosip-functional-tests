@@ -29,6 +29,7 @@ import com.nimbusds.jose.util.StandardCharset;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
+import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.dbaccess.DBManager;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
 import io.mosip.ida.certificate.PartnerRegistration;
@@ -233,7 +234,7 @@ public class MosipTestRunner {
 		String publicKey = null;
 		try {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
-			keyGenerator.initialize(2048, new SecureRandom());
+			keyGenerator.initialize(2048, AuthTestsUtil.secureRandom);
 			final KeyPair keypair = keyGenerator.generateKeyPair();
 			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
 		} catch (NoSuchAlgorithmException e) {
@@ -273,7 +274,7 @@ public class MosipTestRunner {
 //		String publicKey = null;
 		try {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
-			keyGenerator.initialize(2048, new SecureRandom());
+			keyGenerator.initialize(2048, AuthTestsUtil.secureRandom);
 			final KeyPair keypair = keyGenerator.generateKeyPair();
 			RSAKey jwk = new RSAKey.Builder((RSAPublicKey) keypair.getPublic()).keyID("RSAKeyID").keyUse(KeyUse.SIGNATURE)
 				    .privateKey(keypair.getPrivate())

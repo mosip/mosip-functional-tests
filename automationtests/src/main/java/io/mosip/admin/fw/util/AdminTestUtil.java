@@ -4628,20 +4628,16 @@ public class AdminTestUtil extends BaseTestCase {
 			if (testCaseDTO.getRole() != null && (testCaseDTO.getRole().equalsIgnoreCase("residentNew")
 					|| testCaseDTO.isValidityCheckRequired())) {
 				if (testCaseName.contains("uin") || testCaseName.contains("UIN") || testCaseName.contains("Uin")) {
-					if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
-							|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
-						return testCaseName;
-					} else {
+					if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN") == false
+							|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin") == false) {
 						throw new SkipException("Idtype UIN not supported skipping the testcase");
 					}
 				}
 			} else if (testCaseDTO.getRole() != null && (testCaseDTO.getRole().equalsIgnoreCase("residentNewVid")
 					|| testCaseDTO.isValidityCheckRequired())) {
 				if (testCaseName.contains("vid") || testCaseName.contains("VID") || testCaseName.contains("Vid")) {
-					if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
-							|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
-						return testCaseName;
-					} else {
+					if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID") == false
+							|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid") == false) {
 						throw new SkipException("Idtype VID not supported skipping the testcase");
 					}
 				}
