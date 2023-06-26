@@ -89,8 +89,8 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 			List<String> languageList = new ArrayList<>();
 			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
-		        	Innerloop:
-		            for (int j=i; j <languageList.size();) {
+//		        	Innerloop:
+//		            for (int j=i; j <languageList.size(); j++) {
 		            	pdf = getWithQueryParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(),
 		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
 		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
@@ -109,8 +109,8 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 			       			 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
 			       						+ pdfAsText+ "</pre>");
 			       		 }
-		            	break Innerloop;
-		            }
+//		            	break Innerloop;
+//		            }
 		        }
 		}  
 		

@@ -75,7 +75,7 @@ public class ExtractResource {
 					if (e == null)
 						break;
 					String name = e.getName();
-					if (name.startsWith(key) & name.contains(".")) {
+					if (name.startsWith(key) && name.contains(".")) {
 						if (copyFilesFromJarToOutsideResource(name))
 							LOGGER.info("Copied the file: " + name + " to external resource successfully..!");
 						else
