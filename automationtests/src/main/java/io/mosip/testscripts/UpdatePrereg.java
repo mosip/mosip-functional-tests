@@ -135,7 +135,7 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 		
 		
 		//inputJson = getJsonFromTemplate(testCaseDTO.getInput(), inputJson, false);
-		//System.out.println(inputJson);
+		//logger.info(inputJson);
 		
 		
 		

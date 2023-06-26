@@ -63,13 +63,13 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		body.put("version", "string");
 		
 		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
-		System.out.println(responseValue);
+		lOGGER.info(responseValue);
 		String mappingKey = responseValue.getString("mappingkey");
-		System.out.println(mappingKey);
+		lOGGER.info(mappingKey);
 		
 		return mappingKey;
 	}
@@ -92,9 +92,9 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		body.put("version", "string");
 		
 		Response response = RestClient.putRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 	}
 	
 	public static String createAPIKey(){
@@ -117,13 +117,13 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		body.put("version", "string");
 		
 		Response response = RestClient.patchRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
-		System.out.println(responseValue);
+		lOGGER.info(responseValue);
 		String apiKey = responseValue.getString("apiKey");
-		System.out.println(apiKey);
+		lOGGER.info(apiKey);
 		
 		return apiKey;
 	}

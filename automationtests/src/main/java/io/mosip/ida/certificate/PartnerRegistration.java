@@ -46,7 +46,7 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		partnerKeyUrl = mispLicKey + "/" + partnerId + "/" + apiKey;
 
-		System.out.println("partnerKeyUrl = " + partnerKeyUrl);
+		lOGGER.info("partnerKeyUrl = " + partnerKeyUrl);
 
 		return partnerKeyUrl;
 	}
@@ -59,11 +59,11 @@ public class PartnerRegistration extends AdminTestUtil {
 		partnerGeneration();
 		JSONObject certificateValue = getCertificates(partnerId, getPartnerType);
 		String caCertValue = certificateValue.getString("caCertificate");
-		System.out.println(caCertValue);
+		lOGGER.info(caCertValue);
 		String interCertValue = certificateValue.getString("interCertificate");
-		System.out.println(interCertValue);
+		lOGGER.info(interCertValue);
 		String partnerCertValue = certificateValue.getString("partnerCertificate");
-		System.out.println(partnerCertValue);
+		lOGGER.info(partnerCertValue);
 
 		uploadCACertificate(caCertValue, "Auth");
 		uploadIntermediateCertificate(interCertValue, "Auth");
@@ -71,7 +71,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		JSONObject signedcertificateValue = uploadPartnerCertificate(partnerCertValue, "Auth", partnerId);
 
 		String certValueSigned = signedcertificateValue.getString("signedCertificateData");
-		System.out.println(certValueSigned);
+		lOGGER.info(certValueSigned);
 		uploadSignedCertificate(certValueSigned, getPartnerType, partnerId, true);
 
 	}
@@ -105,11 +105,11 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
-		System.out.println(responseValue);
+		lOGGER.info(responseValue);
 	}
 
 	public static JSONObject getCertificates(String partnerId, String partnerType) {
@@ -129,11 +129,11 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 //		JSONObject responseValue = (JSONObject) responseJson.get("response");
-//		System.out.println(responseValue);
+//		lOGGER.info(responseValue);
 
 		return responseJson;
 	}
@@ -157,11 +157,11 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 //		JSONObject responseValue = (JSONObject) responseJson.get("response");
-//		System.out.println(responseValue);
+//		lOGGER.info(responseValue);
 
 		return responseJson;
 	}
@@ -188,7 +188,7 @@ public class PartnerRegistration extends AdminTestUtil {
 				MediaType.APPLICATION_JSON, "Authorization", token);
 
 		JSONObject reponseValue = new JSONObject(response.asString());
-		System.out.println(reponseValue);
+		lOGGER.info(reponseValue);
 	}
 
 	public static void uploadIntermediateCertificate(String certValueIntermediate, String partnerDomain) {
@@ -213,7 +213,7 @@ public class PartnerRegistration extends AdminTestUtil {
 				MediaType.APPLICATION_JSON, "Authorization", token);
 
 		JSONObject reponseValue = new JSONObject(response.asString());
-		System.out.println(reponseValue);
+		lOGGER.info(reponseValue);
 	}
 
 	public static JSONObject uploadPartnerCertificate(String certValuePartner, String partnerDomain, String partnerId) {
@@ -237,13 +237,13 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		lOGGER.info(response);
 
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 
 		JSONObject responseValue = (JSONObject) responseJson.get("response");
-		System.out.println(responseValue);
+		lOGGER.info(responseValue);
 
 		return responseValue;
 	}
@@ -269,7 +269,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap,
 				MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 
-		System.out.println(response);
+		lOGGER.info(response);
 	}
 
 	public static void deviceGeneration() {
@@ -297,11 +297,11 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
-		System.out.println(responseValue);
+		lOGGER.info(responseValue);
 
 		JSONObject certificateValue = getDeviceCertificates(deviceOrganizationName, "DEVICE");
 		String caDeviceCertValue = certificateValue.getString("caCertificate");
@@ -344,11 +344,11 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
-		System.out.println(responseValue);
+		lOGGER.info(responseValue);
 
 		JSONObject certificateValue = getDeviceCertificates(ftmOrganizationName, "FTM");
 		String caFtmCertValue = certificateValue.getString("caCertificate");
@@ -380,7 +380,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		}
 
 		Response response = RestClient.deleteRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-		System.out.println(response);
+		lOGGER.info(response);
 
 	}
 

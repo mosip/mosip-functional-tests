@@ -119,14 +119,14 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		Response sendOtpReqResp = postWithOnlyQueryParamAndCookie(url + "/v1/identity/createOtpReqest",
 				requestBody.toString(), "Authorization", "resident", testCaseName);
 
-		System.out.println(sendOtpReqResp);
+		logger.info(sendOtpReqResp);
 
 		String otpInput = sendOtpReqResp.getBody().asString();
-		System.out.println(otpInput);
+		logger.info(otpInput);
 		String signature = sendOtpReqResp.getHeader("signature");
 		Object sendOtpBody = otpInput;
 		// JSONObject sendOtpBody = new JSONObject(otpInput);
-		System.out.println(sendOtpBody);
+		logger.info(sendOtpBody);
 
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(AUTHORIZATHION_HEADERNAME, token);

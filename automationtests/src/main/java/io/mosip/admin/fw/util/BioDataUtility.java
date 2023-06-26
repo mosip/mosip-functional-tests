@@ -83,7 +83,7 @@ public class BioDataUtility extends AdminTestUtil {
 		String content = RestClient.postRequestWithCookie(cryptoEncryptUrl, jsonContent, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, COOKIENAME, residentCookie).asString();
 		String data = JsonPrecondtion.getValueFromJson(content, "response.data");
-		System.out.println("data is" + data);
+		logger.info("data is" + data);
 		return EncryptionDecrptionUtil.splitEncryptedData(data);
 	}
 
@@ -125,7 +125,7 @@ public class BioDataUtility extends AdminTestUtil {
 		request.getJSONObject("request").getJSONArray("biometrics").getJSONObject(0).getJSONObject("data").put("bioValue", encryptedBioValue);
 //		Replacing hashvalue with hash
 		request.getJSONObject("request").getJSONArray("biometrics").getJSONObject(0).put("hash", hash);
-		System.out.println(encryptedSessionKeyString);
+		logger.info(encryptedSessionKeyString);
 		
 		
 		
@@ -192,7 +192,7 @@ public class BioDataUtility extends AdminTestUtil {
 					biometricsMapper + ".data");
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, encryptedSessionKey,
 					biometricsMapper + ".sessionKey");
-			//System.out.println(identityRequest);
+			//logger.info(identityRequest);
 			//instead of BioData, bioValue (before encrytion in case of Capture response) is used for computing the hash.
 	        //byte [] currentDataByteArr = java.util.Base64.getUrlDecoder().decode(bioValue);
 	        byte [] currentDataByteArr = org.apache.commons.codec.binary.Base64.decodeBase64(bioValue);
@@ -269,7 +269,7 @@ public class BioDataUtility extends AdminTestUtil {
 		payloadData= payloadData.replace("=", "");
 		//String newResponse = response.asString();
 		String signNewResponse = response.asString().replace("..", "."+ payloadData +".");
-		System.out.println(signNewResponse);
+		logger.info(signNewResponse);
 		
 		//String content = RestClient.postR(EncryptUtilBaseUrl+props.get("encryptionPath"), identityDataBlock, MediaType.APPLICATION_JSON,
 				//MediaType.APPLICATION_JSON).asString();
@@ -297,7 +297,7 @@ public class BioDataUtility extends AdminTestUtil {
 	/*
 	 * private static void storeValue(String biovalue) { try { BufferedWriter out =
 	 * new BufferedWriter(new FileWriter("BioValue.txt")); out.write(biovalue);
-	 * out.close(); } catch (IOException e) { System.out.println("Exception "); } }
+	 * out.close(); } catch (IOException e) { logger.info("Exception "); } }
 	 */
 
 }

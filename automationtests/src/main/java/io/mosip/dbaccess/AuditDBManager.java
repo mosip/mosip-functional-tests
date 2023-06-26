@@ -98,7 +98,7 @@ public class AuditDBManager extends AdminTestUtil {
 						try {
 							int rs = statement.executeUpdate(deleteQuery);
 							if (rs > 0) {
-								System.out.println("deleted successfully!");
+								DBCONNECTION_LOGGER.info("deleted successfully!");
 							}
 						} finally {
 							statement.close();

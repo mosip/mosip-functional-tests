@@ -68,7 +68,7 @@ public class DBManager {
 							int[] result = statement.executeBatch();
 							logger.info("Success:: Executed PMS DB quiries successfully.");
 							for (int i : result) {
-								System.out.print("deleted records: " + i);
+								logger.info("deleted records: " + i);
 							}
 						} finally {
 							statement.close();
@@ -127,7 +127,7 @@ public class DBManager {
 							int[] result = statement.executeBatch();
 							logger.info("Success:: Executed KM DB quiries successfully.");
 							for (int i : result) {
-								System.out.print("KM deleted records: " + i);
+								logger.info("KM deleted records: " + i);
 							}
 						} finally {
 							statement.close();
@@ -150,10 +150,10 @@ public class DBManager {
 		Session session = null;
 		try {
 
-			System.out.println("DB URL:: " + ConfigManager.getMASTERDbUrl());
-			System.out.println("DbUser:: " + ConfigManager.getMasterDbUser());
-			System.out.println("DbPass:: " + ConfigManager.getMasterDbPass());
-			System.out.println("DbSchema:: " + ConfigManager.getMasterDbSchema());
+			logger.info("DB URL:: " + ConfigManager.getMASTERDbUrl());
+			logger.info("DbUser:: " + ConfigManager.getMasterDbUser());
+			logger.info("DbPass:: " + ConfigManager.getMasterDbPass());
+			logger.info("DbSchema:: " + ConfigManager.getMasterDbSchema());
 			session = getDataBaseConnection(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
 					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema());
 			if (session != null) {
@@ -278,7 +278,7 @@ public class DBManager {
 							int[] result = statement.executeBatch();
 							logger.info("Success:: Executed MASTER DB quiries successfully.");
 							for (int i : result) {
-								System.out.print("master db deleted records: " + i);
+								logger.info("master db deleted records: " + i);
 							}
 						} finally {
 							statement.close();
@@ -302,20 +302,20 @@ public class DBManager {
 		SessionFactory factory = null;
 		Session session = null;
 		
-		System.out.println("dburl is" + dburl);
-		System.out.println("userName is" + userName);
-		System.out.println("password is" + password);
+		logger.info("dburl is" + dburl);
+		logger.info("userName is" + userName);
+		logger.info("password is" + password);
 		
 
 		try {
 			Configuration config = new Configuration();
 			config.setProperty(Environment.DRIVER, ConfigManager.getDbDriverClass());
 			config.setProperty(Environment.URL, dburl);
-			System.out.println("dburl is" + dburl);
+			logger.info("dburl is" + dburl);
 			config.setProperty(Environment.USER, userName);
-			System.out.println("userName is" + userName);
+			logger.info("userName is" + userName);
 			config.setProperty(Environment.PASS, password);
-			System.out.println("password is" + password);
+			logger.info("password is" + password);
 			config.setProperty(Environment.DEFAULT_SCHEMA, schema);
 			config.setProperty(Environment.POOL_SIZE, ConfigManager.getDbConnectionPoolSize());
 			config.setProperty(Environment.DIALECT, ConfigManager.getDbDialect());

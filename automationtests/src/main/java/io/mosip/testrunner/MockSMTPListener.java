@@ -75,7 +75,7 @@ public class MockSMTPListener{
 
 		@Override
 		public void onOpen(WebSocket webSocket) {
-			System.out.println("onOpen using subprotocol " + webSocket.getSubprotocol());
+			logger.info("onOpen using subprotocol " + webSocket.getSubprotocol());
 			WebSocket.Listener.super.onOpen(webSocket);
 		}
 
@@ -89,8 +89,8 @@ public class MockSMTPListener{
 		@Override
 		public CompletionStage<?> onText(WebSocket webSocket, CharSequence data, boolean last) {
 			if(bTerminate) {
-				System.out.println(emailNotificationMapS);
-				System.out.println("End Closure of listner " );
+				logger.info(emailNotificationMapS);
+				logger.info("End Closure of listner " );
 				onClose(webSocket, 0, "After suite invoked closing");
 			}
 			try {       
@@ -100,11 +100,11 @@ public class MockSMTPListener{
 				// As we need only OTP notifications skip all other notifications
 				if (!parseOtp(root.html).isEmpty()) {
 					emailNotificationMapS.put(root.to.value.get(0).address,root.html);
-					System.out.println(" After adding to emailNotificationMap key = " + root.to.value.get(0).address
+					logger.info(" After adding to emailNotificationMap key = " + root.to.value.get(0).address
 							+ " data " + data + " root " + root );
 				}
 				else {
-					System.out.println(" Skip adding to emailNotificationMap key = " + root.to.value.get(0).address
+					logger.info(" Skip adding to emailNotificationMap key = " + root.to.value.get(0).address
 							+ " data " + data + " root " + root );
 				}
 			} catch (JsonProcessingException | JSONException e) {
@@ -120,7 +120,7 @@ public class MockSMTPListener{
 		@Override
 		public void onError(WebSocket webSocket, Throwable error) {
 
-			System.out.println("Bad day! " + webSocket.toString());
+			logger.info("Bad day! " + webSocket.toString());
 			logger.error(error.getStackTrace());
 			WebSocket.Listener.super.onError(webSocket, error);
 		}
@@ -147,26 +147,26 @@ public class MockSMTPListener{
 				otp = parseOtp(html);
 				if (otp != null && otp.length()>0) {
 //					Got the required OTP Ignore in between notification which doesn't have OTP
-					System.out.println("Found the OTP = " + otp);
+					logger.info("Found the OTP = " + otp);
 					return otp;
 				}
 				else {
-					System.out.println("html Message = " + html + " Email = " + emailId);
+					logger.info("html Message = " + html + " Email = " + emailId);
 				}
 				
 			}
-			System.out.println("*******Checking the email for OTP...*******");
+			logger.info("*******Checking the email for OTP...*******");
 			counter++;
 			try {
-				System.out.println("Not received Otp yet, waiting for 10 Sec");
+				logger.info("Not received Otp yet, waiting for 10 Sec");
 				Thread.sleep(AdminTestUtil.OTP_CHECK_INTERVAL);
 			} catch (InterruptedException e) {
-				System.out.println(e.getMessage());
+				logger.info(e.getMessage());
 				Thread.currentThread().interrupt();
 			}
 			
 		}
-		System.out.println("OTP not found even after " + otpCheckLoopCount + " retries");
+		logger.info("OTP not found even after " + otpCheckLoopCount + " retries");
 		return otp;
 	}
 	
@@ -194,10 +194,10 @@ public class MockSMTPListener{
 		    if(mMatcher.find()) {
 		        otp = mMatcher.group(0);
 		        otp = otp.trim();
-		        System.out.println("Extracted OTP: "+ otp+ " message : "+ message);
+		        logger.info("Extracted OTP: "+ otp+ " message : "+ message);
 		    }else {
 		        //something went wrong
-		    	System.out.println("Failed to extract the OTP!! "+ "message : " + message);
+		    	logger.info("Failed to extract the OTP!! "+ "message : " + message);
 		    	
 		    }
 		}

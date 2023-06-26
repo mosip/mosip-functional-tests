@@ -67,9 +67,9 @@ public class MosipTestRunner {
 	public static void main(String arg[]) {
 
 		Map<String, String> envMap = System.getenv();
-		System.out.println("** ------------- Get ALL ENV varibales --------------------------------------------- **");
+		LOGGER.info("** ------------- Get ALL ENV varibales --------------------------------------------- **");
 		for (String envName : envMap.keySet()) {
-			System.out.format("ENV %s = %s%n", envName, envMap.get(envName));
+			LOGGER.info(String.format("ENV %s = %s%n", envName, envMap.get(envName)));
 		}
 
 		if (checkRunType().equalsIgnoreCase("JAR")) {

@@ -150,7 +150,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 			}
 			
-			System.out.println(ouputValid);
+			logger.info(ouputValid);
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

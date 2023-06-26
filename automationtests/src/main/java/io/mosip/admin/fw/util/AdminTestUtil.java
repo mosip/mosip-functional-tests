@@ -346,7 +346,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (BaseTestCase.currentModule.equals("masterdata")) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
-		System.out.println("encodedhash = " + encodedResp);
+		logger.info("encodedhash = " + encodedResp);
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
@@ -862,13 +862,13 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.error(e.getStackTrace());
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		System.out.println(inputJson);
+		logger.info(inputJson);
 		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
 		try {
 			response = RestAssured.given().contentType("application/x-www-form-urlencoded; charset=utf-8")
 					.formParams(map).when().post(url);
-			System.out.println(response.getStatusCode());
-			System.out.println(response.asString());
+			logger.info(response.getStatusCode());
+			logger.info(response.asString());
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 
@@ -1505,15 +1505,15 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName, String pathParams) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		System.out.println("inputJson is::" + inputJson);
+		logger.info("inputJson is::" + inputJson);
 		JSONObject req = new JSONObject(inputJson);
-		System.out.println("req is::" + req);
+		logger.info("req is::" + req);
 		HashMap<String, String> pathParamsMap = new HashMap<String, String>();
 		String params[] = pathParams.split(",");
 		for (String param : params) {
-			System.out.println("param is::" + param);
+			logger.info("param is::" + param);
 			if (req.has(param)) {
-				System.out.println("req is::" + req);
+				logger.info("req is::" + req);
 				pathParamsMap.put(param, req.get(param).toString());
 				req.remove(param);
 			} else
@@ -1541,15 +1541,15 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName, String pathParams) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		System.out.println("inputJson is::" + inputJson);
+		logger.info("inputJson is::" + inputJson);
 		JSONObject req = new JSONObject(inputJson);
-		System.out.println("req is::" + req);
+		logger.info("req is::" + req);
 		HashMap<String, String> pathParamsMap = new HashMap<String, String>();
 		String params[] = pathParams.split(",");
 		for (String param : params) {
-			System.out.println("param is::" + param);
+			logger.info("param is::" + param);
 			if (req.has(param)) {
-				System.out.println("req is::" + req);
+				logger.info("req is::" + req);
 				pathParamsMap.put(param, req.get(param).toString());
 				req.remove(param);
 			} else
@@ -1699,11 +1699,11 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject req = new JSONObject(inputJson);
 		HashMap<String, String> pathParamsMap = new HashMap<String, String>();
 		String params[] = pathParams.split(",");
-		// System.out.println("req is:: "+ req);
+		// logger.info("req is:: "+ req);
 		for (String param : params) {
 			if (req.has(param)) {
 				pathParamsMap.put(param, req.get(param).toString());
-				// System.out.println("pathParamsMap is:: "+ pathParamsMap);
+				// logger.info("pathParamsMap is:: "+ pathParamsMap);
 				req.remove(param);
 			} else
 				logger.error("request doesn't contanin param: " + param + " in: " + inputJson);
@@ -1715,8 +1715,8 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.patchWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
-			// System.out.println("req.toString() is"+req.toString());
-			// System.out.println("pathParamsMap is"+pathParamsMap);
+			// logger.info("req.toString() is"+req.toString());
+			// logger.info("pathParamsMap is"+pathParamsMap);
 			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			return response;
@@ -2201,24 +2201,24 @@ public class AdminTestUtil extends BaseTestCase {
 						org.json.JSONArray responseArray = responseJson.getJSONArray("data");
 
 						JSONObject eachJSON = (JSONObject) responseArray.get(0);
-						System.out.println(eachJSON.get(filedName));
+						logger.info(eachJSON.get(filedName));
 						props.put(identifierKeyName, eachJSON.get(filedName));
 					} else if (testCaseName.contains("_OAuthDetailsRequest_") && filedName.equals("encodedResp")) {
 						Gson gson = new Gson();
 						JsonObject json = gson.fromJson(response.getBody().asString(), JsonObject.class);
 						String responseJsonString = json.getAsJsonObject("response").toString();
 
-//						System.out.println("response string = " + responseJson.toString());
+//						logger.info("response string = " + responseJson.toString());
 //						ObjectMapper mapper = new ObjectMapper();
 //						String respBody = mapper.writeValueAsString(responseJson.toMap());
 
-//						System.out.println("response mapper = " + respBody);
+//						logger.info("response mapper = " + respBody);
 						MessageDigest digest = MessageDigest.getInstance("SHA-256");
 						byte[] hash = digest.digest(responseJsonString.getBytes(StandardCharsets.UTF_8));
 //						String hashResp = hash.toString();
 //						String urlEncodedResp = Base64.getUrlEncoder().encodeToString(hash);
 						String urlEncodedResp = Base64.getUrlEncoder().withoutPadding().encodeToString(hash);
-						System.out.println("encoded response = " + urlEncodedResp);
+						logger.info("encoded response = " + urlEncodedResp);
 						props.put(identifierKeyName, urlEncodedResp);
 					} else
 						props.put(identifierKeyName, responseJson.getJSONObject("identity").get(filedName));
@@ -2258,7 +2258,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		// HashMap<String, String> map=new HashMap<String, String>();
 		JSONArray responseJson = new JSONArray(response.asString());
-		System.out.println(responseJson.getJSONObject(0));
+		logger.info(responseJson.getJSONObject(0));
 		FileOutputStream outputStream = null;
 		FileInputStream inputStream = null;
 		try {
@@ -2487,7 +2487,7 @@ public class AdminTestUtil extends BaseTestCase {
 			Gson gson = new Gson();
 			Type type = new TypeToken<Map<String, Object>>() {
 			}.getType();
-			System.out.print(input);
+			logger.info(input);
 			Map<String, Object> map = gson.fromJson(input, type);
 			String templateJsonString;
 			if (readFile) {
@@ -2508,8 +2508,8 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public String getJsonFromTemplateForMapApi(String input, String inputTemplate, HashMap<String, String> map) {
 		// TODO Auto-generated method stub
-		System.out.println(inputTemplate);
-		System.out.println(input);
+		logger.info(inputTemplate);
+		logger.info(input);
 
 		List<String> requiredRoles = getRolesByUser(input.split(":")[1].split("}")[0]);
 		keycloakUsersMap.clear();
@@ -2522,7 +2522,7 @@ public class AdminTestUtil extends BaseTestCase {
 				josnArray.add(jsonObject);
 			}
 		}
-		System.out.println(josnArray.toString());
+		logger.info(josnArray.toString());
 		return josnArray.toString();
 
 	}
@@ -2934,10 +2934,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$CLIENT_ASSERTION_JWK$")) {
 			String oidcJWKKeyString = getJWKKey(oidcJWK1);
 			// String oidcJWKKeyString = props.getProperty("privateKey");
-			System.out.println("oidcJWKKeyString =" + oidcJWKKeyString);
+			logger.info("oidcJWKKeyString =" + oidcJWKKeyString);
 			try {
 				oidcJWKKey1 = RSAKey.parse(oidcJWKKeyString);
-				System.out.println("oidcJWKKey1 =" + oidcJWKKey1);
+				logger.info("oidcJWKKey1 =" + oidcJWKKey1);
 			} catch (java.text.ParseException e) {
 				logger.error(e.getStackTrace());
 			}
@@ -2954,7 +2954,7 @@ public class AdminTestUtil extends BaseTestCase {
 			Instant instant = Instant.now();
 
 			// print Instant Value
-			System.out.println("Current Instant: " + instant);
+			logger.info("Current Instant: " + instant);
 
 			// get epochValue using getEpochSecond
 			long epochValue = instant.getEpochSecond();
@@ -2971,10 +2971,10 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains("$WLATOKEN$")) {
 			String bindingJWKKeyString = getJWKKey(bindingJWK1);
-			System.out.println("bindingJWKKeyString =" + bindingJWKKeyString);
+			logger.info("bindingJWKKeyString =" + bindingJWKKeyString);
 			try {
 				bindingJWKKey = RSAKey.parse(bindingJWKKeyString);
-				System.out.println("bindingJWKKey =" + bindingJWKKey);
+				logger.info("bindingJWKKey =" + bindingJWKKey);
 			} catch (java.text.ParseException e) {
 				logger.error(e.getStackTrace());
 			}
@@ -2994,10 +2994,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$WLATOKENVID$")) {
 			String bindingJWKKeyString = getJWKKey(bindingJWKVid);
-			System.out.println("bindingJWKKeyString =" + bindingJWKKeyString);
+			logger.info("bindingJWKKeyString =" + bindingJWKKeyString);
 			try {
 				bindingJWKKeyVid = RSAKey.parse(bindingJWKKeyString);
-				System.out.println("bindingJWKKey =" + bindingJWKKeyVid);
+				logger.info("bindingJWKKey =" + bindingJWKKeyVid);
 			} catch (java.text.ParseException e) {
 				logger.error(e.getStackTrace());
 			}
@@ -3016,10 +3016,10 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (jsonString.contains("$WLATOKENCONSENT$")) {
 			String bindingConsentJWKKeyString = getJWKKey(bindingConsentJWK);
-			System.out.println("bindingConsentJWKKeyString =" + bindingConsentJWKKeyString);
+			logger.info("bindingConsentJWKKeyString =" + bindingConsentJWKKeyString);
 			try {
 				bindingConsentJWKKey = RSAKey.parse(bindingConsentJWKKeyString);
-				System.out.println("bindingJWKKey =" + bindingConsentJWKKey);
+				logger.info("bindingJWKKey =" + bindingConsentJWKKey);
 			} catch (java.text.ParseException e) {
 				logger.error(e.getStackTrace());
 			}
@@ -3147,25 +3147,25 @@ public class AdminTestUtil extends BaseTestCase {
 	@SuppressWarnings("unchecked")
 	public String generateIdentityJson(String testCaseName) {
 		org.json.simple.JSONObject actualrequest = getRequestJson(UpdateUinRequest);
-		System.out.println(actualrequest);
+		logger.info(actualrequest);
 		org.json.simple.JSONObject identityObect = (org.json.simple.JSONObject) actualrequest.get("identity");
-		System.out.println(identityObect);
+		logger.info(identityObect);
 		identityObect.replace("IDSchemaVersion", "IDSchemaVersion", generateLatestSchemaVersion());
 		org.json.simple.JSONArray ja_data = (org.json.simple.JSONArray) identityObect.get("addressLine3");
-		System.out.println(actualrequest);
+		logger.info(actualrequest);
 		for (int i = 0; i < ja_data.size(); i++) {
 			org.json.simple.JSONObject jsonObj = (org.json.simple.JSONObject) ja_data.get(i);
 			jsonObj.replace("language", "languageValue", BaseTestCase.languageList.get(0));
 			jsonObj.replace("value", "valueOfAttribute", props.getProperty("ValuetoBeUpdate"));
 		}
-		System.out.println(ja_data);
+		logger.info(ja_data);
 		String IdObj = (String) identityObect.get("UIN");
 		String finalString = null;
 		org.json.simple.JSONObject finalObject = new org.json.simple.JSONObject();
 		if (!IdObj.isEmpty()) {
 			String autoGenIdFileName = getAutoGenIdFileName(testCaseName);
 			finalString = replaceIdWithAutogeneratedId(identityObect.toString(), "$ID:", autoGenIdFileName);
-			System.out.println(finalString);
+			logger.info(finalString);
 			finalObject = new org.json.simple.JSONObject();
 			JSONParser parser = new JSONParser();
 
@@ -3489,10 +3489,10 @@ public class AdminTestUtil extends BaseTestCase {
 	 * = json.getString(fieldToConvert); String translatedValue = valueToConvert;
 	 * langjson.remove(fieldToConvert); if (!language.equalsIgnoreCase("eng")) {
 	 * translatedValue = Translator.translate(language, valueToConvert); }
-	 * System.out.println("valueToConvert" + valueToConvert + "-----" +
+	 * logger.info("valueToConvert" + valueToConvert + "-----" +
 	 * translatedValue); langjson.put(fieldToConvert, translatedValue); }
 	 * langjson.remove("langCode"); langjson.put("langCode", language);
-	 * System.out.println(langjson.toString()); listofjsonObject.add(langjson); }
+	 * logger.info(langjson.toString()); listofjsonObject.add(langjson); }
 	 * 
 	 * return listofjsonObject; }
 	 */
@@ -3567,7 +3567,7 @@ public class AdminTestUtil extends BaseTestCase {
 					langjson.put("filters", filtertransvalue);
 
 				}
-				// System.out.println("valueToConvert" + valueToConvert + "-----" +
+				// logger.info("valueToConvert" + valueToConvert + "-----" +
 				// translatedValue);
 				// put that translated value if and only if that field is present in
 				// template(input/output)
@@ -3592,7 +3592,7 @@ public class AdminTestUtil extends BaseTestCase {
 				langjson.put("languageCode", language);
 			}
 
-			System.out.println(langjson.toString());
+			logger.info(langjson.toString());
 			listofjsonObject.add(langjson);
 		}
 		return listofjsonObject;
@@ -3653,7 +3653,7 @@ public class AdminTestUtil extends BaseTestCase {
 		// String path = System.getProperty("java.io.tmpdir")+ File.pathSeparator +
 		// "IDA-" + environment + ".mosip.net";
 		String path = System.getProperty("java.io.tmpdir") + "/" + "IDA-" + environment + ".mosip.net";
-		System.out.println("certificate path is::" + path);
+		logger.info("certificate path is::" + path);
 		return new File(path).getAbsolutePath();
 	}
 
@@ -3813,7 +3813,7 @@ public class AdminTestUtil extends BaseTestCase {
 		// String schemaVersion = schemaData.getString("idVersion");
 		Double schemaVersion = (Double) schemaData.get("idVersion");
 		// double schemaVersion=Double.parseDouble(schemaVersion);
-		System.out.println(schemaVersion);
+		logger.info(schemaVersion);
 		String schemaJsonData = schemaData.getString("schemaJson");
 
 		String schemaFile = schemaJsonData.toString();
@@ -3870,7 +3870,7 @@ public class AdminTestUtil extends BaseTestCase {
 					JSONObject mainObj = new JSONObject();
 					mainObj.put("fullName", jArray);
 
-					System.out.println(mainObj);
+					logger.info(mainObj);
 
 					fileWriter2 = new FileWriter("addIdentity.hbs", flag);
 					flag = true;
@@ -3969,7 +3969,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Double schemaVersion = (Double) schemaData.get("idVersion");
 		String latestSchemaVersion = Double.toString(schemaVersion);
 		// double schemaVersion=Double.parseDouble(schemaVersion);
-		System.out.println(latestSchemaVersion);
+		logger.info(latestSchemaVersion);
 		return latestSchemaVersion;
 
 	}
@@ -3992,7 +3992,7 @@ public class AdminTestUtil extends BaseTestCase {
 		// String schemaVersion = schemaData.getString("idVersion");
 		Double schemaVersion = (Double) schemaData.get("idVersion");
 		// double schemaVersion=Double.parseDouble(schemaVersion);
-		System.out.println(schemaVersion);
+		logger.info(schemaVersion);
 		String schemaJsonData = schemaData.getString("schemaJson");
 
 		String schemaFile = schemaJsonData.toString();
@@ -4043,7 +4043,7 @@ public class AdminTestUtil extends BaseTestCase {
 					JSONObject mainObj = new JSONObject();
 					mainObj.put("fullName", jArray);
 
-					System.out.println(mainObj);
+					logger.info(mainObj);
 
 					fileWriter2 = new FileWriter("updateDraft.hbs", flag);
 					flag = true;
@@ -4150,7 +4150,7 @@ public class AdminTestUtil extends BaseTestCase {
 		// String schemaVersion = schemaData.getString("idVersion");
 		Double schemaVersion = (Double) schemaData.get("idVersion");
 		// double schemaVersion=Double.parseDouble(schemaVersion);
-		System.out.println(schemaVersion);
+		logger.info(schemaVersion);
 		String schemaJsonData = schemaData.getString("schemaJson");
 
 		String schemaFile = schemaJsonData.toString();
@@ -4164,13 +4164,13 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			JSONObject jObj = new JSONObject(schemaFile);
 			JSONObject objIDJson4 = jObj.getJSONObject("properties");
-			System.out.println(objIDJson4);
+			logger.info(objIDJson4);
 			JSONObject objIDJson = objIDJson4.getJSONObject("identity");
-			System.out.println(objIDJson);
+			logger.info(objIDJson);
 			JSONObject objIDJson2 = objIDJson.getJSONObject("properties");
-			System.out.println(objIDJson2);
+			logger.info(objIDJson2);
 			JSONArray objIDJson1 = objIDJson.getJSONArray("required");
-			System.out.println(objIDJson1);
+			logger.info(objIDJson1);
 
 			ArrayList<String> list = new ArrayList<String>();
 
@@ -4236,7 +4236,7 @@ public class AdminTestUtil extends BaseTestCase {
 					// mainObj.put("fullName", ja3);
 					// mainObj.put("residenceStatus", ja3);
 
-					System.out.println(mainObj);
+					logger.info(mainObj);
 
 					fileWriter2 = new FileWriter("createPrereg.hbs", flag);
 					flag = true;
@@ -4339,8 +4339,8 @@ public class AdminTestUtil extends BaseTestCase {
 				MediaType.APPLICATION_JSON, "Authorization", token);
 		String responseBody2 = response2.getBody().asString();
 		String policygroupId = new org.json.JSONObject(responseBody2).getJSONObject("response").getString("id");
-//		System.out.println(policygroupId);
-//		System.out.println(responseBody2);
+//		logger.info(policygroupId);
+//		logger.info(responseBody2);
 
 		String url = ApplnURI + props.getProperty("authPolicyUrl");
 		org.json.simple.JSONObject actualrequestBody = getRequestJson(AuthPolicyBody);
@@ -4356,8 +4356,8 @@ public class AdminTestUtil extends BaseTestCase {
 				MediaType.APPLICATION_JSON, "Authorization", token);
 		String responseBody = response.getBody().asString();
 		String policyId = new org.json.JSONObject(responseBody).getJSONObject("response").getString("id");
-//		System.out.println(policyId);
-//		System.out.println(responseBody);
+//		logger.info(policyId);
+//		logger.info(responseBody);
 
 		String url3 = ApplnURI + props.getProperty("publishPolicyurl");
 
@@ -4374,7 +4374,7 @@ public class AdminTestUtil extends BaseTestCase {
 		// MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization",
 		// token);
 		String responseBody3 = response3.getBody().asString();
-//		System.out.println(responseBody3);
+//		logger.info(responseBody3);
 
 	}
 
@@ -4493,7 +4493,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			for (int i = 0, size = responseArray.length(); i < size; i++) {
 				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
-				System.out.println("eachJson is :" + eachJson.toString());
+				logger.info("eachJson is :" + eachJson.toString());
 				if (eachJson.get("name").toString().contains(
 						"configService:https://github.com/mosip/mosip-config/application-default.properties")) {
 					
@@ -4651,7 +4651,7 @@ public class AdminTestUtil extends BaseTestCase {
 						|| request.getString("otp").endsWith("@mosip.io")) {
 					
 					emailId = request.get("otp").toString();
-					System.out.println(emailId);
+					logger.info(emailId);
 					// Get the otp value from email notification
 					otp = MockSMTPListener.getOtp(emailId);
 					request.put("otp", otp);
@@ -4664,7 +4664,7 @@ public class AdminTestUtil extends BaseTestCase {
 			if (request.has("request")) {
 				if (request.getJSONObject("request").has("otp")) {
 					emailId = request.getJSONObject("request").getString("userId");
-					System.out.println(emailId);
+					logger.info(emailId);
 					// Get the otp value from email notification
 					otp = MockSMTPListener.getOtp(emailId);
 					request.getJSONObject("request").put("otp", otp);
@@ -4681,7 +4681,7 @@ public class AdminTestUtil extends BaseTestCase {
 					if (request.getJSONObject("request").has("otp")) {
 						if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
 							emailId = request.getJSONObject("request").get("otp").toString();
-							System.out.println(emailId);
+							logger.info(emailId);
 							// Get the otp value from email notification
 							otp = MockSMTPListener.getOtp(emailId);
 							request.getJSONObject("request").put("otp", otp);
@@ -4700,7 +4700,7 @@ public class AdminTestUtil extends BaseTestCase {
 						if (request.getJSONObject("request").getString("otp").endsWith("@mailinator.com")
 								|| request.getJSONObject("request").getString("otp").endsWith("@mosip.io")) {
 							emailId = request.getJSONObject("request").get("otp").toString();
-							System.out.println(emailId);
+							logger.info(emailId);
 							// Get the otp value from email notification
 							otp = MockSMTPListener.getOtp(emailId);
 							request.getJSONObject("request").put("otp", otp);
@@ -4717,7 +4717,7 @@ public class AdminTestUtil extends BaseTestCase {
 											.getString("challenge").endsWith("@mosip.io")) {
 										emailId = request.getJSONObject("request").getJSONArray("challengeList")
 												.getJSONObject(0).getString("challenge");
-										System.out.println(emailId);
+										logger.info(emailId);
 										// Get the otp value from email notification
 										otp = MockSMTPListener.getOtp(emailId);
 										request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
@@ -4738,7 +4738,7 @@ public class AdminTestUtil extends BaseTestCase {
 				if (request.getJSONObject("request").has("otp")) {
 					if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
 						emailId = request.getJSONObject("request").get("otp").toString();
-						System.out.println(emailId);
+						logger.info(emailId);
 						// Get the otp value from email notification
 						otp = MockSMTPListener.getOtp(emailId);
 						request.getJSONObject("request").put("otp", otp);
@@ -4754,7 +4754,7 @@ public class AdminTestUtil extends BaseTestCase {
 										.getString("challenge").endsWith("@mosip.net")) {
 									emailId = request.getJSONObject("request").getJSONArray("challengeList")
 											.getJSONObject(0).getString("challenge");
-									System.out.println(emailId);
+									logger.info(emailId);
 									// Get the otp value from email notification
 									otp = MockSMTPListener.getOtp(emailId);
 									request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
@@ -4775,7 +4775,7 @@ public class AdminTestUtil extends BaseTestCase {
 				if (request.getJSONObject("request").has("otp")) {
 					if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
 						emailId = request.getJSONObject("request").get("otp").toString();
-						System.out.println(emailId);
+						logger.info(emailId);
 						// Get the otp value from email notification
 						otp = MockSMTPListener.getOtp(emailId);
 						request.getJSONObject("request").put("otp", otp);
@@ -4789,7 +4789,7 @@ public class AdminTestUtil extends BaseTestCase {
 									.getString("challenge").endsWith("@mosip.net")) {
 								emailId = request.getJSONObject("request").getJSONArray("challengeList")
 										.getJSONObject(0).getString("challenge");
-								System.out.println(emailId);
+								logger.info(emailId);
 								// Get the otp value from email notification
 								otp = MockSMTPListener.getOtp(emailId);
 								request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)

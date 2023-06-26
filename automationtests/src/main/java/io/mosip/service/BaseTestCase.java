@@ -424,11 +424,11 @@ public class BaseTestCase {
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put("isActive", "true");
 		actualrequest.put("request", request);
-		System.out.println(actualrequest);
+		logger.info(actualrequest);
 		Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
 		logger.info(propsKernel.get("admin_userName") + "Mapped to" + props.get("zoneCode_to_beMapped") + "Zone");
-		System.out.println(response);
+		logger.info(response);
 
 	}
 
@@ -445,11 +445,11 @@ public class BaseTestCase {
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put("isActive", "true");
 		actualrequest.put("request", request);
-		System.out.println(actualrequest);
+		logger.info(actualrequest);
 		Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
 		logger.info(user + "Mapped to" + zone + "Zone");
-		System.out.println(response);
+		logger.info(response);
 
 	}
 
@@ -462,7 +462,7 @@ public class BaseTestCase {
 		map.put("userId", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		logger.info(response);
 	}
 
 	public static void mapZone(String user) {
@@ -474,7 +474,7 @@ public class BaseTestCase {
 		map.put("userId", user);
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		logger.info(response);
 	}
 
 	public static boolean zoneName() {
@@ -489,7 +489,7 @@ public class BaseTestCase {
 
 		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		logger.info(response);
 
 		String otpInput = response.getBody().asString();
 		if (otpInput.contains("KER-MSD-391")) {
@@ -523,7 +523,7 @@ public class BaseTestCase {
 
 		Response response = RestClient.postRequestWithCookie(url, map, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		logger.info(response);
 	}
 
 	public static void userCenterMappingStatus() {
@@ -538,7 +538,7 @@ public class BaseTestCase {
 
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		logger.info(response);
 	}
 
 	public static List<String> getLanguageList() {
@@ -580,7 +580,7 @@ public class BaseTestCase {
 
 			for (int i = 0, size = responseArray.length(); i < size; i++) {
 				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
-				System.out.println("eachJson is :" + eachJson.toString());
+				logger.info("eachJson is :" + eachJson.toString());
 				if (eachJson.get("name").toString().contains(
 						"configService:https://github.com/mosip/mosip-config/id-authentication-default.properties")) {
 					org.json.JSONObject idTypes = (org.json.JSONObject) eachJson.getJSONObject("properties")

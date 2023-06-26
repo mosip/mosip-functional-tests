@@ -62,7 +62,7 @@ public class CommonLibrary extends BaseTestCase {
 	 *            this method is for validating the response time is in UTC
 	 */
 	public void checkResponseUTCTime(Response response) {
-		System.out.println(response.asString());
+		logger.info(response.asString());
 		JSONObject responseJson = null;
 		String responseTime = null;
 		try {
@@ -197,7 +197,7 @@ public class CommonLibrary extends BaseTestCase {
 		FileInputStream inputStream = null;
 		Map<String, String> mapProp = null;
 		try {
-			System.out.println("propertyFileName:  " + propertyFileName + "Path :" + getResourcePathForKernel() + "config/" + propertyFileName + ".properties");
+			logger.info("propertyFileName:  " + propertyFileName + "Path :" + getResourcePathForKernel() + "config/" + propertyFileName + ".properties");
 			logger.info("propertyFileName:  " + propertyFileName + "Path :" + getResourcePathForKernel() + "config/" + propertyFileName + ".properties");
 			File propertyFile = new File(getResourcePathForKernel() + "config/" + propertyFileName + ".properties");
 			inputStream = new FileInputStream(propertyFile);
@@ -205,7 +205,7 @@ public class CommonLibrary extends BaseTestCase {
 			mapProp = prop.entrySet().stream()
 					.collect(Collectors.toMap(e -> (String) e.getKey(), e -> (String) e.getValue()));
 		} catch (IOException e) {
-			System.out.println("Error occrued while reading propertyFileName " + propertyFileName + e.getMessage());
+			logger.info("Error occrued while reading propertyFileName " + propertyFileName + e.getMessage());
 			logger.info(e.getMessage());
 		}finally {
 			AdminTestUtil.closeInputStream(inputStream);

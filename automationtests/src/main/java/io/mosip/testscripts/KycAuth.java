@@ -120,11 +120,11 @@ public class KycAuth extends AdminTestUtil implements ITest {
 		
 		String signature = authResponse.getHeader("signature");
 		
-		System.out.println(signature);
+		logger.info(signature);
 		
 		String authResBody = authResponse.getBody().asString();
 		
-		System.out.println(authResBody);
+		logger.info(authResBody);
 		
 		JSONObject responseBody = new JSONObject(authResponse.getBody().asString());
 		

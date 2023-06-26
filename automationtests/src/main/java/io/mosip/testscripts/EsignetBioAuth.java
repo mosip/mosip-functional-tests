@@ -136,22 +136,22 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 		JSONObject encryptedIdentityReqObject = new JSONObject(encryptedIdentityReq);
 
 		JSONObject objIdentityRequest = encryptedIdentityReqObject.getJSONObject("identityRequest");
-		System.out.println(objIdentityRequest);
+		logger.info(objIdentityRequest);
 		JSONArray arrayBiometrics = objIdentityRequest.getJSONArray("biometrics");
 
 		// JSONObject objBiometrics=arrayBiometrics.getJSONObject(0);
 
-		// System.out.println(objBiometrics.get("hash"));
+		// logger.info(objBiometrics.get("hash"));
 
 		String bioData = arrayBiometrics.toString();
-		System.out.println(bioData);
+		logger.info(bioData);
 
 		byte[] byteBioData = bioData.getBytes();
 
 		String challengeValue = Base64.getUrlEncoder().encodeToString(byteBioData);
 		// String challengeValue =
 		// Base64.getUrlEncoder().encodeToString(decodedBioMetricValue);
-		System.out.println(challengeValue);
+		logger.info(challengeValue);
 
 		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
 
