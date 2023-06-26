@@ -1,4 +1,4 @@
-package io.mosip.authentication.testdata;
+package TBD;
 
 /**
  * To configure sourcepath, modulename (ida,prereg,kernel,reg) to call

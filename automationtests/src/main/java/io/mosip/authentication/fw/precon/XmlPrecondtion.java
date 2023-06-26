@@ -17,8 +17,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 
 import io.mosip.authentication.fw.util.AuthTestsUtil;
-import io.mosip.authentication.testdata.Precondtion;
-import io.mosip.authentication.testdata.TestDataConfig;
 import io.mosip.authentication.testdata.mapping.XmlXpathGeneration;
 
 import javax.xml.XMLConstants;
@@ -185,39 +183,40 @@ public class XmlPrecondtion extends MessagePrecondtion {
 	 */
 	public Map<String, String> parseAndWriteFile(String inputFilePath, Map<String, String> fieldvalue,
 			String outputFilePath, String propFileName) {
-		try {
-			fieldvalue = Precondtion.getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
-			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-			// docFactory.setNamespaceAware(false);
-			docFactory.setFeature(FEATURE, true);
-			docFactory.setFeature(EXTERNAL_DTD_FEATURE, false);
-			docFactory.setXIncludeAware(false);
-			docFactory.setExpandEntityReferences(false);
-			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-			xmlDocument = docBuilder.parse(inputFilePath);
-			for (Entry<String, String> entry : fieldvalue.entrySet()) {
-				XPath xpath = XPathFactory.newInstance().newXPath();
-				// Evaluate Xpath
-				String expression = getPropertyFromFilePath(propFileName).getProperty(entry.getKey()).toString();
-				String normalisedExpression = normalisedXpath(expression);
-				if (normalisedExpression.contains("@"))
-					updateAttributeValue(xpath, expression, normalisedExpression, entry.getValue());
-				else
-					updateNodeValue(xpath, normalisedExpression, entry.getValue());
-			}
-			TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			transformerFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-			transformerFactory.setFeature(SAX_EXTERNAL_GENERAL_FEATURE, false);
-			transformerFactory.setFeature(SAX_EXTERNAL_PARAMETER_FEATURE, false);
-
-			Transformer xformer = transformerFactory.newTransformer();
-			xformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
-			xformer.transform(new DOMSource(xmlDocument), new StreamResult(new File(outputFilePath)));
-			return fieldvalue;
-		} catch (Exception exception) {
-			XMLPRECONDTION_LOGGER.error("Exception Occured in XML Precondtion: " + exception.getMessage());
-			return fieldvalue;
-		}
+		return null;
+//		try {
+//			fieldvalue = Precondtion.getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
+//			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+//			// docFactory.setNamespaceAware(false);
+//			docFactory.setFeature(FEATURE, true);
+//			docFactory.setFeature(EXTERNAL_DTD_FEATURE, false);
+//			docFactory.setXIncludeAware(false);
+//			docFactory.setExpandEntityReferences(false);
+//			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+//			xmlDocument = docBuilder.parse(inputFilePath);
+//			for (Entry<String, String> entry : fieldvalue.entrySet()) {
+//				XPath xpath = XPathFactory.newInstance().newXPath();
+//				// Evaluate Xpath
+//				String expression = getPropertyFromFilePath(propFileName).getProperty(entry.getKey()).toString();
+//				String normalisedExpression = normalisedXpath(expression);
+//				if (normalisedExpression.contains("@"))
+//					updateAttributeValue(xpath, expression, normalisedExpression, entry.getValue());
+//				else
+//					updateNodeValue(xpath, normalisedExpression, entry.getValue());
+//			}
+//			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+//			transformerFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+//			transformerFactory.setFeature(SAX_EXTERNAL_GENERAL_FEATURE, false);
+//			transformerFactory.setFeature(SAX_EXTERNAL_PARAMETER_FEATURE, false);
+//
+//			Transformer xformer = transformerFactory.newTransformer();
+//			xformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
+//			xformer.transform(new DOMSource(xmlDocument), new StreamResult(new File(outputFilePath)));
+//			return fieldvalue;
+//		} catch (Exception exception) {
+//			XMLPRECONDTION_LOGGER.error("Exception Occured in XML Precondtion: " + exception.getMessage());
+//			return fieldvalue;
+//		}
 	}
 
 	private static NodeList evaluateXpath(XPath xpath, String xpathStr) {
