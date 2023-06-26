@@ -59,6 +59,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.authentication.fw.util.AuthTestsUtil;
+import io.mosip.service.BaseTestCase;
 
 
 
@@ -267,8 +269,8 @@ public class KeyMgrUtil {
             LocalDateTime dateTime, LocalDateTime dateTimeExp, String organization) throws 
             NoSuchAlgorithmException, OperatorCreationException, CertificateException, KeyStoreException, IOException   {
         KeyPairGenerator generator = KeyPairGenerator.getInstance(RSA_ALGO);
-        SecureRandom random = new SecureRandom();
-        generator.initialize(RSA_KEY_SIZE, random);
+//        SecureRandom random = new SecureRandom();
+        generator.initialize(RSA_KEY_SIZE, BaseTestCase.secureRandom);
         KeyPair keyPair = generator.generateKeyPair();
         X509Certificate signCert = null;
         if(Objects.isNull(signKey)) {
@@ -323,7 +325,7 @@ public class KeyMgrUtil {
         //LocalDateTime dateTimeExp = dateTime.plusYears(1);
         Date notAfter = Date.from(dateTimeExp.atZone(ZoneId.systemDefault()).toInstant());
 
-        BigInteger certSerialNum = new BigInteger(Long.toString(new SecureRandom().nextLong()));
+        BigInteger certSerialNum = new BigInteger(Long.toString(BaseTestCase.secureRandom.nextLong()));
         
         ContentSigner certContentSigner = new JcaContentSignerBuilder(SIGN_ALGO).build(signPrivateKey);
         X509v3CertificateBuilder certBuilder = new JcaX509v3CertificateBuilder(certIssuer, certSerialNum, notBefore, 

@@ -50,8 +50,6 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 			MosipTestRunner.getGlobalResourcePath()+"/customize-emailable-report-template.html").getAbsolutePath();
 	private static StringBuffer customReportTemplateStr = new StringBuffer();
 
-	private static final SimpleDateFormat sdf = new SimpleDateFormat("HHmm");
-
 	private static final String reportProfixFileName = "MOSIP_ModuleLevelAutoRun_TestNGReport";
 
 	// PieChart
