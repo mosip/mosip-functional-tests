@@ -219,8 +219,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
-	private static final String JSONArray = null;
 	public static final int OTP_CHECK_INTERVAL =  10000; //10 secs
+	
+	private static final String PREREG = "prereg";
+	private static final String RESIDENT = "resident";
+	private static final String MASTERDATA = "masterdata";
 
 	/**
 	 * This method will hit post request and return the response
