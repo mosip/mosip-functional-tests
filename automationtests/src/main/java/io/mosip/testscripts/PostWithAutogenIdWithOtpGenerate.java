@@ -197,6 +197,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 			}
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
+			Thread.currentThread().interrupt();
 		}
 
 	}
