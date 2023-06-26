@@ -48,6 +48,8 @@ import org.apache.log4j.Logger;
 public class XmlPrecondtion extends MessagePrecondtion{
 	private static final Logger XMLPRECONDTION_LOGGER = Logger.getLogger(XmlPrecondtion.class);
 	private static Document xmlDocument;
+	private static final String FEATURE = "http://apache.org/xml/features/disallow-doctype-decl";
+	private static final String EXTERNAL_DTD_FEATURE = "http://apache.org/xml/features/nonvalidating/load-external-dtd";
 
 	/**
 	 * The method get node value from xml file
@@ -61,6 +63,10 @@ public class XmlPrecondtion extends MessagePrecondtion{
 		DocumentBuilder builder = null;
 		try {
 			File inputFile = new File(path);
+			builderFactory.setFeature(FEATURE, true);
+			builderFactory.setFeature(EXTERNAL_DTD_FEATURE, false);
+			builderFactory.setXIncludeAware(false);
+			builderFactory.setExpandEntityReferences(false);
 			builder = builderFactory.newDocumentBuilder();
 			Document doc = builder.parse(inputFile);
 			doc.getDocumentElement().normalize();
@@ -86,6 +92,10 @@ public class XmlPrecondtion extends MessagePrecondtion{
 		try {
 			returnMap = new HashMap<String, String>();
 			File inputFile = new File(path);
+			builderFactory.setFeature(FEATURE, true);
+			builderFactory.setFeature(EXTERNAL_DTD_FEATURE, false);
+			builderFactory.setXIncludeAware(false);
+			builderFactory.setExpandEntityReferences(false);
 			builder = builderFactory.newDocumentBuilder();
 			Document doc = builder.parse(inputFile);
 			doc.getDocumentElement().normalize();
@@ -118,6 +128,10 @@ public class XmlPrecondtion extends MessagePrecondtion{
 			StringBuilder xmlStringBuilder = new StringBuilder();
 			xmlStringBuilder.append(content);
 			ByteArrayInputStream input = new ByteArrayInputStream(xmlStringBuilder.toString().getBytes("UTF-8"));
+			builderFactory.setFeature(FEATURE, true);
+			builderFactory.setFeature(EXTERNAL_DTD_FEATURE, false);
+			builderFactory.setXIncludeAware(false);
+			builderFactory.setExpandEntityReferences(false);
 			builder = builderFactory.newDocumentBuilder();
 			Document doc = builder.parse(input);
 			doc.getDocumentElement().normalize();
@@ -171,6 +185,10 @@ public class XmlPrecondtion extends MessagePrecondtion{
 			fieldvalue = Precondtion.getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			//docFactory.setNamespaceAware(false);
+			docFactory.setFeature(FEATURE, true);
+			docFactory.setFeature(EXTERNAL_DTD_FEATURE, false);
+			docFactory.setXIncludeAware(false);
+			docFactory.setExpandEntityReferences(false);
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 			xmlDocument = docBuilder.parse(inputFilePath);
 			for (Entry<String, String> entry : fieldvalue.entrySet()) {
