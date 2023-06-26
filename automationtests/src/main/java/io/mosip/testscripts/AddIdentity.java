@@ -99,7 +99,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		DateFormat dateFormatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
-		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
+		String genRid = "27847" + generateRandomNumberString(10) + timestampValue;
 
 		// filterHbs(testCaseDTO);
 		if (testCaseName.equals("Resident_AddIdentity_Valid_Params_AddUser_smoke_Pos")) {

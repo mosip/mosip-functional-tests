@@ -134,13 +134,11 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	protected boolean postRequestAndGenerateOuputFile(File[] listOfFiles, String urlPath, String keywordToFind,
 			String generateOutputFileKeyword, int code) {
-		FileOutputStream outputStream = null;
-		boolean bReturn = false;
-		try {
-			for (int j = 0; j < listOfFiles.length; j++) {
-				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					outputStream = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+		boolean bReturn = true;
+		for (int j = 0; j < listOfFiles.length; j++) {
+			if (listOfFiles[j].getName().contains(keywordToFind)) {
+				try (FileOutputStream outputStream = new FileOutputStream(
+						listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json")) {
 					Response response = null;
 					String responseJson = "";
 					if (code == 0)
@@ -156,13 +154,12 @@ public class AuthTestsUtil extends BaseTestCase {
 							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
 					responseJson = JsonPrecondtion.toPrettyFormat(responseJson);
 					outputStream.write(responseJson.getBytes());
+				} catch (Exception e) {
+					bReturn = false;
+					IDASCRIPT_LOGGER.error("Exception " + e.getStackTrace());
+					break;
 				}
 			}
-			bReturn = true;
-		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Exception " + e);
-		} finally {
-			AdminTestUtil.closeOutputStream(outputStream);
 		}
 		return bReturn;
 	}
@@ -179,13 +176,12 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	protected boolean postRequestAndGenerateOuputFileForIntenalAuth(File[] listOfFiles, String urlPath,
 			String keywordToFind, String generateOutputFileKeyword, String cookieName, String cookieValue, int code) {
-		FileOutputStream outputStream = null;
-		boolean bReturn = false;
-		try {
-			for (int j = 0; j < listOfFiles.length; j++) {
-				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					outputStream = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+		boolean bReturn = true;
+		for (int j = 0; j < listOfFiles.length; j++) {
+			if (listOfFiles[j].getName().contains(keywordToFind)) {
+				try (FileOutputStream outputStream = new FileOutputStream(
+						listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json")) {
+
 					Response response;
 					if (code == 0)
 						response = postRequestWithCookieAndHeader(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,
@@ -198,13 +194,12 @@ public class AuthTestsUtil extends BaseTestCase {
 					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
 							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 					outputStream.write(response.asString().getBytes());
+				} catch (Exception e) {
+					bReturn = false;
+					IDASCRIPT_LOGGER.error("Exception " + e.getStackTrace());
+					break;
 				}
 			}
-			bReturn = true;
-		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Exception " + e);
-		} finally {
-			AdminTestUtil.closeOutputStream(outputStream);
 		}
 		return bReturn;
 	}
@@ -1494,13 +1489,11 @@ public class AuthTestsUtil extends BaseTestCase {
 
 	protected boolean patchRequestAndGenerateOuputFileForIntenalAuth(File[] listOfFiles, String urlPath,
 			String keywordToFind, String generateOutputFileKeyword, String cookieName, String cookieValue, int code) {
-		FileOutputStream outputStream = null;
-		boolean bReturn = false;
-		try {
-			for (int j = 0; j < listOfFiles.length; j++) {
-				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					outputStream = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+		boolean bReturn = true;
+		for (int j = 0; j < listOfFiles.length; j++) {
+			if (listOfFiles[j].getName().contains(keywordToFind)) {
+				try (FileOutputStream outputStream = new FileOutputStream(
+						listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json")) {
 					Response response;
 					if (code == 0)
 						response = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,
@@ -1513,26 +1506,23 @@ public class AuthTestsUtil extends BaseTestCase {
 					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
 							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 					outputStream.write(response.asString().getBytes());
+				} catch (Exception e) {
+					bReturn = false;
+					IDASCRIPT_LOGGER.error("Exception " + e.getStackTrace());
+					break;
 				}
 			}
-			bReturn = true;
-		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Exception " + e);
-		} finally {
-			AdminTestUtil.closeOutputStream(outputStream);
 		}
 		return bReturn;
 	}
 
 	protected Response postRequestAndGenerateOuputFileAndReturnResponse(File[] listOfFiles, String urlPath,
 			String keywordToFind, String generateOutputFileKeyword, String cookieName, String cookieValue, int code) {
-		FileOutputStream outputStream = null;
 		Response response = null;
-		try {
-			for (int j = 0; j < listOfFiles.length; j++) {
-				if (listOfFiles[j].getName().contains(keywordToFind)) {
-					outputStream = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+		for (int j = 0; j < listOfFiles.length; j++) {
+			if (listOfFiles[j].getName().contains(keywordToFind)) {
+				try (FileOutputStream outputStream = new FileOutputStream(
+						listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json")) {
 
 					if (code == 0)
 						response = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,
@@ -1545,13 +1535,14 @@ public class AuthTestsUtil extends BaseTestCase {
 					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
 							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 					outputStream.write(response.asString().getBytes());
+				} catch (Exception e) {
+					IDASCRIPT_LOGGER.error("Exception " + e);
+					response = null;
+					break;
 				}
 			}
-		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Exception " + e);
-		} finally {
-			AdminTestUtil.closeOutputStream(outputStream);
 		}
+
 		return response;
 	}
 

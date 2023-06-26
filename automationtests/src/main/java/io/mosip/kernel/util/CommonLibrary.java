@@ -56,7 +56,6 @@ import io.restassured.response.Response;
 public class CommonLibrary extends BaseTestCase {
 
 	private static Logger logger = Logger.getLogger(CommonLibrary.class);
-	private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	private ApplicationLibrary applicationLibrary = new ApplicationLibrary();
 	/**
 	 * @param response
@@ -301,19 +300,6 @@ public class CommonLibrary extends BaseTestCase {
 			return false;
 		}
 
-	}
-
-	/**
-	 * This method is for generating the random alphanumeric string of required
-	 * length
-	 */
-	public String randomAlphaNumeric(int lengthOfString) {
-		StringBuilder builder = new StringBuilder();
-		while (lengthOfString-- != 0) {
-			int character = (int) (Math.random() * ALPHA_NUMERIC_STRING.length());
-			builder.append(ALPHA_NUMERIC_STRING.charAt(character));
-		}
-		return builder.toString();
 	}
 	
 	/**

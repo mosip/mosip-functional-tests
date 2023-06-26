@@ -153,11 +153,11 @@ public class AdminTestUtil extends BaseTestCase {
 	public static boolean triggerIdPKeyGen3 = true;
 	public static boolean triggerIdPKeyGen4 = true;
 	public static boolean triggerIdPKeyGen5 = true;
-	public static String randomId = "mosip" + RandomStringUtils.randomNumeric(2)
+	public static String randomId = "mosip" + generateRandomNumberString(2)
 			+ String.valueOf(Calendar.getInstance().getTimeInMillis());
-	public static String randomId2 = "mosip" + RandomStringUtils.randomNumeric(2)
+	public static String randomId2 = "mosip" + generateRandomNumberString(2)
 			+ String.valueOf(Calendar.getInstance().getTimeInMillis());
-	public static String transactionId = RandomStringUtils.randomNumeric(10);
+	public static String transactionId = generateRandomNumberString(10);
 	public static final String AUTHORIZATHION_HEADERNAME = "Authorization";
 	public static final String authHeaderValue = "Some String";
 	public static final String SIGNATURE_HEADERNAME = "signature";
@@ -2663,7 +2663,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$PARTNERIDNONAUTH$", genPartnerNameNonAuth);
 		
 		if (jsonString.contains("$RANDOMPARTNEREMAIL$"))
-			jsonString = jsonString.replace("$RANDOMPARTNEREMAIL$", "automation" + RandomStringUtils.randomNumeric(15)
+			jsonString = jsonString.replace("$RANDOMPARTNEREMAIL$", "automation" + generateRandomNumberString(15)
 			+ "@mosip.net");
 
 		if (jsonString.contains("$PARTNEREMAIL1$"))
@@ -2691,10 +2691,10 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$MISPPOLICYNAME$", genMispPolicyName);
 		
 		if (jsonString.contains("$RANDOMPOLICYNAME$"))
-			jsonString = jsonString.replace("$RANDOMPOLICYNAME$", RandomStringUtils.randomAlphanumeric(15));
+			jsonString = jsonString.replace("$RANDOMPOLICYNAME$", generateRandomAlphaNumericString(15));
 		
 		if (jsonString.contains("$RANDOMPARTNERID$"))
-			jsonString = jsonString.replace("$RANDOMPARTNERID$", RandomStringUtils.randomAlphanumeric(15));
+			jsonString = jsonString.replace("$RANDOMPARTNERID$", generateRandomAlphaNumericString(15));
 
 		if (jsonString.contains("$MISPPARTNERID$"))
 			jsonString = jsonString.replace("$MISPPARTNERID$", genMispPartnerName);

@@ -129,6 +129,8 @@ public class BaseTestCase {
 	public static List<String> t = new ArrayList<>();
 	private static final char[] alphaNumericAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ0123456789"
 			.toCharArray();
+	private static final char[] alphabetsAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ"
+			.toCharArray();
 	private static final char[] nNumericAllowed = "0123456789".toCharArray();
 	public static SecureRandom secureRandom = new SecureRandom();
 	
@@ -607,6 +609,14 @@ public class BaseTestCase {
 		StringBuilder alphaNumericString = new StringBuilder();
 		for (int i = 0; i < length; i++) {
 			alphaNumericString.append(alphaNumericAllowed[secureRandom.nextInt(alphaNumericAllowed.length)]);
+		}
+		return alphaNumericString.toString();
+	}
+	
+	public static String generateRandomAlphabeticString(int length) {
+		StringBuilder alphaNumericString = new StringBuilder();
+		for (int i = 0; i < length; i++) {
+			alphaNumericString.append(alphabetsAllowed[secureRandom.nextInt(alphabetsAllowed.length)]);
 		}
 		return alphaNumericString.toString();
 	}
