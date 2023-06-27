@@ -125,7 +125,10 @@ public class KeycloakUserManager {
 			List<String> toBeAssignedRoles = List.of(ConfigManager.getRolesForUser(needsToBeCreatedUser).split(","));
 			for(String role : toBeAssignedRoles) {
 				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
-					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+					if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
+							availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+					else
+						logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}else {
 					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}
@@ -181,7 +184,10 @@ public class KeycloakUserManager {
 			List<String> toBeAssignedRoles = List.of(userRole);
 			for(String role : toBeAssignedRoles) {
 				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
-					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+					if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
+						availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+				else
+					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}else {
 					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}
@@ -303,7 +309,10 @@ public class KeycloakUserManager {
 				List<String> toBeAssignedRoles = List.of(propsKernel.getProperty(rolenum).split(","));
 				for (String role : toBeAssignedRoles) {
 					if (allRoles.stream().anyMatch((r -> r.getName().equalsIgnoreCase(role)))) {
-						availableRoles.add(allRoles.stream().filter(r -> r.getName().equals(role)).findFirst().get());
+						if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
+							availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+					else
+						logger.info(String.format("Role not found in keycloak: %s%n", role));
 					} else {
 						logger.info(String.format("Role not found in keycloak: %s%n", role));
 					}
@@ -360,7 +369,10 @@ public class KeycloakUserManager {
 			List<String> toBeAssignedRoles = List.of(propsKernel.getProperty(rolenum).split(","));
 			for(String role : toBeAssignedRoles) {
 				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
-					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+					if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
+						availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+				else
+					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}else {
 					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}
@@ -418,7 +430,10 @@ public class KeycloakUserManager {
 			List<String> toBeAssignedRoles = List.of(propsKernel.getProperty("roles."+userid).split(","));
 			for(String role : toBeAssignedRoles) {
 				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
-					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+					if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
+						availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+				else
+					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}else {
 					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}

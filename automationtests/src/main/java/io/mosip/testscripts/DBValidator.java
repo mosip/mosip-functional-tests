@@ -82,7 +82,11 @@ public class DBValidator extends AdminTestUtil implements ITest {
 		
 		Set<String> set = new TreeSet<>();
 	    set.addAll(jsonObject.keySet());
-	    String filterId = set.stream().findFirst().get();
+	    String filterId = "";
+	    
+	    if (set.stream().findFirst().isPresent())
+	    	filterId = set.stream().findFirst().get();
+	    
 	    logger.info(filterId);
 		
 		
