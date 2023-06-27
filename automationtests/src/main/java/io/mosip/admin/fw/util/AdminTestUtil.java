@@ -4620,7 +4620,7 @@ public class AdminTestUtil extends BaseTestCase {
 					|| testCaseDTO.isValidityCheckRequired())) {
 				if (testCaseName.contains("uin") || testCaseName.contains("UIN") || testCaseName.contains("Uin")) {
 					if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN") == false
-							|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin") == false) {
+							&& BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin") == false) {
 						throw new SkipException("Idtype UIN not supported skipping the testcase");
 					}
 				}
@@ -4628,7 +4628,7 @@ public class AdminTestUtil extends BaseTestCase {
 					|| testCaseDTO.isValidityCheckRequired())) {
 				if (testCaseName.contains("vid") || testCaseName.contains("VID") || testCaseName.contains("Vid")) {
 					if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID") == false
-							|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid") == false) {
+							&& BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid") == false) {
 						throw new SkipException("Idtype VID not supported skipping the testcase");
 					}
 				}
