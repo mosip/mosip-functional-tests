@@ -164,8 +164,17 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		if (endPoint.contains("$PartnerName$")) {
 			endPoint = endPoint.replace("$PartnerName$", PartnerRegistration.partnerId);
 		}
+		
+		String authRequest = "";
+		
+       if(!(BaseTestCase.certsForModule.equals("DSL-IDA"))){
+    	   authRequest = getJsonFromTemplate(input.toString(), testCaseDTO.getInputTemplate());
+       }
+       else {
+    	   authRequest = input.toString();
+       }
 
-		String authRequest = getJsonFromTemplate(input.toString(), testCaseDTO.getInputTemplate());
+//		String authRequest = getJsonFromTemplate(input.toString(), testCaseDTO.getInputTemplate());
 
 		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");
 
