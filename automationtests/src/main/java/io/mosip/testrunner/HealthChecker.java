@@ -31,6 +31,11 @@ public class HealthChecker implements Runnable {
 	public static String propsHealthCheckURL = MosipTestRunner.getResourcePath() + "/" + "config/healthCheckEndpoint.properties";
 	public static boolean signalTerminateExecution = false;
 	public static Map<Object, Object> healthCheckFailureMapS = Collections.synchronizedMap(new HashMap<Object, Object>());
+	private String currentRunningModule = ""; 
+	
+	public void setCurrentRunningModule(String currentModule) {
+		currentRunningModule = currentModule;
+	}
 
 	public void run() {
 		
@@ -48,7 +53,9 @@ public class HealthChecker implements Runnable {
 					continue;
 				String[] parts = line.trim().split("=");
 				if (parts.length > 1) {
-					controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
+					// TODO only add health check required for the current running module
+//					if (parts[0].contains(currentRunningModule)) 
+						controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
 				}
 			}
 		} catch (Exception e) {

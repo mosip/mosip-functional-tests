@@ -81,6 +81,7 @@ public class MosipTestRunner {
 		BaseTestCase.suiteSetup();
 		AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
 		HealthChecker healthcheck = new HealthChecker();
+		healthcheck.setCurrentRunningModule(BaseTestCase.currentModule);
 		Thread trigger = new Thread(healthcheck);
 		trigger.start();
 		
