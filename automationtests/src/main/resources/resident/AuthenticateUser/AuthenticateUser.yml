@@ -34,6 +34,7 @@ AuthenticateUser:
    Resident_ESignet_AuthenticateUserIDP_vid_Otp_Valid_Smoke:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
+      validityCheckRequired: true
       restMethod: post
       inputTemplate: resident/AuthenticateUser/AuthenticateUser
       outputTemplate: resident/AuthenticateUser/AuthenticateUserResult

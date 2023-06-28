@@ -21,6 +21,7 @@ GenerateToken:
    Resident_ESignet_GenerateToken_Vid_Cookie_Valid_Smoke_sid:
       endPoint: /v1/esignet/oauth/token
       role: resident
+      validityCheckRequired: true
       restMethod: post
       inputTemplate: resident/GenerateToken/GenerateToken
       outputTemplate: resident/GenerateToken/GenerateTokenResult
