@@ -2951,6 +2951,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$IDPCLIENTPAYLOAD$")) {
 			String clientId = getValueFromActuator("resident-default.properties", "mosip.iam.module.clientID");
 			String esignetBaseURI = getValueFromActuator("resident-default.properties", "mosip.iam.token_endpoint");
+			int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator("esignet-default.properties", "mosip.esignet.id-token-expire-seconds"));
+			int accessTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator("esignet-default.properties", "mosip.esignet.access-token-expire-seconds"));
+			
 			Instant instant = Instant.now();
 
 			// print Instant Value
@@ -2963,7 +2966,7 @@ public class AdminTestUtil extends BaseTestCase {
 			payloadBody.put("sub", clientId);
 			payloadBody.put("iss", clientId);
 			payloadBody.put("aud", esignetBaseURI);
-			payloadBody.put("exp", epochValue + 5400);
+			payloadBody.put("exp", epochValue + idTokenExpirySecs);
 			payloadBody.put("iat", epochValue);
 
 			String encodedPayload = encodeBase64(payloadBody.toString());
@@ -4394,6 +4397,8 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String signJWKKey(String clientId, RSAKey jwkKey) {
 		String tempUrl = getValueFromActuator("resident-default.properties", "mosip.iam.token_endpoint");
+		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator("esignet-default.properties", "mosip.esignet.id-token-expire-seconds"));
+		int accessTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator("esignet-default.properties", "mosip.esignet.access-token-expire-seconds"));
 		// Create RSA-signer with the private key
 		JWSSigner signer;
 
@@ -4404,7 +4409,7 @@ public class AdminTestUtil extends BaseTestCase {
 			JWTClaimsSet claimsSet = new JWTClaimsSet.Builder().subject(clientId)//
 					.audience(tempUrl)//
 					.issuer(clientId)//
-					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + 180 * 1000)).build();
+					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
 
 			SignedJWT signedJWT = new SignedJWT(
 					new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(jwkKey.getKeyID()).build(), claimsSet);
@@ -4421,6 +4426,8 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String getWlaToken(String individualId, RSAKey jwkKey, String certData) throws Exception {
 		String tempUrl = propsKernel.getProperty("validateBindingEndpoint");
+		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator("esignet-default.properties", "mosip.esignet.id-token-expire-seconds"));
+		int accessTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator("esignet-default.properties", "mosip.esignet.access-token-expire-seconds"));
 		Instant instant = Instant.now();
 		long epochValue = instant.getEpochSecond();
 
@@ -4429,7 +4436,7 @@ public class AdminTestUtil extends BaseTestCase {
 		payload.put("aud", tempUrl);
 		payload.put("sub", individualId);
 		payload.put("iat", epochValue);
-		payload.put("exp", epochValue + 5400);
+		payload.put("exp", epochValue + idTokenExpirySecs);
 
 		X509Certificate certificate = (X509Certificate) convertToCertificate(certData);
 		JsonWebSignature jwSign = new JsonWebSignature();
@@ -4520,6 +4527,38 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject responseJson = null;
 		JSONArray responseArray = null;
 		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
+		String value = null;
+		try {
+			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
+					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+
+			responseJson = new JSONObject(response.getBody().asString());
+			responseArray = responseJson.getJSONArray("propertySources");
+
+			for (int i = 0, size = responseArray.length(); i < size; i++) {
+				JSONObject eachJson = responseArray.getJSONObject(i);
+				if (eachJson.get("name").toString().contains(section)) {
+					value = eachJson.getJSONObject("properties").getJSONObject(key)
+							.get("value").toString();
+					break;
+				}
+			}
+
+			return value;
+		} catch (Exception e) {
+			logger.error("Exception " + e);
+			return value;
+		}
+
+	}
+	
+	public static String getValueFromEsignetActuator(String section, String key) {
+
+		Response response = null;
+		JSONObject responseJson = null;
+		JSONArray responseArray = null;
+		String url = ApplnURI.replace("api-internal", "esignet") + propsKernel.getProperty("actuatorEsignetEndpoint");
 		String value = null;
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
