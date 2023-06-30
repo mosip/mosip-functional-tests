@@ -550,9 +550,9 @@ public class BaseTestCase {
 		Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 		org.json.JSONObject responseValue = (org.json.JSONObject) responseJson.get("response");
-		String mandatoryLanguage = (String) responseValue.get("mosip.mandatory-languages");
-
-		languageList.add(mandatoryLanguage);
+//		String mandatoryLanguage = (String) responseValue.get("mosip.mandatory-languages");
+		languageList.addAll(Arrays.asList(((String) responseValue.get("mosip.mandatory-languages")).split(",")));
+//		languageList.add(mandatoryLanguage);
 		languageList.addAll(Arrays.asList(((String) responseValue.get("mosip.optional-languages")).split(",")));
 
 		return languageList;
