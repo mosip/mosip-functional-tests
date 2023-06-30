@@ -89,18 +89,18 @@ public class OutputValidationDto {
 	}
 
 	/**
-	 * The method get or return status of result (either "PASS" or "FAIL")
+	 * The method get or return status of result (either "PASS" or GlobalConstants.FAIL_STRING)
 	 * 
-	 * @return String - Either "PASS" or "FAIL"
+	 * @return String - Either "PASS" or GlobalConstants.FAIL_STRING
 	 */
 	public String getStatus() {
 		return status;
 	}
 
 	/**
-	 * The method set either "PASS" or "FAIL"
+	 * The method set either "PASS" or GlobalConstants.FAIL_STRING
 	 * 
-	 * @param status - Either "PASS" or "FAIL"
+	 * @param status - Either "PASS" or GlobalConstants.FAIL_STRING
 	 */
 	public void setStatus(String status) {
 		this.status = status;

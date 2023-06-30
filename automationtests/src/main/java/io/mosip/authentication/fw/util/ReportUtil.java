@@ -8,6 +8,7 @@ import org.testng.Reporter;
 
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
+import io.mosip.global.utils.GlobalConstants;
 
 /**
  * Class to show the result in table and text area format in testng report
@@ -35,7 +36,7 @@ public class ReportUtil {
 					htmlforReport = htmlforReport + "  <tr>\r\n" + "    <td>" + dto.getFieldName() + "</td>\r\n"
 							+ "    <td>" + dto.getExpValue() + "</td>\r\n" + "    <td>" + dto.getActualValue()
 							+ "</td>\r\n" + "    <td bgcolor='Green'>" + dto.getStatus() + "</td>\r\n" + "  </tr>\r\n";
-				} else if (dto.getStatus().equals("FAIL")) {
+				} else if (dto.getStatus().equals(GlobalConstants.FAIL_STRING)) {
 					htmlforReport = htmlforReport + "  <tr>\r\n" + "    <td>" + dto.getFieldName() + "</td>\r\n"
 							+ "    <td>" + dto.getExpValue() + "</td>\r\n" + "    <td>" + dto.getActualValue()
 							+ "</td>\r\n" + "    <td bgcolor='RED'>" + dto.getStatus() + "</td>\r\n" + "  </tr>\r\n";

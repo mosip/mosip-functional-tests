@@ -481,7 +481,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			mapper.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
 			return mapper.writeValueAsString(jsonObj);
 		} catch (Exception e) {
-			JSONPRECONDATION_LOGGER.error("Exception " + e.getMessage());
+			JSONPRECONDATION_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 			return e.getMessage();
 		}
 	}

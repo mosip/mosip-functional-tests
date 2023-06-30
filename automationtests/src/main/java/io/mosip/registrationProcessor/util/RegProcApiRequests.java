@@ -80,8 +80,8 @@ public class RegProcApiRequests extends BaseTestCase {
 					.when().post(ApplnURI + url).then().log().all().extract().response();
 			
 			// log then response
-			logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
-			logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+			logger.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
+			logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} catch (Exception e) {
 			logger.error(e.getStackTrace());
 		}
@@ -95,8 +95,8 @@ public class RegProcApiRequests extends BaseTestCase {
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when()
 				.get(ApplnURI + url).then().log().all().extract().response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
@@ -121,8 +121,8 @@ public class RegProcApiRequests extends BaseTestCase {
 				.contentType(contentHeader).log().all().when().post(ApplnURI + url).then().log().all().extract()
 				.response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
@@ -133,8 +133,8 @@ public class RegProcApiRequests extends BaseTestCase {
 		Response postResponse = given().relaxedHTTPSValidation().body(body).contentType(contentHeader)
 				.accept(acceptHeader).log().all().when().post(ApplnURI + url).then().log().all().extract().response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		logger.info("REST-ASSURED:454545445 The response Time is: " + postResponse.asString());
 		return postResponse;
 	}
@@ -168,8 +168,8 @@ public class RegProcApiRequests extends BaseTestCase {
 				.contentType(contentHeader).log().all().when().post(ApplnURI + url).then().log().all().extract()
 				.response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
@@ -233,7 +233,7 @@ public class RegProcApiRequests extends BaseTestCase {
 				.all().when().get(ApplnURI + url);
 		// log then response
 		logger.info("REST-ASSURED: the response from request is: " + getResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 

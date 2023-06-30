@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
+import io.mosip.global.utils.GlobalConstants;
 
 /**
  * Class is to perform all file util such as create,read files
@@ -115,7 +116,7 @@ public class FileUtil{
 			bufferedWriter.write(content);
 			bReturn = true;
 		} catch (Exception e) {
-			FILEUTILITY_LOGGER.error("Exception " + e);
+			FILEUTILITY_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}finally {
 			AdminTestUtil.closeBufferedWriter(bufferedWriter);
 		}
@@ -138,7 +139,7 @@ public class FileUtil{
 			bufferedWriter.write(content);
 			bReturn =  true;
 		} catch (Exception e) {
-			FILEUTILITY_LOGGER.error("Exception " + e);
+			FILEUTILITY_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}finally {
 			AdminTestUtil.closeBufferedWriter(bufferedWriter);
 		}
@@ -168,7 +169,7 @@ public class FileUtil{
 			}
 			bReturn =  true;
 		} catch (Exception e) {
-			FILEUTILITY_LOGGER.error("Exception " + e);
+			FILEUTILITY_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}finally {
 			AdminTestUtil.closeBufferedWriter(bufferedWriter);
 		}
@@ -250,7 +251,7 @@ public class FileUtil{
 			outputStream.write(content.getBytes());
 			return true;
 		} catch (Exception e) {
-			FILEUTILITY_LOGGER.error("Exception " + e);
+			FILEUTILITY_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return false;
 		}finally {
 			AdminTestUtil.closeOutputStream(outputStream);

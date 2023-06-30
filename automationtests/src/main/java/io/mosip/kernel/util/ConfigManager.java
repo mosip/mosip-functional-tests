@@ -7,6 +7,7 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.testrunner.MosipTestRunner;
 
 public class ConfigManager {
@@ -651,7 +652,7 @@ public class ConfigManager {
 			inputStream = new FileInputStream(file);
 			prop.load(inputStream);
 		} catch (IOException e) {
-			LOGGER.error("Exception " + e.getMessage());
+			LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 		}finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}

@@ -298,7 +298,7 @@ public class BioDataUtility extends AdminTestUtil {
 	/*
 	 * private static void storeValue(String biovalue) { try { BufferedWriter out =
 	 * new BufferedWriter(new FileWriter("BioValue.txt")); out.write(biovalue);
-	 * out.close(); } catch (IOException e) { logger.info("Exception "); } }
+	 * out.close(); } catch (IOException e) { logger.info(GlobalConstants.EXCEPTION_STRING_2); } }
 	 */
 
 }

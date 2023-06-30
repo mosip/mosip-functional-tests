@@ -365,7 +365,7 @@ public class CommonLibrary extends BaseTestCase {
 				.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
 		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
@@ -383,7 +383,7 @@ public class CommonLibrary extends BaseTestCase {
 				.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
 		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
@@ -404,7 +404,7 @@ public class CommonLibrary extends BaseTestCase {
 				.extract().response();
 		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
@@ -427,7 +427,7 @@ public class CommonLibrary extends BaseTestCase {
 				.all().extract().response();
 		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 	
@@ -440,7 +440,7 @@ public class CommonLibrary extends BaseTestCase {
 				.all().extract().response();
 		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
@@ -543,14 +543,14 @@ public class CommonLibrary extends BaseTestCase {
 	 */
 	public Response postWithQueryParams(String url, HashMap<String, String> queryparams, Object body,
 			String contentHeader, String acceptHeader, String cookie) {
-		logger.info("REST-ASSURED: Sending a POST request to " + url);
+		logger.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 				.queryParams(queryparams).contentType(contentHeader).accept(acceptHeader).log().all().when().post(url)
 				.then().log().all().extract().response();
 		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
@@ -572,7 +572,7 @@ public class CommonLibrary extends BaseTestCase {
 				.all().extract().response();
 		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
@@ -584,7 +584,7 @@ public class CommonLibrary extends BaseTestCase {
 	 *         authorization(cookie) and multiPart data.
 	 */
 	public Response postRequestEmailNotification(String serviceUri, JSONObject jsonString, String cookie) {
-		logger.info("REST-ASSURED: Sending a POST request to " + serviceUri);
+		logger.info(GlobalConstants.REST_ASSURED_STRING_1 + serviceUri);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse = null;
 		if (jsonString.get("attachments").toString().isEmpty()) {
@@ -605,7 +605,7 @@ public class CommonLibrary extends BaseTestCase {
 		}
 
 		// log then response
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
@@ -626,7 +626,7 @@ public class CommonLibrary extends BaseTestCase {
 				.contentType(contentHeader).accept(acceptHeader).log().all().when().patch(url).then().log().all()
 				.extract().response();
 		// log then response
-		logger.info("REST-ASSURED: The response Time is: " + putResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		return putResponse;
 	}
 
@@ -662,7 +662,7 @@ public class CommonLibrary extends BaseTestCase {
 				.all().when().get(url);
 		// log then response
 		responseLogger(getResponse);
-		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
@@ -681,7 +681,7 @@ public class CommonLibrary extends BaseTestCase {
 				.all().when().get(url);
 		// log then response
 		responseLogger(getResponse);
-		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
@@ -700,7 +700,7 @@ public class CommonLibrary extends BaseTestCase {
 				.all().when().get(url);
 		// log then response
 		responseLogger(getResponse);
-		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
@@ -721,7 +721,7 @@ public class CommonLibrary extends BaseTestCase {
 				.queryParams(queryParams).log().all().when().get(url);
 		// log then response
 		responseLogger(getResponse);
-		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
@@ -743,7 +743,7 @@ public class CommonLibrary extends BaseTestCase {
 				.queryParams(queryParams).log().all().when().get(url);
 		// log then response
 		responseLogger(getResponse);
-		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 	// Put Requests:
@@ -762,8 +762,8 @@ public class CommonLibrary extends BaseTestCase {
 		Response putResponse = given().cookie(builder.build()).relaxedHTTPSValidation().contentType(contentHeader)
 				.accept(acceptHeader).log().all().when().put(url).then().log().all().extract().response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + putResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + putResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + putResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		return putResponse;
 	}
 
@@ -783,8 +783,8 @@ public class CommonLibrary extends BaseTestCase {
 				.contentType(contentHeader).accept(acceptHeader).log().all().when().put(url).then().log().all()
 				.extract().response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + putResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + putResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + putResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		return putResponse;
 	}
 
@@ -805,8 +805,8 @@ public class CommonLibrary extends BaseTestCase {
 				.contentType(contentHeader).accept(acceptHeader).log().all().when().put(url).then().log().all()
 				.extract().response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + putResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + putResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + putResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		return putResponse;
 	}
 
@@ -827,8 +827,8 @@ public class CommonLibrary extends BaseTestCase {
 				.contentType(contentHeader).accept(acceptHeader).log().all().when().put(url).then().log().all()
 				.extract().response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + putResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + putResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + putResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		return putResponse;
 	}
 
@@ -850,8 +850,8 @@ public class CommonLibrary extends BaseTestCase {
 				.body(body).contentType(contentHeader).accept(acceptHeader).log().all().when().put(url).then().log()
 				.all().extract().response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + putResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + putResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + putResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		return putResponse;
 	}
 
@@ -867,7 +867,7 @@ public class CommonLibrary extends BaseTestCase {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams).log()
 				.all().when().delete(url).then().log().all().extract().response();
-		logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + getResponse.time());
 		return getResponse;
 	}
@@ -884,7 +884,7 @@ public class CommonLibrary extends BaseTestCase {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().queryParams(queryParams).log()
 				.all().when().delete(url).then().log().all().extract().response();
-		logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + getResponse.time());
 		return getResponse;
 	}
@@ -903,7 +903,7 @@ public class CommonLibrary extends BaseTestCase {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams)
 				.queryParams(queryParams).log().all().when().delete(url).then().log().all().extract().response();
-		logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + getResponse.time());
 		return getResponse;
 	}
@@ -920,7 +920,7 @@ public class CommonLibrary extends BaseTestCase {
 		Response getResponse = given().relaxedHTTPSValidation().log().all().when().get(url).then().log().all().extract()
 				.response();
 		// log then response
-		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
@@ -935,7 +935,7 @@ public class CommonLibrary extends BaseTestCase {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when().delete(url)
 				.then().log().all().extract().response();
-		logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + getResponse.time());
 		return getResponse;
 	}

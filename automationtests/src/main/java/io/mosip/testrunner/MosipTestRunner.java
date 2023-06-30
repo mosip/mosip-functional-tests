@@ -291,7 +291,7 @@ public class MosipTestRunner {
 			inputStream = new FileInputStream(file);
 			prop.load(inputStream);
 		} catch (Exception e) {
-			LOGGER.error("Exception " + e.getMessage());
+			LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 		}finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}

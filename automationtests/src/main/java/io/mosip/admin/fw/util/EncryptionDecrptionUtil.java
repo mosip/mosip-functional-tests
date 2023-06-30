@@ -27,6 +27,7 @@ import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.global.utils.GlobalConstants;
+import io.mosip.global.utils.GlobalMethods;
 import io.mosip.kernel.util.ConfigManager;
 import io.restassured.response.Response;
 
@@ -82,7 +83,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			String json = getEncryption(jsonString);
 			JSONObject jsonobj = new JSONObject(json);
 			Reporter.log("<b> <u>Encryption of identity request</u> </b>");
-			Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(json) + "</pre>");
+			GlobalMethods.reportRequest(json);
 			ecryptData.put("key", jsonobj.get(key).toString());
 			ecryptData.put("data", jsonobj.get(data).toString());
 			ecryptData.put("hmac", jsonobj.get(hmac).toString());
@@ -106,7 +107,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			String json = getIntenalEncryption(jsonString);
 			JSONObject jsonobj = new JSONObject(json);
 			Reporter.log("<b> <u>Encryption of identity request</u> </b>");
-			Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(json) + "</pre>");
+			GlobalMethods.reportRequest(json);
 			ecryptData.put("key", jsonobj.get(key).toString());
 			ecryptData.put("data", jsonobj.get(data).toString());
 			ecryptData.put("hmac", jsonobj.get(hmac).toString());
@@ -128,7 +129,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		try {
 			JSONObject objectData = new JSONObject(jsonString);
 			Reporter.log("<b><u> Identity request:</u></b>");
-			Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(objectData.toString())+"</pre>");
+			GlobalMethods.reportRequest(objectData.toString());
 			return RestClient.postRequest(EncryptUtilBaseUrl+props.get("encryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
@@ -147,7 +148,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		try {
 			JSONObject objectData = new JSONObject(jsonString);
 			Reporter.log("<b><u> Identity request:</u></b>");
-			Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(objectData.toString())+"</pre>");
+			GlobalMethods.reportRequest(objectData.toString());
 			return RestClient.postRequest(EncryptUtilBaseUrl+props.get("internalEncryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {

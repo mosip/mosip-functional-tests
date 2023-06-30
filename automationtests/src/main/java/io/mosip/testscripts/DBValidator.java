@@ -30,6 +30,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.restassured.response.Response;
 import io.mosip.dbaccess.*;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.testrunner.HealthChecker;
 
 public class DBValidator extends AdminTestUtil implements ITest {
@@ -109,7 +110,7 @@ public class DBValidator extends AdminTestUtil implements ITest {
 			objOpDto.setStatus("PASS");
 		}
 		else {
-			objOpDto.setStatus("FAIL");
+			objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 		}
 		
 		objList.add(objOpDto);

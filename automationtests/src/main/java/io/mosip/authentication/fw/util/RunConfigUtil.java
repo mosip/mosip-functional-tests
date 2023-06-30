@@ -99,7 +99,7 @@ public class RunConfigUtil {
 		 * getTokenIdPropertyValue(getTokenIdPropertyPath()); if
 		 * (TokenIdDto.getTokenId().containsKey(uin + "." + partnerID)) return
 		 * TokenIdDto.getTokenId().get(uin + "." + partnerID); else return
-		 * "TOKENID:"+uin + "." + partnerID;
+		 * GlobalConstants.TOKENID_STRING+uin + "." + partnerID;
 		 */
 		/*
 		 * if(uin.length()>10) uin=UINUtil.getUinForVid(uin);

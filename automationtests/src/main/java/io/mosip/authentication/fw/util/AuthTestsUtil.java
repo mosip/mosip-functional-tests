@@ -44,6 +44,7 @@ import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.precon.XmlPrecondtion;
 import io.mosip.global.utils.GlobalConstants;
+import io.mosip.global.utils.GlobalMethods;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
 import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.service.BaseTestCase;
@@ -151,13 +152,12 @@ public class AuthTestsUtil extends BaseTestCase {
 					responseJson = response.asString();
 					responseJsonToVerifyDigtalSignature = responseJson;
 					responseDigitalSignatureValue = response.getHeader(responseDigitalSignatureKey);
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
+					GlobalMethods.reportResponse(urlPath, response);
 					responseJson = JsonPrecondtion.toPrettyFormat(responseJson);
 					outputStream.write(responseJson.getBytes());
 				} catch (Exception e) {
 					bReturn = false;
-					IDASCRIPT_LOGGER.error("Exception " + e.getStackTrace());
+					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getStackTrace());
 					break;
 				}
 			}
@@ -192,12 +192,11 @@ public class AuthTestsUtil extends BaseTestCase {
 								cookieName, cookieValue, AUTHORIZATHION_COOKIENAME, authHeaderValue);
 					responseJsonToVerifyDigtalSignature = response.asString();
 					responseDigitalSignatureValue = response.getHeader(responseDigitalSignatureKey);
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+					GlobalMethods.reportResponse(urlPath, response);
 					outputStream.write(response.asString().getBytes());
 				} catch (Exception e) {
 					bReturn = false;
-					IDASCRIPT_LOGGER.error("Exception " + e.getStackTrace());
+					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getStackTrace());
 					break;
 				}
 			}
@@ -230,15 +229,14 @@ public class AuthTestsUtil extends BaseTestCase {
 					else
 						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code,
 								cookieName, cookieValue);
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson.asString()) + "</pre>");
+					GlobalMethods.reportResponse(urlPath, responseJson);
 					outputStream.write(responseJson.asString().getBytes());
 					return responseJson.asString().toString();
 				}
 			}
 			return "NoResponse";
 		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Exception " + e);
+			IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return e.getMessage();
 		} finally {
 			AdminTestUtil.closeOutputStream(outputStream);
@@ -314,8 +312,7 @@ public class AuthTestsUtil extends BaseTestCase {
 					if (responseJson.asString().contains("Invalid UIN")) {
 						return false;
 					} else {
-						Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-								+ ReportUtil.getTextAreaJsonMsgHtml(responseJson.asString()) + "</pre>");
+						GlobalMethods.reportResponse(urlPath, responseJson);
 						outputStream.write(responseJson.asString().getBytes());
 						return true;
 					}
@@ -323,7 +320,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			}
 			return false;
 		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Exception " + e);
+			IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return false;
 		} finally {
 			AdminTestUtil.closeOutputStream(outputStream);
@@ -364,7 +361,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			}
 			return false;
 		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Exception " + e);
+			IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return false;
 		} finally {
 			AdminTestUtil.closeOutputStream(outputStream);
@@ -449,7 +446,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			objOpDto.setFieldName("STATUS CODE");
 			objOpDto.setActualValue(String.valueOf(response.statusCode()));
 			objOpDto.setExpValue(String.valueOf(expCode));
-			objOpDto.setStatus("FAIL");
+			objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 		}
 		return objOpDto;
 	}
@@ -596,7 +593,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
 					String responseJson = getContentFromFile(listOfFiles[j]);
-					Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
+					GlobalMethods.reportRequest(responseJson);
 				}
 			}
 		} catch (Exception e) {
@@ -1370,7 +1367,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		try {
 			return postStrContentRequestWithCookie(content, urlPath, cookieName, cookieValue);
 		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Exception " + e);
+			IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return e.getMessage();
 		}
 	}
@@ -1415,12 +1412,11 @@ public class AuthTestsUtil extends BaseTestCase {
 		try {
 			outputStream = new FileOutputStream(parentFile + "/" + generateOutputFileKeyword + ".json");
 			String responseJson = getResponseWithCookie(urlPath, cookieName, cookieValue);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
+			GlobalMethods.reportResponse(urlPath, responseJson);
 			outputStream.write(responseJson.getBytes());
 			return responseJson.toString();
 		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Exception " + e);
+			IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return e.getMessage();
 		} finally {
 			AdminTestUtil.closeOutputStream(outputStream);
@@ -1505,12 +1501,11 @@ public class AuthTestsUtil extends BaseTestCase {
 								cookieValue);
 					responseJsonToVerifyDigtalSignature = response.asString();
 					responseDigitalSignatureValue = response.getHeader(responseDigitalSignatureKey);
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+					GlobalMethods.reportResponse(urlPath, response);
 					outputStream.write(response.asString().getBytes());
 				} catch (Exception e) {
 					bReturn = false;
-					IDASCRIPT_LOGGER.error("Exception " + e.getStackTrace());
+					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getStackTrace());
 					break;
 				}
 			}
@@ -1534,11 +1529,10 @@ public class AuthTestsUtil extends BaseTestCase {
 								cookieValue);
 					responseJsonToVerifyDigtalSignature = response.asString();
 					responseDigitalSignatureValue = response.getHeader(responseDigitalSignatureKey);
-					Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
-							+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+					GlobalMethods.reportResponse(urlPath, response);
 					outputStream.write(response.asString().getBytes());
 				} catch (Exception e) {
-					IDASCRIPT_LOGGER.error("Exception " + e);
+					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 					response = null;
 					break;
 				}

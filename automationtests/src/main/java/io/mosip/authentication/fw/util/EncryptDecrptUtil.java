@@ -11,6 +11,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.testng.Reporter;
 
+import io.mosip.global.utils.GlobalMethods;
+
 /**
  * Perform encryption and decryption activity using local executable demoApp jar. 
  * 
@@ -38,7 +40,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			JSONParser parser = new JSONParser();
 			JSONObject jsonobj = (JSONObject) parser.parse(json);
 			Reporter.log("<b> <u>Encryption of identity request</u> </b>");
-			Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(json) + "</pre>");
+			GlobalMethods.reportRequest(json);
 			ecryptData.put("key", jsonobj.get(key).toString());
 			ecryptData.put("data", jsonobj.get(data).toString());
 			ecryptData.put("hmac", jsonobj.get(hmac).toString());
@@ -62,7 +64,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			JSONParser parser = new JSONParser();
 			JSONObject jsonobj = (JSONObject) parser.parse(json);
 			Reporter.log("<b> <u>Encryption of identity request</u> </b>");
-			Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(json) + "</pre>");
+			GlobalMethods.reportRequest(json);
 			ecryptData.put("key", jsonobj.get(key).toString());
 			ecryptData.put("data", jsonobj.get(data).toString());
 			ecryptData.put("hmac", jsonobj.get(hmac).toString());
@@ -83,7 +85,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
 			Reporter.log("<b><u> Identity request:</u></b>");
-			Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(objectData.toString())+"</pre>");
+			GlobalMethods.reportRequest(objectData.toString());
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncryptionPath(), objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
@@ -102,7 +104,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
 			Reporter.log("<b><u> Identity request:</u></b>");
-			Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(objectData.toString())+"</pre>");
+			GlobalMethods.reportRequest(objectData.toString());
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getInternalEncryptionPath(), objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
