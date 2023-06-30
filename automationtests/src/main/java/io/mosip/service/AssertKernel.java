@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flipkart.zjsonpatch.JsonDiff;
 
+import io.mosip.global.utils.GlobalConstants;
 import io.restassured.response.Response;
 
 /**
@@ -126,8 +127,8 @@ public class AssertKernel {
 				JSONObject responseJson = null;
 				if(response.containsKey("response"))
 					responseJson = (JSONObject)response.get("response");
-				else if(response.containsKey("request"))
-					responseJson = (JSONObject)response.get("request");
+				else if(response.containsKey(GlobalConstants.REQUEST))
+					responseJson = (JSONObject)response.get(GlobalConstants.REQUEST);
 				if(responseJson!=null)
 				{
 					responseJson.remove(elementToRemove);

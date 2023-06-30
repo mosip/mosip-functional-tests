@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flipkart.zjsonpatch.JsonDiff;
 
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.util.CommonLibrary;
 import io.restassured.response.Response;
 
@@ -162,7 +163,6 @@ public class AssertKernel {
 				requestJson = mapper.readTree(reqObj.toString());
 				responseJson = mapper.readTree(resObj.toString());
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				Assert.assertTrue(false, "File is not able to find "+e1.getClass());
 			}
 			
@@ -212,11 +212,11 @@ public class AssertKernel {
 					if(responseJson.containsKey(elementToRemove))responseJson.remove(elementToRemove);
 					response.put("response", responseJson);
 					}
-				else if(response.containsKey("request") && response.get("request")!=null)
+				else if(response.containsKey(GlobalConstants.REQUEST) && response.get(GlobalConstants.REQUEST)!=null)
 					{
-					responseJson = (JSONObject)response.get("request");
+					responseJson = (JSONObject)response.get(GlobalConstants.REQUEST);
 					if(responseJson.containsKey(elementToRemove))responseJson.remove(elementToRemove);
-					response.put("request", responseJson);
+					response.put(GlobalConstants.REQUEST, responseJson);
 					}
 
 			}

@@ -33,6 +33,7 @@ import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.dbaccess.DBManager;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
 import io.mosip.ida.certificate.KeyCloakUserAndAPIKeyGeneration;
 import io.mosip.ida.certificate.MispPartnerAndLicenseKeyGeneration;
@@ -64,7 +65,7 @@ public class BaseTestCase {
 	public String preRegAdminToken;
 	protected static String regClientToken;
 	public String regProcToken;
-	public final String COOKIENAME = "Authorization";
+	public final String COOKIENAME = GlobalConstants.AUTHORIZATION;
 	public final String IDTOKENCOOKIENAME = "id_token";
 	public final String ACCESSTOKENCOOKIENAME = "access_token";
 	public final String COOKIENAMESTATE = "state";
@@ -91,7 +92,7 @@ public class BaseTestCase {
 	public String zonemapCookie = null;
 	public String mobileAuthCookie = null;
 	public String autoTstUsrCkie = null;
-	public static String currentModule = "masterdata";
+	public static String currentModule = GlobalConstants.MASTERDATA;
 	public static String certsForModule = "DSL-IDA";
 	public static List<String> listOfModules = null;
 	public static List<String> languageList = new ArrayList<>();
@@ -232,7 +233,6 @@ public class BaseTestCase {
 			try {
 				FileUtils.forceDelete(logFile);
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				logger.error("Failed to delete old log file");
 			}
 		logger.info("Test Framework for Mosip api Initialized");
@@ -263,16 +263,16 @@ public class BaseTestCase {
 		 * BaseTestCase.currentModule = "admin"; AdminTestUtil.initiateAdminTest(); }
 		 */
 
-		if (listOfModules.contains("masterdata")) {
+		if (listOfModules.contains(GlobalConstants.MASTERDATA)) {
 			DBManager.clearMasterDbData();
-			BaseTestCase.currentModule = "masterdata";
-			setReportName("masterdata");
+			BaseTestCase.currentModule = GlobalConstants.MASTERDATA;
+			setReportName(GlobalConstants.MASTERDATA);
 			AdminTestUtil.initiateMasterDataTest();
 		}
 
-		if (listOfModules.contains("mobileid")) {
-			BaseTestCase.currentModule = "mobileid";
-			setReportName("mobileid");
+		if (listOfModules.contains(GlobalConstants.MOBILEID)) {
+			BaseTestCase.currentModule = GlobalConstants.MOBILEID;
+			setReportName(GlobalConstants.MOBILEID);
 			AdminTestUtil.initiateMobileIdTestTest();
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
@@ -286,11 +286,11 @@ public class BaseTestCase {
 
 		}
 
-		if (listOfModules.contains("esignet")) {
+		if (listOfModules.contains(GlobalConstants.ESIGNET)) {
 
-			BaseTestCase.currentModule = "esignet";
-			BaseTestCase.certsForModule = "esignet";
-			setReportName("esignet");
+			BaseTestCase.currentModule = GlobalConstants.ESIGNET;
+			BaseTestCase.certsForModule = GlobalConstants.ESIGNET;
+			setReportName(GlobalConstants.ESIGNET);
 			AdminTestUtil.initiateesignetTest();
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
@@ -300,9 +300,9 @@ public class BaseTestCase {
 		 * if (listOfModules.contains("syncdata")) { setReportName("syncdata");
 		 * AdminTestUtil.initiateSyncDataTest(); }
 		 */
-		if (listOfModules.contains("resident")) {
-			BaseTestCase.currentModule = "resident";
-			setReportName("resident");
+		if (listOfModules.contains(GlobalConstants.RESIDENT)) {
+			BaseTestCase.currentModule = GlobalConstants.RESIDENT;
+			setReportName(GlobalConstants.RESIDENT);
 			AdminTestUtil.copyResidentTestResource();
 		MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
@@ -323,9 +323,9 @@ public class BaseTestCase {
 		 * if (listOfModules.contains("regproc")) { setReportName("regproc");
 		 * AdminTestUtil.initiateregProcTest(); }
 		 */
-		if (listOfModules.contains("prereg")) {
-			BaseTestCase.currentModule = "prereg";
-			setReportName("prereg");
+		if (listOfModules.contains(GlobalConstants.PREREG)) {
+			BaseTestCase.currentModule = GlobalConstants.PREREG;
+			setReportName(GlobalConstants.PREREG);
 			AdminTestUtil.copyPreregTestResource();
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
@@ -422,11 +422,11 @@ public class BaseTestCase {
 		request.put("zoneCode", props.get("zoneCode_to_beMapped"));
 		request.put("userId", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
-		request.put("isActive", "true");
-		actualrequest.put("request", request);
+		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
+		actualrequest.put(GlobalConstants.REQUEST, request);
 		logger.info(actualrequest);
 		Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(propsKernel.get("admin_userName") + "Mapped to" + props.get("zoneCode_to_beMapped") + "Zone");
 		logger.info(response);
 
@@ -443,11 +443,11 @@ public class BaseTestCase {
 		request.put("zoneCode", zone);
 		request.put("userId", user);
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
-		request.put("isActive", "true");
-		actualrequest.put("request", request);
+		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
+		actualrequest.put(GlobalConstants.REQUEST, request);
 		logger.info(actualrequest);
 		Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(user + "Mapped to" + zone + "Zone");
 		logger.info(response);
 
@@ -458,10 +458,10 @@ public class BaseTestCase {
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("isActive", "true");
+		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("userId", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(response);
 	}
 
@@ -470,10 +470,10 @@ public class BaseTestCase {
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("isActive", "true");
+		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("userId", user);
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(response);
 	}
 
@@ -488,7 +488,7 @@ public class BaseTestCase {
 		map.put("langCode", BaseTestCase.getLanguageList().get(0));
 
 		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(response);
 
 		String otpInput = response.getBody().asString();
@@ -510,19 +510,19 @@ public class BaseTestCase {
 		requestMap.put("name", "automation");
 		requestMap.put("statusCode", "active");
 		requestMap.put("regCenterId", "10005");
-		requestMap.put("isActive", "true");
+		requestMap.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		requestMap.put("langCode", "eng");
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
-		map.put("id", "string");
-		map.put("version", "string");
-		map.put("requesttime", AdminTestUtil.generateCurrentUTCTimeStamp());
-		map.put("metadata", new HashMap<>());
-		map.put("request", requestMap);
+		map.put("id", GlobalConstants.STRING);
+		map.put(GlobalConstants.VERSION, GlobalConstants.STRING);
+		map.put(GlobalConstants.REQUESTTIME, AdminTestUtil.generateCurrentUTCTimeStamp());
+		map.put(GlobalConstants.METADATA, new HashMap<>());
+		map.put(GlobalConstants.REQUEST, requestMap);
 
 		Response response = RestClient.postRequestWithCookie(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(response);
 	}
 
@@ -533,11 +533,11 @@ public class BaseTestCase {
 
 		HashMap<String, String> map = new HashMap<String, String>();
 
-		map.put("isActive", "true");
+		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("id", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
 
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(response);
 	}
 
@@ -589,7 +589,7 @@ public class BaseTestCase {
 						"configService:https://github.com/mosip/mosip-config/id-authentication-default.properties")) {
 					org.json.JSONObject idTypes = (org.json.JSONObject) eachJson.getJSONObject("properties")
 							.get("request.idtypes.allowed");
-					String newIdTypes = idTypes.getString("value");
+					String newIdTypes = idTypes.getString(GlobalConstants.VALUE);
 
 					supportedIdType.addAll(Arrays.asList((newIdTypes).split(",")));
 

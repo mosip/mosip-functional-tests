@@ -25,6 +25,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -76,9 +77,9 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		String tempUrl = ApplnURI.replace("-internal", "");
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
-		if(req.has("sendOtp")) {
-			otpRequest = req.get("sendOtp").toString();
-			req.remove("sendOtp");
+		if(req.has(GlobalConstants.SENDOTP)) {
+			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
+			req.remove(GlobalConstants.SENDOTP);
 		}
 		JSONObject otpReqJson = new JSONObject(otpRequest);
 		sendOtpReqTemplate = otpReqJson.getString("sendOtpReqTemplate");
@@ -86,8 +87,8 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		otpReqJson.remove("sendOtpEndPoint");
 		Response otpResponse =null;
-        if(testCaseDTO.getRole().equalsIgnoreCase("residentNew")) {
-        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), auditLogCheck, COOKIENAME,"residentNew", testCaseDTO.getTestCaseName(), sendEsignetToken);
+        if(testCaseDTO.getRole().equalsIgnoreCase(GlobalConstants.RESIDENTNEW)) {
+        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), auditLogCheck, COOKIENAME,GlobalConstants.RESIDENTNEW, testCaseDTO.getTestCaseName(), sendEsignetToken);
         }
         else if(testCaseDTO.getRole().equalsIgnoreCase("residentNewVid")) {
        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), auditLogCheck, COOKIENAME,"residentNewVid", testCaseDTO.getTestCaseName(), sendEsignetToken);
@@ -96,14 +97,14 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
         	otpResponse = postRequestWithCookieAuthHeader(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
         }
         else {
-        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
+        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
         }
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if(res.has("sendOtpResp")) {
-			sendOtpResp = res.get("sendOtpResp").toString();
-			res.remove("sendOtpResp");
+		if(res.has(GlobalConstants.SENDOTPRESP)) {
+			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
+			res.remove(GlobalConstants.SENDOTPRESP);
 		}
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");

@@ -16,7 +16,6 @@ public class TestJava {
 		String randomNum1 = generateRandomNumericString(10);
 		
 		
-		// TODO Auto-generated method stub
 
 		//find any 6 digit number
 		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");

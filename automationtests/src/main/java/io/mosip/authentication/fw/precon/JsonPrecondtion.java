@@ -35,6 +35,7 @@ import com.google.gson.JsonParser;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.FileUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
  
 /**
@@ -68,17 +69,17 @@ public class JsonPrecondtion extends MessagePrecondtion{
 //			fieldvalue = Precondtion.getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);// New Code . Need to
 //				Properties props = 	AdminTestUtil.getproperty(propFileName);																// add
 //			for (Entry<String, String> map : fieldvalue.entrySet()) {
-//				if (map.getValue().contains("LONG:")) {
-//					String value = map.getValue().replace("LONG:", "");
+//				if (map.getValue().contains(GlobalConstants.LONG_STRING)) {
+//					String value = map.getValue().replace(GlobalConstants.LONG_STRING, "");
 //					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
 //							Long.parseLong(value));
-//				} else if (map.getValue().contains("DOUBLE:")) {
-//					String value = map.getValue().replace("DOUBLE:", "");
+//				} else if (map.getValue().contains(GlobalConstants.DOUBLE_STRING)) {
+//					String value = map.getValue().replace(GlobalConstants.DOUBLE_STRING, "");
 //					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
 //							Double.parseDouble(value));
-//				} else if (map.getValue().contains("BOOLEAN:")) {
+//				} else if (map.getValue().contains(GlobalConstants.BOOLEAN_STRING)) {
 //					String value = map.getValue();
-//					if (value.contains("true"))
+//					if (value.contains(GlobalConstants.TRUE_STRING))
 //						PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
 //								true);
 //					if (value.contains("false"))
@@ -131,17 +132,17 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			Object jsonObj = mapper.readValue(inputJson, Object.class);
 				Properties props = 	AdminTestUtil.getproperty(propFileName);																// add
 			for (Entry<String, String> map : fieldvalue.entrySet()) {
-				if (map.getValue().contains("LONG:")) {
-					String value = map.getValue().replace("LONG:", "");
+				if (map.getValue().contains(GlobalConstants.LONG_STRING)) {
+					String value = map.getValue().replace(GlobalConstants.LONG_STRING, "");
 					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
 							Long.parseLong(value));
-				} else if (map.getValue().contains("DOUBLE:")) {
-					String value = map.getValue().replace("DOUBLE:", "");
+				} else if (map.getValue().contains(GlobalConstants.DOUBLE_STRING)) {
+					String value = map.getValue().replace(GlobalConstants.DOUBLE_STRING, "");
 					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
 							Double.parseDouble(value));
-				} else if (map.getValue().contains("BOOLEAN:")) {
+				} else if (map.getValue().contains(GlobalConstants.BOOLEAN_STRING)) {
 					String value = map.getValue();
-					if (value.contains("true"))
+					if (value.contains(GlobalConstants.TRUE_STRING))
 						PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
 								true);
 					if (value.contains("false"))
@@ -445,17 +446,17 @@ public class JsonPrecondtion extends MessagePrecondtion{
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			Object jsonObj = mapper.readValue(inputContent, Object.class);
-				if (inputValueToSet.contains("LONG:")) {
-					String value = inputValueToSet.replace("LONG:", "");
+				if (inputValueToSet.contains(GlobalConstants.LONG_STRING)) {
+					String value = inputValueToSet.replace(GlobalConstants.LONG_STRING, "");
 					PropertyUtils.setProperty(jsonObj, mapping,
 							Long.parseLong(value));
-				} else if (inputValueToSet.contains("DOUBLE:")) {
-					String value = inputValueToSet.replace("DOUBLE:", "");
+				} else if (inputValueToSet.contains(GlobalConstants.DOUBLE_STRING)) {
+					String value = inputValueToSet.replace(GlobalConstants.DOUBLE_STRING, "");
 					PropertyUtils.setProperty(jsonObj, mapping,
 							Double.parseDouble(value));
-				} else if (inputValueToSet.contains("BOOLEAN:")) {
+				} else if (inputValueToSet.contains(GlobalConstants.BOOLEAN_STRING)) {
 					String value = inputValueToSet;
-					if (value.contains("true"))
+					if (value.contains(GlobalConstants.TRUE_STRING))
 						PropertyUtils.setProperty(jsonObj,
 								mapping, true);
 					if (value.contains("false"))
@@ -702,9 +703,9 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			JSONObject idItem = identityitems.getJSONObject(i);
 
 
-			String language = idItem.getString("language");
+			String language = idItem.getString(GlobalConstants.LANGUAGE);
 			if(language.equals("eng"))
-				value = idItem.getString("value");
+				value = idItem.getString(GlobalConstants.VALUE);
 
 		}
 

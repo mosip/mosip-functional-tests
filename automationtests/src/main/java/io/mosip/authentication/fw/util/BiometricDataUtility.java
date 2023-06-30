@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.core.exception.ExceptionUtils;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
@@ -58,7 +59,7 @@ public class BiometricDataUtility extends AuthTestsUtil {
 		//jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
 				//IdaKeywordUtil.generateTimeStampWithZTimeZone(), "request.timeStamp");
 		//jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
-				//IdaKeywordUtil.generateTimeStampWithZTimeZone(), "requesttime");
+				//IdaKeywordUtil.generateTimeStampWithZTimeZone(), GlobalConstants.REQUESTTIME);
 		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForInternalAuth(),
 				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
 				AUTHORIZATHION_COOKIENAME);
@@ -84,9 +85,9 @@ public class BiometricDataUtility extends AuthTestsUtil {
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, digitalId,
 					biometricsMapper + ".data.digitalId");
 			String data = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + ".data");
-			String bioValue = JsonPrecondtion.getValueFromJson(data, "bioValue");
+			String bioValue = JsonPrecondtion.getValueFromJson(data, GlobalConstants.BIOVALUE);
 			String timestamp = JsonPrecondtion.getValueFromJson(data, "timestamp");
-			String transactionId = JsonPrecondtion.getValueFromJson(data, "transactionId");
+			String transactionId = JsonPrecondtion.getValueFromJson(data, GlobalConstants.TRANSACTIONID);
 			String encryptedContent = encryptIsoBioValue(bioValue, timestamp, bioValueencryptionTemplateJson, transactionId);
 			String encryptedBioValue = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedData");
 			String encryptedSessionKey = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedSessionKey");

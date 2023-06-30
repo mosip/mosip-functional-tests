@@ -39,6 +39,7 @@ import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
@@ -105,9 +106,9 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 		 */
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
-		if (request.has("identityRequest")) {
-			identityRequest = request.get("identityRequest").toString();
-			request.remove("identityRequest");
+		if (request.has(GlobalConstants.IDENTITYREQUEST)) {
+			identityRequest = request.get(GlobalConstants.IDENTITYREQUEST).toString();
+			request.remove(GlobalConstants.IDENTITYREQUEST);
 		}
 		identityRequest = buildIdentityRequest(identityRequest);
 
@@ -122,7 +123,7 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 		// https://api-internal.dev2.mosip.net
 
 		if (identityRequest.contains("$DOMAINURI$")) {
-			String domainUrl = ApplnURI.replace("api-internal", "esignet");
+			String domainUrl = ApplnURI.replace("api-internal", GlobalConstants.ESIGNET);
 			identityRequest = identityRequest.replace("$DOMAINURI$", domainUrl);
 		}
 		String encryptedIdentityReq = null;
@@ -135,9 +136,9 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 
 			JSONObject encryptedIdentityReqObject = new JSONObject(encryptedIdentityReq);
 
-			JSONObject objIdentityRequest = encryptedIdentityReqObject.getJSONObject("identityRequest");
+			JSONObject objIdentityRequest = encryptedIdentityReqObject.getJSONObject(GlobalConstants.IDENTITYREQUEST);
 			logger.info(objIdentityRequest);
-			JSONArray arrayBiometrics = objIdentityRequest.getJSONArray("biometrics");
+			JSONArray arrayBiometrics = objIdentityRequest.getJSONArray(GlobalConstants.BIOMETRICS);
 
 			// JSONObject objBiometrics=arrayBiometrics.getJSONObject(0);
 

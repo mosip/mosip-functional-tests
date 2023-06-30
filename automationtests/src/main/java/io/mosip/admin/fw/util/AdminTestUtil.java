@@ -95,6 +95,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.dbaccess.AuditDBManager;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.kernel.util.ConfigManager;
@@ -145,7 +146,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String randomId2 = "mosip" + generateRandomNumberString(2)
 			+ Calendar.getInstance().getTimeInMillis();
 	public static final String transactionId = generateRandomNumberString(10);
-	public static final String AUTHORIZATHION_HEADERNAME = "Authorization";
+	public static final String AUTHORIZATHION_HEADERNAME = GlobalConstants.AUTHORIZATION;
 	public static final String authHeaderValue = "Some String";
 	public static final String SIGNATURE_HEADERNAME = "signature";
 	
@@ -206,10 +207,6 @@ public class AdminTestUtil extends BaseTestCase {
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
 	public static final int OTP_CHECK_INTERVAL =  10000; //10 secs
-	
-	private static final String PREREG = "prereg";
-	private static final String RESIDENT = "resident";
-	private static final String MASTERDATA = "masterdata";
 
 	/**
 	 * This method will hit post request and return the response
@@ -241,8 +238,8 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);	
 		url = uriKeyWordHandelerUri(url, testCaseName);
-		if (BaseTestCase.currentModule.equals("prereg") || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals("resident") || BaseTestCase.currentModule.equals("masterdata")) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG) || BaseTestCase.currentModule.equals("auth")
+				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT) || BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
@@ -265,7 +262,7 @@ public class AdminTestUtil extends BaseTestCase {
 			
 			if (auditLogCheck) {
 				JSONObject jsonObject = new JSONObject(inputJson);
-				String timeStamp = jsonObject.getString("requesttime");
+				String timeStamp = jsonObject.getString(GlobalConstants.REQUESTTIME);
 				String dbChecker = "TEST_FULLNAME" + BaseTestCase.getLanguageList().get(0);
 				try {
 					checkDbAndValidate(timeStamp, dbChecker);
@@ -335,13 +332,13 @@ public class AdminTestUtil extends BaseTestCase {
 			encodedResp = request.get("encodedHash").toString();
 			request.remove("encodedHash");
 		}
-		if (request.has("request")) {
-			if (request.getJSONObject("request").has("transactionId")) {
-				transactionId = request.getJSONObject("request").get("transactionId").toString();
+		if (request.has(GlobalConstants.REQUEST)) {
+			if (request.getJSONObject(GlobalConstants.REQUEST).has(GlobalConstants.TRANSACTIONID)) {
+				transactionId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.TRANSACTIONID).toString();
 			}
 		}
 		inputJson = request.toString();
-		if (BaseTestCase.currentModule.equals("masterdata")) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		logger.info("encodedhash = " + encodedResp);
@@ -377,9 +374,9 @@ public class AdminTestUtil extends BaseTestCase {
 			encodedResp = request.get("encodedHash").toString();
 			request.remove("encodedHash");
 		}
-		if (request.has("request")) {
-			if (request.getJSONObject("request").has("transactionId")) {
-				transactionId = request.getJSONObject("request").get("transactionId").toString();
+		if (request.has(GlobalConstants.REQUEST)) {
+			if (request.getJSONObject(GlobalConstants.REQUEST).has(GlobalConstants.TRANSACTIONID)) {
+				transactionId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.TRANSACTIONID).toString();
 			}
 		}
 		headers.put(XSRF_HEADERNAME, props.getProperty("XSRFTOKEN"));
@@ -387,8 +384,8 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
 
 		inputJson = request.toString();
-		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals("esignet") || BaseTestCase.currentModule.equals("resident")) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.MOBILEID) || BaseTestCase.currentModule.equals("auth")
+				|| BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET) || BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
@@ -418,17 +415,17 @@ public class AdminTestUtil extends BaseTestCase {
 		token = kernelAuthLib.getTokenByRole(role);
 		String apiKey = null, partnerId = null;
 		JSONObject req = new JSONObject(inputJson);
-		apiKey = req.getString("apiKey");
-		req.remove("apiKey");
-		partnerId = req.getString("partnerId");
-		req.remove("partnerId");
+		apiKey = req.getString(GlobalConstants.APIKEY);
+		req.remove(GlobalConstants.APIKEY);
+		partnerId = req.getString(GlobalConstants.PARTNERID);
+		req.remove(GlobalConstants.PARTNERID);
 
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put("PARTNER-API-KEY", apiKey);
 		headers.put("PARTNER-ID", partnerId);
 		headers.put(cookieName, "Bearer " + token);
 		inputJson = req.toString();
-		if (BaseTestCase.currentModule.equals("esignet")) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
@@ -473,17 +470,17 @@ public class AdminTestUtil extends BaseTestCase {
 		token = kernelAuthLib.getTokenByRole(role);
 		String apiKey = null, partnerId = null;
 		JSONObject req = new JSONObject(inputJson);
-		apiKey = req.getString("apiKey");
-		req.remove("apiKey");
-		partnerId = req.getString("partnerId");
-		req.remove("partnerId");
+		apiKey = req.getString(GlobalConstants.APIKEY);
+		req.remove(GlobalConstants.APIKEY);
+		partnerId = req.getString(GlobalConstants.PARTNERID);
+		req.remove(GlobalConstants.PARTNERID);
 
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put("PARTNER-API-KEY", apiKey);
 		headers.put("PARTNER-ID", partnerId);
 		headers.put(cookieName, "Bearer " + token);
 		inputJson = req.toString();
-		if (BaseTestCase.currentModule.equals("esignet")) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		
@@ -656,8 +653,8 @@ public class AdminTestUtil extends BaseTestCase {
 			String testCaseName, boolean bothAccessAndIdToken) {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals("resident") || BaseTestCase.currentModule.equals("masterdata")) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.MOBILEID) || BaseTestCase.currentModule.equals("auth")
+				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT) || BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 
@@ -694,7 +691,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (url.contains("ID:"))
 			url = inputJsonKeyWordHandeler(url, testCaseName);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		if (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("resident")) {
+		if (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		token = kernelAuthLib.getTokenByRole(role);
@@ -775,9 +772,9 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		
 		url = inputJsonKeyWordHandeler(url, testCaseName);
-		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals("esignet") || BaseTestCase.currentModule.equals("resident")
-				|| BaseTestCase.currentModule.equals("masterdata")) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.MOBILEID) || BaseTestCase.currentModule.equals("auth")
+				|| BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET) || BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
+				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		if (bothAccessAndIdToken) {
@@ -800,7 +797,7 @@ public class AdminTestUtil extends BaseTestCase {
 					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
 			if (auditLogCheck) {
 				JSONObject jsonObject = new JSONObject(inputJson);
-				String timeStamp = jsonObject.getString("requesttime");
+				String timeStamp = jsonObject.getString(GlobalConstants.REQUESTTIME);
 				String dbChecker = "TEST_FULLNAME" + BaseTestCase.getLanguageList().get(0);
 				try {
 					checkDbAndValidate(timeStamp, dbChecker);
@@ -1018,7 +1015,7 @@ public class AdminTestUtil extends BaseTestCase {
 			
 			if (auditLogCheck) {
 				JSONObject jsonObject = new JSONObject(jsonInput);
-				String timeStamp = jsonObject.getString("requesttime");
+				String timeStamp = jsonObject.getString(GlobalConstants.REQUESTTIME);
 				String dbChecker = "TEST_FULLNAME" + BaseTestCase.getLanguageList().get(0);
 				try {
 					checkDbAndValidate(timeStamp, dbChecker);
@@ -1109,16 +1106,16 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.error("request doesn't contanin filePath and fileKeyName: " + inputJson);
 
 		if (testCaseName.contains("Resident_UploadDocument")) {
-			pathParams.put("transactionId", req.get("transactionId").toString());
-			req.remove("transactionId");
+			pathParams.put(GlobalConstants.TRANSACTIONID, req.get(GlobalConstants.TRANSACTIONID).toString());
+			req.remove(GlobalConstants.TRANSACTIONID);
 			try {
-				formParams.put("request", encodeBase64(req.toString()));
+				formParams.put(GlobalConstants.REQUEST, encodeBase64(req.toString()));
 			} catch (Exception e) {
 				logger.error(e.getStackTrace());
 			}
 		} else {
-			pathParams.put("preRegistrationId", req.get("preRegistrationId").toString());
-			req.remove("preRegistrationId");
+			pathParams.put(GlobalConstants.PREREGISTRATIONID, req.get(GlobalConstants.PREREGISTRATIONID).toString());
+			req.remove(GlobalConstants.PREREGISTRATIONID);
 			formParams.put("Document request", req.toString());
 		}
 		token = kernelAuthLib.getTokenByRole(role);
@@ -1207,7 +1204,7 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject req = new JSONObject(inputJson);
 		HashMap<String, String> formParams = new HashMap<String, String>();
 		formParams.put("category", req.getString("category"));
-		formParams.put("operation", req.getString("operation"));
+		formParams.put(GlobalConstants.OPERATION, req.getString(GlobalConstants.OPERATION));
 		formParams.put("tableName", req.getString("tableName"));
 
 		String absolueFilePath = null;
@@ -1267,11 +1264,11 @@ public class AdminTestUtil extends BaseTestCase {
 		 */
 		/*
 		 * for (File specificFile : listFiles) { if
-		 * (formParams.get("operation").equalsIgnoreCase("insert") &&
+		 * (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase("insert") &&
 		 * specificFile.getName().equals(formParams.get("tableName") + ".csv")) {
 		 * specificFile=updateCSV(specificFile.getAbsolutePath(),"OLD",1,0); listFiles =
 		 * new File[1]; listFiles[0] = specificFile; } else { if
-		 * (formParams.get("operation").equalsIgnoreCase("update") &&
+		 * (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase("update") &&
 		 * specificFile.getName().equalsIgnoreCase("update" +
 		 * formParams.get("tableName") + ".csv")) { listFiles = new File[1];
 		 * listFiles[0] = specificFile; } } }
@@ -1304,7 +1301,7 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject req = new JSONObject(inputJson);
 		HashMap<String, String> formParams = new HashMap<String, String>();
 		formParams.put("category", req.getString("category"));
-		formParams.put("operation", req.getString("operation"));
+		formParams.put(GlobalConstants.OPERATION, req.getString(GlobalConstants.OPERATION));
 		formParams.put("tableName", req.getString("tableName"));
 
 		String absolueFilePath = null;
@@ -1319,13 +1316,13 @@ public class AdminTestUtil extends BaseTestCase {
 		File file = new File(absolueFilePath);
 		File[] listFiles = file.listFiles();
 		for (File specificFile : listFiles) {
-			if (formParams.get("operation").equalsIgnoreCase("insert")
+			if (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase("insert")
 					&& specificFile.getName().equals(formParams.get("tableName") + ".csv")) {
 				specificFile = updateCSV(specificFile.getAbsolutePath(), "OLD", 1, 0);
 				listFiles = new File[1];
 				listFiles[0] = specificFile;
 			} else {
-				if (formParams.get("operation").equalsIgnoreCase("update")
+				if (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase("update")
 						&& specificFile.getName().equalsIgnoreCase("update" + formParams.get("tableName") + ".csv")) {
 					listFiles = new File[1];
 					listFiles[0] = specificFile;
@@ -1361,7 +1358,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		HashMap<String, String> formParams = new HashMap<String, String>();
 		formParams.put("category", req.getString("category"));
-		formParams.put("operation", req.getString("operation"));
+		formParams.put(GlobalConstants.OPERATION, req.getString(GlobalConstants.OPERATION));
 		formParams.put("tableName", req.getString("tableName"));
 
 		String absolueFilePath = null;
@@ -1377,13 +1374,13 @@ public class AdminTestUtil extends BaseTestCase {
 		File[] listFiles = file.listFiles();
 
 		for (File specificFile : listFiles) {
-			if (formParams.get("operation").equalsIgnoreCase("insert")
+			if (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase("insert")
 					&& specificFile.getName().equals(formParams.get("tableName") + ".csv")) {
 				specificFile = updateCSV(specificFile.getAbsolutePath(), "OLD", 1, 0);
 				listFiles = new File[1];
 				listFiles[0] = specificFile;
 			} else {
-				if (formParams.get("operation").equalsIgnoreCase("update")
+				if (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase("update")
 						&& specificFile.getName().equalsIgnoreCase("update" + formParams.get("tableName") + ".csv")) {
 					listFiles = new File[1];
 					listFiles[0] = specificFile;
@@ -1628,8 +1625,8 @@ public class AdminTestUtil extends BaseTestCase {
 			req.remove("signature");
 		}
 		headers.put(SIGNATURE_HEADERNAME, signature);
-		if (req.has("request")) {
-			req = new JSONObject(req.get("request").toString());
+		if (req.has(GlobalConstants.REQUEST)) {
+			req = new JSONObject(req.get(GlobalConstants.REQUEST).toString());
 		}
 
 		inputJson = req.toString();
@@ -1798,7 +1795,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 				if (auditLogCheck) {
 					JSONObject jsonObject = new JSONObject(jsonInput);
-					String timeStamp = jsonObject.getString("requesttime");
+					String timeStamp = jsonObject.getString(GlobalConstants.REQUESTTIME);
 					String dbChecker = "TEST_FULLNAME" + BaseTestCase.getLanguageList().get(0);
 					try {
 						checkDbAndValidate(timeStamp, dbChecker);
@@ -1939,7 +1936,7 @@ public class AdminTestUtil extends BaseTestCase {
 			
 			if (auditLogCheck) {
 				JSONObject jsonObject = new JSONObject(jsonInput);
-				String timeStamp = jsonObject.getString("requesttime");
+				String timeStamp = jsonObject.getString(GlobalConstants.REQUESTTIME);
 				String dbChecker = "TEST_FULLNAME" + BaseTestCase.getLanguageList().get(0);
 				try {
 					checkDbAndValidate(timeStamp, dbChecker);
@@ -1964,7 +1961,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = inputJsonKeyWordHandeler(url, testCaseName);
-		if (BaseTestCase.currentModule.equals("resident")) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		byte[] pdf = null;
@@ -2269,8 +2266,8 @@ public class AdminTestUtil extends BaseTestCase {
 				responseOutputJson = responseJson.getJSONObject(0);
 				inputStream = new FileInputStream(getResourcePath() + fileName);
 				props.load(inputStream);
-				if (responseOutputJson.has("username")) {
-					keycloakUsersMap.put("username", responseOutputJson.get("username").toString());
+				if (responseOutputJson.has(GlobalConstants.USERNAME)) {
+					keycloakUsersMap.put(GlobalConstants.USERNAME, responseOutputJson.get(GlobalConstants.USERNAME).toString());
 				}
 				String fieldNames[] = idKeyName.split(",");
 				for (String filedName : fieldNames) {
@@ -2408,7 +2405,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static void copyMasterDataTestResource() {
-		copymoduleSpecificAndConfigFile("masterdata");
+		copymoduleSpecificAndConfigFile(GlobalConstants.MASTERDATA);
 	}
 
 	public static void copyMimotoDataTestResource() {
@@ -2420,7 +2417,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static void copyEsignetTestResource() {
-		copymoduleSpecificAndConfigFile("esignet");
+		copymoduleSpecificAndConfigFile(GlobalConstants.ESIGNET);
 	}
 
 	public static void copySyncDataTestResource() {
@@ -2505,7 +2502,6 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public String getJsonFromTemplateForMapApi(String input, String inputTemplate, HashMap<String, String> map) {
-		// TODO Auto-generated method stub
 		logger.info(inputTemplate);
 		logger.info(input);
 
@@ -2694,9 +2690,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$CACERT$")) {
 			JSONObject request = new JSONObject(jsonString);
 			String partnerId = null;
-			if (request.has("partnerId")) {
-				partnerId = request.get("partnerId").toString();
-				request.remove("partnerId");
+			if (request.has(GlobalConstants.PARTNERID)) {
+				partnerId = request.get(GlobalConstants.PARTNERID).toString();
+				request.remove(GlobalConstants.PARTNERID);
 			}
 			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(partnerId, "RELYING_PARTY");
 			String caFtmCertValue = certificateValue.getString("caCertificate");
@@ -2717,9 +2713,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$MISPCACERT$")) {
 			JSONObject request = new JSONObject(jsonString);
 			String partnerId = null;
-			if (request.has("partnerId")) {
-				partnerId = request.get("partnerId").toString();
-				request.remove("partnerId");
+			if (request.has(GlobalConstants.PARTNERID)) {
+				partnerId = request.get(GlobalConstants.PARTNERID).toString();
+				request.remove(GlobalConstants.PARTNERID);
 			}
 			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(partnerId, "MISP");
 			String caFtmCertValue = certificateValue.getString("caCertificate");
@@ -2740,9 +2736,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$INTERCERT$")) {
 			JSONObject request = new JSONObject(jsonString);
 			String partnerId = null;
-			if (request.has("partnerId")) {
-				partnerId = request.get("partnerId").toString();
-				request.remove("partnerId");
+			if (request.has(GlobalConstants.PARTNERID)) {
+				partnerId = request.get(GlobalConstants.PARTNERID).toString();
+				request.remove(GlobalConstants.PARTNERID);
 			}
 
 			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(partnerId, "RELYING_PARTY");
@@ -2761,9 +2757,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$MISPINTERCERT$")) {
 			JSONObject request = new JSONObject(jsonString);
 			String partnerId = null;
-			if (request.has("partnerId")) {
-				partnerId = request.get("partnerId").toString();
-				request.remove("partnerId");
+			if (request.has(GlobalConstants.PARTNERID)) {
+				partnerId = request.get(GlobalConstants.PARTNERID).toString();
+				request.remove(GlobalConstants.PARTNERID);
 			}
 			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(partnerId, "MISP");
 			String interFtmCertValue = certificateValue.getString("interCertificate");
@@ -2781,8 +2777,8 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$PARTNERCERT$")) {
 			JSONObject request = new JSONObject(jsonString);
 			String partnerId = null;
-			if (request.has("request")) {
-				partnerId = request.getJSONObject("request").get("partnerId").toString();
+			if (request.has(GlobalConstants.REQUEST)) {
+				partnerId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.PARTNERID).toString();
 			}
 
 			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(partnerId, "RELYING_PARTY");
@@ -2800,8 +2796,8 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$MISPPARTNERCERT$")) {
 			JSONObject request = new JSONObject(jsonString);
 			String partnerId = null;
-			if (request.has("request")) {
-				partnerId = request.getJSONObject("request").get("partnerId").toString();
+			if (request.has(GlobalConstants.REQUEST)) {
+				partnerId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.PARTNERID).toString();
 			}
 			JSONObject certificateValue = PartnerRegistration.getDeviceCertificates(partnerId, "MISP");
 			String partnerFtmCertValue = certificateValue.getString("partnerCertificate");
@@ -2863,7 +2859,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = jsonString.replace("$IDPREDIRECTURI$", redirectUri);
 		}
 		if (jsonString.contains("$BASE64URI$")) {
-			String redirectUri = ApplnURI.replace("api-internal", "resident")
+			String redirectUri = ApplnURI.replace("api-internal", GlobalConstants.RESIDENT)
 					+ propsKernel.getProperty("currentUserURI");
 			String encodedRedirectUri = encodeBase64(redirectUri);
 
@@ -2984,7 +2980,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String wlaToken = null;
 			String certificate = getJWKKey(BINDINGCERTFile);
 			JSONObject request = new JSONObject(jsonString);
-			individualId = request.getJSONObject("request").get("individualId").toString();
+			individualId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.INDIVIDUALID).toString();
 			try {
 				wlaToken = getWlaToken(individualId, bindingJWKKey, certificate);
 			} catch (Exception e) {
@@ -3007,7 +3003,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String wlaToken = null;
 			String certificate = getJWKKey(BINDINGCERTFileVid);
 			JSONObject request = new JSONObject(jsonString);
-			individualId = request.getJSONObject("request").get("individualId").toString();
+			individualId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.INDIVIDUALID).toString();
 			try {
 				wlaToken = getWlaToken(individualId, bindingJWKKeyVid, certificate);
 			} catch (Exception e) {
@@ -3029,7 +3025,7 @@ public class AdminTestUtil extends BaseTestCase {
 			String wlaToken = null;
 			String certificate = getJWKKey(BINDINGCERTCONSENTFile);
 			JSONObject request = new JSONObject(jsonString);
-			individualId = request.getJSONObject("request").get("individualId").toString();
+			individualId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.INDIVIDUALID).toString();
 			try {
 				wlaToken = getWlaToken(individualId, bindingConsentJWKKey, certificate);
 			} catch (Exception e) {
@@ -3062,13 +3058,13 @@ public class AdminTestUtil extends BaseTestCase {
 			return masterDataAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith("sync"))
 			return syncDataAutoGeneratedIdPropFileName;
-		else if (testCaseName.toLowerCase().startsWith("prereg"))
+		else if (testCaseName.toLowerCase().startsWith(GlobalConstants.PREREG))
 			return preregAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith("partner"))
 			return partnerAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith("idrepo"))
 			return idrepoAutoGeneratedIdPropFileName;
-		else if (testCaseName.toLowerCase().startsWith("resident"))
+		else if (testCaseName.toLowerCase().startsWith(GlobalConstants.RESIDENT))
 			return residentAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith("regproc"))
 			return regProcAutoGeneratedIdPropFileName;
@@ -3076,9 +3072,9 @@ public class AdminTestUtil extends BaseTestCase {
 			return authAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith("prerequisite"))
 			return prerequisiteAutoGeneratedIdPropFileName;
-		else if (testCaseName.toLowerCase().startsWith("mobileid"))
+		else if (testCaseName.toLowerCase().startsWith(GlobalConstants.MOBILEID))
 			return mobileIdAutoGeneratedIdPropFileName;
-		else if (testCaseName.toLowerCase().startsWith("esignet"))
+		else if (testCaseName.toLowerCase().startsWith(GlobalConstants.ESIGNET))
 			return esignetAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith("mimoto"))
 			return mimotoAutoGeneratedIdPropFileName;
@@ -3151,13 +3147,13 @@ public class AdminTestUtil extends BaseTestCase {
 		logger.info(actualrequest);
 		org.json.simple.JSONObject identityObect = (org.json.simple.JSONObject) actualrequest.get("identity");
 		logger.info(identityObect);
-		identityObect.replace("IDSchemaVersion", "IDSchemaVersion", generateLatestSchemaVersion());
+		identityObect.replace(GlobalConstants.IDSCHEMAVERSION, GlobalConstants.IDSCHEMAVERSION, generateLatestSchemaVersion());
 		org.json.simple.JSONArray ja_data = (org.json.simple.JSONArray) identityObect.get("addressLine3");
 		logger.info(actualrequest);
 		for (int i = 0; i < ja_data.size(); i++) {
 			org.json.simple.JSONObject jsonObj = (org.json.simple.JSONObject) ja_data.get(i);
-			jsonObj.replace("language", "languageValue", BaseTestCase.languageList.get(0));
-			jsonObj.replace("value", "valueOfAttribute", props.getProperty("ValuetoBeUpdate"));
+			jsonObj.replace(GlobalConstants.LANGUAGE, GlobalConstants.LANGUAGEVALUE, BaseTestCase.languageList.get(0));
+			jsonObj.replace(GlobalConstants.VALUE, "valueOfAttribute", props.getProperty("ValuetoBeUpdate"));
 		}
 		logger.info(ja_data);
 		String IdObj = (String) identityObect.get("UIN");
@@ -3455,7 +3451,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static void copyPreregTestResource() {
-		copymoduleSpecificAndConfigFile("preReg");
+		copymoduleSpecificAndConfigFile(GlobalConstants.PREREG);
 	}
 
 	public static void copyPrerequisiteTestResource() {
@@ -3467,7 +3463,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static void copyResidentTestResource() {
-		copymoduleSpecificAndConfigFile("resident");
+		copymoduleSpecificAndConfigFile(GlobalConstants.RESIDENT);
 	}
 
 	public static void copyPartnerTestResource() {
@@ -3541,8 +3537,8 @@ public class AdminTestUtil extends BaseTestCase {
 				if (jsonObject.has(fieldToConvert)) {
 					valueToConvert = jsonObject.getString(fieldToConvert);
 					translatedValue = valueToConvert;
-				} else if (jsonObject.has("filters") && jsonObject.getJSONArray("filters").length() >= 1) {
-					String filterValueToConvert = jsonObject.getJSONArray("filters").get(0).toString();
+				} else if (jsonObject.has(GlobalConstants.FILTERS) && jsonObject.getJSONArray(GlobalConstants.FILTERS).length() >= 1) {
+					String filterValueToConvert = jsonObject.getJSONArray(GlobalConstants.FILTERS).get(0).toString();
 					JSONObject filtervalue = new JSONObject(filterValueToConvert);
 					if (filtervalue.has(fieldToConvert)) {
 						valueToConvert = filtervalue.getString(fieldToConvert);
@@ -3556,7 +3552,7 @@ public class AdminTestUtil extends BaseTestCase {
 					translatedValue = Translator.translate(language, valueToConvert);
 				}
 				if (isFilterRequired) {
-					String filterValueToConvert = jsonObject.getJSONArray("filters").get(0).toString();
+					String filterValueToConvert = jsonObject.getJSONArray(GlobalConstants.FILTERS).get(0).toString();
 					JSONObject filtervalue = new JSONObject(filterValueToConvert);
 					String filtervalue1 = filtervalue.toString().replace(valueToConvert, translatedValue);
 					JSONObject filteredvalue = new JSONObject(filtervalue1);
@@ -3564,8 +3560,8 @@ public class AdminTestUtil extends BaseTestCase {
 					filtertransvalue.put(filteredvalue);
 					// JSONArray a = abc.toJSONArray(new JSONArray(filtervalue1));
 					// JSONArray a = new JSONArray(filtervalue1);
-					langjson.remove("filters");
-					langjson.put("filters", filtertransvalue);
+					langjson.remove(GlobalConstants.FILTERS);
+					langjson.put(GlobalConstants.FILTERS, filtertransvalue);
 
 				}
 				// logger.info("valueToConvert" + valueToConvert + "-----" +
@@ -3585,9 +3581,9 @@ public class AdminTestUtil extends BaseTestCase {
 			if (langjson.has("langCode")) {
 				langjson.remove("langCode");
 				langjson.put("langCode", language);
-			} else if (langjson.has("langcode")) {
-				langjson.remove("langcode");
-				langjson.put("langcode", language);
+			} else if (langjson.has(GlobalConstants.LANGCODE)) {
+				langjson.remove(GlobalConstants.LANGCODE);
+				langjson.put(GlobalConstants.LANGCODE, language);
 			} else {
 				langjson.remove("languageCode");
 				langjson.put("languageCode", language);
@@ -3785,7 +3781,6 @@ public class AdminTestUtil extends BaseTestCase {
 					+ props.getProperty("partner_Token_Id") + uinHash).getBytes());
 			return new BigInteger(hash.getBytes()).toString().substring(0, 36);
 		} catch (NoSuchAlgorithmException e) {
-			// TODO to be removed
 			logger.error("Exception " + e);
 			return partnerCode;
 		}
@@ -3806,7 +3801,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String url = ApplnURI + props.getProperty("masterSchemaURL");
 
 		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-				"Authorization", token);
+				GlobalConstants.AUTHORIZATION, token);
 
 		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get("response");
@@ -3847,7 +3842,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
 
-				if (rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType")) {
+				if (rc1.has("$ref") && rc1.get("$ref").toString().contains(GlobalConstants.SIMPLETYPE)) {
 
 					JSONArray jArray = new JSONArray();
 
@@ -3856,11 +3851,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 						{
 							JSONObject studentJSON = new JSONObject();
-							studentJSON.put("language", BaseTestCase.getLanguageList().get(j));
-							if (objIDJson3.contains("fullName") && regenerateHbs == true) {
-								studentJSON.put("value", propsMap.getProperty(objIDJson3 + "1")); // fullName1
+							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
+							if (objIDJson3.contains(GlobalConstants.FULLNAME) && regenerateHbs == true) {
+								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3 + "1")); // fullName1
 							} else {
-								studentJSON.put("value",
+								studentJSON.put(GlobalConstants.VALUE,
 										propsMap.getProperty(objIDJson3) + BaseTestCase.getLanguageList().get(j));
 							}
 							jArray.put(studentJSON);
@@ -3869,7 +3864,7 @@ public class AdminTestUtil extends BaseTestCase {
 					}
 
 					JSONObject mainObj = new JSONObject();
-					mainObj.put("fullName", jArray);
+					mainObj.put(GlobalConstants.FULLNAME, jArray);
 
 					logger.info(mainObj);
 
@@ -3886,17 +3881,17 @@ public class AdminTestUtil extends BaseTestCase {
 					fileWriter2 = new FileWriter("addIdentity.hbs", flag);
 					flag = true;
 
-					if (objIDJson3.equals("proofOfIdentity")) {
+					if (objIDJson3.equals(GlobalConstants.PROOFOFIDENTITY)) {
 						fileWriter2.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
 								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
 					}
 
-					else if (objIDJson3.equals("individualBiometrics")) {
+					else if (objIDJson3.equals(GlobalConstants.INDIVIDUALBIOMETRICS)) {
 						fileWriter2.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
 								+ "\t\t\"version\": 1,\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  }\n");
 					}
 
-					else if (objIDJson3.equals("IDSchemaVersion")) {
+					else if (objIDJson3.equals(GlobalConstants.IDSCHEMAVERSION)) {
 						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
 					}
 
@@ -3961,7 +3956,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String url = ApplnURI + props.getProperty("masterSchemaURL");
 
 		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-				"Authorization", token);
+				GlobalConstants.AUTHORIZATION, token);
 
 		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get("response");
@@ -3985,7 +3980,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String url = ApplnURI + props.getProperty("masterSchemaURL");
 
 		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-				"Authorization", token);
+				GlobalConstants.AUTHORIZATION, token);
 
 		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get("response");
@@ -4028,21 +4023,21 @@ public class AdminTestUtil extends BaseTestCase {
 
 				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
 
-				if (rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType")) {
+				if (rc1.has("$ref") && rc1.get("$ref").toString().contains(GlobalConstants.SIMPLETYPE)) {
 
 					JSONArray jArray = new JSONArray();
 					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
 
 						{
 							JSONObject studentJSON = new JSONObject();
-							studentJSON.put("language", BaseTestCase.getLanguageList().get(j));
-							studentJSON.put("value", propsMap.getProperty(objIDJson3));
+							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
+							studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3));
 							jArray.put(studentJSON);
 						}
 					}
 
 					JSONObject mainObj = new JSONObject();
-					mainObj.put("fullName", jArray);
+					mainObj.put(GlobalConstants.FULLNAME, jArray);
 
 					logger.info(mainObj);
 
@@ -4063,17 +4058,17 @@ public class AdminTestUtil extends BaseTestCase {
 					fileWriter2 = new FileWriter("updateDraft.hbs", flag);
 					flag = true;
 
-					if (objIDJson3.equals("proofOfIdentity")) {
+					if (objIDJson3.equals(GlobalConstants.PROOFOFIDENTITY)) {
 						fileWriter2.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
 								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
 					}
 
-					else if (objIDJson3.equals("individualBiometrics")) {
+					else if (objIDJson3.equals(GlobalConstants.INDIVIDUALBIOMETRICS)) {
 						fileWriter2.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
 								+ "\t\t\"version\": 1,\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  }\n");
 					}
 
-					else if (objIDJson3.equals("IDSchemaVersion")) {
+					else if (objIDJson3.equals(GlobalConstants.IDSCHEMAVERSION)) {
 						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
 					}
 
@@ -4143,7 +4138,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String url = ApplnURI + props.getProperty("masterSchemaURL");
 
 		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-				"Authorization", token);
+				GlobalConstants.AUTHORIZATION, token);
 
 		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get("response");
@@ -4181,14 +4176,14 @@ public class AdminTestUtil extends BaseTestCase {
 					list.add(objIDJson1.get(i).toString());
 				}
 			}
-			list.add("residenceStatus");
+			list.add(GlobalConstants.RESIDENCESTATUS);
 			// Remove the element from arraylist
-			if (list.contains("proofOfIdentity")) {
-				list.remove("proofOfIdentity");
+			if (list.contains(GlobalConstants.PROOFOFIDENTITY)) {
+				list.remove(GlobalConstants.PROOFOFIDENTITY);
 			}
 
-			if (list.contains("individualBiometrics")) {
-				list.remove("individualBiometrics");
+			if (list.contains(GlobalConstants.INDIVIDUALBIOMETRICS)) {
+				list.remove(GlobalConstants.INDIVIDUALBIOMETRICS);
 			}
 
 			// Recreate JSON Array
@@ -4219,23 +4214,23 @@ public class AdminTestUtil extends BaseTestCase {
 				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
 
 				// If the simple type is a language dependent
-				if ((rc1.has("$ref") && rc1.get("$ref").toString().contains("simpleType"))
-						|| objIDJson3.contains("residenceStatus")) {
+				if ((rc1.has("$ref") && rc1.get("$ref").toString().contains(GlobalConstants.SIMPLETYPE))
+						|| objIDJson3.contains(GlobalConstants.RESIDENCESTATUS)) {
 
 					JSONArray jArray = new JSONArray();
 					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
 
 						{
 							JSONObject studentJSON = new JSONObject();
-							studentJSON.put("language", BaseTestCase.getLanguageList().get(j));
-							studentJSON.put("value", propsMap.getProperty(objIDJson3));
+							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
+							studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3));
 							jArray.put(studentJSON);
 						}
 					}
 
 					JSONObject mainObj = new JSONObject();
-					// mainObj.put("fullName", ja3);
-					// mainObj.put("residenceStatus", ja3);
+					// mainObj.put(GlobalConstants.FULLNAME, ja3);
+					// mainObj.put(GlobalConstants.RESIDENCESTATUS, ja3);
 
 					logger.info(mainObj);
 
@@ -4246,7 +4241,7 @@ public class AdminTestUtil extends BaseTestCase {
 					fileWriter2.write(jArray.toString());
 					// myWriter.write("\n\t ,\n");
 					fileWriter2.write("\t");
-					if (jArray.toString().contains("residenceStatus") || objIDJson3.contains("residenceStatus")) {
+					if (jArray.toString().contains(GlobalConstants.RESIDENCESTATUS) || objIDJson3.contains(GlobalConstants.RESIDENCESTATUS)) {
 						fileWriter2.write("\n\t  \n}\n}\n}\n}\n");
 					} else {
 						fileWriter2.write("\n\t  \n");
@@ -4265,7 +4260,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 					}
 
-					else if (objIDJson3.equals("IDSchemaVersion")) {
+					else if (objIDJson3.equals(GlobalConstants.IDSCHEMAVERSION)) {
 						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + "\n");
 					}
 
@@ -4334,10 +4329,10 @@ public class AdminTestUtil extends BaseTestCase {
 		modifiedReq.put("desc", "desc mosip auth policy group");
 		modifiedReq.put("name", policyGroup);
 
-		actualrequest.put("request", modifiedReq);
+		actualrequest.put(GlobalConstants.REQUEST, modifiedReq);
 
 		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		String responseBody2 = response2.getBody().asString();
 		String policygroupId = new org.json.JSONObject(responseBody2).getJSONObject("response").getString("id");
 //		logger.info(policygroupId);
@@ -4351,10 +4346,10 @@ public class AdminTestUtil extends BaseTestCase {
 		actualrequest2.put("name", policyName);
 		actualrequest2.put("policyGroupName", policyGroup);
 		actualrequest2.put("policies", actualrequestAttr);
-		actualrequestBody.put("request", actualrequest2);
+		actualrequestBody.put(GlobalConstants.REQUEST, actualrequest2);
 
 		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		String responseBody = response.getBody().asString();
 		String policyId = new org.json.JSONObject(responseBody).getJSONObject("response").getString("id");
 //		logger.info(policyId);
@@ -4369,10 +4364,10 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		Response response3 = RestClient.postRequestWithCookie(url3, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 
 		// Response response3 = RestClient.postRequestWithCookie(url3, actualrequest3,
-		// MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization",
+		// MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION,
 		// token);
 		String responseBody3 = response3.getBody().asString();
 //		logger.info(responseBody3);
@@ -4416,7 +4411,6 @@ public class AdminTestUtil extends BaseTestCase {
 			signedJWT.sign(signer);
 			clientAssertionToken = signedJWT.serialize();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			logger.error("Exception while signing oidcJWKKey for client assertion: " + e.getMessage());
 		}
 		return clientAssertionToken;
@@ -4505,7 +4499,7 @@ public class AdminTestUtil extends BaseTestCase {
 					
 					org.json.JSONObject otpExpiryTime = (org.json.JSONObject) eachJson.getJSONObject("properties")
 							.get("mosip.kernel.otp.expiry-time");
-					String otpExpiryTimeVal = otpExpiryTime.getString("value");
+					String otpExpiryTimeVal = otpExpiryTime.getString(GlobalConstants.VALUE);
 					otpExpTime = Integer.parseInt(otpExpiryTimeVal);
 					break;
 				}
@@ -4538,7 +4532,7 @@ public class AdminTestUtil extends BaseTestCase {
 				JSONObject eachJson = responseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject("properties").getJSONObject(key)
-							.get("value").toString();
+							.get(GlobalConstants.VALUE).toString();
 					break;
 				}
 			}
@@ -4556,7 +4550,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		JSONObject responseJson = null;
 		JSONArray responseArray = null;
-		String url = ApplnURI.replace("api-internal", "esignet") + propsKernel.getProperty("actuatorEsignetEndpoint");
+		String url = ApplnURI.replace("api-internal", GlobalConstants.ESIGNET) + propsKernel.getProperty("actuatorEsignetEndpoint");
 		String value = null;
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
@@ -4570,7 +4564,7 @@ public class AdminTestUtil extends BaseTestCase {
 				JSONObject eachJson = responseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject("properties").getJSONObject(key)
-							.get("value").toString();
+							.get(GlobalConstants.VALUE).toString();
 					break;
 				}
 			}
@@ -4601,7 +4595,7 @@ public class AdminTestUtil extends BaseTestCase {
 			for (int i = 0, size = responseArray.length(); i < size; i++) {
 				JSONObject eachJson = responseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains("resident-default.properties")) {
-					String claimVal = eachJson.getJSONObject("properties").getJSONObject("mosip.iam.module.login_flow.claims").getString("value");
+					String claimVal = eachJson.getJSONObject("properties").getJSONObject("mosip.iam.module.login_flow.claims").getString(GlobalConstants.VALUE);
 					JSONObject claimJson = new JSONObject(claimVal);
 					claims = claimJson.getJSONObject("userinfo").toString();					
 					break;
@@ -4635,7 +4629,7 @@ public class AdminTestUtil extends BaseTestCase {
 				JSONObject eachJson = responseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains("registration-processor-default.properties")) {
 					waitInterval = eachJson.getJSONObject("properties").getJSONObject("registration.processor.reprocess.minutes")
-							.get("value").toString();
+							.get(GlobalConstants.VALUE).toString();
 					break;
 				}
 			}
@@ -4651,9 +4645,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String isTestCaseValidForExecution(TestCaseDTO testCaseDTO) {
 		String testCaseName = testCaseDTO.getTestCaseName();
-		if (BaseTestCase.currentModule.equalsIgnoreCase("resident")
-				|| BaseTestCase.currentModule.equalsIgnoreCase("esignet")) {
-			if (testCaseDTO.getRole() != null && (testCaseDTO.getRole().equalsIgnoreCase("residentNew")
+		if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.RESIDENT)
+				|| BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.ESIGNET)) {
+			if (testCaseDTO.getRole() != null && (testCaseDTO.getRole().equalsIgnoreCase(GlobalConstants.RESIDENTNEW)
 					|| testCaseDTO.isValidityCheckRequired())) {
 				if (testCaseName.contains("uin") || testCaseName.contains("UIN") || testCaseName.contains("Uin")) {
 					if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN") == false
@@ -4679,7 +4673,7 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject request = new JSONObject(inputJson);
 		String emailId = null;
 		String otp = null;
-		if (BaseTestCase.currentModule.equals("mobileid") || testCaseName.startsWith("auth_OTP_Auth")
+		if (BaseTestCase.currentModule.equals(GlobalConstants.MOBILEID) || testCaseName.startsWith("auth_OTP_Auth")
 				|| testCaseName.startsWith("auth_EkycOtp") || testCaseName.startsWith("auth_MultiFactorAuth")
 				|| testCaseName.startsWith("Ida_EkycOtp") || testCaseName.startsWith("Ida_OTP_Auth")) {
 			if (request.has("otp")) {
@@ -4697,14 +4691,14 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 		}
-		if (BaseTestCase.currentModule.equals("prereg")) {
-			if (request.has("request")) {
-				if (request.getJSONObject("request").has("otp")) {
-					emailId = request.getJSONObject("request").getString("userId");
+		if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG)) {
+			if (request.has(GlobalConstants.REQUEST)) {
+				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
+					emailId = request.getJSONObject(GlobalConstants.REQUEST).getString("userId");
 					logger.info(emailId);
 					// Get the otp value from email notification
 					otp = MockSMTPListener.getOtp(emailId);
-					request.getJSONObject("request").put("otp", otp);
+					request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 					inputJson = request.toString();
 					return inputJson;
 				}
@@ -4714,14 +4708,14 @@ public class AdminTestUtil extends BaseTestCase {
 		if (BaseTestCase.currentModule.equals("auth")) {
 			if (testCaseName.startsWith("auth_GenerateVID") || testCaseName.startsWith("auth_AuthLock")
 					|| testCaseName.startsWith("auth_AuthUnLock") || testCaseName.startsWith("auth_RevokeVID")) {
-				if (request.has("request")) {
-					if (request.getJSONObject("request").has("otp")) {
-						if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
-							emailId = request.getJSONObject("request").get("otp").toString();
+				if (request.has(GlobalConstants.REQUEST)) {
+					if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
+						if (request.getJSONObject(GlobalConstants.REQUEST).getString("otp").endsWith("@mosip.net")) {
+							emailId = request.getJSONObject(GlobalConstants.REQUEST).get("otp").toString();
 							logger.info(emailId);
 							// Get the otp value from email notification
 							otp = MockSMTPListener.getOtp(emailId);
-							request.getJSONObject("request").put("otp", otp);
+							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 							inputJson = request.toString();
 							return inputJson;
 						}
@@ -4729,35 +4723,35 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 		}
-		if (BaseTestCase.currentModule.equals("masterdata")) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
 			if (testCaseName.startsWith("Resident_GenerateVID") || testCaseName.startsWith("ESignet_AuthenticateUserIDP")
 					|| testCaseName.startsWith("Resident_credential")) {
-				if (request.has("request")) {
-					if (request.getJSONObject("request").has("otp")) {
-						if (request.getJSONObject("request").getString("otp").endsWith("@mailinator.com")
-								|| request.getJSONObject("request").getString("otp").endsWith("@mosip.io")) {
-							emailId = request.getJSONObject("request").get("otp").toString();
+				if (request.has(GlobalConstants.REQUEST)) {
+					if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
+						if (request.getJSONObject(GlobalConstants.REQUEST).getString("otp").endsWith("@mailinator.com")
+								|| request.getJSONObject(GlobalConstants.REQUEST).getString("otp").endsWith("@mosip.io")) {
+							emailId = request.getJSONObject(GlobalConstants.REQUEST).get("otp").toString();
 							logger.info(emailId);
 							// Get the otp value from email notification
 							otp = MockSMTPListener.getOtp(emailId);
-							request.getJSONObject("request").put("otp", otp);
+							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 							inputJson = request.toString();
 							return inputJson;
 						}
-					} else if (request.has("request")) {
-						if (request.getJSONObject("request").has("challengeList")) {
-							if (request.getJSONObject("request").getJSONArray("challengeList").length() > 0) {
-								if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+					} else if (request.has(GlobalConstants.REQUEST)) {
+						if (request.getJSONObject(GlobalConstants.REQUEST).has(GlobalConstants.CHALLENGELIST)) {
+							if (request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).length() > 0) {
+								if (request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 										.has("challenge")) {
-									if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
-											.getString("challenge").endsWith("@mailinator.com") || request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+									if (request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
+											.getString("challenge").endsWith("@mailinator.com") || request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 											.getString("challenge").endsWith("@mosip.io")) {
-										emailId = request.getJSONObject("request").getJSONArray("challengeList")
+										emailId = request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST)
 												.getJSONObject(0).getString("challenge");
 										logger.info(emailId);
 										// Get the otp value from email notification
 										otp = MockSMTPListener.getOtp(emailId);
-										request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+										request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 												.put("challenge", otp);
 										inputJson = request.toString();
 										return inputJson;
@@ -4770,31 +4764,31 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 		}
 
-		if (BaseTestCase.currentModule.equals("esignet")|| testCaseName.startsWith("MobileId_WalletBinding")) {
-			if (request.has("request")) {
-				if (request.getJSONObject("request").has("otp")) {
-					if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
-						emailId = request.getJSONObject("request").get("otp").toString();
+		if (BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)|| testCaseName.startsWith("MobileId_WalletBinding")) {
+			if (request.has(GlobalConstants.REQUEST)) {
+				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
+					if (request.getJSONObject(GlobalConstants.REQUEST).getString("otp").endsWith("@mosip.net")) {
+						emailId = request.getJSONObject(GlobalConstants.REQUEST).get("otp").toString();
 						logger.info(emailId);
 						// Get the otp value from email notification
 						otp = MockSMTPListener.getOtp(emailId);
-						request.getJSONObject("request").put("otp", otp);
+						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 						inputJson = request.toString();
 						return inputJson;
 					}
-				} else if (request.has("request")) {
-					if (request.getJSONObject("request").has("challengeList")) {
-						if (request.getJSONObject("request").getJSONArray("challengeList").length() > 0) {
-							if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+				} else if (request.has(GlobalConstants.REQUEST)) {
+					if (request.getJSONObject(GlobalConstants.REQUEST).has(GlobalConstants.CHALLENGELIST)) {
+						if (request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).length() > 0) {
+							if (request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 									.has("challenge")) {
-								if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+								if (request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 										.getString("challenge").endsWith("@mosip.net")) {
-									emailId = request.getJSONObject("request").getJSONArray("challengeList")
+									emailId = request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST)
 											.getJSONObject(0).getString("challenge");
 									logger.info(emailId);
 									// Get the otp value from email notification
 									otp = MockSMTPListener.getOtp(emailId);
-									request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+									request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 											.put("challenge", otp);
 									inputJson = request.toString();
 								}
@@ -4807,29 +4801,29 @@ public class AdminTestUtil extends BaseTestCase {
 
 		}
 
-		if (BaseTestCase.currentModule.equals("resident")) {
-			if (request.has("request")) {
-				if (request.getJSONObject("request").has("otp")) {
-					if (request.getJSONObject("request").getString("otp").endsWith("@mosip.net")) {
-						emailId = request.getJSONObject("request").get("otp").toString();
+		if (BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)) {
+			if (request.has(GlobalConstants.REQUEST)) {
+				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
+					if (request.getJSONObject(GlobalConstants.REQUEST).getString("otp").endsWith("@mosip.net")) {
+						emailId = request.getJSONObject(GlobalConstants.REQUEST).get("otp").toString();
 						logger.info(emailId);
 						// Get the otp value from email notification
 						otp = MockSMTPListener.getOtp(emailId);
-						request.getJSONObject("request").put("otp", otp);
+						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
 						inputJson = request.toString();
 					}
-				} else if (request.getJSONObject("request").has("challengeList")) {
-					if (request.getJSONObject("request").getJSONArray("challengeList").length() > 0) {
-						if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+				} else if (request.getJSONObject(GlobalConstants.REQUEST).has(GlobalConstants.CHALLENGELIST)) {
+					if (request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).length() > 0) {
+						if (request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 								.has("challenge")) {
-							if (request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+							if (request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 									.getString("challenge").endsWith("@mosip.net")) {
-								emailId = request.getJSONObject("request").getJSONArray("challengeList")
+								emailId = request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST)
 										.getJSONObject(0).getString("challenge");
 								logger.info(emailId);
 								// Get the otp value from email notification
 								otp = MockSMTPListener.getOtp(emailId);
-								request.getJSONObject("request").getJSONArray("challengeList").getJSONObject(0)
+								request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 										.put("challenge", otp);
 								inputJson = request.toString();
 								return inputJson;

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.json.simple.JSONObject;
+
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
 
 /**
@@ -71,7 +73,7 @@ public class TestCaseReader extends BaseTestCase {
 		JSONObject[] objectData = new JSONObject[2];
 		for (int k = 0; k < listofFiles.size(); k++) {
 			String[] arr = listofFiles.get(k).split("/");
-				if (arr[arr.length - 1].toLowerCase().contains("request")) 
+				if (arr[arr.length - 1].toLowerCase().contains(GlobalConstants.REQUEST)) 
 					objectData[0] =  commonLib.readJsonData(configPath+"/"+arr[arr.length - 1], true);
 					
 				 else if (arr[arr.length - 1].toLowerCase().contains("response")) 

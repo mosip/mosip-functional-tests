@@ -26,6 +26,7 @@ import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.util.ConfigManager;
 import io.restassured.response.Response;
 
@@ -164,7 +165,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public String getEncode(String jsonString) {
 		try {
 			JSONObject objectData = new JSONObject(jsonString);
-			return RestClient.postRequest(EncryptUtilBaseUrl+props.get("encodePath"), objectData.toString(), MediaType.TEXT_PLAIN,
+			return RestClient.postRequest(EncryptUtilBaseUrl+props.get(GlobalConstants.ENCODEPATH), objectData.toString(), MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
 			lOGGER.error("Exception: " + e);
@@ -181,7 +182,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		try {
 			String objectData = FileUtil.readInput(filename);
 			objectData=objectData.replaceAll(" xmlns=\"\"", "");
-			return RestClient.postRequest(EncryptUtilBaseUrl+props.get("encodePath"), objectData, MediaType.TEXT_PLAIN,
+			return RestClient.postRequest(EncryptUtilBaseUrl+props.get(GlobalConstants.ENCODEPATH), objectData, MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
 			lOGGER.error("Exception: " + e);
@@ -261,7 +262,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public String getDecryptFromFile(String filename) {
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
-			return RestClient.postRequest(EncryptUtilBaseUrl + props.get("decryptPath"),
+			return RestClient.postRequest(EncryptUtilBaseUrl + props.get(GlobalConstants.DECRYPTPATH),
 					objectData.toString(), MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			lOGGER.error("Exception: " + e);
@@ -281,7 +282,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			// this partner is created in pmpdatamanager class, partner certificate is uploaded for this partner.
 			queryParams.put("refId", referenceId);
 			queryParams.put("isInternal", isInternal);
-			return RestClient.postRequestWithQueryParamsAndBody(EncryptUtilBaseUrl + props.get("decryptPath"), content, queryParams, 
+			return RestClient.postRequestWithQueryParamsAndBody(EncryptUtilBaseUrl + props.get(GlobalConstants.DECRYPTPATH), content, queryParams, 
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			lOGGER.error("Exception: " + e);
@@ -297,7 +298,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 */
 	public static String getBase64EncodedString(String content) {
 		try {
-			return RestClient.postRequest(EncryptUtilBaseUrl+props.get("encodePath"), content.toString(), MediaType.TEXT_PLAIN,
+			return RestClient.postRequest(EncryptUtilBaseUrl+props.get(GlobalConstants.ENCODEPATH), content.toString(), MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
 			lOGGER.error("Exception: " + e);
@@ -334,13 +335,13 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public static Certificate getIdaCertificate(String applicationId, String referenceId) {
 		String cert = null;
 		
-		String token = kernelAuthLib.getTokenByRole("resident");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
 		String url = ApplnURI + props.getProperty("getIdaCertificateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("applicationId", applicationId);
 		map.put("referenceId", referenceId);
 		lOGGER.info("Getting certificate for "+referenceId);
-		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		JSONObject responseJson = new JSONObject(response.asString());
 		if(!responseJson.get("response").toString().equals("null"))
 		{
@@ -372,9 +373,9 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		String token = kernelAuthLib.getTokenByRole("regproc");
 		String url = ApplnURI + props.getProperty("getPartnerCertificateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("partnerId", partnerId);
+		map.put(GlobalConstants.PARTNERID, partnerId);
 		lOGGER.info("Getting certificate for partner "+partnerId);
-		Response response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		Response response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		JSONObject responseJson = new JSONObject(response.asString());
 		if(!responseJson.get("response").toString().equals("null"))
 		{
@@ -416,7 +417,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		String decryptedKycIdentity = getDecyptFromStr(identity, partnerId, isInternal);
 		boolean bReturn = true;
 		Reporter.log(
-				"<b><u>Decrypted Kyc Response: </u></b>(EndPointUrl: " + EncryptUtilBaseUrl + props.get("decryptPath")
+				"<b><u>Decrypted Kyc Response: </u></b>(EndPointUrl: " + EncryptUtilBaseUrl + props.get(GlobalConstants.DECRYPTPATH)
 						+ ") <pre>" + ReportUtil.getTextAreaJsonMsgHtml(decryptedKycIdentity) + "</pre>");
 		String keysToValidateInKYC[] = props.getProperty("keysToValidateInKYC").split(",");
 		JSONObject decryptedKycJson = new JSONObject(decryptedKycIdentity);

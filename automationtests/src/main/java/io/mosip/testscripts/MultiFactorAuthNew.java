@@ -36,6 +36,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.service.BaseTestCase;
@@ -93,9 +94,9 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 
 		JSONObject input = new JSONObject(testCaseDTO.getInput());
 		String individualId = null;
-		if (input.has("individualId")) {
-			individualId = input.get("individualId").toString();
-			input.remove("individualId");
+		if (input.has(GlobalConstants.INDIVIDUALID)) {
+			individualId = input.get(GlobalConstants.INDIVIDUALID).toString();
+			input.remove(GlobalConstants.INDIVIDUALID);
 		}
 
 		individualId = uriKeyWordHandelerUri(individualId, testCaseName);
@@ -105,17 +106,17 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		HashMap<String, String> requestBody = new HashMap<String, String>();
 
 		requestBody.put("id", individualId);
-		requestBody.put("keyFileNameByPartnerName", "true");
+		requestBody.put("keyFileNameByPartnerName", GlobalConstants.TRUE_STRING);
 		requestBody.put("partnerName", PartnerRegistration.partnerId);
 		requestBody.put("moduleName", BaseTestCase.certsForModule);
-		requestBody.put("transactionId", "$TRANSACTIONID$");
+		requestBody.put(GlobalConstants.TRANSACTIONID, "$TRANSACTIONID$");
 		
-		String token = kernelAuthLib.getTokenByRole("resident");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
 
 		
-		Response sendOtpReqResp = postWithOnlyQueryParamAndCookie(url + "/v1/identity/createOtpReqest", requestBody.toString(), "Authorization", "resident", testCaseName);
+		Response sendOtpReqResp = postWithOnlyQueryParamAndCookie(url + "/v1/identity/createOtpReqest", requestBody.toString(), GlobalConstants.AUTHORIZATION, GlobalConstants.RESIDENT, testCaseName);
 		
-//		Response sendOtpReqResp = RestClient.postRequestWithQueryParm(url + "/v1/identity/createOtpReqest", requestBody, MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, "Authorization", token);
+//		Response sendOtpReqResp = RestClient.postRequestWithQueryParm(url + "/v1/identity/createOtpReqest", requestBody, MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, GlobalConstants.AUTHORIZATION, token);
 		
 		
 		String otpInput = sendOtpReqResp.getBody().asString();
@@ -131,16 +132,16 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 
 		Response otpRespon = null;
 		
-		otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody.toString(),  "Authorization", token, headers, testCaseName);
+		otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody.toString(),  GlobalConstants.AUTHORIZATION, token, headers, testCaseName);
 		
-//		otpRespon = RestClient.postRequestWithMultipleHeaders(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody,  MediaType.APPLICATION_JSON,  MediaType.APPLICATION_JSON, "Authorization", token, headers);
+//		otpRespon = RestClient.postRequestWithMultipleHeaders(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody,  MediaType.APPLICATION_JSON,  MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token, headers);
 		
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if (res.has("sendOtpResp")) {
-			sendOtpResp = res.get("sendOtpResp").toString();
-			res.remove("sendOtpResp");
+		if (res.has(GlobalConstants.SENDOTPRESP)) {
+			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
+			res.remove(GlobalConstants.SENDOTPRESP);
 		}
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");

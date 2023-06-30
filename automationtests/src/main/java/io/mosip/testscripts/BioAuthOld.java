@@ -37,6 +37,7 @@ import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -98,9 +99,9 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
-		if (request.has("identityRequest")) {
-			identityRequest = request.get("identityRequest").toString();
-			request.remove("identityRequest");
+		if (request.has(GlobalConstants.IDENTITYREQUEST)) {
+			identityRequest = request.get(GlobalConstants.IDENTITYREQUEST).toString();
+			request.remove(GlobalConstants.IDENTITYREQUEST);
 		}
 		identityRequest = buildIdentityRequest(identityRequest);
 		
@@ -208,14 +209,4 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 		logger.info("Terminating authpartner demo application...");
 		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
-
-	/*
-	 * private static void storeValue(Map<String, String> bioAuthTempMap) {
-	 * Properties properties = new Properties(); for (Map.Entry<String,String> entry
-	 * : bioAuthTempMap.entrySet()) { properties.put(entry.getKey(),
-	 * entry.getValue()); } try { properties.store(new
-	 * FileOutputStream("data.properties"), null); } catch (FileNotFoundException e)
-	 * { // TODO Auto-generated catch block e.printStackTrace(); } catch
-	 * (IOException e) { // TODO Auto-generated catch block e.printStackTrace(); } }
-	 */
 }

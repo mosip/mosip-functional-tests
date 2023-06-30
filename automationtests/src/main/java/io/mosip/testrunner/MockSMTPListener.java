@@ -29,6 +29,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.JsonObject;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.pojo.Root;
 
@@ -82,7 +83,6 @@ public class MockSMTPListener{
 
 		@Override
 		public CompletionStage<?> onClose(WebSocket webSocket, int statusCode, String reason) {
-			// TODO Auto-generated method stub
 			return Listener.super.onClose(webSocket, statusCode, reason);
 		}
 
@@ -134,7 +134,7 @@ public class MockSMTPListener{
 		
 		//HashMap m=new HashMap<Object, Object>();
 		String otp = "";
-		if(ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase("true"))
+		if(ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase(GlobalConstants.TRUE_STRING))
 		{
 			return ConfigManager.getPreConfiguredOtp();
 		}
