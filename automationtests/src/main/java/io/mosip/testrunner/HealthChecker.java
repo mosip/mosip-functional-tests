@@ -53,8 +53,8 @@ public class HealthChecker implements Runnable {
 					continue;
 				String[] parts = line.trim().split("=");
 				if (parts.length > 1) {
-					// TODO only add health check required for the current running module
-//					if (parts[0].contains(currentRunningModule)) 
+					// only add health check required for the current running module
+					if (parts[0].contains(currentRunningModule)) 
 						controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
 				}
 			}
@@ -89,10 +89,9 @@ public class HealthChecker implements Runnable {
 		}
 	}
 	
-	public static String checkActuatorNoAuth(String url) {
-		String urlAct = url + "/actuator/health";
+	public static String checkActuatorNoAuth(String actuatorURL) {
 		Response response =null;
-		response = given().contentType(ContentType.JSON).get(urlAct);
+		response = given().contentType(ContentType.JSON).get(actuatorURL);
 		if(response != null && 	response.getStatusCode() == 200 ) {
 			logger.info(response.getBody().asString());        	
 			JSONObject jsonResponse = new JSONObject(response.getBody().asString());
