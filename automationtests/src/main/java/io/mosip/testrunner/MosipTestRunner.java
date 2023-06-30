@@ -31,6 +31,7 @@ import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.dbaccess.DBManager;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.ConfigManager;
@@ -89,18 +90,7 @@ public class MosipTestRunner {
 		KeycloakUserManager.createUsers();  //Langauge Independent
 		
 		
-		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains("esignet")) {
-//			if(BaseTestCase.listOfModules.contains("auth")) {
-//				LOGGER.info("waiting for " + "300000"
-//				+ " mili secs for auth certificate generation");
-//				try {
-//					Thread.sleep(Long.parseLong("300000"));
-//				} catch (NumberFormatException | InterruptedException e) {
-//					// TODO Auto-generated catch block
-//					LOGGER.error("Exception : " + e.getMessage());
-//				}
-//			}
-			
+		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
 			PartnerRegistration.deleteCertificates();
 			CertificateGenerationUtil.getThumbprints();
 			AdminTestUtil.createAndPublishPolicy();
@@ -111,10 +101,10 @@ public class MosipTestRunner {
 		List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
 
 		//Get List of languages from server and set into BaseTestCase.languageList
-		//if list of modules contains "masterdata" then iterate it through languageList and run complete suite with one language at a time
+		//if list of modules contains GlobalConstants.MASTERDATA then iterate it through languageList and run complete suite with one language at a time
 		//ForTesting
 		
-		if (BaseTestCase.listOfModules.contains("masterdata")) {
+		if (BaseTestCase.listOfModules.contains(GlobalConstants.MASTERDATA)) {
 			//get all languages which are already loaded and store into local variable
 				BaseTestCase.mapUserToZone();
 				BaseTestCase.mapZone();
@@ -125,7 +115,7 @@ public class MosipTestRunner {
 				BaseTestCase.languageList.add(localLanguageList.get(i));
 
 			    DBManager.clearMasterDbData();
-				BaseTestCase.currentModule = "masterdata";
+				BaseTestCase.currentModule = GlobalConstants.MASTERDATA;
 				BaseTestCase.setReportName("masterdata-" + localLanguageList.get(i));
 				startTestRunner();
 
@@ -137,8 +127,8 @@ public class MosipTestRunner {
 		}
 		
 		//KeycloakUserManager.removeUser();
-		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("prereg")
-				|| BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.MOBILEID) || BaseTestCase.currentModule.equals(GlobalConstants.PREREG)
+				|| BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)) {
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.bTerminate = true;
 		}

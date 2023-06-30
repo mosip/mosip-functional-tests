@@ -43,6 +43,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.precon.XmlPrecondtion;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
 import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.service.BaseTestCase;
@@ -61,7 +62,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	private static int testCaseId;
 	private static File testFolder;
 	private static File demoAppBatchFilePath;
-	public static final String AUTHORIZATHION_COOKIENAME = "Authorization";
+	public static final String AUTHORIZATHION_COOKIENAME = GlobalConstants.AUTHORIZATION;
 	public static final String authHeaderValue = "Some String";
 	protected static String responseJsonToVerifyDigtalSignature;
 	protected static String responseDigitalSignatureValue;
@@ -1141,9 +1142,9 @@ public class AuthTestsUtil extends BaseTestCase {
 			if (urlProperty.containsKey("partnerIDMispLK")) {
 				return "/" + urlProperty.get("partnerIDMispLK").toString();
 			} else if (urlProperty.containsKey("partnerID") && urlProperty.containsKey("mispLK")
-					&& urlProperty.containsKey("apiKey")) {
+					&& urlProperty.containsKey(GlobalConstants.APIKEY)) {
 				return "/" + urlProperty.get("mispLK").toString() + "/" + urlProperty.get("partnerID").toString() + "/"
-						+ urlProperty.get("apiKey").toString();
+						+ urlProperty.get(GlobalConstants.APIKEY).toString();
 			}
 		} else
 			return "";

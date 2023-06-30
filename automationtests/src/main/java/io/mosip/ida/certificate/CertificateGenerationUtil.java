@@ -28,6 +28,7 @@ import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
@@ -48,14 +49,14 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 	}
 
 	public static void getAndUploadIdaCertificate(String applicationId, String referenceId, String endPoint) {
-		String token = kernelAuthLib.getTokenByRole("resident");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
 		String url = ApplnURI + props.getProperty("getIdaCertificateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("applicationId", applicationId);
 		map.put("referenceId", referenceId);
 		lOGGER.info("Getting certificate for " + referenceId);
 		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		JSONObject responseJson = new JSONObject(response.asString());
 		JSONObject responseValue = (JSONObject) responseJson.get("response");
 		lOGGER.info(responseValue);
@@ -64,7 +65,7 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 
 		JSONObject request = new JSONObject();
 		request.put("certData", idaCertValue);
-		// actualrequest.put("request", request);
+		// actualrequest.put(GlobalConstants.REQUEST, request);
 
 		if (endPoint.contains("$MODULENAME$")) {
 			endPoint = endPoint.replace("$MODULENAME$", BaseTestCase.certsForModule);

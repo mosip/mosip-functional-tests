@@ -29,6 +29,7 @@ import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
@@ -89,9 +90,9 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
-		if (request.has("identityRequest")) {
-			identityRequest = request.get("identityRequest").toString();
-			request.remove("identityRequest");
+		if (request.has(GlobalConstants.IDENTITYREQUEST)) {
+			identityRequest = request.get(GlobalConstants.IDENTITYREQUEST).toString();
+			request.remove(GlobalConstants.IDENTITYREQUEST);
 		}
 
 		if (identityRequest.contains("$PRIMARYLANG$"))

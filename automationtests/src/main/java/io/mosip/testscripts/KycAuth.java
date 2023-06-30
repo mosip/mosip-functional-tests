@@ -129,13 +129,7 @@ public class KycAuth extends AdminTestUtil implements ITest {
 		JSONObject responseBody = new JSONObject(authResponse.getBody().asString());
 		
 		String requestJson = null;
-//		try {
-//			requestJson = bioDataUtil.constructBiorequest(input, getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), isInternal, testCaseName);
-//		} catch (Exception e1) {
-//			// TODO Auto-generated catch block
-//			logger.error("Exception while signing oidcJWKKey for client assertion: " + e1.getMessage());
-////			e1.printStackTrace();
-//		}
+
 		HashMap<String, String> headers = new HashMap<String, String>();
 		headers.put(SIGNATURE_HEADERNAME, signature);
 		String token = kernelAuthLib.getTokenByRole(testCaseDTO.getRole());
@@ -145,9 +139,6 @@ public class KycAuth extends AdminTestUtil implements ITest {
 		
 		response = postRequestWithAuthHeaderAndSignatureForOtp(ApplnURI + kycAuthEndPoint, authResBody,
 				COOKIENAME, token, headers, testCaseDTO.getTestCaseName());
-
-//		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest,
-//				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
@@ -184,17 +175,5 @@ public class KycAuth extends AdminTestUtil implements ITest {
 
 	@AfterClass
 	public static void authTestTearDown() {
-//		logger.info("Terminating authpartner demo application...");
-//		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
-
-	/*
-	 * private static void storeValue(Map<String, String> bioAuthTempMap) {
-	 * Properties properties = new Properties(); for (Map.Entry<String,String> entry
-	 * : bioAuthTempMap.entrySet()) { properties.put(entry.getKey(),
-	 * entry.getValue()); } try { properties.store(new
-	 * FileOutputStream("data.properties"), null); } catch (FileNotFoundException e)
-	 * { // TODO Auto-generated catch block e.printStackTrace(); } catch
-	 * (IOException e) { // TODO Auto-generated catch block e.printStackTrace(); } }
-	 */
 }

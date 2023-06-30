@@ -21,6 +21,7 @@ import org.json.simple.JSONObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.http.Cookie;
@@ -31,7 +32,7 @@ public class RegProcApiRequests extends BaseTestCase {
 
 	public Response regProcSyncRequest(String url, Object body, String center_machine_refId, String ldt,
 			String contentHeader, String regProcAuthToken) {
-		Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, regProcAuthToken);
 		Response postResponse = given().cookie(builder.build()).header("Center-Machine-RefId", center_machine_refId)
 				.header("timestamp", ldt).relaxedHTTPSValidation().body("\"" + body + "\"").contentType(contentHeader)
 				.log().all().when().post(ApplnURI + url).then().log().all().extract().response();
@@ -51,7 +52,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		Response getResponse = null;
 		Response newResponse = null;
 		try {
-			Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
+			Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, regProcAuthToken);
 
 			/*
 			 * getResponse = given().cookie(builder.build()).multiPart("file",
@@ -72,7 +73,7 @@ public class RegProcApiRequests extends BaseTestCase {
 	public Response regProcGetRequest(String url, HashMap<String, String> valueMap, String regProcAuthToken) {
 		logger.info("REST-ASSURED: Sending a GET request to " + ApplnURI + url);
 
-		Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, regProcAuthToken);
 		Response getResponse = null;
 		try {
 			getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().queryParams(valueMap).log().all()
@@ -90,7 +91,7 @@ public class RegProcApiRequests extends BaseTestCase {
 	public Response regProcGetIdRepo(String url, String regProcAuthToken) {
 		logger.info("REST-ASSURED: Sending a GET request to " + ApplnURI + url);
 
-		Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, regProcAuthToken);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when()
 				.get(ApplnURI + url).then().log().all().extract().response();
 		// log then response
@@ -103,7 +104,7 @@ public class RegProcApiRequests extends BaseTestCase {
 			String token) {
 		logger.info("REST:ASSURED:Sending a data packet to" + ApplnURI + url);
 		logger.info("REST ASSURRED :: Request To Encrypt Is " + body);
-		Cookie.Builder builder = new Cookie.Builder("Authorization", token);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 				.contentType(contentHeader).accept(acceptHeader).log().all().when().post(ApplnURI + url).then().log()
 				.all().extract().response();
@@ -114,7 +115,7 @@ public class RegProcApiRequests extends BaseTestCase {
 	public Response regProcPostRequest(String url, HashMap<String, String> valueMap, String contentHeader,
 			String token) {
 		logger.info("REST:ASSURED:Sending a post request to" + url);
-		Cookie.Builder builder = new Cookie.Builder("Authorization", token);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
 
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(valueMap)
 				.contentType(contentHeader).log().all().when().post(ApplnURI + url).then().log().all().extract()
@@ -140,7 +141,7 @@ public class RegProcApiRequests extends BaseTestCase {
 
 	public boolean validateToken(String token) {
 		String url = "/v1/authmanager/authorize/admin/validateToken";
-		Cookie.Builder builder = new Cookie.Builder("Authorization", token);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
 		Response response = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when()
 				.get(ApplnURI + url).then().log().all().extract().response();
 		logger.info(response.asString());
@@ -161,7 +162,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		 */
 	public Response regProcPacketGenerator(Object body, String url, String contentHeader, String token) {
 		logger.info("REST:ASSURED:Sending a post request to" + url);
-		Cookie.Builder builder = new Cookie.Builder("Authorization", token);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
 
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 				.contentType(contentHeader).log().all().when().post(ApplnURI + url).then().log().all().extract()
@@ -174,10 +175,10 @@ public class RegProcApiRequests extends BaseTestCase {
 
 	public boolean getUinStatusFromIDRepo(JSONObject actualRequest, String idRepoToken, String expectedUinResponse) {
 		boolean status = false;
-		JSONObject generatorRequest = (JSONObject) actualRequest.get("request");
+		JSONObject generatorRequest = (JSONObject) actualRequest.get(GlobalConstants.REQUEST);
 		String uin = generatorRequest.get("uin").toString();
 		String idRepoUrl = "/idrepository/v1/identity/uin/";
-		Cookie.Builder builder = new Cookie.Builder("Authorization", idRepoToken);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, idRepoToken);
 
 		Response idRepoResponse = given().cookie(builder.build()).relaxedHTTPSValidation().when()
 				.get(ApplnURI + idRepoUrl + uin).then().extract().response();
@@ -208,7 +209,7 @@ public class RegProcApiRequests extends BaseTestCase {
 	 */
 	public Response getWithoutParams(String url, String cookie) {
 		logger.info("REST-ASSURED: Sending a Get request to " + url);
-		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when().get(url);
 		// log then response
 		// responseLogger(getResponse);
@@ -227,7 +228,7 @@ public class RegProcApiRequests extends BaseTestCase {
 	public Response getWithPathParam(String url, HashMap<String, String> patharams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + ApplnURI + url);
 
-		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(patharams).log()
 				.all().when().get(ApplnURI + url);
 		// log then response
@@ -303,7 +304,7 @@ public class RegProcApiRequests extends BaseTestCase {
 			// logger.info("REST:ASSURED:Sending a data packet for encryption to " +
 			// prop.BASE_URL + url);
 			// logger.info("REST ASSURRED :: Request data To encrypt is " + body);
-			Cookie.Builder builder = new Cookie.Builder("Authorization", token);
+			Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
 			Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 					.contentType(contentHeader).accept(acceptHeader).when().post(ApplnURI + url).then().extract()
 					.response();
@@ -319,7 +320,7 @@ public class RegProcApiRequests extends BaseTestCase {
 			String token) {
 		Response postResponse = null;
 		try {
-			Cookie.Builder builder = new Cookie.Builder("Authorization", token);
+			Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
 			logger.info("Sending sign request to: " + ApplnURI + url);
 			postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 					.contentType(contentHeader).accept(acceptHeader).log().all().when().post(ApplnURI + url).then()

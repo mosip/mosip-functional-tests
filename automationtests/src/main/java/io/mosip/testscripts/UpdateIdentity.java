@@ -31,6 +31,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.service.BaseTestCase;
@@ -98,9 +99,9 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		JSONObject otpReqJson = null;
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
-		if (req.has("sendOtp")) {
-			otpRequest = req.get("sendOtp").toString();
-			req.remove("sendOtp");
+		if (req.has(GlobalConstants.SENDOTP)) {
+			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
+			req.remove(GlobalConstants.SENDOTP);
 			otpReqJson = new JSONObject(otpRequest);
 			sendOtpReqTemplate = otpReqJson.getString("sendOtpReqTemplate");
 			otpReqJson.remove("sendOtpReqTemplate");
@@ -118,9 +119,9 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		}
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if (res.has("sendOtpResp")) {
-			sendOtpResp = res.get("sendOtpResp").toString();
-			res.remove("sendOtpResp");
+		if (res.has(GlobalConstants.SENDOTPRESP)) {
+			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
+			res.remove(GlobalConstants.SENDOTPRESP);
 			testCaseDTO.setOutput(res.toString());
 		}
 

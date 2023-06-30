@@ -12,6 +12,7 @@ import org.json.JSONObject;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
@@ -72,19 +73,19 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		requestBody.put("contactNumber", contactNumber);
 		requestBody.put("emailId", emailId);
 		requestBody.put("organizationName", mispOrganizationName);
-		requestBody.put("partnerId", mispPartnerId);
+		requestBody.put(GlobalConstants.PARTNERID, mispPartnerId);
 		requestBody.put("partnerType", mispPartnerType);
 		requestBody.put("policyGroup", policyGroup);
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
-		body.put("id", "string");
-		body.put("metadata", new HashMap<>());
-		body.put("request", requestBody);
-		body.put("requesttime", generateCurrentUTCTimeStamp());
-		body.put("version", "string");
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
 		
-		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
 		lOGGER.info(responseJson);
@@ -100,7 +101,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
 		map.put("moduleName", BaseTestCase.certsForModule);
-//		map.put("keyFileNameByPartnerName", "true");
+//		map.put("keyFileNameByPartnerName", GlobalConstants.TRUE_STRING);
 		
 //		String token = kernelAuthLib.getTokenByRole("partner");
 		
@@ -124,13 +125,13 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
-		body.put("id", "string");
-		body.put("metadata", new HashMap<>());
-		body.put("request", requestBody);
-		body.put("requesttime", generateCurrentUTCTimeStamp());
-		body.put("version", "string");
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
 		
-		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		
 		JSONObject reponseValue = new JSONObject(response.asString());
 		lOGGER.info(reponseValue);
@@ -148,13 +149,13 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
-		body.put("id", "string");
-		body.put("metadata", new HashMap<>());
-		body.put("request", requestBody);
-		body.put("requesttime", generateCurrentUTCTimeStamp());
-		body.put("version", "string");
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
 		
-		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		
 		JSONObject reponseValue = new JSONObject(response.asString());
 		lOGGER.info(reponseValue);
@@ -169,17 +170,17 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		
 		requestBody.put("certificateData", certValuePartner);
 		requestBody.put("partnerDomain", partnerDomain);
-		requestBody.put("partnerId", partnerId);
+		requestBody.put(GlobalConstants.PARTNERID, partnerId);
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
-		body.put("id", "string");
-		body.put("metadata", new HashMap<>());
-		body.put("request", requestBody);
-		body.put("requesttime", generateCurrentUTCTimeStamp());
-		body.put("version", "string");
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
 		
-		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		lOGGER.info(response);
 		
 		JSONObject responseJson = new JSONObject(response.asString());
@@ -219,13 +220,13 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
-		body.put("id", "string");
-		body.put("metadata", new HashMap<>());
-		body.put("request", requestBody);
-		body.put("requesttime", generateCurrentUTCTimeStamp());
-		body.put("version", "string");
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
 		
-		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		
 		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());

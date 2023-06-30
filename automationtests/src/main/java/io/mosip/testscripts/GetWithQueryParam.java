@@ -28,6 +28,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -105,7 +106,7 @@ public class GetWithQueryParam extends AdminTestUtil implements ITest {
 		else {
 //			To Do This Condition has to be removed
 			if(testCaseName.contains("ESignet_")) {
-				String tempUrl = ApplnURI.replace("api-internal", "esignet");
+				String tempUrl = ApplnURI.replace("api-internal", GlobalConstants.ESIGNET);
 				response = getWithQueryParamAndCookie(tempUrl + testCaseDTO.getEndPoint(),
 						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
 						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());

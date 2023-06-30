@@ -20,6 +20,7 @@ import org.keycloak.representations.idm.UserRepresentation;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.restassured.response.Response;
@@ -56,13 +57,13 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
-		body.put("id", "string");
-		body.put("metadata", new HashMap<>());
-		body.put("request", requestBody);
-		body.put("requesttime", generateCurrentUTCTimeStamp());
-		body.put("version", "string");
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
 		
-		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
 		lOGGER.info(responseJson);
@@ -85,13 +86,13 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
-		body.put("id", "string");
-		body.put("metadata", new HashMap<>());
-		body.put("request", requestBody);
-		body.put("requesttime", generateCurrentUTCTimeStamp());
-		body.put("version", "string");
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
 		
-		Response response = RestClient.putRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		Response response = RestClient.putRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
 		lOGGER.info(responseJson);
@@ -110,19 +111,19 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
-		body.put("id", "string");
-		body.put("metadata", new HashMap<>());
-		body.put("request", requestBody);
-		body.put("requesttime", generateCurrentUTCTimeStamp());
-		body.put("version", "string");
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
 		
-		Response response = RestClient.patchRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
+		Response response = RestClient.patchRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
 		lOGGER.info(responseJson);
 		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
 		lOGGER.info(responseValue);
-		String apiKey = responseValue.getString("apiKey");
+		String apiKey = responseValue.getString(GlobalConstants.APIKEY);
 		lOGGER.info(apiKey);
 		
 		return apiKey;

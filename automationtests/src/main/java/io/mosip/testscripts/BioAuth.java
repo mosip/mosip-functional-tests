@@ -208,14 +208,4 @@ public class BioAuth extends AdminTestUtil implements ITest {
 //		logger.info("Terminating authpartner demo application...");
 //		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
-
-	/*
-	 * private static void storeValue(Map<String, String> bioAuthTempMap) {
-	 * Properties properties = new Properties(); for (Map.Entry<String,String> entry
-	 * : bioAuthTempMap.entrySet()) { properties.put(entry.getKey(),
-	 * entry.getValue()); } try { properties.store(new
-	 * FileOutputStream("data.properties"), null); } catch (FileNotFoundException e)
-	 * { // TODO Auto-generated catch block e.printStackTrace(); } catch
-	 * (IOException e) { // TODO Auto-generated catch block e.printStackTrace(); } }
-	 */
 }

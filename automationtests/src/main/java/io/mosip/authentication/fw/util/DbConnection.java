@@ -27,6 +27,7 @@ import org.hibernate.jdbc.Work;
 import org.testng.Assert;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.testrunner.MosipTestRunner;
  
 
@@ -73,9 +74,9 @@ public class DbConnection {
 			}
 			else if (moduleName.equals("MASTER")) {
 				if (query.toLowerCase().startsWith("update")) 
-					return executeUpdateQuery("masterdata", query);
+					return executeUpdateQuery(GlobalConstants.MASTERDATA, query);
 				 else 
-					records = executeQueryAndGetRecord("masterdata", query);
+					records = executeQueryAndGetRecord(GlobalConstants.MASTERDATA, query);
 			}
 			Map<String, String> returnMap = new HashMap<String, String>();
 			for (Entry<String, Object> entry : records.entrySet()) {
@@ -221,7 +222,7 @@ public class DbConnection {
 						Statement statement = connection.createStatement();
 						try {
 							int count = statement.executeUpdate(query);
-							rowData.put("delete", "true");
+							rowData.put("delete", GlobalConstants.TRUE_STRING);
 							rowData.put("count", String.valueOf(count));
 						} finally {
 							statement.close();

@@ -30,7 +30,6 @@ public class Reporter {
 			model = reader.read(fileReader);
 			version = model.getParent().getVersion();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			REPORTLOG.error("Exception in tagging the build number" + e.getMessage());
 		} finally {
 			AdminTestUtil.closeFileReader(fileReader);
