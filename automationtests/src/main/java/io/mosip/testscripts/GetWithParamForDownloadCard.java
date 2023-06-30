@@ -29,6 +29,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalMethods;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -88,13 +89,11 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 			}
 		 
 		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
-			 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
-						+ "Not able to download UIN Card" + "</pre>");
+			 GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), "Not able to download UIN Card");
 //			 throw new Exception("Not able to download UIN Card");
 		 }
 		 else {
-			 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
-						+ pdfAsText+ "</pre>");
+			 GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
 		 }
 				
 		

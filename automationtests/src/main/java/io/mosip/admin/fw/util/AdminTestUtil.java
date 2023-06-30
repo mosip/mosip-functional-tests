@@ -96,6 +96,7 @@ import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.dbaccess.AuditDBManager;
 import io.mosip.global.utils.GlobalConstants;
+import io.mosip.global.utils.GlobalMethods;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.kernel.util.ConfigManager;
@@ -207,6 +208,9 @@ public class AdminTestUtil extends BaseTestCase {
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
 	public static final int OTP_CHECK_INTERVAL =  10000; //10 secs
+	
+	
+	
 
 	/**
 	 * This method will hit post request and return the response
@@ -250,7 +254,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
@@ -270,11 +274,10 @@ public class AdminTestUtil extends BaseTestCase {
 					logger.error(e.getStackTrace());
 				}
 			}
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 		
@@ -287,15 +290,14 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.deleteRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -307,15 +309,14 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, "*/*", cookieName,
 					token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -348,16 +349,14 @@ public class AdminTestUtil extends BaseTestCase {
 		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -392,18 +391,17 @@ public class AdminTestUtil extends BaseTestCase {
 		token = props.getProperty("XSRFTOKEN");
 //		token = headers + ";" + token;
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -429,12 +427,11 @@ public class AdminTestUtil extends BaseTestCase {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
@@ -458,7 +455,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -485,15 +482,14 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -505,15 +501,14 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postRequestWithBearerToken(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -524,15 +519,14 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.TEXT_PLAIN, cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -548,15 +542,14 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null, partnerId));
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -567,15 +560,14 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -589,15 +581,14 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null, null));
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Patch request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.patchRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -611,15 +602,14 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		headers.put(SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null, partnerId));
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -631,15 +621,14 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		headers.put(SIGNATURE_HEADERNAME, signature);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -665,7 +654,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookieAndHeader(url, inputJson, MediaType.APPLICATION_JSON,
@@ -675,12 +664,10 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.postRequestWithCookieAndHeader(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token, AUTHORIZATHION_HEADERNAME, authHeaderValue);
 			}
-
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -696,15 +683,14 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.patchRequestWithCookieAndHeader(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, AUTHORIZATHION_HEADERNAME, authHeaderValue);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -728,7 +714,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
@@ -737,12 +723,10 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
-
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -784,7 +768,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
@@ -793,8 +777,7 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			if (auditLogCheck) {
 				JSONObject jsonObject = new JSONObject(inputJson);
 				String timeStamp = jsonObject.getString(GlobalConstants.REQUESTTIME);
@@ -810,7 +793,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 		
@@ -827,12 +810,11 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postRequestWithBearerToken(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
@@ -840,7 +822,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -858,14 +840,13 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
 		logger.info(inputJson);
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestAssured.given().contentType("application/x-www-form-urlencoded; charset=utf-8")
 					.formParams(map).when().post(url);
 			logger.info(response.getStatusCode());
 			logger.info(response.asString());
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
@@ -882,7 +863,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -896,18 +877,17 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -918,12 +898,11 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
@@ -931,7 +910,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -963,7 +942,7 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		if (testCaseName.contains("Resident_Login")) {
@@ -985,7 +964,7 @@ public class AdminTestUtil extends BaseTestCase {
 //		}
 
 		logger.info("******get request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 		try {
 			if (url.contains("{") || url.contains("?")) {
 				if (bothAccessAndIdToken) {
@@ -1010,8 +989,7 @@ public class AdminTestUtil extends BaseTestCase {
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			
 			if (auditLogCheck) {
 				JSONObject jsonObject = new JSONObject(jsonInput);
@@ -1028,7 +1006,7 @@ public class AdminTestUtil extends BaseTestCase {
 			return response;
 
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1043,12 +1021,12 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******get request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 		try {
 			if (url.contains("{") || url.contains("?")) {
 				response = RestClient.getRequestWithCookieAndPathParmForKeyCloak(url, map, MediaType.APPLICATION_JSON,
@@ -1064,12 +1042,11 @@ public class AdminTestUtil extends BaseTestCase {
 					writeAutoGeneratedIdForKeyCloak(response, idKeyName, testCaseName);
 				}
 			}
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1120,19 +1097,18 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postWithFormPathParamAndFile(url, formParams, pathParams, filetoUpload, fileKeyName,
 					MediaType.MULTIPART_FORM_DATA, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1163,7 +1139,7 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(req.toString(), new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		if (bothAccessAndIdToken) {
@@ -1173,7 +1149,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
+		GlobalMethods.reportRequest(req.toString());
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postWithParamsAndFile(url, map, filetoUpload, fileKeyName,
@@ -1182,16 +1158,14 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.postWithParamsAndFile(url, map, filetoUpload, fileKeyName,
 						MediaType.MULTIPART_FORM_DATA, token);
 			}
-
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1215,19 +1189,18 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postWithFormDataAndFile(url, formParams, absolueFilePath,
 					MediaType.MULTIPART_FORM_DATA, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1275,20 +1248,19 @@ public class AdminTestUtil extends BaseTestCase {
 		 */
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 
 		try {
 			response = RestClient.postWithMultipartFormDataAndFile(url, formParams, MediaType.MULTIPART_FORM_DATA,
 					token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1331,19 +1303,18 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postWithFormDataAndMultipleFile(url, formParams, listFiles,
 					MediaType.MULTIPART_FORM_DATA, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1390,11 +1361,10 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			response = RestClient.postWithFormDataAndMultipleFile(url, formParams, listFiles,
 					MediaType.MULTIPART_FORM_DATA, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 
 	}
@@ -1425,7 +1395,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******Put request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.putRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
@@ -1434,12 +1404,10 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.putRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
-
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1453,19 +1421,18 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(inputJson, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Put request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.putRequestWithParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 					cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1479,19 +1446,18 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(inputJson, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + inputJson + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + inputJson + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Put request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.patchRequestWithParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 					cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1517,17 +1483,16 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******put request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
+		GlobalMethods.reportRequest(req.toString());
 		try {
 			if (testCaseName.toLowerCase().contains("dynamic"))
 				pathParamsMap.put("id", idField);
 			response = RestClient.putWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1556,17 +1521,16 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******put request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
+		GlobalMethods.reportRequest(req.toString());
 		try {
 			if (testCaseName.toLowerCase().contains("dynamic"))
 				pathParamsMap.put("id", idField);
 			response = RestClient.putWithPathParamsBodyAndBearerToken(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1589,15 +1553,14 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1640,15 +1603,14 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
+		GlobalMethods.reportRequest(req.toString());
 		try {
 			response = RestClient.postWithPathParamsBodyHeadersAndCookie(url, pathParamsMap, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1671,18 +1633,17 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******post request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(inputJson) + "</pre>");
+		GlobalMethods.reportRequest(inputJson);
 		try {
 			response = RestClient.postWithQueryParamsBodyAndCookie(url, queryParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, "*/*", cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1706,17 +1667,14 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******put request Json to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(req.toString()) + "</pre>");
+		GlobalMethods.reportRequest(req.toString());
 		try {
 			response = RestClient.patchWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
-			// logger.info("req.toString() is"+req.toString());
-			// logger.info("pathParamsMap is"+pathParamsMap);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1755,7 +1713,7 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		if (bothAccessAndIdToken) {
@@ -1765,7 +1723,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******get request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 		try {
 			if (url.contains("{") || url.contains("?")) {
 				if (bothAccessAndIdToken) {
@@ -1805,12 +1763,11 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 				
 			}
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1829,7 +1786,7 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		if (bothAccessAndIdToken) {
@@ -1839,7 +1796,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******get request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.deleteRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
@@ -1848,13 +1805,11 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.deleteRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
-
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1869,22 +1824,21 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******get request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 		try {
 
 			response = RestClient.deleteRequestWithCookieAndPathParmForKeyCloak(url, map, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -1913,7 +1867,7 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		if (bothAccessAndIdToken) {
@@ -1923,7 +1877,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******get request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 		
 		try {
 			if (bothAccessAndIdToken) {
@@ -1946,7 +1900,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return pdf;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return pdf;
 		}
 	}
@@ -1973,7 +1927,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******post request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 		try {
 			if (bothAccessAndIdToken) {
 				pdf = RestClient.postWithBodyForPdf(url, jsonInput, MediaType.APPLICATION_JSON,
@@ -1984,7 +1938,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			return pdf;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return pdf;
 		}
 	}
@@ -2003,7 +1957,7 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		if (bothAccessAndIdToken) {
@@ -2013,7 +1967,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******get request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 		try {
 			if (bothAccessAndIdToken) {
 				pdf = RestClient.getPdfWithQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
@@ -2025,7 +1979,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return pdf;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return pdf;
 		}
 	}
@@ -2039,20 +1993,19 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******get request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 		try {
 			response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e.getMessage());
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 			return response;
 		}
 	}
@@ -2066,20 +2019,19 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******get request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 		try {
 			response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e.getMessage());
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 			return response;
 		}
 	}
@@ -3121,7 +3073,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (customResponse.getActualValue().equals(customResponse.getExpValue())) {
 			customResponse.setStatus("PASS");
 		} else {
-			customResponse.setStatus("FAIL");
+			customResponse.setStatus(GlobalConstants.FAIL_STRING);
 		}
 
 		return customResponse;
@@ -3313,7 +3265,7 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		if (bothAccessAndIdToken) {
@@ -3323,7 +3275,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******get request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookieAndOnlyPathParm(url, map, MediaType.APPLICATION_JSON,
@@ -3332,12 +3284,10 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.postRequestWithCookieAndOnlyPathParm(url, map, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
 			}
-
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -3351,19 +3301,18 @@ public class AdminTestUtil extends BaseTestCase {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
-			logger.error("Not able to convert jsonrequet to map: " + jsonInput + " Exception: " + e.getMessage());
+			logger.error("Not able to convert jsonrequet to map: " + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
 		}
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******get request to EndPointUrl: " + url + " *******");
-		Reporter.log("<pre>" + ReportUtil.getTextAreaJsonMsgHtml(jsonInput) + "</pre>");
+		GlobalMethods.reportRequest(jsonInput);
 		try {
 			response = RestClient.postRequestWithQueryParm(url, map, "*/*", "*/*", cookieName, token);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 			return response;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return response;
 		}
 	}
@@ -3391,7 +3340,7 @@ public class AdminTestUtil extends BaseTestCase {
 			inputStream = new FileInputStream(file);
 			prop.load(inputStream);
 		} catch (IOException e) {
-			logger.error("Exception " + e.getMessage());
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 		}finally {
 			closeInputStream(inputStream);
 		}
@@ -3781,7 +3730,7 @@ public class AdminTestUtil extends BaseTestCase {
 					+ props.getProperty("partner_Token_Id") + uinHash).getBytes());
 			return new BigInteger(hash.getBytes()).toString().substring(0, 36);
 		} catch (NoSuchAlgorithmException e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return partnerCode;
 		}
 	}
@@ -4484,8 +4433,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 			responseJson = new org.json.JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
@@ -4507,7 +4455,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return otpExpTime;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return otpExpTime;
 		}
 
@@ -4522,8 +4470,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String value = null;
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 			responseJson = new JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
@@ -4539,7 +4486,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return value;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return value;
 		}
 
@@ -4554,8 +4501,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String value = null;
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 			responseJson = new JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
@@ -4571,7 +4517,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return value;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return value;
 		}
 
@@ -4586,8 +4532,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String claims = null;
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 			responseJson = new JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
@@ -4604,7 +4549,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return claims;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return claims;
 		}
 
@@ -4619,8 +4564,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String waitInterval= null;
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 			responseJson = new JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
@@ -4636,7 +4580,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			return waitInterval;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return waitInterval;
 		}
 
@@ -4852,7 +4796,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			objOpDto.setStatus("PASS");
 		} else {
-			objOpDto.setStatus("FAIL");
+			objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 		}
 
 		objList.add(objOpDto);

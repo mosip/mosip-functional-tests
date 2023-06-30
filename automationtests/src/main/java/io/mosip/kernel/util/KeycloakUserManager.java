@@ -22,6 +22,7 @@ import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 
@@ -58,7 +59,7 @@ public class KeycloakUserManager {
 			inputStream = new FileInputStream(file);
 			prop.load(inputStream);
 		} catch (Exception e) {
-			logger.error("Exception " + e.getMessage());
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 		}finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}

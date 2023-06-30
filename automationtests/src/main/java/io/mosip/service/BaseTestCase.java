@@ -34,6 +34,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.dbaccess.DBManager;
 import io.mosip.global.utils.GlobalConstants;
+import io.mosip.global.utils.GlobalMethods;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
 import io.mosip.ida.certificate.KeyCloakUserAndAPIKeyGeneration;
 import io.mosip.ida.certificate.MispPartnerAndLicenseKeyGeneration;
@@ -362,7 +363,7 @@ public class BaseTestCase {
 			inputStream = new FileInputStream(file);
 			prop.load(inputStream);
 		} catch (Exception e) {
-			logger.error("Exception " + e.getMessage());
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 		}finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}
@@ -576,8 +577,7 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 			responseJson = new org.json.JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
@@ -599,7 +599,7 @@ public class BaseTestCase {
 
 			return supportedIdType;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return supportedIdType;
 		}
 

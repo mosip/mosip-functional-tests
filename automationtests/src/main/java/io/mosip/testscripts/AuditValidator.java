@@ -30,6 +30,7 @@ import io.mosip.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBodyData;
 import io.mosip.dbaccess.*;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 
@@ -88,7 +89,7 @@ public class AuditValidator extends AdminTestUtil implements ITest {
 			objOpDto.setStatus("PASS");
 		}
 		else {
-			objOpDto.setStatus("FAIL");
+			objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 		}
 		
 		objList.add(objOpDto);

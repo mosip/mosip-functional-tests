@@ -14,6 +14,7 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.xml.XmlSuite;
 
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.testscripts.BioAuth;
 
 public class E2EReport implements IReporter{
@@ -41,7 +42,7 @@ public class E2EReport implements IReporter{
 					IResultMap testFailedResult = testObj.getFailedTests();
 					Set<ITestResult> testResultSet = testFailedResult.getAllResults();
 					for (ITestResult testResult : testResultSet) {
-						e2eReport.put(testResult.getTestClass().getName(), "FAIL");
+						e2eReport.put(testResult.getTestClass().getName(), GlobalConstants.FAIL_STRING);
 					}
 				}
 			}

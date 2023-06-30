@@ -52,5 +52,21 @@ public class GlobalConstants {
 	public static final String ESIGNET = "esignet";
 	public static final String APIKEY = "apiKey";
 	public static final String PARTNERID = "partnerId";
+	public static final String REPORT_RESPONSE_PREFIX = "<b><u>Actual Response Content: </u></b>(EndPointUrl: ";
+	public static final String REPORT_RESPONSE_SUFFIX = "</pre>";
+	public static final String REPORT_RESPONSE_BODY = ") <pre>";
+	public static final String REPORT_REQUEST_PREFIX = "<pre>";
+	public static final String REPORT_REQUEST_SUFFIX = "</pre>";
+	public static final String EXCEPTION_STRING_1 = " Exception: ";
+	public static final String EXCEPTION_STRING_2 = "Exception ";
+	public static final String TOKENID_STRING = "TOKENID:";
+	public static final String EXPECTED_VALUE_STRING = "* Expected Value :";
+	public static final String JSONFIELD_PATH_STRING = "* JsonField Path :";
+	public static final String ACTUAL_VALUE_STRING = "* Actual value :";
+	public static final String STATUS_STRING = "* Status :";
+	public static final String FAIL_STRING = "FAIL";
+	public static final String REST_ASSURED_STRING_1 = "REST-ASSURED: Sending a POST request to ";
+	public static final String REST_ASSURED_STRING_2 = "REST-ASSURED: The response from the request is: ";
+	public static final String REST_ASSURED_STRING_3 = "REST-ASSURED: The response Time is: ";
 	
 }
