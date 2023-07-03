@@ -36,6 +36,7 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
@@ -220,7 +221,7 @@ public class AdminTestUtil extends BaseTestCase {
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
 	private static final String JSONArray = null;
-	public static final int OTP_CHECK_INTERVAL =  10000; //10 secs
+	public static final int OTP_CHECK_INTERVAL =  1000; //10 secs
 
 	/**
 	 * This method will hit post request and return the response
@@ -3913,7 +3914,44 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return appointmentDetails;
 	}
+	public static List<String> getAppointmentDetailsforHoliday(Response fetchCenterResponse) {
+	    int countCenterDetails = 0;
+	    
+	    List<String> appointmentDetails = new ArrayList<>();
+	    try {
+	        countCenterDetails = fetchCenterResponse.jsonPath().getList("response.centerDetails").size();
+	    } catch (NullPointerException e) {
+	        Assert.assertTrue(false, "Failed to fetch registration details while booking appointment");
+	    }
+	    for (int i = 0; i < countCenterDetails; i++) {
+	        try {
+	            fetchCenterResponse.jsonPath().get("response.centerDetails[" + i + "].timeSlots[0].fromTime")
+	                    .toString();
+	        } catch (NullPointerException e) {
+	            continue;
+	        }
 
+	        try {
+	            String date = fetchCenterResponse.jsonPath().get("response.centerDetails[" + i + "].date").toString();
+	            String dayOfWeek = LocalDate.parse(date).getDayOfWeek().toString();
+	            
+	            // Check if the day is Saturday or Sunday
+	            if (dayOfWeek.equals("SATURDAY") || dayOfWeek.equals("SUNDAY")) {
+	                appointmentDetails.add(fetchCenterResponse.jsonPath().get("response.regCenterId").toString());
+	                appointmentDetails.add(date);
+	                appointmentDetails.add(fetchCenterResponse.jsonPath()
+	                        .get("response.centerDetails[" + i + "].timeSlots[0].fromTime").toString());
+	                appointmentDetails.add(fetchCenterResponse.jsonPath()
+	                        .get("response.centerDetails[" + i + "].timeSlots[0].toTime").toString());
+	                break;
+	            }
+	        } catch (NullPointerException e) {
+	            Assert.assertTrue(false, "Failed to fetch registration details while booking appointment");
+	        }
+	    }
+	    return appointmentDetails;
+	}
+	
 	public static String modifyIdSchemaInputJson(String inputJson) {
 		inputJson = inputJson.replace("&quot;", "\\" + "\"");
 		inputJson = inputJson.replace("/", "\\" + "/");

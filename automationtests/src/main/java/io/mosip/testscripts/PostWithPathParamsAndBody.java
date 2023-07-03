@@ -77,7 +77,9 @@ public class PostWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		Response slotAvailabilityResponse=RestClient.getRequestWithCookie(ApplnURI+props.getProperty("appointmentavailabilityurl")+props.getProperty("regcentretobookappointment"), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole()));
 		//PreRegistrationLibrary liberary= new PreRegistrationLibrary();
-		List<String> appointmentDetails = AdminTestUtil.getAppointmentDetails(slotAvailabilityResponse);
+		
+		if(testCaseName.endsWith("_holiday")) {
+		List<String> appointmentDetails = AdminTestUtil.getAppointmentDetailsforHoliday(slotAvailabilityResponse);
 		if(appointmentDetails.size()>=4) {
 			try {
 				regCenterId = appointmentDetails.get(0);
@@ -88,7 +90,18 @@ public class PostWithPathParamsAndBody extends AdminTestUtil implements ITest {
 				logger.info("Center not available");
 				Assert.fail("Centers unavailable");
 			}
-		}
+		}}else {List<String> appointmentDetails = AdminTestUtil.getAppointmentDetails(slotAvailabilityResponse);
+		if(appointmentDetails.size()>=4) {
+			try {
+				regCenterId = appointmentDetails.get(0);
+				appDate = appointmentDetails.get(1);
+				timeSlotFrom = appointmentDetails.get(2);
+				timeSlotTo = appointmentDetails.get(3);
+			} catch (IndexOutOfBoundsException e) {
+				logger.info("Center not available");
+				Assert.fail("Centers unavailable");
+			}
+		}}
 		String inputJosn=getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		inputJosn=inputJosn.replace("$registration_center_id$", regCenterId);
 		inputJosn=inputJosn.replace("$appointment_date$", appDate);
