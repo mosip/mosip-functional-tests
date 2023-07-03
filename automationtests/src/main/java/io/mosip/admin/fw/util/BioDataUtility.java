@@ -1,15 +1,8 @@
 package io.mosip.admin.fw.util;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.security.KeyStoreException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableEntryException;
-import java.security.cert.CertificateEncodingException;
-import java.security.cert.CertificateException;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.regex.Pattern;
@@ -19,9 +12,6 @@ import javax.ws.rs.core.MediaType;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.jose4j.lang.JoseException;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import io.mosip.authentication.fw.precon.JsonPrecondtion;

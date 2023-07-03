@@ -3,9 +3,7 @@ package io.mosip.authentication.fw.util;
 import static io.restassured.RestAssured.given;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
@@ -16,7 +14,6 @@ import io.mosip.global.utils.GlobalConstants;
 import io.restassured.RestAssured;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.RestAssuredConfig;
-import io.restassured.http.ContentType;
 import io.restassured.http.Cookie;
 import io.restassured.http.Header;
 import io.restassured.response.Response;

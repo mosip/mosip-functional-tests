@@ -8,7 +8,6 @@ import org.apache.log4j.Logger;
 import com.ibm.icu.text.Transliterator;
 
 import io.mosip.testrunner.MosipTestRunner;
-import io.mosip.testscripts.BioAuth;
 
 public class Translator {
 	static String IDlookupFile = "src/main/resource/config/lang-isocode-transid.csv";

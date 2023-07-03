@@ -4,32 +4,25 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
-import java.util.Properties;
-import java.security.KeyPairGenerator;
-import java.security.SecureRandom;
-import java.security.interfaces.RSAPublicKey;
 import java.security.KeyPair;
+import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
+import java.security.interfaces.RSAPublicKey;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.testng.TestNG;
 
 import com.nimbusds.jose.jwk.KeyUse;
 import com.nimbusds.jose.jwk.RSAKey;
-import com.nimbusds.jose.util.StandardCharset;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
-import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.dbaccess.DBManager;
 import io.mosip.global.utils.GlobalConstants;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
@@ -37,8 +30,6 @@ import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.service.BaseTestCase;
-import java.lang.String;
-import java.util.Map;
 
 /**
  * Class to initiate mosip api test execution

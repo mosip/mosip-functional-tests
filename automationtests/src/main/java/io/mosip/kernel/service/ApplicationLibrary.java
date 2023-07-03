@@ -8,8 +8,8 @@ import javax.ws.rs.core.MediaType;
 
 import org.json.simple.JSONObject;
 
-import io.mosip.service.BaseTestCase;
 import io.mosip.kernel.util.CommonLibrary;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 /**
  * 

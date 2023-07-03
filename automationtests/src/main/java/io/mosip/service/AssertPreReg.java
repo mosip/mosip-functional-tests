@@ -1,12 +1,12 @@
 package io.mosip.service;
 
 import java.io.IOException;
-import org.apache.log4j.Logger;
 import java.lang.reflect.Type;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

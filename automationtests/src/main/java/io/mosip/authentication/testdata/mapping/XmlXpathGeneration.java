@@ -2,14 +2,12 @@ package io.mosip.authentication.testdata.mapping;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import javax.xml.parsers.SAXParser;

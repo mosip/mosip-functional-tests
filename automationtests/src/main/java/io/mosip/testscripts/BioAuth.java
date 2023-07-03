@@ -1,16 +1,8 @@
 package io.mosip.testscripts;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.lang.reflect.Field;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.json.JSONException;
@@ -23,7 +15,6 @@ import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -31,11 +22,8 @@ import org.testng.internal.TestResult;
 
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
-import io.mosip.authentication.fw.precon.JsonPrecondtion;
-import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
@@ -43,7 +31,6 @@ import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
-import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
 
 public class BioAuth extends AdminTestUtil implements ITest {

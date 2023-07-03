@@ -1,8 +1,6 @@
 package io.mosip.authentication.fw.precon;
 
 
-import java.io.FileOutputStream;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -34,7 +32,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
  

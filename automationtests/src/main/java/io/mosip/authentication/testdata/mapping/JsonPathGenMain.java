@@ -6,8 +6,6 @@ import java.nio.file.Paths;
 
 import org.apache.log4j.Logger;
 
-import io.mosip.authentication.fw.util.BytesUtil;
-
 /**
  * The class to generate json mapping in property file
  * 

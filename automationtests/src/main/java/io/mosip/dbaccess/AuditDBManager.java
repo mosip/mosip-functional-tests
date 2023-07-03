@@ -1,22 +1,14 @@
 package io.mosip.dbaccess;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
-import java.util.Map.Entry;
-import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
@@ -25,7 +17,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.jdbc.Work;
 import org.testng.Assert;
-import org.testng.ITest;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.kernel.util.ConfigManager;

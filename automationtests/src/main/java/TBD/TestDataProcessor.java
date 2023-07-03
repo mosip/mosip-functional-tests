@@ -3,19 +3,13 @@ package TBD;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
-import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.authentication.fw.util.AuthTestsUtil;
-import io.mosip.authentication.fw.util.RunConfig;
 import io.mosip.authentication.fw.util.RunConfigUtil;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testDataDTO.YamlDTO;

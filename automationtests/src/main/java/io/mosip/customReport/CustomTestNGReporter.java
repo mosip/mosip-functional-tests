@@ -2,7 +2,6 @@ package io.mosip.customReport;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,7 +25,6 @@ import org.testng.Reporter;
 import org.testng.xml.XmlSuite;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.testscripts.BioAuth;
 
 public class CustomTestNGReporter implements IReporter {
 	
