@@ -29,7 +29,6 @@ import io.mosip.admin.fw.util.AdminTestUtil;
 public class CustomTestNGReporter implements IReporter {
 	
 	private static final Logger logger = Logger.getLogger(CustomTestNGReporter.class);
-	//This is the customize emailabel report template file path.
 	private static final String emailableReportTemplateFile = "D:\\sprint_10\\mosip\\automationtests\\src\\test\\java\\io\\mosip\\customReport\\customize-emailable-report-template.html";
 	
 	@Override
@@ -37,28 +36,20 @@ public class CustomTestNGReporter implements IReporter {
 		FileWriter fileWriter = null;
 		try
 		{
-			// Get content data in TestNG report template file.
 			String customReportTemplateStr = this.readEmailabelReportTemplate();
 			
-			// Create custom report title.
 			String customReportTitle = this.getCustomReportTitle("Custom TestNG Report");
 			
-			// Create test suite summary data.
 			String customSuiteSummary = this.getTestSuiteSummary(suites);
 			
-			// Create test methods summary data.
 			String customTestMethodSummary = this.getTestMehodSummary(suites);
 			
-			// Replace report title place holder with custom title.
 			customReportTemplateStr = customReportTemplateStr.replaceAll("\\$TestNG_Custom_Report_Title\\$", customReportTitle);
 			
-			// Replace test suite place holder with custom test suite summary.
 			customReportTemplateStr = customReportTemplateStr.replaceAll("\\$Test_Case_Summary\\$", customSuiteSummary);
 			
-			// Replace test methods place holder with custom test method summary.
 			customReportTemplateStr = customReportTemplateStr.replaceAll("\\$Test_Case_Detail\\$", customTestMethodSummary);
 			
-			// Write replaced test report content to custom-emailable-report.html.
 			File targetFile = new File(outputDirectory + "/custom-emailable-report.html");
 			fileWriter = new FileWriter(targetFile);
 			fileWriter.write(customReportTemplateStr);
@@ -72,7 +63,6 @@ public class CustomTestNGReporter implements IReporter {
 		}
 	}
 	
-	/* Read template content. */
 	private String readEmailabelReportTemplate()
 	{
 		StringBuffer retBuf = new StringBuffer();
@@ -100,7 +90,6 @@ public class CustomTestNGReporter implements IReporter {
 		return retBuf.toString();
 	}
 	
-	/* Build custom report title. */
 	private String getCustomReportTitle(String title)
 	{
 		StringBuffer retBuf = new StringBuffer();
@@ -108,7 +97,6 @@ public class CustomTestNGReporter implements IReporter {
 		return retBuf.toString();
 	}
 	
-	/* Build test suite summary data. */
 	private String getTestSuiteSummary(List<ISuite> suites) {
 		StringBuffer retBuf = new StringBuffer();
 
@@ -135,7 +123,6 @@ public class CustomTestNGReporter implements IReporter {
 
 					totalTestCount = totalTestPassed + totalTestSkipped + totalTestFailed;
 
-					/* Test name. */
 					retBuf.append("<td>");
 					retBuf.append(testObj.getName());
 					retBuf.append("</td>");
@@ -309,21 +296,16 @@ public class CustomTestNGReporter implements IReporter {
 			String reporterMessage = "";
 			String exceptionMessage = "";
 			
-			//Get testClassName
 			testClassName = testResult.getTestClass().getName();
 				
-			//Get testMethodName
 			testMethodName = testResult.getMethod().getMethodName();
 			testMethodName=testMethodName.substring(testMethodName.indexOf(":")+1, testMethodName.lastIndexOf(":"));
-			//Get startDateStr
 			long startTimeMillis = testResult.getStartMillis();
 			startDateStr = this.getDateInStringFormat(new Date(startTimeMillis));
 				
-			//Get Execute time.
 			long deltaMillis = testResult.getEndMillis() - testResult.getStartMillis();
 			executeTimeStr = this.convertDeltaTimeToString(deltaMillis);
 				
-			//Get parameter list.
 			Object paramObjArr[] = testResult.getParameters();
 			String testParm=testResult.getName();
 			apiName=testParm.substring(0, testParm.indexOf(":"));
@@ -336,7 +318,6 @@ public class CustomTestNGReporter implements IReporter {
 			}*/
 			paramStr+=description;
 				
-			//Get reporter message list.
 			List<String> repoterMessageList = Reporter.getOutput(testResult);
 			for(String tmpMsg : repoterMessageList)				
 			{
@@ -344,7 +325,6 @@ public class CustomTestNGReporter implements IReporter {
 				reporterMessage += " ";
 			}
 				
-			//Get exception message.
 			Throwable exception = testResult.getThrowable();
 			if(exception!=null)
 			{

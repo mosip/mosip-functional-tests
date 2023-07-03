@@ -8,7 +8,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
-/*import org.json.simple.JSONObject;*/
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -35,19 +34,13 @@ public class SimpleDelete extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimpleDelete.class);
 	protected String testCaseName = "";
 	public Response response = null;
-	/**
-	 * get current testcaseName
-	 */
+	
 	@Override
 	public String getTestName() {
 		return testCaseName;
 	}
 
-	/**
-	 * Data provider class provides test case list
-	 * 
-	 * @return object of data provider
-	 */
+	
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
@@ -55,16 +48,6 @@ public class SimpleDelete extends AdminTestUtil implements ITest {
 		return getYmlTestData(ymlFile);
 	}
 	
-
-	/**
-	 * Test method for OTP Generation execution
-	 * 
-	 * @param objTestParameters
-	 * @param testScenario
-	 * @param testcaseName
-	 * @throws AuthenticationTestException
-	 * @throws AdminTestException
-	 */
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
@@ -141,11 +124,7 @@ public class SimpleDelete extends AdminTestUtil implements ITest {
 
 	}
 
-	/**
-	 * The method ser current test name to result
-	 * 
-	 * @param result
-	 */
+
 	@AfterMethod(alwaysRun = true)
 	public void setResultTestName(ITestResult result) {
 		try {
