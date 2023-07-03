@@ -70,7 +70,7 @@ public class SimplePut extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
@@ -79,14 +79,10 @@ public class SimplePut extends AdminTestUtil implements ITest {
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			//adding...
 			List<String> languageList = new ArrayList<>();
 
 			languageList =new ArrayList<String>(BaseTestCase.languageList);
 			 for (int i=0; i<languageList.size(); i++) {
-
-//		        	Innerloop:
-//		            for (int j=i; j <languageList.size();) {
 		            	response = putWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
 		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
@@ -98,8 +94,6 @@ public class SimplePut extends AdminTestUtil implements ITest {
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
 							throw new AdminTestException("Failed at output validation");
-//		                    break Innerloop;
-//		            }
 		        }
 		} 
 		else {

@@ -79,7 +79,7 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 
@@ -107,14 +107,12 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		
 		Response sendOtpReqResp = postWithOnlyQueryParamAndCookie(url + "/v1/identity/createOtpReqest", requestBody.toString(), GlobalConstants.AUTHORIZATION, GlobalConstants.RESIDENT, testCaseName);
 		
-//		Response sendOtpReqResp = RestClient.postRequestWithQueryParm(url + "/v1/identity/createOtpReqest", requestBody, MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, GlobalConstants.AUTHORIZATION, token);
 		
 		
 		String otpInput = sendOtpReqResp.getBody().asString();
 		logger.info(otpInput);
 		String signature = sendOtpReqResp.getHeader("signature");
 		Object sendOtpBody = otpInput;
-		// JSONObject sendOtpBody = new JSONObject(otpInput);
 		logger.info(sendOtpBody);
 
 		HashMap<String, String> headers = new HashMap<String, String>();
@@ -124,9 +122,6 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		Response otpRespon = null;
 		
 		otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody.toString(),  GlobalConstants.AUTHORIZATION, token, headers, testCaseName);
-		
-//		otpRespon = RestClient.postRequestWithMultipleHeaders(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody,  MediaType.APPLICATION_JSON,  MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token, headers);
-		
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
@@ -161,8 +156,6 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		
 		response = postWithBodyAndCookie(url + endPoint, authRequest.toString(), COOKIENAME, testCaseDTO.getRole(), testCaseName);
 		
-//		response = RestClient.postRequest(url + endPoint, authRequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON );
-
 		logger.info(response);
 		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 
@@ -191,15 +184,6 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
-		/*
-		 * if(testCaseName.toLowerCase().contains("kyc"))
-		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
-		 * testCaseDTO.getEndPoint());
-		 */
-
-		// if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
-		// response.getHeader(props.getProperty("signatureheaderKey"))))
-		// throw new AdminTestException("Failed at Signature validation");
 
 	}
 
@@ -226,6 +210,5 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-//		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }

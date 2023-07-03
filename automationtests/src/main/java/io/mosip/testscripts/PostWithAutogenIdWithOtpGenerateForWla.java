@@ -69,7 +69,7 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
@@ -94,9 +94,6 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 			otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
 		}
 
-//		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
-
-		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
 		if(res.has(GlobalConstants.SENDOTPRESP)) {
@@ -113,8 +110,6 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at otp output validation");
 		
-//		JSONObject reqvOtp = new JSONObject(testCaseDTO.getInput());
-//		JSONObject reqvtOtp = (JSONObject) reqvOtp.get(GlobalConstants.SENDOTP);
 		String otpValidationRequest = null, validateOtpReqTemplate = null, validateOtpEndPoint = null;
 		
 		if(req.has(GlobalConstants.VALIDATEOTP)) {

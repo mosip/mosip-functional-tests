@@ -74,11 +74,10 @@ public class BookAppoinmentByPrid extends AdminTestUtil implements ITest {
 		String timeSlotFrom = null;
 		String timeSlotTo = null;
 		testCaseName = testCaseDTO.getTestCaseName(); 
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		Response slotAvailabilityResponse=RestClient.getRequestWithCookie(ApplnURI+props.getProperty("appointmentavailabilityurl")+props.getProperty("regcentretobookappointment"), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole()));
-		//PreRegistrationLibrary liberary= new PreRegistrationLibrary();
 		List<String> appointmentDetails = AdminTestUtil.getAppointmentDetails(slotAvailabilityResponse);
 		if(appointmentDetails.size()>=4) {
 			try {

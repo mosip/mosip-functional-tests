@@ -68,7 +68,7 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseDTO.setInputTemplate(AdminTestUtil.generateHbsForUpdateDraft());
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		String jsonInput = testCaseDTO.getInput();

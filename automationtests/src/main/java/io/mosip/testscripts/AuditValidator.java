@@ -60,21 +60,16 @@ public class AuditValidator extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		//String moduleName = testCaseDTO.getInput();
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		List<String> queryProp = Arrays.asList(templateFields);
 		logger.info(queryProp);
-		//Arrays.asList(templateFields.split(","));
-		//String respTime = inputJsonKeyWordHandeler(testCaseDTO.getInput(), testCaseName);
-		//BaseTestCase.currentModule +"-"+partner_userName);
 		String query = "select * from audit.app_audit_log where cr_by = '"+BaseTestCase.currentModule +"-"+propsKernel.getProperty("partner_userName")+"'";
 		
 		
 		logger.info(query);
-		//logger.info(respTime);
 		Map<String, Object> response = AuditDBManager.executeQueryAndGetRecord(testCaseDTO.getRole(), query);
 		
 		

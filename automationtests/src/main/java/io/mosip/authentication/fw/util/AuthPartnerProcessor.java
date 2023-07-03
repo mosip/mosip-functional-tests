@@ -26,8 +26,6 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 	 * 
 	 */
 	public static void startProcess() {
-		//As the demo auth service will be running in a separate docker, we dont need to launch the demo auth service
-		//return;
 		
 		String encryptUtilPort = props.getProperty("encryptUtilPort");
 		String AuthClientID = propsKernel.getProperty("AuthClientID");
@@ -64,7 +62,7 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 	 */
 	private static String getDemoAppJarPath() {
 		String demoAppVersion = props.getProperty("demoAppVersion");
-		if (getOSType().toString().equals("WINDOWS")) {
+		if (getOSType().equals("WINDOWS")) {
 			return "C:/Users/" + System.getProperty("user.name")
 					+ "/.m2/repository/io/mosip/authentication/authentication-demo-service/"
 					+ demoAppVersion+ "/authentication-demo-service-" + demoAppVersion + ".jar";
@@ -85,7 +83,7 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 	 */
 	private static String getJavaPath() {
 		String path = "java";
-		if (getOSType().toString().equals("WINDOWS")) {
+		if (getOSType().equals("WINDOWS")) {
 			String javaHome = System.getenv("JAVA_HOME");
 			if (javaHome != null && javaHome.isEmpty() == false)
 				path = javaHome + "/bin/java";

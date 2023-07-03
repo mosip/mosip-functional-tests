@@ -70,23 +70,18 @@ public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName();
 		String[] templateFields = testCaseDTO.getTemplateFields();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		//filterHbs(testCaseDTO);
 		testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
 		String inputJson = filterInputHbs(testCaseDTO);
-//		String outputJson = filterOutputHbs(testCaseDTO);
 		
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			//adding...
 			List<String> languageList = new ArrayList<>();
 			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
-//		        	Innerloop:
-//		            for (int j=i; j <languageList.size(); j++) {
 		            	response = putWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 		            	
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
@@ -96,13 +91,10 @@ public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
 							throw new AdminTestException("Failed at output validation");
-//		                    break Innerloop;
-//		            }
 		        }
 		}  
 		
 		else {
-//			To Do This Condition has to be removed
 			if(testCaseName.contains("ESignet_")) {
 				String tempUrl = ApplnURI.replace("-internal", "");
 				response = putWithPathParamsBodyAndBearerToken(tempUrl + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
