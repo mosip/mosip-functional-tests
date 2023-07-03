@@ -1,13 +1,10 @@
 package io.mosip.ida.certificate;
 
-import java.net.InetAddress;
-import java.security.cert.Certificate;
 import java.util.Calendar;
 import java.util.HashMap;
 
 import javax.ws.rs.core.MediaType;
 
-import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 

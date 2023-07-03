@@ -1,14 +1,13 @@
 package io.mosip.report;
 
+import java.io.FileReader;
+
+import org.apache.log4j.Logger;
+import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.testrunner.MosipTestRunner;
-
-import java.io.FileReader;
-import org.apache.log4j.Logger;
-import org.apache.maven.model.Model;
 
 /**
  * Reporter class act as util for additional report class or listeners

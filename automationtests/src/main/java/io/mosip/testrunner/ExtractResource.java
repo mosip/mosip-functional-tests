@@ -1,6 +1,6 @@
 package io.mosip.testrunner;
 
-import java.io.File; 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.security.CodeSource;
@@ -9,8 +9,6 @@ import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-
-import io.mosip.admin.fw.util.AdminTestUtil;
 
 /**
  * The class to extract resource from jar 

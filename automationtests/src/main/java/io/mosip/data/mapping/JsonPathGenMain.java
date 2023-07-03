@@ -1,14 +1,8 @@
 package io.mosip.data.mapping;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Iterator;
-
-import org.json.JSONArray;
-import org.json.JSONObject;;
+import java.nio.file.Paths;;
 
 
 public class JsonPathGenMain {

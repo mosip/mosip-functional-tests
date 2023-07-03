@@ -1,6 +1,6 @@
 package io.mosip.authentication.fw.util;
 
-import java.io.File; 
+import java.io.File;
 import java.util.Map;
 import java.util.Map.Entry;
 

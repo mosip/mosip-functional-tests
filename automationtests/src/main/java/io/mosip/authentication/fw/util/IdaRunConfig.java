@@ -1,8 +1,7 @@
 package io.mosip.authentication.fw.util;
 
-import java.io.File;  
+import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
 import java.net.InetAddress;
 import java.nio.file.Path;
 import java.nio.file.Paths;

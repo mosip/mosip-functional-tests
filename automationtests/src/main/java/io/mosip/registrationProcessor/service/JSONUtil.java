@@ -3,7 +3,11 @@
  */
 package io.mosip.registrationProcessor.service;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
@@ -11,7 +15,6 @@ import org.json.simple.JSONObject;
 import com.google.gson.Gson;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.testscripts.BioAuth;
 
 /**
  * @author Gaurav Sharan

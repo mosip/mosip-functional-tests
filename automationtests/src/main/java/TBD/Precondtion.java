@@ -2,7 +2,6 @@ package TBD;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +10,6 @@ import java.util.Properties;
 import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
-import org.testng.Reporter;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;

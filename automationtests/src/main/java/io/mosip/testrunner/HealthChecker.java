@@ -1,29 +1,23 @@
 package io.mosip.testrunner;
 
+import static io.restassured.RestAssured.given;
+
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
-
-import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.service.BaseTestCase;
-import io.mosip.testscripts.BioAuth;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import static io.restassured.RestAssured.given;
 
 public class HealthChecker implements Runnable {
 	private static final Logger logger = Logger.getLogger(HealthChecker.class);

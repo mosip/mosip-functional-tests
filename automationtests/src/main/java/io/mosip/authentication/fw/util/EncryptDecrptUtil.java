@@ -1,9 +1,10 @@
 package io.mosip.authentication.fw.util;
 
 import java.io.File;
-import java.io.FileReader; 
+import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;

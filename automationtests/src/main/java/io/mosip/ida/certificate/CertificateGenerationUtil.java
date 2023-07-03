@@ -1,32 +1,13 @@
 package io.mosip.ida.certificate;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileReader;
-import java.net.InetAddress;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateEncodingException;
-import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
-import java.util.Base64;
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
 
-import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.testng.Reporter;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
-import io.mosip.authentication.fw.precon.JsonPrecondtion;
-import io.mosip.authentication.fw.util.FileUtil;
-import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.util.ConfigManager;

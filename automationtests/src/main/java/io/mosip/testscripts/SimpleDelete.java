@@ -2,12 +2,12 @@ package io.mosip.testscripts;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 /*import org.json.simple.JSONObject;*/
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -15,7 +15,6 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -30,10 +29,7 @@ import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
-import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
-import org.json.JSONObject;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
 
 public class SimpleDelete extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimpleDelete.class);

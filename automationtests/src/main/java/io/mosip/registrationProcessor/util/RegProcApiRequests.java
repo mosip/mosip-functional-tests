@@ -3,7 +3,6 @@ package io.mosip.registrationProcessor.util;
 import static io.restassured.RestAssured.given;
 
 import java.io.File;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
 import java.time.LocalDateTime;
@@ -11,15 +10,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
 
-import org.apache.hadoop.yarn.webapp.hamlet.HamletSpec.MAP;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;

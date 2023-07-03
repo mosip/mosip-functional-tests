@@ -2,7 +2,6 @@ package io.mosip.kernel.util;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -17,10 +16,7 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.amazonaws.util.BinaryUtils;
-import com.amazonaws.util.Md5Utils;
 
-import io.mosip.authentication.fw.util.BytesUtil;
 import io.mosip.kernel.core.util.StringUtils;
 
 public class S3Adapter {

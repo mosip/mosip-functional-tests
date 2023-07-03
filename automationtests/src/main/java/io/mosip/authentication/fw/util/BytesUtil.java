@@ -4,8 +4,6 @@ import java.util.Arrays;
 
 import org.apache.log4j.Logger;
 
-import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
-
 public final class BytesUtil {
 	private static final Logger logger = Logger.getLogger(BytesUtil.class);
 

@@ -2,11 +2,11 @@ package io.mosip.kernel.util;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
+
 import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;

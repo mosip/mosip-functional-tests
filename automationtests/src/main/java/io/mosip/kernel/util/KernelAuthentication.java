@@ -9,7 +9,6 @@ import java.util.UUID;
 import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONObject;
 
-import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.util.StandardCharset;
 
 import io.mosip.admin.fw.util.AdminTestUtil;

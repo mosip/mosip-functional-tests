@@ -11,16 +11,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
 import org.testng.ITestContext;
-import org.testng.Reporter;
 import org.testng.annotations.AfterSuite;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -30,19 +29,12 @@ import com.nimbusds.jose.jwk.RSAKey;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
-import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.dbaccess.DBManager;
 import io.mosip.global.utils.GlobalConstants;
 import io.mosip.global.utils.GlobalMethods;
-import io.mosip.ida.certificate.CertificateGenerationUtil;
-import io.mosip.ida.certificate.KeyCloakUserAndAPIKeyGeneration;
-import io.mosip.ida.certificate.MispPartnerAndLicenseKeyGeneration;
-import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.CommonLibrary;
-import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KernelAuthentication;
-import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.testrunner.MockSMTPListener;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;

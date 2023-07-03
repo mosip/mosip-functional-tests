@@ -15,7 +15,6 @@ import org.testng.ITestResult;
 import org.testng.xml.XmlSuite;
 
 import io.mosip.global.utils.GlobalConstants;
-import io.mosip.testscripts.BioAuth;
 
 public class E2EReport implements IReporter{
 	private static final Logger logger = Logger.getLogger(E2EReport.class);
