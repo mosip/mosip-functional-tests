@@ -77,7 +77,6 @@ public class AssertResponses {
 			}
 		}else 
 			obj1 =  AssertResponses.getComparableBody(newResponse, outerKeys, innerKeys);
-		//			JSONObject obj1 = AssertResponses.getComparableBody(response.getBody().asString(), outerKeys, innerKeys);
 
 
 			for(int i=1; i<=objectArray.size();i++){

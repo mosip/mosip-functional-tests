@@ -10,19 +10,9 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
-/**
- * The class to extract resource from jar 
- * 
- * @author Vignesh
- *
- */
 public class ExtractResource {
 	
 	private static final Logger LOGGER = Logger.getLogger(ExtractResource.class);
-	
-	/**
-	 * Pass what are resources to be extract from jar
-	 */
 	public static void extractResourceFromJar() {
 		getListOfFilesFromJarAndCopyToExternalResource("preReg/");
 		getListOfFilesFromJarAndCopyToExternalResource("config/");
@@ -32,35 +22,20 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("kernel/");
 		getListOfFilesFromJarAndCopyToExternalResource("regProc/");
     	getListOfFilesFromJarAndCopyToExternalResource("idRepository/");
-		/* getListOfFilesFromJarAndCopyToExternalResource("Registration/"); */
-//		getListOfFilesFromJarAndCopyToExternalResource("admin/");
 		getListOfFilesFromJarAndCopyToExternalResource("resident/");
 		getListOfFilesFromJarAndCopyToExternalResource("partner/");
-		/* getListOfFilesFromJarAndCopyToExternalResource("reg/"); */
 		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
 		getListOfFilesFromJarAndCopyToExternalResource("testngapi.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("log4j.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("healthCheck/");
-//		getListOfFilesFromJarAndCopyToExternalResource("labels_ar.properties");
-//		getListOfFilesFromJarAndCopyToExternalResource("labels_en.properties");
-//		getListOfFilesFromJarAndCopyToExternalResource("labels_fr.properties");
-//		getListOfFilesFromJarAndCopyToExternalResource("messages_en.properties");
-//		getListOfFilesFromJarAndCopyToExternalResource("messages_ar.properties");
-//		getListOfFilesFromJarAndCopyToExternalResource("messages_fr.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("spring.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("validations.properties");
-		/* getListOfFilesFromJarAndCopyToExternalResource("db"); */
 		getListOfFilesFromJarAndCopyToExternalResource("dbFiles/");
 		getListOfFilesFromJarAndCopyToExternalResource("mobileId/");
 		getListOfFilesFromJarAndCopyToExternalResource("esignet/");
 	}
 	
-	/**
-	 * The method to get list of resource from jar and copy to external resource
-	 * 
-	 * @param key
-	 */
 	public static void getListOfFilesFromJarAndCopyToExternalResource(String key) {
 		ZipInputStream zipInputStream = null;
 		try {
@@ -95,7 +70,6 @@ public class ExtractResource {
 	        try {
 	        	zipInputStream.close();
 	        } catch (IOException e) {
-	            // Handle the exception
 	        }
 	    }
 	}

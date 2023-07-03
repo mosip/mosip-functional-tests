@@ -298,7 +298,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 */
 	public static String getBase64EncodedString(String content) {
 		try {
-			return RestClient.postRequest(EncryptUtilBaseUrl+props.get(GlobalConstants.ENCODEPATH), content.toString(), MediaType.TEXT_PLAIN,
+			return RestClient.postRequest(EncryptUtilBaseUrl+props.get(GlobalConstants.ENCODEPATH), content, MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
 			lOGGER.error("Exception: " + e);
@@ -309,7 +309,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public static String splitEncryptedData(String content)
 	{
 		try {
-			return RestClient.postRequest(EncryptUtilBaseUrl+props.get("splitEncryptedData"), content.toString(), MediaType.APPLICATION_JSON,
+			return RestClient.postRequest(EncryptUtilBaseUrl+props.get("splitEncryptedData"), content, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 			
 		} catch (Exception e) {
@@ -321,7 +321,6 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	
 	public static String getCertificateThumbprint(Certificate cert){
 		try {
-			//return org.apache.commons.codec.binary.Base64.encodeBase64URLSafeString(DigestUtils.sha256(cert.getEncoded()));
 			return toHex(DigestUtils.sha256(cert.getEncoded()));
 		} catch (CertificateEncodingException e) {
 			lOGGER.error("Exception in generate thumbrint: "+e.getMessage());
