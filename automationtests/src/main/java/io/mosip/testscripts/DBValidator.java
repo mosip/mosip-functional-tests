@@ -16,7 +16,6 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -28,9 +27,10 @@ import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
-import io.restassured.response.Response;
-import io.mosip.dbaccess.*;
+import io.mosip.dbaccess.AuditDBManager;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.testrunner.HealthChecker;
+import io.restassured.response.Response;
 
 public class DBValidator extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(DBValidator.class);
@@ -64,7 +64,7 @@ public class DBValidator extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 		//String[] templateFields = testCaseDTO.getTemplateFields();
 		//List<String> queryProp = Arrays.asList(templateFields);
-		//System.out.println(queryProp);
+		//logger.info(queryProp);
 		//Arrays.asList(templateFields.split(","));
 		if (HealthChecker.signalTerminateExecution == true) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
@@ -75,15 +75,19 @@ public class DBValidator extends AdminTestUtil implements ITest {
 		
 		
 		JSONObject jsonObject = new JSONObject(replaceId);
-		System.out.println(jsonObject.keySet());
+		logger.info(jsonObject.keySet());
 		//List<String> attributName = (List<String>) jsonObject.keySet();
 		//String s1 = attributName.get(0);
-		//System.out.println(s1);
+		//logger.info(s1);
 		
 		Set<String> set = new TreeSet<>();
 	    set.addAll(jsonObject.keySet());
-	    String filterId = set.stream().findFirst().get();
-	    System.out.println(filterId);
+	    String filterId = "";
+	    
+	    if (set.stream().findFirst().isPresent())
+	    	filterId = set.stream().findFirst().get();
+	    
+	    logger.info(filterId);
 		
 		
 		//List<Set<String>> attributName = Arrays.asList(jsonObject.keySet());
@@ -92,8 +96,8 @@ public class DBValidator extends AdminTestUtil implements ITest {
 		String query = testCaseDTO.getEndPoint() +" " + filterId + " = " +"'"+jsonObject.getString(filterId)+"'";
 		
 		
-		System.out.println(query);
-		//System.out.println(respTime);
+		logger.info(query);
+		//logger.info(respTime);
 		Map<String, Object> response = AuditDBManager.executeQueryAndGetRecord(testCaseDTO.getRole(), query);
 		
 		
@@ -105,7 +109,7 @@ public class DBValidator extends AdminTestUtil implements ITest {
 			objOpDto.setStatus("PASS");
 		}
 		else {
-			objOpDto.setStatus("FAIL");
+			objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 		}
 		
 		objList.add(objOpDto);
@@ -131,7 +135,7 @@ public class DBValidator extends AdminTestUtil implements ITest {
 	public void setResultTestName(ITestResult result) {
 		
 		//String deleteQuery = "delete from audit.app_audit_log where cr_by = '"+propsKernel.getProperty("partner_userName")+"'";
-		//System.out.println(deleteQuery);
+		//logger.info(deleteQuery);
 		//AuditDBManager.executeQueryAndDeleteRecord("audit", deleteQuery);
 		try {
 			Field method = TestResult.class.getDeclaredField("m_method");

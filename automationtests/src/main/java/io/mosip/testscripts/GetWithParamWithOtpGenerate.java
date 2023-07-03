@@ -14,7 +14,6 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -27,6 +26,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -76,9 +76,9 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 		
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
-		if(req.has("sendOtp")) {
-			otpRequest = req.get("sendOtp").toString();
-			req.remove("sendOtp");
+		if(req.has(GlobalConstants.SENDOTP)) {
+			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
+			req.remove(GlobalConstants.SENDOTP);
 		}
 		JSONObject otpReqJson = new JSONObject(otpRequest);
 		sendOtpReqTemplate = otpReqJson.getString("sendOtpReqTemplate");
@@ -87,14 +87,14 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 		otpReqJson.remove("sendOtpEndPoint");
 		
 
-		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
+		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
 
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if(res.has("sendOtpResp")) {
-			sendOtpResp = res.get("sendOtpResp").toString();
-			res.remove("sendOtpResp");
+		if(res.has(GlobalConstants.SENDOTPRESP)) {
+			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
+			res.remove(GlobalConstants.SENDOTPRESP);
 		}
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
@@ -107,12 +107,12 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 			throw new AdminTestException("Failed at otp output validation");
 		
 		JSONObject reqvOtp = new JSONObject(testCaseDTO.getInput());
-		JSONObject reqvtOtp = (JSONObject) reqvOtp.get("sendOtp");
+		JSONObject reqvtOtp = (JSONObject) reqvOtp.get(GlobalConstants.SENDOTP);
 		String otpValidationRequest = null, validateOtpReqTemplate = null, validateOtpEndPoint = null;
 		
-		if(!reqvtOtp.isNull("validateOtp")) {
-			otpValidationRequest = reqvtOtp.get("validateOtp").toString();
-			reqvOtp.remove("validateOtp");
+		if(!reqvtOtp.isNull(GlobalConstants.VALIDATEOTP)) {
+			otpValidationRequest = reqvtOtp.get(GlobalConstants.VALIDATEOTP).toString();
+			reqvOtp.remove(GlobalConstants.VALIDATEOTP);
 		}
 		JSONObject validateOtpReqJson = new JSONObject(otpValidationRequest);
 		validateOtpReqTemplate = validateOtpReqJson.getString("validateOtpReqTemplate");
@@ -121,7 +121,7 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 		validateOtpReqJson.remove("validateOtpEndPoint");
 		
 
-		Response validateOtpResponse = postWithBodyAndCookie(ApplnURI + validateOtpEndPoint, getJsonFromTemplate(validateOtpReqJson.toString(), validateOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
+		Response validateOtpResponse = postWithBodyAndCookie(ApplnURI + validateOtpEndPoint, getJsonFromTemplate(validateOtpReqJson.toString(), validateOtpReqTemplate), COOKIENAME,GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
 
 
 		
@@ -148,21 +148,21 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 			List<String> languageList = new ArrayList<>();
 			languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
 			 for (int i=0; i<languageList.size(); i++) {
-		        	Innerloop:
-		            for (int j=i; j <languageList.size();) {
+//		        	Innerloop:
+//		            for (int j=i; j <languageList.size(); j++) {
 		            	response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
 		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		            	
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 								response.asString(),
-								getJsonFromTemplate(outputtestcase.get(j).toString(), testCaseDTO.getOutputTemplate()));
+								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()));
 						Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
 							throw new AdminTestException("Failed at output validation");
-		                    break Innerloop;
-		            }
+//		                    break Innerloop;
+//		            }
 		        }
 		}
 		

@@ -2,7 +2,6 @@ package io.mosip.customReport;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.testng.IReporter;
 import org.testng.IResultMap;
 import org.testng.ISuite;
@@ -28,6 +28,7 @@ import io.mosip.admin.fw.util.AdminTestUtil;
 
 public class CustomTestNGReporter implements IReporter {
 	
+	private static final Logger logger = Logger.getLogger(CustomTestNGReporter.class);
 	//This is the customize emailabel report template file path.
 	private static final String emailableReportTemplateFile = "D:\\sprint_10\\mosip\\automationtests\\src\\test\\java\\io\\mosip\\customReport\\customize-emailable-report-template.html";
 	
@@ -62,9 +63,9 @@ public class CustomTestNGReporter implements IReporter {
 			fileWriter = new FileWriter(targetFile);
 			fileWriter.write(customReportTemplateStr);
 			
-		}catch(Exception ex)
+		}catch(Exception e)
 		{
-			ex.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 		finally {
 			AdminTestUtil.closeFileWriter(fileWriter);
@@ -90,8 +91,8 @@ public class CustomTestNGReporter implements IReporter {
 				line = bufferedReader.readLine();
 			}
 			
-		} catch (NullPointerException |IOException ex) {
-			ex.printStackTrace();
+		} catch (NullPointerException |IOException e) {
+			logger.error(e.getStackTrace());
 		}finally{
 			AdminTestUtil.closeBufferedReader(bufferedReader);
 			AdminTestUtil.closeFileReader(fileReader);
@@ -191,8 +192,8 @@ public class CustomTestNGReporter implements IReporter {
 					retBuf.append("</tr>");
 				}
 			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			logger.error(e.getStackTrace());
 		}
 		return retBuf.toString();
 	}
@@ -260,8 +261,8 @@ public class CustomTestNGReporter implements IReporter {
 					retBuf.append(passedTestMethodInfo);
 				}
 			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			logger.error(e.getStackTrace());
 		}
 		return retBuf.toString();
 	}

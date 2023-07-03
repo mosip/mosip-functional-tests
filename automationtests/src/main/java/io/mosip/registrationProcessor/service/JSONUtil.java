@@ -3,8 +3,13 @@
  */
 package io.mosip.registrationProcessor.service;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
+import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 
 import com.google.gson.Gson;
@@ -16,18 +21,19 @@ import io.mosip.admin.fw.util.AdminTestUtil;
  *
  */
 public class JSONUtil {
-
+	
+	private static final Logger logger = Logger.getLogger(JSONUtil.class);
 	/*
 	 * public RegProcIdDto mapJsonFileToObject(String idJsonPath) { RegProcIdDto obj
 	 * = null; try { Gson gson = new Gson(); InputStream in = new
 	 * FileInputStream(new File(idJsonPath)); BufferedReader br = new
 	 * BufferedReader(new InputStreamReader(in)); obj = gson.fromJson(br,
-	 * RegProcIdDto.class); // System.out.println("ID.json read as String is " +
+	 * RegProcIdDto.class); // logger.info("ID.json read as String is " +
 	 * gson.toJson(obj)); br.close(); } catch (IOException e) { e.printStackTrace();
 	 * } return obj; }
 	 */
 
-	public void writeJsonToFile(String data, String filePath) {
+	public void writeDataToFile(String data, String filePath) {
 
 		try (FileWriter file = new FileWriter(filePath)) {
 
@@ -35,25 +41,25 @@ public class JSONUtil {
 			file.flush();
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 	}
 
 	public JSONObject loadJsonFromFile(String jsonFile) {
 
 		Gson gson = new Gson();
-		BufferedReader br = null;
+		BufferedReader bufferedReader = null;
+		JSONObject json = null;
+		FileReader fileReader = null;
 		try {
-			br = new BufferedReader(new FileReader(jsonFile));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-
-		JSONObject json = gson.fromJson(br, JSONObject.class);
-		try {
-			br.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+			fileReader = new FileReader(jsonFile);
+			bufferedReader = new BufferedReader(fileReader);
+			json = gson.fromJson(bufferedReader, JSONObject.class);
+		} catch (FileNotFoundException | NullPointerException e) {
+			logger.error(e.getStackTrace());
+		} finally {
+			AdminTestUtil.closeBufferedReader(bufferedReader);
+			AdminTestUtil.closeFileReader(fileReader);
 		}
 		return json;
 	}
@@ -64,10 +70,8 @@ public class JSONUtil {
 			fileWriter = new FileWriter(packetMetaInfoFile);
 			fileWriter.write(jsonObject.toJSONString());
 		} catch (NullPointerException | IOException e) {
-			e.printStackTrace();
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		} finally {
+			logger.error(e.getStackTrace());
+		}finally {
 			AdminTestUtil.closeFileWriter(fileWriter);
 		}
 
@@ -98,7 +102,7 @@ public class JSONUtil {
 	 * PhilIdentityObject obj = null; try { Gson gson = new Gson(); InputStream in =
 	 * new FileInputStream(new File(idJsonPath)); BufferedReader br = new
 	 * BufferedReader(new InputStreamReader(in)); obj = gson.fromJson(br,
-	 * PhilIdentityObject.class); // System.out.println("ID.json read as String is "
+	 * PhilIdentityObject.class); // logger.info("ID.json read as String is "
 	 * + gson.toJson(obj)); br.close(); } catch (IOException e) {
 	 * e.printStackTrace(); } return obj; }
 	 */

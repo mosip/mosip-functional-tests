@@ -1,18 +1,7 @@
 package io.mosip.authentication.fw.util;
 
-import javax.ws.rs.core.MediaType;  
-
-import org.apache.log4j.Logger;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.authentication.fw.precon.JsonPrecondtion;
-import io.mosip.kernel.core.exception.ExceptionUtils;
-import io.mosip.kernel.core.util.CryptoUtil;
-import io.mosip.kernel.core.util.HMACUtils;
-import io.mosip.kernel.crypto.jce.util.JWSValidation;
-
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.cert.CertificateFactory;
@@ -22,6 +11,17 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
+
+import javax.ws.rs.core.MediaType;
+
+import org.apache.log4j.Logger;
+
+import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.authentication.fw.precon.JsonPrecondtion;
+import io.mosip.global.utils.GlobalConstants;
+import io.mosip.kernel.core.util.CryptoUtil;
+import io.mosip.kernel.core.util.HMACUtils;
+import io.mosip.kernel.crypto.jce.util.JWSValidation;
  
 /**
  * The class to perform or construct biometric identity data which involves
@@ -58,7 +58,7 @@ public class BiometricDataUtility extends AuthTestsUtil {
 		//jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
 				//IdaKeywordUtil.generateTimeStampWithZTimeZone(), "request.timeStamp");
 		//jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
-				//IdaKeywordUtil.generateTimeStampWithZTimeZone(), "requesttime");
+				//IdaKeywordUtil.generateTimeStampWithZTimeZone(), GlobalConstants.REQUESTTIME);
 		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForInternalAuth(),
 				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
 				AUTHORIZATHION_COOKIENAME);
@@ -84,9 +84,9 @@ public class BiometricDataUtility extends AuthTestsUtil {
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, digitalId,
 					biometricsMapper + ".data.digitalId");
 			String data = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + ".data");
-			String bioValue = JsonPrecondtion.getValueFromJson(data, "bioValue");
+			String bioValue = JsonPrecondtion.getValueFromJson(data, GlobalConstants.BIOVALUE);
 			String timestamp = JsonPrecondtion.getValueFromJson(data, "timestamp");
-			String transactionId = JsonPrecondtion.getValueFromJson(data, "transactionId");
+			String transactionId = JsonPrecondtion.getValueFromJson(data, GlobalConstants.TRANSACTIONID);
 			String encryptedContent = encryptIsoBioValue(bioValue, timestamp, bioValueencryptionTemplateJson, transactionId);
 			String encryptedBioValue = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedData");
 			String encryptedSessionKey = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedSessionKey");

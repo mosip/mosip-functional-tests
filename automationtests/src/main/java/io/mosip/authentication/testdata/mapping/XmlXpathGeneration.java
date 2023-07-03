@@ -2,14 +2,12 @@ package io.mosip.authentication.testdata.mapping;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import javax.xml.parsers.SAXParser;
@@ -40,6 +38,9 @@ public class XmlXpathGeneration extends DefaultHandler {
 	XmlXpathGeneration parent;
 	StringBuilder characters = new StringBuilder();
 	Map<String, Integer> elementNameCount = new HashMap<String, Integer>();
+	private static final String SAX_FEATURE = "http://apache.org/xml/features/disallow-doctype-decl";
+	private static final String SAX_EXTERNAL_GENERAL_FEATURE = "http://xml.org/sax/features/external-general-entities";
+	private static final String SAX_EXTERNAL_PARAMETER_FEATURE = "http://xml.org/sax/features/external-parameter-entities";
 
 	public XmlXpathGeneration(XMLReader xmlReader) {
 		this.xmlReader = xmlReader;
@@ -71,7 +72,7 @@ public class XmlXpathGeneration extends DefaultHandler {
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		String value = characters.toString().trim();
 		if (value.length() > 0) {
-			// System.out.println(xPath + "='" + characters.toString() + "'");
+			// logger.info(xPath + "='" + characters.toString() + "'");
 			xpathList.add(xPath + "/text()");
 		}
 		xmlReader.setContentHandler(parent);
@@ -86,6 +87,11 @@ public class XmlXpathGeneration extends DefaultHandler {
 		FileInputStream inputStream = null;
 		try {
 			SAXParserFactory saxFactory = SAXParserFactory.newInstance();
+			  // to be compliant, completely disable DOCTYPE declaration:
+			saxFactory.setFeature(SAX_FEATURE, true);
+			  // or completely disable external entities declarations:
+			saxFactory.setFeature(SAX_EXTERNAL_GENERAL_FEATURE, false);
+			saxFactory.setFeature(SAX_EXTERNAL_PARAMETER_FEATURE, false);
 			saxFactory.setNamespaceAware(false);
 			SAXParser saxParser = saxFactory.newSAXParser();
 			XMLReader xmlReader = saxParser.getXMLReader();
@@ -105,6 +111,11 @@ public class XmlXpathGeneration extends DefaultHandler {
 		FileInputStream inputStream = null;
 		try {
 			SAXParserFactory saxFactory = SAXParserFactory.newInstance();
+			  // to be compliant, completely disable DOCTYPE declaration:
+			saxFactory.setFeature(SAX_FEATURE, true);
+			  // or completely disable external entities declarations:
+			saxFactory.setFeature(SAX_EXTERNAL_GENERAL_FEATURE, false);
+			saxFactory.setFeature(SAX_EXTERNAL_PARAMETER_FEATURE, false);
 			saxFactory.setNamespaceAware(false);
 			SAXParser saxParser = saxFactory.newSAXParser();
 			XMLReader xmlReader = saxParser.getXMLReader();
@@ -146,7 +157,7 @@ public class XmlXpathGeneration extends DefaultHandler {
 	 * Method to modify xpath value name
 	 */
 	private static void refactorFieldValueName() {
-		System.out.println(xpathList);
+		xmlXpathLogger.info(xpathList);
 		for (String entry : xpathList) {
 			String tempValue = entry.replace("[", "").replace("]", "").replace("/text()", "").replace("@", "");
 			String[] listValue = tempValue.split(Pattern.quote("/"));

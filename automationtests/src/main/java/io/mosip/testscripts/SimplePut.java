@@ -2,7 +2,6 @@ package io.mosip.testscripts;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +14,6 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -30,7 +28,6 @@ import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
-import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
 
 public class SimplePut extends AdminTestUtil implements ITest {
@@ -88,21 +85,21 @@ public class SimplePut extends AdminTestUtil implements ITest {
 			languageList =new ArrayList<String>(BaseTestCase.languageList);
 			 for (int i=0; i<languageList.size(); i++) {
 
-		        	Innerloop:
-		            for (int j=i; j <languageList.size();) {
+//		        	Innerloop:
+//		            for (int j=i; j <languageList.size();) {
 		            	response = putWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
 		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		            	
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 								response.asString(),
-								getJsonFromTemplate(outputtestcase.get(j).toString(), testCaseDTO.getOutputTemplate()));
+								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()));
 						Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
 							throw new AdminTestException("Failed at output validation");
-		                    break Innerloop;
-		            }
+//		                    break Innerloop;
+//		            }
 		        }
 		} 
 		else {
@@ -122,7 +119,7 @@ public class SimplePut extends AdminTestUtil implements ITest {
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 			}
 			
-			System.out.println(ouputValid);
+			logger.info(ouputValid);
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

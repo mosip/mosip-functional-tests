@@ -14,7 +14,6 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -30,6 +29,8 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalConstants;
+import io.mosip.global.utils.GlobalMethods;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -77,9 +78,9 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
-		if(req.has("sendOtp")) {
-			otpRequest = req.get("sendOtp").toString();
-			req.remove("sendOtp");
+		if(req.has(GlobalConstants.SENDOTP)) {
+			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
+			req.remove(GlobalConstants.SENDOTP);
 		}
 		JSONObject otpReqJson = new JSONObject(otpRequest);
 		sendOtpReqTemplate = otpReqJson.getString("sendOtpReqTemplate");
@@ -88,14 +89,14 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 		otpReqJson.remove("sendOtpEndPoint");
 		
 
-		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,"resident", testCaseDTO.getTestCaseName());
+		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
 
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if(res.has("sendOtpResp")) {
-			sendOtpResp = res.get("sendOtpResp").toString();
-			res.remove("sendOtpResp");
+		if(res.has(GlobalConstants.SENDOTPRESP)) {
+			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
+			res.remove(GlobalConstants.SENDOTPRESP);
 		}
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
@@ -115,13 +116,10 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 			}
 		 
 		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
-			 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
-						+ "Not able to download UIN Card" + "</pre>");
-//			 throw new Exception("Not able to download UIN Card");
+			 GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), "Not able to download UIN Card");
 		 }
 		 else {
-			 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
-						+ pdfAsText+ "</pre>");
+			 GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
 		 }
 		
 	}

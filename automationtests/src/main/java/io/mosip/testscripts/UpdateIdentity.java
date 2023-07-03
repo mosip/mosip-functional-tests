@@ -6,8 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.MediaType;
-import org.apache.commons.lang.RandomStringUtils;
+
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.Assert;
@@ -17,22 +16,20 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
+
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
-import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
-import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.ida.certificate.PartnerRegistration;
-import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -98,9 +95,9 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		JSONObject otpReqJson = null;
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
-		if (req.has("sendOtp")) {
-			otpRequest = req.get("sendOtp").toString();
-			req.remove("sendOtp");
+		if (req.has(GlobalConstants.SENDOTP)) {
+			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
+			req.remove(GlobalConstants.SENDOTP);
 			otpReqJson = new JSONObject(otpRequest);
 			sendOtpReqTemplate = otpReqJson.getString("sendOtpReqTemplate");
 			otpReqJson.remove("sendOtpReqTemplate");
@@ -118,16 +115,16 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		}
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if (res.has("sendOtpResp")) {
-			sendOtpResp = res.get("sendOtpResp").toString();
-			res.remove("sendOtpResp");
+		if (res.has(GlobalConstants.SENDOTPRESP)) {
+			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
+			res.remove(GlobalConstants.SENDOTPRESP);
 			testCaseDTO.setOutput(res.toString());
 		}
 
-		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
+		DateFormat dateFormatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
-		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
+		String genRid = "27847" + generateRandomNumberString(10) + timestampValue;
 		generatedRid = genRid;
 
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());

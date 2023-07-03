@@ -4,39 +4,32 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
-import java.util.Properties;
-import java.security.KeyPairGenerator;
-import java.security.SecureRandom;
-import java.security.interfaces.RSAPublicKey;
 import java.security.KeyPair;
+import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
+import java.security.interfaces.RSAPublicKey;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.testng.TestNG;
 
 import com.nimbusds.jose.jwk.KeyUse;
 import com.nimbusds.jose.jwk.RSAKey;
-import com.nimbusds.jose.util.StandardCharset;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
 import io.mosip.dbaccess.DBManager;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.ida.certificate.CertificateGenerationUtil;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.service.BaseTestCase;
-import java.lang.String;
-import java.util.Map;
 
 /**
  * Class to initiate mosip api test execution
@@ -66,9 +59,9 @@ public class MosipTestRunner {
 	public static void main(String arg[]) {
 
 		Map<String, String> envMap = System.getenv();
-		System.out.println("** ------------- Get ALL ENV varibales --------------------------------------------- **");
+		LOGGER.info("** ------------- Get ALL ENV varibales --------------------------------------------- **");
 		for (String envName : envMap.keySet()) {
-			System.out.format("ENV %s = %s%n", envName, envMap.get(envName));
+			LOGGER.info(String.format("ENV %s = %s%n", envName, envMap.get(envName)));
 		}
 
 		if (checkRunType().equalsIgnoreCase("JAR")) {
@@ -80,6 +73,7 @@ public class MosipTestRunner {
 		BaseTestCase.suiteSetup();
 		AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
 		HealthChecker healthcheck = new HealthChecker();
+		healthcheck.setCurrentRunningModule(BaseTestCase.currentModule);
 		Thread trigger = new Thread(healthcheck);
 		trigger.start();
 		
@@ -87,18 +81,7 @@ public class MosipTestRunner {
 		KeycloakUserManager.createUsers();  //Langauge Independent
 		
 		
-		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains("esignet")) {
-//			if(BaseTestCase.listOfModules.contains("auth")) {
-//				LOGGER.info("waiting for " + "300000"
-//				+ " mili secs for auth certificate generation");
-//				try {
-//					Thread.sleep(Long.parseLong("300000"));
-//				} catch (NumberFormatException | InterruptedException e) {
-//					// TODO Auto-generated catch block
-//					LOGGER.error("Exception : " + e.getMessage());
-//				}
-//			}
-			
+		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
 			PartnerRegistration.deleteCertificates();
 			CertificateGenerationUtil.getThumbprints();
 			AdminTestUtil.createAndPublishPolicy();
@@ -109,10 +92,10 @@ public class MosipTestRunner {
 		List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
 
 		//Get List of languages from server and set into BaseTestCase.languageList
-		//if list of modules contains "masterdata" then iterate it through languageList and run complete suite with one language at a time
+		//if list of modules contains GlobalConstants.MASTERDATA then iterate it through languageList and run complete suite with one language at a time
 		//ForTesting
 		
-		if (BaseTestCase.listOfModules.contains("masterdata")) {
+		if (BaseTestCase.listOfModules.contains(GlobalConstants.MASTERDATA)) {
 			//get all languages which are already loaded and store into local variable
 				BaseTestCase.mapUserToZone();
 				BaseTestCase.mapZone();
@@ -123,7 +106,7 @@ public class MosipTestRunner {
 				BaseTestCase.languageList.add(localLanguageList.get(i));
 
 			    DBManager.clearMasterDbData();
-				BaseTestCase.currentModule = "masterdata";
+				BaseTestCase.currentModule = GlobalConstants.MASTERDATA;
 				BaseTestCase.setReportName("masterdata-" + localLanguageList.get(i));
 				startTestRunner();
 
@@ -135,8 +118,8 @@ public class MosipTestRunner {
 		}
 		
 		//KeycloakUserManager.removeUser();
-		if (BaseTestCase.currentModule.equals("mobileid") || BaseTestCase.currentModule.equals("prereg")
-				|| BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")) {
+		if (BaseTestCase.currentModule.equals(GlobalConstants.MOBILEID) || BaseTestCase.currentModule.equals(GlobalConstants.PREREG)
+				|| BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)) {
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.bTerminate = true;
 		}
@@ -233,18 +216,18 @@ public class MosipTestRunner {
 		String publicKey = null;
 		try {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
-			keyGenerator.initialize(2048, new SecureRandom());
+			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
 			final KeyPair keypair = keyGenerator.generateKeyPair();
 			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			LOGGER.error(e.getStackTrace());
 		}
 		return publicKey;
 	}
 	
 	public static String generatePublicKeyForMimoto() {
         KeyPairGenerator keyPairGen;
-        String vcString = null;
+        String vcString = "";
         try {
             keyPairGen = KeyPairGenerator.getInstance("RSA");
             keyPairGen.initialize(2048);
@@ -255,17 +238,17 @@ public class MosipTestRunner {
                 pemWriter.writeObject(publicKey);
                 pemWriter.flush();
                 vcString = stringWriter.toString();
+        		if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
+        			vcString = vcString.replaceAll("\r\n", "\\\\n");
+        		} else {
+        			vcString = vcString.replaceAll("\n", "\\\\n");
+        		}
             } catch (Exception e) {
                 throw e;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+        	LOGGER.error(e.getStackTrace());
         }
-		if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
-			vcString = vcString.replaceAll("\r\n", "\\\\n");
-		} else {
-			vcString = vcString.replaceAll("\n", "\\\\n");
-		}
         return vcString;
 	}
 
@@ -273,7 +256,7 @@ public class MosipTestRunner {
 //		String publicKey = null;
 		try {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
-			keyGenerator.initialize(2048, new SecureRandom());
+			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
 			final KeyPair keypair = keyGenerator.generateKeyPair();
 			RSAKey jwk = new RSAKey.Builder((RSAPublicKey) keypair.getPublic()).keyID("RSAKeyID").keyUse(KeyUse.SIGNATURE)
 				    .privateKey(keypair.getPrivate())
@@ -285,7 +268,7 @@ public class MosipTestRunner {
 //			FileUtils.writeStringToFile(oidcJWK1, jwk.toJSONString(), StandardCharset.UTF_8.name());
 			return jwk.toJSONString();
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			LOGGER.error(e.getStackTrace());
 			return null;
 		}
 //		return jwk.toJSONString();
@@ -299,7 +282,7 @@ public class MosipTestRunner {
 			inputStream = new FileInputStream(file);
 			prop.load(inputStream);
 		} catch (Exception e) {
-			LOGGER.error("Exception " + e.getMessage());
+			LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 		}finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}

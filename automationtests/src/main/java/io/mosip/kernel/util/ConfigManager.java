@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+
 import org.apache.log4j.Logger;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.testrunner.MosipTestRunner;
 
 public class ConfigManager {
@@ -139,11 +141,11 @@ public class ConfigManager {
 	private static String automation_client_id;
 	private static String automation_app_id;
 
-	private static String s3_region;
-	private static String s3_host;
-	private static String s3_user_key;
-	private static String s3_account;
-	private static String s3_secret_key;
+	private static String s3Region;
+	private static String s3Host;
+	private static String s3UserKey;
+	private static String s3Account;
+	private static String s3SecretKey;
 	private static String push_reports_to_s3;
 	private static String enableDebug;
 	private static String threadCount;
@@ -151,38 +153,38 @@ public class ConfigManager {
 	private static String usePreConfiguredOtp;
 	private static String preconfiguredOtp;
 	
-	private static String db_port;
-	private static String db_domain;
-	private static String hibernate_connection_driver_class;
-	private static String hibernate_connection_pool_size;
-	private static String hibernate_dialect;
-	private static String hibernate_show_sql;
+	private static String dbPort;
+	private static String dbDomain;
+	private static String hibernateConnectionDriverClass;
+	private static String hibernateConnectionPoolSize;
+	private static String hibernateDialect;
+	private static String hibernateShowSql;
 	private static String hibernate_current_session_context_class;
 
-	private static String audit_db_user;
-	private static String audit_db_pass;
-	private static String audit_db_schema;
+	private static String auditDBUser;
+	private static String auditDBPass;
+	private static String auditDBSchema;
 
-	private static String ida_db_user;
-	private static String ida_db_pass;
-	private static String ida_db_schema;
+	private static String idaDBUser;
+	private static String idaDBPass;
+	private static String idaDBSchema;
 
-	private static String pms_db_user;
-	private static String pms_db_pass;
-	private static String pms_db_schema;
+	private static String pmsDBUser;
+	private static String pmsDBPass;
+	private static String pmsDBSchema;
 
-	private static String km_db_user;
-	private static String km_db_pass;
-	private static String km_db_schema;
+	private static String kmDBUser;
+	private static String kmDBPass;
+	private static String kmDBSchema;
 
-	private static String master_db_user;
-	private static String master_db_pass;
-	private static String master_db_schema;
+	private static String masterDBUser;
+	private static String masterDBPass;
+	private static String masterDBSchema;
 
-	private static String iam_external_url;
-	private static String iam_realm_id;
-	private static String iam_users_to_create;
-	private static String iam_users_password;
+	private static String iamExternalURL;
+	private static String iamRealmID;
+	private static String iamUsersToCreate;
+	private static String iamUsersPassword;
 	private static String authDemoServicePort;
 	private static String authDemoServiceBaseUrl;
 
@@ -237,40 +239,40 @@ public class ConfigManager {
 		automation_client_secret = getValueForKey(MOSIP_AUTOMATION_CLIENT_SECRET);
 		automation_client_id = getValueForKey(MOSIP_AUTOMATION_CLIENT_ID);
 		automation_app_id = getValueForKey(MOSIP_AUTOMATION_APP_ID);
-		s3_host = getValueForKey(S3_HOST);
-		s3_region = getValueForKey(S3_REGION);
-		s3_user_key = getValueForKey(S3_USER_KEY);
-		s3_secret_key = getValueForKey(S3_SECRET_KEY);
-		s3_account = getValueForKey(S3_ACCOUNT);
+		s3Host = getValueForKey(S3_HOST);
+		s3Region = getValueForKey(S3_REGION);
+		s3UserKey = getValueForKey(S3_USER_KEY);
+		s3SecretKey = getValueForKey(S3_SECRET_KEY);
+		s3Account = getValueForKey(S3_ACCOUNT);
 //		push_reports_to_s3 = getValueForKey(PUSH_TO_S3);
-		db_port = getValueForKey(DB_PORT);
-		db_domain = getValueForKey(DB_DOMAIN);
-		hibernate_connection_driver_class = getValueForKey(HIBERNATE_CONNECTION_DRIVER_CLASS);
-		hibernate_connection_pool_size = getValueForKey(HIBERNATE_CONNECTION_POOL_SIZE);
-		hibernate_dialect = getValueForKey(HIBERNATE_DIALECT);
-		hibernate_show_sql = getValueForKey(HIBERNATE_SHOW_SQL);
+		dbPort = getValueForKey(DB_PORT);
+		dbDomain = getValueForKey(DB_DOMAIN);
+		hibernateConnectionDriverClass = getValueForKey(HIBERNATE_CONNECTION_DRIVER_CLASS);
+		hibernateConnectionPoolSize = getValueForKey(HIBERNATE_CONNECTION_POOL_SIZE);
+		hibernateDialect = getValueForKey(HIBERNATE_DIALECT);
+		hibernateShowSql = getValueForKey(HIBERNATE_SHOW_SQL);
 		hibernate_current_session_context_class = getValueForKey(HIBERNATE_CONTEXT_CLASS);
-		audit_db_user = getValueForKey(AUDIT_DB_USER);
-		audit_db_pass = getValueForKey(AUDIT_DB_PASS);
-		audit_db_schema = getValueForKey(AUDIT_DB_SCHEMA);
-		ida_db_user = getValueForKey(IDA_DB_USER);
-		ida_db_pass = getValueForKey(IDA_DB_PASS);
-		ida_db_schema = getValueForKey(IDA_DB_SCHEMA);
-		pms_db_user = getValueForKey(PMS_DB_USER);
-		pms_db_pass = getValueForKey(PMS_DB_PASS);
-		pms_db_schema = getValueForKey(PMS_DB_SCHEMA);
-		km_db_user = getValueForKey(KM_DB_USER);
-		km_db_pass = getValueForKey(KM_DB_PASS);
-		km_db_schema = getValueForKey(KM_DB_SCHEMA);
-		master_db_user = getValueForKey(MASTER_DB_USER);
-		master_db_pass = getValueForKey(MASTER_DB_PASS);
-		master_db_schema = getValueForKey(MASTER_DB_SCHEMA);
-		iam_external_url = getValueForKey(IAM_EXTERNAL_URL);
-		System.out.println("keycloakendpoint from config manager::" + iam_external_url);
+		auditDBUser = getValueForKey(AUDIT_DB_USER);
+		auditDBPass = getValueForKey(AUDIT_DB_PASS);
+		auditDBSchema = getValueForKey(AUDIT_DB_SCHEMA);
+		idaDBUser = getValueForKey(IDA_DB_USER);
+		idaDBPass = getValueForKey(IDA_DB_PASS);
+		idaDBSchema = getValueForKey(IDA_DB_SCHEMA);
+		pmsDBUser = getValueForKey(PMS_DB_USER);
+		pmsDBPass = getValueForKey(PMS_DB_PASS);
+		pmsDBSchema = getValueForKey(PMS_DB_SCHEMA);
+		kmDBUser = getValueForKey(KM_DB_USER);
+		kmDBPass = getValueForKey(KM_DB_PASS);
+		kmDBSchema = getValueForKey(KM_DB_SCHEMA);
+		masterDBUser = getValueForKey(MASTER_DB_USER);
+		masterDBPass = getValueForKey(MASTER_DB_PASS);
+		masterDBSchema = getValueForKey(MASTER_DB_SCHEMA);
+		iamExternalURL = getValueForKey(IAM_EXTERNAL_URL);
+		LOGGER.info("keycloakendpoint from config manager::" + iamExternalURL);
 
-		iam_realm_id = getValueForKey(IAM_REALM_ID);
-		iam_users_to_create = getValueForKey(IAM_USERS_TO_CREATE);
-		iam_users_password = getValueForKey(IAM_USERS_PASSWORD);
+		iamRealmID = getValueForKey(IAM_REALM_ID);
+		iamUsersToCreate = getValueForKey(IAM_USERS_TO_CREATE);
+		iamUsersPassword = getValueForKey(IAM_USERS_PASSWORD);
 
 		admin_client_secret = System.getenv(MOSIP_ADMIN_CLIENT_SECRET) == null
 				? propsKernel.getProperty(MOSIP_ADMIN_CLIENT_SECRET)
@@ -493,23 +495,23 @@ public class ConfigManager {
 	}
 
 	public static String getS3Host() {
-		return s3_host;
+		return s3Host;
 	}
 
 	public static String getS3Region() {
-		return s3_region;
+		return s3Region;
 	}
 
 	public static String getS3UserKey() {
-		return s3_user_key;
+		return s3UserKey;
 	}
 
 	public static String getS3SecretKey() {
-		return s3_secret_key;
+		return s3SecretKey;
 	}
 
 	public static String getS3Account() {
-		return s3_account;
+		return s3Account;
 	}
 
 	public static String getPushReportsToS3() {
@@ -517,27 +519,27 @@ public class ConfigManager {
 	}
 
 	public static String getIdaDbUrl() {
-		return "jdbc:postgresql://" + db_domain + ":" + db_port + "/mosip_ida";
+		return "jdbc:postgresql://" + dbDomain + ":" + dbPort + "/mosip_ida";
 	}
 
 	public static String getAuditDbUrl() {
-		return "jdbc:postgresql://" + db_domain + ":" + db_port + "/mosip_audit";
+		return "jdbc:postgresql://" + dbDomain + ":" + dbPort + "/mosip_audit";
 	}
 
 	public static String getDbDriverClass() {
-		return hibernate_connection_driver_class;
+		return hibernateConnectionDriverClass;
 	}
 
 	public static String getDbConnectionPoolSize() {
-		return hibernate_connection_pool_size;
+		return hibernateConnectionPoolSize;
 	}
 
 	public static String getDbDialect() {
-		return hibernate_dialect;
+		return hibernateDialect;
 	}
 
 	public static String getShowSql() {
-		return hibernate_show_sql;
+		return hibernateShowSql;
 	}
 
 	public static String getDbSessionContext() {
@@ -545,97 +547,97 @@ public class ConfigManager {
 	}
 
 	public static String getAuditDbUser() {
-		return audit_db_user;
+		return auditDBUser;
 	}
 
 	public static String getAuditDbPass() {
-		System.out.println("DB Password from ENV::: " + System.getenv(AUDIT_DB_PASS));
-		return audit_db_pass;
+		LOGGER.info("DB Password from ENV::: " + System.getenv(AUDIT_DB_PASS));
+		return auditDBPass;
 	}
 
 	public static String getAuditDbSchema() {
-		return audit_db_schema;
+		return auditDBSchema;
 	}
 
 	public static String getIdaDbUser() {
-		return ida_db_user;
+		return idaDBUser;
 	}
 
 	public static String getIdaDbPass() {
-		return ida_db_pass;
+		return idaDBPass;
 	}
 
 	public static String getIdaDbSchema() {
-		return ida_db_schema;
+		return idaDBSchema;
 	}
 
 	public static String getPMSDbUrl() {
-		return "jdbc:postgresql://" + db_domain + ":" + db_port + "/mosip_pms";
+		return "jdbc:postgresql://" + dbDomain + ":" + dbPort + "/mosip_pms";
 	}
 
 	public static String getKMDbUrl() {
-		return "jdbc:postgresql://" + db_domain + ":" + db_port + "/mosip_keymgr";
+		return "jdbc:postgresql://" + dbDomain + ":" + dbPort + "/mosip_keymgr";
 	}
 
 	public static String getMASTERDbUrl() {
-		return "jdbc:postgresql://" + db_domain + ":" + db_port + "/mosip_master";
+		return "jdbc:postgresql://" + dbDomain + ":" + dbPort + "/mosip_master";
 	}
 
 	public static String getPMSDbUser() {
-		return pms_db_user;
+		return pmsDBUser;
 	}
 
 	public static String getPMSDbPass() {
-		return pms_db_pass;
+		return pmsDBPass;
 	}
 
 	public static String getPMSDbSchema() {
-		return pms_db_schema;
+		return pmsDBSchema;
 	}
 
 	public static String getKMDbUser() {
-		return km_db_user;
+		return kmDBUser;
 	}
 
 	public static String getKMDbPass() {
-		return km_db_pass;
+		return kmDBPass;
 	}
 
 	public static String getKMDbSchema() {
-		return km_db_schema;
+		return kmDBSchema;
 	}
 
 	public static String getMasterDbUser() {
-		return master_db_user;
+		return masterDBUser;
 	}
 
 	public static String getMasterDbPass() {
-		return master_db_pass;
+		return masterDBPass;
 	}
 
 	public static String getMasterDbSchema() {
-		return master_db_schema;
+		return masterDBSchema;
 	}
 
 	// from docker env getting only host url
 	public static String getIAMUrl() {
-		System.out.println("keycloak url from ENV::: " + System.getenv(IAM_EXTERNAL_URL) + "/auth");
-		System.out.println("keycloak url from Property::: " + System.getProperty(IAM_EXTERNAL_URL) + "/auth");
-		System.out.println("keycloak url from Config::: " + propsKernel.getProperty(IAM_EXTERNAL_URL) + "/auth");
-		System.out.println("keycloak url is:::" + iam_external_url + "/auth");
-		return iam_external_url + "/auth";
+		LOGGER.info("keycloak url from ENV::: " + System.getenv(IAM_EXTERNAL_URL) + "/auth");
+		LOGGER.info("keycloak url from Property::: " + System.getProperty(IAM_EXTERNAL_URL) + "/auth");
+		LOGGER.info("keycloak url from Config::: " + propsKernel.getProperty(IAM_EXTERNAL_URL) + "/auth");
+		LOGGER.info("keycloak url is:::" + iamExternalURL + "/auth");
+		return iamExternalURL + "/auth";
 	}
 
 	public static String getIAMRealmId() {
-		return iam_realm_id;
+		return iamRealmID;
 	}
 
 	public static String getIAMUsersToCreate() {
-		return iam_users_to_create;
+		return iamUsersToCreate;
 	}
 
 	public static String getIAMUsersPassword() {
-		return iam_users_password;
+		return iamUsersPassword;
 	}
 
 	public static String getRolesForUser(String userId) {
@@ -651,7 +653,7 @@ public class ConfigManager {
 			inputStream = new FileInputStream(file);
 			prop.load(inputStream);
 		} catch (IOException e) {
-			LOGGER.error("Exception " + e.getMessage());
+			LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 		}finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}

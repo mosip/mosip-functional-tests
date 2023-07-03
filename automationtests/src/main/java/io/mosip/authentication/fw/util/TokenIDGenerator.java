@@ -2,10 +2,6 @@ package io.mosip.authentication.fw.util;
 
 import java.math.BigInteger;
 
-
-
- 
-
 import io.mosip.kernel.core.util.HMACUtils;
 
 public class TokenIDGenerator {

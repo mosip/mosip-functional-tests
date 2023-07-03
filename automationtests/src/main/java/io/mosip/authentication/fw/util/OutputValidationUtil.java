@@ -1,11 +1,7 @@
 package io.mosip.authentication.fw.util;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files; 
-import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,13 +18,11 @@ import org.testng.Reporter;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.google.common.base.Verify;
 
 import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.precon.MessagePrecondtion;
+import io.mosip.global.utils.GlobalConstants;
 
 /**
  * Perform output validation between expected and actual json file or message
@@ -113,7 +107,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 								objOpDto.setFieldHierarchy(expEntry.getKey());
 								objOpDto.setActualValue(actual.get(expEntry.getKey()));
 								objOpDto.setExpValue(expEntry.getValue());
-								objOpDto.setStatus("FAIL");
+								objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 							}
 						} else if (expEntry.getValue().equals("$TIMESTAMPZ$")) {
 							if (validateTimestampZ(actual.get(expEntry.getKey()))) {
@@ -127,10 +121,10 @@ public class OutputValidationUtil extends AuthTestsUtil{
 								objOpDto.setFieldHierarchy(expEntry.getKey());
 								objOpDto.setActualValue(actual.get(expEntry.getKey()));
 								objOpDto.setExpValue(expEntry.getValue());
-								objOpDto.setStatus("FAIL");
+								objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 							}
-						} else if (expEntry.getValue().contains("TOKENID:") && expEntry.getValue().contains(".")) {
-							String key = expEntry.getValue().replace("TOKENID:", "");
+						} else if (expEntry.getValue().contains(GlobalConstants.TOKENID_STRING) && expEntry.getValue().contains(".")) {
+							String key = expEntry.getValue().replace(GlobalConstants.TOKENID_STRING, "");
 							String[] keys = key.split(Pattern.quote("."));
 							String tokenid = RunConfigUtil.getTokenId(keys[0], keys[1]);
 							if (!tokenid.contains("TOKENID")) {
@@ -145,10 +139,10 @@ public class OutputValidationUtil extends AuthTestsUtil{
 									objOpDto.setFieldHierarchy(expEntry.getKey());
 									objOpDto.setActualValue(actual.get(expEntry.getKey()));
 									objOpDto.setExpValue(expEntry.getValue());
-									objOpDto.setStatus("FAIL");
+									objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 								}
 							} else if (tokenid.contains("TOKENID")) {
-								tokenid = tokenid.replace("TOKENID:", "");
+								tokenid = tokenid.replace(GlobalConstants.TOKENID_STRING, "");
 								String[] values = tokenid.split(Pattern.quote("."));
 								String id = values[0];
 								String pid = values[1];
@@ -174,14 +168,14 @@ public class OutputValidationUtil extends AuthTestsUtil{
 								objOpDto.setFieldHierarchy(expEntry.getKey());
 								objOpDto.setActualValue(actual.get(expEntry.getKey()));
 								objOpDto.setExpValue(expEntry.getValue());
-								objOpDto.setStatus("FAIL");
+								objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 							}
 						} else {
 							objOpDto.setFieldName(expEntry.getKey());
 							objOpDto.setFieldHierarchy(expEntry.getKey());
 							objOpDto.setActualValue(actual.get(expEntry.getKey()));
 							objOpDto.setExpValue(expEntry.getValue());
-							objOpDto.setStatus("FAIL");
+							objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 						}
 						objList.add(objOpDto);
 					} else if (expEntry.getValue().contains("$DECODE$")) {
@@ -211,7 +205,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 							objOpDto.setFieldHierarchy(expEntry.getKey());
 							objOpDto.setActualValue(actualMap.toString());
 							objOpDto.setExpValue(expMap.toString());
-							objOpDto.setStatus("FAIL");
+							objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 						}
 						// Verify.verify(compareTwoKycMap(expMap,actualMap));
 					}
@@ -220,7 +214,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 					objOpDto.setFieldHierarchy(expEntry.getKey());
 					objOpDto.setActualValue("NOT AVAILABLE");
 					objOpDto.setExpValue(expEntry.getValue());
-					objOpDto.setStatus("FAIL");
+					objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 					objList.add(objOpDto);
 					OUTPUTVALIDATION_LOGGER
 							.error("The expected json path " + expEntry.getKey() + " is not available in actual json");
@@ -354,20 +348,20 @@ public class OutputValidationUtil extends AuthTestsUtil{
 			for (OutputValidationDto dto : entry.getValue()) {
 				OUTPUTVALIDATION_LOGGER.info("*");
 				if (dto.getStatus().equals("PASS")) {
-					OUTPUTVALIDATION_LOGGER.info("* JsonField Path :" + dto.getFieldName());
-					OUTPUTVALIDATION_LOGGER.info("* Expected Value :" + dto.getExpValue());
-					OUTPUTVALIDATION_LOGGER.info("* Actual value :" + dto.getActualValue());
-					OUTPUTVALIDATION_LOGGER.info("* Status :" + dto.getStatus());
+					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.JSONFIELD_PATH_STRING + dto.getFieldName());
+					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.EXPECTED_VALUE_STRING + dto.getExpValue());
+					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.ACTUAL_VALUE_STRING + dto.getActualValue());
+					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.STATUS_STRING + dto.getStatus());
 				}else if (dto.getStatus().equals("WARNING")) {
-					OUTPUTVALIDATION_LOGGER.info("* JsonField Path :" + dto.getFieldName());
-					OUTPUTVALIDATION_LOGGER.info("* Expected Value :" + dto.getExpValue());
-					OUTPUTVALIDATION_LOGGER.info("* Actual value :" + dto.getActualValue());
-					OUTPUTVALIDATION_LOGGER.info("* Status :" + dto.getStatus());
-				}else if (dto.getStatus().equals("FAIL")) {
-					OUTPUTVALIDATION_LOGGER.error("* JsonField Path :" + dto.getFieldName());
-					OUTPUTVALIDATION_LOGGER.error("* Expected Value :" + dto.getExpValue());
-					OUTPUTVALIDATION_LOGGER.error("* Actual value :" + dto.getActualValue());
-					OUTPUTVALIDATION_LOGGER.error("* Status :" + dto.getStatus());
+					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.JSONFIELD_PATH_STRING + dto.getFieldName());
+					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.EXPECTED_VALUE_STRING + dto.getExpValue());
+					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.ACTUAL_VALUE_STRING + dto.getActualValue());
+					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.STATUS_STRING + dto.getStatus());
+				}else if (dto.getStatus().equals(GlobalConstants.FAIL_STRING)) {
+					OUTPUTVALIDATION_LOGGER.error(GlobalConstants.JSONFIELD_PATH_STRING + dto.getFieldName());
+					OUTPUTVALIDATION_LOGGER.error(GlobalConstants.EXPECTED_VALUE_STRING + dto.getExpValue());
+					OUTPUTVALIDATION_LOGGER.error(GlobalConstants.ACTUAL_VALUE_STRING + dto.getActualValue());
+					OUTPUTVALIDATION_LOGGER.error(GlobalConstants.STATUS_STRING + dto.getStatus());
 					outputStatus = false;
 				}
 			}
@@ -423,7 +417,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 				}
 				}catch(Exception e)
 				{
-					e.printStackTrace();
+					OUTPUTVALIDATION_LOGGER.error(e.getStackTrace());
 				}
 			}
 		}

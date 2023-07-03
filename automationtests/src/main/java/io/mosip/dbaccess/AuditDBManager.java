@@ -1,22 +1,14 @@
 package io.mosip.dbaccess;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
-import java.util.Map.Entry;
-import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
@@ -25,7 +17,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.jdbc.Work;
 import org.testng.Assert;
-import org.testng.ITest;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.kernel.util.ConfigManager;
@@ -50,24 +41,26 @@ public class AuditDBManager extends AdminTestUtil {
 		Map<String, Object> record = new HashMap<String, Object>();
 		try {
 			session = getDataBaseConnection(moduleName);
-			session.doWork(new Work() {
-				@Override
-				public void execute(Connection connection) throws SQLException {
-					Statement statement = connection.createStatement();
-					try {
-						ResultSet rs = statement.executeQuery(query);
-						ResultSetMetaData md = rs.getMetaData();
-						int columns = md.getColumnCount();
-						while (rs.next()) {
-							for (int i = 1; i <= columns; i++) {
-								record.put(md.getColumnName(i), rs.getObject(i));
+			if (session != null) {
+				session.doWork(new Work() {
+					@Override
+					public void execute(Connection connection) throws SQLException {
+						Statement statement = connection.createStatement();
+						try {
+							ResultSet rs = statement.executeQuery(query);
+							ResultSetMetaData md = rs.getMetaData();
+							int columns = md.getColumnCount();
+							while (rs.next()) {
+								for (int i = 1; i <= columns; i++) {
+									record.put(md.getColumnName(i), rs.getObject(i));
+								}
 							}
+						} finally {
+							statement.close();
 						}
-					} finally {
-						statement.close();
 					}
-				}
-			});
+				});
+			}
 		} catch (NullPointerException e) {
 			DBCONNECTION_LOGGER.error("Exception occured " + e.getMessage());
 		} finally {
@@ -88,20 +81,22 @@ public class AuditDBManager extends AdminTestUtil {
 		Session session = null;
 		try {
 			session = getDataBaseConnection(moduleName);
-			session.doWork(new Work() {
-				@Override
-				public void execute(Connection connection) throws SQLException {
-					Statement statement = connection.createStatement();
-					try {
-						int rs = statement.executeUpdate(deleteQuery);
-						if (rs > 0) {
-							System.out.println("deleted successfully!");
+			if (session != null) {
+				session.doWork(new Work() {
+					@Override
+					public void execute(Connection connection) throws SQLException {
+						Statement statement = connection.createStatement();
+						try {
+							int rs = statement.executeUpdate(deleteQuery);
+							if (rs > 0) {
+								DBCONNECTION_LOGGER.info("deleted successfully!");
+							}
+						} finally {
+							statement.close();
 						}
-					} finally {
-						statement.close();
 					}
-				}
-			});
+				});
+			}
 		} catch (NullPointerException e) {
 			DBCONNECTION_LOGGER.error("Exception occured " + e.getMessage());
 		} finally {

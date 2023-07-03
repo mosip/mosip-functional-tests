@@ -1,12 +1,9 @@
-package io.mosip.authentication.testdata;
+package TBD;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import org.apache.log4j.Logger;
 import org.yaml.snakeyaml.Yaml;
@@ -14,6 +11,8 @@ import org.yaml.snakeyaml.Yaml;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.dto.BiometricDto;
 import io.mosip.authentication.fw.util.RunConfigUtil;
+import io.mosip.global.utils.GlobalConstants;
+import io.mosip.service.BaseTestCase;
 
 public class BiometricTestDataProcessor {
 	
@@ -35,9 +34,9 @@ public class BiometricTestDataProcessor {
 	
 	public static String getBioMetricTestData(String bioType, String bioSubType, String thresholdPercentage) {
 		loadBiometricTestData(new File(RunConfigUtil.getBioTestDataPath()));
-		List<Object> listOfBioData = BiometricDto.getBiometric().get("biometrics").get(bioType).get(bioSubType)
+		List<Object> listOfBioData = BiometricDto.getBiometric().get(GlobalConstants.BIOMETRICS).get(bioType).get(bioSubType)
 				.get(thresholdPercentage);
-		Random random = new Random();
-		return (String) listOfBioData.get(random.nextInt(listOfBioData.size())).toString();
+		int randomNumber = Integer.parseInt(BaseTestCase.generateRandomNumberString(listOfBioData.size()));
+		return listOfBioData.get(randomNumber).toString();
 	}
 }

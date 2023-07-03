@@ -1,19 +1,12 @@
 package io.mosip.testscripts;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Base64;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -23,7 +16,6 @@ import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -31,15 +23,12 @@ import org.testng.internal.TestResult;
 
 import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
-import io.mosip.authentication.fw.precon.JsonPrecondtion;
-import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
-import io.mosip.ida.certificate.PartnerRegistration;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -105,9 +94,9 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 		 */
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
-		if (request.has("identityRequest")) {
-			identityRequest = request.get("identityRequest").toString();
-			request.remove("identityRequest");
+		if (request.has(GlobalConstants.IDENTITYREQUEST)) {
+			identityRequest = request.get(GlobalConstants.IDENTITYREQUEST).toString();
+			request.remove(GlobalConstants.IDENTITYREQUEST);
 		}
 		identityRequest = buildIdentityRequest(identityRequest);
 
@@ -122,80 +111,82 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 		// https://api-internal.dev2.mosip.net
 
 		if (identityRequest.contains("$DOMAINURI$")) {
-			String domainUrl = ApplnURI.replace("api-internal", "esignet");
+			String domainUrl = ApplnURI.replace("api-internal", GlobalConstants.ESIGNET);
 			identityRequest = identityRequest.replace("$DOMAINURI$", domainUrl);
 		}
 		String encryptedIdentityReq = null;
 		try {
 			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
 					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
-		JSONObject encryptedIdentityReqObject = new JSONObject(encryptedIdentityReq);
+			if (encryptedIdentityReq == null)
+				throw new AdminTestException("bioDataUtil.constractBioIdentityRequest is null");
 
-		JSONObject objIdentityRequest = encryptedIdentityReqObject.getJSONObject("identityRequest");
-		System.out.println(objIdentityRequest);
-		JSONArray arrayBiometrics = objIdentityRequest.getJSONArray("biometrics");
+			JSONObject encryptedIdentityReqObject = new JSONObject(encryptedIdentityReq);
 
-		// JSONObject objBiometrics=arrayBiometrics.getJSONObject(0);
+			JSONObject objIdentityRequest = encryptedIdentityReqObject.getJSONObject(GlobalConstants.IDENTITYREQUEST);
+			logger.info(objIdentityRequest);
+			JSONArray arrayBiometrics = objIdentityRequest.getJSONArray(GlobalConstants.BIOMETRICS);
 
-		// System.out.println(objBiometrics.get("hash"));
+			// JSONObject objBiometrics=arrayBiometrics.getJSONObject(0);
 
-		String bioData = arrayBiometrics.toString();
-		System.out.println(bioData);
+			// logger.info(objBiometrics.get("hash"));
 
-		byte[] byteBioData = bioData.getBytes();
+			String bioData = arrayBiometrics.toString();
+			logger.info(bioData);
 
-		String challengeValue = Base64.getUrlEncoder().encodeToString(byteBioData);
-		// String challengeValue =
-		// Base64.getUrlEncoder().encodeToString(decodedBioMetricValue);
-		System.out.println(challengeValue);
+			byte[] byteBioData = bioData.getBytes();
 
-		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
+			String challengeValue = Base64.getUrlEncoder().encodeToString(byteBioData);
+			// String challengeValue =
+			// Base64.getUrlEncoder().encodeToString(decodedBioMetricValue);
+			logger.info(challengeValue);
 
-		if (authRequest.contains("$CHALLENGE$")) {
-			authRequest = authRequest.replace("$CHALLENGE$", challengeValue);
-		}
-		if (testCaseName.contains("ESignet_")) {
-			String tempUrl = ApplnURI.replace("-internal", "");
-			response = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + testCaseDTO.getEndPoint(), authRequest,
-					COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
+
+			if (authRequest.contains("$CHALLENGE$")) {
+				authRequest = authRequest.replace("$CHALLENGE$", challengeValue);
+			}
+			if (testCaseName.contains("ESignet_")) {
+				String tempUrl = ApplnURI.replace("-internal", "");
+				response = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + testCaseDTO.getEndPoint(), authRequest,
+						COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 
 //			response = postWithBodyAndCookieForAutoGeneratedIdUrlEncoded(tempUrl + testCaseDTO.getEndPoint(), inputJson,
 //					COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
-		} else {
-			response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), authRequest, COOKIENAME,
-					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		}
-		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
-
-		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
-			if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
-					|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
-				ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 			} else {
-				ActualOPJson = AdminTestUtil.getRequestJson("config/errorUINIdp.json").toString();
+				response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), authRequest, COOKIENAME,
+						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 			}
-		} else {
-			if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
-				if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
-						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+			String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+
+			if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
+				if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
 					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 				} else {
 					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUINIdp.json").toString();
 				}
+			} else {
+				if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+					if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+							|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+						ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+					} else {
+						ActualOPJson = AdminTestUtil.getRequestJson("config/errorUINIdp.json").toString();
+					}
+				}
 			}
+
+			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+					.doJsonOutputValidation(response.asString(), ActualOPJson);
+			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
+
+			if (!OutputValidationUtil.publishOutputResult(ouputValid))
+				throw new AdminTestException("Failed at output validation");
+		} catch (Exception e) {
+			logger.error(e.getStackTrace());
 		}
-
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), ActualOPJson);
-		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-
-		if (!OutputValidationUtil.publishOutputResult(ouputValid))
-			throw new AdminTestException("Failed at output validation");
 
 	}
 

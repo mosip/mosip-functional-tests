@@ -10,7 +10,6 @@ import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
 
-import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -18,7 +17,6 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -92,11 +90,11 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 	public void createUins(TestCaseDTO testCaseDTO, int count) throws AuthenticationTestException, AdminTestException {
 		String uin = JsonPrecondtion
 				.getValueFromJson(RestClient.getRequestWithCookie(ApplnURI+"/v1/idgenerator/uin", MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(), "response.uin");
-		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
+		DateFormat dateFormatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
 		//String genRid = "278476573600025" + timestampValue;
-		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
+		String genRid = "27847" + generateRandomNumberString(10) + timestampValue;
 		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		inputJson = inputJson.replace("$UIN$", uin);
 		inputJson = inputJson.replace("$RID$", genRid);

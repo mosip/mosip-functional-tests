@@ -3,7 +3,7 @@ package io.mosip.kernel.util;
 
 import java.io.IOException;
 
-
+import org.apache.log4j.Logger;
 
 import com.ibm.icu.text.Transliterator;
 
@@ -11,10 +11,10 @@ import io.mosip.testrunner.MosipTestRunner;
 
 public class Translator {
 	static String IDlookupFile = "src/main/resource/config/lang-isocode-transid.csv";
-
+	private static final Logger logger = Logger.getLogger(Translator.class);
 	public static void main(String[] args) {
 		String text = "Mohandas Karamchand Ghandhi"; // Translated text: Hallo Welt!
-		System.out.println("Text:" + text + ",Translated text: " + translate("heb", text));
+		logger.info("Text:" + text + ",Translated text: " + translate("heb", text));
 	}
 
 	static String getLanguageID(String langIsoCode) {
@@ -38,7 +38,7 @@ public class Translator {
 			}
 			csv.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 		return v;
 	}

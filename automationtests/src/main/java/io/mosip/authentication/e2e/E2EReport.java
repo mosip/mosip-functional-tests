@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.testng.IReporter;
 import org.testng.IResultMap;
 import org.testng.ISuite;
@@ -13,8 +14,10 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.xml.XmlSuite;
 
-public class E2EReport implements IReporter{
+import io.mosip.global.utils.GlobalConstants;
 
+public class E2EReport implements IReporter{
+	private static final Logger logger = Logger.getLogger(E2EReport.class);
 	public static Map<String,String> e2eReport = new HashMap<String,String>();
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
@@ -38,12 +41,12 @@ public class E2EReport implements IReporter{
 					IResultMap testFailedResult = testObj.getFailedTests();
 					Set<ITestResult> testResultSet = testFailedResult.getAllResults();
 					for (ITestResult testResult : testResultSet) {
-						e2eReport.put(testResult.getTestClass().getName(), "FAIL");
+						e2eReport.put(testResult.getTestClass().getName(), GlobalConstants.FAIL_STRING);
 					}
 				}
 			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			logger.error(e.getStackTrace());
 		} finally {
 			return e2eReport;
 		}

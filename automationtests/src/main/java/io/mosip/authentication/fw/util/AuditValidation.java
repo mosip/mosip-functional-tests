@@ -11,6 +11,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
 import io.mosip.authentication.fw.dto.OutputValidationDto;
+import io.mosip.global.utils.GlobalConstants;
 
 /**
  * The class to handle audit log and auth transaction validation
@@ -62,16 +63,16 @@ public class AuditValidation {
 			if (exp_auth_txn.containsKey("request_dtimes") && exp_auth_txn.containsKey("response_dtimes")) {
 				act = DbConnection
 						.getDataForQuery(
-								getAuditLogQuery(exp.get("app_name"), exp.get("module_name"), exp.get("ref_id"),
+								getAuditLogQuery(exp.get(GlobalConstants.APP_NAME), exp.get(GlobalConstants.MODULE_NAME), exp.get("ref_id"),
 										exp_auth_txn.get("request_dtimes"), exp_auth_txn.get("response_dtimes")),
 								"AUDIT");
 			} else {
 				act = DbConnection.getDataForQuery(
-						getAuditLogQuery(exp.get("app_name"), exp.get("module_name"), exp.get("ref_id")), "AUDIT");
+						getAuditLogQuery(exp.get(GlobalConstants.APP_NAME), exp.get(GlobalConstants.MODULE_NAME), exp.get("ref_id")), "AUDIT");
 			}
 		} else {
 			act = DbConnection.getDataForQuery(
-					getAuditLogQuery(exp.get("app_name"), exp.get("module_name"), exp.get("ref_id")), "AUDIT");
+					getAuditLogQuery(exp.get(GlobalConstants.APP_NAME), exp.get(GlobalConstants.MODULE_NAME), exp.get("ref_id")), "AUDIT");
 		}
 		return OutputValidationUtil.compareActuExpValue(act, exp, "Audit Log Validation");
 	}	

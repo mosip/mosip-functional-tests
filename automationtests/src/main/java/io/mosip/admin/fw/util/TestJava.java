@@ -1,12 +1,21 @@
 package io.mosip.admin.fw.util;
 
+import java.security.SecureRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TestJava {
+import org.apache.log4j.Logger;
 
+public class TestJava {
+	private static final Logger lOGGER = Logger.getLogger(EncryptionDecrptionUtil.class);
+	private static final SecureRandom secureRandom = new SecureRandom();
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		String randomAlphaNum = generateRandomAlphanumericString(6);
+		String randomNum = generateRandomAlphanumericString(10);
+		String randomNum1 = generateRandomNumericString(10);
+		
+		
 
 		//find any 6 digit number
 		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");
@@ -28,12 +37,32 @@ public class TestJava {
 		    if(mMatcher.find()) {
 		        String otp = mMatcher.group(0);
 		        otp = otp.trim();
-		        System.out.println("Final OTP: "+ otp);
+		        lOGGER.info("Final OTP: "+ otp);
 		    }else {
 		        //something went wrong
-		    	System.out.println("Failed to extract the OTP!! ");
+		    	lOGGER.info("Failed to extract the OTP!! ");
 		    }
 		}
 	}
+	public static String generateRandomAlphanumericString(int length)  {
+        byte[] bytes = new byte[length];
+        secureRandom.nextBytes(bytes);
+        String randomString = new String(bytes);
+        return randomString.replaceAll("[^0-9a-zA-Z]", "");
+    }
+	
+	 public static String generateRandomString(int length) {
+	        byte[] bytes = new byte[length];
+	        secureRandom.nextBytes(bytes);
+	        String randomString = new String(bytes);
+	        return randomString;
+	    }
+	 
+	 public static String generateRandomNumericString(int length) {
+	        byte[] bytes = new byte[length];
+	        secureRandom.nextBytes(bytes);
+	        String randomString = new String(bytes);
+	        return randomString.replaceAll("[^0-9]", "");
+	    }
 
 }

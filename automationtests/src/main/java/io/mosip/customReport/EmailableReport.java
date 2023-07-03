@@ -77,22 +77,22 @@ public class EmailableReport implements IReporter {
         if (ConfigManager.getPushReportsToS3().equalsIgnoreCase("yes")) {
 			File repotFile = new File(System.getProperty("user.dir") + "/" + System.getProperty("testng.outpur.dir")
 					+ "/" + System.getProperty("emailable.report2.name"));
-			System.out.println("reportFile is::" + System.getProperty("user.dir") + "/"
+			LOG.info("reportFile is::" + System.getProperty("user.dir") + "/"
 					+ System.getProperty("testng.outpur.dir") + "/" + System.getProperty("emailable.report2.name"));
 			S3Adapter s3Adapter = new S3Adapter();
 			boolean isStoreSuccess = false;
 			try {
 				isStoreSuccess = s3Adapter.putObject(ConfigManager.getS3Account(), System.getProperty("modules"), null,
 						null, System.getProperty("emailable.report2.name"), repotFile);
-				System.out.println("isStoreSuccess:: " + isStoreSuccess);
+				LOG.info("isStoreSuccess:: " + isStoreSuccess);
 			} catch (Exception e) {
-				System.out.println("error occured while pushing the object" + e.getLocalizedMessage());
-				e.printStackTrace();
+				LOG.info("error occured while pushing the object" + e.getLocalizedMessage());
+				LOG.error(e.getStackTrace());
 			}
 			if (isStoreSuccess) {
-				System.out.println("Pushed file to S3");
+				LOG.info("Pushed file to S3");
 			} else {
-				System.out.println("Failed while pushing file to S3");
+				LOG.info("Failed while pushing file to S3");
 			}
 		}
     }
@@ -107,8 +107,8 @@ public class EmailableReport implements IReporter {
 			//branch = properties.getProperty("git.branch");
 			return "Commit Id is: " + properties.getProperty("git.commit.id.abbrev") + " & Branch Name is:" + properties.getProperty("git.branch");
 
-		} catch (IOException io) {
-			io.printStackTrace();
+		} catch (IOException e) {
+			LOG.error(e.getStackTrace());
 			return "";
 		}
 		

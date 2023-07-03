@@ -1,24 +1,25 @@
 package io.mosip.service;
 
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
 import org.testng.ITestContext;
-import org.testng.Reporter;
 import org.testng.annotations.AfterSuite;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -28,17 +29,12 @@ import com.nimbusds.jose.jwk.RSAKey;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
-import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.dbaccess.DBManager;
-import io.mosip.ida.certificate.CertificateGenerationUtil;
-import io.mosip.ida.certificate.KeyCloakUserAndAPIKeyGeneration;
-import io.mosip.ida.certificate.MispPartnerAndLicenseKeyGeneration;
-import io.mosip.ida.certificate.PartnerRegistration;
+import io.mosip.global.utils.GlobalConstants;
+import io.mosip.global.utils.GlobalMethods;
 import io.mosip.kernel.util.CommonLibrary;
-import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.KernelAuthentication;
-import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.testrunner.MockSMTPListener;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
@@ -62,7 +58,7 @@ public class BaseTestCase {
 	public String preRegAdminToken;
 	protected static String regClientToken;
 	public String regProcToken;
-	public final String COOKIENAME = "Authorization";
+	public final String COOKIENAME = GlobalConstants.AUTHORIZATION;
 	public final String IDTOKENCOOKIENAME = "id_token";
 	public final String ACCESSTOKENCOOKIENAME = "access_token";
 	public final String COOKIENAMESTATE = "state";
@@ -89,7 +85,7 @@ public class BaseTestCase {
 	public String zonemapCookie = null;
 	public String mobileAuthCookie = null;
 	public String autoTstUsrCkie = null;
-	public static String currentModule = "masterdata";
+	public static String currentModule = GlobalConstants.MASTERDATA;
 	public static String certsForModule = "DSL-IDA";
 	public static List<String> listOfModules = null;
 	public static List<String> languageList = new ArrayList<>();
@@ -125,37 +121,44 @@ public class BaseTestCase {
 	public static String SEPRATOR = "";
 	public static String buildNumber = "";
 	public static List<String> t = new ArrayList<>();
+	private static final char[] alphaNumericAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ0123456789"
+			.toCharArray();
+	private static final char[] alphabetsAllowed = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ"
+			.toCharArray();
+	private static final char[] nNumericAllowed = "0123456789".toCharArray();
+	public static SecureRandom secureRandom = new SecureRandom();
+	
 	public static String currentRunningLanguage = "";
-	public static String genRid = "27847" + RandomStringUtils.randomNumeric(10);
+	public static String genRid = "27847" + generateRandomNumberString(10);
 
-	public static String genPolicyNumber = "9" + RandomStringUtils.randomNumeric(5);
-	public static String genRidDel = "2785" + RandomStringUtils.randomNumeric(10);
-	public String genPolicyGroupDesc = "policyGroupForAutomationEsi" + RandomStringUtils.randomNumeric(6);
-	public String genMispPolicyGroupDesc = "policyGroupForMispEsi" + RandomStringUtils.randomNumeric(6)
-			+ RandomStringUtils.randomNumeric(3);
-	public String genPolicyGroupName = "policyGroupNameForAutomationEsi" + RandomStringUtils.randomNumeric(5);
-	public String genMispPolicyGroupName = "policyGroupNameForMispEsi" + RandomStringUtils.randomNumeric(6)
-			+ RandomStringUtils.randomNumeric(3);
-	public String genPolicyDesc = "policyDescForAutomationEsi" + RandomStringUtils.randomNumeric(5);
-	public String genMispPolicyDesc = "policyDescForMispEsit" + RandomStringUtils.randomNumeric(6)
-			+ RandomStringUtils.randomNumeric(3);
-	public String genPolicyName = "policyNameForAutomationEsi" + RandomStringUtils.randomNumeric(4);
-	public String genPolicyNameNonAuth = "policyNameForEsignet" + RandomStringUtils.randomNumeric(4);
-	public String genMispPolicyName = "policyNameForMispEsi" + RandomStringUtils.randomNumeric(6)
-			+ RandomStringUtils.randomNumeric(3);
-	public static String genPartnerName = "partnernameforautomationesi-" + RandomStringUtils.randomNumeric(6);
-	public static String genPartnerNameNonAuth = "partnernameforesignet-" + RandomStringUtils.randomNumeric(6);
-	public String genPartnerNameForDsl = "partnernameforautomationesi-" + RandomStringUtils.randomNumeric(6);
-	public static String genMispPartnerName = "esignet_" + RandomStringUtils.randomNumeric(6)
-			+ RandomStringUtils.randomNumeric(3);
-	public static String genPartnerEmail = "automationpartneresi" + RandomStringUtils.randomNumeric(7)
+	public static String genPolicyNumber = "9" + generateRandomNumberString(5);
+	public static String genRidDel = "2785" + generateRandomNumberString(10);
+	public String genPolicyGroupDesc = "policyGroupForAutomationEsi" + generateRandomNumberString(6);
+	public String genMispPolicyGroupDesc = "policyGroupForMispEsi" + generateRandomNumberString(6)
+			+ generateRandomNumberString(3);
+	public String genPolicyGroupName = "policyGroupNameForAutomationEsi" + generateRandomNumberString(5);
+	public String genMispPolicyGroupName = "policyGroupNameForMispEsi" + generateRandomNumberString(6)
+			+ generateRandomNumberString(3);
+	public String genPolicyDesc = "policyDescForAutomationEsi" + generateRandomNumberString(5);
+	public String genMispPolicyDesc = "policyDescForMispEsit" + generateRandomNumberString(6)
+			+ generateRandomNumberString(3);
+	public String genPolicyName = "policyNameForAutomationEsi" + generateRandomNumberString(4);
+	public String genPolicyNameNonAuth = "policyNameForEsignet" + generateRandomNumberString(4);
+	public String genMispPolicyName = "policyNameForMispEsi" + generateRandomNumberString(6)
+			+ generateRandomNumberString(3);
+	public static String genPartnerName = "partnernameforautomationesi-" + generateRandomNumberString(6);
+	public static String genPartnerNameNonAuth = "partnernameforesignet-" + generateRandomNumberString(6);
+	public String genPartnerNameForDsl = "partnernameforautomationesi-" + generateRandomNumberString(6);
+	public static String genMispPartnerName = "esignet_" + generateRandomNumberString(6)
+			+ generateRandomNumberString(3);
+	public static String genPartnerEmail = "automationpartneresi" + generateRandomNumberString(7)
 			+ "@automationMosip.com";
-	public String genPartnerEmailForDsl = "automationpartneresi" + RandomStringUtils.randomNumeric(10)
+	public String genPartnerEmailForDsl = "automationpartneresi" + generateRandomNumberString(10)
 	+ "@automationMosip.com";
-	public String genPartnerEmailNonAuth = "automationesignet" + RandomStringUtils.randomNumeric(10)
+	public String genPartnerEmailNonAuth = "automationesignet" + generateRandomNumberString(10)
 	+ "@automationMosip.com";
-	public String genMispPartnerEmail = "misppartner" + RandomStringUtils.randomNumeric(4)
-			+ RandomStringUtils.randomNumeric(4) + "@automationMosip.com";
+	public String genMispPartnerEmail = "misppartner" + generateRandomNumberString(4)
+			+ generateRandomNumberString(4) + "@automationMosip.com";
 	// public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
 	public static RSAKey rsaJWK;
@@ -223,7 +226,6 @@ public class BaseTestCase {
 			try {
 				FileUtils.forceDelete(logFile);
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				logger.error("Failed to delete old log file");
 			}
 		logger.info("Test Framework for Mosip api Initialized");
@@ -254,16 +256,16 @@ public class BaseTestCase {
 		 * BaseTestCase.currentModule = "admin"; AdminTestUtil.initiateAdminTest(); }
 		 */
 
-		if (listOfModules.contains("masterdata")) {
+		if (listOfModules.contains(GlobalConstants.MASTERDATA)) {
 			DBManager.clearMasterDbData();
-			BaseTestCase.currentModule = "masterdata";
-			setReportName("masterdata");
+			BaseTestCase.currentModule = GlobalConstants.MASTERDATA;
+			setReportName(GlobalConstants.MASTERDATA);
 			AdminTestUtil.initiateMasterDataTest();
 		}
 
-		if (listOfModules.contains("mobileid")) {
-			BaseTestCase.currentModule = "mobileid";
-			setReportName("mobileid");
+		if (listOfModules.contains(GlobalConstants.MOBILEID)) {
+			BaseTestCase.currentModule = GlobalConstants.MOBILEID;
+			setReportName(GlobalConstants.MOBILEID);
 			AdminTestUtil.initiateMobileIdTestTest();
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
@@ -277,11 +279,11 @@ public class BaseTestCase {
 
 		}
 
-		if (listOfModules.contains("esignet")) {
+		if (listOfModules.contains(GlobalConstants.ESIGNET)) {
 
-			BaseTestCase.currentModule = "esignet";
-			BaseTestCase.certsForModule = "esignet";
-			setReportName("esignet");
+			BaseTestCase.currentModule = GlobalConstants.ESIGNET;
+			BaseTestCase.certsForModule = GlobalConstants.ESIGNET;
+			setReportName(GlobalConstants.ESIGNET);
 			AdminTestUtil.initiateesignetTest();
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
@@ -291,9 +293,9 @@ public class BaseTestCase {
 		 * if (listOfModules.contains("syncdata")) { setReportName("syncdata");
 		 * AdminTestUtil.initiateSyncDataTest(); }
 		 */
-		if (listOfModules.contains("resident")) {
-			BaseTestCase.currentModule = "resident";
-			setReportName("resident");
+		if (listOfModules.contains(GlobalConstants.RESIDENT)) {
+			BaseTestCase.currentModule = GlobalConstants.RESIDENT;
+			setReportName(GlobalConstants.RESIDENT);
 			AdminTestUtil.copyResidentTestResource();
 		MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
@@ -314,9 +316,9 @@ public class BaseTestCase {
 		 * if (listOfModules.contains("regproc")) { setReportName("regproc");
 		 * AdminTestUtil.initiateregProcTest(); }
 		 */
-		if (listOfModules.contains("prereg")) {
-			BaseTestCase.currentModule = "prereg";
-			setReportName("prereg");
+		if (listOfModules.contains(GlobalConstants.PREREG)) {
+			BaseTestCase.currentModule = GlobalConstants.PREREG;
+			setReportName(GlobalConstants.PREREG);
 			AdminTestUtil.copyPreregTestResource();
 			MockSMTPListener mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
@@ -353,7 +355,7 @@ public class BaseTestCase {
 			inputStream = new FileInputStream(file);
 			prop.load(inputStream);
 		} catch (Exception e) {
-			logger.error("Exception " + e.getMessage());
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 		}finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}
@@ -413,13 +415,13 @@ public class BaseTestCase {
 		request.put("zoneCode", props.get("zoneCode_to_beMapped"));
 		request.put("userId", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
-		request.put("isActive", "true");
-		actualrequest.put("request", request);
-		System.out.println(actualrequest);
+		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
+		actualrequest.put(GlobalConstants.REQUEST, request);
+		logger.info(actualrequest);
 		Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(propsKernel.get("admin_userName") + "Mapped to" + props.get("zoneCode_to_beMapped") + "Zone");
-		System.out.println(response);
+		logger.info(response);
 
 	}
 
@@ -434,13 +436,13 @@ public class BaseTestCase {
 		request.put("zoneCode", zone);
 		request.put("userId", user);
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
-		request.put("isActive", "true");
-		actualrequest.put("request", request);
-		System.out.println(actualrequest);
+		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
+		actualrequest.put(GlobalConstants.REQUEST, request);
+		logger.info(actualrequest);
 		Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(user + "Mapped to" + zone + "Zone");
-		System.out.println(response);
+		logger.info(response);
 
 	}
 
@@ -449,11 +451,11 @@ public class BaseTestCase {
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("isActive", "true");
+		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("userId", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		logger.info(response);
 	}
 
 	public static void mapZone(String user) {
@@ -461,11 +463,11 @@ public class BaseTestCase {
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("isActive", "true");
+		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("userId", user);
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		logger.info(response);
 	}
 
 	public static boolean zoneName() {
@@ -479,8 +481,8 @@ public class BaseTestCase {
 		map.put("langCode", BaseTestCase.getLanguageList().get(0));
 
 		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		logger.info(response);
 
 		String otpInput = response.getBody().asString();
 		if (otpInput.contains("KER-MSD-391")) {
@@ -501,20 +503,20 @@ public class BaseTestCase {
 		requestMap.put("name", "automation");
 		requestMap.put("statusCode", "active");
 		requestMap.put("regCenterId", "10005");
-		requestMap.put("isActive", "true");
+		requestMap.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		requestMap.put("langCode", "eng");
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
-		map.put("id", "string");
-		map.put("version", "string");
-		map.put("requesttime", AdminTestUtil.generateCurrentUTCTimeStamp());
-		map.put("metadata", new HashMap<>());
-		map.put("request", requestMap);
+		map.put("id", GlobalConstants.STRING);
+		map.put(GlobalConstants.VERSION, GlobalConstants.STRING);
+		map.put(GlobalConstants.REQUESTTIME, AdminTestUtil.generateCurrentUTCTimeStamp());
+		map.put(GlobalConstants.METADATA, new HashMap<>());
+		map.put(GlobalConstants.REQUEST, requestMap);
 
 		Response response = RestClient.postRequestWithCookie(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		logger.info(response);
 	}
 
 	public static void userCenterMappingStatus() {
@@ -524,12 +526,12 @@ public class BaseTestCase {
 
 		HashMap<String, String> map = new HashMap<String, String>();
 
-		map.put("isActive", "true");
+		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("id", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
 
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		logger.info(response);
 	}
 
 	public static List<String> getLanguageList() {
@@ -541,10 +543,14 @@ public class BaseTestCase {
 		Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
 		org.json.JSONObject responseValue = (org.json.JSONObject) responseJson.get("response");
-		String mandatoryLanguage = (String) responseValue.get("mosip.mandatory-languages");
-
-		languageList.add(mandatoryLanguage);
-		languageList.addAll(Arrays.asList(((String) responseValue.get("mosip.optional-languages")).split(",")));
+		
+		String mandatoryLanguages = (String) responseValue.get("mosip.mandatory-languages");
+		if (mandatoryLanguages != null && !mandatoryLanguages.isBlank())
+			languageList.addAll(Arrays.asList(mandatoryLanguages.split(",")));
+		
+		String optionalLanguages = (String) responseValue.get("mosip.optional-languages");
+		if (optionalLanguages != null && !optionalLanguages.isBlank())
+			languageList.addAll(Arrays.asList(optionalLanguages.split(",")));
 
 		return languageList;
 	}
@@ -563,20 +569,19 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + url + ") <pre>"
-					+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + "</pre>");
+			GlobalMethods.reportResponse(url, response);
 
 			responseJson = new org.json.JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
 
 			for (int i = 0, size = responseArray.length(); i < size; i++) {
 				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
-				System.out.println("eachJson is :" + eachJson.toString());
+				logger.info("eachJson is :" + eachJson.toString());
 				if (eachJson.get("name").toString().contains(
 						"configService:https://github.com/mosip/mosip-config/id-authentication-default.properties")) {
 					org.json.JSONObject idTypes = (org.json.JSONObject) eachJson.getJSONObject("properties")
 							.get("request.idtypes.allowed");
-					String newIdTypes = idTypes.getString("value");
+					String newIdTypes = idTypes.getString(GlobalConstants.VALUE);
 
 					supportedIdType.addAll(Arrays.asList((newIdTypes).split(",")));
 
@@ -586,7 +591,7 @@ public class BaseTestCase {
 
 			return supportedIdType;
 		} catch (Exception e) {
-			logger.error("Exception " + e);
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return supportedIdType;
 		}
 
@@ -595,5 +600,28 @@ public class BaseTestCase {
 	public static JSONObject getRequestJson(String filepath) {
 		return kernelCmnLib.readJsonData(filepath, true);
 
+	}
+	public static String generateRandomAlphaNumericString(int length) {
+		StringBuilder alphaNumericString = new StringBuilder();
+		for (int i = 0; i < length; i++) {
+			alphaNumericString.append(alphaNumericAllowed[secureRandom.nextInt(alphaNumericAllowed.length)]);
+		}
+		return alphaNumericString.toString();
+	}
+	
+	public static String generateRandomAlphabeticString(int length) {
+		StringBuilder alphaNumericString = new StringBuilder();
+		for (int i = 0; i < length; i++) {
+			alphaNumericString.append(alphabetsAllowed[secureRandom.nextInt(alphabetsAllowed.length)]);
+		}
+		return alphaNumericString.toString();
+	}
+
+	public static String generateRandomNumberString(int length) {
+		StringBuilder numericString = new StringBuilder();
+		for (int i = 0; i < length; i++) {
+			numericString.append(nNumericAllowed[secureRandom.nextInt(nNumericAllowed.length)]);
+		}
+		return numericString.toString();
 	}
 }

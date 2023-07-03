@@ -2,12 +2,12 @@ package io.mosip.testscripts;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 /*import org.json.simple.JSONObject;*/
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -15,7 +15,6 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -30,10 +29,7 @@ import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
-import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.response.Response;
-import org.json.JSONObject;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
 
 public class SimpleDelete extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimpleDelete.class);
@@ -94,21 +90,21 @@ public class SimpleDelete extends AdminTestUtil implements ITest {
 			//languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
 			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
-		        	Innerloop:
-		            for (int j=i; j <languageList.size();) {
+//		        	Innerloop:
+//		            for (int j=i; j <languageList.size(); j++) {
 		            	response = DeleteWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 								getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
 								testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		            	
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 								response.asString(),
-								getJsonFromTemplate(outputtestcase.get(j).toString(), testCaseDTO.getOutputTemplate()));
+								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()));
 						Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
 							throw new AdminTestException("Failed at output validation");
-		                    break Innerloop;
-		            }
+//		                    break Innerloop;
+//		            }
 		        }
 		}
 
@@ -144,7 +140,7 @@ public class SimpleDelete extends AdminTestUtil implements ITest {
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
 			}
 			
-			System.out.println(ouputValid);
+			logger.info(ouputValid);
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

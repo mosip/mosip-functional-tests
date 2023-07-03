@@ -1,23 +1,17 @@
 package io.mosip.service;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
-
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.testng.Assert;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flipkart.zjsonpatch.JsonDiff;
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
 
 import io.restassured.response.Response;
 
@@ -67,7 +61,7 @@ public class AssertIda {
 			}
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 		logger.info("equal");
 		return true;

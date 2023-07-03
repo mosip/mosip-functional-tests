@@ -1,33 +1,35 @@
 package io.mosip.testrunner;
 
+import static io.restassured.RestAssured.given;
+
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
-import javax.ws.rs.core.MediaType;
-
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
-import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.service.BaseTestCase;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import static io.restassured.RestAssured.given;
 
 public class HealthChecker implements Runnable {
+	private static final Logger logger = Logger.getLogger(HealthChecker.class);
 	public static boolean bTerminate = false;
 	public static String propsHealthCheckURL = MosipTestRunner.getResourcePath() + "/" + "config/healthCheckEndpoint.properties";
 	public static boolean signalTerminateExecution = false;
 	public static Map<Object, Object> healthCheckFailureMapS = Collections.synchronizedMap(new HashMap<Object, Object>());
+	private String currentRunningModule = ""; 
+	
+	public void setCurrentRunningModule(String currentModule) {
+		currentRunningModule = currentModule;
+	}
 
 	public void run() {
 		
@@ -45,19 +47,20 @@ public class HealthChecker implements Runnable {
 					continue;
 				String[] parts = line.trim().split("=");
 				if (parts.length > 1) {
-					controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
+					// only add health check required for the current running module
+					if (parts[0].contains(currentRunningModule)) 
+						controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
 				}
 			}
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		} catch (Exception e) {
+			logger.error(e.getStackTrace());
 		} finally {
 			AdminTestUtil.closeBufferedReader(bufferedReader);
 			AdminTestUtil.closeFileReader(fileReader);
 		}
 
 		while (bTerminate == false) {
-			System.out.println("Checking Health");
+			logger.info("Checking Health");
 			boolean isAllServicesUp = true;
 			for (int i = 0; i < controllerPaths.size(); i++) {
 				String serviceStatus = checkActuatorNoAuth(controllerPaths.get(i));
@@ -74,19 +77,17 @@ public class HealthChecker implements Runnable {
 			try {
 				Thread.sleep(60000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 				Thread.currentThread().interrupt();
 			}
 		}
 	}
 	
-	public static String checkActuatorNoAuth(String url) {
-		String urlAct = url + "/actuator/health";
+	public static String checkActuatorNoAuth(String actuatorURL) {
 		Response response =null;
-		response = given().contentType(ContentType.JSON).get(urlAct);
+		response = given().contentType(ContentType.JSON).get(actuatorURL);
 		if(response != null && 	response.getStatusCode() == 200 ) {
-			System.out.println(response.getBody().asString());        	
+			logger.info(response.getBody().asString());        	
 			JSONObject jsonResponse = new JSONObject(response.getBody().asString());
 			return jsonResponse.getString("status");
 		}

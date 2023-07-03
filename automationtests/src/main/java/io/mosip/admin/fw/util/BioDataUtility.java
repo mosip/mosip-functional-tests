@@ -1,15 +1,8 @@
 package io.mosip.admin.fw.util;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.security.KeyStoreException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableEntryException;
-import java.security.cert.CertificateEncodingException;
-import java.security.cert.CertificateException;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.regex.Pattern;
@@ -19,9 +12,6 @@ import javax.ws.rs.core.MediaType;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.jose4j.lang.JoseException;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
@@ -29,6 +19,7 @@ import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.BytesUtil;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.RestClient;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.kernel.util.ConfigManager;
@@ -76,14 +67,14 @@ public class BioDataUtility extends AdminTestUtil {
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
 				AdminTestUtil.generateCurrentUTCTimeStamp(), "request.timeStamp");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
-				AdminTestUtil.generateCurrentUTCTimeStamp(), "requesttime");
+				AdminTestUtil.generateCurrentUTCTimeStamp(), GlobalConstants.REQUESTTIME);
 			
-		residentCookie = kernelAuthLib.getTokenByRole("resident");
+		residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
 		
 		String content = RestClient.postRequestWithCookie(cryptoEncryptUrl, jsonContent, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, COOKIENAME, residentCookie).asString();
 		String data = JsonPrecondtion.getValueFromJson(content, "response.data");
-		System.out.println("data is" + data);
+		logger.info("data is" + data);
 		return EncryptionDecrptionUtil.splitEncryptedData(data);
 	}
 
@@ -99,10 +90,10 @@ public class BioDataUtility extends AdminTestUtil {
 		previousBioDataHash = generateHash(previousDataByteArr);
 		
 		JSONObject request = new JSONObject(input);
-		if (request.has("request")) {
-			JSONObject bioJson = request.getJSONObject("request").getJSONArray("biometrics").getJSONObject(0).getJSONObject("data");
-			bioValue = bioJson.getString("bioValue");
-			transactionId = bioJson.getString("transactionId");
+		if (request.has(GlobalConstants.REQUEST)) {
+			JSONObject bioJson = request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.BIOMETRICS).getJSONObject(0).getJSONObject("data");
+			bioValue = bioJson.getString(GlobalConstants.BIOVALUE);
+			transactionId = bioJson.getString(GlobalConstants.TRANSACTIONID);
 			timestamp = bioJson.getString("timestamp");
 		}
 		
@@ -122,10 +113,10 @@ public class BioDataUtility extends AdminTestUtil {
 		String encryptedSessionKey = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedSessionKey");
 		encryptedSessionKeyString = encryptedSessionKey;
 //		Replacing biovalue with encryptedBioValue
-		request.getJSONObject("request").getJSONArray("biometrics").getJSONObject(0).getJSONObject("data").put("bioValue", encryptedBioValue);
+		request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.BIOMETRICS).getJSONObject(0).getJSONObject("data").put(GlobalConstants.BIOVALUE, encryptedBioValue);
 //		Replacing hashvalue with hash
-		request.getJSONObject("request").getJSONArray("biometrics").getJSONObject(0).put("hash", hash);
-		System.out.println(encryptedSessionKeyString);
+		request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.BIOMETRICS).getJSONObject(0).put("hash", hash);
+		logger.info(encryptedSessionKeyString);
 		
 		
 		
@@ -160,11 +151,11 @@ public class BioDataUtility extends AdminTestUtil {
 			 */
 
 			String data = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + ".data");
-			String bioValue = JsonPrecondtion.getValueFromJson(data, "bioValue");
+			String bioValue = JsonPrecondtion.getValueFromJson(data, GlobalConstants.BIOVALUE);
 
 			//storeValue(bioValue);
 			String timestamp = JsonPrecondtion.getValueFromJson(data, "timestamp");
-			String transactionId = JsonPrecondtion.getValueFromJson(data, "transactionId");
+			String transactionId = JsonPrecondtion.getValueFromJson(data, GlobalConstants.TRANSACTIONID);
 			String encryptedContent = encryptIsoBioValue(bioValue, timestamp, bioValueencryptionTemplateJson,
 					transactionId, isInternal);
 			String encryptedBioValue = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedData");
@@ -192,7 +183,7 @@ public class BioDataUtility extends AdminTestUtil {
 					biometricsMapper + ".data");
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, encryptedSessionKey,
 					biometricsMapper + ".sessionKey");
-			//System.out.println(identityRequest);
+			//logger.info(identityRequest);
 			//instead of BioData, bioValue (before encrytion in case of Capture response) is used for computing the hash.
 	        //byte [] currentDataByteArr = java.util.Base64.getUrlDecoder().decode(bioValue);
 	        byte [] currentDataByteArr = org.apache.commons.codec.binary.Base64.decodeBase64(bioValue);
@@ -253,15 +244,15 @@ public class BioDataUtility extends AdminTestUtil {
 		
 		String singResponse = null;
 		
-        residentCookie = kernelAuthLib.getTokenByRole("resident");
+        residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
         HashMap<String, String> pathParamsMap = new HashMap<String, String>();
         pathParamsMap.put("partnerType", key);
         pathParamsMap.put("moduleName", BaseTestCase.certsForModule);
         pathParamsMap.put("certsDir", ConfigManager.getauthCertsPath());
-        //Response response = RestClient.postWithBodyAndCookie(EncryptUtilBaseUrl+props.get("signRequest")+"?"+"partnerType="+key, identityDataBlock, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", residentCookie);
+        //Response response = RestClient.postWithBodyAndCookie(EncryptUtilBaseUrl+props.get("signRequest")+"?"+"partnerType="+key, identityDataBlock, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, residentCookie);
 		Response response = RestClient.postRequestWithQueryParamBodyAndCookie(
 				EncryptUtilBaseUrl + props.get("signRequest"), identityDataBlock, pathParamsMap,
-				 MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, "Authorization",
+				 MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, GlobalConstants.AUTHORIZATION,
 				residentCookie);
 		
 		byte[] bytePayload = identityDataBlock.getBytes();
@@ -269,7 +260,7 @@ public class BioDataUtility extends AdminTestUtil {
 		payloadData= payloadData.replace("=", "");
 		//String newResponse = response.asString();
 		String signNewResponse = response.asString().replace("..", "."+ payloadData +".");
-		System.out.println(signNewResponse);
+		logger.info(signNewResponse);
 		
 		//String content = RestClient.postR(EncryptUtilBaseUrl+props.get("encryptionPath"), identityDataBlock, MediaType.APPLICATION_JSON,
 				//MediaType.APPLICATION_JSON).asString();
@@ -297,7 +288,7 @@ public class BioDataUtility extends AdminTestUtil {
 	/*
 	 * private static void storeValue(String biovalue) { try { BufferedWriter out =
 	 * new BufferedWriter(new FileWriter("BioValue.txt")); out.write(biovalue);
-	 * out.close(); } catch (IOException e) { System.out.println("Exception "); } }
+	 * out.close(); } catch (IOException e) { logger.info(GlobalConstants.EXCEPTION_STRING_2); } }
 	 */
 
 }

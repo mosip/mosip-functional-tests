@@ -5,7 +5,7 @@
 	<groupId>io.mosip.automationtests</groupId>
 	<artifactId>automationtests</artifactId>
 	<packaging>jar</packaging>
-	<name>io.mosip.automationtests</name>
+	<name>mosip-functional-test</name>
 	<url>http://maven.apache.org</url>
 	<version>1.2.1-SNAPSHOT</version>
 

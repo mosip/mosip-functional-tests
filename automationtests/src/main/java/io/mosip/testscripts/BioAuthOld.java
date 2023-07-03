@@ -1,14 +1,8 @@
 package io.mosip.testscripts;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.json.JSONException;
@@ -21,7 +15,6 @@ import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -32,11 +25,11 @@ import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.EncryptionDecrptionUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.authentication.fw.dto.OutputValidationDto;
-import io.mosip.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.authentication.fw.util.AuthPartnerProcessor;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -98,9 +91,9 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
-		if (request.has("identityRequest")) {
-			identityRequest = request.get("identityRequest").toString();
-			request.remove("identityRequest");
+		if (request.has(GlobalConstants.IDENTITYREQUEST)) {
+			identityRequest = request.get(GlobalConstants.IDENTITYREQUEST).toString();
+			request.remove(GlobalConstants.IDENTITYREQUEST);
 		}
 		identityRequest = buildIdentityRequest(identityRequest);
 		
@@ -116,8 +109,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
 					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 
 		Map<String, String> bioAuthTempMap = (isInternal)
@@ -154,8 +146,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 			try {
 				res = resJsonObject.get("response").toString();
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getStackTrace());
 			}
 			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
 			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
@@ -210,14 +201,4 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 		logger.info("Terminating authpartner demo application...");
 		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
-
-	/*
-	 * private static void storeValue(Map<String, String> bioAuthTempMap) {
-	 * Properties properties = new Properties(); for (Map.Entry<String,String> entry
-	 * : bioAuthTempMap.entrySet()) { properties.put(entry.getKey(),
-	 * entry.getValue()); } try { properties.store(new
-	 * FileOutputStream("data.properties"), null); } catch (FileNotFoundException e)
-	 * { // TODO Auto-generated catch block e.printStackTrace(); } catch
-	 * (IOException e) { // TODO Auto-generated catch block e.printStackTrace(); } }
-	 */
 }

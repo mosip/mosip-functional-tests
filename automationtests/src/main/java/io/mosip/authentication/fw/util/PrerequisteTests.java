@@ -1,6 +1,6 @@
 package io.mosip.authentication.fw.util;
 
-import org.apache.log4j.Logger;  
+import org.apache.log4j.Logger;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 

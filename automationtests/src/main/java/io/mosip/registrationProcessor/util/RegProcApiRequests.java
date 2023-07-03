@@ -3,7 +3,6 @@ package io.mosip.registrationProcessor.util;
 import static io.restassured.RestAssured.given;
 
 import java.io.File;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
 import java.time.LocalDateTime;
@@ -11,16 +10,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
 
-import org.apache.hadoop.yarn.webapp.hamlet.HamletSpec.MAP;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.http.Cookie;
@@ -31,7 +27,7 @@ public class RegProcApiRequests extends BaseTestCase {
 
 	public Response regProcSyncRequest(String url, Object body, String center_machine_refId, String ldt,
 			String contentHeader, String regProcAuthToken) {
-		Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, regProcAuthToken);
 		Response postResponse = given().cookie(builder.build()).header("Center-Machine-RefId", center_machine_refId)
 				.header("timestamp", ldt).relaxedHTTPSValidation().body("\"" + body + "\"").contentType(contentHeader)
 				.log().all().when().post(ApplnURI + url).then().log().all().extract().response();
@@ -51,7 +47,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		Response getResponse = null;
 		Response newResponse = null;
 		try {
-			Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
+			Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, regProcAuthToken);
 
 			/*
 			 * getResponse = given().cookie(builder.build()).multiPart("file",
@@ -60,44 +56,42 @@ public class RegProcApiRequests extends BaseTestCase {
 			 */
 			newResponse = given().cookie(builder.build()).baseUri(ApplnURI).basePath(url)
 					.multiPart("file", file, "application/octet-stream").post().then().log().all().extract().response();
+			logger.info("REST:ASSURED: The response from request is:" + newResponse.asString());
+			logger.info("REST-ASSURED: the response time is: " + newResponse.time());
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
-
-		logger.info("REST:ASSURED: The response from request is:" + newResponse.asString());
-		logger.info("REST-ASSURED: the response time is: " + newResponse.time());
 		return newResponse;
-
 	}
 
 	public Response regProcGetRequest(String url, HashMap<String, String> valueMap, String regProcAuthToken) {
 		logger.info("REST-ASSURED: Sending a GET request to " + ApplnURI + url);
 
-		Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, regProcAuthToken);
 		Response getResponse = null;
 		try {
 			getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().queryParams(valueMap).log().all()
 					.when().post(ApplnURI + url).then().log().all().extract().response();
+			
+			// log then response
+			logger.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
+			logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
-
-		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
 		return getResponse;
 	}
 
 	public Response regProcGetIdRepo(String url, String regProcAuthToken) {
 		logger.info("REST-ASSURED: Sending a GET request to " + ApplnURI + url);
 
-		Cookie.Builder builder = new Cookie.Builder("Authorization", regProcAuthToken);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, regProcAuthToken);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when()
 				.get(ApplnURI + url).then().log().all().extract().response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + getResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
@@ -105,7 +99,7 @@ public class RegProcApiRequests extends BaseTestCase {
 			String token) {
 		logger.info("REST:ASSURED:Sending a data packet to" + ApplnURI + url);
 		logger.info("REST ASSURRED :: Request To Encrypt Is " + body);
-		Cookie.Builder builder = new Cookie.Builder("Authorization", token);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 				.contentType(contentHeader).accept(acceptHeader).log().all().when().post(ApplnURI + url).then().log()
 				.all().extract().response();
@@ -116,14 +110,14 @@ public class RegProcApiRequests extends BaseTestCase {
 	public Response regProcPostRequest(String url, HashMap<String, String> valueMap, String contentHeader,
 			String token) {
 		logger.info("REST:ASSURED:Sending a post request to" + url);
-		Cookie.Builder builder = new Cookie.Builder("Authorization", token);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
 
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(valueMap)
 				.contentType(contentHeader).log().all().when().post(ApplnURI + url).then().log().all().extract()
 				.response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
@@ -134,18 +128,18 @@ public class RegProcApiRequests extends BaseTestCase {
 		Response postResponse = given().relaxedHTTPSValidation().body(body).contentType(contentHeader)
 				.accept(acceptHeader).log().all().when().post(ApplnURI + url).then().log().all().extract().response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		logger.info("REST-ASSURED:454545445 The response Time is: " + postResponse.asString());
 		return postResponse;
 	}
 
 	public boolean validateToken(String token) {
 		String url = "/v1/authmanager/authorize/admin/validateToken";
-		Cookie.Builder builder = new Cookie.Builder("Authorization", token);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
 		Response response = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when()
 				.get(ApplnURI + url).then().log().all().extract().response();
-		System.out.println(response.asString());
+		logger.info(response.asString());
 		List<String> errors = response.jsonPath().get("errors");
 		if (errors == null) {
 			return true;
@@ -163,28 +157,28 @@ public class RegProcApiRequests extends BaseTestCase {
 		 */
 	public Response regProcPacketGenerator(Object body, String url, String contentHeader, String token) {
 		logger.info("REST:ASSURED:Sending a post request to" + url);
-		Cookie.Builder builder = new Cookie.Builder("Authorization", token);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
 
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 				.contentType(contentHeader).log().all().when().post(ApplnURI + url).then().log().all().extract()
 				.response();
 		// log then response
-		logger.info("REST-ASSURED: The response from the request is: " + postResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + postResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
 	public boolean getUinStatusFromIDRepo(JSONObject actualRequest, String idRepoToken, String expectedUinResponse) {
 		boolean status = false;
-		JSONObject generatorRequest = (JSONObject) actualRequest.get("request");
+		JSONObject generatorRequest = (JSONObject) actualRequest.get(GlobalConstants.REQUEST);
 		String uin = generatorRequest.get("uin").toString();
 		String idRepoUrl = "/idrepository/v1/identity/uin/";
-		Cookie.Builder builder = new Cookie.Builder("Authorization", idRepoToken);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, idRepoToken);
 
 		Response idRepoResponse = given().cookie(builder.build()).relaxedHTTPSValidation().when()
 				.get(ApplnURI + idRepoUrl + uin).then().extract().response();
 		String uinResponse = idRepoResponse.jsonPath().get("response.status").toString();
-		System.out.println(uinResponse);
+		logger.info(uinResponse);
 		if (uinResponse.equals(expectedUinResponse)) {
 			status = true;
 		}
@@ -210,7 +204,7 @@ public class RegProcApiRequests extends BaseTestCase {
 	 */
 	public Response getWithoutParams(String url, String cookie) {
 		logger.info("REST-ASSURED: Sending a Get request to " + url);
-		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when().get(url);
 		// log then response
 		// responseLogger(getResponse);
@@ -229,12 +223,12 @@ public class RegProcApiRequests extends BaseTestCase {
 	public Response getWithPathParam(String url, HashMap<String, String> patharams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + ApplnURI + url);
 
-		Cookie.Builder builder = new Cookie.Builder("Authorization", cookie);
+		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(patharams).log()
 				.all().when().get(ApplnURI + url);
 		// log then response
 		logger.info("REST-ASSURED: the response from request is: " + getResponse.asString());
-		logger.info("REST-ASSURED: The response Time is: " + getResponse.time());
+		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
@@ -253,8 +247,7 @@ public class RegProcApiRequests extends BaseTestCase {
 			}
 
 		} catch (java.text.ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 		return utcCheck;
 
@@ -297,7 +290,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		String url = "https://qa.mosip.io/T5CloudService/1.0/processRequest";
 		Response getResponse = given().relaxedHTTPSValidation().body(deleteRequest)
 				.contentType(MediaType.APPLICATION_JSON).log().all().when().post(url);
-		System.out.println(getResponse.asString());
+		logger.info(getResponse.asString());
 	}
 
 	public Response postRequestWithRequestResponseHeaders(String url, Object body, String contentHeader, String acceptHeader,
@@ -306,14 +299,14 @@ public class RegProcApiRequests extends BaseTestCase {
 			// logger.info("REST:ASSURED:Sending a data packet for encryption to " +
 			// prop.BASE_URL + url);
 			// logger.info("REST ASSURRED :: Request data To encrypt is " + body);
-			Cookie.Builder builder = new Cookie.Builder("Authorization", token);
+			Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
 			Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 					.contentType(contentHeader).accept(acceptHeader).when().post(ApplnURI + url).then().extract()
 					.response();
 			// postResponse.then().statusCode(200);
 			return postResponse;
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 		}
 		return null;
 	}
@@ -322,14 +315,14 @@ public class RegProcApiRequests extends BaseTestCase {
 			String token) {
 		Response postResponse = null;
 		try {
-			Cookie.Builder builder = new Cookie.Builder("Authorization", token);
-			System.out.println("Sending sign request to: " + ApplnURI + url);
+			Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
+			logger.info("Sending sign request to: " + ApplnURI + url);
 			postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 					.contentType(contentHeader).accept(acceptHeader).log().all().when().post(ApplnURI + url).then()
 					.log().all().extract().response();
 			// postResponse.then().statusCode(200);
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			logger.error(e.getStackTrace());
 		}
 		return postResponse;
 	}

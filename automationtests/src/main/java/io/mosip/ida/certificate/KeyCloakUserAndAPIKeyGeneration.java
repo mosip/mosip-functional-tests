@@ -1,26 +1,15 @@
 package io.mosip.ida.certificate;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.ws.rs.core.MediaType;
 
-import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
-import org.keycloak.admin.client.CreatedResponseUtil;
-import org.keycloak.admin.client.Keycloak;
-import org.keycloak.admin.client.resource.RealmResource;
-import org.keycloak.admin.client.resource.UserResource;
-import org.keycloak.admin.client.resource.UsersResource;
-import org.keycloak.representations.idm.CredentialRepresentation;
-import org.keycloak.representations.idm.RoleRepresentation;
-import org.keycloak.representations.idm.UserRepresentation;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.RestClient;
-import io.mosip.kernel.util.ConfigManager;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.restassured.response.Response;
 
@@ -31,7 +20,7 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 	static String emailId = PartnerRegistration.emailId;
 	static String role = PartnerRegistration.partnerType;
 	static String policyGroup = PartnerRegistration.policyGroup;
-	static String randomAbbreviation = RandomStringUtils.randomAlphabetic(4).toUpperCase();
+	static String randomAbbreviation = generateRandomAlphabeticString(4).toUpperCase();
 	static String policyName = AdminTestUtil.policyName;
 	
 	public static String createKCUserAndGetAPIKey() {
@@ -56,20 +45,20 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
-		body.put("id", "string");
-		body.put("metadata", new HashMap<>());
-		body.put("request", requestBody);
-		body.put("requesttime", generateCurrentUTCTimeStamp());
-		body.put("version", "string");
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
 		
-		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		Response response = RestClient.postRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
-		System.out.println(responseValue);
+		lOGGER.info(responseValue);
 		String mappingKey = responseValue.getString("mappingkey");
-		System.out.println(mappingKey);
+		lOGGER.info(mappingKey);
 		
 		return mappingKey;
 	}
@@ -85,16 +74,16 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
-		body.put("id", "string");
-		body.put("metadata", new HashMap<>());
-		body.put("request", requestBody);
-		body.put("requesttime", generateCurrentUTCTimeStamp());
-		body.put("version", "string");
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
 		
-		Response response = RestClient.putRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		Response response = RestClient.putRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 	}
 	
 	public static String createAPIKey(){
@@ -110,20 +99,20 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
-		body.put("id", "string");
-		body.put("metadata", new HashMap<>());
-		body.put("request", requestBody);
-		body.put("requesttime", generateCurrentUTCTimeStamp());
-		body.put("version", "string");
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
 		
-		Response response = RestClient.patchRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, "Authorization", token);
-		System.out.println(response);
+		Response response = RestClient.patchRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
-		System.out.println(responseJson);
+		lOGGER.info(responseJson);
 		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
-		System.out.println(responseValue);
-		String apiKey = responseValue.getString("apiKey");
-		System.out.println(apiKey);
+		lOGGER.info(responseValue);
+		String apiKey = responseValue.getString(GlobalConstants.APIKEY);
+		lOGGER.info(apiKey);
 		
 		return apiKey;
 	}

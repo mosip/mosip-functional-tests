@@ -1,20 +1,14 @@
 package io.mosip.report;
 
-import org.testng.IReporter; 
-
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
-import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -24,8 +18,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.testng.IReporter;
 import org.testng.IResultMap;
 import org.testng.ISuite;
 import org.testng.ISuiteResult;
@@ -49,8 +43,6 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 	private static final String emailableReportTemplateFile = new File(
 			MosipTestRunner.getGlobalResourcePath()+"/customize-emailable-report-template.html").getAbsolutePath();
 	private static StringBuffer customReportTemplateStr = new StringBuffer();
-
-	private static final SimpleDateFormat sdf = new SimpleDateFormat("HHmm");
 
 	private static final String reportProfixFileName = "MOSIP_ModuleLevelAutoRun_TestNGReport";
 
@@ -85,8 +77,8 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 			File targetFile = new File(outputDirectory + "/"+reportProfixFileName/*getCurrentDateForReport()*/+".html");
 			fileWriter = new FileWriter(targetFile);
 			fileWriter.write(finalcustomReport);
-		} catch (NullPointerException | IOException ex) {
-			ex.printStackTrace();
+		} catch (NullPointerException | IOException e) {
+			CustomTestNGReporterLog.error(e.getStackTrace());
 		} finally {
 			AdminTestUtil.closeFileWriter(fileWriter);
 		}
@@ -116,8 +108,8 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 				line = bufferedReader.readLine();
 			}
 
-		} catch (NullPointerException | IOException ex) {
-			ex.printStackTrace();
+		} catch (NullPointerException | IOException e) {
+			CustomTestNGReporterLog.error(e.getStackTrace());
 		} finally {
 			AdminTestUtil.closeBufferedReader(bufferedReader);
 			AdminTestUtil.closeFileReader(fileReader);
@@ -280,8 +272,8 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 			retBuf.append("</td>");
 
 			retBuf.append("<tr>");
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			CustomTestNGReporterLog.error(e.getStackTrace());
 		}
 		return retBuf.toString();
 	}
@@ -388,8 +380,8 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 						retBuf.append(passedTestMethodInfo);
 				}
 			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			CustomTestNGReporterLog.error(e.getStackTrace());
 		}
 		return retBuf.toString();
 	}

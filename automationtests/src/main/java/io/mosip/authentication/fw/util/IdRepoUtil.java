@@ -1,17 +1,11 @@
 package io.mosip.authentication.fw.util;
 
-import java.io.File;
-import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Date;
-import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
 import io.mosip.authentication.fw.precon.JsonPrecondtion;
-import io.mosip.authentication.fw.precon.XmlPrecondtion;
 
 /**
  * Class to store all the UIN data or json using idrepo

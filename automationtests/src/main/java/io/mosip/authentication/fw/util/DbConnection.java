@@ -3,20 +3,17 @@ package io.mosip.authentication.fw.util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList; 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Map.Entry;
-import java.util.regex.Pattern;
+import java.util.Properties;
 
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
@@ -27,6 +24,7 @@ import org.hibernate.jdbc.Work;
 import org.testng.Assert;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.testrunner.MosipTestRunner;
  
 
@@ -44,7 +42,7 @@ public class DbConnection {
 	
 	public static void main(String[] arg)
 	{
-		System.out.println(getDataForQuery("update reg_center_machine_device set device_id = '3000022' where regcntr_id = '10003' and device_id='3000033'","MASTER"));
+		DBCONNECTION_LOGGER.info(getDataForQuery("update reg_center_machine_device set device_id = '3000022' where regcntr_id = '10003' and device_id='3000033'","MASTER"));
 	}
 	/**
 	 * Execute query to get generated otp value
@@ -73,9 +71,9 @@ public class DbConnection {
 			}
 			else if (moduleName.equals("MASTER")) {
 				if (query.toLowerCase().startsWith("update")) 
-					return executeUpdateQuery("masterdata", query);
+					return executeUpdateQuery(GlobalConstants.MASTERDATA, query);
 				 else 
-					records = executeQueryAndGetRecord("masterdata", query);
+					records = executeQueryAndGetRecord(GlobalConstants.MASTERDATA, query);
 			}
 			Map<String, String> returnMap = new HashMap<String, String>();
 			for (Entry<String, Object> entry : records.entrySet()) {
@@ -139,26 +137,28 @@ public class DbConnection {
 		List<Map<String, Object>> allRecords = new ArrayList<Map<String, Object>>();
 		try {
 			session = getDataBaseConnection(moduleName);
-			session.doWork(new Work() {
-				@Override
-				public void execute(Connection connection) throws SQLException {
-					Statement statement = connection.createStatement();
-					try {
-						ResultSet rs = statement.executeQuery(query);
-						ResultSetMetaData md = rs.getMetaData();
-						int columns = md.getColumnCount();
-						while (rs.next()) {
-							Map<String, Object> record = new HashMap<String, Object>(columns);
-							for (int i = 1; i <= columns; i++) {
-								record.put(md.getColumnName(i), rs.getObject(i));
+			if (session != null) {
+				session.doWork(new Work() {
+					@Override
+					public void execute(Connection connection) throws SQLException {
+						Statement statement = connection.createStatement();
+						try {
+							ResultSet rs = statement.executeQuery(query);
+							ResultSetMetaData md = rs.getMetaData();
+							int columns = md.getColumnCount();
+							while (rs.next()) {
+								Map<String, Object> record = new HashMap<String, Object>(columns);
+								for (int i = 1; i <= columns; i++) {
+									record.put(md.getColumnName(i), rs.getObject(i));
+								}
+								allRecords.add(record);
 							}
-							allRecords.add(record);
+						} finally {
+							statement.close();
 						}
-					} finally {
-						statement.close();
 					}
-				}
-			});
+				});
+			}
 		}catch(NullPointerException e){
 			DBCONNECTION_LOGGER.error("Exception in executeQueryAndGetAllRecord: " + e);
 		}finally {
@@ -179,24 +179,26 @@ public class DbConnection {
 		Map<String, Object> record = new HashMap<String, Object>();
 		try {
 			session = getDataBaseConnection(moduleName);
-			session.doWork(new Work() {
-				@Override
-				public void execute(Connection connection) throws SQLException {
-					Statement statement = connection.createStatement();
-					try {
-						ResultSet rs = statement.executeQuery(query);
-						ResultSetMetaData md = rs.getMetaData();
-						int columns = md.getColumnCount();
-						while (rs.next()) {
-							for (int i = 1; i <= columns; i++) {
-								record.put(md.getColumnName(i), rs.getObject(i));
+			if (session != null) {
+				session.doWork(new Work() {
+					@Override
+					public void execute(Connection connection) throws SQLException {
+						Statement statement = connection.createStatement();
+						try {
+							ResultSet rs = statement.executeQuery(query);
+							ResultSetMetaData md = rs.getMetaData();
+							int columns = md.getColumnCount();
+							while (rs.next()) {
+								for (int i = 1; i <= columns; i++) {
+									record.put(md.getColumnName(i), rs.getObject(i));
+								}
 							}
+						} finally {
+							statement.close();
 						}
-					} finally {
-						statement.close();
 					}
-				}
-			});
+				});
+			}
 		}catch(NullPointerException e){
 			DBCONNECTION_LOGGER.error("Exception in executeQueryAndGetRecord: " + e);
 		}finally {
@@ -210,19 +212,21 @@ public class DbConnection {
 		Session session = null;
 		try {
 			session = getDataBaseConnection(moduleName);
-			session.doWork(new Work() {
-				@Override
-				public void execute(Connection connection) throws SQLException {
-					Statement statement = connection.createStatement();
-					try {
-						int count = statement.executeUpdate(query);
-						rowData.put("delete", "true");
-						rowData.put("count", String.valueOf(count));
-					} finally {
-						statement.close();
+			if (session != null) {
+				session.doWork(new Work() {
+					@Override
+					public void execute(Connection connection) throws SQLException {
+						Statement statement = connection.createStatement();
+						try {
+							int count = statement.executeUpdate(query);
+							rowData.put("delete", GlobalConstants.TRUE_STRING);
+							rowData.put("count", String.valueOf(count));
+						} finally {
+							statement.close();
+						}
 					}
-				}
-			});
+				});
+			}
 		}catch(NullPointerException e){
 			DBCONNECTION_LOGGER.error("Exception in executeUpdateQuery: " + e);
 		}

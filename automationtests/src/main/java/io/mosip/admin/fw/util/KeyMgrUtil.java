@@ -5,8 +5,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.math.BigInteger;
@@ -23,7 +21,6 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import java.security.SecureRandom;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
@@ -55,10 +52,9 @@ import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
-import io.mosip.admin.fw.util.AdminTestUtil;
+
+import io.mosip.service.BaseTestCase;
 
 
 
@@ -267,8 +263,8 @@ public class KeyMgrUtil {
             LocalDateTime dateTime, LocalDateTime dateTimeExp, String organization) throws 
             NoSuchAlgorithmException, OperatorCreationException, CertificateException, KeyStoreException, IOException   {
         KeyPairGenerator generator = KeyPairGenerator.getInstance(RSA_ALGO);
-        SecureRandom random = new SecureRandom();
-        generator.initialize(RSA_KEY_SIZE, random);
+//        SecureRandom random = new SecureRandom();
+        generator.initialize(RSA_KEY_SIZE, BaseTestCase.secureRandom);
         KeyPair keyPair = generator.generateKeyPair();
         X509Certificate signCert = null;
         if(Objects.isNull(signKey)) {
@@ -323,7 +319,7 @@ public class KeyMgrUtil {
         //LocalDateTime dateTimeExp = dateTime.plusYears(1);
         Date notAfter = Date.from(dateTimeExp.atZone(ZoneId.systemDefault()).toInstant());
 
-        BigInteger certSerialNum = new BigInteger(Long.toString(new SecureRandom().nextLong()));
+        BigInteger certSerialNum = new BigInteger(Long.toString(BaseTestCase.secureRandom.nextLong()));
         
         ContentSigner certContentSigner = new JcaContentSignerBuilder(SIGN_ALGO).build(signPrivateKey);
         X509v3CertificateBuilder certBuilder = new JcaX509v3CertificateBuilder(certIssuer, certSerialNum, notBefore, 

@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
@@ -15,7 +14,6 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -24,13 +22,9 @@ import org.testng.internal.TestResult;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 
-import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
-import io.mosip.authentication.fw.dto.OutputValidationDto;
-import io.mosip.authentication.fw.util.AuthenticationTestException;
-import io.mosip.authentication.fw.util.OutputValidationUtil;
-import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalMethods;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -89,8 +83,8 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 			List<String> languageList = new ArrayList<>();
 			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
-		        	Innerloop:
-		            for (int j=i; j <languageList.size();) {
+//		        	Innerloop:
+//		            for (int j=i; j <languageList.size(); j++) {
 		            	pdf = getWithQueryParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(),
 		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
 		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
@@ -101,16 +95,11 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 		       			}
 		       		 
 			       		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
-			       			 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
-			       						+ "Not able to download" + "</pre>");
-			       	//			 throw new Exception("Not able to download UIN Card");
+			       			GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), "Not able to download");
 			       		 }
 			       		 else {
-			       			 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
-			       						+ pdfAsText+ "</pre>");
+			       			GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
 			       		 }
-		            	break Innerloop;
-		            }
 		        }
 		}  
 		
@@ -123,13 +112,10 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 				}
 			 
 			 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
-				 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
-							+ "Not able to download" + "</pre>");
-		//			 throw new Exception("Not able to download UIN Card");
+				 GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), "Not able to download");
 			 }
 			 else {
-				 Reporter.log("<b><u>Actual Response Content: </u></b>(EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + ") <pre>"
-							+ pdfAsText+ "</pre>");
+				 GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
 			 }
 		}
 		 

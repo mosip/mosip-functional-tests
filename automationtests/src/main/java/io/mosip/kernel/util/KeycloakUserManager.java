@@ -2,11 +2,11 @@ package io.mosip.kernel.util;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
+
 import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
@@ -22,6 +22,7 @@ import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
 
@@ -40,8 +41,8 @@ public class KeycloakUserManager {
 	key=KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
 				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(ConfigManager.getAutomationClientId()).clientSecret(ConfigManager.getAutomationClientSecret())
 				.build();
-	System.out.println(ConfigManager.getIAMUrl());
-	System.out.println(key.toString() + key.realms());
+	logger.info(ConfigManager.getIAMUrl());
+	logger.info(key.toString() + key.realms());
 		}catch(Exception e)
 		{
 			throw e;
@@ -58,7 +59,7 @@ public class KeycloakUserManager {
 			inputStream = new FileInputStream(file);
 			prop.load(inputStream);
 		} catch (Exception e) {
-			logger.error("Exception " + e.getMessage());
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 		}finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}
@@ -84,7 +85,7 @@ public class KeycloakUserManager {
 				moduleSpecificUser = BaseTestCase.currentModule +"-"+ needsToBeCreatedUser;
 			}
 			
-			System.out.println(moduleSpecificUser);
+			logger.info(moduleSpecificUser);
 			user.setEnabled(true);
 			user.setUsername(moduleSpecificUser);
 			user.setFirstName(moduleSpecificUser);
@@ -96,14 +97,14 @@ public class KeycloakUserManager {
 			// Create user (requires manage-users role)
 			Response response = null;
 				response = usersRessource.create(user);
- 				System.out.println(response);
-			System.out.printf("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo());
+ 				logger.info(response);
+ 				logger.info(String.format("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo()));
 			if (response.getStatus()==409) {
 				continue;
 			}
-			System.out.println(response.getLocation());
+			logger.info(response.getLocation());
 			String userId = CreatedResponseUtil.getCreatedId(response);
-			System.out.printf("User created with userId: %s%n", userId);
+			logger.info(String.format("User created with userId: %s%n", userId));
 
 			// Define password credential
 			CredentialRepresentation passwordCred = new CredentialRepresentation();
@@ -125,9 +126,12 @@ public class KeycloakUserManager {
 			List<String> toBeAssignedRoles = List.of(ConfigManager.getRolesForUser(needsToBeCreatedUser).split(","));
 			for(String role : toBeAssignedRoles) {
 				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
-					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+					if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
+							availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+					else
+						logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}else {
-					System.out.printf("Role not found in keycloak: %s%n", role);
+					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}
 			}
 			// Assign realm role tester to user
@@ -155,11 +159,11 @@ public class KeycloakUserManager {
 			UsersResource usersRessource = realmResource.users();
 			// Create user (requires manage-users role)
 			Response response = usersRessource.create(user);
-			System.out.println(response);
-			System.out.printf("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo());
-			System.out.println(response.getLocation());
+			logger.info(response);
+			logger.info(String.format("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo()));
+			logger.info(response.getLocation());
 			String userId = CreatedResponseUtil.getCreatedId(response);
-			System.out.printf("User created with userId: %s%n", userId);
+			logger.info(String.format("User created with userId: %s%n", userId));
 
 			// Define password credential
 			CredentialRepresentation passwordCred = new CredentialRepresentation();
@@ -181,9 +185,12 @@ public class KeycloakUserManager {
 			List<String> toBeAssignedRoles = List.of(userRole);
 			for(String role : toBeAssignedRoles) {
 				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
-					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+					if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
+						availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+				else
+					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}else {
-					System.out.printf("Role not found in keycloak: %s%n", role);
+					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}
 			}
 			// Assign realm role tester to user
@@ -204,9 +211,9 @@ public class KeycloakUserManager {
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
 				userResource.remove();
-				System.out.printf("User removed with name: %s%n", needsToBeRemovedUser);
+				logger.info(String.format("User removed with name: %s%n", needsToBeRemovedUser));
 			} else {
-				System.out.printf("User not found with name: %s%n", needsToBeRemovedUser);
+				logger.info(String.format("User not found with name: %s%n", needsToBeRemovedUser));
 			}
 
 		}
@@ -224,9 +231,9 @@ public class KeycloakUserManager {
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
 				userResource.remove();
-				System.out.printf("User removed with name: %s%n", moduleSpecificUserToBeRemoved);
+				logger.info(String.format("User removed with name: %s%n", moduleSpecificUserToBeRemoved));
 			} else {
-				System.out.printf("User not found with name: %s%n", moduleSpecificUserToBeRemoved);
+				logger.info(String.format("User not found with name: %s%n", moduleSpecificUserToBeRemoved));
 			}
 
 		}
@@ -242,85 +249,85 @@ public class KeycloakUserManager {
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
 				userResource.remove();
-				System.out.printf("User removed with name: %s%n", needsToBeRemovedUser);
+				logger.info(String.format("User removed with name: %s%n", needsToBeRemovedUser));
 			} else {
-				System.out.printf("User not found with name: %s%n", needsToBeRemovedUser);
+				logger.info(String.format("User not found with name: %s%n", needsToBeRemovedUser));
 			}
 
 		}
 	}
 
-	public static void createUsers(String userid,String pwd, String rolenum,HashMap<String, List<String>> map) {
+	public static void createUsers(String userid, String pwd, String rolenum, HashMap<String, List<String>> map) {
 		Keycloak keycloakInstance = getKeycloakInstance();
-			UserRepresentation user = new UserRepresentation(); 
-			user.setEnabled(true);
-			user.setUsername(userid);
-			user.setFirstName(userid);
-			user.setLastName(userid);
-			user.setEmail("automation" + userid + "@automationlabs.com");
-			if(map!=null)
-		    user.setAttributes(map);
-			// Get realm
-			RealmResource realmResource=null;
-			
-			
+		UserRepresentation user = new UserRepresentation();
+		user.setEnabled(true);
+		user.setUsername(userid);
+		user.setFirstName(userid);
+		user.setLastName(userid);
+		user.setEmail("automation" + userid + "@automationlabs.com");
+		if (map != null)
+			user.setAttributes(map);
+		// Get realm
+		RealmResource realmResource = null;
 
-			// realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
-			realmResource=keycloakInstance.realm(ConfigManager.getIAMRealmId());
+		// realmResource =
+		// keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
+		realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 
-			// realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak-realm-id"));
-			UsersResource usersRessource = realmResource.users();
-			// Create user (requires manage-users role)
-			Response response = usersRessource.create(user);
-			
-			
-			  if (response.getStatus()==409) { 
-				 
-				  
-			  }
-			  else {
-				  
-				  System.out.println(response);
-					System.out.printf("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo());
-					System.out.println(response.getLocation());
-					String userId = CreatedResponseUtil.getCreatedId(response);
-					System.out.printf("User created with userId: %s%n", userId);
+		// realmResource =
+		// keycloakInstance.realm(propsKernel.getProperty("keycloak-realm-id"));
+		UsersResource usersRessource = realmResource.users();
+		// Create user (requires manage-users role)
 
-					// Define password credential
-					CredentialRepresentation passwordCred = new CredentialRepresentation();
-					
-					passwordCred.setTemporary(false);
-					passwordCred.setType(CredentialRepresentation.PASSWORD);
-					
-					//passwordCred.setValue(userPassword.get(passwordIndex));
-					passwordCred.setValue(pwd);
+		try (Response response = usersRessource.create(user)) {
 
-					UserResource userResource = usersRessource.get(userId);
-					// Set password credential
-					userResource.resetPassword(passwordCred);
+			if (response.getStatus() == 409) {
 
-					// Getting all the roles
-					List<RoleRepresentation> allRoles = realmResource.roles().list();
-					List<RoleRepresentation> availableRoles = new ArrayList<>();
-					List<String> toBeAssignedRoles = List.of(propsKernel.getProperty(rolenum).split(","));
-					for(String role : toBeAssignedRoles) {
-						if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
+			} else {
+
+				logger.info(response);
+				logger.info(String.format("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo()));
+				logger.info(response.getLocation());
+				String userId = CreatedResponseUtil.getCreatedId(response);
+				logger.info(String.format("User created with userId: %s%n", userId));
+
+				// Define password credential
+				CredentialRepresentation passwordCred = new CredentialRepresentation();
+
+				passwordCred.setTemporary(false);
+				passwordCred.setType(CredentialRepresentation.PASSWORD);
+
+				// passwordCred.setValue(userPassword.get(passwordIndex));
+				passwordCred.setValue(pwd);
+
+				UserResource userResource = usersRessource.get(userId);
+				// Set password credential
+				userResource.resetPassword(passwordCred);
+
+				// Getting all the roles
+				List<RoleRepresentation> allRoles = realmResource.roles().list();
+				List<RoleRepresentation> availableRoles = new ArrayList<>();
+				List<String> toBeAssignedRoles = List.of(propsKernel.getProperty(rolenum).split(","));
+				for (String role : toBeAssignedRoles) {
+					if (allRoles.stream().anyMatch((r -> r.getName().equalsIgnoreCase(role)))) {
+						if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
 							availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
-						}else {
-							System.out.printf("Role not found in keycloak: %s%n", role);
-						}
+					else
+						logger.info(String.format("Role not found in keycloak: %s%n", role));
+					} else {
+						logger.info(String.format("Role not found in keycloak: %s%n", role));
 					}
-					// Assign realm role tester to user
-					userResource.roles().realmLevel() //
-							.add((availableRoles.isEmpty() ? allRoles : availableRoles));
-					//passwordIndex ++;
-				  
-			  }
-			 
-			
-			
-			
-		
+				}
+				// Assign realm role tester to user
+				userResource.roles().realmLevel() //
+						.add((availableRoles.isEmpty() ? allRoles : availableRoles));
+				// passwordIndex ++;
+
+			}
+		} catch (Exception e) {
+			logger.error(e.getStackTrace());
+		}
+
 	}
 	
 	public static void createUsersWithArg(String userid,String pwd, String rolenum) {
@@ -338,11 +345,11 @@ public class KeycloakUserManager {
 			UsersResource usersRessource = realmResource.users();
 			// Create user (requires manage-users role)
 			Response response = usersRessource.create(user);
-			System.out.println(response);
-			System.out.printf("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo());
-			System.out.println(response.getLocation());
+			logger.info(response);
+			logger.info(String.format("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo()));
+			logger.info(response.getLocation());
 			String userId = CreatedResponseUtil.getCreatedId(response);
-			System.out.printf("User created with userId: %s%n", userId);
+			logger.info(String.format("User created with userId: %s%n", userId));
 
 			// Define password credential
 			CredentialRepresentation passwordCred = new CredentialRepresentation();
@@ -363,9 +370,12 @@ public class KeycloakUserManager {
 			List<String> toBeAssignedRoles = List.of(propsKernel.getProperty(rolenum).split(","));
 			for(String role : toBeAssignedRoles) {
 				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
-					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+					if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
+						availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+				else
+					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}else {
-					System.out.printf("Role not found in keycloak: %s%n", role);
+					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}
 			}
 			// Assign realm role tester to user
@@ -394,13 +404,13 @@ public class KeycloakUserManager {
 			UsersResource usersRessource = realmResource.users();
 			// Create user (requires manage-users role)
 			Response response = usersRessource.create(user);
-			System.out.println(response);
-			System.out.printf("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo());
+			logger.info(response);
+			logger.info(String.format("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo()));
 			
 			
-			System.out.println(response.getLocation());
+			logger.info(response.getLocation());
 			String userId = CreatedResponseUtil.getCreatedId(response);
-			System.out.printf("User created with userId: %s%n", userId);
+			logger.info(String.format("User created with userId: %s%n", userId));
 
 			// Define password credential
 			CredentialRepresentation passwordCred = new CredentialRepresentation();
@@ -421,9 +431,12 @@ public class KeycloakUserManager {
 			List<String> toBeAssignedRoles = List.of(propsKernel.getProperty("roles."+userid).split(","));
 			for(String role : toBeAssignedRoles) {
 				if(allRoles.stream().anyMatch((r->r.getName().equalsIgnoreCase(role)))){
-					availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+					if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
+						availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
+				else
+					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}else {
-					System.out.printf("Role not found in keycloak: %s%n", role);
+					logger.info(String.format("Role not found in keycloak: %s%n", role));
 				}
 			}
 			// Assign realm role tester to user
@@ -441,16 +454,15 @@ try {
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
 				userResource.remove();
-				System.out.printf("User removed with name: %s%n", user);
+				logger.info(String.format("User removed with name: %s%n", user));
 			} else {
-				System.out.printf("User not found with name: %s%n", user);
+				logger.info(String.format("User not found with name: %s%n", user));
 			}
 
 }
 catch(Exception e)
 {
-	logger.error(e.getMessage(),e);
-	e.printStackTrace();
+	logger.error(e.getStackTrace());
 	
 }
 			

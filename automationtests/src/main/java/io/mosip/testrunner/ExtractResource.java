@@ -1,6 +1,6 @@
 package io.mosip.testrunner;
 
-import java.io.File; 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.security.CodeSource;
@@ -9,8 +9,6 @@ import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-
-import io.mosip.admin.fw.util.AdminTestUtil;
 
 /**
  * The class to extract resource from jar 
@@ -32,12 +30,10 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("syncdata/");
 		getListOfFilesFromJarAndCopyToExternalResource("ida/");
 		getListOfFilesFromJarAndCopyToExternalResource("kernel/");
-		getListOfFilesFromJarAndCopyToExternalResource("preReg/");
-		getListOfFilesFromJarAndCopyToExternalResource("config/");
 		getListOfFilesFromJarAndCopyToExternalResource("regProc/");
     	getListOfFilesFromJarAndCopyToExternalResource("idRepository/");
 		/* getListOfFilesFromJarAndCopyToExternalResource("Registration/"); */
-		getListOfFilesFromJarAndCopyToExternalResource("admin/");
+//		getListOfFilesFromJarAndCopyToExternalResource("admin/");
 		getListOfFilesFromJarAndCopyToExternalResource("resident/");
 		getListOfFilesFromJarAndCopyToExternalResource("partner/");
 		/* getListOfFilesFromJarAndCopyToExternalResource("reg/"); */
@@ -46,12 +42,12 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("log4j.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("healthCheck/");
-		getListOfFilesFromJarAndCopyToExternalResource("labels_ar.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("labels_en.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("labels_fr.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("messages_en.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("messages_ar.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("messages_fr.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("labels_ar.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("labels_en.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("labels_fr.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("messages_en.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("messages_ar.properties");
+//		getListOfFilesFromJarAndCopyToExternalResource("messages_fr.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("spring.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("validations.properties");
 		/* getListOfFilesFromJarAndCopyToExternalResource("db"); */
@@ -77,7 +73,7 @@ public class ExtractResource {
 					if (e == null)
 						break;
 					String name = e.getName();
-					if (name.startsWith(key) & name.contains(".")) {
+					if (name.startsWith(key) && name.contains(".")) {
 						if (copyFilesFromJarToOutsideResource(name))
 							LOGGER.info("Copied the file: " + name + " to external resource successfully..!");
 						else
@@ -90,8 +86,18 @@ public class ExtractResource {
 		} catch (Exception e) {
 			LOGGER.error("Exception occured in extracting resource: " + e.getMessage());
 		} finally {
-			AdminTestUtil.closeZipInputStream(zipInputStream);
+			closeZipInputStream(zipInputStream);
 		}
+	}
+	
+	public static void closeZipInputStream(ZipInputStream zipInputStream) {
+		if (zipInputStream != null) {
+	        try {
+	        	zipInputStream.close();
+	        } catch (IOException e) {
+	            // Handle the exception
+	        }
+	    }
 	}
 	
 	/**
@@ -103,7 +109,7 @@ public class ExtractResource {
 	private static boolean copyFilesFromJarToOutsideResource(String path) {
 		try {
 			File resourceFile = new File(MosipTestRunner.jarUrl).getParentFile();
-			File destinationFile = new File(resourceFile.getAbsolutePath()+"/MosipTestResource/" + path);
+			File destinationFile = new File(resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
 			org.apache.commons.io.FileUtils.copyInputStreamToFile(MosipTestRunner.class.getResourceAsStream("/" + path),
 					destinationFile);
 			return true;
@@ -152,8 +158,7 @@ public class ExtractResource {
 			FileUtils.copyDirectory(db,targetDb);
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error(e.getStackTrace());
 		}
 	}
 

@@ -1,7 +1,6 @@
 package io.mosip.testscripts;
 
 import java.lang.reflect.Field;
-import java.math.BigInteger;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,7 +11,6 @@ import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
 
-import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -21,8 +19,6 @@ import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -37,9 +33,6 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.authentication.fw.util.RestClient;
-//import io.mosip.idrepository.core.exception.IdRepoAppUncheckedException;
-import io.mosip.kernel.core.exception.NoSuchAlgorithmException;
-import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.kernel.util.KernelAuthentication;
 import io.mosip.kernel.util.KeycloakUserManager;
 import io.mosip.service.BaseTestCase;
@@ -96,10 +89,10 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 								new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(),
 						"response.uin");
 
-		DateFormat dateFormatter = new SimpleDateFormat("YYYYMMddHHmmss");
+		DateFormat dateFormatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
-		String genRid = "27847" + RandomStringUtils.randomNumeric(10) + timestampValue;
+		String genRid = "27847" + generateRandomNumberString(10) + timestampValue;
 
 		// filterHbs(testCaseDTO);
 		if (testCaseName.equals("Resident_AddIdentity_Valid_Params_AddUser_smoke_Pos")) {
@@ -181,6 +174,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 			}
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
+			Thread.currentThread().interrupt();
 		}
 
 	}

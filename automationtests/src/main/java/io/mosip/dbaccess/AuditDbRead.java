@@ -3,7 +3,6 @@ package io.mosip.dbaccess;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -49,7 +48,7 @@ public class AuditDbRead {
 		catch (HibernateException | IOException e) {
 			logger.info("Exception in Database Connection with following message: ");
 			logger.info(e.getMessage());
-			e.printStackTrace();
+			logger.error(e.getStackTrace());
 			Assert.assertTrue(false, "Exception in creating the sessionFactory");
 		}catch (NullPointerException e) {
 			Assert.assertTrue(false, "Exception in getting the session");
