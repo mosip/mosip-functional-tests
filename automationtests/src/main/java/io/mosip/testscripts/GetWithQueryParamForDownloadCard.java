@@ -71,20 +71,16 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 	public void test(TestCaseDTO testCaseDTO) throws Exception {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
-//			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			//adding...
 			List<String> languageList = new ArrayList<>();
 			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
-//		        	Innerloop:
-//		            for (int j=i; j <languageList.size(); j++) {
 		            	pdf = getWithQueryParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(),
 		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
 		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());

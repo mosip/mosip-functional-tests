@@ -73,7 +73,7 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());

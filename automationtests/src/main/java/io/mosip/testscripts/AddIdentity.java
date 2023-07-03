@@ -78,7 +78,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		testCaseDTO.setInputTemplate(AdminTestUtil.modifySchemaGenerateHbs(testCaseDTO.isRegenerateHbs()));
@@ -94,7 +94,6 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		String timestampValue = dateFormatter.format(cal.getTime());
 		String genRid = "27847" + generateRandomNumberString(10) + timestampValue;
 
-		// filterHbs(testCaseDTO);
 		if (testCaseName.equals("Resident_AddIdentity_Valid_Params_AddUser_smoke_Pos")) {
 
 			KeycloakUserManager.removeVidUser();
@@ -115,7 +114,6 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 					attrmap);
 		}
 
-		// testCaseDTO = AdminTestUtil.filterHbs(testCaseDTO);
 		String jsonInput = testCaseDTO.getInput();
 
 	
@@ -124,8 +122,6 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 
 		inputJson = inputJson.replace("$UIN$", uin);
 		inputJson = inputJson.replace("$RID$", genRid);
-		// inputJson = inputJson.replace("$SCHEMAVERSION$",
-		// props.getProperty("idSchemaVersion"));
 
 		response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());

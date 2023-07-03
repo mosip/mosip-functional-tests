@@ -71,18 +71,15 @@ public class PostWithOnlyPathParam extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		String[] templateFields = testCaseDTO.getTemplateFields();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			//adding...
 			List<String> languageList = new ArrayList<>();
 			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
-//		        	Innerloop:
-//		            for (int j=i; j <languageList.size(); j++) {
 		            	response = postWithOnlyPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		            	
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
@@ -92,8 +89,6 @@ public class PostWithOnlyPathParam extends AdminTestUtil implements ITest {
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
 							throw new AdminTestException("Failed at output validation");
-//		                    break Innerloop;
-//		            }
 		        }
 		}
 		

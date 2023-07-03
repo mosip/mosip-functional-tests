@@ -69,7 +69,7 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 	public void test(TestCaseDTO testCaseDTO) throws Exception {	
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		auditLogCheck = testCaseDTO.isAuditLogCheck();
@@ -82,7 +82,6 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 		 
 		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
 			 GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), "Not able to download UIN Card");
-//			 throw new Exception("Not able to download UIN Card");
 		 }
 		 else {
 			 GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);

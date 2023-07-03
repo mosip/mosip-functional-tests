@@ -72,7 +72,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		auditLogCheck = testCaseDTO.isAuditLogCheck();
@@ -92,12 +92,9 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			//adding...
 			List<String> languageList = new ArrayList<>();
 			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
-//		        	Innerloop:
-//		            for (int j=i; j <languageList.size(); j++) {
 		            	response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
 		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
@@ -109,13 +106,10 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
 							throw new AdminTestException("Failed at output validation");
-//		                    break Innerloop;
-//		            }
 		        }
 		}
 		
 		else {
-//			To Do This Condition has to be removed
 			if(testCaseName.contains("ESignet_")) {
 				String tempUrl = ApplnURI.replace("-internal", "");
 				response = getWithPathParamAndCookie(tempUrl + testCaseDTO.getEndPoint(),

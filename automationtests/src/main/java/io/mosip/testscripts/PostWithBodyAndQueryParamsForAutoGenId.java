@@ -70,7 +70,7 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 		testCaseName = testCaseDTO.getTestCaseName();
 		
 		String input = testCaseDTO.getInput();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		
@@ -82,7 +82,6 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 			response = postWithQueryParamsBodyAndCookie(url + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), queryParams, idKeyName);
 		}
 		else {
-//			response = postWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), queryParams);
 		}
 		
 		

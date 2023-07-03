@@ -80,14 +80,11 @@ public class KycAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
-//		String jsonrequest = buildIdentityRequest(request.toString());
-//		String input = getJsonFromTemplate(jsonrequest, testCaseDTO.getInputTemplate());
-		
 		String kycAuthEndPoint = null;
 		if (request.has("kycAuthEndPoint")) {
 			kycAuthEndPoint = request.get("kycAuthEndPoint").toString();

@@ -81,7 +81,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 
@@ -115,7 +115,6 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		logger.info(otpInput);
 		String signature = sendOtpReqResp.getHeader("signature");
 		Object sendOtpBody = otpInput;
-		// JSONObject sendOtpBody = new JSONObject(otpInput);
 		logger.info(sendOtpBody);
 
 		HashMap<String, String> headers = new HashMap<String, String>();
@@ -127,7 +126,6 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(
 				ApplnURI + "/idauthentication/v1/otp/" + PartnerRegistration.partnerKeyUrl, sendOtpBody.toString(),
 				GlobalConstants.AUTHORIZATION, token, headers, testCaseName);
-//		otpRespon = RestClient.postRequestWithMultipleHeaders(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody,  MediaType.APPLICATION_JSON,  MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token, headers);
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
@@ -164,14 +162,11 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
     	   authRequest = input.toString();
        }
 
-//		String authRequest = getJsonFromTemplate(input.toString(), testCaseDTO.getInputTemplate());
 
 		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");
 
 		response = postWithBodyAndCookie(url + endPoint, authRequest.toString(), COOKIENAME, testCaseDTO.getRole(),
 				testCaseName);
-
-//		response = RestClient.postRequest(url + endPoint, authRequest, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON );
 
 		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 
@@ -217,23 +212,8 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 			} catch (JSONException e) {
 				logger.error(e.getStackTrace());
 			}
-//			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
-//			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
-//						resp, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
 
-		/*
-		 * if(testCaseName.toLowerCase().contains("kyc")) { String error = null;
-		 * if(response.getBody().asString().contains("errors")) error =
-		 * JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),"errors");
-		 * if(error.equalsIgnoreCase("null"))
-		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
-		 * testCaseDTO.getEndPoint()); }
-		 */
-
-		// if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
-		// response.getHeader(props.getProperty("signatureheaderKey"))))
-		// throw new AdminTestException("Failed at Signature validation");
 
 	}
 
@@ -260,9 +240,5 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		// As the demo auth service will be running in a separate docker, we dont need
-		// to launch the demo auth service
-		// return;
-//		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }

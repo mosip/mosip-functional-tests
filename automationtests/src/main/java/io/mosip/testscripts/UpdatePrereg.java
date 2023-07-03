@@ -70,31 +70,12 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseDTO.setInputTemplate(AdminTestUtil.generateHbsForPrereg(true));
 		String[] templateFields = testCaseDTO.getTemplateFields();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		
-		//filterHbs(testCaseDTO);
-		//testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
-		//String inputJson = filterInputHbs(testCaseDTO);
-		
-		//String jsonInput = AdminTestUtil.generateHbsForPrereg(true);
-		
-		
 		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
-		
-		
-		
-		//String jsonInput = testCaseDTO.getInput();
-		
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate(), false);
-		//inputJson.substring(0, inputJson.length()-4);
-		//String inputJson=jsonInput.substring(0, jsonInput.length()-14) + "  }}},\"preRegistrationId\": \"{{preRegistrationId}}\"}";
-		//JSONObject newInputJson = new JSONObject(inputJson);
-		//inputJson= newInputJson.toString();
-		//testCaseDTO.setInputTemplate(inputJson);
-		
-		
 		if (BaseTestCase.getLanguageList().size() == 2) {
 			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }", "");
 			inputJson = inputJson.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Test Book appointment\" }", "");
@@ -132,23 +113,13 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 		}
 		
 		
-		//inputJson = getJsonFromTemplate(testCaseDTO.getInput(), inputJson, false);
-		//logger.info(inputJson);
-		
-		
-		
-		
-		
 		
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			//adding...
 			List<String> languageList = new ArrayList<>();
 			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
-//		        	Innerloop:
-//		            for (int j=i; j <languageList.size();) {
 		            	response = putWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 		            	
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
@@ -158,8 +129,6 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
 							throw new AdminTestException("Failed at output validation");
-//		                    break Innerloop;
-//		            }
 		        }
 		}  
 		

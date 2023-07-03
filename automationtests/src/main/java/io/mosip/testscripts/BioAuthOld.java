@@ -82,7 +82,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
@@ -115,7 +115,6 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 		Map<String, String> bioAuthTempMap = (isInternal)
 				? encryptDecryptUtil.getInternalEncryptSessionKeyValue(encryptedIdentityReq)
 				: encryptDecryptUtil.getEncryptSessionKeyValue(encryptedIdentityReq);
-		// storeValue(bioAuthTempMap);
 		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
 		logger.info("************* Modification of bio auth request ******************");
 		Reporter.log("<b><u>Modification of bio auth request</u></b>");
@@ -126,7 +125,6 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 		authRequestTemp.put("env", "Staging");
 		authRequest = authRequestTemp.toString();
 		testCaseDTO.setInput(authRequest);
-		// storeValue(authRequest,"authRequest");
 
 		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");
 
@@ -153,22 +151,6 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
 		
-		/*
-		 * if (testCaseName.toLowerCase().contains("kyc")) { String error = null; if
-		 * (response.getBody().asString().contains("errors")) error =
-		 * JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),
-		 * "errors"); if (error.equalsIgnoreCase("null"))
-		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
-		 * testCaseDTO.getEndPoint()); }
-		 */
-		 
-
-		/*
-		 * if
-		 * (!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
-		 * response.getHeader(props.getProperty("signatureheaderKey")))) throw new
-		 * AdminTestException("Failed at Signature validation");
-		 */
 
 	}
 

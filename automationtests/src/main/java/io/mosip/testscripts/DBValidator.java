@@ -62,11 +62,7 @@ public class DBValidator extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		//String[] templateFields = testCaseDTO.getTemplateFields();
-		//List<String> queryProp = Arrays.asList(templateFields);
-		//logger.info(queryProp);
-		//Arrays.asList(templateFields.split(","));
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		
@@ -76,10 +72,6 @@ public class DBValidator extends AdminTestUtil implements ITest {
 		
 		JSONObject jsonObject = new JSONObject(replaceId);
 		logger.info(jsonObject.keySet());
-		//List<String> attributName = (List<String>) jsonObject.keySet();
-		//String s1 = attributName.get(0);
-		//logger.info(s1);
-		
 		Set<String> set = new TreeSet<>();
 	    set.addAll(jsonObject.keySet());
 	    String filterId = "";
@@ -88,16 +80,10 @@ public class DBValidator extends AdminTestUtil implements ITest {
 	    	filterId = set.stream().findFirst().get();
 	    
 	    logger.info(filterId);
-		
-		
-		//List<Set<String>> attributName = Arrays.asList(jsonObject.keySet());
-		//List<String> stringsList = new ArrayList<>(attributName);
-		//stringsList.get(0);
 		String query = testCaseDTO.getEndPoint() +" " + filterId + " = " +"'"+jsonObject.getString(filterId)+"'";
 		
 		
 		logger.info(query);
-		//logger.info(respTime);
 		Map<String, Object> response = AuditDBManager.executeQueryAndGetRecord(testCaseDTO.getRole(), query);
 		
 		
@@ -133,10 +119,6 @@ public class DBValidator extends AdminTestUtil implements ITest {
 	 */
 	@AfterMethod(alwaysRun = true)
 	public void setResultTestName(ITestResult result) {
-		
-		//String deleteQuery = "delete from audit.app_audit_log where cr_by = '"+propsKernel.getProperty("partner_userName")+"'";
-		//logger.info(deleteQuery);
-		//AuditDBManager.executeQueryAndDeleteRecord("audit", deleteQuery);
 		try {
 			Field method = TestResult.class.getDeclaredField("m_method");
 			method.setAccessible(true);
