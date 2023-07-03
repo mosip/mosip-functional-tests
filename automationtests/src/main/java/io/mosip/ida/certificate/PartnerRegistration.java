@@ -41,7 +41,11 @@ public class PartnerRegistration extends AdminTestUtil {
 		getAndUploadCertificates();
 		String apiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetAPIKey();
 		String mispLicKey = MispPartnerAndLicenseKeyGeneration.getAndUploadCertificatesAndGenerateMispLicKey();
-
+		
+		if (apiKey.isEmpty() || mispLicKey.isEmpty()) {
+			lOGGER.error("Failed to generate API key and MISP Lic key");
+			return "";
+		}
 		partnerKeyUrl = mispLicKey + "/" + partnerId + "/" + apiKey;
 
 		lOGGER.info("partnerKeyUrl = " + partnerKeyUrl);
