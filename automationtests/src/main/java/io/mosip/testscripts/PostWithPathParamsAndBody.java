@@ -70,7 +70,7 @@ public class PostWithPathParamsAndBody extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		String regCenterId = null;
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		String appDate = null;
@@ -78,7 +78,7 @@ public class PostWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		String timeSlotTo = null;
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		Response slotAvailabilityResponse=RestClient.getRequestWithCookie(ApplnURI+props.getProperty("appointmentavailabilityurl")+props.getProperty("regcentretobookappointment"), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole()));
-		//PreRegistrationLibrary liberary= new PreRegistrationLibrary();
+		
 		
 		if(testCaseName.endsWith("_holiday")) {
 		List<String> appointmentDetails = AdminTestUtil.getAppointmentDetailsforHoliday(slotAvailabilityResponse);

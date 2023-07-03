@@ -30,7 +30,6 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		String apiKey = createAPIKey();
 		
 		return apiKey;
-//		KeycloakUserManager.removeKeyCloakUser(partnerId);
 		
 	}
 	public static String submittingPartnerAndGetMappingKey() {

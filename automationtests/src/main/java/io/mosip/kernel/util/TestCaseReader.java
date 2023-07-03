@@ -35,16 +35,16 @@ public class TestCaseReader extends BaseTestCase {
 			String[] arr = listOfFolders.get(j).split("/");
 			switch (testType) {
 			case "smoke":
-				if (arr[arr.length - 1].toString().contains("smoke"))
-					testCaseNames.add(arr[arr.length - 1].toString());
+				if (arr[arr.length - 1].contains("smoke"))
+					testCaseNames.add(arr[arr.length - 1]);
 				break;
 			case "regression":
-				if (arr[arr.length - 1].toString().contains("invalid"))
-					testCaseNames.add(arr[arr.length - 1].toString());
+				if (arr[arr.length - 1].contains("invalid"))
+					testCaseNames.add(arr[arr.length - 1]);
 				break;
 
 			default:
-				testCaseNames.add(arr[arr.length - 1].toString());
+				testCaseNames.add(arr[arr.length - 1]);
 				break;
 			}
 		}
