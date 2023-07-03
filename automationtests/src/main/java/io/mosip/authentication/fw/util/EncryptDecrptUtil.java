@@ -255,7 +255,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	 */
 	public static String getBase64EncodedString(String content) {
 		try {
-			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncodePath(), content.toString(), MediaType.TEXT_PLAIN,
+			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncodePath(), content, MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
 			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
@@ -266,7 +266,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	public static String splitEncryptedData(String content)
 	{
 		try {
-			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getSplitEncryptedData(), content.toString(), MediaType.APPLICATION_JSON,
+			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getSplitEncryptedData(), content, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);

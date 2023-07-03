@@ -80,7 +80,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		if (testCaseDTO.getEndPoint().contains("$PartnerKeyURL$")) {
@@ -94,7 +94,6 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		request = buildIdentityRequest(request);
 
 		String inputJSON = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
-		// storeValue(authRequest,"authRequest");
 
 		String url = ConfigManager.getAuthDemoServiceUrl();
 
@@ -146,26 +145,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			} catch (JSONException e) {
 				logger.error(e.getStackTrace());
 			}
-//			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
-//			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
-//						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
 
-		/*
-		 * if (testCaseName.toLowerCase().contains("kyc")) { String error = null; if
-		 * (response.getBody().asString().contains("errors")) error =
-		 * JsonPrecondtion.getJsonValueFromJson(response.getBody().asString(),
-		 * "errors"); if (error.equalsIgnoreCase("null"))
-		 * encryptDecryptUtil.validateThumbPrintAndIdentity(response,
-		 * testCaseDTO.getEndPoint()); }
-		 */
-
-		/*
-		 * if
-		 * (!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
-		 * response.getHeader(props.getProperty("signatureheaderKey")))) throw new
-		 * AdminTestException("Failed at Signature validation");
-		 */
 
 	}
 
@@ -192,7 +173,5 @@ public class BioAuth extends AdminTestUtil implements ITest {
 
 	@AfterClass
 	public static void authTestTearDown() {
-//		logger.info("Terminating authpartner demo application...");
-//		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }

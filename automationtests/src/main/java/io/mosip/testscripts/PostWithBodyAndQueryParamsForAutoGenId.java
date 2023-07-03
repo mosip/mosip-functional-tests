@@ -33,19 +33,13 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 	String queryParams = null;
 	public String idKeyName = null;
 	public Response response = null;
-	/**
-	 * get current testcaseName
-	 */
+	
 	@Override
 	public String getTestName() {
 		return testCaseName;
 	}
 
-	/**
-	 * Data provider class provides test case list
-	 * 
-	 * @return object of data provider
-	 */
+	
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
@@ -56,21 +50,12 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 	}
 	
 
-	/**
-	 * Test method for OTP Generation execution
-	 * 
-	 * @param objTestParameters
-	 * @param testScenario
-	 * @param testcaseName
-	 * @throws AuthenticationTestException
-	 * @throws AdminTestException
-	 */
+	
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName();
 		
-		String input = testCaseDTO.getInput();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		
@@ -82,7 +67,6 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 			response = postWithQueryParamsBodyAndCookie(url + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), queryParams, idKeyName);
 		}
 		else {
-//			response = postWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), queryParams);
 		}
 		
 		
@@ -98,11 +82,7 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 
 	
 
-	/**
-	 * The method ser current test name to result
-	 * 
-	 * @param result
-	 */
+	
 	@AfterMethod(alwaysRun = true)
 	public void setResultTestName(ITestResult result) {
 		try {

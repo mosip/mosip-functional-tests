@@ -42,7 +42,6 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
-//		AuthPartnerProcessor.startProcess();
 	}
 
 	/**
@@ -79,7 +78,7 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		if (testCaseDTO.getEndPoint().contains("$partnerKeyURL$")) {
@@ -146,10 +145,6 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
-		// if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(),
-		// response.getHeader(props.getProperty("signatureheaderKey"))))
-		// throw new AdminTestException("Failed at Signature validation");
-
 	}
 
 	/**
@@ -175,9 +170,5 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");
-		// As the demo auth service will be running in a separate docker, we dont need
-		// to launch the demo auth service
-		// return;
-//		AuthPartnerProcessor.authPartherProcessor.destroyForcibly();
 	}
 }

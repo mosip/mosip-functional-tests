@@ -77,7 +77,7 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName();
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		for(int i=0; i<perTCUinCount; i++)
@@ -93,7 +93,6 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 		DateFormat dateFormatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
-		//String genRid = "278476573600025" + timestampValue;
 		String genRid = "27847" + generateRandomNumberString(10) + timestampValue;
 		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		inputJson = inputJson.replace("$UIN$", uin);

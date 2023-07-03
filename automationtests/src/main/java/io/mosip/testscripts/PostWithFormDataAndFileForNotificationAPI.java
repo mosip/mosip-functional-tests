@@ -67,7 +67,7 @@ public class PostWithFormDataAndFileForNotificationAPI extends AdminTestUtil imp
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
-		if (HealthChecker.signalTerminateExecution == true) {
+		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		String inputJson = filterInputHbs(testCaseDTO);

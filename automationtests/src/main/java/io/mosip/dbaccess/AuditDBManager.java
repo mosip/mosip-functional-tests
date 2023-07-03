@@ -113,10 +113,7 @@ public class AuditDBManager extends AdminTestUtil {
 			dbschema=ConfigManager.getValueForKey("ida_db_schema");
 		try {
 			Configuration config = new Configuration();
-			// config.setProperties(dbProps);
 			config.setProperty("hibernate.connection.driver_class", propsKernel.getProperty("driver_class"));
-			// config.setProperty("hibernate.connection.url",
-			// propsKernel.getProperty(dbName+"_url"));
 			config.setProperty("hibernate.connection.url",
 					"jdbc:" + propsKernel.getProperty("postgresqlUser") + "://"
 							+ ConfigManager.getValueForKey("db-server") + ":" + ConfigManager.getValueForKey("db-port")
