@@ -49,7 +49,7 @@ import io.restassured.response.Response;
 public class BaseTestCase {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
-
+	public static MockSMTPListener mockSMTPListener = null;
 	public static List<String> preIds = new ArrayList<String>();
 	public ExtentHtmlReporter htmlReporter;
 	public ExtentReports extent;
@@ -242,7 +242,7 @@ public class BaseTestCase {
 			BaseTestCase.certsForModule = "IDA";
 			AuthTestsUtil.initiateAuthTest();
 			
-			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
 			 //new PMPDataManager(true);
 		}
@@ -267,7 +267,7 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = GlobalConstants.MOBILEID;
 			setReportName(GlobalConstants.MOBILEID);
 			AdminTestUtil.initiateMobileIdTestTest();
-			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
 
 		}
@@ -285,7 +285,7 @@ public class BaseTestCase {
 			BaseTestCase.certsForModule = GlobalConstants.ESIGNET;
 			setReportName(GlobalConstants.ESIGNET);
 			AdminTestUtil.initiateesignetTest();
-			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
 
 		}
@@ -297,7 +297,7 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = GlobalConstants.RESIDENT;
 			setReportName(GlobalConstants.RESIDENT);
 			AdminTestUtil.copyResidentTestResource();
-		MockSMTPListener mockSMTPListener = new MockSMTPListener();
+		    mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
 		}
 		if (listOfModules.contains("partner")) {
@@ -320,7 +320,7 @@ public class BaseTestCase {
 			BaseTestCase.currentModule = GlobalConstants.PREREG;
 			setReportName(GlobalConstants.PREREG);
 			AdminTestUtil.copyPreregTestResource();
-			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
 
 		}
