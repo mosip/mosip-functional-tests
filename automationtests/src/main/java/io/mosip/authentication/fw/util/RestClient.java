@@ -79,7 +79,6 @@ public class RestClient {
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart(fileKeyName, file)
 				.pathParams(pathParams).formParams(formParams).contentType(contentHeader).expect().when().post(url)
 				.then().log().all().extract().response();
-		// log then response
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		return postResponse;
@@ -92,7 +91,6 @@ public class RestClient {
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart(fileKeyName, file)
 				.pathParams(pathParams).contentType(contentHeader).expect().when().post(url)
 				.then().log().all().extract().response();
-		// log then response
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		return postResponse;
@@ -104,11 +102,9 @@ public class RestClient {
 		tokens.put(idTokenName, idTokenValue);
 		RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
 		RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
-//		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookieValue);
 		Response postResponse = given().cookies(tokens).relaxedHTTPSValidation().multiPart(fileKeyName, file)
 				.pathParams(pathParams).contentType(contentHeader).expect().when().post(url)
 				.then().log().all().extract().response();
-		// log then response
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		return postResponse;
@@ -117,43 +113,23 @@ public class RestClient {
 	public static Response postWithFormDataAndFile(String url, HashMap<String, String> formParams, String filePath,
 			String contentHeader, String cookie) {
 		RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
-		// RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().contentType(contentHeader)
 				.multiPart("files", new File(filePath)).multiPart("tableName", formParams.get("tableName"))
 				.multiPart(GlobalConstants.OPERATION, formParams.get(GlobalConstants.OPERATION)).multiPart("category", formParams.get("category"))
 				.expect().when().post(url).then().log().all().extract().response();
-		// log then response
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		return postResponse;
 	}
 
-	public static Response postWithMultipartFormDataAndFile(String url, HashMap<String, String> formParams, /*
-																											 * File[]
-																											 * filePath,
-																											 */
+	public static Response postWithMultipartFormDataAndFile(String url, HashMap<String, String> formParams, 
 			String contentHeader, String cookie) {
 		RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
-		// RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
-		/*
-		 * Response postResponse =
-		 * given().cookie(builder.build()).relaxedHTTPSValidation()
-		 * .contentType(contentHeader) .multiPart("files", filePath[0])
-		 * .multiPart("files", filePath[1]) .multiPart("tableName",
-		 * formParams.get("tableName")) .multiPart(GlobalConstants.OPERATION,
-		 * formParams.get(GlobalConstants.OPERATION)) .multiPart("category",
-		 * formParams.get("category"))
-		 * .expect().when().post(url).then().log().all().extract().response();
-		 */
 
 		RequestSpecification requestSpecification = given().cookie(builder.build()).relaxedHTTPSValidation()
 				.contentType(contentHeader);
-		/*
-		 * for (int i=0;i<filePath.length;i++) { requestSpecification.multiPart("files",
-		 * filePath[i]); }
-		 */
 		for (Map.Entry<String, String> entry : formParams.entrySet()) {
 			requestSpecification.multiPart(entry.getKey(), entry.getValue());
 		}
@@ -169,18 +145,7 @@ public class RestClient {
 	public static Response postWithFormDataAndMultipleFile(String url, HashMap<String, String> formParams,
 			File[] filePath, String contentHeader, String cookie) {
 		RESTCLIENT_LOGGER.info("REST:ASSURED:Sending post request with file to" + url);
-		// RESTCLIENT_LOGGER.info("Name of the file is" + file.getName());
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
-		/*
-		 * Response postResponse =
-		 * given().cookie(builder.build()).relaxedHTTPSValidation()
-		 * .contentType(contentHeader) .multiPart("files", filePath[0])
-		 * .multiPart("files", filePath[1]) .multiPart("tableName",
-		 * formParams.get("tableName")) .multiPart(GlobalConstants.OPERATION,
-		 * formParams.get(GlobalConstants.OPERATION)) .multiPart("category",
-		 * formParams.get("category"))
-		 * .expect().when().post(url).then().log().all().extract().response();
-		 */
 
 		RequestSpecification requestSpecification = given().cookie(builder.build()).relaxedHTTPSValidation()
 				.contentType(contentHeader);
@@ -191,7 +156,6 @@ public class RestClient {
 				.multiPart(GlobalConstants.OPERATION, formParams.get(GlobalConstants.OPERATION)).multiPart("category", formParams.get("category"))
 				.expect().when().post(url).then().log().all().extract().response();
 
-		// log then response
 		RESTCLIENT_LOGGER.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		RESTCLIENT_LOGGER.info("REST-ASSURED: the response time is: " + postResponse.time());
 		return postResponse;
@@ -737,7 +701,6 @@ public class RestClient {
 		return putResponse;
 	}
 
-	// Added by Admin Test Team
 	public static Response getRequestWithCookieAndPathParm(String url, HashMap<String, String> body,
 			String contentHeader, String acceptHeader, String cookieName, String cookieValue) {
 		RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
