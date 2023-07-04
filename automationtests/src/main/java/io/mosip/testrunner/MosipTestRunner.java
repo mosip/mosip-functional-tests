@@ -58,77 +58,83 @@ public class MosipTestRunner {
 	 */
 	public static void main(String arg[]) {
 
-		Map<String, String> envMap = System.getenv();
-		LOGGER.info("** ------------- Get ALL ENV varibales --------------------------------------------- **");
-		for (String envName : envMap.keySet()) {
-			LOGGER.info(String.format("ENV %s = %s%n", envName, envMap.get(envName)));
-		}
+		try {
 
-		if (checkRunType().equalsIgnoreCase("JAR")) {
-			ExtractResource.removeOldMosipTestTestResource();
-			ExtractResource.extractResourceFromJar();
-		}
-		// Initializing or setting up execution
-		ConfigManager.init(); //Langauge Independent
-		BaseTestCase.suiteSetup();
-		AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
-		HealthChecker healthcheck = new HealthChecker();
-		healthcheck.setCurrentRunningModule(BaseTestCase.currentModule);
-		Thread trigger = new Thread(healthcheck);
-		trigger.start();
-		
-//		KeycloakUserManager.removeUser();  //Langauge Independent
-		KeycloakUserManager.createUsers();  //Langauge Independent
-		
-		
-		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
-			PartnerRegistration.deleteCertificates();
-			CertificateGenerationUtil.getThumbprints();
-			AdminTestUtil.createAndPublishPolicy();
-			PartnerRegistration.generateAndGetPartnerKeyUrl();
-		}   
-		 
-		 
-		List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
+			Map<String, String> envMap = System.getenv();
+			LOGGER.info("** ------------- Get ALL ENV varibales --------------------------------------------- **");
+			for (String envName : envMap.keySet()) {
+				LOGGER.info(String.format("ENV %s = %s%n", envName, envMap.get(envName)));
+			}
 
-		//Get List of languages from server and set into BaseTestCase.languageList
-		//if list of modules contains GlobalConstants.MASTERDATA then iterate it through languageList and run complete suite with one language at a time
-		//ForTesting
-		
-		if (BaseTestCase.listOfModules.contains(GlobalConstants.MASTERDATA)) {
-			//get all languages which are already loaded and store into local variable
-				BaseTestCase.mapUserToZone();
-				BaseTestCase.mapZone();
-			
-			for (int i = 0; i < localLanguageList.size(); i++) {
-				// update one language at a time in the BaseTestCase.languageList
-				BaseTestCase.languageList.clear();
-				BaseTestCase.languageList.add(localLanguageList.get(i));
+			if (checkRunType().equalsIgnoreCase("JAR")) {
+				ExtractResource.removeOldMosipTestTestResource();
+				ExtractResource.extractResourceFromJar();
+			}
+			// Initializing or setting up execution
+			ConfigManager.init(); // Langauge Independent
+			BaseTestCase.suiteSetup();
+			AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
+			HealthChecker healthcheck = new HealthChecker();
+			healthcheck.setCurrentRunningModule(BaseTestCase.currentModule);
+			Thread trigger = new Thread(healthcheck);
+			trigger.start();
 
-			    DBManager.clearMasterDbData();
-				BaseTestCase.currentModule = GlobalConstants.MASTERDATA;
-				BaseTestCase.setReportName("masterdata-" + localLanguageList.get(i));
-				startTestRunner();
+			// KeycloakUserManager.removeUser(); //Langauge Independent
+			KeycloakUserManager.createUsers(); // Langauge Independent
+
+			String partnerKeyURL = "";
+
+			if (BaseTestCase.listOfModules.contains("auth")
+					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
+				PartnerRegistration.deleteCertificates();
+				CertificateGenerationUtil.getThumbprints();
+				AdminTestUtil.createAndPublishPolicy();
+				partnerKeyURL = PartnerRegistration.generateAndGetPartnerKeyUrl();
 
 			}
-			 
+
+			List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
+
+			// Get List of languages from server and set into BaseTestCase.languageList
+			// if list of modules contains GlobalConstants.MASTERDATA then iterate it
+			// through languageList and run complete suite with one language at a time
+			// ForTesting
+
+			if (BaseTestCase.listOfModules.contains(GlobalConstants.MASTERDATA)) {
+				// get all languages which are already loaded and store into local variable
+				BaseTestCase.mapUserToZone();
+				BaseTestCase.mapZone();
+
+				for (int i = 0; i < localLanguageList.size(); i++) {
+					// update one language at a time in the BaseTestCase.languageList
+					BaseTestCase.languageList.clear();
+					BaseTestCase.languageList.add(localLanguageList.get(i));
+
+					DBManager.clearMasterDbData();
+					BaseTestCase.currentModule = GlobalConstants.MASTERDATA;
+					BaseTestCase.setReportName("masterdata-" + localLanguageList.get(i));
+					startTestRunner();
+
+				}
+
+			} else if (BaseTestCase.listOfModules.contains("auth")
+					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
+				if (partnerKeyURL.isEmpty())
+					LOGGER.error("partnerKeyURL is null");
+				else
+					startTestRunner();
+			} else {
+				startTestRunner();
+			}
+		} catch (Exception e) {
+			LOGGER.error("Exception " + e.getMessage());
 		}
-		else {
-			startTestRunner();
-		}
-		
-		//KeycloakUserManager.removeUser();
-		if (BaseTestCase.currentModule.equals(GlobalConstants.MOBILEID) || BaseTestCase.currentModule.equals(GlobalConstants.PREREG)
-				|| BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)) {
-			MockSMTPListener mockSMTPListener = new MockSMTPListener();
-			mockSMTPListener.bTerminate = true;
-		}
-		
+
+		MockSMTPListener.bTerminate = true;
+
 		HealthChecker.bTerminate = true;
-		
+
 		System.exit(0);
-		
-		
 
 	}
 

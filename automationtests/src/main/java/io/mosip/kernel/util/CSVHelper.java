@@ -121,7 +121,6 @@ public class CSVHelper {
 	 * helper.readRecords( new int[] {1,15,10,20, 12}); for(String[] r: recs) {
 	 * 
 	 * logger.info( r[1]); } helper.close(); } catch (IOException e) { //
-	 * TODO Auto-generated catch block e.printStackTrace(); }
 	 * 
 	 * }
 	 */
