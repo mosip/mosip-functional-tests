@@ -192,9 +192,11 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 			if ((!testCaseName.contains("ESignet_")) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
 				logger.info("waiting for" + props.getProperty("Delaytime")
 						+ " mili secs after VID Generation In RESIDENT SERVICES");
+				Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
 			}
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());
+			Thread.currentThread().interrupt();
 		}
 
 	}
