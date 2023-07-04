@@ -100,15 +100,10 @@ public class BaseTestCase {
 	public String batchJobToken = null;
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
-	// static PreRegistrationLibrary lib = new PreRegistrationLibrary();
 	public static Map<?, ?> residentQueries;
 	public static Map<?, ?> partnerQueries;
 	public static boolean insertDevicedata = false;
 	public static boolean proxy = true;
-	/**
-	 * Method that will take care of framework setup
-	 */
-	// GLOBAL CLASS VARIABLES
 
 	public static String ApplnURI;
 	public static String ApplnURIForKeyCloak;
@@ -159,7 +154,6 @@ public class BaseTestCase {
 	+ "@automationMosip.com";
 	public String genMispPartnerEmail = "misppartner" + generateRandomNumberString(4)
 			+ generateRandomNumberString(4) + "@automationMosip.com";
-	// public static HashMap<String, String> langcode = new HashMap<>();
 	public static String publickey;
 	public static RSAKey rsaJWK;
 	public static String clientAssertionToken;
@@ -203,22 +197,13 @@ public class BaseTestCase {
 		logger.info("Application URI ======" + ApplnURIForKeyCloak);
 		testLevel = System.getProperty("env.testLevel");
 		logger.info("Test Level ======" + testLevel);
-		// languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
 
-		// langcode = System.getProperty("env.langcode");
 		logger.info("Test Level ======" + languageList);
 
 		logger.info("Configs from properties file are set.");
 
 	}
 
-	// ================================================================================================================
-	// TESTNG BEFORE AND AFTER SUITE ANNOTATIONS
-	// ================================================================================================================
-
-	/*
-	 * Saving TestNG reports to be published
-	 */
 
 	public static void suiteSetup() {
 		File logFile = new File("./src/logs/mosip-api-test.log");
@@ -244,17 +229,12 @@ public class BaseTestCase {
 			
 			mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
-			 //new PMPDataManager(true);
 		}
 		if (listOfModules.contains("idrepo")) {
 			setReportName("idrepo");
 			BaseTestCase.currentModule = "idrepo";
 			AdminTestUtil.copyIdrepoTestResource();
 		}
-		/*
-		 * if (listOfModules.contains("admin")) { setReportName("admin");
-		 * BaseTestCase.currentModule = "admin"; AdminTestUtil.initiateAdminTest(); }
-		 */
 
 		if (listOfModules.contains(GlobalConstants.MASTERDATA)) {
 			DBManager.clearMasterDbData();
@@ -289,10 +269,6 @@ public class BaseTestCase {
 			mockSMTPListener.run();
 
 		}
-		/*
-		 * if (listOfModules.contains("syncdata")) { setReportName("syncdata");
-		 * AdminTestUtil.initiateSyncDataTest(); }
-		 */
 		if (listOfModules.contains(GlobalConstants.RESIDENT)) {
 			BaseTestCase.currentModule = GlobalConstants.RESIDENT;
 			setReportName(GlobalConstants.RESIDENT);
@@ -308,14 +284,6 @@ public class BaseTestCase {
 			setReportName("partner");
 			AdminTestUtil.copyPartnerTestResource();
 		}
-		/*
-		 * if (listOfModules.contains("kernel")) { setReportName("kernel");
-		 * AdminTestUtil.initiateKernelTest(); }
-		 */
-		/*
-		 * if (listOfModules.contains("regproc")) { setReportName("regproc");
-		 * AdminTestUtil.initiateregProcTest(); }
-		 */
 		if (listOfModules.contains(GlobalConstants.PREREG)) {
 			BaseTestCase.currentModule = GlobalConstants.PREREG;
 			setReportName(GlobalConstants.PREREG);
@@ -324,10 +292,6 @@ public class BaseTestCase {
 			mockSMTPListener.run();
 
 		}
-		/*
-		 * if (listOfModules.contains("prerequisite")) { setReportName("prerequisite");
-		 * AdminTestUtil.copyPrerequisiteTestResource(); }
-		 */
 	}
 
 	public static void setReportName(String moduleName) {
@@ -345,7 +309,7 @@ public class BaseTestCase {
 		logger.info("\n\n");
 		logger.info("Rest Assured framework has been reset because all tests have been executed.");
 		logger.info("TESTING COMPLETE: SHUTTING DOWN FRAMEWORK!!");
-	} // end testTearDown
+	} 
 
 	public static Properties getproperty(String path) {
 		Properties prop = new Properties();
@@ -407,7 +371,6 @@ public class BaseTestCase {
 	@SuppressWarnings("unchecked")
 	public static void mapUserToZone() {
 
-//			AdminTestUtil.initialUserCreation();
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
@@ -428,7 +391,6 @@ public class BaseTestCase {
 	@SuppressWarnings("unchecked")
 	public static void mapUserToZone(String user, String zone) {
 
-//			AdminTestUtil.initialUserCreation();
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
@@ -538,7 +500,6 @@ public class BaseTestCase {
 		if (!languageList.isEmpty()) {
 			return languageList;
 		}
-		// String token = kernelAuthLib.getTokenByRole("globalAdmin");
 		String url = ApplnURI + props.getProperty("preregLoginConfigUrl");
 		Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
@@ -561,8 +522,6 @@ public class BaseTestCase {
 			return supportedIdType;
 		}
 		Response response = null;
-		// supportedIdType.add("UIN");
-		// supportedIdType.add("VID");
 
 		org.json.JSONObject responseJson = null;
 		JSONArray responseArray = null;

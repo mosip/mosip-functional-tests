@@ -210,7 +210,6 @@ public class ConfigManager {
 	}
 
 	public static void init() {
-		// Loading Kernel property
 		propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
 
 		pms_client_secret = getValueForKey(MOSIP_PMS_CLIENT_SECRET);
@@ -244,7 +243,6 @@ public class ConfigManager {
 		s3UserKey = getValueForKey(S3_USER_KEY);
 		s3SecretKey = getValueForKey(S3_SECRET_KEY);
 		s3Account = getValueForKey(S3_ACCOUNT);
-//		push_reports_to_s3 = getValueForKey(PUSH_TO_S3);
 		dbPort = getValueForKey(DB_PORT);
 		dbDomain = getValueForKey(DB_DOMAIN);
 		hibernateConnectionDriverClass = getValueForKey(HIBERNATE_CONNECTION_DRIVER_CLASS);
@@ -328,7 +326,6 @@ public class ConfigManager {
 		propsKernel.setProperty(PRECONFIGOTP, preconfiguredOtp);
 		
 		
-		//enableDebug threadCount  langselect
 
 	}
 
@@ -619,7 +616,6 @@ public class ConfigManager {
 		return masterDBSchema;
 	}
 
-	// from docker env getting only host url
 	public static String getIAMUrl() {
 		LOGGER.info("keycloak url from ENV::: " + System.getenv(IAM_EXTERNAL_URL) + "/auth");
 		LOGGER.info("keycloak url from Property::: " + System.getProperty(IAM_EXTERNAL_URL) + "/auth");

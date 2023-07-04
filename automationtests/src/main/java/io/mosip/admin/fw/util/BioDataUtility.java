@@ -41,7 +41,6 @@ public class BioDataUtility extends AdminTestUtil {
 
 	private String cryptoEncryptUrl = BaseTestCase.ApplnURI + "/idauthentication/v1/internal/encrypt";
 	static String EncryptUtilBaseUrl = ConfigManager.getAuthDemoServiceUrl() + "/";
-	//private static String jsonContent = "config/AuthPolicy.json";
 
 	private String encryptIsoBioValue(String isoBiovalue, String timestamp, String bioValueEncryptionTemplateJson,
 			String transactionId, boolean isInternal) {
@@ -51,13 +50,6 @@ public class BioDataUtility extends AdminTestUtil {
 		byte[] aadLastBytes = BytesUtil.getLastBytes(xorBytes, 16);
 		String aad = CryptoUtil.encodeBase64(aadLastBytes);
 		String jsonContent = FileUtil.readInput(bioValueEncryptionTemplateJson);
-		/*
-		 * String aad =
-		 * EncryptDecrptUtil.getBase64EncodedString(timestamp.substring(timestamp.length
-		 * () - 16)); String salt =
-		 * EncryptDecrptUtil.getBase64EncodedString(timestamp.substring(timestamp.length
-		 * () - 12));
-		 */
 		if (isInternal) 
 			jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, props.getProperty("internalrefId"),
 					"request.referenceId");
@@ -99,7 +91,6 @@ public class BioDataUtility extends AdminTestUtil {
 		
         byte [] currentDataByteArr = org.apache.commons.codec.binary.Base64.decodeBase64(bioValue);
 	       
-        // Here Byte Array
         byte[] currentBioDataHash = generateHash (currentDataByteArr);
         byte[] finalBioDataHash = new byte[currentBioDataHash.length + previousBioDataHash.length];
         System.arraycopy(previousBioDataHash, 0, finalBioDataHash, 0, previousBioDataHash.length);
@@ -112,9 +103,7 @@ public class BioDataUtility extends AdminTestUtil {
 		String encryptedBioValue = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedData");
 		String encryptedSessionKey = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedSessionKey");
 		encryptedSessionKeyString = encryptedSessionKey;
-//		Replacing biovalue with encryptedBioValue
 		request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.BIOMETRICS).getJSONObject(0).getJSONObject("data").put(GlobalConstants.BIOVALUE, encryptedBioValue);
-//		Replacing hashvalue with hash
 		request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(GlobalConstants.BIOMETRICS).getJSONObject(0).put("hash", hash);
 		logger.info(encryptedSessionKeyString);
 		
@@ -141,19 +130,10 @@ public class BioDataUtility extends AdminTestUtil {
 			}
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
 					AdminTestUtil.generateCurrentUTCTimeStamp(), biometricsMapper + ".data.timestamp");
-			/*
-			 * identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
-			 * BaseTestCase.ApplnURI, biometricsMapper + ".data.domainUri");
-			 */
-			/*
-			 * identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
-			 * BaseTestCase.ApplnURI, biometricsMapper + ".data.env");
-			 */
 
 			String data = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + ".data");
 			String bioValue = JsonPrecondtion.getValueFromJson(data, GlobalConstants.BIOVALUE);
 
-			//storeValue(bioValue);
 			String timestamp = JsonPrecondtion.getValueFromJson(data, "timestamp");
 			String transactionId = JsonPrecondtion.getValueFromJson(data, GlobalConstants.TRANSACTIONID);
 			String encryptedContent = encryptIsoBioValue(bioValue, timestamp, bioValueencryptionTemplateJson,
@@ -174,7 +154,6 @@ public class BioDataUtility extends AdminTestUtil {
 						EncryptionDecrptionUtil.internalThumbPrint, biometricsMapper + ".thumbprint");
 			}
 
-			//String signedData = EncryptDecrptUtil.getBase64EncodedString(latestData);
 			if (testcaseName.toLowerCase().contains("without".toLowerCase())
 					&& testcaseName.toLowerCase().contains("signature".toLowerCase())
 					&& testcaseName.toLowerCase().contains("_neg".toLowerCase()))
@@ -183,12 +162,8 @@ public class BioDataUtility extends AdminTestUtil {
 					biometricsMapper + ".data");
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, encryptedSessionKey,
 					biometricsMapper + ".sessionKey");
-			//logger.info(identityRequest);
-			//instead of BioData, bioValue (before encrytion in case of Capture response) is used for computing the hash.
-	        //byte [] currentDataByteArr = java.util.Base64.getUrlDecoder().decode(bioValue);
 	        byte [] currentDataByteArr = org.apache.commons.codec.binary.Base64.decodeBase64(bioValue);
 	       
-	        // Here Byte Array
 	        byte[] currentBioDataHash = generateHash (currentDataByteArr);
 	        byte[] finalBioDataHash = new byte[currentBioDataHash.length + previousBioDataHash.length];
 	        System.arraycopy(previousBioDataHash, 0, finalBioDataHash, 0, previousBioDataHash.length);
@@ -205,35 +180,11 @@ public class BioDataUtility extends AdminTestUtil {
 		return identityRequest;
 	}
 	
-	//header
 	private String getSignedData(String identityDataBlock, String partnerId) {
 
 		return generateSignatureWithRequest(identityDataBlock, "BOOLEAN:true", partnerId);
-		/*
-		 * try { // Extract Certificate String resourcePath = getResourcePath();
-		 * FileInputStream pkeyfis = new FileInputStream(resourcePath +
-		 * "ida/TestData/RunConfig/keys/privateKey.pem"); String pKey =
-		 * FileUtil.getFileContent(pkeyfis, "UTF-8"); FileInputStream certfis = new
-		 * FileInputStream(resourcePath + "ida/TestData/RunConfig/keys/cert.pem");
-		 * String cert = FileUtil.getFileContent(certfis, "UTF-8"); pKey =
-		 * pKey.replaceAll("-----BEGIN (.*)-----\n", ""); pKey =
-		 * pKey.replaceAll("-----END (.*)----\n", ""); pKey = pKey.replaceAll("\\s",
-		 * ""); cert = cert.replaceAll("-----BEGIN (.*)-----\n", ""); cert =
-		 * cert.replaceAll("-----END (.*)----\n", ""); cert = cert.replaceAll("\\s",
-		 * ""); CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		 * X509Certificate certificate = (X509Certificate) cf .generateCertificate(new
-		 * ByteArrayInputStream(Base64.getDecoder().decode(cert))); // Extract Private
-		 * Key KeyFactory kf = KeyFactory.getInstance("RSA"); PrivateKey privateKey =
-		 * kf.generatePrivate(new
-		 * PKCS8EncodedKeySpec(Base64.getDecoder().decode(pKey))); JWSValidation jws =
-		 * new JWSValidation(); return jws.jwsSign(identityDataBlock, privateKey,
-		 * certificate); } catch (Exception e) {
-		 * logger.error("Exception Occured in signing the bio data:" +
-		 * e.getStackTrace()); return "Automation error occured: "+e.getMessage(); }
-		 */
 	}
 	
-	//Bio-metriv data(device) and digitalID(ftm)
 	private String getSignedBiometrics(String identityDataBlock, String key) {
 
 		return generateSignatureWithBioMetric(identityDataBlock, "BOOLEAN:true", key);
@@ -249,7 +200,6 @@ public class BioDataUtility extends AdminTestUtil {
         pathParamsMap.put("partnerType", key);
         pathParamsMap.put("moduleName", BaseTestCase.certsForModule);
         pathParamsMap.put("certsDir", ConfigManager.getauthCertsPath());
-        //Response response = RestClient.postWithBodyAndCookie(EncryptUtilBaseUrl+props.get("signRequest")+"?"+"partnerType="+key, identityDataBlock, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, residentCookie);
 		Response response = RestClient.postRequestWithQueryParamBodyAndCookie(
 				EncryptUtilBaseUrl + props.get("signRequest"), identityDataBlock, pathParamsMap,
 				 MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, GlobalConstants.AUTHORIZATION,
@@ -258,12 +208,9 @@ public class BioDataUtility extends AdminTestUtil {
 		byte[] bytePayload = identityDataBlock.getBytes();
 		String payloadData = Base64.getUrlEncoder().encodeToString(bytePayload);
 		payloadData= payloadData.replace("=", "");
-		//String newResponse = response.asString();
 		String signNewResponse = response.asString().replace("..", "."+ payloadData +".");
 		logger.info(signNewResponse);
 		
-		//String content = RestClient.postR(EncryptUtilBaseUrl+props.get("encryptionPath"), identityDataBlock, MediaType.APPLICATION_JSON,
-				//MediaType.APPLICATION_JSON).asString();
         
          singResponse = response.asString();
 		
@@ -278,17 +225,9 @@ public class BioDataUtility extends AdminTestUtil {
     public static byte[] decodeHex(String hexData) throws DecoderException{
         return Hex.decodeHex(hexData);
     }
-    //public static byte[] getCertificateThumbprint(Certificate cert) throws CertificateEncodingException {
-      //  return DigestUtils.sha256(cert.getEncoded());
-    //}
     public static String toHex(byte[] bytes) {
         return Hex.encodeHexString(bytes).toUpperCase();
     }
     
-	/*
-	 * private static void storeValue(String biovalue) { try { BufferedWriter out =
-	 * new BufferedWriter(new FileWriter("BioValue.txt")); out.write(biovalue);
-	 * out.close(); } catch (IOException e) { logger.info(GlobalConstants.EXCEPTION_STRING_2); } }
-	 */
 
 }
