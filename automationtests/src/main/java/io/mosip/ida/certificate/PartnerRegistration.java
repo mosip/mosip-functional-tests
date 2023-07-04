@@ -134,8 +134,6 @@ public class PartnerRegistration extends AdminTestUtil {
 		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
 		lOGGER.info(responseJson);
-//		JSONObject responseValue = (JSONObject) responseJson.get("response");
-//		lOGGER.info(responseValue);
 
 		return responseJson;
 	}
@@ -162,8 +160,6 @@ public class PartnerRegistration extends AdminTestUtil {
 		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
 		lOGGER.info(responseJson);
-//		JSONObject responseValue = (JSONObject) responseJson.get("response");
-//		lOGGER.info(responseValue);
 
 		return responseJson;
 	}
@@ -265,8 +261,6 @@ public class PartnerRegistration extends AdminTestUtil {
 		if (partnerType.equals("RELYING_PARTY")) {
 			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
 		}
-//		queryParamMap.put("partnerName", partnerId);
-//		queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
 
 		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap,
 				MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);

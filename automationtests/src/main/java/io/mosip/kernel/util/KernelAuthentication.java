@@ -19,13 +19,8 @@ import io.mosip.service.BaseTestCase;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-/**
- * @author Arunakumar Rati
- *
- */
 public class KernelAuthentication extends BaseTestCase{
 	
-	// Declaration of all variables
 	String folder="kernel";
 	String cookie;
 	static String dataKey = "response";
@@ -165,7 +160,6 @@ public class KernelAuthentication extends BaseTestCase{
 		case "state":
 			UUID uuid = UUID.randomUUID();
 			
-			//converts the randomly generated UUID into String  
 			String uuidAsString = uuid.toString();
 			return uuidAsString;
 		default:
@@ -190,10 +184,6 @@ public class KernelAuthentication extends BaseTestCase{
 			org.json.JSONObject jsonCookies = new org.json.JSONObject(ESignetCookiesFileString);
 			tokens.put("access_token", jsonCookies.get("access_token").toString());
 			tokens.put("id_token", jsonCookies.get("id_token").toString());
-//			logger.info("JSON " + jsonCookies);
-//			logger.info("JSON " + token);
-//			logger.info("id_token " + jsonCookies.get("id_token"));
-//			logger.info("access_token " + jsonCookies.get("access_token"));
 		} else {
 			logger.error("ESignetCookiesFile File not Found in location:" + fileName.getAbsolutePath());
 		}
@@ -209,7 +199,6 @@ public class KernelAuthentication extends BaseTestCase{
 		request.put("appId", ConfigManager.getAdminAppId());
 		request.put("password", admin_password);
 		
-		//if(BaseTestCase.currentModule==null) admin_userName=
 		request.put("userName", BaseTestCase.currentModule +"-"+ admin_userName);
 		
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getAdminClientId());
@@ -401,12 +390,9 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForIndividual() {	
-		// getting request and expected response jsondata from json files.
         JSONObject actualRequest_generation = getRequestJson("kernel/Authorization/OtpGeneration/request.json");
         ((JSONObject)actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
-        // getting request and expected response jsondata from json files.
         JSONObject actualRequest_validation = getRequestJson("kernel/Authorization/OtpGeneration/request.json");
-        //sending for otp
         appl.postWithJson(sendOtp, actualRequest_generation);
         String otp=null;
         		if (proxy)
@@ -421,14 +407,11 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public String getPreRegToken() {	
-		// getting request and expected response jsondata from json files.
         JSONObject actualRequest_generation = getRequestJson("config/prereg_SendOtp.json");
         actualRequest_generation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());
         ((JSONObject)actualRequest_generation.get(GlobalConstants.REQUEST)).put("langCode", BaseTestCase.getLanguageList().get(0));
         ((JSONObject)actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
-        // getting request and expected response jsondata from json files.
         JSONObject actualRequest_validation = getRequestJson("config/prereg_ValidateOtp.json");
-        //sending for otp
         appl.postWithJson(preregSendOtp, actualRequest_generation);
         String otp=null;
         		if (proxy)

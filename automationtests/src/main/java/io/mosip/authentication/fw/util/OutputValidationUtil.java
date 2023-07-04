@@ -179,7 +179,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 						}
 						objList.add(objOpDto);
 					} else if (expEntry.getValue().contains("$DECODE$")) {
-						String keyword = expEntry.getValue().toString();
+						String keyword = expEntry.getValue();
 						String content = actual.get(expEntry.getKey());
 						String expKeyword = keyword.substring(keyword.lastIndexOf("->") + 2, keyword.length());
 						String actKeyword = expKeyword.replace("expected", "actual");
@@ -207,7 +207,6 @@ public class OutputValidationUtil extends AuthTestsUtil{
 							objOpDto.setExpValue(expMap.toString());
 							objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 						}
-						// Verify.verify(compareTwoKycMap(expMap,actualMap));
 					}
 				} else if (!expEntry.getValue().equals("$IGNORE$")) {
 					objOpDto.setFieldName(expEntry.getKey());
