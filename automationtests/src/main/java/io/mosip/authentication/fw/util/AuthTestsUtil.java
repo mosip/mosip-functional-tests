@@ -1386,7 +1386,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		try {
 			outputStream = new FileOutputStream(parentFile + "/" + generateOutputFileKeyword + ".json");
 			String responseJson = getResponseWithCookie(urlPath, cookieName, cookieValue);
-			GlobalMethods.reportResponse(urlPath, responseJson);
+			GlobalMethods.reportResponse(urlPath, responseJson, true);
 			outputStream.write(responseJson.getBytes());
 			return responseJson;
 		} catch (Exception e) {
