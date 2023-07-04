@@ -43,19 +43,10 @@ import io.mosip.testrunner.MosipTestRunner;
 import io.restassured.http.Cookie;
 import io.restassured.response.Response;
 
-/**
- *
- * @author Ravikant
- *
- */
 public class CommonLibrary extends BaseTestCase {
 
 	private static Logger logger = Logger.getLogger(CommonLibrary.class);
 	private ApplicationLibrary applicationLibrary = new ApplicationLibrary();
-	/**
-	 * @param response
-	 *            this method is for validating the response time is in UTC
-	 */
 	public void checkResponseUTCTime(Response response) {
 		logger.info(response.asString());
 		JSONObject responseJson = null;
@@ -86,10 +77,6 @@ public class CommonLibrary extends BaseTestCase {
 
 	}
 
-	/**
-	 * @return this method is for getting the curretn UTC time in
-	 *         yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" format
-	 */
 	public Object getCurrentUTCTime() {
 		String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
@@ -99,12 +86,6 @@ public class CommonLibrary extends BaseTestCase {
 
 	}
 
-	/**
-	 * this method is for getting the local current time in
-	 * yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" format
-	 * 
-	 * @return
-	 */
 	public Object getCurrentLocalTime() {
 		String DATEFORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 		DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern(DATEFORMAT);
@@ -114,14 +95,6 @@ public class CommonLibrary extends BaseTestCase {
 
 	}
 
-	/**
-	 * @param folderRelativePath
-	 * @param isfolder(it
-	 *            should be true if u want to get list of folders and false for list
-	 *            of files)
-	 * @return this method is for returning the list of relative path of each folder
-	 *         or files in a given path
-	 */
 	public List<String> getFoldersFilesNameList(String folderRelativePath, boolean isfolder) {
 		String configPath = folderRelativePath;
 		List<String> listFoldersFiles = new ArrayList<>();
@@ -137,11 +110,6 @@ public class CommonLibrary extends BaseTestCase {
 		return listFoldersFiles;
 	}
 
-	/**
-	 * The method to return class loader resource path
-	 * 
-	 * @return String
-	 */
 	public String getResourcePath() {
 		return MosipTestRunner.getGlobalResourcePath() + "/";
 	}
@@ -150,11 +118,6 @@ public class CommonLibrary extends BaseTestCase {
 		return MosipTestRunner.getResourcePath() + "/";
 	}
 
-	/**
-	 * @param path
-	 * @param isRelative
-	 * @return this method is for reading the jsonData object from the given relative/absolute path.
-	 */
 	public JSONObject readJsonData(String path, boolean isRelative) {
 		logger.info("path : " + path);
 		if(isRelative)
@@ -180,11 +143,6 @@ public class CommonLibrary extends BaseTestCase {
 		return jsonData;
 	}
 
-	/**
-	 * @param propertyFileName
-	 * @return this method is for reading property file from config folder by
-	 *         passing the property file name
-	 */
 	public Map<String, String> readProperty(String propertyFileName) {
 		Properties prop = new Properties();
 		FileInputStream inputStream = null;
@@ -207,17 +165,11 @@ public class CommonLibrary extends BaseTestCase {
 		return mapProp;
 	}
 
-	/**
-	 * @param response
-	 *            This method is for checking the authentication is pass or fail in
-	 *            rest services
-	 */
 	public void responseAuthValidation(Response response) {
 		JSONArray errors = null;
 		String errorCode = null;
 		String errorMessage = null;
 		int statusCode = response.getStatusCode();
-		// fetching json array of objects from response
 		try {
 			if (statusCode > 500)
 				Assert.assertTrue(false, "Service is Unavailable and the statusCode=" + statusCode);
@@ -244,12 +196,6 @@ public class CommonLibrary extends BaseTestCase {
 		}
 	}
 	
-	/**
-	 * @param requestJson
-	 * @param responseJson
-	 * @return this method is for comapring 2 json, and return boolean value accordingly.
-	 * @throws AdminTestException 
-	 */
 	public boolean jsonComparator(String requestJson, String responseJson) throws AdminTestException
 	{
 		try {
@@ -263,11 +209,6 @@ public class CommonLibrary extends BaseTestCase {
 			throw new AdminTestException("Failed at output validation");
 		}
 	}
-	/**
-	 * @param cookie
-	 * @return boolean
-	 * this method is for checking cookie(token) is expired or not.
-	 */
 	public boolean isValidToken(String cookie) {
 		
 		logger.info("========= Revalidating the token =========");
@@ -294,12 +235,6 @@ public class CommonLibrary extends BaseTestCase {
 
 	}
 	
-	/**
-		 * The method to remove the json element from the json file
-		 * 
-		 * @return String
-		 * @throws ParseException 
-		 */
 		
 		public String removeJsonElement(String readFilePath,ArrayList<String> eleToRemove) throws ParseException {
 			String jsnString = null;
@@ -314,9 +249,6 @@ public class CommonLibrary extends BaseTestCase {
 			    	val=eleToRemove.get(i);
 			    	jsonContext.delete(val);
 			    	jsnString = jsonContext.jsonString();
-			    	/*JSONParser parser = new JSONParser(); 
-			        jsnObject = (JSONObject) parser.parse(myOutput);
-			    	*/
 			    }
 				
 			
@@ -327,11 +259,6 @@ public class CommonLibrary extends BaseTestCase {
 			
 		}
 
-	/**
-	 * @param response
-	 *            this method is for logging the response in case of error only.
-	 *            this is used in get request response logging
-	 */
 	public void responseLogger(Response response) {
 		int statusCode = response.statusCode();
 		if (statusCode < 200 || statusCode > 299) {
@@ -341,55 +268,25 @@ public class CommonLibrary extends BaseTestCase {
 
 	}
 
-	// rest services methods.
-
-	// Post Requests:
-	/**
-	 * @param url
-	 * @param contentHeader
-	 * @param acceptHeader
-	 * @param cookie
-	 * @return this method is for post request with authentication(cookie) and only
-	 *         with jsonData in request body.
-	 */
 	public Response postWithoutJson(String url, String contentHeader, String acceptHeader, String cookie) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().contentType(contentHeader)
 				.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
-		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param body
-	 * @param contentHeader
-	 * @param acceptHeader
-	 * @return this method is for post request without authentication(cookie) and
-	 *         only with jsonData in request body.
-	 */
 	public Response postWithJson(String url, Object body, String contentHeader, String acceptHeader) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
 		Response postResponse = given().relaxedHTTPSValidation().body(body).contentType(contentHeader)
 				.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
-		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param body
-	 * @param contentHeader
-	 * @param acceptHeader
-	 * @param cookie
-	 * @return this method is for post request with authentication(cookie) and only
-	 *         with jsonData in request body.
-	 */
 	public Response postWithJson(String url, Object body, String contentHeader, String acceptHeader, String cookie) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -402,16 +299,6 @@ public class CommonLibrary extends BaseTestCase {
 		return postResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param body
-	 * @param pathParams
-	 * @param contentHeader
-	 * @param acceptHeader
-	 * @param cookie
-	 * @return this method is for post request with authentication(cookie) with
-	 *         pathParams and jsonData in request body.
-	 */
 	public Response postWithPathParams(String url, Object body, HashMap<String, String> pathParams,
 			String contentHeader, String acceptHeader, String cookie) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
@@ -419,7 +306,6 @@ public class CommonLibrary extends BaseTestCase {
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams)
 				.body(body).contentType(contentHeader).accept(acceptHeader).log().all().when().post(url).then().log()
 				.all().extract().response();
-		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
@@ -432,37 +318,21 @@ public class CommonLibrary extends BaseTestCase {
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams)
 				.contentType(contentHeader).accept(acceptHeader).log().all().when().post(url).then().log()
 				.all().extract().response();
-		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
-	/**
-	 * @param file
-	 * @param url
-	 * @param cookie
-	 * @return this method is for post request with authentication(cookie) and only
-	 *         with File in request body.
-	 */
 	public Response postWithOnlyFile(String url, File file, String fileKeyName, String cookie) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart(fileKeyName, file)
 				.expect().when().post(url).then().log().all().extract().response();
-		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + postResponse.time());
 		return postResponse;
 	}
 
-	/**
-	 * @param file
-	 * @param url
-	 * @param cookie
-	 * @return this method is for post request with authentication(cookie), jsonData
-	 *         and with File in request body.
-	 */
 	public Response postWithFile(String url, Object body, File file, String fileKeyName, String contentHeader,
 			String cookie) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
@@ -470,21 +340,11 @@ public class CommonLibrary extends BaseTestCase {
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart(fileKeyName, file)
 				.body(body).contentType(contentHeader).expect().when().post(url).then().log().all().extract()
 				.response();
-		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + postResponse.time());
 		return postResponse;
 	}
 
-	/**
-	 * @param formParams
-	 * @param file
-	 * @param url
-	 * @param contentHeader
-	 * @param cookie
-	 * @return this method is for post request with authentication(cookie)
-	 *         containing file and Map of form params(name, value).
-	 */
 	public Response postWithFileFormParams(String url, HashMap<String, String> formParams, File file,
 			String fileKeyName, String contentHeader, String cookie) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
@@ -493,23 +353,11 @@ public class CommonLibrary extends BaseTestCase {
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().multiPart(fileKeyName, file)
 				.formParams(formParams).contentType(contentHeader).expect().when().post(url).then().log().all()
 				.extract().response();
-		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + postResponse.time());
 		return postResponse;
 	}
 
-	/**
-	 * @param formParams
-	 * @param file
-	 * @param url
-	 * @param contentHeader
-	 * @param pathParams
-	 * @param cookie
-	 * @return this method is for post request with authentication(cookie)
-	 *         containing file, Map of pathParams(name, value) and Map of
-	 *         formParams(name, value).
-	 */
 	public Response postWithFilePathParamsFormParams(String url, HashMap<String, String> pathParams,
 			HashMap<String, String> formParams, File file, String fileKeyName, String contentHeader, String cookie) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
@@ -519,22 +367,11 @@ public class CommonLibrary extends BaseTestCase {
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams)
 				.multiPart(fileKeyName, file).formParams(formParams).contentType(contentHeader).expect().when()
 				.post(url);
-		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		logger.info("REST-ASSURED: the response time is: " + postResponse.time());
 		return postResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param body
-	 * @param contentHeader
-	 * @param acceptHeader
-	 * @param queryparams
-	 * @param cookie
-	 * @return this method is for post request with authentication(cookie)
-	 *         containing json body with Map of queryPaarams(name, value).
-	 */
 	public Response postWithQueryParams(String url, HashMap<String, String> queryparams, Object body,
 			String contentHeader, String acceptHeader, String cookie) {
 		logger.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
@@ -542,41 +379,22 @@ public class CommonLibrary extends BaseTestCase {
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 				.queryParams(queryparams).contentType(contentHeader).accept(acceptHeader).log().all().when().post(url)
 				.then().log().all().extract().response();
-		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param body
-	 * @param headers
-	 * @param contentHeader
-	 * @param regProcAuthToken
-	 * @return this method is for post request with authentication(cookie)
-	 *         containing json body and Map of headers(name, value). Used by
-	 *         RegProc.
-	 */
 	public Response postWithMultiHeaders(String endpoint, Object body, HashMap<String, String> headers,
 			String contentHeader, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse = given().cookie(builder.build()).headers(headers).relaxedHTTPSValidation()
 				.body("\"" + body + "\"").contentType(contentHeader).log().all().when().post(endpoint).then().log()
 				.all().extract().response();
-		// log then response
 		logger.info("REST-ASSURED: The response from request is: " + postResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
-	/**
-	 * @param jsonString
-	 * @param serviceUri
-	 * @param cookie
-	 * @return this method is specifically for email notification with
-	 *         authorization(cookie) and multiPart data.
-	 */
 	public Response postRequestEmailNotification(String serviceUri, JSONObject jsonString, String cookie) {
 		logger.info(GlobalConstants.REST_ASSURED_STRING_1 + serviceUri);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -598,114 +416,62 @@ public class CommonLibrary extends BaseTestCase {
 					.extract().response();
 		}
 
-		// log then response
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
 	}
 
-	// Patch requests:
-	/**
-	 * @param url
-	 * @param body
-	 * @param contentHeader
-	 * @param acceptHeader
-	 * @param cookie
-	 * @return this method is for Patch Request with authentication(cookie) and Json
-	 *         body.
-	 */
 	public Response patchRequest(String url, Object body, String contentHeader, String acceptHeader, String cookie) {
 		logger.info("REST-ASSURED: Sending a Patch request to " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response putResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 				.contentType(contentHeader).accept(acceptHeader).log().all().when().patch(url).then().log().all()
 				.extract().response();
-		// log then response
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		return putResponse;
 	}
 
-	// Get Requests:
-	/**
-	 * @param url
-	 * @param cookie
-	 * @return this method is for get request with authentication(cookie) and
-	 *         without any param.
-	 */
 	public Response getWithoutParams(String url, String cookie) {
 		logger.info("REST-ASSURED: Sending a Get request to " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when().get(url);
-		// log then response
 		responseLogger(getResponse);
 		logger.info("REST-ASSURED: the response Time is: " + getResponse.time());
 		return getResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param patharams
-	 * @param cookie
-	 * @return this method is for get request with authentication(cookie) and with
-	 *         pathParams Map(name, Value).
-	 */
 	public Response getWithPathParam(String url, HashMap<String, String> patharams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + url);
 
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(patharams).log()
 				.all().when().get(url);
-		// log then response
 		responseLogger(getResponse);
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param queryParams
-	 * @param cookie
-	 * @return this method is for get request with authentication(cookie) and with
-	 *         queryParams Map(name, Value).
-	 */
 	public Response getWithQueryParam(String url, HashMap<String, String> queryParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + url);
 
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().queryParams(queryParams).log()
 				.all().when().get(url);
-		// log then response
 		responseLogger(getResponse);
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param queryParams
-	 * @param cookie
-	 * @return this method is for get request with authentication(cookie) and with
-	 *         List of queryParams(Map(name, List<Value>)) with same name.
-	 */
 	public Response getWithQueryParamList(String url, HashMap<String, List<String>> queryParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + url);
 
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().queryParams(queryParams).log()
 				.all().when().get(url);
-		// log then response
 		responseLogger(getResponse);
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param pathParams
-	 * @param queryParams
-	 * @param cookie
-	 * @return this method is for get request with authentication(cookie),
-	 *         pathParams Map(name, Value) and with queryParams Map(name, Value).
-	 */
 	public Response getWithPathQueryParam(String url, HashMap<String, String> pathParams,
 			HashMap<String, String> queryParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + url);
@@ -713,21 +479,11 @@ public class CommonLibrary extends BaseTestCase {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams)
 				.queryParams(queryParams).log().all().when().get(url);
-		// log then response
 		responseLogger(getResponse);
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param pathParams
-	 * @param queryParams
-	 * @param cookie
-	 * @return this method is for get request with authentication(cookie),
-	 *         pathParams Map(name, Value) and with queryParams(Map(name,
-	 *         List<Value>)) with same name.
-	 */
 	public Response getWithPathParamQueryParamList(String url, HashMap<String, String> pathParams,
 			HashMap<String, List<String>> queryParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + url);
@@ -735,62 +491,32 @@ public class CommonLibrary extends BaseTestCase {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams)
 				.queryParams(queryParams).log().all().when().get(url);
-		// log then response
 		responseLogger(getResponse);
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
-	// Put Requests:
 
-	/**
-	 * @param url
-	 * @param contentHeader
-	 * @param acceptHeader
-	 * @param cookie
-	 * @return this method is for put request with Authentication(cookie) and
-	 *         without any data.
-	 */
 	public Response putWithoutData(String url, String contentHeader, String acceptHeader, String cookie) {
 		logger.info("REST-ASSURED: Sending a PUT request to   " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response putResponse = given().cookie(builder.build()).relaxedHTTPSValidation().contentType(contentHeader)
 				.accept(acceptHeader).log().all().when().put(url).then().log().all().extract().response();
-		// log then response
 		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + putResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		return putResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param body
-	 * @param contentHeader
-	 * @param acceptHeader
-	 * @param cookie
-	 * @return this method is for Put request with authentication(cookie) and only
-	 *         with jsonData in request body
-	 */
 	public Response putWithJson(String url, Object body, String contentHeader, String acceptHeader, String cookie) {
 		logger.info("REST-ASSURED: Sending a PUT request to   " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response putResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 				.contentType(contentHeader).accept(acceptHeader).log().all().when().put(url).then().log().all()
 				.extract().response();
-		// log then response
 		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + putResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		return putResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param pathParams
-	 * @param contentHeader
-	 * @param acceptHeader
-	 * @param cookie
-	 * @return this method is for Put request with authentication(cookie) and only
-	 *         with pathParams.
-	 */
 	public Response putWithPathParams(String url, HashMap<String, String> pathParams, String contentHeader,
 			String acceptHeader, String cookie) {
 		logger.info("REST-ASSURED: Sending a PUT request to   " + url);
@@ -798,21 +524,11 @@ public class CommonLibrary extends BaseTestCase {
 		Response putResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams)
 				.contentType(contentHeader).accept(acceptHeader).log().all().when().put(url).then().log().all()
 				.extract().response();
-		// log then response
 		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + putResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		return putResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param pathParams
-	 * @param contentHeader
-	 * @param acceptHeader
-	 * @param cookie
-	 * @return this method is for Put request with authentication(cookie) and only
-	 *         with pathParams.
-	 */
 	public Response putWithQueryParams(String url, HashMap<String, String> queryParams, String contentHeader,
 			String acceptHeader, String cookie) {
 		logger.info("REST-ASSURED: Sending a PUT request to   " + url);
@@ -820,22 +536,11 @@ public class CommonLibrary extends BaseTestCase {
 		Response putResponse = given().cookie(builder.build()).relaxedHTTPSValidation().queryParams(queryParams)
 				.contentType(contentHeader).accept(acceptHeader).log().all().when().put(url).then().log().all()
 				.extract().response();
-		// log then response
 		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + putResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		return putResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param pathParams
-	 * @param body
-	 * @param contentHeader
-	 * @param acceptHeader
-	 * @param cookie
-	 * @return this method is for Put request with authentication(cookie) with
-	 *         pathParams and jsonData in request body
-	 */
 	public Response putWithPathParamsBody(String url, HashMap<String, String> pathParams, Object body,
 			String contentHeader, String acceptHeader, String cookie) {
 		logger.info("REST-ASSURED: Sending a PUT request to   " + url);
@@ -843,19 +548,11 @@ public class CommonLibrary extends BaseTestCase {
 		Response putResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams)
 				.body(body).contentType(contentHeader).accept(acceptHeader).log().all().when().put(url).then().log()
 				.all().extract().response();
-		// log then response
 		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + putResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + putResponse.time());
 		return putResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param pathParams
-	 * @param cookie
-	 * @return this method is for delete request with authorization(cookie) and
-	 *         pathParam Map(name, value).
-	 */
 	public Response deleteWithPathParams(String url, HashMap<String, String> pathParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a DELETE request to   " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -866,13 +563,7 @@ public class CommonLibrary extends BaseTestCase {
 		return getResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param pathParams
-	 * @param cookie
-	 * @return this method is for delete request with authorization(cookie) and
-	 *         queryParam Map(name, value).
-	 */
+	
 	public Response deleteWithQueryParams(String url, HashMap<String, String> queryParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a DELETE request to   " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -883,14 +574,7 @@ public class CommonLibrary extends BaseTestCase {
 		return getResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param pathParams
-	 * @param queryParams
-	 * @param cookie
-	 * @return this method is for delete request with authorization(cookie),
-	 *         queryParam Map(name, value) and pathParam Map(name, value).
-	 */
+	
 	public Response deleteWithPathQueryParams(String url, HashMap<String, String> pathParams,
 			HashMap<String, String> queryParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a DELETE request to   " + url);
@@ -902,28 +586,15 @@ public class CommonLibrary extends BaseTestCase {
 		return getResponse;
 	}
 
-	// config property reader
-
-	/**
-	 * @param url
-	 *            (complete url)
-	 * @return reads the config property
-	 */
+	
 	public Response getConfigProperties(String url) {
 		logger.info("REST-ASSURED: Sending a GET request to " + url);
 		Response getResponse = given().relaxedHTTPSValidation().log().all().when().get(url).then().log().all().extract()
 				.response();
-		// log then response
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
 	}
 
-	/**
-	 * @param url
-	 * @param pathParams
-	 * @param cookie
-	 * @return this method is for delete request with authorization(cookie)
-	 */
 	public Response deleteWithoutParams(String url, String cookie) {
 		logger.info("REST-ASSURED: Sending a DELETE request to   " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -934,21 +605,8 @@ public class CommonLibrary extends BaseTestCase {
 		return getResponse;
 	}
 
-	/**
-	 * Ashish
-	 * 
-	 * @param body
-	 * @param file
-	 * @param url
-	 * @param contentHeader
-	 * @param cookie
-	 * @return
-	 */
 	public Response postJSONwithFile(Object body, File file, String url, String contentHeader, String cookie) {
 		Response getResponse = null;
-		/*
-		 * Fetch to get the param name to be passed in the request
-		 */
 
 		String Document_request = readProperty("IDRepo").get("req.Documentrequest");
 
