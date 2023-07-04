@@ -402,7 +402,7 @@ public class IdaRunConfig extends RunConfig{
 	 */
 	public  void setUserDirectory() {
 		Path currentDir = Paths.get(".");
-		String path =currentDir.toFile().getAbsolutePath().toString();
+		String path =currentDir.toFile().getAbsolutePath();
 		path=path.substring(0, path.length()-1);
 		this.userDirectory = path;
 	}

@@ -225,7 +225,7 @@ public class AuthTestsUtil extends BaseTestCase {
 								cookieName, cookieValue);
 					GlobalMethods.reportResponse(urlPath, responseJson);
 					outputStream.write(responseJson.asString().getBytes());
-					return responseJson.asString().toString();
+					return responseJson.asString();
 				}
 			}
 			return "NoResponse";
@@ -343,10 +343,6 @@ public class AuthTestsUtil extends BaseTestCase {
 					if (code == 0)
 						responseJson = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,
 								cookieValue).asString();
-					/*
-					 * else responseJson = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(),
-					 * urlPath, code);
-					 */
 					Reporter.log("<b><u>Actual Patch Response Content: </u></b>(EndPointUrl: " + urlPath + ") <pre>"
 							+ ReportUtil.getTextAreaJsonMsgHtml(responseJson) + "</pre>");
 					outputStream.write(responseJson.getBytes());
@@ -642,22 +638,6 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @param keywordinFile
 	 * @return true or false
 	 */
-//	protected boolean modifyRequest(File[] listOfFiles, Map<String, String> fieldvalue, String propFileName,
-//			String keywordinFile) {
-//		try {
-//			for (int j = 0; j < listOfFiles.length; j++) {
-//				if (listOfFiles[j].getName().contains(keywordinFile)) {
-//					MessagePrecondtion jsonPrecon = new JsonPrecondtion();
-//					jsonPrecon.parseAndWriteFile(listOfFiles[j].getAbsolutePath(), fieldvalue,
-//							listOfFiles[j].getAbsolutePath(), propFileName);
-//				}
-//			}
-//			return true;
-//		} catch (Exception e) {
-//			IDASCRIPT_LOGGER.error("Exception occured:" + e.getMessage());
-//			return false;
-//		}
-//	}
 
 	/**
 	 * The method get encryptedsessionkey, request and hmac value
@@ -906,7 +886,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		try {
 			inputStream = new FileInputStream(filepath);
 			prop.load(inputStream);
-			return prop.getProperty(key).toString();
+			return prop.getProperty(key);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception: " + e.getMessage());
 			return e.getMessage();
@@ -998,7 +978,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			String javaHome = System.getenv("JAVA_HOME");
 			String demoAppJarPath = null;
 			String content = null;
-			if (getOSType().toString().equals("WINDOWS")) {
+			if (getOSType().equals("WINDOWS")) {
 				demoAppJarPath = new File("C:/Users/" + System.getProperty("user.name")
 						+ "/.m2/repository/io/mosip/authentication/authentication-partnerdemo-service/"
 						+ getDemoAppVersion() + "/authentication-partnerdemo-service-" + getDemoAppVersion() + ".jar")
@@ -1008,8 +988,8 @@ public class AuthTestsUtil extends BaseTestCase {
 						+ " -Dspring.cloud.config.label=QA_IDA -Dspring.profiles.active=test"
 						+ RunConfigUtil.getRunEvironment()
 						+ " -Dspring.cloud.config.uri=http://104.211.212.28:51000 -jar " + '"'
-						+ demoAppJarPath.toString() + '"';
-			} else if (getOSType().toString().equals("OTHERS")) {
+						+ demoAppJarPath + '"';
+			} else if (getOSType().equals("OTHERS")) {
 				IDASCRIPT_LOGGER.info("Maven Path: " + RunConfigUtil.getLinuxMavenPath());
 				String mavenPath = RunConfigUtil.getLinuxMavenPath();
 				String settingXmlPath = mavenPath + "/conf/settings.xml";
@@ -1022,8 +1002,8 @@ public class AuthTestsUtil extends BaseTestCase {
 				demoAppBatchFilePath = new File(RunConfigUtil.getResourcePath() + "/demoApp.sh");
 				content = "nohup java -Dspring.cloud.config.label=QA_IDA -Dspring.cloud.config.uri=http://104.211.212.28:51000 -Dspring.profiles.active=test"
 						+ RunConfigUtil.getRunEvironment() + " -Djava.net.useSystemProxies=true -jar " + '"'
-						+ demoAppJarPath.toString() + '"' + " &";
-				fileDemoAppJarPath = new File(demoAppJarPath.toString());
+						+ demoAppJarPath + '"' + " &";
+				fileDemoAppJarPath = new File(demoAppJarPath);
 				if (fileDemoAppJarPath.exists())
 					IDASCRIPT_LOGGER.info("DemoApp Jar FILE IS AVAILABLE");
 				else
@@ -1131,11 +1111,11 @@ public class AuthTestsUtil extends BaseTestCase {
 		if (file.exists()) {
 			Map<String, String> urlProperty = getPropertyAsMap(file.getAbsolutePath());
 			if (urlProperty.containsKey("partnerIDMispLK")) {
-				return "/" + urlProperty.get("partnerIDMispLK").toString();
+				return "/" + urlProperty.get("partnerIDMispLK");
 			} else if (urlProperty.containsKey("partnerID") && urlProperty.containsKey("mispLK")
 					&& urlProperty.containsKey(GlobalConstants.APIKEY)) {
-				return "/" + urlProperty.get("mispLK").toString() + "/" + urlProperty.get("partnerID").toString() + "/"
-						+ urlProperty.get(GlobalConstants.APIKEY).toString();
+				return "/" + urlProperty.get("mispLK") + "/" + urlProperty.get("partnerID") + "/"
+						+ urlProperty.get(GlobalConstants.APIKEY);
 			}
 		} else
 			return "";
@@ -1195,7 +1175,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @return string
 	 */
 	public String getTestDataPath(String className, int index) {
-		return getPropertyAsMap(new File(getRunConfigFile()).getAbsolutePath().toString())
+		return getPropertyAsMap(new File(getRunConfigFile()).getAbsolutePath())
 				.get(className + ".testDataPath[" + index + "]");
 	}
 
@@ -1207,7 +1187,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @return string
 	 */
 	public String getTestDataFileName(String className, int index) {
-		return getPropertyAsMap(new File(getRunConfigFile()).getAbsolutePath().toString())
+		return getPropertyAsMap(new File(getRunConfigFile()).getAbsolutePath())
 				.get(className + ".testDataFileName[" + index + "]");
 	}
 
@@ -1273,22 +1253,22 @@ public class AuthTestsUtil extends BaseTestCase {
 
 	protected static String getCookieRequestFilePath() {
 		return RunConfigUtil.getResourcePath() + "ida/TestData/Security/GetCookie/" + RunConfigUtil.getRunEvironment()
-				+ ".getCookieRequest.json".toString();
+				+ ".getCookieRequest.json";
 	}
 
 	protected static String getCookieRequestFilePathForUinGenerator() {
 		return RunConfigUtil.getResourcePath() + "ida/TestData/Security/GetCookie/" + RunConfigUtil.getRunEvironment()
-				+ ".getCookieForUinGenerator.json".toString();
+				+ ".getCookieForUinGenerator.json";
 	}
 
 	protected static String getCookieRequestFilePathForInternalAuth() {
 		return RunConfigUtil.getResourcePath() + "ida/TestData/Security/GetCookie/" + RunConfigUtil.getRunEvironment()
-				+ ".getCookieForInternalAuth.json".toString();
+				+ ".getCookieForInternalAuth.json";
 	}
 
 	protected static String getCookieRequestFilePathForResidentAuth() {
 		return RunConfigUtil.getResourcePath() + "ida/TestData/Security/GetCookie/" + RunConfigUtil.getRunEvironment()
-				+ ".residentServiceCredential.json".toString();
+				+ ".residentServiceCredential.json";
 	}
 
 	protected Response patchRequestWithCookie(String filename, String url, String cookieName, String cookieValue) {
@@ -1408,7 +1388,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			String responseJson = getResponseWithCookie(urlPath, cookieName, cookieValue);
 			GlobalMethods.reportResponse(urlPath, responseJson, true);
 			outputStream.write(responseJson.getBytes());
-			return responseJson.toString();
+			return responseJson;
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return e.getMessage();
@@ -1536,19 +1516,6 @@ public class AuthTestsUtil extends BaseTestCase {
 		return response;
 	}
 
-	/*
-	 * public static boolean verifyAuthStatusTypeInDB(String uin,String type, String
-	 * authType,String status) { if(type.equals("VID"))
-	 * uin=UINUtil.getUinForVid(uin); String query =
-	 * "select * from ida.uin_auth_lock where uin = '" + uin +
-	 * "' and auth_type_code = '" + authType + "' order by cr_dtimes desc limit 1";
-	 * Map<String, String> actualRecord = DbConnection.getDataForQuery(query,
-	 * "IDA"); if (actualRecord==null ||
-	 * !actualRecord.get("status_code").equals(status)) {
-	 * IDASCRIPT_LOGGER.error("No Data Found in DB with query: "+query);
-	 * IDASCRIPT_LOGGER.error("Result of the query: "+actualRecord); return false; }
-	 * return true; }
-	 */
 
 	protected Response deleteRequestWithPathParm(String filename, String url, String cookieName, String cookieValue) {
 		try {
