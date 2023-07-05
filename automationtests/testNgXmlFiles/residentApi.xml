@@ -85,13 +85,13 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
-<!--	<test name="DownloadUinCard">
+	<test name="DownloadUinCard">
 		<parameter name="ymlFile"
 			value="resident/DownloadUinCard/DownloadUinCard.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerateAndPdfDownload" />
 		</classes>
-	</test>-->
+	</test>
 	<test name="AuthHistory">
 		<parameter name="ymlFile"
 			value="resident/AuthHistory/AuthHistory.yml" />
@@ -172,13 +172,13 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test> 
-<!--	<test name="DownloadWithReqid">
+	<test name="DownloadWithReqid">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/DownloadWithReqid/DownloadWithReqid.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
-	</test>-->
+	</test>
 	<test name="GetUiProperties">
 		<parameter name="ymlFile"
 			value="resident/GetUiProperties/GetUiProperties.yml" />
@@ -324,7 +324,7 @@
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
-<!--	<test name="PersonalizedCard">
+	<test name="PersonalizedCard">
 		<parameter name="ymlFile"
 			value="resident/PersonalizedCard/PersonalizedCard.yml" />
 			<parameter name="idKeyName"	value="access_token" />
@@ -332,7 +332,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.PostWithBodyWithPdfDownload" />
 		</classes>
-	</test>-->
+	</test>
 	<test name="ReqShareCredWithPartner">
 		<parameter name="ymlFile"
 			value="resident/ReqShareCredWithPartner/ReqShareCredWithPartner.yml" />
@@ -341,13 +341,13 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-<!--	<test name="GetSupportingDoc">
+	<test name="GetSupportingDoc">
 		<parameter name="ymlFile"
 			value="resident/GetSupportingDoc/GetSupportingDoc.yml" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
 		</classes>
-	</test>-->
+	</test>
 	<test name="GetInputAttributeValues">
 		<parameter name="ymlFile"
 			value="resident/GetInputAttributeValues/GetInputAttributeValues.yml" />
@@ -380,7 +380,7 @@
 			<class name="io.mosip.testscripts.SimplePut" />
 		</classes>
 	</test>
-<!--	<test name="DownloadNearestRegCen">
+	<test name="DownloadNearestRegCen">
 		<parameter name="ymlFile"
 			value="resident/DownloadNearestRegCen/DownloadNearestRegCen.yml" />
 			<parameter name="sendEsignetToken"	value="true" />
@@ -395,7 +395,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
 		</classes>
-	</test>-->
+	</test>
 	<test name="GetAllTemplateBylangCodeAndTemplateTypeCode">
 		<parameter name="ymlFile"
 			value="resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCode.yml" />
@@ -495,14 +495,14 @@
 			<class name="io.mosip.testscripts.GetWithParamForAutoGenId" />
 		</classes>
 	</test>
-<!--	<test name="AcknowledgementController">
+	<test name="AcknowledgementController">
 		<parameter name="ymlFile"
 			value="resident/AcknowledgementController/AcknowledgementController.yml" />
 			<parameter name="sendEsignetToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
-	</test>-->
+	</test>
 	<test name="GetNotifications">
 		<parameter name="ymlFile"
 			value="resident/GetNotifications/GetNotifications.yml" />
@@ -519,7 +519,7 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-<!--	<test name="DownloadServiceHistory">
+	<test name="DownloadServiceHistory">
 		<parameter name="ymlFile"
 			value="resident/DownloadServiceHistory/DownloadServiceHistory.yml" />
 			<parameter name="sendEsignetToken"	value="true" />
@@ -535,7 +535,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
 		</classes>
-	</test>-->
+	</test>
 	<test name="GetCheckEventIdStatus">
 		<parameter name="ymlFile"
 			value="resident/GetCheckEventIdStatus/GetCheckEventIdStatus.yml" />
@@ -617,15 +617,15 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-<!--	<test name="DownloadSupportingDocs">
+	<test name="DownloadSupportingDocs">
 		<parameter name="ymlFile"
 			value="resident/DownloadSupportingDocs/DownloadSupportingDocs.yml" />
 			<parameter name="sendEsignetToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testscripts.GetWithQueryParamForDownloadCard" />
 		</classes>
-	</test>-->
-		<test name="GetDocumentTypes">
+	</test>
+	<test name="GetDocumentTypes">
 		<parameter name="ymlFile"
 			value="resident/GetDocumentTypes/GetDocumentTypes.yml" />
 			<parameter name="sendEsignetToken"	value="true" />

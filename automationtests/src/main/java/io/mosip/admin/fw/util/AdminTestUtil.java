@@ -1873,14 +1873,12 @@ public class AdminTestUtil extends BaseTestCase {
 
 	protected byte[] postWithBodyAndCookieForPdf(String url, String jsonInput, String cookieName, String role,
 			String testCaseName, boolean bothAccessAndIdToken) {
-		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = inputJsonKeyWordHandeler(url, testCaseName);
 		if (BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)) {
-			inputJson = smtpOtpHandler(inputJson, testCaseName);
+			jsonInput = smtpOtpHandler(inputJson, testCaseName);
 		}
 		byte[] pdf = null;
-		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);

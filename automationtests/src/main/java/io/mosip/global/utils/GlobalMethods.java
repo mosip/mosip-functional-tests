@@ -18,8 +18,16 @@ public class GlobalMethods {
 	}
 	
 	public static void reportResponse(String url, String response) {
-		Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + url + GlobalConstants.REPORT_RESPONSE_BODY
+		reportResponse(url, response, false);
+	}
+	
+	public static void reportResponse(String url, String response, boolean formatResponse) {
+		if (formatResponse)
+			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + url + GlobalConstants.REPORT_RESPONSE_BODY
 				+ ReportUtil.getTextAreaJsonMsgHtml(response) + GlobalConstants.REPORT_RESPONSE_SUFFIX);
+		else 
+			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + url + GlobalConstants.REPORT_RESPONSE_BODY
+					+ response + GlobalConstants.REPORT_RESPONSE_SUFFIX);
 }
 
 }
