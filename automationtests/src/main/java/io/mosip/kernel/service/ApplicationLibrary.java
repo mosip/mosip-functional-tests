@@ -48,9 +48,6 @@ public class ApplicationLibrary extends BaseTestCase {
 				MediaType.APPLICATION_FORM_URLENCODED, cookie);
 	}
 
-/*	public Response postWithOnlyFile(String endpoint, File file, String fileKeyName, String cookie) {
-		return commonLibrary.postWithOnlyFile(ApplnURI + endpoint,  file, fileKeyName, cookie);
-	}*/
 	public Response postWithFile(String endpoint, Object body, File file, String fileKeyName, String cookie) {
 		return commonLibrary.postWithFile(ApplnURI + endpoint, body, file, fileKeyName, MediaType.APPLICATION_JSON, cookie);
 	}
@@ -79,12 +76,10 @@ public class ApplicationLibrary extends BaseTestCase {
 	public Response postRequestEmailNotification(String endpoint, JSONObject jsonString, String cookie) {
 		return commonLibrary.postRequestEmailNotification(ApplnURI+endpoint, jsonString, cookie);
 	}
-	// patch request
 	public Response patchRequest(String endpoint, Object body,String cookie) {
 		return commonLibrary.patchRequest(ApplnURI + endpoint, body, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, cookie);
 	}
-	// get requests
 	public Response getWithoutParams(String endpoint, String cookie) {
 		return commonLibrary.getWithoutParams(ApplnURI + endpoint, cookie);
 	}
@@ -105,7 +100,6 @@ public class ApplicationLibrary extends BaseTestCase {
 			HashMap<String, List<String>> queryParams, String cookie) {
 		return commonLibrary.getWithPathParamQueryParamList(ApplnURI + endpoint, pathParams, queryParams, cookie);
 	}
-	// put requests
 	public Response putWithoutData(String endpoint, String cookie) {
 		return commonLibrary.putWithoutData(ApplnURI + endpoint, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, cookie);
@@ -126,7 +120,6 @@ public class ApplicationLibrary extends BaseTestCase {
 		return commonLibrary.putWithPathParamsBody(ApplnURI + endpoint, pathParams, body, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, cookie);
 	}
-	// delete request
 	public Response deleteWithPathParams(String endpoint, HashMap<String, String> pathParams, String cookie) {
 		return commonLibrary.deleteWithPathParams(ApplnURI + endpoint, pathParams, cookie);
 	}
@@ -137,7 +130,6 @@ public class ApplicationLibrary extends BaseTestCase {
 			HashMap<String, String> queryParams, String cookie) {
 		return commonLibrary.deleteWithPathQueryParams(ApplnURI + endpoint, pathParams, queryParams, cookie);
 	}
-	// get congig properties
 	public Response getConfigProperties(String Resource_URI) {
 		return commonLibrary.getConfigProperties(Resource_URI);
 	}

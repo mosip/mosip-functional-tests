@@ -8,7 +8,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
-/*import org.json.simple.JSONObject;*/
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -90,8 +89,6 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			List<String> languageList = new ArrayList<>();
-			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
 		            	response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 								getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,

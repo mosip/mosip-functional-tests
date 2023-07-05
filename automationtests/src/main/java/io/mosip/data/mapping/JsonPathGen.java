@@ -107,13 +107,11 @@ public class JsonPathGen {
 		FileOutputStream outputStream = null;
 		try {
 			outputStream = new FileOutputStream(filePath);
-			// set the properties value
 			for (Entry<String, String> entry : getPathList(filePath).entrySet()) {
 				prop.setProperty(entry.getKey(), entry.getValue());
 			}
 			prop.store(outputStream, null);
 		} catch (Exception e) {
-			//logger.info(e);
 		}finally {
 			AdminTestUtil.closeOutputStream(outputStream);
 		}

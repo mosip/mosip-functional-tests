@@ -40,11 +40,6 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	public Response response = null;
 	public boolean isInternal = false;
 
-	/*
-	 * @BeforeClass public static void setPrerequiste() {
-	 * logger.info("Starting authpartner demo service...");
-	 * AuthPartnerProcessor.startProcess(); }
-	 */
 
 	/**
 	 * get current testcaseName
@@ -128,7 +123,8 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 				GlobalConstants.AUTHORIZATION, token, headers, testCaseName);
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
-		String sendOtpResp = null, sendOtpResTemplate = null;
+		String sendOtpResp = null;
+		String sendOtpResTemplate = null;
 		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
@@ -165,7 +161,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 
 		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");
 
-		response = postWithBodyAndCookie(url + endPoint, authRequest.toString(), COOKIENAME, testCaseDTO.getRole(),
+		response = postWithBodyAndCookie(url + endPoint, authRequest, COOKIENAME, testCaseDTO.getRole(),
 				testCaseName);
 
 		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());

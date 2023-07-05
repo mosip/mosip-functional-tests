@@ -42,7 +42,6 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 	@BeforeClass
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
-//		AuthPartnerProcessor.startProcess();
 	}
 
 	/**
@@ -124,7 +123,8 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody.toString(),  GlobalConstants.AUTHORIZATION, token, headers, testCaseName);
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
-		String sendOtpResp = null, sendOtpResTemplate = null;
+		String sendOtpResp = null;
+		String sendOtpResTemplate = null;
 		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
@@ -154,7 +154,7 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		String authRequest = getJsonFromTemplate(inputStr, testCaseDTO.getInputTemplate());
 		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");		
 		
-		response = postWithBodyAndCookie(url + endPoint, authRequest.toString(), COOKIENAME, testCaseDTO.getRole(), testCaseName);
+		response = postWithBodyAndCookie(url + endPoint, authRequest, COOKIENAME, testCaseDTO.getRole(), testCaseName);
 		
 		logger.info(response);
 		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());

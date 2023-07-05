@@ -31,7 +31,6 @@ public class AuditDbRead {
 			Properties dbProps = new Properties();
 			dbProps.load(inputStream);
 			Configuration config = new Configuration();
-			//config.setProperties(dbProps);
 			config.setProperty("hibernate.connection.driver_class", dbProps.getProperty("driver_class"));
 			config.setProperty("hibernate.connection.url", dbProps.getProperty(dbName+"_url"));
 			config.setProperty("hibernate.connection.username", dbProps.getProperty(dbName+"_username"));

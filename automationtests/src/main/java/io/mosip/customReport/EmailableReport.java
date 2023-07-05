@@ -102,9 +102,6 @@ public class EmailableReport implements IReporter {
 		try (InputStream is = EmailableReport.class.getClassLoader().getResourceAsStream("git.properties")) {
 			properties.load(is);
 			
-			//commitId = properties.getProperty("git.commit.id.abbrev");
-			
-			//branch = properties.getProperty("git.branch");
 			return "Commit Id is: " + properties.getProperty("git.commit.id.abbrev") + " & Branch Name is:" + properties.getProperty("git.branch");
 
 		} catch (IOException e) {
@@ -230,7 +227,6 @@ public class EmailableReport implements IReporter {
             }
         }
 
-        // Print totals if there was more than one test
         if (testIndex > 1) {
             writer.print("<tr>");
             writer.print("<th>Total</th>");
@@ -337,16 +333,11 @@ public class EmailableReport implements IReporter {
                     long start = firstResult.getStartMillis();
                     long duration = firstResult.getEndMillis() - start;
 
-                    // The first method per class shares a row with the class
-                    // header
                     if (methodIndex > 0) {
                         buffer.append("<tr class=\"").append(cssClass)
                                 .append("\">");
 
                     }
-
-                    // Write the timing information with the first scenario per
-                    // method
                     buffer.append("<td><a href=\"#m").append(scenarioIndex)
                             .append("\">").append(methodName)
                             .append("</a></td>").append("<td rowspan=\"")
@@ -356,7 +347,6 @@ public class EmailableReport implements IReporter {
                             .append(duration).append("</td></tr>");
                     scenarioIndex++;
 
-                    // Write the remaining scenarios for the method
                     for (int i = 1; i < resultsCount; i++) {
                         buffer.append("<tr class=\"").append(cssClass)
                                 .append("\">").append("<td><a href=\"#m")
@@ -369,7 +359,6 @@ public class EmailableReport implements IReporter {
                     methodIndex++;
                 }
 
-                // Write the test results for the class
                 writer.print("<tr class=\"");
                 writer.print(cssClass);
                 writer.print("\">");
@@ -455,7 +444,6 @@ public class EmailableReport implements IReporter {
 
         writer.print("<table class=\"result\">");
 
-        // Write test parameters (if any)
         Object[] parameters = result.getParameters();
         int parameterCount = (parameters == null ? 0 : parameters.length);
         if (parameterCount > 0) {
@@ -474,7 +462,6 @@ public class EmailableReport implements IReporter {
             writer.print("</tr>");
         }
 
-        // Write reporter messages (if any)
         List<String> reporterMessages = Reporter.getOutput(result);
         if (!reporterMessages.isEmpty()) {
             writer.print("<tr><th");
@@ -496,7 +483,6 @@ public class EmailableReport implements IReporter {
             writer.print("</td></tr>");
         }
 
-        // Write exception (if any)
         Throwable throwable = result.getThrowable();
         if (throwable != null) {
             writer.print("<tr><th");
@@ -730,7 +716,6 @@ public class EmailableReport implements IReporter {
 
                     String className = result.getTestClass().getName();
                     if (!previousClassName.equals(className)) {
-                        // Different class implies different method
                         assert !resultsPerMethod.isEmpty();
                         resultsPerClass.add(new MethodResult(resultsPerMethod));
                         resultsPerMethod = Lists.newArrayList();

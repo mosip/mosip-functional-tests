@@ -75,7 +75,9 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		auditLogCheck = testCaseDTO.isAuditLogCheck();
 		String tempUrl = ApplnURI.replace("-internal", "");
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
-		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
+		String otpRequest = null,
+				sendOtpReqTemplate = null,
+				sendOtpEndPoint = null;
 		if(req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);

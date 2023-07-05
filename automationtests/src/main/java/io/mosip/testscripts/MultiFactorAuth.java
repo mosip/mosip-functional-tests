@@ -85,7 +85,10 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$partnerKeyURL$", props.getProperty("partnerKeyURL")));
 		}
-		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
+		String otpRequest = null;
+		String sendOtpReqTemplate = null;
+		String sendOtpEndPoint = null;
+		String otpIdentyEnryptRequestPath = null;
 		if (req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
@@ -118,7 +121,9 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 		OutputValidationUtil.publishOutputResult(ouputValidOtp);
 
-		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
+		String identityRequest = null;
+		String identityRequestTemplate = null;
+		String identityRequestEncUrl = null;
 		if (req.has(GlobalConstants.IDENTITYREQUEST)) {
 			identityRequest = req.get(GlobalConstants.IDENTITYREQUEST).toString();
 			req.remove(GlobalConstants.IDENTITYREQUEST);
@@ -148,7 +153,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 			JSONObject jsonBioHbs = new JSONObject(encryptedIdentityReq);
 			if (jsonObject.has("key") && jsonObject.has(GlobalConstants.VALUE)) {
 				JSONObject jsonHbs = new JSONObject(jsonBioHbs.get(GlobalConstants.IDENTITYREQUEST).toString());
-				encryptedIdentityReq = JsonPrecondtion.parseAndReturnJsonContent(encryptedIdentityReq.toString(),
+				encryptedIdentityReq = JsonPrecondtion.parseAndReturnJsonContent(encryptedIdentityReq,
 						jsonObject.get(GlobalConstants.VALUE).toString(), demographicsMapper + jsonObject.get("key").toString());
 			}
 

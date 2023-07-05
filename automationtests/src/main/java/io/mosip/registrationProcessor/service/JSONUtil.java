@@ -23,15 +23,6 @@ import io.mosip.admin.fw.util.AdminTestUtil;
 public class JSONUtil {
 	
 	private static final Logger logger = Logger.getLogger(JSONUtil.class);
-	/*
-	 * public RegProcIdDto mapJsonFileToObject(String idJsonPath) { RegProcIdDto obj
-	 * = null; try { Gson gson = new Gson(); InputStream in = new
-	 * FileInputStream(new File(idJsonPath)); BufferedReader br = new
-	 * BufferedReader(new InputStreamReader(in)); obj = gson.fromJson(br,
-	 * RegProcIdDto.class); // logger.info("ID.json read as String is " +
-	 * gson.toJson(obj)); br.close(); } catch (IOException e) { e.printStackTrace();
-	 * } return obj; }
-	 */
 
 	public void writeDataToFile(String data, String filePath) {
 
@@ -77,34 +68,5 @@ public class JSONUtil {
 
 	}
 
-	/*
-	 * public PacketMetaInfo parseMetaInfoFile(String packetMetaInfoFile) throws
-	 * Exception { Gson gson = new Gson(); BufferedReader br = null; try { br = new
-	 * BufferedReader(new FileReader(packetMetaInfoFile)); PacketMetaInfo obj =
-	 * gson.fromJson(br, PacketMetaInfo.class); return obj; } catch
-	 * (FileNotFoundException e) { throw new Exception(e); } catch (Exception e) {
-	 * throw new Exception(e); } finally { if (br != null) br.close(); }
-	 * 
-	 * }
-	 */
-
-	/*
-	 * public PacketInfo parsePacketMetaInfoFile(String jsonPath) throws Exception {
-	 * Gson gson = new Gson(); BufferedReader br = null; try { br = new
-	 * BufferedReader(new FileReader(jsonPath)); PacketInfo obj = gson.fromJson(br,
-	 * PacketInfo.class); return obj; } catch (FileNotFoundException e) { throw new
-	 * Exception(e); } catch (Exception e) { throw new Exception(e); } finally { if
-	 * (br != null) br.close(); } }
-	 */
-
-	/*
-	 * public PhilIdentityObject mapJsonFileToPhilObject(String idJsonPath) {
-	 * PhilIdentityObject obj = null; try { Gson gson = new Gson(); InputStream in =
-	 * new FileInputStream(new File(idJsonPath)); BufferedReader br = new
-	 * BufferedReader(new InputStreamReader(in)); obj = gson.fromJson(br,
-	 * PhilIdentityObject.class); // logger.info("ID.json read as String is "
-	 * + gson.toJson(obj)); br.close(); } catch (IOException e) {
-	 * e.printStackTrace(); } return obj; }
-	 */
-
+	
 }

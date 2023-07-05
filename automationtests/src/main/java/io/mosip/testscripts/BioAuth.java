@@ -43,7 +43,6 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
 
-		// AuthPartnerProcessor.startProcess();
 	}
 
 	/**
@@ -93,7 +92,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		String request = testCaseDTO.getInput();
 		request = buildIdentityRequest(request);
 
-		String inputJSON = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
+		String inputJSON = getJsonFromTemplate(request, testCaseDTO.getInputTemplate());
 
 		String url = ConfigManager.getAuthDemoServiceUrl();
 

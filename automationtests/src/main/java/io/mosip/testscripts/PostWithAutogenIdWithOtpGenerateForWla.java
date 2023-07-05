@@ -74,7 +74,9 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
-		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
+		String otpRequest = null; 
+		String sendOtpReqTemplate = null;
+		String sendOtpEndPoint = null;
 		if(req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
@@ -95,7 +97,8 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		}
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
-		String sendOtpResp = null, sendOtpResTemplate = null;
+		String sendOtpResp = null;
+		String	sendOtpResTemplate = null;
 		if(res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
@@ -110,7 +113,9 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at otp output validation");
 		
-		String otpValidationRequest = null, validateOtpReqTemplate = null, validateOtpEndPoint = null;
+		String otpValidationRequest = null;
+		 String validateOtpReqTemplate = null;
+		 String validateOtpEndPoint = null;
 		
 		if(req.has(GlobalConstants.VALIDATEOTP)) {
 			otpValidationRequest = req.get(GlobalConstants.VALIDATEOTP).toString();
