@@ -43,7 +43,6 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 	public static void setPrerequiste() {
 		logger.info("Starting authpartner demo service...");
 
-		// AuthPartnerProcessor.startProcess();
 	}
 
 	/**
@@ -85,7 +84,9 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
-		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
+		String identityRequest = null;
+		String identityRequestTemplate = null;
+		String identityRequestEncUrl = null;
 		if (request.has(GlobalConstants.IDENTITYREQUEST)) {
 			identityRequest = request.get(GlobalConstants.IDENTITYREQUEST).toString();
 			request.remove(GlobalConstants.IDENTITYREQUEST);
