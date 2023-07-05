@@ -63,6 +63,39 @@ AuthenticateUser:
     }
 }'
 
+   ESignet_AuthenticateUserIDP_Consent_uin_Otp_Same_Claims:
+      endPoint: /v1/esignet/authorization/v2/authenticate
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
+      outputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsentResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Consent_2nd_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Consent_2nd_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:AddIdentity_Consent_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "$ID:AddIdentity_Consent_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Consent_2nd_Valid_Smoke_sid_encodedResp$",
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Consent_2nd_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:AddIdentity_Consent_smoke_Pos_UIN$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "esignet/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
+    }
+    }'
+      output: '{
+          "consentAction": "NOCAPTURE",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
    ESignet_AuthenticateUserIDP_vid_2nd_Otp_Valid_Smoke:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
@@ -120,6 +153,39 @@ AuthenticateUser:
     }
     }'
       output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   ESignet_AuthenticateUserIDP_Consent_Vid_Otp_Same_Claims:
+      endPoint: /v1/esignet/authorization/v2/authenticate
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
+      outputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsentResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_Consent_Vid_2nd_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_Consent_Vid_2nd_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_Consent_Valid_Smoke_sid_vid$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "$ID:AddIdentity_Consent_Vid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_Consent_Vid_2nd_Valid_Smoke_sid_encodedResp$",
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_Consent_Vid_2nd_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_Consent_Valid_Smoke_sid_vid$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "esignet/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
+    }
+    }'
+      output: '{
+          "consentAction": "NOCAPTURE",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",

@@ -22,11 +22,11 @@ OAuthDetailsRequestConsent:
        
 }'
 
-   ESignet_OAuthDetailsRequest_Consent_2nd_Valid_Smoke_sid:
+   ESignet_OAuthDetailsRequest_Consent_Claim2_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
-      inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsent
+      inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentNewClaim
       outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
@@ -91,7 +91,30 @@ OAuthDetailsRequestConsent:
        
 }'
 
-   ESignet_OAuthDetailsRequest_Consent_Vid_2nd_Valid_Smoke_sid:
+   ESignet_OAuthDetailsRequest_Consent_Vid_Claim2_all_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentNewClaim
+      outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_Consent_User2_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
@@ -99,7 +122,30 @@ OAuthDetailsRequestConsent:
       outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"clientId": "$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$",
+      	"scope": "openid resident-service profile",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_Consent_Vid_User2_all_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/oauth-details
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsent
+      outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$",
       	"scope": "openid resident-service profile",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
