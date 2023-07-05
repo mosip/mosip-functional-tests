@@ -75,7 +75,9 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 		}
 		
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
-		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
+		String otpRequest = null;
+		String sendOtpReqTemplate = null;
+		String sendOtpEndPoint = null;
 		if(req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
@@ -108,7 +110,9 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 		
 		JSONObject reqvOtp = new JSONObject(testCaseDTO.getInput());
 		JSONObject reqvtOtp = (JSONObject) reqvOtp.get(GlobalConstants.SENDOTP);
-		String otpValidationRequest = null, validateOtpReqTemplate = null, validateOtpEndPoint = null;
+		String otpValidationRequest = null;
+		String validateOtpReqTemplate = null;
+		String validateOtpEndPoint = null;
 		
 		if(!reqvtOtp.isNull(GlobalConstants.VALIDATEOTP)) {
 			otpValidationRequest = reqvtOtp.get(GlobalConstants.VALIDATEOTP).toString();

@@ -86,7 +86,8 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 					testCaseDTO.getEndPoint().replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
-		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
+		String identityRequest = null;
+			String	identityRequestTemplate = null;
 		if (request.has(GlobalConstants.IDENTITYREQUEST)) {
 			identityRequest = request.get(GlobalConstants.IDENTITYREQUEST).toString();
 			request.remove(GlobalConstants.IDENTITYREQUEST);
