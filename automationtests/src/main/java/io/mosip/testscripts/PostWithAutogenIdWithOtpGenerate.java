@@ -122,7 +122,8 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		}
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
-		String sendOtpResp = null, sendOtpResTemplate = null;
+		String sendOtpResp = null, 
+				sendOtpResTemplate = null;
 		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);

@@ -68,8 +68,6 @@ public class SimpleDelete extends AdminTestUtil implements ITest {
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			List<String> languageList = new ArrayList<>();
-			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
 		            	response = DeleteWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 								getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,

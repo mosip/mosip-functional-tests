@@ -76,7 +76,6 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		
-		//filterHbs(testCaseDTO);
 		testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
 		String inputJson = filterInputHbs(testCaseDTO);
 		String outputJson = filterOutputHbs(testCaseDTO);
@@ -84,8 +83,6 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			List<String> languageList = new ArrayList<>();
-			languageList = BaseTestCase.languageList;
 			 for (int i=0; i<languageList.size(); i++) {
 		            	response = postWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 		            	
