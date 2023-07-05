@@ -49,11 +49,6 @@ public class RegProcApiRequests extends BaseTestCase {
 		try {
 			Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, regProcAuthToken);
 
-			/*
-			 * getResponse = given().cookie(builder.build()).multiPart("file",
-			 * file,"application/octet-stream").expect().
-			 * when().post(ApplnURI+url).then().log().all().extract().response();
-			 */
 			newResponse = given().cookie(builder.build()).baseUri(ApplnURI).basePath(url)
 					.multiPart("file", file, "application/octet-stream").post().then().log().all().extract().response();
 			logger.info("REST:ASSURED: The response from request is:" + newResponse.asString());
@@ -74,7 +69,6 @@ public class RegProcApiRequests extends BaseTestCase {
 			getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().queryParams(valueMap).log().all()
 					.when().post(ApplnURI + url).then().log().all().extract().response();
 			
-			// log then response
 			logger.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} catch (Exception e) {
@@ -89,7 +83,6 @@ public class RegProcApiRequests extends BaseTestCase {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, regProcAuthToken);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when()
 				.get(ApplnURI + url).then().log().all().extract().response();
-		// log then response
 		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
@@ -115,7 +108,6 @@ public class RegProcApiRequests extends BaseTestCase {
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(valueMap)
 				.contentType(contentHeader).log().all().when().post(ApplnURI + url).then().log().all().extract()
 				.response();
-		// log then response
 		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
@@ -127,7 +119,6 @@ public class RegProcApiRequests extends BaseTestCase {
 
 		Response postResponse = given().relaxedHTTPSValidation().body(body).contentType(contentHeader)
 				.accept(acceptHeader).log().all().when().post(ApplnURI + url).then().log().all().extract().response();
-		// log then response
 		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		logger.info("REST-ASSURED:454545445 The response Time is: " + postResponse.asString());
@@ -147,14 +138,6 @@ public class RegProcApiRequests extends BaseTestCase {
 			return false;
 	}
 
-	/**
-	 * The method to return class loader resource path
-	 * 
-	 * @return String
-	 *//*
-		 * public String getResourcePath() { return
-		 * MosipTestRunner.getGlobalResourcePath()+"/"; }
-		 */
 	public Response regProcPacketGenerator(Object body, String url, String contentHeader, String token) {
 		logger.info("REST:ASSURED:Sending a post request to" + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
@@ -162,7 +145,6 @@ public class RegProcApiRequests extends BaseTestCase {
 		Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 				.contentType(contentHeader).log().all().when().post(ApplnURI + url).then().log().all().extract()
 				.response();
-		// log then response
 		logger.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		return postResponse;
@@ -192,7 +174,6 @@ public class RegProcApiRequests extends BaseTestCase {
 	 * @return String
 	 */
 	public String getResourcePath() {
-		// return MosipTestRunner.getGlobalResourcePath()+"/";
 		return MosipTestRunner.getGlobalResourcePath() + File.separator;
 	}
 
@@ -206,8 +187,6 @@ public class RegProcApiRequests extends BaseTestCase {
 		logger.info("REST-ASSURED: Sending a Get request to " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().log().all().when().get(url);
-		// log then response
-		// responseLogger(getResponse);
 		logger.info("REST-ASSURED: the response Time is: " + getResponse.time());
 		logger.info("REST-ASSURED: the response from request is: " + getResponse.asString());
 		return getResponse;
@@ -226,7 +205,6 @@ public class RegProcApiRequests extends BaseTestCase {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(patharams).log()
 				.all().when().get(ApplnURI + url);
-		// log then response
 		logger.info("REST-ASSURED: the response from request is: " + getResponse.asString());
 		logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		return getResponse;
@@ -271,20 +249,6 @@ public class RegProcApiRequests extends BaseTestCase {
 
 	}
 
-	/*
-	 * public JSONObject getAbisDeleteRequest(String rid) { RegProcTransactionDb
-	 * transaction = new RegProcTransactionDb(); Date date = new Date();
-	 * AbisDeleteDto deleteDto = new AbisDeleteDto();
-	 * deleteDto.setEncounter_id(transaction.getRef_Id(rid));
-	 * deleteDto.setTid(date.getTime()); deleteDto.setFaceThreshold("0.0");
-	 * deleteDto.setFingerThreshold("0.0"); deleteDto.setMaxResults("0");
-	 * deleteDto.setIrisThreshold("0.0"); deleteDto.setRequest_type("Delete");
-	 * JSONObject deleteRequest = new JSONObject(); ObjectMapper mapper = new
-	 * ObjectMapper(); Map deleteMap = mapper.convertValue(deleteDto, Map.class);
-	 * deleteRequest.putAll(deleteMap); return deleteRequest;
-	 * 
-	 * }
-	 */
 
 	public void deleteFromAbis(JSONObject deleteRequest) {
 		String url = "https://qa.mosip.io/T5CloudService/1.0/processRequest";
@@ -296,14 +260,10 @@ public class RegProcApiRequests extends BaseTestCase {
 	public Response postRequestWithRequestResponseHeaders(String url, Object body, String contentHeader, String acceptHeader,
 			String token) {
 		try {
-			// logger.info("REST:ASSURED:Sending a data packet for encryption to " +
-			// prop.BASE_URL + url);
-			// logger.info("REST ASSURRED :: Request data To encrypt is " + body);
 			Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
 			Response postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 					.contentType(contentHeader).accept(acceptHeader).when().post(ApplnURI + url).then().extract()
 					.response();
-			// postResponse.then().statusCode(200);
 			return postResponse;
 		} catch (Exception e) {
 			logger.error(e.getStackTrace());
@@ -320,7 +280,6 @@ public class RegProcApiRequests extends BaseTestCase {
 			postResponse = given().cookie(builder.build()).relaxedHTTPSValidation().body(body)
 					.contentType(contentHeader).accept(acceptHeader).log().all().when().post(ApplnURI + url).then()
 					.log().all().extract().response();
-			// postResponse.then().statusCode(200);
 		} catch (Exception e) {
 			logger.error(e.getStackTrace());
 		}

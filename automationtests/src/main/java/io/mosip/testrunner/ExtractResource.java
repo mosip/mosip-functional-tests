@@ -100,11 +100,15 @@ public class ExtractResource {
 	 */
 	public static void removeOldMosipTestTestResource() {
 		File mosipTestFile = new File(MosipTestRunner.getGlobalResourcePath());
-		if (mosipTestFile.exists())
+		if (mosipTestFile.exists()) {
 			if (deleteDirectory(mosipTestFile))
 				LOGGER.info("Old MosipTestResource folder successfully deleted!!");
 			else
 				LOGGER.error("Old MosipTestResource folder not deleted.");
+
+		} else {
+			LOGGER.error("Old MosipTestResource folder not exist.");
+		}
 	}
 	
 	/**
@@ -124,16 +128,6 @@ public class ExtractResource {
             }
         }
         return dir.delete();
-	}
-	private static void copyDbInTarget() {
-		File db=new File(MosipTestRunner.getGlobalResourcePath()+"/db");
-		File targetDb=new File(MosipTestRunner.getGlobalResourcePath().substring(0,MosipTestRunner.getGlobalResourcePath().lastIndexOf("\\"))+"/db");
-		try {
-			FileUtils.copyDirectory(db,targetDb);
-			
-		} catch (IOException e) {
-			LOGGER.error(e.getStackTrace());
-		}
 	}
 
 }

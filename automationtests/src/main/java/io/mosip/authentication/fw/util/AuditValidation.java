@@ -40,7 +40,7 @@ public class AuditValidation {
 				"select requested_entity_name,requested_entity_id,requested_entity_type,request_dtimes,response_dtimes,id,request_trn_id,auth_type_code,status_code,status_comment,lang_code,ref_id_type,ref_id,cr_dtimes from ida.auth_transaction where request_trn_id = '"
 						+ exp.get("request_trn_id") + "' order by cr_dtimes desc limit 1",
 				"IDA");
-		AuthTestsUtil.generateMappingDic(auth_txn_file.getAbsolutePath().toString(), preconAuditKeywords(exp, act));
+		AuthTestsUtil.generateMappingDic(auth_txn_file.getAbsolutePath(), preconAuditKeywords(exp, act));
 		return OutputValidationUtil.compareActuExpValue(act, exp, "Audit Transaction Validation");
 	}
 
@@ -93,7 +93,7 @@ public class AuditValidation {
 				String arr[] = temp.getValue().replace("$", "").split(Pattern.quote(":"));
 				String value = arr[1];
 				exp.put(temp.getKey(),
-						AuthTestsUtil.getValueFromPropertyFile(auth_txn_file.getAbsolutePath().toString(), value));
+						AuthTestsUtil.getValueFromPropertyFile(auth_txn_file.getAbsolutePath(), value));
 			}
 		}
 		return exp;

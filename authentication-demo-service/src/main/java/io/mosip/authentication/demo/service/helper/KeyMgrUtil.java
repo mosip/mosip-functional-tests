@@ -137,7 +137,6 @@ public class KeyMgrUtil {
                         partnerFilePath, keyUsage, dateTime, dateTimeExp, organization);
         }
         
-        //Invoke getKey entry for DEVICE and FTM partner type to automatically generate DSK and CSK certificates
         if(partnerType.equals(PartnerTypes.DEVICE) || partnerType.equals(PartnerTypes.FTM)) {
         	getKeyEntry(dirPath, partnerType, organization, keyFileNameByPartnerName);
         }
@@ -215,7 +214,6 @@ public class KeyMgrUtil {
             Files.createDirectories(parentPath);
         }
         
-//        deleteFile(new File(p12FilePath));
         
         OutputStream outputStream = new FileOutputStream(p12FilePath);
         keyStore.store(outputStream, getP12Pass());
@@ -229,9 +227,7 @@ public class KeyMgrUtil {
             OperatorCreationException, NoSuchAlgorithmException, CertIOException, CertificateException {
         X500Name certIssuer = getCertificateAttributes(signCertType, organization);
         X500Name certSubject = getCertificateAttributes(certType, organization);
-        //LocalDateTime dateTime = LocalDateTime.now();
         Date notBefore = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
-        //LocalDateTime dateTimeExp = dateTime.plusYears(1);
         Date notAfter = Date.from(dateTimeExp.atZone(ZoneId.systemDefault()).toInstant());
 
         BigInteger certSerialNum = new BigInteger(Long.toString(new SecureRandom().nextLong()));
@@ -267,7 +263,6 @@ public class KeyMgrUtil {
 					: PartnerTypes.EKYC.getFilePrepend();
             String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;            
             PrivateKeyEntry privateKeyEntry = getPrivateKeyEntry(partnerFilePath);
-            //If ekyc key is not present, use relying partner key
             if(privateKeyEntry == null) {
             	filePrepend = keyFileNameByPartnerName ? PartnerTypes.RELYING_PARTY.getFilePrepend() + '-' + organization
     					: PartnerTypes.RELYING_PARTY.getFilePrepend();
@@ -385,27 +380,19 @@ public class KeyMgrUtil {
     }
 
     
- // moduleName will be IDA or ESignet or DSL-IDA
-    // IDA/ESignet ---- Will passed while running the functional test rig for those modules.. this will address not able to run IDA/ESignet in parallel
-    // certsDir can be "" when we running from functional test rig..
     public String getKeysDirPath(String certsDir, String moduleName) {
       	String domain = environment.getProperty(DOMAIN_URL, "localhost").replace("https://", "").replace("http://", "").replace("/", "");
   		
-          // Default to temp folder in the container and also windows where Authdemo service is running
       	String certsTargetDir = System.getProperty("java.io.tmpdir")+ File.separator + System.getProperty("parent.certs.folder.name", "AUTHCERTS");
       	
       	if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
-      		// if OS is non-windows override certsTargetDir with directory which works on docker
       		certsTargetDir = "/home/mosip/authcerts";
       	}
       	
-  		// Default to IDA-
       	String certsModuleName = "IDA";
   		
   		
   		if (certsDir != null && certsDir.length() != 0){
-  		    // Will come in case of DSL run scenario
-  		    // Certificates will be created under the shared folder which will be shared between Orchestrator and Packetutility  contianer where Authdemo service is running
       	   certsTargetDir = certsDir;
   		}
   		
