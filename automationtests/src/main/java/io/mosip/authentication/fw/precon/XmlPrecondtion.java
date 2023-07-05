@@ -59,7 +59,7 @@ public class XmlPrecondtion extends MessagePrecondtion {
 			Document doc = builder.parse(inputFile);
 			doc.getDocumentElement().normalize();
 			XPath xPath = XPathFactory.newInstance().newXPath();
-			return xPath.compile(expression).evaluate(doc).toString();
+			return xPath.compile(expression).evaluate(doc);
 		} catch (Exception e) {
 			XMLPRECONDTION_LOGGER.error("Exception in xml precondtion : " + e.getMessage());
 			return "Cannot retrieve data or content for the xpath from  XML";
@@ -89,7 +89,7 @@ public class XmlPrecondtion extends MessagePrecondtion {
 			doc.getDocumentElement().normalize();
 			XPath xPath = XPathFactory.newInstance().newXPath();
 			for (Entry<String, String> entry : expressionMap.entrySet()) {
-				String value = xPath.compile(entry.getValue()).evaluate(doc).toString();
+				String value = xPath.compile(entry.getValue()).evaluate(doc);
 				if (value != null)
 					returnMap.put(entry.getValue(), value);
 				else
@@ -125,7 +125,7 @@ public class XmlPrecondtion extends MessagePrecondtion {
 			Document doc = builder.parse(input);
 			doc.getDocumentElement().normalize();
 			XPath xPath = XPathFactory.newInstance().newXPath();
-			return xPath.compile(expression).evaluate(doc).toString();
+			return xPath.compile(expression).evaluate(doc);
 		} catch (Exception e) {
 			XMLPRECONDTION_LOGGER.error("Exception in xml precondtion : " + e.getMessage());
 			return e.getMessage();
@@ -150,7 +150,7 @@ public class XmlPrecondtion extends MessagePrecondtion {
 				xpath = valueFromProperty.replace("$" + keys[1] + "$", keys[2]);
 			} else
 				xpath = AuthTestsUtil.getPropertyFromFilePath(mappingFilePath).getProperty(mappingFieldName);
-			return getValueFromXmlContent(new String(Files.readAllBytes(Paths.get(inputFilePath))), xpath.toString());
+			return getValueFromXmlContent(new String(Files.readAllBytes(Paths.get(inputFilePath))), xpath);
 		} catch (Exception exception) {
 			XMLPRECONDTION_LOGGER
 					.error("Exception Occured in retrieving the value from xml file: " + exception.getMessage());
@@ -171,39 +171,6 @@ public class XmlPrecondtion extends MessagePrecondtion {
 	public Map<String, String> parseAndWriteFile(String inputFilePath, Map<String, String> fieldvalue,
 			String outputFilePath, String propFileName) {
 		return null;
-//		try {
-//			fieldvalue = Precondtion.getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
-//			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-//			// docFactory.setNamespaceAware(false);
-//			docFactory.setFeature(FEATURE, true);
-//			docFactory.setFeature(EXTERNAL_DTD_FEATURE, false);
-//			docFactory.setXIncludeAware(false);
-//			docFactory.setExpandEntityReferences(false);
-//			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-//			xmlDocument = docBuilder.parse(inputFilePath);
-//			for (Entry<String, String> entry : fieldvalue.entrySet()) {
-//				XPath xpath = XPathFactory.newInstance().newXPath();
-//				// Evaluate Xpath
-//				String expression = getPropertyFromFilePath(propFileName).getProperty(entry.getKey()).toString();
-//				String normalisedExpression = normalisedXpath(expression);
-//				if (normalisedExpression.contains("@"))
-//					updateAttributeValue(xpath, expression, normalisedExpression, entry.getValue());
-//				else
-//					updateNodeValue(xpath, normalisedExpression, entry.getValue());
-//			}
-//			TransformerFactory transformerFactory = TransformerFactory.newInstance();
-//			transformerFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-//			transformerFactory.setFeature(SAX_EXTERNAL_GENERAL_FEATURE, false);
-//			transformerFactory.setFeature(SAX_EXTERNAL_PARAMETER_FEATURE, false);
-//
-//			Transformer xformer = transformerFactory.newTransformer();
-//			xformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
-//			xformer.transform(new DOMSource(xmlDocument), new StreamResult(new File(outputFilePath)));
-//			return fieldvalue;
-//		} catch (Exception exception) {
-//			XMLPRECONDTION_LOGGER.error("Exception Occured in XML Precondtion: " + exception.getMessage());
-//			return fieldvalue;
-//		}
 	}
 
 	private static NodeList evaluateXpath(XPath xpath, String xpathStr) {

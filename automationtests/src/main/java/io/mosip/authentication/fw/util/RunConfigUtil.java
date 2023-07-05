@@ -95,15 +95,6 @@ public class RunConfigUtil {
 	 * @return tokenID
 	 */
 	public static String getTokenId(String uin, String partnerID) {		
-		/*
-		 * getTokenIdPropertyValue(getTokenIdPropertyPath()); if
-		 * (TokenIdDto.getTokenId().containsKey(uin + "." + partnerID)) return
-		 * TokenIdDto.getTokenId().get(uin + "." + partnerID); else return
-		 * GlobalConstants.TOKENID_STRING+uin + "." + partnerID;
-		 */
-		/*
-		 * if(uin.length()>10) uin=UINUtil.getUinForVid(uin);
-		 */
 		TokenIDGenerator tokenGenrator = new TokenIDGenerator();
 		String token = tokenGenrator.generateTokenID(uin, RunConfigUtil.objRunConfig.getAuthPartnerID(), RunConfigUtil.objRunConfig.getUinSalt(), RunConfigUtil.objRunConfig.getPartnerCodeSalt(), RunConfigUtil.objRunConfig.getTokenIDLength());
 		return tokenGenrator.generateTokenID(token, partnerID, RunConfigUtil.objRunConfig.getUinSalt(), RunConfigUtil.objRunConfig.getPartnerCodeSalt(), RunConfigUtil.objRunConfig.getTokenIDLength());

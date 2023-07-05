@@ -45,20 +45,9 @@ public class BiometricDataUtility extends AuthTestsUtil {
 		byte[] aadLastBytes = BytesUtil.getLastBytes(xorBytes, 16);
 		String aad = CryptoUtil.encodeBase64(aadLastBytes);
 		String jsonContent = FileUtil.readInput(bioValueEncryptionTemplateJson);
-		/*
-		 * String aad =
-		 * EncryptDecrptUtil.getBase64EncodedString(timestamp.substring(timestamp.length
-		 * () - 16)); String salt =
-		 * EncryptDecrptUtil.getBase64EncodedString(timestamp.substring(timestamp.length
-		 * () - 12));
-		 */
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, aad, "request.aad");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, salt, "request.salt");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, isoBiovalue, "request.data");
-		//jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
-				//IdaKeywordUtil.generateTimeStampWithZTimeZone(), "request.timeStamp");
-		//jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent,
-				//IdaKeywordUtil.generateTimeStampWithZTimeZone(), GlobalConstants.REQUESTTIME);
 		String cookieValue = getAuthorizationCookie(getCookieRequestFilePathForInternalAuth(),
 				RunConfigUtil.objRunConfig.getEndPointUrl() + RunConfigUtil.objRunConfig.getClientidsecretkey(),
 				AUTHORIZATHION_COOKIENAME);
@@ -96,9 +85,8 @@ public class BiometricDataUtility extends AuthTestsUtil {
 			String signedData = "";
 			if (isInternal == false)
 				signedData = getSignedData(latestData);
-			else if (isInternal == true)
+			else if (isInternal)
 				signedData = EncryptDecrptUtil.getBase64EncodedString(latestData);
-			// String signedData = EncryptDecrptUtil.getBase64EncodedString(latestData);
 			if(testcaseName.toLowerCase().contains("without".toLowerCase()) && testcaseName.toLowerCase().contains("signature".toLowerCase()) && testcaseName.toLowerCase().contains("_neg".toLowerCase()))
 				signedData=signedData.split(Pattern.quote("."))[1];
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, signedData,
@@ -118,7 +106,6 @@ public class BiometricDataUtility extends AuthTestsUtil {
 		FileInputStream pkeyfis = null;
 		FileInputStream certfis = null;
 		try {
-			// Extract Certificate
 			String resourcePath = RunConfigUtil.getResourcePath();
 			pkeyfis = new FileInputStream(resourcePath + "ida/TestData/RunConfig/keys/privateKey.pem");
 			String pKey = FileUtil.getFileContent(pkeyfis, "UTF-8");
@@ -133,7 +120,6 @@ public class BiometricDataUtility extends AuthTestsUtil {
 			CertificateFactory cf = CertificateFactory.getInstance("X.509");
 			X509Certificate certificate = (X509Certificate) cf
 					.generateCertificate(new ByteArrayInputStream(Base64.getDecoder().decode(cert)));
-			// Extract Private Key
 			KeyFactory kf = KeyFactory.getInstance("RSA");
 			PrivateKey privateKey = kf.generatePrivate(new PKCS8EncodedKeySpec(Base64.getDecoder().decode(pKey)));
 			JWSValidation jws = new JWSValidation();

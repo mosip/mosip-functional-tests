@@ -26,7 +26,6 @@ import io.mosip.pojo.Root;
 
 public class MockSMTPListener{
 	private static Logger logger = Logger.getLogger(MockSMTPListener.class);
-	//static HashMap emailNotificationMapS=new HashMap<Object, Object>();
 	
 	 
 	public static Map<Object, Object> emailNotificationMapS = Collections.synchronizedMap(new HashMap<Object, Object>()); 
@@ -81,7 +80,6 @@ public class MockSMTPListener{
 				ObjectMapper om = new ObjectMapper();
 
 				root = om.readValue(data.toString(), Root.class);
-				// As we need only OTP notifications skip all other notifications
 				if (!parseOtp(root.html).isEmpty()) {
 					emailNotificationMapS.put(root.to.value.get(0).address,root.html);
 					logger.info(" After adding to emailNotificationMap key = " + root.to.value.get(0).address
@@ -116,21 +114,17 @@ public class MockSMTPListener{
 		
 		int counter = 0;
 		
-		//HashMap m=new HashMap<Object, Object>();
 		String otp = "";
 		if(ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase(GlobalConstants.TRUE_STRING))
 		{
 			return ConfigManager.getPreConfiguredOtp();
 		}
 		while (counter < otpCheckLoopCount) {
-		//	m= emailNotificationMap;
 			if(emailNotificationMapS.get(emailId)!=null) {
 				String html=(String) emailNotificationMapS.get(emailId);
-				//as we alredy consumed notification removed from map
 				emailNotificationMapS.remove(emailId);	
 				otp = parseOtp(html);
 				if (otp != null && otp.length()>0) {
-//					Got the required OTP Ignore in between notification which doesn't have OTP
 					logger.info("Found the OTP = " + otp);
 					return otp;
 				}
@@ -156,21 +150,6 @@ public class MockSMTPListener{
 	
 	public static String parseOtp(String message){
 		
-		// To Do Key entry found add parsing logic for OTP
-		
-//		Dear FR OTP for UIN XXXXXXXX02 is 111111 and is valid for 3 minutes. (Generated on 16-03-2023 at 15:43:39 Hrs)
-//
-//		عزيزي $ name OTP لـ $ idvidType $ idvid هو $ otp وهو صالح لـ $ validTime دقيقة. (تم إنشاؤه في $ date في $ time Hrs)
-//
-//		Cher $name_fra, OTP pour UIN XXXXXXXX02 est 111111 et est valide pour 3 minutes. (Généré le 16-03-2023 à 15:43:39 Hrs)
-		
-//		"Dear FR OTP for UIN XXXXXXXX02 is 111111 and is valid for 3 minutes. (Generated on 16-03-2023 at 15:43:39 Hrs)\r\n"
-//		+ "\r\n"
-//		+ "عزيزي $ name OTP لـ $ idvidType $ idvid هو $ 101010 وهو صالح لـ $ validTime دقيقة. (تم إنشاؤه في $ date في $ time Hrs)\r\n"
-//		+ "\r\n"
-//		+ "Cher $name_fra, OTP pour UIN XXXXXXXX02 est 123456 et est valide pour 3 minutes. (Généré le 16-03-2023 à 15:43:39 Hrs)";
-		
-		//find any 6 digit number
 		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");
 		String otp = "";
 		if(message!=null) {
@@ -180,7 +159,6 @@ public class MockSMTPListener{
 		        otp = otp.trim();
 		        logger.info("Extracted OTP: "+ otp+ " message : "+ message);
 		    }else {
-		        //something went wrong
 		    	logger.info("Failed to extract the OTP!! "+ "message : " + message);
 		    	
 		    }

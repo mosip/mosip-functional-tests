@@ -77,11 +77,11 @@ public class Precondtion {
 				fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
 				if (fieldvalue != null) {
 					for (Entry<String, String> entry : fieldvalue.entrySet()) {
-						String key = entry.getKey().toString();
+						String key = entry.getKey();
 						if (key.matches("email.template.*")) {
 							String[] templates = entry.getValue().split(Pattern.quote("|"));
 							emailTemplatevalue.put(templates[0], templates[1]);
-						} else if (entry.getKey().toString().contains("email.otp")) {
+						} else if (entry.getKey().contains("email.otp")) {
 							emailTemplatevalue.put(entry.getKey(), entry.getValue());
 						}
 					}
@@ -142,7 +142,6 @@ public class Precondtion {
 	 */
 	public static KeywordUtil getKeywordObject(String moduleName) {
 		KeywordUtil objKeywordUtil = null;
-			//objKeywordUtil = new IdaKeywordUtil();
 		return objKeywordUtil;
 	}
 

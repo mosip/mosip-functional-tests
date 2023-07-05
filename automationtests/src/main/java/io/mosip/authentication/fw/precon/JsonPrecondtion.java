@@ -58,67 +58,6 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	public Map<String, String> parseAndWriteFile(String inputFilePath, Map<String, String> fieldvalue,
 			String outputFilePath, String propFileName) {
 		return null;
-//		FileOutputStream outputStream = null;
-//		try {
-//			ObjectMapper mapper = new ObjectMapper();
-//			Object jsonObj = mapper.readValue(
-//					new String(Files.readAllBytes(Paths.get(inputFilePath)), StandardCharsets.UTF_8), Object.class);
-//			fieldvalue = Precondtion.getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);// New Code . Need to
-//				Properties props = 	AdminTestUtil.getproperty(propFileName);																// add
-//			for (Entry<String, String> map : fieldvalue.entrySet()) {
-//				if (map.getValue().contains(GlobalConstants.LONG_STRING)) {
-//					String value = map.getValue().replace(GlobalConstants.LONG_STRING, "");
-//					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
-//							Long.parseLong(value));
-//				} else if (map.getValue().contains(GlobalConstants.DOUBLE_STRING)) {
-//					String value = map.getValue().replace(GlobalConstants.DOUBLE_STRING, "");
-//					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
-//							Double.parseDouble(value));
-//				} else if (map.getValue().contains(GlobalConstants.BOOLEAN_STRING)) {
-//					String value = map.getValue();
-//					if (value.contains(GlobalConstants.TRUE_STRING))
-//						PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
-//								true);
-//					if (value.contains("false"))
-//						PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
-//								false);
-//				} else
-//					PropertyUtils.setProperty(jsonObj, props.getProperty(map.getKey()),
-//							map.getValue());
-//			}
-//			mapper.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
-//			outputStream = new FileOutputStream(outputFilePath);
-//			mapper.writeValue(outputStream, jsonObj);
-//			String outputJson = new String(Files.readAllBytes(Paths.get(outputFilePath)), StandardCharsets.UTF_8);
-//			// Replacing the version in request
-//			/*
-//			 * outputJson = outputJson.replace("$version$",
-//			 * RunConfigUtil.objRunConfig.getAuthVersion()); outputJson =
-//			 * outputJson.replaceAll("$version$",
-//			 * RunConfigUtil.objRunConfig.getAuthVersion()); outputJson =
-//			 * outputJson.replace("$idrepoVersion$",
-//			 * RunConfigUtil.objRunConfig.getIdRepoVersion()); outputJson =
-//			 * outputJson.replaceAll("$idrepoVersion$",
-//			 * RunConfigUtil.objRunConfig.getIdRepoVersion());
-//			 */
-//			// Replacing the domainuri and env in request
-//			while(outputJson.contains("$env$") || outputJson.contains("$domainUri$")) {
-//			outputJson = outputJson.replace("$domainUri$", BaseTestCase.ApplnURI);
-//			outputJson = outputJson.replace("$env$", BaseTestCase.ApplnURI);
-//			}
-//			if (outputJson.contains("$REMOVE$"))
-//				outputJson = removeObject(new JSONObject(outputJson));
-//			outputJson=JsonPrecondtion.toPrettyFormat(outputJson);
-//			FileUtil.writeFile(outputFilePath, outputJson);
-//			JSONPRECONDATION_LOGGER.info("Updated json file content: " + JsonPrecondtion.toPrettyFormat(outputJson.toString()));
-//			return fieldvalue;
-//		} catch (Exception e) {
-//			JSONPRECONDATION_LOGGER.error("Exception Occured in precondtion message: " + e.getMessage());
-//			Reporter.log("Exception Occured in precondtion message: " + e.getMessage());
-//			return fieldvalue;
-//		}finally {
-//			AdminTestUtil.closeOutputStream(outputStream);
-//		}
 	}
 	@Override
 	public String parseAndUpdateJson(String inputJson, Map<String, String> fieldvalue, String propFileName) {
@@ -312,7 +251,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 				readArray((JSONArray) value, jsonPath);
 			} else if (value instanceof JSONObject) {
 				readObject((JSONObject) value, jsonPath);
-			} else { // is a value
+			} else { 
 				this.pathList.add(jsonPath);
 			}
 		}
@@ -335,7 +274,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
                 readArray((JSONArray) value, jsonPath);
             } else if(value instanceof JSONObject) {                
                 readObject((JSONObject) value, jsonPath);
-            } else { // is a value
+            } else { 
                 this.pathList.add(jsonPath);
             }       
         }
@@ -463,7 +402,6 @@ public class JsonPrecondtion extends MessagePrecondtion{
 					PropertyUtils.setProperty(jsonObj, mapping,
 							inputValueToSet);
 		    return mapper.writeValueAsString(jsonObj);
-			//return jsonObj.toString();
 		} catch (Exception e) {
 			JSONPRECONDATION_LOGGER.error("Exception Occured in message precondtion: " + e.getMessage());
 			Reporter.log("Exception Occured in message precondtion: " + e.getMessage());
@@ -485,8 +423,6 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	
 	public static Map<String, Object> jsonToMap(JSONObject o) {
 		Map<String, Object> map = new LinkedHashMap<>();
-		// https://github.com/jwtk/jjwt/issues/380: use .keys() and *not* .keySet() for
-		// Android compatibility:
 		Iterator<String> iterator = o.keys();
 		while (iterator.hasNext()) {
 			String key = iterator.next();
@@ -512,7 +448,6 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	private static List<Object> jsonArrayToList(JSONArray a) {
         int length = a.length();
         List<Object> list = new ArrayList<>(length);
-        // https://github.com/jwtk/jjwt/issues/380: use a.get(i) and *not* a.toList() for Android compatibility:
         for( int i = 0; i < length; i++) {
             Object value = a.get(i);
             value = convertIfNecessary(value);
@@ -601,8 +536,6 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	    try {
 	        new JSONObject(test);
 	    } catch (JSONException ex) {
-	        // edited, to include @Arthur's comment
-	        // e.g. in case JSONArray is valid as well...
 	        try {
 	            new JSONArray(test);
 	        } catch (JSONException ex1) {
