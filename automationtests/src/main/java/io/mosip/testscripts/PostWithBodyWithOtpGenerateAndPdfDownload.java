@@ -77,7 +77,9 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
-		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
+		String otpRequest = null, 
+			   sendOtpReqTemplate = null,
+				sendOtpEndPoint = null;
 		if(req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
