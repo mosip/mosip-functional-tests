@@ -13,20 +13,6 @@ GenerateLinkCode:
         
 }'
 
-   ESignet_GenerateLinkCode_Consent_all_Valid_Smoke_sid:
-      endPoint: /v1/esignet/linked-authorization/link-code
-      role: resident
-      restMethod: post
-      inputTemplate: esignet/GenerateLinkCode/GenerateLinkCode
-      outputTemplate: esignet/GenerateLinkCode/GenerateLinkCodeResult
-      input: '{
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Consent_Valid_Smoke_sid_transactionId$"
-}'
-      output: '{
-        
-}'
-
    ESignet_GenerateLinkCode_vid_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/link-code
       role: resident

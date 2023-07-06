@@ -1,0 +1,15 @@
+GetLinkStatusConsent:
+   ESignet_GetLinkStatus_Consent_all_Valid_Smoke:
+      endPoint: /v1/esignet/linked-authorization/link-status
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GetLinkStatus/GetLinkStatus
+      outputTemplate: esignet/GetLinkStatus/GetLinkStatusResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Consent_Valid_Smoke_sid_transactionId$",
+      	"linkCode": "$ID:GenerateLinkCode_Consent_all_Valid_Smoke_sid_linkCode$"
+}'
+      output: '{
+        
+}'

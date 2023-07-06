@@ -4,15 +4,17 @@ import java.security.SecureRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 
 public class TestJava {
-	private static final Logger lOGGER = Logger.getLogger(EncryptionDecrptionUtil.class);
+	private static final Logger lOGGER = Logger.getLogger(TestJava.class);
 	private static final SecureRandom secureRandom = new SecureRandom();
 	public static void main(String[] args) {
+		int num = 1011111;
 		
-		
-		
+		String transactionID = (num + RandomStringUtils.randomNumeric(8)).substring(0, 10);
+		lOGGER.info(transactionID);
 
 		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");
 		
