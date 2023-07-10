@@ -98,9 +98,6 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
 		map.put("moduleName", BaseTestCase.certsForModule);
-//		map.put("keyFileNameByPartnerName", GlobalConstants.TRUE_STRING);
-		
-//		String token = kernelAuthLib.getTokenByRole("partner");
 		
 		Response response = RestClient.getRequestWithQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 		lOGGER.info(response);

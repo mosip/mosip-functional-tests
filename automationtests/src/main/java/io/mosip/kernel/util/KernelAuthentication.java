@@ -35,7 +35,7 @@ public class KernelAuthentication extends BaseTestCase{
 	private String partner_password=props.get("partner_user_password");
 	private String partner_userName=props.get("partner_userName");
 	
-	private String registrationAdmin_appid=props.get("registrationAdmin_appid");;
+	private String registrationAdmin_appid=props.get("registrationAdmin_appid");
 	private String registrationAdmin_password=props.get("registrationAdmin_password");
 	private String registrationAdmin_userName=props.get("registrationAdmin_userName");
 	
@@ -136,11 +136,11 @@ public class KernelAuthentication extends BaseTestCase{
 		case "residentnew":
 			if(!kernelCmnLib.isValidToken(residentNewCookie.get(tokenType)))
 				residentNewCookie = getAuthFromEsignet(ESignetUINCookiesFile);
-			return residentNewCookie.get(tokenType).toString();
+			return residentNewCookie.get(tokenType);
 		case "residentnewvid":
 			if(!kernelCmnLib.isValidToken(residentNewVidCookie.get(tokenType)))
 				residentNewVidCookie = getAuthFromEsignet(ESignetVIDCookiesFile);
-			return residentNewVidCookie.get(tokenType).toString();
+			return residentNewVidCookie.get(tokenType);
 		case "residentnewKc":
 			if(!kernelCmnLib.isValidToken(residentNewCookieKc))
 				residentNewCookieKc = kernelAuthLib.getAuthForNewResidentKc();

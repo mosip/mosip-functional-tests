@@ -127,51 +127,42 @@ public class CustomTestNGReporter implements IReporter {
 					retBuf.append(testObj.getName());
 					retBuf.append("</td>");
 
-					/* Total method count. */
 					retBuf.append("<td>");
 					retBuf.append(totalTestCount);
 					retBuf.append("</td>");
 
-					/* Passed method count. */
 					retBuf.append("<td bgcolor=green>");
 					retBuf.append(totalTestPassed);
 					retBuf.append("</td>");
 
-					/* Skipped method count. */
 					retBuf.append("<td bgcolor=yellow>");
 					retBuf.append(totalTestSkipped);
 					retBuf.append("</td>");
 
-					/* Failed method count. */
 					retBuf.append("<td bgcolor=red>");
 					retBuf.append(totalTestFailed);
 					retBuf.append("</td>");
 
-					/* Start Date */
 					Date startDate = testObj.getStartDate();
 					retBuf.append("<td>");
 					retBuf.append(this.getDateInStringFormat(startDate));
 					retBuf.append("</td>");
 
-					/* End Date */
 					Date endDate = testObj.getEndDate();
 					retBuf.append("<td>");
 					retBuf.append(this.getDateInStringFormat(endDate));
 					retBuf.append("</td>");
 
-					/* Execute Time */
 					long deltaTime = endDate.getTime() - startDate.getTime();
 					String deltaTimeStr = this.convertDeltaTimeToString(deltaTime);
 					retBuf.append("<td>");
 					retBuf.append(deltaTimeStr);
 					retBuf.append("</td>");
 
-					/* Include groups. */
 					retBuf.append("<td>");
 					retBuf.append(this.stringArrayToString(testObj.getIncludedGroups()));
 					retBuf.append("</td>");
 
-					/* Exclude groups. */
 					retBuf.append("<td>");
 					retBuf.append(this.stringArrayToString(testObj.getExcludedGroups()));
 					retBuf.append("</td>");
@@ -185,7 +176,6 @@ public class CustomTestNGReporter implements IReporter {
 		return retBuf.toString();
 	}
 
-	/* Get date string format value. */
 	private String getDateInStringFormat(Date date)
 	{
 		StringBuffer retBuf = new StringBuffer();
@@ -198,7 +188,6 @@ public class CustomTestNGReporter implements IReporter {
 		return retBuf.toString();
 	}
 	
-	/* Convert long type deltaTime to format hh:mm:ss:mi. */
 	private String convertDeltaTimeToString(long deltaTime)
 	{
 		StringBuffer retBuf = new StringBuffer();
@@ -216,7 +205,6 @@ public class CustomTestNGReporter implements IReporter {
 		return retBuf.toString();
 	}
 	
-	/* Get test method summary info. */
 	private String getTestMehodSummary(List<ISuite> suites) {
 		StringBuffer retBuf = new StringBuffer();
 
@@ -232,17 +220,14 @@ public class CustomTestNGReporter implements IReporter {
 
 					String testName = testObj.getName();
 
-					/* Get failed test method related data. */
 					IResultMap testFailedResult = testObj.getFailedTests();
 					String failedTestMethodInfo = this.getTestMethodReport(testName, testFailedResult, false, false);
 					retBuf.append(failedTestMethodInfo);
 
-					/* Get skipped test method related data. */
 					IResultMap testSkippedResult = testObj.getSkippedTests();
 					String skippedTestMethodInfo = this.getTestMethodReport(testName, testSkippedResult, false, true);
 					retBuf.append(skippedTestMethodInfo);
 
-					/* Get passed test method related data. */
 					IResultMap testPassedResult = testObj.getPassedTests();
 					String passedTestMethodInfo = this.getTestMethodReport(testName, testPassedResult, true, false);
 					retBuf.append(passedTestMethodInfo);
@@ -254,7 +239,6 @@ public class CustomTestNGReporter implements IReporter {
 		return retBuf.toString();
 	}
 	
-	/* Get failed, passed or skipped test methods report. */
 	private String getTestMethodReport(String testName, IResultMap testResultMap, boolean passedReault, boolean skippedResult)
 	{
 		String apiName="";
@@ -310,12 +294,6 @@ public class CustomTestNGReporter implements IReporter {
 			String testParm=testResult.getName();
 			apiName=testParm.substring(0, testParm.indexOf(":"));
 			description=testParm.substring(testParm.lastIndexOf(":")+1);
-			/*for(Object paramObj : paramObjArr)
-			{
-				paramStr += paramObj.toString();
-				paramStr += " ";
-				paramStr+=description;
-			}*/
 			paramStr+=description;
 				
 			List<String> repoterMessageList = Reporter.getOutput(testResult);
@@ -337,37 +315,30 @@ public class CustomTestNGReporter implements IReporter {
 			
 			retStrBuf.append("<tr bgcolor=" + color + ">");
 			
-			/* Add test class name. */
 			retStrBuf.append("<td>");
 			retStrBuf.append(testClassName);
 			retStrBuf.append("</td>");
 			
-			/* Add test method name. */
 			retStrBuf.append("<td>");
 			retStrBuf.append(testMethodName);
 			retStrBuf.append("</td>");
 			
-			/* Add start time. */
 			retStrBuf.append("<td>");
 			retStrBuf.append(startDateStr);
 			retStrBuf.append("</td>");
 			
-			/* Add execution time. */
 			retStrBuf.append("<td>");
 			retStrBuf.append(executeTimeStr);
 			retStrBuf.append("</td>");
 			
-			/* Add parameter. */
 			retStrBuf.append("<td>");
 			retStrBuf.append(paramStr);
 			retStrBuf.append("</td>");
 			
-			/* Add reporter message. */
 			retStrBuf.append("<td>");
 			retStrBuf.append(apiName);
 			retStrBuf.append("</td>");
 			
-			/* Add exception message. */
 			retStrBuf.append("<td>");
 			retStrBuf.append(exceptionMessage);
 			retStrBuf.append("</td>");
@@ -379,7 +350,6 @@ public class CustomTestNGReporter implements IReporter {
 		return retStrBuf.toString();
 	}
 	
-	/* Convert a string array elements to a string. */
 	private String stringArrayToString(String strArr[])
 	{
 		StringBuffer retStrBuf = new StringBuffer();

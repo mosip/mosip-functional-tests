@@ -79,11 +79,11 @@ public class DbConnection {
 			for (Entry<String, Object> entry : records.entrySet()) {
 				
 				if (entry.getValue() != null && entry.getValue() != "null"
-						&& entry.getValue().equals("null") == false)
+						&& entry.getValue().equals("null"))
 					returnMap.put(entry.getKey(), entry.getValue().toString());
 					
 				else
-					returnMap.put(entry.getKey(), "null".toString());
+					returnMap.put(entry.getKey(), "null");
 			}
 			return returnMap;
 		} catch (Exception e) {
@@ -111,17 +111,12 @@ public class DbConnection {
 				for (Entry<String, Object> entry : allRecords.get(i).entrySet()) {
 					
 					if (entry.getValue() != null && entry.getValue() != "null"
-							&& entry.getValue().equals("null") == false)
+							&& entry.getValue().equals("null"))
 						records.put(entry.getKey(), entry.getValue().toString());
 						
 					else
-						records.put(entry.getKey(), "null".toString());
+						records.put(entry.getKey(), "null");
 					
-//					if (entry.getValue() == null || entry.getValue().equals(null) || entry.getValue() == "null"
-//							|| entry.getValue().equals("null"))
-//						records.put(entry.getKey(), "null".toString());
-//					else
-//						records.put(entry.getKey(), entry.getValue().toString());
 				}
 				listOfRecordsToBeReturn.add(records);
 			}
@@ -247,7 +242,6 @@ public class DbConnection {
 			Properties dbProps = new Properties();
 			dbProps.load(inputStream);
 			Configuration config = new Configuration();
-			// config.setProperties(dbProps);
 			config.setProperty("hibernate.connection.driver_class", dbProps.getProperty("driver_class"));
 			config.setProperty("hibernate.connection.url", dbProps.getProperty(dbName + "_url"));
 			config.setProperty("hibernate.connection.username", dbProps.getProperty(dbName + "_username"));

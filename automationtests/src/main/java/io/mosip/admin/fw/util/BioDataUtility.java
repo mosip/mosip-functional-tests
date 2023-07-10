@@ -148,7 +148,7 @@ public class BioDataUtility extends AdminTestUtil {
 				signedData = getSignedBiometrics(latestData,"DEVICE");
 				identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
 						EncryptionDecrptionUtil.idaFirThumbPrint, biometricsMapper + ".thumbprint");
-			} else if (isInternal == true) {
+			} else if (isInternal) {
 				signedData = EncryptionDecrptionUtil.getBase64EncodedString(latestData);
 				identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
 						EncryptionDecrptionUtil.internalThumbPrint, biometricsMapper + ".thumbprint");

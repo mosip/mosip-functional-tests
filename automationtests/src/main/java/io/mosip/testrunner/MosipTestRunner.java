@@ -41,14 +41,9 @@ public class MosipTestRunner {
 	private static final Logger LOGGER = Logger.getLogger(MosipTestRunner.class);
 	
 
-//	public static Properties props = getproperty(
-//			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
 
 	public static String jarUrl = MosipTestRunner.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 	public static List<String> languageList = new ArrayList<>();
-	/*
-	 * These variables are created to store private key in a file and then use it for some apis
-	 */
 	public static File oidcJWK1 = new File("src/main/resources/oidcJWK1.txt");
 
 	/**
@@ -70,8 +65,7 @@ public class MosipTestRunner {
 				ExtractResource.removeOldMosipTestTestResource();
 				ExtractResource.extractResourceFromJar();
 			}
-			// Initializing or setting up execution
-			ConfigManager.init(); // Langauge Independent
+			ConfigManager.init(); 
 			BaseTestCase.suiteSetup();
 			AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
 			HealthChecker healthcheck = new HealthChecker();
@@ -79,7 +73,6 @@ public class MosipTestRunner {
 			Thread trigger = new Thread(healthcheck);
 			trigger.start();
 
-			// KeycloakUserManager.removeUser(); //Langauge Independent
 			KeycloakUserManager.createUsers(); // Langauge Independent
 
 			String partnerKeyURL = "";
@@ -95,18 +88,12 @@ public class MosipTestRunner {
 
 			List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
 
-			// Get List of languages from server and set into BaseTestCase.languageList
-			// if list of modules contains GlobalConstants.MASTERDATA then iterate it
-			// through languageList and run complete suite with one language at a time
-			// ForTesting
 
 			if (BaseTestCase.listOfModules.contains(GlobalConstants.MASTERDATA)) {
-				// get all languages which are already loaded and store into local variable
 				BaseTestCase.mapUserToZone();
 				BaseTestCase.mapZone();
 
 				for (int i = 0; i < localLanguageList.size(); i++) {
-					// update one language at a time in the BaseTestCase.languageList
 					BaseTestCase.languageList.clear();
 					BaseTestCase.languageList.add(localLanguageList.get(i));
 
@@ -147,23 +134,13 @@ public class MosipTestRunner {
 		File homeDir = null;
 		TestNG runner = new TestNG();
 		List<String> suitefiles = new ArrayList<String>();
-		// String specifiedModules = System.getProperty("modules");
 		List<String> modulesToRun = BaseTestCase.listOfModules;
 		String os = System.getProperty("os.name");
 		LOGGER.info(os);
-		// suitefiles.add(new File(System.getProperty("user.dir")
-		// +"/testNgXmlFiles/healthCheckTest.xml").getAbsolutePath());
-		if (checkRunType().contains("IDE") || os.toLowerCase().contains("windows") == true) {
+		if (checkRunType().contains("IDE") || os.toLowerCase().contains("windows")) {
 			homeDir = new File(System.getProperty("user.dir") + "/testNgXmlFiles");
 			LOGGER.info("IDE :" + homeDir);
 		}
-		/*
-		 * if(checkRunType().contains("IDE") ||
-		 * os.toLowerCase().contains("windows")==true) { URL res =
-		 * MosipTestRunner.class.getClassLoader().getResource("testNgXmlFiles"); try {
-		 * homeDir = Paths.get(res.toURI()).toFile(); } catch (URISyntaxException e) {
-		 * LOGGER.error("Exception getting the xml file path :"+e.getMessage()); } }
-		 */
 		else {
 			File dir = new File(System.getProperty("user.dir"));
 			homeDir = new File(dir.getParent() + "/mosip/testNgXmlFiles");
@@ -182,8 +159,6 @@ public class MosipTestRunner {
 		System.getProperties().setProperty("testng.outpur.dir", "testng-report");
 		runner.setOutputDirectory("testng-report");
 		runner.run();
-		//KeycloakUserManager.removeUser();
-		//System.exit(0);
 	}
 
 	/**
@@ -194,10 +169,9 @@ public class MosipTestRunner {
 	 */
 	public static String getGlobalResourcePath() {
 		if (checkRunType().equalsIgnoreCase("JAR")) {
-			return new File(jarUrl).getParentFile().getAbsolutePath() + "/MosipTestResource".toString();
+			return new File(jarUrl).getParentFile().getAbsolutePath() + "/MosipTestResource";
 		} else if (checkRunType().equalsIgnoreCase("IDE")) {
-			String path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
-					.toString();
+			String path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath();
 			if (path.contains("test-classes"))
 				path = path.replace("test-classes", "classes");
 			return path;
@@ -268,16 +242,11 @@ public class MosipTestRunner {
 				    .privateKey(keypair.getPrivate())
 				    .build();
 			
-//			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
-			
-//			FileUtils.touch(oidcJWK1);//File got created
-//			FileUtils.writeStringToFile(oidcJWK1, jwk.toJSONString(), StandardCharset.UTF_8.name());
 			return jwk.toJSONString();
 		} catch (NoSuchAlgorithmException e) {
 			LOGGER.error(e.getStackTrace());
 			return null;
 		}
-//		return jwk.toJSONString();
 	}
 	
 	public static Properties getproperty(String path) {

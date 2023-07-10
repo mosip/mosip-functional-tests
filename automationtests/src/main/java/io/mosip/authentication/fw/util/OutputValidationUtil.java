@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -54,7 +55,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 			return compareActuExpValue(actual, exp, actualOutputFile + " vs " + expOutputFile);
 		} catch (Exception e) {
 			OUTPUTVALIDATION_LOGGER.error("Exceptione occured " + e.getMessage());
-			return null;
+			return Collections.emptyMap();
 		}
 	}
 	
@@ -84,7 +85,6 @@ public class OutputValidationUtil extends AuthTestsUtil{
 					objList.add(objOpDto);
 				}
 			}
-			// Comparing value with actual json
 			for (Entry<String, String> expEntry : exp.entrySet()) {
 				OutputValidationDto objOpDto = new OutputValidationDto();
 				if (actual.containsKey(expEntry.getKey())) {
@@ -404,7 +404,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 						&& entry.getValue().toString().contains(",")) {
 					String value[] = entry.getValue().toString().split(Pattern.quote("}, {"));
 					for (int i = 0; i < value.length; i++) {
-						String normalise = value[i].toString().replace("{", "").replace("[", "").replace("}", "")
+						String normalise = value[i].replace("{", "").replace("[", "").replace("}", "")
 								.replace("]", "");
 						if (!actualMap.get(entry.getKey()).toString().contains(normalise)) {
 							return false;
@@ -431,7 +431,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 			return compareActuExpValue(actual, exp, "expected vs actual");
 		} catch (Exception e) {
 			OUTPUTVALIDATION_LOGGER.error("Exceptione occured " + e.getMessage());
-			return null;
+			return Collections.emptyMap();
 		}
 	}
 	
