@@ -180,6 +180,45 @@
 			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
+	<test name="OAuthDetailsRequestLinkedConsent">
+		<parameter name="ymlFile"
+			value="esignet/LinkedConsent/OAuthDetailsRequestLinkedConsent/OAuthDetailsRequestLinkedConsent.yml" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GenerateLinkCodeConsent">
+		<parameter name="ymlFile"
+			value="esignet/LinkedConsent/GenerateLinkCodeConsent/GenerateLinkCodeConsent.yml" />
+			<parameter name="idKeyName"	value="linkCode" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="LinkTransactionConsent">
+		<parameter name="ymlFile"
+			value="esignet/LinkedConsent/LinkTransactionConsent/LinkTransactionConsent.yml" />
+			<parameter name="idKeyName"	value="linkTransactionId" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GetLinkStatusConsent">
+		<parameter name="ymlFile"
+			value="esignet/LinkedConsent/GetLinkStatusConsent/GetLinkStatusConsent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="LinkedAuthenticationConsentWla">
+		<parameter name="ymlFile"
+			value="esignet/LinkedConsent/LinkedAuthenticationConsentWla/LinkedAuthenticationConsentWla.yml" />
+			<parameter name="idKeyName"	value="certificate" />
+		<classes>
+			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerateForWla" />
+		</classes>
+	</test>
 	<test name="OAuthDetailsRequestLinked">
 		<parameter name="ymlFile"
 			value="esignet/OAuthDetailsRequestLinked/OAuthDetailsRequest.yml" />

@@ -4280,7 +4280,7 @@ public class AdminTestUtil extends BaseTestCase {
 		X509Certificate certificate = (X509Certificate) convertToCertificate(certData);
 		JsonWebSignature jwSign = new JsonWebSignature();
 		if (certificate != null) {
-//			jwSign.setKeyIdHeaderValue(certificate.getSerialNumber().toString(10));
+			jwSign.setKeyIdHeaderValue(certificate.getSerialNumber().toString(10));
 			jwSign.setX509CertSha256ThumbprintHeaderValue(certificate);
 			jwSign.setPayload(payload.toString());
 			jwSign.setAlgorithmHeaderValue("RS256");

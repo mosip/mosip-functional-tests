@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.testdata.keywords.KeywordUtil;
+import io.mosip.global.utils.GlobalConstants;
 
 /**
  * Precondtion json file according to the input and mapping provided in test
@@ -54,7 +55,7 @@ public class Precondtion {
 				}
 			}
 		} catch (Exception e) {
-			PRECON_LOGGER.error("Exception Occured: " + e.getMessage());
+			PRECON_LOGGER.error(GlobalConstants.EXCEPTION_OCCURED + e.getMessage());
 		}finally {
 			AdminTestUtil.closeOutputStream(outputStream);
 		}
@@ -94,7 +95,7 @@ public class Precondtion {
 				}
 			}
 		} catch (Exception e) {
-			PRECON_LOGGER.error("Exception Occured: " + e.getMessage());
+			PRECON_LOGGER.error(GlobalConstants.EXCEPTION_OCCURED + e.getMessage());
 		}finally {
 			AdminTestUtil.closeOutputStream(outputStream);
 		}
@@ -126,7 +127,7 @@ public class Precondtion {
 				}
 			}
 		} catch (Exception e) {
-			PRECON_LOGGER.error("Exception Occured: " + e.getMessage());
+			PRECON_LOGGER.error(GlobalConstants.EXCEPTION_OCCURED + e.getMessage());
 		}finally {
 			AdminTestUtil.closeOutputStream(outputStream);
 		}
