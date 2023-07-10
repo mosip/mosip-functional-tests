@@ -5,7 +5,7 @@ LinkedAuthenticationConsentWla:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/LinkedAuthenticationWla/LinkedAuthenticationWla
-      outputTemplate: esignet/LinkedAuthenticationWla/LinkedAuthenticationConsentWlaResult
+      outputTemplate: esignet/LinkedConsent/LinkedAuthenticationConsentWla/LinkedAuthenticationConsentWlaResult
       input: '{
         "requestTime": "$TIMESTAMP$",
       "linkTransactionId": "$ID:LinkTransaction_Consent_all_Valid_Smoke_sid_linkTransactionId$",
