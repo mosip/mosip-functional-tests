@@ -7,7 +7,8 @@ LinkedAuthorizationConsent:
       outputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$"
+      	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
     
@@ -21,7 +22,8 @@ LinkedAuthorizationConsent:
       outputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-      	"linkedTransactionId": "$ID:LinkTransaction_vid_all_Valid_Smoke_sid_linkTransactionId$"
+      	"linkedTransactionId": "$ID:LinkTransaction_vid_all_Valid_Smoke_sid_linkTransactionId$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
     
@@ -247,7 +249,8 @@ LinkedAuthorizationConsent:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
-      	"permittedAuthorizeScopes": [{scope: "$absc34"}]
+      	"permittedAuthorizeScopes": [{scope: "$absc34"}],
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
   "errors": [
@@ -267,7 +270,8 @@ LinkedAuthorizationConsent:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"linkedTransactionId": "$ID:LinkTransaction_all_Valid_Smoke_sid_linkTransactionId$",
-      	"permittedAuthorizeScopes": [{scope: "null"}]
+      	"permittedAuthorizeScopes": [{scope: "null"}],
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
 }'
       output: '{
   "errors": [
