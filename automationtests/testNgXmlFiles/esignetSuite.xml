@@ -219,6 +219,21 @@
 			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerateForWla" />
 		</classes>
 	</test>
+	<test name="LinkAuthorizationConsent">
+		<parameter name="ymlFile"
+			value="esignet/LinkedConsent/LinkAuthorizationConsent/LinkAuthorizationConsent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="LinkAuthorizationCodeConsent">
+		<parameter name="ymlFile"
+			value="esignet/LinkedConsent/LinkAuthorizationCodeConsent/LinkAuthorizationCodeConsent.yml" />
+			<parameter name="idKeyName"	value="code" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
 	<test name="OAuthDetailsRequestLinked">
 		<parameter name="ymlFile"
 			value="esignet/OAuthDetailsRequestLinked/OAuthDetailsRequest.yml" />
