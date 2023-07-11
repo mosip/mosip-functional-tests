@@ -143,6 +143,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static boolean triggerIdPKeyGen3 = true;
 	public static boolean triggerIdPKeyGen4 = true;
 	public static boolean triggerIdPKeyGen5 = true;
+	public static boolean triggerIdPKeyGen6 = true;
 	public static final String randomId = "mosip" + generateRandomNumberString(2)
 			+ Calendar.getInstance().getTimeInMillis();
 	public static final String randomId2 = "mosip" + generateRandomNumberString(2)
@@ -186,12 +187,14 @@ public class AdminTestUtil extends BaseTestCase {
 	public static RSAKey bindingJWKKey = null;
 	public static RSAKey bindingJWKKeyVid = null;
 	public static RSAKey bindingConsentJWKKey = null;
+	public static RSAKey bindingConsentJWKKeyVid = null;
 	private String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
 	public static File oidcJWK1 = new File("src/main/resources/oidcJWK1.txt");
 	public static File oidcJWK2 = new File("src/main/resources/oidcJWK2.txt");
 	public static File bindingJWK1 = new File("src/main/resources/bindingJWK1.txt");
 	public static File bindingJWKVid = new File("src/main/resources/bindingJWKVid.txt");
 	public static File bindingConsentJWK = new File("src/main/resources/bindingConsentJWK.txt");
+	public static File bindingConsentJWKVid = new File("src/main/resources/bindingConsentJWKVid.txt");
 	public static File clientPrivateKey = new File("src/main/resources/config/clientPrivateKey.txt");
 	public static final String XSRF_HEADERNAME = "X-XSRF-TOKEN";
 	public static final String OAUTH_HASH_HEADERNAME = "oauth-details-hash";
@@ -202,6 +205,7 @@ public class AdminTestUtil extends BaseTestCase {
 	private static File BINDINGCERTFile = new File("src/main/resources/BINDINGCERTFile.txt");
 	private static File BINDINGCERTFileVid = new File("src/main/resources/BINDINGCERTFileVid.txt");
 	private static File BINDINGCERTCONSENTFile = new File("src/main/resources/BINDINGCERTCONSENTFile.txt");
+	private static File BINDINGCERTCONSENTVidFile = new File("src/main/resources/BINDINGCERTCONSENTVidFile.txt");
 
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
@@ -467,16 +471,20 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			if (testCaseName.contains("ESignet_LinkedAuthenticationWla_uin_all_Valid_Smoke_sid")
 					|| testCaseName.contains("ESignet_LinkedAuthenticationWla_vid_all_Valid_Smoke_sid")
-					|| testCaseName.contains("ESignet_LinkedAuthenticationWla_Consent_all_Valid_Smoke_sid")) {
+					|| testCaseName.contains("ESignet_LinkedAuthenticationWla_Consentuin_all_Valid_Smoke_sid")
+					|| testCaseName.contains("ESignet_LinkedAuthenticationWla_ConsentVid_all_Valid_Smoke_sid")) {
 				File fileName = null;
-				if (testCaseName.contains("_uin_")) {
+				if (testCaseName.contains("Wla_uin_")) {
 					fileName = BINDINGCERTFile;
 				}
-				if (testCaseName.contains("_vid_")) {
+				if (testCaseName.contains("Wla_vid_")) {
 					fileName = BINDINGCERTFileVid;
 				}
-				if (testCaseName.contains("_Consent_")) {
+				if (testCaseName.contains("_Consentuin_")) {
 					fileName = BINDINGCERTCONSENTFile;
+				}
+				if (testCaseName.contains("_ConsentVid_")) {
+					fileName = BINDINGCERTCONSENTVidFile;
 				}
 				String certificateData = new JSONObject(response.getBody().asString()).getJSONObject("response")
 						.get("certificate").toString();
@@ -2823,6 +2831,18 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			jsonString = jsonString.replace("$BINDINGCONSENTJWKKEY$", bindingConsentJwkKey);
 		}
+		
+		if (jsonString.contains("$BINDINGCONSENTJWKKEYVID$")) {
+			String bindingConsentJwkKeyVid = null;
+			if (triggerIdPKeyGen6) {
+				bindingConsentJwkKeyVid = MosipTestRunner.generateJWKPublicKey();
+				writeFileAsString(bindingConsentJWKVid, bindingConsentJwkKeyVid);
+				triggerIdPKeyGen6 = false;
+			} else {
+				bindingConsentJwkKeyVid = getJWKKey(bindingConsentJWKVid);
+			}
+			jsonString = jsonString.replace("$BINDINGCONSENTJWKKEYVID$", bindingConsentJwkKeyVid);
+		}
 		if (jsonString.contains("$OIDCJWKKEY$")) {
 			String oidcJwkKey = null;
 			if (triggerIdPKeyGen1) {
@@ -2949,6 +2969,29 @@ public class AdminTestUtil extends BaseTestCase {
 				logger.error(e.getStackTrace());
 			}
 			jsonString = jsonString.replace("$WLATOKENCONSENT$", wlaToken);
+		}
+		
+		if (jsonString.contains("$WLATOKENCONSENTVID$")) {
+			String bindingConsentJWKKeyString = getJWKKey(bindingConsentJWKVid);
+			logger.info("bindingConsentJWKKeyString =" + bindingConsentJWKKeyString);
+			try {
+				bindingConsentJWKKeyVid = RSAKey.parse(bindingConsentJWKKeyString);
+				logger.info("bindingJWKKey =" + bindingConsentJWKKeyVid);
+			} catch (java.text.ParseException e) {
+				logger.error(e.getStackTrace());
+			}
+
+			String individualId = null;
+			String wlaToken = null;
+			String certificate = getJWKKey(BINDINGCERTCONSENTVidFile);
+			JSONObject request = new JSONObject(jsonString);
+			individualId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.INDIVIDUALID).toString();
+			try {
+				wlaToken = getWlaToken(individualId, bindingConsentJWKKeyVid, certificate);
+			} catch (Exception e) {
+				logger.error(e.getStackTrace());
+			}
+			jsonString = jsonString.replace("$WLATOKENCONSENTVID$", wlaToken);
 		}
 		if (jsonString.contains("$REMOVE$")) 
 			jsonString = removeObject(new JSONObject(jsonString));
