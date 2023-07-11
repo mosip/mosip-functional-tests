@@ -183,11 +183,6 @@ public class AdminTestUtil extends BaseTestCase {
 	public static HashMap<String, String> keycloakUsersMap = new HashMap<String, String>();
 	private static File oidcJWKFile = new File("src/main/resources/oidcJWK.txt");
 	public static RSAKey oidcJWKKey1 = null;
-	public static RSAKey oidcJWKKey2 = null;
-	public static RSAKey bindingJWKKey = null;
-	public static RSAKey bindingJWKKeyVid = null;
-	public static RSAKey bindingConsentJWKKey = null;
-	public static RSAKey bindingConsentJWKKeyVid = null;
 	private String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
 	public static File oidcJWK1 = new File("src/main/resources/oidcJWK1.txt");
 	public static File oidcJWK2 = new File("src/main/resources/oidcJWK2.txt");
@@ -2797,74 +2792,73 @@ public class AdminTestUtil extends BaseTestCase {
 			String oidcJwkKey = MosipTestRunner.generateJWKPublicKey();
 			jsonString = jsonString.replace("$JWKKEY$", oidcJwkKey);
 		}
+		
 		if (jsonString.contains("$BINDINGJWKKEY$")) {
-			String bindingJwkKey = null;
+			String jwkKey = "";
 			if (triggerIdPKeyGen3) {
-				bindingJwkKey = MosipTestRunner.generateJWKPublicKey();
-				writeFileAsString(bindingJWK1, bindingJwkKey);
+				jwkKey = generateAndWriteJWKKey(bindingJWK1);
 				triggerIdPKeyGen3 = false;
 			} else {
-				bindingJwkKey = getJWKKey(bindingJWK1);
+				jwkKey = getJWKKey(bindingJWK1);
 			}
-			jsonString = jsonString.replace("$BINDINGJWKKEY$", bindingJwkKey);
+			jsonString = jsonString.replace("$BINDINGJWKKEY$", jwkKey);
 		}
-
+		
 		if (jsonString.contains("$BINDINGJWKKEYVID$")) {
-			String bindingJwkKey = null;
+			String jwkKey = "";
 			if (triggerIdPKeyGen4) {
-				bindingJwkKey = MosipTestRunner.generateJWKPublicKey();
-				writeFileAsString(bindingJWKVid, bindingJwkKey);
+				jwkKey = generateAndWriteJWKKey(bindingJWKVid);
 				triggerIdPKeyGen4 = false;
 			} else {
-				bindingJwkKey = getJWKKey(bindingJWKVid);
+				jwkKey = getJWKKey(bindingJWKVid);
 			}
-			jsonString = jsonString.replace("$BINDINGJWKKEYVID$", bindingJwkKey);
+			jsonString = jsonString.replace("$BINDINGJWKKEYVID$", jwkKey);
 		}
+		
 		if (jsonString.contains("$BINDINGCONSENTJWKKEY$")) {
-			String bindingConsentJwkKey = null;
+			String jwkKey = "";
 			if (triggerIdPKeyGen5) {
-				bindingConsentJwkKey = MosipTestRunner.generateJWKPublicKey();
-				writeFileAsString(bindingConsentJWK, bindingConsentJwkKey);
+				jwkKey = generateAndWriteJWKKey(bindingConsentJWK);
 				triggerIdPKeyGen5 = false;
 			} else {
-				bindingConsentJwkKey = getJWKKey(bindingConsentJWK);
+				jwkKey = getJWKKey(bindingConsentJWK);
 			}
-			jsonString = jsonString.replace("$BINDINGCONSENTJWKKEY$", bindingConsentJwkKey);
+			jsonString = jsonString.replace("$BINDINGCONSENTJWKKEY$", jwkKey);
 		}
 		
 		if (jsonString.contains("$BINDINGCONSENTJWKKEYVID$")) {
-			String bindingConsentJwkKeyVid = null;
+			String jwkKey = "";
 			if (triggerIdPKeyGen6) {
-				bindingConsentJwkKeyVid = MosipTestRunner.generateJWKPublicKey();
-				writeFileAsString(bindingConsentJWKVid, bindingConsentJwkKeyVid);
+				jwkKey = generateAndWriteJWKKey(bindingConsentJWKVid);
 				triggerIdPKeyGen6 = false;
 			} else {
-				bindingConsentJwkKeyVid = getJWKKey(bindingConsentJWKVid);
+				jwkKey = getJWKKey(bindingConsentJWKVid);
 			}
-			jsonString = jsonString.replace("$BINDINGCONSENTJWKKEYVID$", bindingConsentJwkKeyVid);
+			jsonString = jsonString.replace("$BINDINGCONSENTJWKKEYVID$", jwkKey);
 		}
+		
 		if (jsonString.contains("$OIDCJWKKEY$")) {
-			String oidcJwkKey = null;
+			String jwkKey = "";
 			if (triggerIdPKeyGen1) {
-				oidcJwkKey = MosipTestRunner.generateJWKPublicKey();
-				writeFileAsString(oidcJWK1, oidcJwkKey);
+				jwkKey = generateAndWriteJWKKey(oidcJWK1);
 				triggerIdPKeyGen1 = false;
 			} else {
-				oidcJwkKey = getJWKKey(oidcJWK1);
+				jwkKey = getJWKKey(oidcJWK1);
 			}
-			jsonString = jsonString.replace("$OIDCJWKKEY$", oidcJwkKey);
+			jsonString = jsonString.replace("$OIDCJWKKEY$", jwkKey);
 		}
+		
 		if (jsonString.contains("$OIDCJWKKEY2$")) {
-			String oidcJwkKey = null;
+			String jwkKey = "";
 			if (triggerIdPKeyGen2) {
-				oidcJwkKey = MosipTestRunner.generateJWKPublicKey();
-				writeFileAsString(oidcJWK2, oidcJwkKey);
+				jwkKey = generateAndWriteJWKKey(oidcJWK2);
 				triggerIdPKeyGen2 = false;
 			} else {
-				oidcJwkKey = getJWKKey(oidcJWK2);
+				jwkKey = getJWKKey(oidcJWK2);
 			}
-			jsonString = jsonString.replace("$OIDCJWKKEY2$", oidcJwkKey);
+			jsonString = jsonString.replace("$OIDCJWKKEY2$", jwkKey);
 		}
+		
 		if (jsonString.contains("$CLIENT_ASSERTION_JWK$")) {
 			String oidcJWKKeyString = getJWKKey(oidcJWK1);
 			logger.info("oidcJWKKeyString =" + oidcJWKKeyString);
@@ -2903,100 +2897,59 @@ public class AdminTestUtil extends BaseTestCase {
 			String encodedPayload = encodeBase64(payloadBody.toString());
 			jsonString = jsonString.replace("$IDPCLIENTPAYLOAD$", encodedPayload);
 		}
+		
 		if (jsonString.contains("$WLATOKEN$")) {
-			String bindingJWKKeyString = getJWKKey(bindingJWK1);
-			logger.info("bindingJWKKeyString =" + bindingJWKKeyString);
-			try {
-				bindingJWKKey = RSAKey.parse(bindingJWKKeyString);
-				logger.info("bindingJWKKey =" + bindingJWKKey);
-			} catch (java.text.ParseException e) {
-				logger.error(e.getStackTrace());
-			}
-
-			String individualId = null;
-			String wlaToken = null;
-			String certificate = getJWKKey(BINDINGCERTFile);
-			JSONObject request = new JSONObject(jsonString);
-			individualId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.INDIVIDUALID).toString();
-			try {
-				wlaToken = getWlaToken(individualId, bindingJWKKey, certificate);
-			} catch (Exception e) {
-				logger.error(e.getStackTrace());
-			}
+			String wlaToken = generateWLAToken(jsonString, bindingJWK1, BINDINGCERTFile);
 			jsonString = jsonString.replace("$WLATOKEN$", wlaToken);
 		}
-
+		
 		if (jsonString.contains("$WLATOKENVID$")) {
-			String bindingJWKKeyString = getJWKKey(bindingJWKVid);
-			logger.info("bindingJWKKeyString =" + bindingJWKKeyString);
-			try {
-				bindingJWKKeyVid = RSAKey.parse(bindingJWKKeyString);
-				logger.info("bindingJWKKey =" + bindingJWKKeyVid);
-			} catch (java.text.ParseException e) {
-				logger.error(e.getStackTrace());
-			}
-
-			String individualId = null;
-			String wlaToken = null;
-			String certificate = getJWKKey(BINDINGCERTFileVid);
-			JSONObject request = new JSONObject(jsonString);
-			individualId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.INDIVIDUALID).toString();
-			try {
-				wlaToken = getWlaToken(individualId, bindingJWKKeyVid, certificate);
-			} catch (Exception e) {
-				logger.error(e.getStackTrace());
-			}
+			String wlaToken = generateWLAToken(jsonString, bindingJWKVid, BINDINGCERTFileVid);
 			jsonString = jsonString.replace("$WLATOKENVID$", wlaToken);
 		}
+		
 		if (jsonString.contains("$WLATOKENCONSENT$")) {
-			String bindingConsentJWKKeyString = getJWKKey(bindingConsentJWK);
-			logger.info("bindingConsentJWKKeyString =" + bindingConsentJWKKeyString);
-			try {
-				bindingConsentJWKKey = RSAKey.parse(bindingConsentJWKKeyString);
-				logger.info("bindingJWKKey =" + bindingConsentJWKKey);
-			} catch (java.text.ParseException e) {
-				logger.error(e.getStackTrace());
-			}
-
-			String individualId = null;
-			String wlaToken = null;
-			String certificate = getJWKKey(BINDINGCERTCONSENTFile);
-			JSONObject request = new JSONObject(jsonString);
-			individualId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.INDIVIDUALID).toString();
-			try {
-				wlaToken = getWlaToken(individualId, bindingConsentJWKKey, certificate);
-			} catch (Exception e) {
-				logger.error(e.getStackTrace());
-			}
+			String wlaToken = generateWLAToken(jsonString, bindingConsentJWK, BINDINGCERTCONSENTFile);
 			jsonString = jsonString.replace("$WLATOKENCONSENT$", wlaToken);
 		}
 		
 		if (jsonString.contains("$WLATOKENCONSENTVID$")) {
-			String bindingConsentJWKKeyString = getJWKKey(bindingConsentJWKVid);
-			logger.info("bindingConsentJWKKeyString =" + bindingConsentJWKKeyString);
-			try {
-				bindingConsentJWKKeyVid = RSAKey.parse(bindingConsentJWKKeyString);
-				logger.info("bindingJWKKey =" + bindingConsentJWKKeyVid);
-			} catch (java.text.ParseException e) {
-				logger.error(e.getStackTrace());
-			}
-
-			String individualId = null;
-			String wlaToken = null;
-			String certificate = getJWKKey(BINDINGCERTCONSENTVidFile);
-			JSONObject request = new JSONObject(jsonString);
-			individualId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.INDIVIDUALID).toString();
-			try {
-				wlaToken = getWlaToken(individualId, bindingConsentJWKKeyVid, certificate);
-			} catch (Exception e) {
-				logger.error(e.getStackTrace());
-			}
+			String wlaToken = generateWLAToken(jsonString, bindingConsentJWKVid, BINDINGCERTCONSENTVidFile);
 			jsonString = jsonString.replace("$WLATOKENCONSENTVID$", wlaToken);
 		}
+		
 		if (jsonString.contains("$REMOVE$")) 
 			jsonString = removeObject(new JSONObject(jsonString));
 
 		return jsonString;
+	}
+	
+	public static String generateWLAToken(String jsonString, File jwkfileName, File certFileName) {
+		RSAKey jwkKey = null;
+		String jwkKeyString = getJWKKey(jwkfileName);
+		logger.info("jwkKeyString =" + jwkKeyString);
+		
+		String individualId = "";
+		String wlaToken = "";
+		String certificate = getJWKKey(certFileName);
+		JSONObject request = new JSONObject(jsonString);
+		individualId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.INDIVIDUALID).toString();
+		
+		try {
+			jwkKey = RSAKey.parse(jwkKeyString);
+			logger.info("jwkKey =" + jwkKey);
+			wlaToken = getWlaToken(individualId, jwkKey, certificate);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+		return wlaToken;
+	}
+	
+	public static String generateAndWriteJWKKey(File fileName) {
+		String jwkKey = MosipTestRunner.generateJWKPublicKey();
+		writeFileAsString(fileName, jwkKey);
+		return jwkKey;
 	}
 
 	public String getPartnerId(String jsonString, String partnerId) {
