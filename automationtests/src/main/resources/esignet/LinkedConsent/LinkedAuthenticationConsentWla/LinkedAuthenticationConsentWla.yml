@@ -1,5 +1,5 @@
 LinkedAuthenticationConsentWla:
-   ESignet_LinkedAuthenticationWla_Consentuin_all_Valid_Smoke_sid:
+   ESignet_LinkedAuthenticationWla_Consentuin_SCert_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/v2/authenticate
       role: resident
       restMethod: post
@@ -9,7 +9,7 @@ LinkedAuthenticationConsentWla:
       input: '{
         "requestTime": "$TIMESTAMP$",
       "linkTransactionId": "$ID:LinkTransaction_Consent_uin_all_Valid_Smoke_sid_linkTransactionId$",
-      "individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
+      "individualId": "$ID:AddIdentity_Linked_Consent_smoke_Pos_UIN$",
         "authFactorType": "WLA",
         "challenge": "$WLATOKENCONSENT$",
         "format": "jwt",
@@ -17,7 +17,7 @@ LinkedAuthenticationConsentWla:
       "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
       "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
       "requestTime": "$TIMESTAMP$",
-      "individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
+      "individualId": "$ID:AddIdentity_Linked_Consent_smoke_Pos_UIN$",
       "otpChannels": [{channel: "email"},{channel: "phone"}],
         "sendOtpReqTemplate": "esignet/SendBindingOtp/SendBindingOtp",
         "sendOtpEndPoint": "/v1/esignet/binding/binding-otp",
@@ -26,11 +26,11 @@ LinkedAuthenticationConsentWla:
           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
           "requestTime": "$TIMESTAMP$",
-          "individualId": "$ID:AddIdentity_Linked_Sce_smoke_Pos_UIN$",
+          "individualId": "$ID:AddIdentity_Linked_Consent_smoke_Pos_UIN$",
           "authFactorType1": "WLA",
           "format1": "jwt",
           "authFactorType": "OTP",
-          "challenge": "$ID:AddIdentity_Linked_Sce_smoke_Pos_EMAIL$",
+          "challenge": "$ID:AddIdentity_Linked_Consent_smoke_Pos_EMAIL$",
           "format": "alpha-numeric",
           "publicKey": "$BINDINGCONSENTJWKKEY$",
           "validateOtpReqTemplate": "esignet/WalletBinding/WalletBinding",
@@ -49,7 +49,7 @@ LinkedAuthenticationConsentWla:
        }
 }'
 
-   ESignet_LinkedAuthenticationWla_ConsentVid_all_Valid_Smoke_sid:
+   ESignet_LinkedAuthenticationWla_ConsentVid_SCert_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/v2/authenticate
       role: resident
       restMethod: post
@@ -59,7 +59,7 @@ LinkedAuthenticationConsentWla:
       input: '{
         "requestTime": "$TIMESTAMP$",
       "linkTransactionId": "$ID:LinkTransaction_Consent_Vid_all_Valid_Smoke_sid_linkTransactionId$",
-      "individualId": "$ID:Generate_Perpetual_VID_Linked_Scen_Valid_Smoke_sid_vid$",
+      "individualId": "$ID:Generate_Perpetual_VID_Linked_Consent_Valid_Smoke_sid_vid$",
         "authFactorType": "WLA",
         "challenge": "$WLATOKENCONSENTVID$",
         "format": "jwt",
@@ -67,7 +67,7 @@ LinkedAuthenticationConsentWla:
       "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
       "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
       "requestTime": "$TIMESTAMP$",
-      "individualId": "$ID:Generate_Perpetual_VID_Linked_Scen_Valid_Smoke_sid_vid$",
+      "individualId": "$ID:Generate_Perpetual_VID_Linked_Consent_Valid_Smoke_sid_vid$",
       "otpChannels": [{channel: "email"},{channel: "phone"}],
         "sendOtpReqTemplate": "esignet/SendBindingOtp/SendBindingOtp",
         "sendOtpEndPoint": "/v1/esignet/binding/binding-otp",
@@ -76,11 +76,11 @@ LinkedAuthenticationConsentWla:
           "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
           "partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
           "requestTime": "$TIMESTAMP$",
-          "individualId": "$ID:Generate_Perpetual_VID_Linked_Scen_Valid_Smoke_sid_vid$",
+          "individualId": "$ID:Generate_Perpetual_VID_Linked_Consent_Valid_Smoke_sid_vid$",
           "authFactorType1": "WLA",
           "format1": "jwt",
           "authFactorType": "OTP",
-          "challenge": "$ID:AddIdentity_Linked_Sce_Vid_smoke_Pos_EMAIL$",
+          "challenge": "$ID:AddIdentity_Linked_Consent_Vid_smoke_Pos_EMAIL$",
           "format": "alpha-numeric",
           "publicKey": "$BINDINGCONSENTJWKKEYVID$",
           "validateOtpReqTemplate": "esignet/WalletBinding/WalletBinding",
