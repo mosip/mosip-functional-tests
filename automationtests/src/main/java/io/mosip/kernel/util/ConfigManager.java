@@ -94,6 +94,9 @@ public class ConfigManager {
 	private static String MOUNT_PATH_FOR_SCENARIO = "mountPathForScenario";
 	
 	private static String PACKET_UTILITY_BASE_URL = "packetUtilityBaseUrl";
+	
+	private static String ESIGNET_DEPLOYED = "eSignetDeployed";
+	private static String esignet_deployed;
 
 	private static String pms_client_secret;
 	private static String pms_client_id;
@@ -287,7 +290,15 @@ public class ConfigManager {
 		
 		push_reports_to_s3 =System.getenv(PUSH_TO_S3) == null ? propsKernel.getProperty(PUSH_TO_S3) : System.getenv(PUSH_TO_S3);
 		propsKernel.setProperty(PUSH_TO_S3, push_reports_to_s3);
+		
+		esignet_deployed = System.getenv(ESIGNET_DEPLOYED) == null ? propsKernel.getProperty(ESIGNET_DEPLOYED)
+				: System.getenv(ESIGNET_DEPLOYED);
+		propsKernel.setProperty(ESIGNET_DEPLOYED, esignet_deployed);
 
+	}
+	
+	public static Boolean IseSignetDeployed() {
+		return esignet_deployed.equalsIgnoreCase("yes");
 	}
 
 	public static String getAuthDemoServicePort() {
