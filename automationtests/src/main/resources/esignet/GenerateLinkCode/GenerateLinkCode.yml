@@ -27,6 +27,36 @@ GenerateLinkCode:
         
 }'
 
+   ESignet_GenerateLinkCode_Consent_uin_SameClaim_all_Valid_Smoke_sid:
+      endPoint: /v1/esignet/linked-authorization/link-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/GenerateLinkCode/GenerateLinkCode
+      outputTemplate: esignet/GenerateLinkCode/GenerateLinkCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Consent_SameClaim_Uin_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+        
+}'
+
+   ESignet_GenerateLinkCode_Consent_Vid_SameClaim_all_Valid_Smoke_sid:
+      endPoint: /v1/esignet/linked-authorization/link-code
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/GenerateLinkCode/GenerateLinkCode
+      outputTemplate: esignet/GenerateLinkCode/GenerateLinkCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Consent_SameClaim_Vid_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+        
+}'
+
    ESignet_GenerateLinkCode_Invalid_RequestTime_Neg:
       endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
