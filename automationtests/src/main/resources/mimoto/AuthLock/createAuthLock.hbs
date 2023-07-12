@@ -1,0 +1,12 @@
+ {
+    "transactionID":"{{transactionID}}",
+    "individualId":"{{individualId}}",
+    "individualIdType":"{{individualIdType}}",
+    "otp":"{{otp}}",
+	"authType": [
+      {{#each authType}}
+            "{{auth}}"
+          {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ]
+  }

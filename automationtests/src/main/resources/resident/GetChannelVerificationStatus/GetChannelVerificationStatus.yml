@@ -1,27 +1,27 @@
 GetChannelVerificationStatus:
-   Resident_GetChannelVerificationStatus_all_Valid_Smoke:
+   Resident_GetChannelVerificationStatus_For_Email_Valid_Smoke:
       endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
       input: '{
-        "channel":"EMAIL",
+        "channel":"email",
         "individualId":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsEmail",
     "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
+    "transactionId": "1234567890",
+    "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -29,7 +29,7 @@ GetChannelVerificationStatus:
   "verificationStatus": "true",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
   "validateOtpResp":{
         "maskedMobile": "XXXXXX3210",
@@ -39,29 +39,29 @@ GetChannelVerificationStatus:
     }
 }'
 
-   Resident_GetChannelVerificationStatus_all_Valid_Smoke_With_Different_Channel:
+   Resident_GetChannelVerificationStatus_For_Phone_all_Valid_Smoke:
       endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
       input: '{
-        "channel":"PHONE",
+        "channel":"phone",
         "individualId":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsPhone",
     "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
+    "transactionId": "1234567890",
+    "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -69,7 +69,7 @@ GetChannelVerificationStatus:
   "verificationStatus": "true",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone",
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
   "validateOtpResp":{
         "maskedMobile": "XXXXXX3210",
@@ -96,12 +96,12 @@ GetChannelVerificationStatus:
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
+    "transactionId": "1234567890",
+    "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -131,7 +131,7 @@ GetChannelVerificationStatus:
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/error
       input: '{
-        "channel":"EMAIL",
+        "channel":"email",
         "individualId":"tt",
     "sendOtp":{
     "transactionID": "1234567890",
@@ -141,12 +141,12 @@ GetChannelVerificationStatus:
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
+    "transactionId": "1234567890",
+    "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -186,12 +186,12 @@ GetChannelVerificationStatus:
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
+    "transactionId": "1234567890",
+    "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -221,7 +221,7 @@ GetChannelVerificationStatus:
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/error
       input: '{
-        "channel":"EMAIL",
+        "channel":"email",
         "individualId":"",
     "sendOtp":{
     "transactionID": "1234567890",
@@ -231,12 +231,12 @@ GetChannelVerificationStatus:
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
+    "transactionId": "1234567890",
+    "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
@@ -266,7 +266,7 @@ GetChannelVerificationStatus:
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
       input: '{
-        "channel":"EMAIL",
+        "channel":"email",
         "individualId":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "sendOtp":{
     "transactionID": "1234567890",
@@ -276,17 +276,17 @@ GetChannelVerificationStatus:
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsEmail",
     "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
+    "transactionId": "1234567890",
+    "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
       output: '{
-  "verificationStatus": "$IGNORE$",
+  "verificationStatus": true,
   "sendOtpResp":{
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
@@ -304,7 +304,7 @@ GetChannelVerificationStatus:
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
       input: '{
-        "channel":"EMAIL",
+        "channel":"phone",
         "individualId":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "sendOtp":{
     "transactionID": "1234567890",
@@ -314,23 +314,111 @@ GetChannelVerificationStatus:
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsPhone",
     "sendOtpEndPoint": "/resident/v1/req/otp",
     "validateOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
+    "transactionId": "1234567890",
+    "requesttime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "otp": "111111",
     "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
-    "validateOtpEndPoint": "/resident/v1/req/auth"
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
     }
     }
 }'
       output: '{
-  "verificationStatus": "$IGNORE$",
+  "verificationStatus": "true",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone",
   "validateOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone"
+    }
+    }
+}'
+
+   Resident_GetChannelVerificationStatus_Email_Invalid:
+      endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
+      outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
+      input: '{
+        "channel":"email",
+        "individualId":"$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
+    "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsPhone",
+    "sendOtpEndPoint": "/resident/v1/req/otp",
+    "validateOtp":{
+    "transactionId": "1234567890",
+    "requesttime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PDEA_smoke_UIN$",
+    "otp": "111111",
+    "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
+    }
+    }
+}'
+      output: '{
+       "errors": [
+    {
+      "errorCode": "RES-OTP-011",
+      "message": "$IGNORE$"
+    }
+  ],
+  "verificationStatus": "false",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone",
+  "validateOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone"
+    }
+    }
+}'
+
+   Resident_GetChannelVerificationStatus_Phone_Invalid:
+      endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
+      role: resident
+      restMethod: get
+      inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
+      outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
+      input: '{
+        "channel":"phone",
+        "individualId":"$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
+    "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTPAsEmail",
+    "sendOtpEndPoint": "/resident/v1/req/otp",
+    "validateOtp":{
+    "transactionId": "1234567890",
+    "requesttime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PEXP_smoke_UIN$",
+    "otp": "111111",
+    "validateOtpReqTemplate": "resident/ValidateOTP/ValidateOTP",
+    "validateOtpEndPoint": "/resident/v1/validate-otp"
+    }
+    }
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-OTP-010",
+      "message": "$IGNORE$"
+    }
+  ],
+  "verificationStatus": false,
+  "sendOtpResp":{
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com",
+  "validateOtpResp":{
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
     }
 }'

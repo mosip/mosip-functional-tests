@@ -285,6 +285,13 @@ public class KeyMgrUtil {
             return getPrivateKeyEntry(partnerFilePath);
         }
         
+        if (partnerType == PartnerTypes.MISP) {
+			String filePrepend = keyFileNameByPartnerName ? PartnerTypes.MISP.getFilePrepend() + '-' + organization
+					: PartnerTypes.MISP.getFilePrepend();
+            String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;
+            return getPrivateKeyEntry(partnerFilePath);
+        }
+        
         String filePrepend = partnerType.getFilePrepend();
         if (partnerType == PartnerTypes.FTM) {
             String csPartnerFilePath = dirPath + '/' + filePrepend + CHIP_SPECIFIC_KEY + PARTNER_P12_FILE_NAME;
@@ -377,8 +384,36 @@ public class KeyMgrUtil {
         return false;
     }
 
-    public String getKeysDirPath() {
-    	String domain = environment.getProperty(DOMAIN_URL, "localhost").replace("https://", "").replace("http://", "").replace("/", "");
-		return System.getProperty("java.io.tmpdir") + File.separator + "IDA-" + domain;
-    }
+    
+ // moduleName will be IDA or IDP or DSL-IDA
+    // IDA/IDP ---- Will passed while running the functional test rig for those modules.. this will address not able to run IDA/IDP in parallel
+    // certsDir can be "" when we running from functional test rig..
+    public String getKeysDirPath(String certsDir, String moduleName) {
+      	String domain = environment.getProperty(DOMAIN_URL, "localhost").replace("https://", "").replace("http://", "").replace("/", "");
+  		
+          // Default to temp folder in the container and also windows where Authdemo service is running
+      	String certsTargetDir = System.getProperty("java.io.tmpdir")+ File.separator + "AUTHCERTS";
+      	
+      	if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
+      		// if OS is non-windows override certsTargetDir with directory which works on docker
+      		certsTargetDir = "/home/mosip/authcerts";
+      	}
+      	
+  		// Default to IDA-
+      	String certsModuleName = "IDA";
+  		
+  		
+  		if (certsDir != null && certsDir.length() != 0){
+  		    // Will come in case of DSL run scenario
+  		    // Certificates will be created under the shared folder which will be shared between Orchestrator and Packetutility  contianer where Authdemo service is running
+      	   certsTargetDir = certsDir;
+  		}
+  		
+  		if (moduleName != null && moduleName.length() != 0){
+  		    certsModuleName = moduleName;
+  		}
+  		return certsTargetDir + File.separator + certsModuleName + "-" + domain;
+  		
+  }
+
 }

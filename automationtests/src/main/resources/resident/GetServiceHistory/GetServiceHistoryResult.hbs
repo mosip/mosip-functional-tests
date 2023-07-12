@@ -1,0 +1,26 @@
+{
+    "id": "mosip.service.history.get",
+    "version": "1.0",
+    "responsetime": "$IGNORE$",
+    "metadata": "$IGNORE$",
+    "response": {
+    	"pageNo": "$IGNORE$",
+	    "pageSize": "$IGNORE$",
+	    "totalItems": "$IGNORE$",
+	    "totalPages": "$IGNORE$",
+	    "data": [
+	      {{#each data}}
+	            {
+			        "eventId": "$IGNORE$",
+			        "description": "$IGNORE$",
+			        "eventStatus": "$IGNORE$",
+			        "timeStamp": "$IGNORE$",
+			        "requestType": "$IGNORE$",
+			        "pinnedStatus": "$IGNORE$"
+	        }
+	          {{#unless @last}},{{/unless}}
+	      	{{/each}}
+    ]
+    },
+    "errors": "$IGNORE$"
+}

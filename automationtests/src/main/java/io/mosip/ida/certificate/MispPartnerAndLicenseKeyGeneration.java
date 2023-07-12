@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.authentication.fw.util.RestClient;
 import io.mosip.kernel.util.ConfigManager;
+import io.mosip.service.BaseTestCase;
 import io.restassured.response.Response;
 
 public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
@@ -21,8 +22,8 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	
 	static String address = "Bangalore";
 	static String contactNumber = "8553967572";
-	static String emailId = "mosip"+RandomStringUtils.randomNumeric(4)+"@gmail.com";
-	public static String mispOrganizationName = "mosip-" + RandomStringUtils.randomNumeric(4);
+	static String emailId = "mosip"+timeStamp+"@gmail.com";
+	public static String mispOrganizationName = "mosip-" + timeStamp;
 	public static String mispPartnerId = mispOrganizationName;
 	public static String mispPartnerType = "Misp_Partner";
 	static String getPartnerType = "MISP";
@@ -73,6 +74,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		requestBody.put("organizationName", mispOrganizationName);
 		requestBody.put("partnerId", mispPartnerId);
 		requestBody.put("partnerType", mispPartnerType);
+		requestBody.put("policyGroup", policyGroup);
 		
 		HashMap<String, Object> body = new HashMap<String, Object>();
 		
@@ -91,12 +93,14 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	}
 	
 	public static JSONObject getCertificates(String partnerId, String partnerType) {
-		String url = localHostUrl + "v1/identity/generatePartnerKeys";
+		String url = localHostUrl + props.getProperty("getPartnerCertURL");
 		
 		HashMap<String, String> map = new HashMap<String, String>();
 		
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
+		map.put("moduleName", BaseTestCase.certsForModule);
+//		map.put("keyFileNameByPartnerName", "true");
 		
 //		String token = kernelAuthLib.getTokenByRole("partner");
 		
@@ -197,6 +201,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		HashMap<String, Object> queryParamMap = new HashMap<String, Object>();
 		
 		queryParamMap.put("partnerType", partnerType);
+		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
 		
 		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 		

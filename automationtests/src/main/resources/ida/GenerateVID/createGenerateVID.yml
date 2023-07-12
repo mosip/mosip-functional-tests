@@ -13,7 +13,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -25,7 +25,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
@@ -46,7 +46,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_create_vid_using_uin_for_revoke_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -58,7 +58,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
@@ -79,7 +79,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Perpetual",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_for_hotlist_id_service_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -91,7 +91,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
@@ -112,7 +112,7 @@ GenerateVID:
         "id": "mosip.resident.vid",
         "version": "v1",
         "vidType": "Temporary",
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -124,7 +124,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "$IGNORE$",
+  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",

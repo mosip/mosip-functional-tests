@@ -3,6 +3,7 @@ package io.mosip.testscripts;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -93,14 +94,32 @@ public class GetWithQueryParam extends AdminTestUtil implements ITest {
 		}  
 		
 		else {
-			response = getWithQueryParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
-					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-
-			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+//			To Do This Condition has to be removed
+			if(testCaseName.contains("IDP_")) {
+				String tempUrl = ApplnURI.replace("api-internal", "idp");
+				response = getWithQueryParamAndCookie(tempUrl + testCaseDTO.getEndPoint(),
+						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
+						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			}
+			else {
+				response = getWithQueryParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
+						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
+						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+			}
+			Map<String, List<OutputValidationDto>> ouputValid = null;
+			if(testCaseName.contains("_StatusCode")) {
+				
+				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
+				
+				ouputValid = new HashMap<String, List<OutputValidationDto>>();
+				ouputValid.put("expected vs actual", List.of(customResponse));
+			}else {
+				ouputValid = OutputValidationUtil.doJsonOutputValidation(
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+			}
+			
+			System.out.println(ouputValid);
 			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
-
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
 		}

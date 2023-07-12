@@ -3,6 +3,7 @@ package io.mosip.testscripts;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -71,7 +72,7 @@ public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		//filterHbs(testCaseDTO);
 		testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
 		String inputJson = filterInputHbs(testCaseDTO);
-		String outputJson = filterOutputHbs(testCaseDTO);
+//		String outputJson = filterOutputHbs(testCaseDTO);
 		
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
@@ -97,10 +98,25 @@ public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		}  
 		
 		else {
-			response = putWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
-			
-			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-					.doJsonOutputValidation(response.asString(), outputJson);
+//			To Do This Condition has to be removed
+			if(testCaseName.contains("IDP_")) {
+				String tempUrl = ApplnURI.replace("-internal", "");
+				response = putWithPathParamsBodyAndBearerToken(tempUrl + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+			}
+			else {
+				response = putWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+			}
+			Map<String, List<OutputValidationDto>> ouputValid = null;
+			if(testCaseName.contains("_StatusCode")) {
+				
+				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
+				
+				ouputValid = new HashMap<String, List<OutputValidationDto>>();
+				ouputValid.put("expected vs actual", List.of(customResponse));
+			}else {
+				ouputValid = OutputValidationUtil.doJsonOutputValidation(
+					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+			}
 			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 			
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

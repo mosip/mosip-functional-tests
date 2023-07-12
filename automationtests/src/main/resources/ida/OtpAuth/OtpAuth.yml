@@ -1,11 +1,12 @@
 OtpAuth:
   auth_OTP_Auth_With_Valid_UIN_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
+         "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
         "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -21,12 +22,13 @@ OtpAuth:
 }'
 
   auth_OTP_Auth_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -41,12 +43,13 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_revoke_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
       	"individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -68,12 +71,13 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Invalid_individualId_UIN_neg:
-      endPoint: /v1/identity/authenticate?id=@@###cndjdhe77473838&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=@@###cndjdhe77473838&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
+         "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
       	"individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -94,13 +98,14 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Invalid_individualId_VID_neg:
-      endPoint: /v1/identity/authenticate?id=@@###cndjdhe77473838&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=@@###cndjdhe77473838&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -119,14 +124,15 @@ OtpAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_Blank_individualId_neg:
-      endPoint: /v1/identity/authenticate?id=&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_OTP_Auth_With_Blank_individualId_uin_neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
-      "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
+        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -146,13 +152,14 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Blank_individualId_VID_neg:
-      endPoint: /v1/identity/authenticate?id=&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -171,14 +178,15 @@ OtpAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_Missing_individualId_neg:
-      endPoint: /v1/identity/authenticate?partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_OTP_Auth_With_Missing_individualId_uin_neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
-      "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
+        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -198,13 +206,14 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Missing_individualId_VID_neg:
-      endPoint: /v1/identity/authenticate?idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -223,14 +232,15 @@ OtpAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_Invalid_transactionId_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_OTP_Auth_With_Invalid_transactionId_uin_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
+        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "76544ddffgg@@@3444",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -244,13 +254,14 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Invalid_transactionId_VID_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "76544ddffgg@@@3444",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -263,14 +274,15 @@ OtpAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_Blank_transactionId_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_OTP_Auth_With_Blank_transactionId_uin_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
+        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -284,13 +296,14 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Blank_transactionId_VID_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -303,14 +316,15 @@ OtpAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_different_transactionId_neg:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_OTP_Auth_With_different_transactionId_uin_neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
+        "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
       	"transactionID": "1234567892",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -324,13 +338,14 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Invalid_individualIdType_VID_neg:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=ndjshswhw3277272&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=ndjshswhw3277272&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -344,13 +359,14 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Blank_individualIdType_VID_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -364,13 +380,14 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Missing_Optional_Field_individualIdType_VID:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
       input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",      
+        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -383,14 +400,15 @@ OtpAuth:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_OTP_Auth_With_Invalid_partner:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_OTP_Auth_With_Invalid_uin_partner:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
       input: '{
-      "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'

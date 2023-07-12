@@ -1,0 +1,13 @@
+LoginUri:
+   Resident_LoginUri_all_Valid_Smoke:
+      endPoint: /resident/v1/login/{redirectURI}
+      role: state
+      restMethod: get
+      inputTemplate: resident/LoginUri/LoginUri
+      outputTemplate: resident/LoginUri/LoginUriResult
+      input: '{
+		"redirectURI": "$BASE64URI$"
+}'
+      output: '{
+        
+}'

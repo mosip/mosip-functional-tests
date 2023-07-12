@@ -1,7 +1,18 @@
 GetRetrieveVidPolicy:
-   Resident_GetRetrieveVidPolicy_all_Valid_Smoke:
+   Resident_GetRetrieveVidPolicy_uin_all_Valid_Smoke:
       endPoint: /resident/v1/vid/policy
-      role: resident
+      role: residentNew
+      restMethod: get
+      inputTemplate: resident/GetRetrieveVidPolicy/getRetrieveVidPolicy
+      outputTemplate: resident/GetRetrieveVidPolicy/getRetrieveVidPolicyResult
+      input: '{
+}'
+      output: '{
+}'
+
+   Resident_GetRetrieveVidPolicy_vid_all_Valid_Smoke:
+      endPoint: /resident/v1/vid/policy
+      role: residentNewVid
       restMethod: get
       inputTemplate: resident/GetRetrieveVidPolicy/getRetrieveVidPolicy
       outputTemplate: resident/GetRetrieveVidPolicy/getRetrieveVidPolicyResult

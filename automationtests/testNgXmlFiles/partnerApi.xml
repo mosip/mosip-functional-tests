@@ -138,6 +138,42 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="PrintPartner">
+		<parameter name="ymlFile"
+			value="partner/PrintPartner/CreatePartner/CreatePartner.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="UploadCACertificatePrintPartner">
+		<parameter name ="ymlFile"
+			value= "partner/PrintPartner/UploadCertificate/UploadCertificate.yml" />
+	<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="UploadPartnerCertificatePrintPartner">
+		<parameter name ="ymlFile"
+			value= "partner/PrintPartner/UploadCert/UploadCert.yml" />
+	<classes>
+			<class name="io.mosip.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="UpdatePrintPartner">
+		<parameter name="ymlFile"
+			value="partner/PrintPartner/UpdatePrintPartner/UpdatePrintPartner.yml" />
+		<parameter name="pathParams" value="partnerId" />
+		<classes>
+			<class name="io.mosip.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="GetPrintPartnerDetails">
+		<parameter name="ymlFile"
+			value="partner/PrintPartner/GetPartnerDetails/GetPartnerDetails.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithQueryParam" />
+		</classes>
+	</test>
 	
     <test name="CreatePartner">
 		<parameter name="ymlFile"

@@ -1,7 +1,7 @@
 SearchMachine:
    Masterdata_SearchMachine_Valid_Smoke:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -43,7 +43,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_FilterTypeContains:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -85,7 +85,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_FilterTypeStartsWith:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -127,7 +127,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_ColumnMacAddressNFilterTypeEquals:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -169,7 +169,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_ColumnMacAddressNTypeContains:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -211,7 +211,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_ColumnMacAddressNTypeStartsWith:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -253,7 +253,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_ColumnSerialNumberNTypeEquals:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -295,7 +295,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_ColumnSerialNumberNTypeContains:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -337,7 +337,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_ColumnSerialNumberNTypeStartsWith:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -379,7 +379,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_ColumnMachineSpecIdNTypeEquals:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -421,7 +421,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_ColumnMachineSpecIdNTypeContains:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -463,7 +463,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_ColumnMachineSpecIdNTypeStartsWith:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -505,7 +505,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_TwoFilterValues_TypeEqualsNEquals:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -554,7 +554,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_SortFieldDESC:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -596,7 +596,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_TwoSortFields_DescNDesc:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -642,7 +642,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Valid_TwoSortFields_AscNDesc:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -688,7 +688,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Invalid_ColumnName:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -724,7 +724,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Invalid_SortField:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -760,7 +760,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Invalid_EmptyFilterType:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine
@@ -796,7 +796,7 @@ SearchMachine:
 }'
    Masterdata_SearchMachine_Invalid_EmptySortField:
       endPoint: /v1/masterdata/machines/search
-      role: admin
+      role: globalAdmin
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachine/searchMachine

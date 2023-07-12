@@ -1,0 +1,240 @@
+CheckAidStatus:
+   Resident_CheckAidStatus_all_Valid_Smoke:
+      endPoint: /resident/v1/aid/status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/CheckAidStatus/CheckAidStatus
+      outputTemplate: resident/CheckAidStatus/CheckAidStatusResult
+      input: '{
+      	"requesttime": "$TIMESTAMP$",
+	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+	    "otp": "111111",
+	    "transactionId": "1234567890",
+	    "sendOtp":{
+		    "transactionId": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
+	    }
+}'
+      output: '{
+        "sendOtpResp":{
+	        "maskedMobile": "XXXXXX3210",
+	        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+	        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_CheckAidStatus_Invalid_Aid_Neg:
+      endPoint: /resident/v1/aid/status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/CheckAidStatus/CheckAidStatus
+      outputTemplate: resident/error 
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+	    "aid": "123444sasa$%",
+	    "otp": "111111",
+	    "transactionId": "1234567890",
+	    "sendOtp":{
+		    "transactionId": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
+	    }
+}'
+      output: '{
+		 "errors": [
+	    {
+	      "errorCode": "RES-SER-457",
+	      "message": "$IGNORE$"
+	    }
+  ],
+        "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_CheckAidStatus_Invalid_TransactionID_Neg:
+      endPoint: /resident/v1/aid/status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/CheckAidStatus/CheckAidStatus
+      outputTemplate: resident/error 
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+	    "otp": "111111",
+	    "transactionId": "213$@As",
+	    "sendOtp":{
+		    "transactionId": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
+	    }
+}'
+      output: '{
+		 "errors": [
+	    {
+	      "errorCode": "RES-SER-422",
+	      "message": "$IGNORE$"
+	    }
+  ],
+        "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_CheckAidStatus_Invalid_Otp_Neg:
+      endPoint: /resident/v1/aid/status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/CheckAidStatus/CheckAidStatus
+      outputTemplate: resident/error 
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+	    "otp": "123456",
+	    "transactionId": "1234567890",
+	    "sendOtp":{
+		    "transactionId": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
+	    }
+}'
+      output: '{
+		 "errors": [
+	    {
+	      "errorCode": "RES-SER-422",
+	      "message": "$IGNORE$"
+	    }
+  ],
+        "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_CheckAidStatus_Empty_Aid_Neg:
+      endPoint: /resident/v1/aid/status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/CheckAidStatus/CheckAidStatus
+      outputTemplate: resident/error 
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+	    "aid": "",
+	    "otp": "111111",
+	    "transactionId": "1234567890",
+	    "sendOtp":{
+		    "transactionId": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
+	    }
+}'
+      output: '{
+		 "errors": [
+	    {
+	      "errorCode": "RES-SER-457",
+	      "message": "$IGNORE$"
+	    }
+  ],
+        "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_CheckAidStatus_Empty_TransactionID_Neg:
+      endPoint: /resident/v1/aid/status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/CheckAidStatus/CheckAidStatus
+      outputTemplate: resident/error 
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+	    "otp": "111111",
+	    "transactionId": "",
+	    "sendOtp":{
+		    "transactionId": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
+	    }
+}'
+      output: '{
+		 "errors": [
+	    {
+	      "errorCode": "RES-SER-410",
+	      "message": "$IGNORE$"
+	    }
+  ],
+        "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_CheckAidStatus_Empty_Otp_Neg:
+      endPoint: /resident/v1/aid/status
+      role: resident
+      restMethod: post
+      inputTemplate: resident/CheckAidStatus/CheckAidStatus
+      outputTemplate: resident/error 
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+	    "otp": "",
+	    "transactionId": "1234567890",
+	    "sendOtp":{
+		    "transactionId": "1234567890",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
+	    }
+}'
+      output: '{
+		 "errors": [
+	    {
+	      "errorCode": "RES-SER-422",
+	      "message": "$IGNORE$"
+	    }
+  ],
+        "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+
+}'

@@ -1,12 +1,13 @@
 EkycOtp:
   auth_EkycOtp_Auth_With_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/EkycOtpResult
       input: '{
-      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+        "otp": "$ID:AddIdentity_Positive_EKYC_smoke_EMAIL$",
+        "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
@@ -20,12 +21,13 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Valid_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/EkycOtpResult
       input: '{
+      "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
       "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -40,12 +42,13 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_revoke_VID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/error
       input: '{
+      "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
       "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -65,13 +68,14 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Invalid_individualId_neg:
-      endPoint: /v1/identity/authenticate?id=@@###cndjdhe77473838&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_EkycOtp_With_Invalid_individualId_uin_neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=@@###cndjdhe77473838&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/error
       input: '{
+      "otp": "$ID:AddIdentity_Positive_EKYC_smoke_EMAIL$",
       "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -92,12 +96,13 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Invalid_individualId_VID_neg:
-      endPoint: /v1/identity/authenticate?id=@@###cndjdhe77473838&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=@@###cndjdhe77473838&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/error
       input: '{
+      "otp": "$ID:AddIdentity_Positive_EKYC_smoke_EMAIL$",
       "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -117,13 +122,14 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Blank_individualId_neg:
-      endPoint: /v1/identity/authenticate?id=isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_EkycOtp_With_Blank_individualId_uin_neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/error
       input: '{
+      "otp": "$ID:AddIdentity_Positive_EKYC_smoke_EMAIL$",
       "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -144,12 +150,13 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Blank_individualId_VID_neg:
-      endPoint: /v1/identity/authenticate?id=&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/error
       input: '{
+      "otp": "$ID:AddIdentity_Positive_EKYC_smoke_EMAIL$",
       "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -169,13 +176,14 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Missing_individualId_neg:
-      endPoint: /v1/identity/authenticate?isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_EkycOtp_With_Missing_individualId_uin_neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/error
       input: '{
+      "otp": "$ID:AddIdentity_Positive_EKYC_smoke_EMAIL$",
       "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -196,12 +204,13 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Missing_individualId_VID_neg:
-      endPoint: /v1/identity/authenticate?isKyc=true&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&isKyc=true&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/error
       input: '{
+      "otp": "$ID:AddIdentity_Positive_EKYC_smoke_EMAIL$",
       "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -221,13 +230,14 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Invalid_transactionId_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_EkycOtp_With_Invalid_transactionId_uin_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/EkycOtpResult
       input: '{
+      "otp": "$ID:AddIdentity_Positive_EKYC_smoke_EMAIL$",
       "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
       	"transactionID": "76544ddffgg@@@3444",
   		"timestamp": "$TIMESTAMP$"
@@ -242,12 +252,13 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Invalid_transactionId_VID_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/EkycOtpResult
       input: '{
+      "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
       "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "76544ddffgg@@@3444",
   		"timestamp": "$TIMESTAMP$"
@@ -261,13 +272,14 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Blank_transactionId_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_EkycOtp_With_Blank_transactionId_uin_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/EkycOtpResult
       input: '{
+      "otp": "$ID:AddIdentity_Positive_EKYC_smoke_EMAIL$",
       "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
       	"transactionID": "",
   		"timestamp": "$TIMESTAMP$"
@@ -282,12 +294,13 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Blank_transactionId_VID_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/EkycOtpResult
       input: '{
+      "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
       "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "",
   		"timestamp": "$TIMESTAMP$"
@@ -301,19 +314,20 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Invalid_individualIdType_VID_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=ndjshswhw3277272&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_EkycOtp_With_Invalid_individualIdType_VID_Neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=ndjshswhw3277272&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
-      outputTemplate: ida/EkycOtp/EkycOtpResult
+      outputTemplate: ida/EkycOtp/error
       input: '{
+      "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
       "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
-	   "kycStatus": "true",
+	   "kycStatus": "false",
   "sendOtpResp":{
         "transactionID": "1234567890",
         "maskedMobile": "$IGNORE$",
@@ -322,12 +336,13 @@ EkycOtp:
     }
 }'
   auth_EkycOtp_With_Blank_individualIdType_VID_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/EkycOtpResult
       input: '{
+      "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
       "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
       	"transactionID": "1234567890",
   		"timestamp": "$TIMESTAMP$"
@@ -341,54 +356,57 @@ EkycOtp:
         "maskedEmail": "$IGNORE$"
     }
 }'
-  auth_EkycOtp_With_Different_transaction_id_VID_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/EkycOtp/EkycOtp
-      outputTemplate: ida/EkycOtp/EkycOtpResult
-      input: '{
-      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-      	"transactionID": "1234567891",
-  		"timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-   "kycStatus": "true",
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_EkycOtp_With_Different_transaction_id_uin_Pos:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/EkycOtp/EkycOtp
-      outputTemplate: ida/EkycOtp/EkycOtpResult
-      input: '{
-      "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
-      	"transactionID": "1234567891",
-  		"timestamp": "$TIMESTAMP$"
-    }'
-      output: '{
-   "kycStatus": "true",
-  "sendOtpResp":{
-        "transactionID": "1234567890",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
-    }
-}'
-  auth_EkycOtp_With_invalid_partner:
-      endPoint: /v1/identity/authenticate?id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+  auth_EkycOtp_With_Different_transaction_id_VID_Neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/error
       input: '{
+      "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+      "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+      	"transactionID": "1234567891",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+   "kycStatus": "false",
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_Different_transaction_id_uin_Neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/error
+      input: '{
+      "otp": "$ID:AddIdentity_Positive_EKYC_smoke_EMAIL$",
       "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
+      	"transactionID": "1234567891",
+  		"timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+   "kycStatus": "false",
+  "sendOtpResp":{
+        "transactionID": "1234567890",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"ida/EkycOtp/sendOtpRes",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+  auth_EkycOtp_With_invalid_uin_partner:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycOtp/EkycOtp
+      outputTemplate: ida/EkycOtp/error
+      input: '{
+        "otp": "$ID:AddIdentity_Positive_EKYC_smoke_EMAIL$",
+        "individualId": "$ID:AddIdentity_Positive_EKYC_smoke_UIN$",
       	"transactionID": "1234567891",
   		"timestamp": "$TIMESTAMP$"
     }'

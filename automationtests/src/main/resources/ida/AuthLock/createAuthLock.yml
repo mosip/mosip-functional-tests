@@ -13,7 +13,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "demo"},{auth: "bio-FACE"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
@@ -46,7 +46,7 @@ AuthLock:
         "id": "mosip.resident.authlock",
         "version": "v1",
         "authType": [{auth: "bio-Finger"}],
-        "otp": "111111",
+        "otp": "$ID:AddIdentity_Positive_LockUIN_For_bio_valid_smoke_EMAIL$",
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",

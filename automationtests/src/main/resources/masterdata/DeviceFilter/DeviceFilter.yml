@@ -1,7 +1,7 @@
 DeviceFilter:
    MasterData_DeviceFilter_Name_eng_Unique_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
@@ -25,7 +25,7 @@ DeviceFilter:
   }'    
    MasterData_DeviceFilter_Name_eng_All_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
@@ -50,7 +50,7 @@ DeviceFilter:
        
    MasterData_DeviceFilter_MacAddress_Unique_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
@@ -74,7 +74,7 @@ DeviceFilter:
   }'    
    MasterData_DeviceFilter_MacAddress_All_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
@@ -98,7 +98,7 @@ DeviceFilter:
   }'    
    MasterData_DeviceFilter_SerialNum_Unique_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
@@ -123,7 +123,7 @@ DeviceFilter:
        
    MasterData_DeviceFilter_Invalid_RequestTime:
       endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
@@ -148,7 +148,7 @@ DeviceFilter:
        
    MasterData_DeviceFilter_inValid_columnName:
       endPoint: /v1/masterdata/devices/filtervalues
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
