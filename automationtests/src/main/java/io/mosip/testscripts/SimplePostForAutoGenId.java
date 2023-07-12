@@ -19,6 +19,7 @@ import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
@@ -35,6 +36,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.Translator;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.MosipTestRunner;
@@ -129,6 +131,9 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 		} else {
 //			To Do This Condition has to be removed
 			if(testCaseName.contains("IDP_")) {
+				if (!ConfigManager.IseSignetDeployed()) {
+					throw new SkipException("esignet is not deployed hence skipping the testcase");
+				}
 				String tempUrl = ApplnURI.replace("-internal", "");
 				if(testCaseName.contains("_AuthorizationCode_")) {
 					response = postRequestWithCookieAuthHeaderAndXsrfTokenForAutoGenId(tempUrl + testCaseDTO.getEndPoint(), inputJson,
