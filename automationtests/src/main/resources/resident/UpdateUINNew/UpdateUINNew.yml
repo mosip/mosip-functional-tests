@@ -1,0 +1,412 @@
+UpdateUINNew:
+   Resident_UpdateUINNew_all_Valid_Smoke:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/UpdateUINNew/UpdateUINNewResult
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567889",
+        "consent" : "Accepted"
+}'
+      output: '{
+        "status": "Success",
+        "message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_UpdateUINNew_vid_all_Valid_Smoke:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/UpdateUINNew/UpdateUINNewResult
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567789",
+        "consent" : "Accepted"
+}'
+      output: '{
+        "status": "Success",
+        "message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_UpdateUINNew_Invalid_User_Neg:
+      endPoint: /resident/v1/update-uin
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567889",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Invalid_TransactionID_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "15sdsf#$%",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-461",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Missing_TransactionID_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "$REMOVE$",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Empty_TransactionID_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Invalid_Consent_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567889",
+        "consent" : "shbj$%^u"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-461",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Missing_Consent_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567889",
+        "consent" : "$REMOVE$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-461",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Empty_Consent_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567889",
+        "consent" : ""
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-461",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Invalid_Requesttime_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "dsg#$$",
+		"transactionID": "1234567889",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Missing_Requesttime_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$REMOVE$",
+		"transactionID": "1234567889",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_Empty_Requesttime_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "",
+		"transactionID": "1234567889",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_vid_Invalid_TransactionID_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "15sdsf#$%",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-461",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_vid_Missing_TransactionID_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "$REMOVE$",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_vid_Empty_TransactionID_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_vid_Invalid_Consent_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567789",
+        "consent" : "shbj$%^u"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-461",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_vid_Missing_Consent_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567789",
+        "consent" : "$REMOVE$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-461",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_vid_Empty_Consent_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567789",
+        "consent" : ""
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-461",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_vid_Invalid_Requesttime_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "dsg#$$",
+		"transactionID": "1234567789",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_vid_Missing_Requesttime_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$REMOVE$",
+		"transactionID": "1234567789",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_vid_Empty_Requesttime_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "",
+		"transactionID": "1234567789",
+        "consent" : "Accepted"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$REMOVE$"
+    }
+  ]
+}'

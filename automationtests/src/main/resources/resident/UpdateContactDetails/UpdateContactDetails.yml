@@ -1,0 +1,662 @@
+UpdateContactDetails:
+   Resident_UpdateContactDetails_uin_Valid_All_Smoke_Pos:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/UpdateContactDetails/UpdateContactDetailsResult
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "otp": "111111",
+		    "sendOtp": {
+			    "requesttime": "$TIMESTAMP$",
+			    "userId": "residentautomation@gmail.com",
+			    "transactionId": "1234567890",
+			    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+			    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+		    }
+}'
+      output: '{
+			 "status": "success",
+		     "sendOtpResp": {
+			        "status": "Email Request submitted",
+			        "sendOtpResTemplate": "resident/SendOtpForContactDet/SendOtpForContactDetResult"
+		    }
+}'
+
+   Resident_UpdateContactDetails_vid_Valid_All_Smoke_Pos:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/UpdateContactDetails/UpdateContactDetailsResult
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "otp": "111111",
+		    "sendOtp": {
+			    "requesttime": "$TIMESTAMP$",
+			    "userId": "residentautomation@gmail.com",
+			    "transactionId": "1234567890",
+			    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+			    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+		    }
+}'
+      output: '{
+			 "status": "success",
+		     "sendOtpResp": {
+			        "status": "Email Request submitted",
+			        "sendOtpResTemplate": "resident/SendOtpForContactDet/SendOtpForContactDetResult"
+		    }
+}'
+
+   Resident_UpdateContactDetails_uin_Invalid_User_Id_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "sdjgu34",
+		    "transactionId": "1234567890",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate": "resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_uin_Empty_User_Id_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "",
+		    "transactionId": "1234567890",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_uin_User_Id_Not_Present_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "$REMOVE$",
+		    "transactionId": "1234567890",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_uin_Invalid_Transaction_Id_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "ass#2@h",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_uin_Empty_Transaction_Id_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_uin_Transaction_Id_Not_Present_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "$REMOVE$",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_uin_Invalid_Otp_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "otp": "123456",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_uin_Empty_Otp_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "otp": "",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_uin_Otp_Not_Present_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "otp": "$REMOVE$",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_Invalid_Token_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: resident
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "errorCode": "KER-ATH-401",
+	        "sendOtpResTemplate":"resident/error"
+    }
+}'
+
+   Resident_UpdateContactDetails_vid_Invalid_User_Id_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "sdjgu34",
+		    "transactionId": "1234567890",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate": "resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_vid_Empty_User_Id_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "",
+		    "transactionId": "1234567890",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_vid_User_Id_Not_Present_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "$REMOVE$",
+		    "transactionId": "1234567890",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_vid_Invalid_Transaction_Id_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "ass#2@h",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_vid_Empty_Transaction_Id_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_vid_Transaction_Id_Not_Present_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "$REMOVE$",
+		    "otp": "111111",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_vid_Invalid_Otp_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "otp": "123456",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_vid_Empty_Otp_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "otp": "",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'
+
+   Resident_UpdateContactDetails_vid_Otp_Not_Present_Neg:
+      endPoint: /resident/v1/contact-details/update-data
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/UpdateContactDetails/UpdateContactDetails
+      outputTemplate: resident/error
+      input: '{
+			"requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "otp": "$REMOVE$",
+	    "sendOtp":{
+		    "requesttime": "$TIMESTAMP$",
+		    "userId": "residentautomation@gmail.com",
+		    "transactionId": "1234567890",
+		    "sendOtpReqTemplate": "resident/SendOtpForContactDet/SendOtpForContactDet",
+		    "sendOtpEndPoint": "/resident/v1/contact-details/send-otp"
+	    }
+    }'
+      output: '{
+	         "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+     "sendOtpResp":{
+	        "status": "Email Request submitted",
+	        "sendOtpResTemplate":"resident/SendOtpForContactDet/SendOtpForContactDetResult"
+    }
+}'

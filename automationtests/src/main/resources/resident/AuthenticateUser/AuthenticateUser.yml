@@ -1,0 +1,63 @@
+AuthenticateUser:
+   Resident_IDP_AuthenticateUserIDP_uin_Otp_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/authenticate
+      role: resident
+      validityCheckRequired: true
+      restMethod: post
+      inputTemplate: resident/AuthenticateUser/AuthenticateUser
+      outputTemplate: resident/AuthenticateUser/AuthenticateUserResult
+      input: '{
+        "encodedHash": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_UIN$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111",
+        "sendOtp":{
+            "encodedHash": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_encodedResp$",
+		    "requestTime": "$TIMESTAMP$",
+		    "transactionId": "$ID:IDP_OAuthDetailsRequest_all_Valid_Smoke_sid_transactionId$",
+			"individualId": "$ID:AddIdentity_Idp_Integ_smoke_Pos_UIN$",
+		    "otpChannels": [{channel: "email"},{channel: "phone"}],
+		    "sendOtpReqTemplate": "resident/SendOtpIdp/SendOtpIdp",
+		    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
+    }
+}'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOtpIdp/SendOtpIdpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_IDP_AuthenticateUserIDP_vid_Otp_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      inputTemplate: resident/AuthenticateUser/AuthenticateUser
+      outputTemplate: resident/AuthenticateUser/AuthenticateUserResult
+      input: '{
+        "encodedHash": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:GenerateVID_Perpetual_IdP_Integ_Valid_Smoke_sid_vid$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "111111",
+        "sendOtp":{
+            "encodedHash": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_encodedResp$",
+		    "requestTime": "$TIMESTAMP$",
+		    "transactionId": "$ID:IDP_OAuthDetailsRequest_Vid_all_Valid_Smoke_sid_transactionId$",
+			"individualId": "$ID:GenerateVID_Perpetual_IdP_Integ_Valid_Smoke_sid_vid$",
+		    "otpChannels": [{channel: "email"},{channel: "phone"}],
+		    "sendOtpReqTemplate": "resident/SendOtpIdp/SendOtpIdp",
+		    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
+    }
+}'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOtpIdp/SendOtpIdpResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'

@@ -1,7 +1,7 @@
 FilterMachines:
    Masterdata_FilterMachines_Valid_ColumnStatus:
       endPoint: /v1/masterdata/machines/filtervalues
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterMachines/filterMachines
@@ -25,7 +25,7 @@ FilterMachines:
   }'
    Masterdata_FilterMachines_Valid_ColumnMachineSpecId:
       endPoint: /v1/masterdata/machines/filtervalues
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterMachines/filterMachines
@@ -49,7 +49,7 @@ FilterMachines:
   }'
    Masterdata_FilterMachines_Invalid_EmptyColumnName:
       endPoint: /v1/masterdata/machines/filtervalues
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterMachines/filterMachines
@@ -73,7 +73,7 @@ FilterMachines:
 }'
    Masterdata_FilterMachines_Invalid_EmptyFilterType:
       endPoint: /v1/masterdata/machines/filtervalues
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterMachines/filterMachines
@@ -97,7 +97,7 @@ FilterMachines:
 }'
    Masterdata_FilterMachines_Invalid_ColumnName:
       endPoint: /v1/masterdata/machines/filtervalues
-      role: admin
+      role: globalAdmin
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterMachines/filterMachines

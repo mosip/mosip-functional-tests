@@ -39,7 +39,7 @@ public class DBManager {
 							"delete from partner_policy_bioextract where policy_id in (select id from auth_policy where name in ('mosip policy','mosip data share policy'))");
 					statement.addBatch("delete from partner_policy_credential_type where part_id='MOVP'");
 					statement.addBatch(
-							"delete from pms.partner where id in ('Tech-123','MOVP','DPP','MISP','MISP2','FTP','111997','partner-111997','updatepolicy')");
+							"delete from pms.partner where id in ('Tech-123','MOVP','DPP','MISP','MISP2','FTP','111997','mosipprint','partner-111997','updatepolicy')");
 					statement.addBatch(
 							"delete from pms.auth_policy where name in('mosip policy','mosip policy2','mosip policy3','mosip data share policy','mosip data share policy2')");
 					statement.addBatch(
@@ -98,6 +98,10 @@ public class DBManager {
 							"delete from mosip_keymgr.keymgr.partner_cert_store where cert_subject ='CN=misp,OU=misp,O=misp,L=BLR,ST=KAR,C=IN'");
 					statement.addBatch(
 							"delete from mosip_keymgr.keymgr.partner_cert_store where cert_subject ='CN=misp2,OU=misp2,O=misp2,L=BLR,ST=KAR,C=IN'");
+					statement.addBatch(
+							"delete from mosip_keymgr.keymgr.partner_cert_store where cert_subject ='CN=mosipprint,O=mosipprint,L=Bangalore,ST=Karnataka,C=IN'");
+					statement.addBatch(
+							"delete from mosip_keymgr.keymgr.ca_cert_store where cert_subject ='CN=mosipprint,O=mosipprint,L=Bangalore,ST=Karnataka,C=IN'");
 					int[] result = statement.executeBatch();
 					logger.info("Success:: Executed KM DB quiries successfully.");
 					for (int i : result) {
@@ -134,6 +138,7 @@ public class DBManager {
 				public void execute(Connection connection) throws SQLException {
 					Statement statement = connection.createStatement();
 					statement.addBatch("delete from master.blocklisted_words where cr_by='dumbo6'");
+					statement.addBatch("delete from master.blocklisted_words where word='dumbooo'");
 					statement.addBatch("delete from master.blocklisted_words where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
@@ -164,6 +169,7 @@ public class DBManager {
 					statement.addBatch("delete from master.template where template_typ_code IN(select code from master.template_type where code='Test-info-Template-auto')");
 					statement.addBatch(
 							"update master.template set is_active='true', is_deleted='false' where id='1101'");
+					statement.addBatch("delete from master.template where template_typ_code IN(select code from master.template_type where code='Test-info-Template-auto')");
 					statement.addBatch("delete from master.template_type where code='Test-info-Template-auto'");
 					statement.addBatch(
 							"update master.location set is_active='true', is_deleted='false' where code='10114'");
@@ -186,15 +192,18 @@ public class DBManager {
 					statement.addBatch("delete from master.blocklisted_words where word='dumbo7'");
 					statement.addBatch(
 							"delete from master.machine_master where name in ('Mach-Test','Mach-Test2','Mach-Test updated')");
+					statement.addBatch("delete from master.machine_master where mac_address = '61-D3-FD-12-C9-ED'");
 					statement.addBatch("delete from master.machine_spec where name='HP'");
 					statement.addBatch("delete from master.machine_master where cr_by='masterdata-220005'");
 					statement.addBatch("delete from master.machine_type where code='Laptop2'");
 					statement.addBatch("delete from master.gender where code='Genderdummy'");
 					statement.addBatch(
-							"delete FROM master.device_master where name in ('testDevicedummy','testDevicedummy updated')");
+							"delete from master.device_master where name in ('testDevicedummy','testDevicedummy updated')");
+					statement.addBatch("delete from master.device_master where dspec_id='743'");
 					statement.addBatch("delete from master.device_spec where id='743'");
 					statement.addBatch("delete from master.device_type where code='GST3'");
 					statement.addBatch("delete from master.loc_holiday where holiday_name='AutoTest user Eng'");
+					statement.addBatch("delete from master.loc_holiday where upd_by='masterdata-220005'");
 					statement.addBatch("delete from master.reg_center_type where code='ALT-3'");
 					statement.addBatch(
 							"delete FROM master.registration_center where name in ('Test123','HSR Center updated')");

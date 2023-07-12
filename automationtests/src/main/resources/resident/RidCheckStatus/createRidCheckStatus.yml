@@ -6,13 +6,13 @@ RidCheckStatus:
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/RidCheckStatus/createRidCheckStatusResult
       input: '{
-    "individualId": "$ID:AddIdentity_Valid_Params_AddUser_smoke_Pos_RID$",
+    "individualId": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
     "id": "mosip.resident.checkstatus",
     "individualIdType": "RID",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-   "ridStatus": "Active"
+   "ridStatus": "$IGNORE$"
 }'
    Resident_RidCheckStatus_Missing_InputParameter_individualId:
       endPoint: /resident/v1/rid/check-status
@@ -49,7 +49,7 @@ RidCheckStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-418",
+      "errorCode": "RES-SER-408",
       "message": "$IGNORE$"
     }
   ]

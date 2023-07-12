@@ -3,6 +3,7 @@ package io.mosip.testscripts;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +33,7 @@ public class SimplePatch extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePatch.class);
 	protected String testCaseName = "";
 	public Response response = null;
+	public boolean sendIdpToken = false;
 
 	/**
 	 * get current testcaseName
@@ -49,6 +51,7 @@ public class SimplePatch extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
+		sendIdpToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendIdpToken");
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
@@ -65,6 +68,7 @@ public class SimplePatch extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
@@ -95,10 +99,19 @@ public class SimplePatch extends AdminTestUtil implements ITest {
 		else {
 			response = patchWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
-					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+					testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendIdpToken);
 
-			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+			Map<String, List<OutputValidationDto>> ouputValid = null;
+			if(testCaseName.contains("_StatusCode")) {
+				
+				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
+				
+				ouputValid = new HashMap<String, List<OutputValidationDto>>();
+				ouputValid.put("expected vs actual", List.of(customResponse));
+			}else {
+				ouputValid = OutputValidationUtil.doJsonOutputValidation(
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+			}
 			Reporter.log(ReportUtil.getOutputValiReport(ouputValid));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

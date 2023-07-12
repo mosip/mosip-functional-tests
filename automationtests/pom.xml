@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 	<name>io.mosip.automationtests</name>
 	<url>http://maven.apache.org</url>
-	<version>1.2.0.1-SNAPSHOT</version>
+	<version>1.2.0.1-B2</version>
 
 	<properties>
 		<!-- kernel versions -->
@@ -155,7 +155,7 @@
 
 		<!-- automationtests version -->
 		<wink-json4j-provider.version>1.1.2-incubating</wink-json4j-provider.version>
-		<kernel.version>1.2.0.1-SNAPSHOT</kernel.version>
+		<kernel.version>1.2.0.1-B1</kernel.version>
 		<zjsonpatch.version>0.4.7</zjsonpatch.version>
 		<extentreports.aventstack.version>3.0.0</extentreports.aventstack.version>
 		<extentreports.relevantcodes.version>2.41.2</extentreports.relevantcodes.version>
@@ -164,7 +164,7 @@
 		<rest.assured.version>3.0.7</rest.assured.version>
 		<testng.version>6.11</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
-		<fileName>automationtests-1.2.0.1-SNAPSHOT-jar-with-dependencies</fileName>
+		<fileName>automationtests-1.2.0.1-B2-jar-with-dependencies</fileName>
 		<aws.javasdk.version>1.11.368</aws.javasdk.version>
 	</properties>
 	<dependencies>
@@ -377,6 +377,12 @@
 			<groupId>org.apache.hadoop</groupId>
 			<artifactId>hadoop-client</artifactId>
 			<version>${hadoop-client}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.codehaus.jackson</groupId>
+					<artifactId>jackson-jaxrs</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk16 -->
@@ -439,10 +445,10 @@
 		</dependency>
 		<!-- Encryption Decryption Util Jar -->
 
-		<dependency>
+	 	<dependency>
 			<groupId>io.mosip.authentication</groupId>
 			<artifactId>authentication-demo-service</artifactId>
-			<version>1.2.0.1-SNAPSHOT</version>
+			<version>1.2.0.1-B2</version>
 			<exclusions>
 				<exclusion>
 					<groupId>dom4j</groupId>
@@ -527,6 +533,30 @@
 					<argLine>-Dfile.encoding=UTF-8</argLine>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>populate-git-commit-information</id>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                        <configuration>
+                            <verbose>true</verbose>
+                            <dateFormat>MM/dd/yyyy HH:mm:ss Z</dateFormat>
+                            <abbrevLength>8</abbrevLength>
+                            <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                            <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+                </configuration>
+            </plugin> 
 			
 			
 			

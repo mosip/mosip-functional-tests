@@ -11,11 +11,17 @@ import java.util.List;
 import java.util.Properties;
 import java.security.KeyPairGenerator;
 import java.security.SecureRandom;
+import java.security.interfaces.RSAPublicKey;
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.testng.TestNG;
+
+import com.nimbusds.jose.jwk.KeyUse;
+import com.nimbusds.jose.jwk.RSAKey;
+import com.nimbusds.jose.util.StandardCharset;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.dbaccess.DBManager;
@@ -37,9 +43,15 @@ public class MosipTestRunner {
 	private static final Logger LOGGER = Logger.getLogger(MosipTestRunner.class);
 
 	private static final boolean String = false;
+//	public static Properties props = getproperty(
+//			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
 
 	public static String jarUrl = MosipTestRunner.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 	public static List<String> languageList = new ArrayList<>();
+	/*
+	 * These variables are created to store private key in a file and then use it for some apis
+	 */
+	public static File oidcJWK1 = new File("src/main/resources/oidcJWK1.txt");
 
 	/**
 	 * C Main method to start mosip test execution
@@ -64,12 +76,25 @@ public class MosipTestRunner {
 //		KeycloakUserManager.removeUser();  //Langauge Independent
 		KeycloakUserManager.createUsers();  //Langauge Independent
 		
-		if (BaseTestCase.listOfModules.contains("auth")) {
+		
+		if (BaseTestCase.listOfModules.contains("auth") || BaseTestCase.listOfModules.contains("idp")) {
+//			if(BaseTestCase.listOfModules.contains("auth")) {
+//				LOGGER.info("waiting for " + "300000"
+//				+ " mili secs for auth certificate generation");
+//				try {
+//					Thread.sleep(Long.parseLong("300000"));
+//				} catch (NumberFormatException | InterruptedException e) {
+//					// TODO Auto-generated catch block
+//					LOGGER.error("Exception : " + e.getMessage());
+//				}
+//			}
+			
 			PartnerRegistration.deleteCertificates();
 			CertificateGenerationUtil.getThumbprints();
 			AdminTestUtil.createAndPublishPolicy();
 			PartnerRegistration.generateAndGetPartnerKeyUrl();
-		}
+		}   
+		 
 		 
 		List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
 
@@ -87,7 +112,7 @@ public class MosipTestRunner {
 				BaseTestCase.languageList.clear();
 				BaseTestCase.languageList.add(localLanguageList.get(i));
 
-				DBManager.clearMasterDbData();
+			    DBManager.clearMasterDbData();
 				BaseTestCase.currentModule = "masterdata";
 				BaseTestCase.setReportName("masterdata-" + localLanguageList.get(i));
 				startTestRunner();
@@ -99,7 +124,13 @@ public class MosipTestRunner {
 			startTestRunner();
 		}
 		
-		KeycloakUserManager.removeUser();
+		//KeycloakUserManager.removeUser();
+		if (BaseTestCase.currentModule.equals("mobileid")||BaseTestCase.currentModule.equals("prereg")||BaseTestCase.currentModule.equals("auth")) {
+			MockSMTPListener mockSMTPListener = new MockSMTPListener();
+			mockSMTPListener.bTerminate = true;
+			//MockSMTPListener.bTerminate = true;
+		}
+		
 		System.exit(0);
 		
 		
@@ -185,7 +216,7 @@ public class MosipTestRunner {
 		}
 		return "Global Resource File Path Not Found";
 	}
-
+	
 	public static String generatePulicKey() {
 		String publicKey = null;
 		try {
@@ -197,6 +228,28 @@ public class MosipTestRunner {
 			e.printStackTrace();
 		}
 		return publicKey;
+	}
+
+	public static String generateJWKPublicKey() {
+//		String publicKey = null;
+		try {
+			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
+			keyGenerator.initialize(2048, new SecureRandom());
+			final KeyPair keypair = keyGenerator.generateKeyPair();
+			RSAKey jwk = new RSAKey.Builder((RSAPublicKey) keypair.getPublic()).keyID("RSAKeyID").keyUse(KeyUse.SIGNATURE)
+				    .privateKey(keypair.getPrivate())
+				    .build();
+			
+//			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
+			
+//			FileUtils.touch(oidcJWK1);//File got created
+//			FileUtils.writeStringToFile(oidcJWK1, jwk.toJSONString(), StandardCharset.UTF_8.name());
+			return jwk.toJSONString();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+			return null;
+		}
+//		return jwk.toJSONString();
 	}
 	
 	public static Properties getproperty(String path) {

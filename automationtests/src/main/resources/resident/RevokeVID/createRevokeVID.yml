@@ -1,87 +1,13 @@
 RevokeVID:
-   Resident_RevokeVID_Invalid_Id:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
+   Resident_Revoke_Perpetual_VID_UsingSameVID_Invalid:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$
       role: resident
       restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "individualIdType": "VID",
-        "requesttime": "$TIMESTAMP$",
-        "id": "m@@@333dstus",
-        "version": "v1",
-        "vidStatus": "REVOKED",
-        "otp": "111111",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "RES-SER-410",
-      "message": "$IGNORE$"
-    }
-  ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
-    }
-}'
-   Resident_RevokeVID_Missing_Id:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
-      role: resident
-      restMethod: patch
-      inputTemplate: resident/RevokeVID/createRevokeVID
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-        "individualIdType": "VID",
-        "requesttime": "$TIMESTAMP$",
-        "id": "$REMOVE$",
-        "version": "v1",
-        "vidStatus": "REVOKED",
-        "otp": "111111",
-        "sendOtp":{
-    "transactionID": "1234567890",
-    "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "VID",
-    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
-    "sendOtpEndPoint": "/resident/v1/req/otp"
-    }
-    }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "RES-SER-410",
-      "message": "$IGNORE$"
-    }
-  ],
-  "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
-    }
-}'
-   Resident_RevokeVID_Invalid_Individual_Id:
-      endPoint: /resident/v1/vid/@234rff
-      role: resident
-      restMethod: patch
-      inputTemplate: resident/RevokeVID/createRevokeVID
-      outputTemplate: resident/error
-      input: '{
-        "transactionID": "1234567890",
-        "individualId": "@234rff",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
@@ -91,7 +17,121 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-471",
+      "message": "This VID cannot be revoked since you have logged in using same VID"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_Revoke_Temporary_VID_UsingSameVID_Invalid:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-471",
+      "message": "This VID cannot be revoked since you have logged in using same VID"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_Revoke_Onetimeuse_VID_UsingSameVID_Invalid:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Onetimeuse_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Onetimeuse_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Onetimeuse_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-471",
+      "message": "This VID cannot be revoked since you have logged in using same VID"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_RevokeVID_Invalid_Id:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "m@@@333dstus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -101,6 +141,120 @@ RevokeVID:
    "errors": [
     {
       "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_RevokeVID_Missing_Id:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "$REMOVE$",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_RevokeVID_Empty_Id:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_RevokeVID_Invalid_Individual_Id:
+      endPoint: /resident/v1/vid/@234rff
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-412",
       "message": "$IGNORE$"
     }
   ],
@@ -128,7 +282,45 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_RevokeVID_Empty_Individual_Id:
+      endPoint: /resident/v1/vid/""
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -148,14 +340,14 @@ RevokeVID:
     }
 }'
    Resident_RevokeVID_Missing_Request_Time:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
       role: resident
       restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$REMOVE$",
         "id": "mosip.resident.vidstatus",
@@ -165,7 +357,7 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -185,14 +377,14 @@ RevokeVID:
     }
 }'
    Resident_RevokeVID_Invalid_Request_Time:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
       role: resident
       restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "@22222ggdhh",
         "id": "mosip.resident.vidstatus",
@@ -202,7 +394,7 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -221,15 +413,54 @@ RevokeVID:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-   Resident_RevokeVID_Invalid_version:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
+
+   Resident_RevokeVID_Empty_Request_Time:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
       role: resident
       restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_RevokeVID_Invalid_version:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
@@ -239,7 +470,7 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -259,14 +490,14 @@ RevokeVID:
     }
 }'
    Resident_RevokeVID_Missing_version:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
       role: resident
       restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
@@ -276,7 +507,7 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -295,15 +526,168 @@ RevokeVID:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-   Resident_RevokeVID_Missing_vid_status:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
+
+   Resident_RevokeVID_Empty_version:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
       role: resident
       restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_RevokeVID_Empty_transactionID:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_RevokeVID_Invalid_transactionID:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "12$$@@34",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_RevokeVID_Missing_transactionID:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "$REMOVE$",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_RevokeVID_Missing_vid_status:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
@@ -313,7 +697,7 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -333,14 +717,14 @@ RevokeVID:
     }
 }'
    Resident_RevokeVID_Invalid_vidstatus:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
       role: resident
       restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
@@ -350,7 +734,7 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -369,15 +753,54 @@ RevokeVID:
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }
 }'
-   Resident_Revoke_Perpetual_VID_All_Valid_Smoke:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
+
+   Resident_RevokeVID_Empty_vidstatus:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_Revoke_Temporary_VID_UsingPerpVID_Valid_Smoke:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
       role: resident
       restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/RevokeVID/createRevokeVIDResult
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
@@ -387,7 +810,7 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+    "individualId": "$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -402,15 +825,15 @@ RevokeVID:
     }
 }'
 
-   Resident_Revoke_Expired_Perpetual_VID_Neg:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
+   Resident_Revoke_Temporary_VID_UsingTempVID_Valid_Smoke:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_2_Using_RevokeUIN_Valid_Smoke_sid_vid$
       role: resident
       restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
-      outputTemplate: resident/error
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
+        "individualId": "$ID:GenerateVID_Temporary_3_Using_RevokeUIN_Valid_Smoke_sid_vid$",
         "individualIdType": "VID",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
@@ -420,7 +843,172 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+    "individualId": "$ID:GenerateVID_Temporary_3_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_Revoke_Temporary_VID_UsingOnetimeVID_Valid_Smoke:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_3_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:GenerateVID_Onetimeuse_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+        "individualIdType": "VID",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:GenerateVID_Onetimeuse_Using_RevokeUIN_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_Revoke_Perpetual_VID_UsingUIN_Valid_Smoke:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_Revoke_Onetimeuse_VID_UsingUIN_Valid_Smoke:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Onetimeuse_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_Revoke_Temporary_VID_UsingUIN_Valid_Smoke:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_4_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/RevokeVID/createRevokeVIDResult
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+    }
+}'
+
+   Resident_Revoke_Expired_Perpetual_VID_Neg:
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Perpetual_Using_RevokeUIN_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVID/createRevokeVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vidstatus",
+        "version": "v1",
+        "vidStatus": "REVOKED",
+        "otp": "111111",
+        "sendOtp":{
+    "transactionID": "1234567890",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -429,7 +1017,7 @@ RevokeVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-29",
+      "errorCode": "RES-SER-412",
       "message": "$IGNORE$"
     }
   ],     
@@ -441,15 +1029,15 @@ RevokeVID:
 }'
 
    Resident_Revoke_Expired_Temp_VID_Neg:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Temporary_1_Using_RevokeUIN_Valid_Smoke_sid_vid$
       role: resident
       restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$",
-        "individualIdType": "VID",
+        "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
         "version": "v1",
@@ -458,7 +1046,7 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -467,7 +1055,7 @@ RevokeVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-29",
+      "errorCode": "RES-SER-412",
       "message": "$IGNORE$"
     }
   ],
@@ -479,15 +1067,15 @@ RevokeVID:
 }'
 
    Resident_Revoke_Expired_Onetimeuse_VID_Neg:
-      endPoint: /resident/v1/vid/$ID:GenerateVID_All_Valid_Smoke_OneTimeUse_VID_sid_vid$
+      endPoint: /resident/v1/vid/$ID:GenerateVID_Onetimeuse_Using_RevokeUIN_Valid_Smoke_sid_vid$
       role: resident
       restMethod: patch
       inputTemplate: resident/RevokeVID/createRevokeVID
       outputTemplate: resident/error
       input: '{
         "transactionID": "1234567890",
-        "individualId": "$ID:GenerateVID_All_Valid_Smoke_OneTimeUse_VID_sid_vid$",
-        "individualIdType": "VID",
+        "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
         "requesttime": "$TIMESTAMP$",
         "id": "mosip.resident.vidstatus",
         "version": "v1",
@@ -496,7 +1084,7 @@ RevokeVID:
         "sendOtp":{
     "transactionID": "1234567890",
     "requestTime": "$TIMESTAMP$",
-    "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+    "individualId": "$ID:AddIdentity_ValidParams_For_Revoke_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/resident/v1/req/otp"
@@ -505,7 +1093,7 @@ RevokeVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-422",
+      "errorCode": "RES-SER-412",
       "message": "$IGNORE$"
     }
   ],

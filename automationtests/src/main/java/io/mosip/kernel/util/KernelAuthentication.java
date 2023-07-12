@@ -1,9 +1,18 @@
 package io.mosip.kernel.util;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
+
+import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONObject;
 
+import com.nimbusds.jose.jwk.RSAKey;
+import com.nimbusds.jose.util.StandardCharset;
+
+import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.kernel.service.ApplicationLibrary;
 import io.mosip.service.BaseTestCase;
@@ -59,10 +68,14 @@ public class KernelAuthentication extends BaseTestCase{
 	private String authInternalRequest="config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp= props.get("preregSendOtp");
 	private String preregValidateOtp= props.get("preregValidateOtp");
+	private static File IDPUINCookiesFile = new File("src/main/resources/IDPUINCookiesResponse.txt");
+	private static File IDPVIDCookiesFile = new File("src/main/resources/IDPVIDCookiesResponse.txt");
 
+	public String getTokenByRole(String role) {
+		return getTokenByRole(role, null);
+	}
 	
-	
-	public String getTokenByRole(String role)
+	public String getTokenByRole(String role, String tokenType)
 	{
 		String insensitiveRole = null;
 		if(role!=null)
@@ -89,7 +102,7 @@ public class KernelAuthentication extends BaseTestCase{
 			return regProcCookie;
 		case "admin":
 			if(!kernelCmnLib.isValidToken(adminCookie))
-				adminCookie = kernelAuthLib.getAuthForzoneMap();
+				adminCookie = kernelAuthLib.getAuthForAdmin();
 			return adminCookie;
 		case "zonalapprover":
 			if(!kernelCmnLib.isValidToken(zonalApproverCookie))
@@ -103,6 +116,10 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(partnerNewCookie))
 				partnerNewCookie = kernelAuthLib.getAuthForNewPartner();
 			return partnerNewCookie;
+		case "idppartner":
+			if(!kernelCmnLib.isValidToken(idpPartnerCookie))
+				idpPartnerCookie = kernelAuthLib.getAuthForNewPartnerIdp();
+			return idpPartnerCookie;
 		case "policytest":
 			if(!kernelCmnLib.isValidToken(policytestCookie))
 				policytestCookie = kernelAuthLib.getAuthForPolicytest();
@@ -122,9 +139,17 @@ public class KernelAuthentication extends BaseTestCase{
 				residentCookie = kernelAuthLib.getAuthForResident();
 			return residentCookie;
 		case "residentnew":
-			if(!kernelCmnLib.isValidToken(residentNewCookie))
-				residentNewCookie = kernelAuthLib.getAuthForNewResident();
-			return residentNewCookie;
+			if(!kernelCmnLib.isValidToken(residentNewCookie.get(tokenType)))
+				residentNewCookie = getAuthFromIdp(IDPUINCookiesFile);
+			return residentNewCookie.get(tokenType).toString();
+		case "residentnewvid":
+			if(!kernelCmnLib.isValidToken(residentNewVidCookie.get(tokenType)))
+				residentNewVidCookie = getAuthFromIdp(IDPVIDCookiesFile);
+			return residentNewVidCookie.get(tokenType).toString();
+		case "residentnewKc":
+			if(!kernelCmnLib.isValidToken(residentNewCookieKc))
+				residentNewCookieKc = kernelAuthLib.getAuthForNewResidentKc();
+			return residentNewCookieKc;
 		case "hotlist":
 			if(!kernelCmnLib.isValidToken(hotlistCookie))
 				residentCookie = kernelAuthLib.getAuthForHotlist();
@@ -133,6 +158,16 @@ public class KernelAuthentication extends BaseTestCase{
 			if(!kernelCmnLib.isValidToken(zonemapCookie))
 				zonemapCookie = kernelAuthLib.getAuthForzoneMap();
 			return zonemapCookie;
+		case "mobileauth":
+			if(!kernelCmnLib.isValidToken(mobileAuthCookie))
+				mobileAuthCookie = kernelAuthLib.getAuthForMobile();
+			return mobileAuthCookie;
+		case "state":
+			UUID uuid = UUID.randomUUID();
+			
+			//converts the randomly generated UUID into String  
+			String uuidAsString = uuid.toString();
+			return uuidAsString;
 		default:
 			if(!kernelCmnLib.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();
@@ -141,6 +176,30 @@ public class KernelAuthentication extends BaseTestCase{
 		 
 	}
 	
+	
+	@SuppressWarnings("unchecked")
+	public HashMap<String, String> getAuthFromIdp(File fileName) {
+		HashMap<String, String> tokens = new HashMap<String, String>();
+		if (fileName.exists()) {
+			String IDPCookiesFileString = null;
+			try {
+				IDPCookiesFileString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			org.json.JSONObject jsonCookies = new org.json.JSONObject(IDPCookiesFileString);
+			tokens.put("access_token", jsonCookies.get("access_token").toString());
+			tokens.put("id_token", jsonCookies.get("id_token").toString());
+//			System.out.println("JSON " + jsonCookies);
+//			System.out.println("JSON " + token);
+//			System.out.println("id_token " + jsonCookies.get("id_token"));
+//			System.out.println("access_token " + jsonCookies.get("access_token"));
+		} else {
+			logger.error("IDPCookiesFile File not Found in location:" + fileName.getAbsolutePath());
+		}
+	return tokens;
+	}
 	
 	@SuppressWarnings("unchecked")
 	public String getAuthForAdmin() {
@@ -219,6 +278,23 @@ public class KernelAuthentication extends BaseTestCase{
 	}
 	
 	@SuppressWarnings({ "unchecked" })
+	public String getAuthForNewPartnerIdp() {		
+		
+		JSONObject request=new JSONObject();
+		request.put("appId", ConfigManager.getPmsAppId());
+		request.put("password", partner_password);
+		request.put("userName", AdminTestUtil.genPartnerName);	
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		request.put("clientId", ConfigManager.getPmsClientId());
+		request.put("clientSecret", ConfigManager.getPmsClientSecret());
+		actualInternalrequest.put("request", request);
+		Response reponse=appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
+		return token;			
+	}
+	
+	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPolicytest() {		
 		
 		JSONObject request=new JSONObject();
@@ -254,14 +330,32 @@ public class KernelAuthentication extends BaseTestCase{
 	}
 	
 	@SuppressWarnings("unchecked")
-	public String getAuthForNewResident() {
+	public String getAuthForMobile() {
+		JSONObject actualrequest = getRequestJson(authRequest);
+		logger.info("actualrequest " + actualrequest);
+		JSONObject request=new JSONObject();
+		request.put("appId", ConfigManager.getPmsAppId());
+		request.put("clientId", ConfigManager.getMPartnerMobileClientId());
+		request.put("secretKey", ConfigManager.getMPartnerMobileClientSecret());
+		System.out.println("request for  Resident: " + request);
+		logger.info("request for  Resident " + request);
+		actualrequest.put("request", request);
+		System.out.println("Actual Auth Request for Resident: " + actualrequest);
+		logger.info("Actual Auth Request for Resident: " + actualrequest);
+		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+		cookie=reponse.getCookie("Authorization");
+		return cookie;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForNewResidentKc() {
 
 		JSONObject actualrequest = getRequestJson(authInternalRequest);
 
 		JSONObject request = new JSONObject();
 		request.put("appId", ConfigManager.getResidentAppId());
 		request.put("password", props.get("new_Resident_Password"));
-		request.put("userName", props.get("new_Resident_User"));
+		request.put("userName", BaseTestCase.currentModule +"-"+props.get("new_Resident_User"));
 		request.put("clientId", ConfigManager.getResidentClientId());
 		request.put("clientSecret", ConfigManager.getResidentClientSecret());
 		actualrequest.put("request", request);

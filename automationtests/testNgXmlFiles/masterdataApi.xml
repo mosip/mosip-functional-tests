@@ -622,7 +622,6 @@
 		</classes> 
 	</test>
 
-
 	<test name="CreateRegCenterType">
 		<parameter name="ymlFile"
 			value="masterdata/RegCenterType/CreateRegCenterType.yml" />
@@ -718,7 +717,14 @@
 			<class name="io.mosip.testscripts.SimplePost" />
 		</classes>
 	</test>
-	<test name="FilterLocationData">
+	<test name="DeleteHoliday">
+		<parameter name="ymlFile"
+			value="masterdata/DeleteHoliday/deleteHoliday.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.SimpleDelete" />
+		</classes>
+	</test>
+	<!--<test name="FilterLocationData">
 		<parameter name="ymlFile"
 			value="masterdata/FilterLocationData/FilterLocationData.yml" />
 		<classes>
@@ -1415,7 +1421,7 @@
 		<classes>
 			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
-	</test>
+	</test>-->
 	
 	
 	

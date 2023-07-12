@@ -1,0 +1,126 @@
+RevokeVIDNew:
+   Resident_RevokeVIDNew_uin_Perp_Valid_Smoke:
+      endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Perpetual_VID_uin_Valid_Token_Smoke_sid_vid$
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
+      outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
+      input: '{
+        "transactionID": "1234567890",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.revoke",
+        "version": "1.0",
+        "vidStatus": "Revoked"
+    }'
+      output: '{
+		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_RevokeVIDNew_uin_Temp_Valid_Smoke:
+      endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_uin_Temporary_VID_Valid_Smoke_sid_vid$
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
+      outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
+      input: '{
+        "transactionID": "1234567890",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.revoke",
+        "version": "1.0",
+        "vidStatus": "Revoked"
+    }'
+      output: '{
+		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_RevokeVIDNew_uin_OneTimeUse_Valid_Smoke:
+      endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_uin_Onetimeuse_VID_Valid_Smoke_sid_vid$
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
+      outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
+      input: '{
+        "transactionID": "1234567890",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.revoke",
+        "version": "1.0",
+        "vidStatus": "Revoked"
+    }'
+      output: '{
+		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_RevokeVIDNew_StatusCode_Without_Token_Neg:
+      endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Temporary_1_IdP_Integ_Valid_Smoke_sid_vid$
+      role: 
+      restMethod: patch
+      inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.revoke",
+        "version": "1.0",
+        "vidStatus": "Revoked"
+    }'
+      output: "401"
+
+   Resident_RevokeVIDNew_Diff_Token_Neg:
+      endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Temporary_1_IdP_Integ_Valid_Smoke_sid_vid$
+      role: resident
+      restMethod: patch
+      inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.revoke",
+        "version": "1.0",
+        "vidStatus": "Revoked"
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Resident_RevokeVIDNew_Using_Vid_Valid_Smoke:
+      endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Temporary_1_IdP_Integ_Valid_Smoke_sid_vid$
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
+      outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
+      input: '{
+        "transactionID": "1234567890",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.revoke",
+        "version": "1.0",
+        "vidStatus": "Revoked"
+    }'
+      output: '{
+		"message": "Notification has been sent to the provided contact detail(s)"
+}'
+
+   Resident_RevokeVIDNew_uin_Using_Vid_Invalid_User_Neg:
+      endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Temporary_2_IdP_Integ_Valid_Smoke_sid_vid$
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "1234567890",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid.revoke",
+        "version": "1.0",
+        "vidStatus": "Revoked"
+    }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-454",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
