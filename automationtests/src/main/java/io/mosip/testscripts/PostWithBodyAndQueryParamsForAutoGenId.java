@@ -23,6 +23,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -67,6 +68,7 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 			response = postWithQueryParamsBodyAndCookie(url + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), queryParams, idKeyName);
 		}
 		else {
+			logger.info("Not Getting"+GlobalConstants.POST_REQ_URL + testCaseDTO.getTestCaseName() + " *******");
 		}
 		
 		

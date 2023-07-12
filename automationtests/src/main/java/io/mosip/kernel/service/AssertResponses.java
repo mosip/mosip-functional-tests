@@ -120,6 +120,7 @@ public class AssertResponses {
 				recursiveObject(jsonObject, innerKeys);
 
 			} catch (ClassCastException exp) {
+				logger.error("ClassCastException: " + exp.getMessage());
 			}
 
 			try {
@@ -127,6 +128,7 @@ public class AssertResponses {
 				if (jsonArray != null)
 					recursiveArray(jsonArray, innerKeys);
 			} catch (ClassCastException exp1) {
+				logger.error("ClassCastException: " + exp1.getMessage());
 			}
 		}
 		return object;

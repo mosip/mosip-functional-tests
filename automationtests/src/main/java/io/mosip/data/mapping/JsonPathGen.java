@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import io.mosip.admin.fw.util.AdminTestUtil;
+
 
 /**
  * This class is to generate jsonpath/object mapper from json file in a properties file
@@ -28,7 +28,7 @@ public class JsonPathGen {
 
     public JsonPathGen(String json) {
         this.json = json;
-        this.pathList = new ArrayList<String>();
+        this.pathList = new ArrayList<>();
         setJsonPaths(json);
     }
 
@@ -37,7 +37,7 @@ public class JsonPathGen {
     }
 
     private void setJsonPaths(String json) {
-        this.pathList = new ArrayList<String>();
+        this.pathList = new ArrayList<>();
         JSONObject object = new JSONObject(json);
         String jsonPath = "$";
         if(json != JSONObject.NULL) {
@@ -57,7 +57,7 @@ public class JsonPathGen {
             }
             else if(value instanceof JSONObject) {
                 readObject((JSONObject) value, jsonPath);
-            } else { // is a value
+            } else { 
                 this.pathList.add(jsonPath);    
             }          
         }  
@@ -81,13 +81,13 @@ public class JsonPathGen {
     }
     
 	private Map<String, String> modifyList() {
-		Map<String, String> mappingDic = new HashMap<String, String>();
+		Map<String, String> mappingDic = new HashMap<>();
 		for (String str : this.pathList) {
 			String value = str.replace("$.", "");
 			String key = "";
 			if (value.contains(".")) {
-				String[] list = new String[20];
-				list = value.split(Pattern.quote("."));
+				
+				String [] list = value.split(Pattern.quote("."));
 				if (list[list.length - 2].contains("[")) {
 					key = key
 							+ list[list.length - 1].replace("(", "").replace(")", "").replace("[", "").replace("]", "");
@@ -104,16 +104,14 @@ public class JsonPathGen {
 	
 	public void generateJsonMappingDic(String filePath) {
 		Properties prop = new Properties();
-		FileOutputStream outputStream = null;
-		try {
-			outputStream = new FileOutputStream(filePath);
+		
+		try ( FileOutputStream outputStream = new FileOutputStream(filePath);){
+			
 			for (Entry<String, String> entry : getPathList(filePath).entrySet()) {
 				prop.setProperty(entry.getKey(), entry.getValue());
 			}
 			prop.store(outputStream, null);
 		} catch (Exception e) {
-		}finally {
-			AdminTestUtil.closeOutputStream(outputStream);
 		}
 	}
 

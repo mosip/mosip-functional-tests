@@ -69,6 +69,14 @@ public class GlobalConstants {
 	public static final String REST_ASSURED_STRING_2 = "REST-ASSURED: The response from the request is: ";
 	public static final String REST_ASSURED_STRING_3 = "REST-ASSURED: The response Time is: ";
 	public static final String EXCEPTION_OCCURED = "Exception Occured: ";
+	public static final String $VID$ = "$vid$";
+	public static final String $UIN$ = "$uin$";
+	public static final String $RID$ = "$rid$";
+	public static final String EXCEPTION = "Exception: ";
+	public static final String $1STLANG$ = "$1STLANG$";
+	public static final String $2STLANG$ = "$2STLANG$";
+	public static final String $3STLANG$ = "$3STLANG$";
+	
 	
 	
 	

@@ -64,7 +64,7 @@ public class PostWithFormPathParamAndFile extends AdminTestUtil implements ITest
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
+	public void test(TestCaseDTO testCaseDTO) throws AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
@@ -80,7 +80,7 @@ public class PostWithFormPathParamAndFile extends AdminTestUtil implements ITest
 			
 			OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
 			
-			ouputValid = new HashMap<String, List<OutputValidationDto>>();
+			ouputValid = new HashMap<>();
 			ouputValid.put("expected vs actual", List.of(customResponse));
 		}else {
 			ouputValid = OutputValidationUtil.doJsonOutputValidation(

@@ -2,6 +2,7 @@ package io.mosip.authentication.fw.util;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.testng.Reporter;
 
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.global.utils.GlobalMethods;
 
 /**
@@ -35,7 +37,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	 * @return Map - key,data,hmac and its value
 	 */ 
 	public static Map<String, String> getEncryptSessionKeyValue(String filename) {
-		Map<String, String> ecryptData = new HashMap<String, String>();
+		Map<String, String> ecryptData = new HashMap<>();
 		try {
 			String json = getEncryption(filename);
 			JSONParser parser = new JSONParser();
@@ -48,7 +50,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return ecryptData;
 		} catch (Exception e) {
 			ENCRYPTION_DECRYPTION_LOGGER.error(e);
-			return null;
+			return Collections.emptyMap();
 		}
 	}
 	
@@ -59,7 +61,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	 * @return Map - key,data,hmac and its value
 	 */ 
 	public static Map<String, String> getInternalEncryptSessionKeyValue(String filename) {
-		Map<String, String> ecryptData = new HashMap<String, String>();
+		Map<String, String> ecryptData = new HashMap<>();
 		try {
 			String json = getIntenalEncryption(filename);
 			JSONParser parser = new JSONParser();
@@ -90,7 +92,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncryptionPath(), objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			ENCRYPTION_DECRYPTION_LOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -109,7 +111,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getInternalEncryptionPath(), objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			ENCRYPTION_DECRYPTION_LOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -126,7 +128,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncodePath(), objectData.toJSONString(), MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
-			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			ENCRYPTION_DECRYPTION_LOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -143,7 +145,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncodePath(), objectData, MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
-			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			ENCRYPTION_DECRYPTION_LOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -158,7 +160,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl() + RunConfigUtil.objRunConfig.getDecodeFilePath(), content,
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_OCTET_STREAM).asString();
 		} catch (Exception e) {
-			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			ENCRYPTION_DECRYPTION_LOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -174,7 +176,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl() + RunConfigUtil.objRunConfig.getEncodeFilePath(), file,
 					MediaType.MULTIPART_FORM_DATA, MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
-			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			ENCRYPTION_DECRYPTION_LOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -191,7 +193,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl() + RunConfigUtil.objRunConfig.getDecodePath(),
 					objectData.toJSONString(), MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			ENCRYPTION_DECRYPTION_LOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -207,7 +209,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl() + RunConfigUtil.objRunConfig.getDecodePath(), content,
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			ENCRYPTION_DECRYPTION_LOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -223,7 +225,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl() + RunConfigUtil.objRunConfig.getDecryptPath(),
 					objectData.toJSONString(), MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			ENCRYPTION_DECRYPTION_LOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -236,13 +238,12 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	 */
 	public static String getDecyptFromStr(String content) {
 		try {
-			HashMap<String, String> queryParams = new HashMap<String, String>();
-			// this partner is created in pmpdatamanager class, partner certificate is uploaded for this partner.
+			HashMap<String, String> queryParams = new HashMap<>();
 			queryParams.put("refId", "1873299273");
 			return RestClient.postRequestWithQueryParamAndBody(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl() + RunConfigUtil.objRunConfig.getDecryptPath(), content, queryParams, 
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			ENCRYPTION_DECRYPTION_LOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -258,7 +259,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncodePath(), content, MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
-			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			ENCRYPTION_DECRYPTION_LOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -269,7 +270,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getSplitEncryptedData(), content, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			ENCRYPTION_DECRYPTION_LOGGER.error("Exception: " + e);
+			ENCRYPTION_DECRYPTION_LOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}

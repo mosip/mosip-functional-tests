@@ -162,9 +162,9 @@ public class TestDataUtil {
 				.entrySet()) {
 			Map<String, Map<String, Map<String, String>>> currenttest = new HashMap<String, Map<String, Map<String, String>>>();
 			for (Entry<String, Map<String, Map<String, Object>>> testCase : testdata.getValue().entrySet()) {
-				if (testCase.getKey().toString().toLowerCase()
-						.contains(RunConfigUtil.getTestLevel().toString().toLowerCase())
-						|| RunConfigUtil.getTestLevel().toString().equalsIgnoreCase("smokeandregression")) {
+				if (testCase.getKey().toLowerCase()
+						.contains(RunConfigUtil.getTestLevel().toLowerCase())
+						|| RunConfigUtil.getTestLevel().equalsIgnoreCase("smokeandregression")) {
 					boolean flag = true;
 					setTestCaseName(testCase.getKey());
 					TESTDATAUTILITY_LOGGER.info("TestCaseName : " + getTestCaseName());
@@ -173,7 +173,7 @@ public class TestDataUtil {
 					TestDataUtil.setCurrTestDataDic(null);
 					for (Entry<String, Map<String, Object>> jsonFile : testCase.getValue().entrySet()) {
 						flag = true;
-						String[] file = jsonFile.getKey().toString().split(Pattern.quote("."));
+						String[] file = jsonFile.getKey().split(Pattern.quote("."));
 						String type = file[0];
 						String testDataFileName = file[1];
 						String testDataFilePath = "";
@@ -207,9 +207,9 @@ public class TestDataUtil {
 								String value = "";
 								if (tempMap.getKey().equals("ref_id") && jsonFile.getKey().contains("auth_transaction"))
 									value = HMACUtils.digestAsPlainText(
-											HMACUtils.generateHash(tempMap.getValue().toString().getBytes()));
+											HMACUtils.generateHash(tempMap.getValue().getBytes()));
 								else
-									value = tempMap.getValue().toString();
+									value = tempMap.getValue();
 								fieldValue.put(tempMap.getKey(), value);
 							}
 							AuthTestsUtil.generateMappingDic(new File(RunConfigUtil.getResourcePath() + scenarioPath

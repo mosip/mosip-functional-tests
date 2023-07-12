@@ -23,19 +23,13 @@ public class AuthenticationTestsListener extends AuthTestsUtil implements IAnnot
 	public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
 		if (testMethod.toString().contains("io.mosip.authentication.tests"))
 			annotation.setInvocationCount(
-					Integer.parseInt(getPropertyAsMap(new File(getRunConfigFile()).getAbsolutePath().toString())
+					Integer.parseInt(getPropertyAsMap(new File(getRunConfigFile()).getAbsolutePath())
 							.get(getNormalisedClassName(testMethod.getDeclaringClass().getName()) + ".invocationCount")));
 		if (testMethod.toString().contains(".authentication.idRepository.prerequiste"))
 			annotation.setInvocationCount(
-					Integer.parseInt(getPropertyAsMap(new File(getRunConfigFile()).getAbsolutePath().toString())
+					Integer.parseInt(getPropertyAsMap(new File(getRunConfigFile()).getAbsolutePath())
 							.get(getNormalisedClassName(testMethod.getDeclaringClass().getName()) + ".invocationCount")));
-		/*
-		 * else if (testMethod.toString().contains(".idRepository.tests"))
-		 * annotation.setInvocationCount( Integer.parseInt(getPropertyAsMap(new
-		 * File(IdRepoTestsUtil.getIdRepoRunConfigFile()).getAbsolutePath().toString())
-		 * .get(getNormalisedClassName(testMethod.getDeclaringClass().getName()) +
-		 * ".invocationCount")));
-		 */
+		
 	}
 	
 	/**
@@ -45,8 +39,8 @@ public class AuthenticationTestsListener extends AuthTestsUtil implements IAnnot
 	 * @return String - actual class name
 	 */
 	private String getNormalisedClassName(String testMethodName) {
-		String value[] = testMethodName.toString().split(Pattern.quote("."));
-		return value[value.length - 1].toString();
+		String value[] = testMethodName.split(Pattern.quote("."));
+		return value[value.length - 1];
 	}
 }
 

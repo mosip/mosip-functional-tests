@@ -27,9 +27,9 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		KeycloakUserManager.createKeyCloakUsers(partnerId, emailId, role);
 		String mappingKey = submittingPartnerAndGetMappingKey();
 		approvePartnerAPIKey(mappingKey);
-		String apiKey = createAPIKey();
+		return createAPIKey();
 		
-		return apiKey;
+		
 		
 	}
 	public static String submittingPartnerAndGetMappingKey() {
@@ -37,12 +37,12 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		
 		String token = kernelAuthLib.getTokenByRole("partner");
 		
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 		
 		requestBody.put("policyName", policyName);
 		requestBody.put("useCaseDescription", "mapping Partner to policyName");
 		
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 		
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
@@ -67,11 +67,11 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		
 		String token = kernelAuthLib.getTokenByRole("partner");
 		
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 		
 		requestBody.put("status", "Approved");
 		
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 		
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
@@ -91,12 +91,12 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		String token = kernelAuthLib.getTokenByRole("partnernew");
 		
 		
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 		
 		requestBody.put("policyName", policyName);
 		requestBody.put("label", randomAbbreviation);
 		
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 		
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
