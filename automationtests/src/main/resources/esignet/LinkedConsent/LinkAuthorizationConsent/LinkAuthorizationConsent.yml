@@ -1,6 +1,6 @@
 LinkAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Consent_uin_All_Valid_Smoke_sid:
-      endPoint: /v1/esignet/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/v2/consent
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -16,7 +16,7 @@ LinkAuthorizationConsent:
 }'
 
    ESignet_LinkedAuthorizationConsent_Consent_Vid_All_Valid_Smoke_sid:
-      endPoint: /v1/esignet/linked-authorization/consent
+      endPoint: /v1/esignet/linked-authorization/v2/consent
       role: resident
       restMethod: post
       validityCheckRequired: true

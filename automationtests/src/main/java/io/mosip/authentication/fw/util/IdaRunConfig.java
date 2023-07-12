@@ -797,7 +797,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setAdminEndPointUrl(String adminEndPointUrl) {
-		
+		return;
 	}
 	@Override
 	public String getAdminCreateRegCentrePath() {
@@ -805,7 +805,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setAdminCreateRegCentrePath(String adminCreateRegCentrePath) {
-		
+		return;
 	}
 	@Override
 	public String getAdminCreateRegistrationCentrePath() {
@@ -813,7 +813,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setAdminCreateRegistrationCentrePath(String adminCreateRegistrationCentrePath) {
-		
+		return;
 	}
 	@Override
 	public String getSearchMachinePath() {
@@ -821,7 +821,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setSearchMachinePath(String searchMachinePath) {
-		
+		return;
 	}
 	@Override
 	public String getDeviceSearchPath() {
@@ -829,7 +829,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setDeviceSearchPath(String deviceSearchPath) {
-		
+		return;
 	}
 	@Override
 	public String getDeviceFilterPath() {
@@ -837,7 +837,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setDeviceFilterPath(String deviceFilterPath) {
-		
+		return;
 	}
 	@Override
 	public String getDeviceSpecSearchPath() {
@@ -845,7 +845,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setDeviceSpecSearchPath(String deviceSpecSearchPath) {
-		
+		return;
 	}
 	@Override
 	public String getDeviceSpecFilterPath() {
@@ -853,7 +853,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setDeviceSpecFilterPath(String deviceSpecFilterPath) {
-		
+		return;
 	}
 	@Override
 	public String getDeviceTypeSearchPath() {
@@ -861,7 +861,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setDeviceTypeSearchPath(String deviceTypeSearchPath) {
-		
+		return;
 	}
 	@Override
 	public String getDeviceTypeFilterPath() {
@@ -869,7 +869,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setDeviceTypeFilterPath(String deviceTypeFilterPath) {
-		
+		return;
 	}
 	@Override
 	public String getTitleSearchPath() {
@@ -877,7 +877,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setTitleSearchPath(String titleSearchPath) {
-		
+		return;
 	}
 	@Override
 	public String getTitleFilterPath() {
@@ -885,11 +885,11 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setTitleFilterPath(String titleFilterPath) {
-		
+		return;
 	}
 	@Override
 	public void setHolidaySearchPath(String holidaySearchPath) {
-		
+		return;
 	}
 	@Override
 	public String getHolidaySearchPath() {
@@ -901,7 +901,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setSearchDocumentTypePath(String searchDocumentTypePath) {
-		
+		return;
 	}
 	@Override
 	public String getAdminMachineTypeSearchPath() {
@@ -909,7 +909,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setAdminMachineTypeSearchPath(String adminMachineTypeSearchPath) {
-		
+		return;
 	}
 	@Override
 	public String getAdminSearchTemplateDetailsPath() {
@@ -917,7 +917,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setAdminSearchTemplateDetailsPath(String adminSearchTemplateDetailsPath) {
-		
+		return;
 	}
 	@Override
 	public String getAdminIndividualTypesSearchPath() {
@@ -925,7 +925,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setAdminIndividualTypesSearchPath(String adminIndividualTypesSearchPath) {
-		
+		return;
 	}
 	@Override
 	public String getAdminRegistrationCentreSearchPath() {
@@ -933,7 +933,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setAdminRegistrationCentreSearchPath(String adminRegistrationCentreSearchPath) {
-		
+		return;
 	}
 	@Override
 	public String getSearchBlackListedWords() {
@@ -942,7 +942,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setSearchBlackListedWords(String searchBlackListedWordsPath) {
-		
+		return;
 		
 	}
 	@Override
@@ -958,7 +958,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setAdminUpdateRegistrationCentrePath(String adminUpdateRegistrationCentrePath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getFilterTempateDetailsPath() {
@@ -978,7 +978,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setAdminGenderSearchPath(String adminGenderSearchPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getAdminGenderFilterPath() {
@@ -988,7 +988,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setAdminGenderFilterPath(String adminGenderFilterPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getAdminRegistrationCentreFilterPath() {
@@ -997,7 +997,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setAdminRegistrationCentreFilterPath(String adminRegistrationCentreFilterPath) {
-		
+		return;
 		
 	}
 	@Override
@@ -1008,7 +1008,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setFilterBlackListedWordsPath(String filterBlackListedWordsPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getFilterBlackListedWordsPath() {
@@ -1028,7 +1028,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setFilterDocumentTypePath(String filterDocumentTypePath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getFilterMachinesPath() {
@@ -1038,7 +1038,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setFilterMachinesPath(String filterMachinesPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getSearchMachineSpec() {
@@ -1070,7 +1070,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setIdRepoDeactivateVIDs(String idRepoDeactivateVIDs) {
-		
+		return;
 		
 	}
 	@Override
@@ -1081,7 +1081,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setIdRepoReactivateVIDs(String idRepoReactivateVIDs) {
 		
-		
+		return;
 	}
 	@Override
 	public String getUnmapDocCategoryType() {
@@ -1095,7 +1095,7 @@ public class IdaRunConfig extends RunConfig{
 	}
 	@Override
 	public void setSearchLocationDataPath(String searchLocationPath) {
-		
+		return;
 		
 	}
 	@Override
@@ -1106,7 +1106,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setFilterLocationPath(String filterLocationPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getCreateBlackListedWordsPath() {
@@ -1116,7 +1116,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setCreateBlackListedWordsPath(String createBlackListedWordsPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getCreateLocationDataPath() {
@@ -1126,7 +1126,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setCreateLocationDataPath(String createLocationDataPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getDecommisionRegCenterPath() {
@@ -1196,12 +1196,12 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setUserIdPwd(String userIdPwd) {
 		
-		
+		return;
 	}
 	@Override
 	public void setResidentGenerateVID(String residentGenerateVID) {
 		
-		
+		return;
 	}
 	@Override
 	public String getResidentRevokeVID() {
@@ -1211,7 +1211,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setResidentRevokeVID(String residentRevokeVID) {
 		
-		
+		return;
 	}
 	@Override
 	public String getResidentAuthHistory() {
@@ -1221,7 +1221,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setResidentAuthHistory(String residentAuthHistory) {
 		
-		
+		return;
 	}
 	@Override
 	public String getResidentAuthLock() {
@@ -1231,7 +1231,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setResidentAuthLock(String residentAuthLock) {
 		
-		
+		return;
 	}
 	@Override
 	public String getResidentAuthUnlock() {
@@ -1241,7 +1241,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setResidentAuthUnlock(String residentAuthUnlock) {
 		
-		
+		return;
 	}
 	
 	@Override
@@ -1252,7 +1252,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setResidentPrintUin(String residentPrintUin) {
 		
-		
+		return;
 	}
 	@Override
 	public String getResidentUpdateUin() {
@@ -1262,7 +1262,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setResidentUpdateUin(String residentUpdateUin) {
 		
-		
+		return;
 	}
 	@Override
 	public String getResidentCheckStatus() {
@@ -1272,7 +1272,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setResidentCheckStatus(String residentCheckStatus) {
 		
-		
+		return;
 	}
 	@Override
 	public String getResidenteUin() {
@@ -1282,7 +1282,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setResidenteUin(String residenteUin) {
 		
-		
+		return;
 	}
 	@Override
 	public String getSearchRegCenterTypePath() {
@@ -1563,7 +1563,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setRegisterPartnerPath(String registerPartnerPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getUpdatePartnerPath() {
@@ -1573,7 +1573,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setUpdatePartnerPath(String updatePartnerPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getSubmitPartnerApiKeyReqPath() {
@@ -1583,7 +1583,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setSubmitPartnerApiKeyReqPath(String submitPartnerApiKeyReq) {
 		
-		
+		return;
 	}
 	@Override
 	public String getUpdatePartnerApikeyToPolicyMappingsPath() {
@@ -1593,12 +1593,12 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setUpdatePartnerApikeyToPolicyMappingsPath(String updatePartnerApikeyToPolicyMappingsPath) {
 		
-		
+		return;
 	}
 	@Override
 	public void setApiKeyReqStatusPath(String apiKeyReqStatusPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getApiKeyReqStatusPath() {
@@ -1613,7 +1613,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setActivateDeactivatePartnerAPIKeyPath(String activateDeactivatePartnerAPIKeyPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getActivateDeactivatePartnerAPIKeyPath() {
@@ -1623,7 +1623,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setApproveRejectPartnerAPIKeyReqPath(String approveRejectPartnerAPIKeyReqPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getApproveRejectPartnerAPIKeyReqPath() {
@@ -1648,7 +1648,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setCreatePolicyGroupPath(String createPolicyGroupPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getGetPolicyBasedOnPolicyIdPath() {
@@ -1668,13 +1668,13 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setUpdateExistingPolicyForPolicyGroupPath(String updateExistingPolicyForPolicyGroupPath) {
 		
-		
+		return;
 	}
 	@Override
 	public void setUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath(
 			String updateTheStatusActivateDeactivateForTheGivenPolicyIdPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getUpdateTheStatusActivateDeactivateForTheGivenPolicyIdPath() {
@@ -1689,7 +1689,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setUpdateMISPPath(String updateMISPPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getUpdateMISPPath() {
@@ -1734,7 +1734,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setUpdateMispStatusByMispIdPath(String updateMispStatusByMispIdPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getUpdateMispStatusByMispIdPath() {
@@ -1763,12 +1763,12 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setDefinePolicyPath(String definePolicyPath) {
 		
-		
+		return;
 	}
 	@Override
 	public void setUpdatePolicyDetailsPath(String updatePolicyDetailsPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getUpdatePolicyDetailsPath() {
@@ -1778,7 +1778,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setUpdatePolicyStatusPath(String updatePolicyStatusPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getUpdatePolicyStatusPath() {
@@ -1793,7 +1793,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setPublishPolicyPath(String publishPolicyPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getGetPolicyGroupPath() {
@@ -1818,7 +1818,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setAddContactPath(String addContactPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getSaveDeviceDetailPath() {
@@ -1828,7 +1828,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setSaveDeviceDetailPath(String saveDeviceDetailPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getApproveRejectDeviceDetailPath() {
@@ -1843,7 +1843,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setUpdateDeviceDetailPath(String updateDeviceDetailPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getSaveSecureBiometricInterfacePath() {
@@ -1853,7 +1853,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setSaveSecureBiometricInterfacePath(String saveSecureBiometricInterfacePath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getApproveRejectSecureBiometricInterfacePath() {
@@ -1868,7 +1868,7 @@ public class IdaRunConfig extends RunConfig{
 	@Override
 	public void setSaveFtpChipDetailPath(String saveFtpChipDetailPath) {
 		
-		
+		return;
 	}
 	@Override
 	public String getApproveRejectFtpChipDetailPath() {

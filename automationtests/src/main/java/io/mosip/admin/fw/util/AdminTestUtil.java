@@ -192,6 +192,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static File bindingConsentJWK = new File("src/main/resources/bindingConsentJWK.txt");
 	public static File bindingConsentJWKVid = new File("src/main/resources/bindingConsentJWKVid.txt");
 	public static File bindingConsentSameClaimJWK = new File("src/main/resources/bindingConsentSameClaimJWK.txt");
+	public static File bindingConsentVidSameClaimJWK = new File("src/main/resources/bindingConsentVidSameClaimJWK.txt");
 	public static File clientPrivateKey = new File("src/main/resources/config/clientPrivateKey.txt");
 	public static final String XSRF_HEADERNAME = "X-XSRF-TOKEN";
 	public static final String OAUTH_HASH_HEADERNAME = "oauth-details-hash";
@@ -204,6 +205,7 @@ public class AdminTestUtil extends BaseTestCase {
 	private static File BINDINGCERTCONSENTFile = new File("src/main/resources/BINDINGCERTCONSENTFile.txt");
 	private static File BINDINGCERTCONSENTVidFile = new File("src/main/resources/BINDINGCERTCONSENTVidFile.txt");
 	private static File BINDINGCERTCONSENTSAMECLAIMFile = new File("src/main/resources/BINDINGCERTCONSENTSAMECLAIMFile.txt");
+	private static File BINDINGCERTCONSENTVIDSAMECLAIMFile = new File("src/main/resources/BINDINGCERTCONSENTVIDSAMECLAIMFile.txt");
 
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
@@ -494,6 +496,9 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		if (testCaseName.contains("_Consent_SameClaim_uin_")) {
 			fileName = BINDINGCERTCONSENTSAMECLAIMFile;
+		}
+		if (testCaseName.contains("_Consent_SameClaim_Vid_")) {
+			fileName = BINDINGCERTCONSENTVIDSAMECLAIMFile;
 		}
 		
 		String certificateData = new JSONObject(response.getBody().asString()).getJSONObject("response")
@@ -2945,6 +2950,11 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$WLATOKENCONSENTSAMECLAIM$")) {
 			String wlaToken = generateWLAToken(jsonString, bindingConsentSameClaimJWK, BINDINGCERTCONSENTSAMECLAIMFile);
 			jsonString = jsonString.replace("$WLATOKENCONSENTSAMECLAIM$", wlaToken);
+		}
+		
+		if (jsonString.contains("$WLATOKENCONSENTVIDSAMECLAIM$")) {
+			String wlaToken = generateWLAToken(jsonString, bindingConsentVidSameClaimJWK, BINDINGCERTCONSENTVIDSAMECLAIMFile);
+			jsonString = jsonString.replace("$WLATOKENCONSENTVIDSAMECLAIM$", wlaToken);
 		}
 		
 		if (jsonString.contains("$REMOVE$")) 

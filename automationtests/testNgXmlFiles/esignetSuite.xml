@@ -234,6 +234,21 @@
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
+	<test name="GenerateTokenLinkedConsent">
+		<parameter name="ymlFile"
+			value="esignet/LinkedConsent/GenerateTokenLinkedConsent/GenerateTokenLinkedConsent.yml" />
+			<parameter name="idKeyName"	value="access_token" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
+		</classes>
+	</test>
+	<test name="GetOidcUserInfoLinkedConsent">
+		<parameter name="ymlFile"
+			value="esignet/LinkedConsent/GetOidcUserInfoLinkedConsent/GetOidcUserInfoLinkedConsent.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="OAuthDetailsRequestLinked">
 		<parameter name="ymlFile"
 			value="esignet/OAuthDetailsRequestLinked/OAuthDetailsRequest.yml" />
@@ -286,6 +301,21 @@
 			<parameter name="idKeyName"	value="code" />
 		<classes>
 			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GenerateTokenLinked">
+		<parameter name="ymlFile"
+			value="esignet/GenerateTokenLinked/GenerateTokenLinked.yml" />
+			<parameter name="idKeyName"	value="access_token" />
+		<classes>
+			<class name="io.mosip.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
+		</classes>
+	</test>
+	<test name="GetOidcUserInfoLinked">
+		<parameter name="ymlFile"
+			value="esignet/GetOidcUserInfoLinked/GetOidcUserInfoLinked.yml" />
+		<classes>
+			<class name="io.mosip.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="OAuthDetailsRequestNonAuth">
