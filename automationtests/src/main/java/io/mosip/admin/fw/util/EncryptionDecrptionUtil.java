@@ -9,6 +9,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Base64;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -90,7 +91,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return ecryptData;
 		} catch (Exception e) {
 			lOGGER.error(e);
-			return null;
+			return Collections.emptyMap();
 		}
 	}
 	
@@ -114,7 +115,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return ecryptData;
 		} catch (Exception e) {
 			lOGGER.error(e);
-			return null;
+			return Collections.emptyMap();
 		}
 	}
 	

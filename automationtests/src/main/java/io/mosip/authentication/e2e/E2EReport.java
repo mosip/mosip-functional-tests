@@ -18,7 +18,7 @@ import io.mosip.global.utils.GlobalConstants;
 
 public class E2EReport implements IReporter{
 	private static final Logger logger = Logger.getLogger(E2EReport.class);
-	public static Map<String,String> e2eReport = new HashMap<String,String>();
+	public static Map<String,String> e2eReport = new HashMap<>();
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
 		e2eReport = getE2eAuthTestReport(suites);
@@ -26,13 +26,13 @@ public class E2EReport implements IReporter{
 	
 	@SuppressWarnings("finally")
 	private Map<String,String> getE2eAuthTestReport(List<ISuite> suites) {
-		Map<String,String> e2eReport = new HashMap<String,String>();
+		Map<String,String> e2eReport = new HashMap<>();
 		try {			
 			for (ISuite tempSuite : suites) {
 				Map<String, ISuiteResult> testResults = tempSuite.getResults();
 				for (ISuiteResult result : testResults.values()) {
 					ITestContext testObj = result.getTestContext();
-					String testName = testObj.getName();
+					testObj.getName();
 					IResultMap testPassedResult = testObj.getPassedTests();
 					Set<ITestResult> testPassedResultSet = testPassedResult.getAllResults();
 					for (ITestResult testResult : testPassedResultSet) {

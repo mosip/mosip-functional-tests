@@ -95,7 +95,7 @@ public class BookAppoinmentByPrid extends AdminTestUtil implements ITest {
 		inputJosn=inputJosn.replace("$appointment_date$", appDate);
 		inputJosn=inputJosn.replace("$time_slot_from$", timeSlotFrom);
 		inputJosn=inputJosn.replace("$time_slot_to$", timeSlotTo);
-		Response response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJosn, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		 response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJosn, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));

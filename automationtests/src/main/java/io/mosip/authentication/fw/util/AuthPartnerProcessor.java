@@ -85,7 +85,7 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 		String path = "java";
 		if (getOSType().equals("WINDOWS")) {
 			String javaHome = System.getenv("JAVA_HOME");
-			if (javaHome != null && javaHome.isEmpty() == false)
+			if (javaHome != null && javaHome.isEmpty()== false)
 				path = javaHome + "/bin/java";
 		}
 		return path;

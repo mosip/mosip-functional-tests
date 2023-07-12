@@ -348,7 +348,7 @@ public class BaseTestCase {
 
 		String os = System.getProperty("os.name");
 		String projDirPath = null;
-		if (MosipTestRunner.checkRunType().contains("IDE") || os.toLowerCase().contains("windows") == false)
+		if (MosipTestRunner.checkRunType().contains("IDE") || os.toLowerCase().contains("windows"))
 			projDirPath = System.getProperty("user.dir");
 		else
 			projDirPath = new File(System.getProperty("user.dir")).getParent();

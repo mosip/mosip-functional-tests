@@ -66,7 +66,7 @@ public class GetWithParamForAutoGenIdForKeyCloak extends AdminTestUtil implement
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+	public void test(TestCaseDTO testCaseDTO) throws AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		
 		if (HealthChecker.signalTerminateExecution) {

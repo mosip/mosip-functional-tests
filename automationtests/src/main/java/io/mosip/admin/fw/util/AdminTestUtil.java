@@ -3402,7 +3402,6 @@ public class AdminTestUtil extends BaseTestCase {
 		String input = testCaseDTO.getInput();
 		ArrayList<JSONObject> listofjsonObject = new ArrayList<>();
 		listofjsonObject = inputJsonConversion(input, templateFields);
-		// listofjsonObject = outputJsonConversion(output, templateFields);
 		return listofjsonObject;
 	}
 

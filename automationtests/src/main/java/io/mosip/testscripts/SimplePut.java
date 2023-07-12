@@ -68,7 +68,7 @@ public class SimplePut extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+	public void test(TestCaseDTO testCaseDTO) throws  AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
@@ -79,9 +79,9 @@ public class SimplePut extends AdminTestUtil implements ITest {
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			List<String> languageList = new ArrayList<>();
+			
 
-			languageList =new ArrayList<String>(BaseTestCase.languageList);
+			languageList =new ArrayList<>(BaseTestCase.languageList);
 			 for (int i=0; i<languageList.size(); i++) {
 		            	response = putWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
@@ -106,7 +106,7 @@ public class SimplePut extends AdminTestUtil implements ITest {
 				
 				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
 				
-				ouputValid = new HashMap<String, List<OutputValidationDto>>();
+				ouputValid = new HashMap<>();
 				ouputValid.put("expected vs actual", List.of(customResponse));
 			}else {
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(

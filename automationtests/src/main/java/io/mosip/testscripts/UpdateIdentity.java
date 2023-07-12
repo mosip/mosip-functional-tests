@@ -94,9 +94,9 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		JSONObject otpReqJson = null;
-		String otpRequest = null, 
-			   sendOtpReqTemplate = null, 
-			   sendOtpEndPoint = null;
+		String otpRequest = null; 
+		String sendOtpReqTemplate = null; 
+		String sendOtpEndPoint = null;
 		if (req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);

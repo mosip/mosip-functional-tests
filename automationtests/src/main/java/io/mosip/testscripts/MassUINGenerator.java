@@ -40,8 +40,8 @@ import io.restassured.response.Response;
 public class MassUINGenerator extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(MassUINGenerator.class);
 	protected String testCaseName = "";
-	private Map<String, String> storeUinData = new HashMap<String, String>();
-	private Map<String, String> storeRidData = new HashMap<String, String>();
+	private Map<String, String> storeUinData = new HashMap<>();
+	private Map<String, String> storeRidData = new HashMap<>();
 	private static long perTCUinCount;
 	/**
 	 * get current testcaseName
@@ -126,8 +126,8 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 		logger.info("Storing UIN and RID");
 		writeUinRid(storeUinData, storeRidData, testCaseName);
 		logger.info("Stored UIN and RID");
-		storeUinData = new HashMap<String, String>();
-		storeRidData = new HashMap<String, String>();
+		storeUinData = new HashMap<>();
+		storeRidData = new HashMap<>();
 		try {
 			Field method = TestResult.class.getDeclaredField("m_method");
 			method.setAccessible(true);

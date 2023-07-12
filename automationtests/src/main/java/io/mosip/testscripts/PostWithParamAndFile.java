@@ -83,7 +83,7 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 			
 			OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
 			
-			ouputValid = new HashMap<String, List<OutputValidationDto>>();
+			ouputValid = new HashMap<>();
 			ouputValid.put("expected vs actual", List.of(customResponse));
 		}else {
 			ouputValid = OutputValidationUtil.doJsonOutputValidation(
