@@ -8,7 +8,7 @@ LinkedAuthenticationWla:
       outputTemplate: esignet/LinkedConsent/LinkedAuthenticationConsentWla/LinkedAuthenticationConsentWlaResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-      "linkTransactionId": "$ID:LinkTransaction_Consent_uin_all_Valid_Smoke_sid_linkTransactionId$",
+      "linkTransactionId": "$ID:LinkTransaction_Consent_uin_SameClaim_all_Valid_Smoke_sid_linkTransactionId$",
       "individualId": "$ID:AddIdentity_Linked_Consent_smoke_Pos_UIN$",
         "authFactorType": "WLA",
         "challenge": "$WLATOKENCONSENTSAMECLAIM$",

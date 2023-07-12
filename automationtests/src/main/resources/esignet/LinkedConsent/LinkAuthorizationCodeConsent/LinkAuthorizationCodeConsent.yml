@@ -1,5 +1,5 @@
 LinkAuthorizationCodeConsent:
-   ESignet_LinkAuthorizationCode_Consent_uin_all_Valid_Smoke:
+   ESignet_LinkAuthorizationCode_Consent_uin_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
@@ -15,7 +15,7 @@ LinkAuthorizationCodeConsent:
         
 }'
 
-   ESignet_LinkAuthorizationCode_Consent_Vid_all_Valid_Smoke:
+   ESignet_LinkAuthorizationCode_Consent_Vid_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       restMethod: post
