@@ -107,7 +107,7 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 		logger.info("************* Modification of bio auth request ******************");
 		Reporter.log("<b><u>Modification of demo auth request</u></b>");
 		authRequest = modifyRequest(authRequest, demoAuthTempMap,
-				getResourcePath() + props.getProperty("idaMappingPath"));
+				getResourcePath() + properties.getProperty("idaMappingPath"));
 		JSONObject authRequestTemp = new JSONObject(authRequest);
 		authRequestTemp.remove("env");
 		authRequestTemp.put("env", "Staging");

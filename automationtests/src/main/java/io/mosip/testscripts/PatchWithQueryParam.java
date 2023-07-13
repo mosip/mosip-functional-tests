@@ -77,7 +77,7 @@ public class PatchWithQueryParam extends AdminTestUtil implements ITest {
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
 			
 			 for (int i=0; i<languageList.size(); i++) {
-		            	response = PatchWithQueryParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
+		            	response = patchWithQueryParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
 		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		            	
@@ -92,7 +92,7 @@ public class PatchWithQueryParam extends AdminTestUtil implements ITest {
 		} 
 		
 		else {
-			response = PatchWithQueryParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
+			response = patchWithQueryParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
 					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 

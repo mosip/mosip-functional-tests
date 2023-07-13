@@ -83,7 +83,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static void partnerGeneration() {
-		String url = ApplnURI + props.getProperty("putPartnerRegistrationUrl");
+		String url = ApplnURI + properties.getProperty("putPartnerRegistrationUrl");
 
 		String token = kernelAuthLib.getTokenByRole("partner");
 
@@ -118,7 +118,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		if (localHostUrl == null) {
 			localHostUrl = getLocalHostUrl();
 		}
-		String url = localHostUrl + props.getProperty("getPartnerCertURL");
+		String url = localHostUrl + properties.getProperty("getPartnerCertURL");
 
 		HashMap<String, String> map = new HashMap<String, String>();
 
@@ -142,7 +142,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		if (localHostUrl == null) {
 			localHostUrl = getLocalHostUrl();
 		}
-		String url = localHostUrl + props.getProperty("getPartnerCertURL");
+		String url = localHostUrl + properties.getProperty("getPartnerCertURL");
 
 		HashMap<String, String> map = new HashMap<String, String>();
 
@@ -165,7 +165,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static void uploadCACertificate(String certValueCA, String partnerDomain) {
-		String url = ApplnURI + props.getProperty("uploadCACertificateUrl");
+		String url = ApplnURI + properties.getProperty("uploadCACertificateUrl");
 
 		String token = kernelAuthLib.getTokenByRole("partner");
 
@@ -190,7 +190,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static void uploadIntermediateCertificate(String certValueIntermediate, String partnerDomain) {
-		String url = ApplnURI + props.getProperty("uploadIntermediateCertificateUrl");
+		String url = ApplnURI + properties.getProperty("uploadIntermediateCertificateUrl");
 
 		String token = kernelAuthLib.getTokenByRole("partner");
 
@@ -215,7 +215,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static JSONObject uploadPartnerCertificate(String certValuePartner, String partnerDomain, String partnerId) {
-		String url = ApplnURI + props.getProperty("uploadPartnerCertificateUrl");
+		String url = ApplnURI + properties.getProperty("uploadPartnerCertificateUrl");
 
 		String token = kernelAuthLib.getTokenByRole("partner");
 
@@ -248,7 +248,7 @@ public class PartnerRegistration extends AdminTestUtil {
 
 	public static void uploadSignedCertificate(String certValueSigned, String partnerType, String partnerId,
 			Boolean keyFileNameByPartnerName) {
-		String url = localHostUrl + props.getProperty("uploadSignedCertificateUrl");
+		String url = localHostUrl + properties.getProperty("uploadSignedCertificateUrl");
 
 		HashMap<String, String> requestBody = new HashMap<String, String>();
 
@@ -269,7 +269,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static void deviceGeneration() {
-		String url = ApplnURI + props.getProperty("putPartnerRegistrationUrl");
+		String url = ApplnURI + properties.getProperty("putPartnerRegistrationUrl");
 
 		String token = kernelAuthLib.getTokenByRole("partner");
 
@@ -316,7 +316,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static void ftmGeneration() {
-		String url = ApplnURI + props.getProperty("putPartnerRegistrationUrl");
+		String url = ApplnURI + properties.getProperty("putPartnerRegistrationUrl");
 
 		String token = kernelAuthLib.getTokenByRole("partner");
 
@@ -365,7 +365,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		if (localHostUrl == null) {
 			localHostUrl = getLocalHostUrl();
 		}
-		String url = localHostUrl + props.getProperty("clearCertificateURL");
+		String url = localHostUrl + properties.getProperty("clearCertificateURL");
 
 		if (url.contains("$MODULENAME$")) {
 			url = url.replace("$MODULENAME$", BaseTestCase.certsForModule);

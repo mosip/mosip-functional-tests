@@ -102,11 +102,11 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 			list.add(uin);
 			attrmap.put("individual_id", list);
 			list = new ArrayList<>();
-			String token = AdminTestUtil.generateTokenID(uin, props.getProperty("partner_Token_Id"));
+			String token = AdminTestUtil.generateTokenID(uin, properties.getProperty("partner_Token_Id"));
 			list.add(token);
 			attrmap.put("ida_token", list);
 			list = new ArrayList<>();
-			String picture = props.getProperty("picturevalue");
+			String picture = properties.getProperty("picturevalue");
 			list.add(picture);
 			attrmap.put("picture", list);
 			KeycloakUserManager.createVidUsers(propsKernel.getProperty("new_Resident_User"),
@@ -165,8 +165,8 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 
 		try {
 			if (BaseTestCase.currentModule.equals("idrepo")) {
-				logger.info("waiting for " + props.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO"); //
-				Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+				logger.info("waiting for " + properties.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO"); //
+				Thread.sleep(Long.parseLong(properties.getProperty("Delaytime")));
 			}
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());

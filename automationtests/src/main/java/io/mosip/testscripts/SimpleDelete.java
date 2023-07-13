@@ -68,7 +68,7 @@ public class SimpleDelete extends AdminTestUtil implements ITest {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
 			 for (int i=0; i<languageList.size(); i++) {
-		            	response = DeleteWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
+		            	response = deleteWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 								getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
 								testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		            	
@@ -96,7 +96,7 @@ public class SimpleDelete extends AdminTestUtil implements ITest {
 				}
 			}
 			else {
-				response = DeleteWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
+				response = deleteWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 						inputJson, COOKIENAME,
 						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 			}

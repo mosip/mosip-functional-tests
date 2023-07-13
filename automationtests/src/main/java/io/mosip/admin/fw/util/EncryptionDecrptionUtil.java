@@ -57,11 +57,11 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		getThumbprints();
 	}
 	public static void getThumbprints() {
-		String appId = props.getProperty("appIdForCertificate");
+		String appId = properties.getProperty("appIdForCertificate");
 		try {
-			partnerThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("partnerrefId")));
-			internalThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("internalrefId")));
-			idaFirThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, props.getProperty("idaFirRefId")));
+			partnerThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, properties.getProperty("partnerrefId")));
+			internalThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, properties.getProperty("internalrefId")));
+			idaFirThumbPrint = getCertificateThumbprint(getIdaCertificate(appId, properties.getProperty("idaFirRefId")));
 		} catch (Exception e) {
 			lOGGER.error(e.getStackTrace());
 		}
@@ -130,7 +130,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			JSONObject objectData = new JSONObject(jsonString);
 			Reporter.log("<b><u> Identity request:</u></b>");
 			GlobalMethods.reportRequest(objectData.toString());
-			return RestClient.postRequest(EncryptUtilBaseUrl+props.get("encryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
+			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get("encryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION+ e);
@@ -149,7 +149,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			JSONObject objectData = new JSONObject(jsonString);
 			Reporter.log("<b><u> Identity request:</u></b>");
 			GlobalMethods.reportRequest(objectData.toString());
-			return RestClient.postRequest(EncryptUtilBaseUrl+props.get("internalEncryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
+			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get("internalEncryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION+ e);
@@ -166,7 +166,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public String getEncode(String jsonString) {
 		try {
 			JSONObject objectData = new JSONObject(jsonString);
-			return RestClient.postRequest(EncryptUtilBaseUrl+props.get(GlobalConstants.ENCODEPATH), objectData.toString(), MediaType.TEXT_PLAIN,
+			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get(GlobalConstants.ENCODEPATH), objectData.toString(), MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION + e);
@@ -183,7 +183,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		try {
 			String objectData = FileUtil.readInput(filename);
 			objectData=objectData.replaceAll(" xmlns=\"\"", "");
-			return RestClient.postRequest(EncryptUtilBaseUrl+props.get(GlobalConstants.ENCODEPATH), objectData, MediaType.TEXT_PLAIN,
+			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get(GlobalConstants.ENCODEPATH), objectData, MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION + e);
@@ -198,7 +198,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 */
 	public String getDecodeFile(String content) {
 		try {
-			return RestClient.postRequest(EncryptUtilBaseUrl + props.get("decodeFilePath"), content,
+			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get("decodeFilePath"), content,
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_OCTET_STREAM).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION + e);
@@ -214,7 +214,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 */
 	public String getEncodeFile(File file) {
 		try {
-			return RestClient.postRequest(EncryptUtilBaseUrl + props.get("encodeFilePath"), file,
+			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get("encodeFilePath"), file,
 					MediaType.MULTIPART_FORM_DATA, MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION + e);
@@ -231,7 +231,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public String getDecodeFromFile(String filename) {
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
-			return RestClient.postRequest(EncryptUtilBaseUrl + props.get("decodePath"),
+			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get("decodePath"),
 					objectData.toString(), MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION + e);
@@ -247,7 +247,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 */
 	public String getDecodeFromStr(String content) {
 		try {
-			return RestClient.postRequest(EncryptUtilBaseUrl + props.get("decodePath"), content,
+			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get("decodePath"), content,
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION + e);
@@ -263,7 +263,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public String getDecryptFromFile(String filename) {
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
-			return RestClient.postRequest(EncryptUtilBaseUrl + props.get(GlobalConstants.DECRYPTPATH),
+			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get(GlobalConstants.DECRYPTPATH),
 					objectData.toString(), MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION + e);
@@ -282,7 +282,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			HashMap<String, Object> queryParams = new HashMap<>();
 			queryParams.put("refId", referenceId);
 			queryParams.put("isInternal", isInternal);
-			return RestClient.postRequestWithQueryParamsAndBody(EncryptUtilBaseUrl + props.get(GlobalConstants.DECRYPTPATH), content, queryParams, 
+			return RestClient.postRequestWithQueryParamsAndBody(EncryptUtilBaseUrl + properties.get(GlobalConstants.DECRYPTPATH), content, queryParams, 
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION + e);
@@ -298,7 +298,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 */
 	public static String getBase64EncodedString(String content) {
 		try {
-			return RestClient.postRequest(EncryptUtilBaseUrl+props.get(GlobalConstants.ENCODEPATH), content, MediaType.TEXT_PLAIN,
+			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get(GlobalConstants.ENCODEPATH), content, MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION + e);
@@ -309,7 +309,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public static String splitEncryptedData(String content)
 	{
 		try {
-			return RestClient.postRequest(EncryptUtilBaseUrl+props.get("splitEncryptedData"), content, MediaType.APPLICATION_JSON,
+			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get("splitEncryptedData"), content, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 			
 		} catch (Exception e) {
@@ -335,7 +335,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		String cert = null;
 		
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
-		String url = ApplnURI + props.getProperty("getIdaCertificateUrl");
+		String url = ApplnURI + properties.getProperty("getIdaCertificateUrl");
 		HashMap<String, String> map = new HashMap<>();
 		map.put("applicationId", applicationId);
 		map.put("referenceId", referenceId);
@@ -370,7 +370,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public static Certificate getPartnerCertificate(String partnerId) {
 		String cert = null;
 		String token = kernelAuthLib.getTokenByRole("regproc");
-		String url = ApplnURI + props.getProperty("getPartnerCertificateUrl");
+		String url = ApplnURI + properties.getProperty("getPartnerCertificateUrl");
 		HashMap<String, String> map = new HashMap<>();
 		map.put(GlobalConstants.PARTNERID, partnerId);
 		lOGGER.info("Getting certificate for partner "+partnerId);
@@ -416,9 +416,9 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		String decryptedKycIdentity = getDecyptFromStr(identity, partnerId, isInternal);
 		boolean bReturn = true;
 		Reporter.log(
-				"<b><u>Decrypted Kyc Response: </u></b>(EndPointUrl: " + EncryptUtilBaseUrl + props.get(GlobalConstants.DECRYPTPATH)
+				"<b><u>Decrypted Kyc Response: </u></b>(EndPointUrl: " + EncryptUtilBaseUrl + properties.get(GlobalConstants.DECRYPTPATH)
 						+ ") <pre>" + ReportUtil.getTextAreaJsonMsgHtml(decryptedKycIdentity) + "</pre>");
-		String[] keysToValidateInKYC = props.getProperty("keysToValidateInKYC").split(",");
+		String[] keysToValidateInKYC = properties.getProperty("keysToValidateInKYC").split(",");
 		JSONObject decryptedKycJson = new JSONObject(decryptedKycIdentity);
 		if (decryptedKycJson.length() != 0) {
 			for (String key : keysToValidateInKYC)
@@ -447,7 +447,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public boolean verifyResponseUsingDigitalSignature(String resonseContent, String digitalSignature) {
 		HashMap<String, String> queryparams = new HashMap<>();
 		queryparams.put("signature", digitalSignature);
-		String signatureApiPath = EncryptUtilBaseUrl + props.getProperty("validateSignatureUrl");
+		String signatureApiPath = EncryptUtilBaseUrl + properties.getProperty("validateSignatureUrl");
 		Response response = RestClient.postRequestWithQueryParamAndBody(signatureApiPath, resonseContent,queryparams, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON);
 		if (response.asString().contains("success"))

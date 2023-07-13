@@ -94,7 +94,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		otpReqJson.remove("sendOtpEndPoint");
 
 		Response otpResponse = null;
-		int maxLoopCount = Integer.parseInt(props.getProperty("uinGenMaxLoopCount"));
+		int maxLoopCount = Integer.parseInt(properties.getProperty("uinGenMaxLoopCount"));
 		int currLoopCount = 0;
 		while (currLoopCount < maxLoopCount) {
 			if (testCaseName.contains(GlobalConstants.ESIGNET_)) {
@@ -113,9 +113,9 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 
 			if (otpResponse != null && otpResponse.asString().contains("IDA-MLC-018")) {
 				logger.info(
-						"waiting for: " + props.getProperty("uinGenDelayTime") + " as UIN not available in database");
+						"waiting for: " + properties.getProperty("uinGenDelayTime") + " as UIN not available in database");
 				try {
-					Thread.sleep(Long.parseLong(props.getProperty("uinGenDelayTime")));
+					Thread.sleep(Long.parseLong(properties.getProperty("uinGenDelayTime")));
 				} catch (NumberFormatException | InterruptedException e) {
 					logger.error(e.getStackTrace());
 					Thread.currentThread().interrupt();
@@ -200,9 +200,9 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	public void waittime() {
 		try {
 			if ((!testCaseName.contains(GlobalConstants.ESIGNET_)) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
-				logger.info("waiting for" + props.getProperty("Delaytime")
+				logger.info("waiting for" + properties.getProperty("Delaytime")
 						+ " mili secs after VID Generation In RESIDENT SERVICES");
-				Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+				Thread.sleep(Long.parseLong(properties.getProperty("Delaytime")));
 			}
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());

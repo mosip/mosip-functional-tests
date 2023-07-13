@@ -83,7 +83,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		if (testCaseDTO.getEndPoint().contains(GlobalConstants.$PARTNERKEYURL$)) {
 			testCaseDTO.setEndPoint(
-					testCaseDTO.getEndPoint().replace(GlobalConstants.$PARTNERKEYURL$, props.getProperty("partnerKeyURL")));
+					testCaseDTO.getEndPoint().replace(GlobalConstants.$PARTNERKEYURL$, properties.getProperty("partnerKeyURL")));
 		}
 		String otpRequest = null;
 		String sendOtpReqTemplate = null;
@@ -101,7 +101,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		otpReqJson.remove("sendOtpEndPoint");
 
 		if (sendOtpEndPoint.contains(GlobalConstants.$PARTNERKEYURL$)) {
-			sendOtpEndPoint = sendOtpEndPoint.replace(GlobalConstants.$PARTNERKEYURL$, props.getProperty("partnerKeyURL"));
+			sendOtpEndPoint = sendOtpEndPoint.replace(GlobalConstants.$PARTNERKEYURL$, properties.getProperty("partnerKeyURL"));
 		}
 
 		Response otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint,
@@ -143,7 +143,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		String encryptedIdentityReq = "";
 		try {
 			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identyEnryptRequest,
-					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, false);
+					getResourcePath() + properties.getProperty("bioValueEncryptionTemplate"), testCaseName, false);
 		} catch (Exception e) {
 			logger.error(e.getStackTrace());
 		}
@@ -164,7 +164,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		logger.info("************* Modification of OTP auth request ******************");
 		Reporter.log("<b><u>Modification of otp auth request</u></b>");
 		authRequest = modifyRequest(authRequest, bioAuthTempMap,
-				getResourcePath() + props.getProperty("idaMappingPath"));
+				getResourcePath() + properties.getProperty("idaMappingPath"));
 		JSONObject authRequestTemp = new JSONObject(authRequest);
 		authRequestTemp.remove("env");
 		authRequestTemp.put("env", "Staging");
