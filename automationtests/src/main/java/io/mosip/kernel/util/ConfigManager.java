@@ -95,6 +95,9 @@ public class ConfigManager {
 	private static String IAM_REALM_ID = "keycloak-realm-id";
 	private static String IAM_USERS_TO_CREATE = "iam-users-to-create";
 	private static String IAM_USERS_PASSWORD = "iam-users-password";
+	
+	private static String ESIGNET_DEPLOYED = "eSignetDeployed";
+	private static String esignet_deployed;
 
 	private static String AUTH_DEMO_SERVICE_PORT = "authDemoServicePort";
 	private static String AUTH_DEMO_SERVICE_BASE_URL = "authDemoServiceBaseURL";
@@ -325,8 +328,16 @@ public class ConfigManager {
 		preconfiguredOtp =System.getenv(PRECONFIGOTP) == null ? propsKernel.getProperty(PRECONFIGOTP) : System.getenv(PRECONFIGOTP);
 		propsKernel.setProperty(PRECONFIGOTP, preconfiguredOtp);
 		
+		esignet_deployed = System.getenv(ESIGNET_DEPLOYED) == null ? propsKernel.getProperty(ESIGNET_DEPLOYED)
+				: System.getenv(ESIGNET_DEPLOYED);
+		propsKernel.setProperty(ESIGNET_DEPLOYED, esignet_deployed);
+		
 		
 
+	}
+	
+	public static Boolean IseSignetDeployed() {
+		return esignet_deployed.equalsIgnoreCase("yes");
 	}
 
 	public static String getAuthDemoServicePort() {

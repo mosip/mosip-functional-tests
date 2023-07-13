@@ -4515,6 +4515,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String isTestCaseValidForExecution(TestCaseDTO testCaseDTO) {
 		String testCaseName = testCaseDTO.getTestCaseName();
+		if ((!ConfigManager.IseSignetDeployed()) && BaseTestCase.currentModule.equalsIgnoreCase("resident")
+				&& (testCaseDTO.getRole() != null && (testCaseDTO.getRole().equalsIgnoreCase("residentNew")
+						|| testCaseDTO.getRole().equalsIgnoreCase("residentNewVid")))) {
+			throw new SkipException("esignet module is not deployed");
+		}
 		if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.RESIDENT)
 				|| BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.ESIGNET)) {
 			if (testCaseDTO.getRole() != null && (testCaseDTO.getRole().equalsIgnoreCase(GlobalConstants.RESIDENTNEW)

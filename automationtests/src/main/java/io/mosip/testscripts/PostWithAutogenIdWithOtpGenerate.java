@@ -26,6 +26,7 @@ import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
 import io.mosip.global.utils.GlobalConstants;
+import io.mosip.kernel.util.ConfigManager;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -95,6 +96,9 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		int currLoopCount = 0;
 		while (currLoopCount < maxLoopCount) {
 			if (testCaseName.contains("ESignet_")) {
+				if (!ConfigManager.IseSignetDeployed()) {
+					throw new SkipException("esignet is not deployed hence skipping the testcase");
+				}
 				String tempUrl = ApplnURI.replace("-internal", "");
 				otpResponse = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + sendOtpEndPoint,
 						getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, GlobalConstants.RESIDENT,
@@ -147,6 +151,9 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 
 
 		if (testCaseName.contains("ESignet_")) {
+			if (!ConfigManager.IseSignetDeployed()) {
+				throw new SkipException("esignet is not deployed hence skipping the testcase");
+			}
 			String tempUrl = ApplnURI.replace("-internal", "");
 			response = postRequestWithCookieAuthHeaderAndXsrfTokenForAutoGenId(tempUrl + testCaseDTO.getEndPoint(),
 					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
