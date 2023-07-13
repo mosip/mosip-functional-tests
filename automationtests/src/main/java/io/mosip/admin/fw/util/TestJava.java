@@ -13,7 +13,7 @@ public class TestJava {
 	public static void main(String[] args) {
 		int num = 1011111;
 		
-		String transactionID = (num + RandomStringUtils.randomNumeric(8)).substring(0, 10);
+		String transactionID = (num + AdminTestUtil.generateRandomNumberString(8)).substring(0, 10);
 		lOGGER.info(transactionID);
 
 		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");
