@@ -81,7 +81,22 @@ public class GlobalConstants {
 	public static final String $PRIMARYLANG$="$PRIMARYLANG$";
 	public static final String BOTHOBJECTSAREEQUAL= "both object are equal";
 	public static final String KYCAUTHENDPOINT = "kycAuthEndPoint";
-	
+	public static final String IDP_ACCESS_TOKEN = "idpAccessToken";
+	public static final String RESIDENT_DEFAULT_PROPERTIES = "resident-default.properties";
+	public static final String ESIGNET_DEFAULT_PROPERTIES = "esignet-default.properties";
+	public static final String MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS = "mosip.esignet.id-token-expire-seconds";
+	public static final String MOSIP_ESIGNET_ACCESS_TOKEN_EXPIRE_SECONDS = "mosip.esignet.access-token-expire-seconds";
+	public static final String ERROR_BOOK_APPOINTMENT = "Failed to fetch registration details while booking appointment";
+	public static final String MASTER_SCHEMA_URL = "masterSchemaURL";
+	public static final String ID_VERSION = "idVersion";
+	public static final String SCHEMA_JSON = "schemaJson";
+	public static final String REQUIRED = "required";
+	public static final String ADDIDENTITY_HBS = "addIdentity.hbs";
+	public static final String UPDATEDRAFT_HBS = "updateDraft.hbs";
+	public static final String CREATEPREREG_HBS = "createPrereg.hbs";
+	public static final String PROPERTY_SOURCES = "propertySources";
+	public static final String MAILINATOR_COM = "@mailinator.com";
+	public static final String MOSIP_IO = "@mosip.io";
 	
 	
 	

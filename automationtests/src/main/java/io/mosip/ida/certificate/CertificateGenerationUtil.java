@@ -23,15 +23,15 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 	}
 
 	public static void getThumbprints() {
-		String appId = props.getProperty("appIdForCertificate");
-		getAndUploadIdaCertificate(appId, props.getProperty("partnerrefId"), props.getProperty("uploadPartnerurl"));
-		getAndUploadIdaCertificate(appId, props.getProperty("internalrefId"), props.getProperty("uploadInternalurl"));
-		getAndUploadIdaCertificate(appId, props.getProperty("idaFirRefId"), props.getProperty("uploadIdaFirurl"));
+		String appId = properties.getProperty("appIdForCertificate");
+		getAndUploadIdaCertificate(appId, properties.getProperty("partnerrefId"), properties.getProperty("uploadPartnerurl"));
+		getAndUploadIdaCertificate(appId, properties.getProperty("internalrefId"), properties.getProperty("uploadInternalurl"));
+		getAndUploadIdaCertificate(appId, properties.getProperty("idaFirRefId"), properties.getProperty("uploadIdaFirurl"));
 	}
 
 	public static void getAndUploadIdaCertificate(String applicationId, String referenceId, String endPoint) {
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
-		String url = ApplnURI + props.getProperty("getIdaCertificateUrl");
+		String url = ApplnURI + properties.getProperty("getIdaCertificateUrl");
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("applicationId", applicationId);
 		map.put("referenceId", referenceId);

@@ -91,7 +91,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	}
 	
 	public static JSONObject getCertificates(String partnerId, String partnerType) {
-		String url = localHostUrl + props.getProperty("getPartnerCertURL");
+		String url = localHostUrl + properties.getProperty("getPartnerCertURL");
 		
 		HashMap<String, String> map = new HashMap<String, String>();
 		
@@ -187,7 +187,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	}
 	
 	public static void uploadSignedCertificate(String certValueSigned, String partnerType) {
-		String url = localHostUrl + props.getProperty("uploadSignedCertificateUrl");
+		String url = localHostUrl + properties.getProperty("uploadSignedCertificateUrl");
 		
 		HashMap<String, String> requestBody = new HashMap<String, String>();
 		

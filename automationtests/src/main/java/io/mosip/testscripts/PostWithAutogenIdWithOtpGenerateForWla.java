@@ -175,9 +175,9 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 	public void waittime() {
 		try {
 			if((!testCaseName.contains(GlobalConstants.ESIGNET_)) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
-				logger.info("waiting for" + props.getProperty("Delaytime")
+				logger.info("waiting for" + properties.getProperty("Delaytime")
 						+ " mili secs after VID Generation In RESIDENT SERVICES");
-				Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
+				Thread.sleep(Long.parseLong(properties.getProperty("Delaytime")));
 			}
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());

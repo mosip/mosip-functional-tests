@@ -119,9 +119,9 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		
 		if(testCaseName.contains("_eotp")) {
 			try {
-				logger.info("waiting for " + props.getProperty("expireOtpTime")
+				logger.info("waiting for " + properties.getProperty("expireOtpTime")
 				+ " mili secs to test expire otp case in RESIDENT Service");
-				Thread.sleep(Long.parseLong(props.getProperty("expireOtpTime")));
+				Thread.sleep(Long.parseLong(properties.getProperty("expireOtpTime")));
 			} catch (NumberFormatException | InterruptedException e) {
 				logger.error(e.getStackTrace());
 				Thread.currentThread().interrupt();

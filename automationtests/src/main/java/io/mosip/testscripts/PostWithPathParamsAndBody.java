@@ -77,7 +77,7 @@ public class PostWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		String timeSlotFrom = null;
 		String timeSlotTo = null;
 		testCaseName = testCaseDTO.getTestCaseName(); 
-		Response slotAvailabilityResponse=RestClient.getRequestWithCookie(ApplnURI+props.getProperty("appointmentavailabilityurl")+props.getProperty("regcentretobookappointment"), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole()));
+		Response slotAvailabilityResponse=RestClient.getRequestWithCookie(ApplnURI+properties.getProperty("appointmentavailabilityurl")+properties.getProperty("regcentretobookappointment"), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole()));
 		
 		
 		if(testCaseName.endsWith("_holiday")) {

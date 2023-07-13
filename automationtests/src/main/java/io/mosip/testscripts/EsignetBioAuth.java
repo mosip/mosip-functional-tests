@@ -106,7 +106,7 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 		String encryptedIdentityReq = null;
 		try {
 			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
-					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
+					getResourcePath() + properties.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
 
 			if (encryptedIdentityReq == null)
 				throw new AdminTestException("bioDataUtil.constractBioIdentityRequest is null");

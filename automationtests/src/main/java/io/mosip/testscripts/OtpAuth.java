@@ -85,7 +85,7 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		}
 		if(testCaseDTO.getEndPoint().contains(GlobalConstants.$PARTNERKEYURL$))
 		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace(GlobalConstants.$PARTNERKEYURL$, props.getProperty("partnerKeyURL")));
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace(GlobalConstants.$PARTNERKEYURL$, properties.getProperty("partnerKeyURL")));
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null;
@@ -108,7 +108,7 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		
 		if(sendOtpEndPoint.contains(GlobalConstants.$PARTNERKEYURL$))
 		{
-			sendOtpEndPoint= sendOtpEndPoint.replace(GlobalConstants.$PARTNERKEYURL$, props.getProperty("partnerKeyURL"));
+			sendOtpEndPoint= sendOtpEndPoint.replace(GlobalConstants.$PARTNERKEYURL$, properties.getProperty("partnerKeyURL"));
 		}
 		
 		Response otpResponse = null;
@@ -141,7 +141,7 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		String authRequest = getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate());
 		logger.info("************* Modification of OTP auth request ******************");
 		Reporter.log("<b><u>Modification of otp auth request</u></b>");
-		authRequest = modifyRequest(authRequest, bioAuthTempMap, getResourcePath()+props.getProperty("idaMappingPath"));
+		authRequest = modifyRequest(authRequest, bioAuthTempMap, getResourcePath()+properties.getProperty("idaMappingPath"));
 		JSONObject authRequestTemp = new JSONObject(authRequest);
 		authRequestTemp.remove("env");
 		authRequestTemp.put("env", "Staging");
@@ -168,7 +168,7 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 				logger.error(e.getStackTrace());
 			}
 			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
-			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
+			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+properties.getProperty("decryptkycdataurl"), 
 						resp, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
 		

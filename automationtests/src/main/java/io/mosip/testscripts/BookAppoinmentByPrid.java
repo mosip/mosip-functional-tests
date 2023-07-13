@@ -77,7 +77,7 @@ public class BookAppoinmentByPrid extends AdminTestUtil implements ITest {
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		Response slotAvailabilityResponse=RestClient.getRequestWithCookie(ApplnURI+props.getProperty("appointmentavailabilityurl")+props.getProperty("regcentretobookappointment"), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole()));
+		Response slotAvailabilityResponse=RestClient.getRequestWithCookie(ApplnURI+properties.getProperty("appointmentavailabilityurl")+properties.getProperty("regcentretobookappointment"), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole()));
 		List<String> appointmentDetails = AdminTestUtil.getAppointmentDetails(slotAvailabilityResponse);
 		if(appointmentDetails.size()>=4) {
 			try {

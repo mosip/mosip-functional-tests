@@ -27,7 +27,7 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 	 */
 	public static void startProcess() {
 		
-		String encryptUtilPort = props.getProperty("encryptUtilPort");
+		String encryptUtilPort = properties.getProperty("encryptUtilPort");
 		String AuthClientID = propsKernel.getProperty("AuthClientID");
 		String AuthClientSecret = propsKernel.getProperty("AuthClientSecret");
 		String AuthAppID = propsKernel.getProperty("AuthAppID");
@@ -61,7 +61,7 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 	 * @return filepath
 	 */
 	private static String getDemoAppJarPath() {
-		String demoAppVersion = props.getProperty("demoAppVersion");
+		String demoAppVersion = properties.getProperty("demoAppVersion");
 		if (getOSType().equals("WINDOWS")) {
 			return "C:/Users/" + System.getProperty("user.name")
 					+ "/.m2/repository/io/mosip/authentication/authentication-demo-service/"

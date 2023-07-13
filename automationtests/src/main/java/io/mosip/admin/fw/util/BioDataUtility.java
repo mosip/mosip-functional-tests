@@ -51,7 +51,7 @@ public class BioDataUtility extends AdminTestUtil {
 		String aad = CryptoUtil.encodeBase64(aadLastBytes);
 		String jsonContent = FileUtil.readInput(bioValueEncryptionTemplateJson);
 		if (isInternal) 
-			jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, props.getProperty("internalrefId"),
+			jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, properties.getProperty("internalrefId"),
 					"request.referenceId");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, aad, "request.aad");
 		jsonContent = JsonPrecondtion.parseAndReturnJsonContent(jsonContent, salt, "request.salt");
@@ -201,7 +201,7 @@ public class BioDataUtility extends AdminTestUtil {
         pathParamsMap.put("moduleName", BaseTestCase.certsForModule);
         pathParamsMap.put("certsDir", ConfigManager.getauthCertsPath());
 		Response response = RestClient.postRequestWithQueryParamBodyAndCookie(
-				EncryptUtilBaseUrl + props.get("signRequest"), identityDataBlock, pathParamsMap,
+				EncryptUtilBaseUrl + properties.get("signRequest"), identityDataBlock, pathParamsMap,
 				 MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, GlobalConstants.AUTHORIZATION,
 				residentCookie);
 		

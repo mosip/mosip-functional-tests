@@ -87,7 +87,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 		}
 		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
 		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", props.getProperty("partnerKeyURL")));
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", properties.getProperty("partnerKeyURL")));
 		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null;
@@ -108,7 +108,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 		String encryptedIdentityReq = null;
 		try {
 			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
-					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
+					getResourcePath() + properties.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
 		} catch (Exception e) {
 			logger.error(e.getStackTrace());
 		}
@@ -120,7 +120,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 		logger.info("************* Modification of bio auth request ******************");
 		Reporter.log("<b><u>Modification of bio auth request</u></b>");
 		authRequest = modifyRequest(authRequest, bioAuthTempMap,
-				getResourcePath() + props.getProperty("idaMappingPath"));
+				getResourcePath() + properties.getProperty("idaMappingPath"));
 		JSONObject authRequestTemp = new JSONObject(authRequest);
 		authRequestTemp.remove("env");
 		authRequestTemp.put("env", "Staging");
@@ -148,7 +148,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 				logger.error(e.getStackTrace());
 			}
 			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
-			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+props.getProperty("decryptkycdataurl"), 
+			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+properties.getProperty("decryptkycdataurl"), 
 						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
 		
