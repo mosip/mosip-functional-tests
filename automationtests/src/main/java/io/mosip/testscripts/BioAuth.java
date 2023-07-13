@@ -32,6 +32,7 @@ import io.mosip.kernel.util.ConfigManager;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
+import static io.mosip.service.BaseTestCase.getRequestJson;
 
 public class BioAuth extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(BioAuth.class);

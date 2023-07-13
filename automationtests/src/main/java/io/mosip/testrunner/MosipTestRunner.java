@@ -51,7 +51,7 @@ public class MosipTestRunner {
 	 * 
 	 * @param arg
 	 */
-	public static void main(String arg[]) {
+	public static void main(String[] arg) {
 
 		try {
 
@@ -73,7 +73,7 @@ public class MosipTestRunner {
 			Thread trigger = new Thread(healthcheck);
 			trigger.start();
 
-			KeycloakUserManager.createUsers(); // Langauge Independent
+			KeycloakUserManager.createUsers(); 
 
 			String partnerKeyURL = "";
 
@@ -86,7 +86,7 @@ public class MosipTestRunner {
 
 			}
 
-			List<String> localLanguageList = new ArrayList<String>(BaseTestCase.getLanguageList());
+			List<String> localLanguageList = new ArrayList<>(BaseTestCase.getLanguageList());
 
 
 			if (BaseTestCase.listOfModules.contains(GlobalConstants.MASTERDATA)) {
@@ -133,7 +133,7 @@ public class MosipTestRunner {
 	public static void startTestRunner() {
 		File homeDir = null;
 		TestNG runner = new TestNG();
-		List<String> suitefiles = new ArrayList<String>();
+		List<String> suitefiles = new ArrayList<>();
 		List<String> modulesToRun = BaseTestCase.listOfModules;
 		String os = System.getProperty("os.name");
 		LOGGER.info(os);
@@ -172,8 +172,8 @@ public class MosipTestRunner {
 			return new File(jarUrl).getParentFile().getAbsolutePath() + "/MosipTestResource";
 		} else if (checkRunType().equalsIgnoreCase("IDE")) {
 			String path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath();
-			if (path.contains("test-classes"))
-				path = path.replace("test-classes", "classes");
+			if (path.contains(GlobalConstants.TESTCLASSES))
+				path = path.replace(GlobalConstants.TESTCLASSES, "classes");
 			return path;
 		}
 		return "Global Resource File Path Not Found";
@@ -183,10 +183,9 @@ public class MosipTestRunner {
 		if (checkRunType().equalsIgnoreCase("JAR")) {
 			return new File(jarUrl).getParentFile().getAbsolutePath();
 		} else if (checkRunType().equalsIgnoreCase("IDE")) {
-			String path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
-					.toString();
-			if (path.contains("test-classes"))
-				path = path.replace("test-classes", "classes");
+			String path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath();
+			if (path.contains(GlobalConstants.TESTCLASSES))
+				path = path.replace(GlobalConstants.TESTCLASSES, "classes");
 			return path;
 		}
 		return "Global Resource File Path Not Found";
@@ -218,7 +217,7 @@ public class MosipTestRunner {
                 pemWriter.writeObject(publicKey);
                 pemWriter.flush();
                 vcString = stringWriter.toString();
-        		if (System.getProperty("os.name").toLowerCase().contains("windows") == true) {
+        		if (System.getProperty("os.name").toLowerCase().contains("windows")) {
         			vcString = vcString.replaceAll("\r\n", "\\\\n");
         		} else {
         			vcString = vcString.replaceAll("\n", "\\\\n");
@@ -233,7 +232,6 @@ public class MosipTestRunner {
 	}
 
 	public static String generateJWKPublicKey() {
-//		String publicKey = null;
 		try {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
 			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
@@ -271,7 +269,7 @@ public class MosipTestRunner {
 	 * @return
 	 */
 	public static String checkRunType() {
-		if (MosipTestRunner.class.getResource("MosipTestRunner.class").getPath().toString().contains(".jar"))
+		if (MosipTestRunner.class.getResource("MosipTestRunner.class").getPath().contains(".jar"))
 			return "JAR";
 		else
 			return "IDE";

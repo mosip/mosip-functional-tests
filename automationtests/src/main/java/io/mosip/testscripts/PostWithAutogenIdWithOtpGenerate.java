@@ -80,7 +80,9 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		auditLogCheck = testCaseDTO.isAuditLogCheck();
-		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
+		String otpRequest = null;
+		String sendOtpReqTemplate = null;
+		String sendOtpEndPoint = null;
 		if (req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
@@ -95,7 +97,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		int maxLoopCount = Integer.parseInt(properties.getProperty("uinGenMaxLoopCount"));
 		int currLoopCount = 0;
 		while (currLoopCount < maxLoopCount) {
-			if (testCaseName.contains("ESignet_")) {
+			if (testCaseName.contains(GlobalConstants.ESIGNET_)) {
 				if (!ConfigManager.IseSignetDeployed()) {
 					throw new SkipException("esignet is not deployed hence skipping the testcase");
 				}
@@ -126,8 +128,8 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		}
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
-		String sendOtpResp = null, 
-				sendOtpResTemplate = null;
+		String sendOtpResp = null; 
+		String	sendOtpResTemplate = null;
 		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
@@ -150,7 +152,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 
 
 
-		if (testCaseName.contains("ESignet_")) {
+		if (testCaseName.contains(GlobalConstants.ESIGNET_)) {
 			if (!ConfigManager.IseSignetDeployed()) {
 				throw new SkipException("esignet is not deployed hence skipping the testcase");
 			}
@@ -197,7 +199,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
 		try {
-			if ((!testCaseName.contains("ESignet_")) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
+			if ((!testCaseName.contains(GlobalConstants.ESIGNET_)) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
 				logger.info("waiting for" + properties.getProperty("Delaytime")
 						+ " mili secs after VID Generation In RESIDENT SERVICES");
 				Thread.sleep(Long.parseLong(properties.getProperty("Delaytime")));

@@ -9,6 +9,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -65,9 +66,9 @@ public class DbConnection {
 				records = executeQueryAndGetRecord("audit", query);
 			else if (moduleName.equals("IDREPO")) {
 				if (query.toLowerCase().startsWith("delete")) 
-					return executeUpdateQuery("idrepo", query);
+					return executeUpdateQuery(GlobalConstants.IDREPO, query);
 				else 
-					records = executeQueryAndGetRecord("idrepo", query);
+					records = executeQueryAndGetRecord(GlobalConstants.IDREPO, query);
 			}
 			else if (moduleName.equals("MASTER")) {
 				if (query.toLowerCase().startsWith("update")) 
@@ -75,7 +76,7 @@ public class DbConnection {
 				 else 
 					records = executeQueryAndGetRecord(GlobalConstants.MASTERDATA, query);
 			}
-			Map<String, String> returnMap = new HashMap<String, String>();
+			Map<String, String> returnMap = new HashMap<>();
 			for (Entry<String, Object> entry : records.entrySet()) {
 				
 				if (entry.getValue() != null && entry.getValue() != "null"
@@ -89,7 +90,7 @@ public class DbConnection {
 		} catch (Exception e) {
 			DBCONNECTION_LOGGER.error("Execption in execution statement: " + e);
 		}
-		return null;
+		return Collections.emptyMap();
 	}
 	
 	public static List<Map<String, String>> getAllDataForQuery(String query, String moduleName) {
@@ -104,10 +105,10 @@ public class DbConnection {
 			else if (moduleName.equals("AUDIT"))
 				allRecords = executeQueryAndGetAllRecord("audit", query);
 			else if (moduleName.equals("IDREPO"))
-				allRecords = executeQueryAndGetAllRecord("idrepo", query);
-			List<Map<String, String>> listOfRecordsToBeReturn = new ArrayList<Map<String, String>>();
+				allRecords = executeQueryAndGetAllRecord("GlobalConstants.IDREPO", query);
+			List<Map<String, String>> listOfRecordsToBeReturn = new ArrayList<>();
 			for (int i = 0; i < allRecords.size(); i++) {
-				Map<String, String> records = new HashMap<String, String>();
+				Map<String, String> records = new HashMap<>();
 				for (Entry<String, Object> entry : allRecords.get(i).entrySet()) {
 					
 					if (entry.getValue() != null && entry.getValue() != "null"
@@ -124,12 +125,12 @@ public class DbConnection {
 		} catch (Exception e) {
 			DBCONNECTION_LOGGER.error("Execption in execution statement: " + e);
 		}
-		return null;
+		return Collections.emptyList();
 	}
 	
 	private static List<Map<String, Object>> executeQueryAndGetAllRecord(String moduleName, String query) {
 		Session session = null;
-		List<Map<String, Object>> allRecords = new ArrayList<Map<String, Object>>();
+		List<Map<String, Object>> allRecords = new ArrayList<>();
 		try {
 			session = getDataBaseConnection(moduleName);
 			if (session != null) {
@@ -142,7 +143,7 @@ public class DbConnection {
 							ResultSetMetaData md = rs.getMetaData();
 							int columns = md.getColumnCount();
 							while (rs.next()) {
-								Map<String, Object> record = new HashMap<String, Object>(columns);
+								Map<String, Object> record = new HashMap<>(columns);
 								for (int i = 1; i <= columns; i++) {
 									record.put(md.getColumnName(i), rs.getObject(i));
 								}
@@ -171,7 +172,7 @@ public class DbConnection {
 	
 	private static Map<String, Object> executeQueryAndGetRecord(String moduleName, String query) {
 		Session session = null;
-		Map<String, Object> record = new HashMap<String, Object>();
+		Map<String, Object> record = new HashMap<>();
 		try {
 			session = getDataBaseConnection(moduleName);
 			if (session != null) {
@@ -203,7 +204,7 @@ public class DbConnection {
 	}
 	
 	private static Map<String, String> executeUpdateQuery(String moduleName, String query) {
-		Map<String, String> rowData = new HashMap<String, String>();
+		Map<String, String> rowData = new HashMap<>();
 		Session session = null;
 		try {
 			session = getDataBaseConnection(moduleName);

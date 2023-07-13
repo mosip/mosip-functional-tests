@@ -1,9 +1,11 @@
 package io.mosip.authentication.fw.precon;
 
 
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -57,13 +59,12 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	 */
 	public Map<String, String> parseAndWriteFile(String inputFilePath, Map<String, String> fieldvalue,
 			String outputFilePath, String propFileName) {
-		return null;
+		return Collections.emptyMap();
 	}
 	@Override
 	public String parseAndUpdateJson(String inputJson, Map<String, String> fieldvalue, String propFileName) {
 		try {
 			
-			//JSONObject jsonObj = new JSONObject(inputJson);
 			ObjectMapper mapper = new ObjectMapper();
 			Object jsonObj = mapper.readValue(inputJson, Object.class);
 				Properties props = 	AdminTestUtil.getproperty(propFileName);																// add
@@ -89,7 +90,6 @@ public class JsonPrecondtion extends MessagePrecondtion{
 							map.getValue());
 			}
 			
-			// Replacing the domainuri, env and requesttime in request
 			PropertyUtils.setProperty(jsonObj, props.getProperty("AuthReq.env"),
 					BaseTestCase.ApplnURI);
 			PropertyUtils.setProperty(jsonObj, props.getProperty("AuthReq.domainUri"),
@@ -99,7 +99,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			
 			String outputJson = mapper.writeValueAsString(jsonObj);			
 			
-			if (outputJson.contains("$REMOVE$"))
+			if (outputJson.contains(GlobalConstants.REMOVE))
 				outputJson = removeObject(new JSONObject(outputJson));
 			outputJson=JsonPrecondtion.toPrettyFormat(outputJson);
 			return outputJson;
@@ -121,14 +121,14 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	public static String getValueFromJson(String inputFilePath, String mappingFileName, String mappingFieldName) {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-			Object jsonObj = mapper.readValue(new String(Files.readAllBytes(Paths.get(inputFilePath)), "UTF-8"),
+			Object jsonObj = mapper.readValue(new String(Files.readAllBytes(Paths.get(inputFilePath)), StandardCharsets.UTF_8),
 					Object.class);
 			return PropertyUtils
 					.getProperty(jsonObj, AdminTestUtil.getproperty(mappingFileName).getProperty(mappingFieldName))
 					.toString();
 		} catch (Exception exception) {
 			JSONPRECONDATION_LOGGER
-					.error("Exception Occured in retrieving the value from json file: " + exception.getMessage());
+					.error(GlobalConstants.EXCEPTIONFORJSON + exception.getMessage());
 			return exception.toString();
 		}
 	}
@@ -147,7 +147,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			return PropertyUtils.getProperty(jsonObj, fieldMapper).toString();
 		} catch (Exception expection) {
 			JSONPRECONDATION_LOGGER
-					.error("Exception Occured in retrieving the value from json file: " + expection.getMessage());
+					.error(GlobalConstants.EXCEPTIONFORJSON+ expection.getMessage());
 			return "Cannot retrieve data or content for the object mapper from  JSON";
 		}
 	}
@@ -168,7 +168,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 					AdminTestUtil.getproperty(mappingFilePath).getProperty(fieldName)));
 		} catch (Exception exp) {
 			JSONPRECONDATION_LOGGER
-					.error("Exception Occured in retrieving the value from json file: " + exp.getMessage());
+					.error(GlobalConstants.EXCEPTIONFORJSON + exp.getMessage());
 			return exp.toString();
 		}
 	}
@@ -185,8 +185,8 @@ public class JsonPrecondtion extends MessagePrecondtion{
 		Map<String, String> returnMap = null;
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-			returnMap = new HashMap<String, String>();
-			Object jsonObj = mapper.readValue(new String(Files.readAllBytes(Paths.get(jsonFilePath)), "UTF-8"),
+			returnMap = new HashMap<>();
+			Object jsonObj = mapper.readValue(new String(Files.readAllBytes(Paths.get(jsonFilePath)), StandardCharsets.UTF_8),
 					Object.class);
 			for (Entry<String, String> entry : map.entrySet()) {
 				if (PropertyUtils.getProperty(jsonObj, entry.getValue()) != null)
@@ -206,7 +206,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
     public JsonPrecondtion() {}
     public JsonPrecondtion(String json) {
         this.json = json;
-        this.pathList = new ArrayList<String>();
+        this.pathList = new ArrayList<>();
         setJsonPaths(this.json);
     }
 
@@ -226,7 +226,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
      * @param json
      */
     private void setJsonPaths(String json) {
-        this.pathList = new ArrayList<String>();
+        this.pathList = new ArrayList<>();
         JSONObject object = new JSONObject(json);
         String jsonPath = "$";
         if(json != JSONObject.NULL) {
@@ -286,7 +286,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
      * @return map, key as json fieldName and value as json object path
      */
 	private Map<String, String> modifyList() {
-		Map<String, String> mappingDic = new HashMap<String, String>();
+		Map<String, String> mappingDic = new HashMap<>();
 		for (String str : this.pathList) {
 			String value = str.replace("$.", "");
 			String key = "";
@@ -470,7 +470,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 			return mapper.writeValueAsString(PropertyUtils.getProperty(jsonObj, fieldMapper));
 		} catch (Exception expection) {
 			JSONPRECONDATION_LOGGER
-					.error("Exception Occured in retrieving the value from json file: " + expection.getMessage());
+					.error(GlobalConstants.EXCEPTIONFORJSON+ expection.getMessage());
 			return expection.toString();
 		}
 	}
@@ -493,7 +493,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 				if (array.length() != 0) {
 					for (int i = 0; i < array.length(); ++i) {
 						if (!array.toString().contains("{") && !array.toString().contains("}")) {
-							Set<String> arr = new HashSet<String>();
+							Set<String> arr = new HashSet<>();
 							for (int k = 0; k < array.length(); k++) {
 								arr.add(array.getString(k));
 							}
@@ -514,7 +514,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 				String objectContent = removeObject(new JSONObject(value.toString()));
 				object.put(key, new JSONObject(objectContent));
 			}
-			if (value.toString().equals("$REMOVE$")) {
+			if (value.toString().equals(GlobalConstants.REMOVE)) {
 				object.remove(key);
 				keysItr = object.keys();
 			}
@@ -525,7 +525,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 	private static String removObjectFromArray(Set<String> content) {
 		String array = "[";
 		for (String str : content) {
-			if (!str.contains("$REMOVE$"))
+			if (!str.contains(GlobalConstants.REMOVE))
 				array = array + '"' + str + '"' + ",";
 		}
 		array = array.substring(0, array.length() - 1);
@@ -566,7 +566,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 				String objectContent = removeObject(new JSONObject(value.toString()));
 				object.put(key, new JSONObject(objectContent));
 			}
-			if (value.toString().equals("$REMOVE$")) {
+			if (value.toString().equals(GlobalConstants.REMOVE)) {
 				object.remove(key);
 				keysItr = object.keys();
 			}
@@ -605,7 +605,7 @@ public class JsonPrecondtion extends MessagePrecondtion{
 		Map<String, String> returnMap = null;
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-			returnMap = new HashMap<String, String>();
+			returnMap = new HashMap<>();
 			Object jsonObj = mapper.readValue(json,Object.class);
 			for (Entry<String, String> entry : map.entrySet()) {
 				if (PropertyUtils.getProperty(jsonObj, entry.getValue()) != null)
