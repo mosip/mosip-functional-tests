@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import static io.mosip.service.BaseTestCase.getRequestJson;
 
 import org.apache.log4j.Logger;
 import org.json.JSONException;
@@ -91,7 +92,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 
 		String url = ConfigManager.getAuthDemoServiceUrl();
 
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 
 		requestBody.put("id", individualId);
 		requestBody.put("keyFileNameByPartnerName", GlobalConstants.TRUE_STRING);
@@ -112,7 +113,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		Object sendOtpBody = otpInput;
 		logger.info(sendOtpBody);
 
-		HashMap<String, String> headers = new HashMap<String, String>();
+		HashMap<String, String> headers = new HashMap<>();
 		headers.put(AUTHORIZATHION_HEADERNAME, token);
 		headers.put(SIGNATURE_HEADERNAME, signature);
 

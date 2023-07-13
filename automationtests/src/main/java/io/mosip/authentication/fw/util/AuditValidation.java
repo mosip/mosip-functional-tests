@@ -63,16 +63,16 @@ public class AuditValidation {
 			if (exp_auth_txn.containsKey("request_dtimes") && exp_auth_txn.containsKey("response_dtimes")) {
 				act = DbConnection
 						.getDataForQuery(
-								getAuditLogQuery(exp.get(GlobalConstants.APP_NAME), exp.get(GlobalConstants.MODULE_NAME), exp.get("ref_id"),
+								getAuditLogQuery(exp.get(GlobalConstants.APP_NAME), exp.get(GlobalConstants.MODULE_NAME), exp.get(GlobalConstants.REFID),
 										exp_auth_txn.get("request_dtimes"), exp_auth_txn.get("response_dtimes")),
-								"AUDIT");
+								GlobalConstants.AUDIT);
 			} else {
 				act = DbConnection.getDataForQuery(
-						getAuditLogQuery(exp.get(GlobalConstants.APP_NAME), exp.get(GlobalConstants.MODULE_NAME), exp.get("ref_id")), "AUDIT");
+						getAuditLogQuery(exp.get(GlobalConstants.APP_NAME), exp.get(GlobalConstants.MODULE_NAME), exp.get(GlobalConstants.REFID)), GlobalConstants.AUDIT);
 			}
 		} else {
 			act = DbConnection.getDataForQuery(
-					getAuditLogQuery(exp.get(GlobalConstants.APP_NAME), exp.get(GlobalConstants.MODULE_NAME), exp.get("ref_id")), "AUDIT");
+					getAuditLogQuery(exp.get(GlobalConstants.APP_NAME), exp.get(GlobalConstants.MODULE_NAME), exp.get(GlobalConstants.REFID)), GlobalConstants.AUDIT);
 		}
 		return OutputValidationUtil.compareActuExpValue(act, exp, "Audit Log Validation");
 	}	
@@ -90,7 +90,7 @@ public class AuditValidation {
 				exp.put(temp.getKey(), act.get(temp.getKey()));
 			} else if (temp.getValue().contains("$") && temp.getValue().contains(":")
 					&& temp.getValue().contains("audit.")) {
-				String arr[] = temp.getValue().replace("$", "").split(Pattern.quote(":"));
+				String[] arr = temp.getValue().replace("$", "").split(Pattern.quote(":"));
 				String value = arr[1];
 				exp.put(temp.getKey(),
 						AuthTestsUtil.getValueFromPropertyFile(auth_txn_file.getAbsolutePath(), value));

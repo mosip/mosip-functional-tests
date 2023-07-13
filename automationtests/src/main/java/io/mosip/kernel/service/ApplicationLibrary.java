@@ -21,7 +21,6 @@ public class ApplicationLibrary extends BaseTestCase {
 
 	private static CommonLibrary commonLibrary = new CommonLibrary();
 
-	// post requests
 	public Response postWithoutJson(String endpoint, String cookie) {
 		return commonLibrary.postWithoutJson(ApplnURI + endpoint, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, cookie);

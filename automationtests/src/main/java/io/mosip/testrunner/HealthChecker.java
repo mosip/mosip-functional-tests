@@ -35,7 +35,7 @@ public class HealthChecker implements Runnable {
 		
 		File file = new File(propsHealthCheckURL);
 		FileReader fileReader = null;
-		List<String> controllerPaths = new ArrayList<String>();
+		List<String> controllerPaths = new ArrayList<>();
 		BufferedReader bufferedReader = null;
 		try {
 			fileReader = new FileReader(file);
@@ -47,7 +47,6 @@ public class HealthChecker implements Runnable {
 					continue;
 				String[] parts = line.trim().split("=");
 				if (parts.length > 1) {
-					// only add health check required for the current running module
 					if (parts[0].contains(currentRunningModule)) 
 						controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
 				}

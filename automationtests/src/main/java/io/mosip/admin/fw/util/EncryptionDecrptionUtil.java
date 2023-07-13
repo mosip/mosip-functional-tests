@@ -78,7 +78,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 * @return Map - key,data,hmac and its value
 	 */ 
 	public Map<String, String> getEncryptSessionKeyValue(String jsonString) {
-		Map<String, String> ecryptData = new HashMap<String, String>();
+		Map<String, String> ecryptData = new HashMap<>();
 		try {
 			String json = getEncryption(jsonString);
 			JSONObject jsonobj = new JSONObject(json);
@@ -102,7 +102,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 * @return Map - key,data,hmac and its value
 	 */ 
 	public Map<String, String> getInternalEncryptSessionKeyValue(String jsonString) {
-		Map<String, String> ecryptData = new HashMap<String, String>();
+		Map<String, String> ecryptData = new HashMap<>();
 		try {
 			String json = getIntenalEncryption(jsonString);
 			JSONObject jsonobj = new JSONObject(json);
@@ -133,7 +133,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return RestClient.postRequest(EncryptUtilBaseUrl+props.get("encryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			lOGGER.error("Exception: " + e);
+			lOGGER.error(GlobalConstants.EXCEPTION+ e);
 			return e.toString();
 		}
 	}
@@ -152,7 +152,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return RestClient.postRequest(EncryptUtilBaseUrl+props.get("internalEncryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			lOGGER.error("Exception: " + e);
+			lOGGER.error(GlobalConstants.EXCEPTION+ e);
 			return e.toString();
 		}
 	}
@@ -169,7 +169,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return RestClient.postRequest(EncryptUtilBaseUrl+props.get(GlobalConstants.ENCODEPATH), objectData.toString(), MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
-			lOGGER.error("Exception: " + e);
+			lOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -186,7 +186,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return RestClient.postRequest(EncryptUtilBaseUrl+props.get(GlobalConstants.ENCODEPATH), objectData, MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
-			lOGGER.error("Exception: " + e);
+			lOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -201,7 +201,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return RestClient.postRequest(EncryptUtilBaseUrl + props.get("decodeFilePath"), content,
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_OCTET_STREAM).asString();
 		} catch (Exception e) {
-			lOGGER.error("Exception: " + e);
+			lOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -217,7 +217,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return RestClient.postRequest(EncryptUtilBaseUrl + props.get("encodeFilePath"), file,
 					MediaType.MULTIPART_FORM_DATA, MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
-			lOGGER.error("Exception: " + e);
+			lOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -234,7 +234,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return RestClient.postRequest(EncryptUtilBaseUrl + props.get("decodePath"),
 					objectData.toString(), MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			lOGGER.error("Exception: " + e);
+			lOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -250,7 +250,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return RestClient.postRequest(EncryptUtilBaseUrl + props.get("decodePath"), content,
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			lOGGER.error("Exception: " + e);
+			lOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -266,7 +266,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return RestClient.postRequest(EncryptUtilBaseUrl + props.get(GlobalConstants.DECRYPTPATH),
 					objectData.toString(), MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			lOGGER.error("Exception: " + e);
+			lOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -279,14 +279,13 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 */
 	public String getDecyptFromStr(String content, String referenceId, boolean isInternal) {
 		try {
-			HashMap<String, Object> queryParams = new HashMap<String, Object>();
-			// this partner is created in pmpdatamanager class, partner certificate is uploaded for this partner.
+			HashMap<String, Object> queryParams = new HashMap<>();
 			queryParams.put("refId", referenceId);
 			queryParams.put("isInternal", isInternal);
 			return RestClient.postRequestWithQueryParamsAndBody(EncryptUtilBaseUrl + props.get(GlobalConstants.DECRYPTPATH), content, queryParams, 
 					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
-			lOGGER.error("Exception: " + e);
+			lOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -302,7 +301,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			return RestClient.postRequest(EncryptUtilBaseUrl+props.get(GlobalConstants.ENCODEPATH), content, MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
-			lOGGER.error("Exception: " + e);
+			lOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 	}
@@ -314,7 +313,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 					MediaType.APPLICATION_JSON).asString();
 			
 		} catch (Exception e) {
-			lOGGER.error("Exception: " + e);
+			lOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
 		}
 		
@@ -337,15 +336,15 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
 		String url = ApplnURI + props.getProperty("getIdaCertificateUrl");
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, String> map = new HashMap<>();
 		map.put("applicationId", applicationId);
 		map.put("referenceId", referenceId);
 		lOGGER.info("Getting certificate for "+referenceId);
 		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		JSONObject responseJson = new JSONObject(response.asString());
-		if(!responseJson.get("response").toString().equals("null"))
+		if(!responseJson.get(GlobalConstants.RESPONSE).toString().equals("null"))
 		{
-			JSONObject certiResponseJson = new JSONObject(responseJson.get("response").toString());
+			JSONObject certiResponseJson = new JSONObject(responseJson.get(GlobalConstants.RESPONSE).toString());
 			cert = certiResponseJson.get("certificate").toString();
 		}
 		else {
@@ -359,9 +358,9 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		cert = cert.replaceAll("\\s", "");
 		try {
 			CertificateFactory cf = CertificateFactory.getInstance("X.509");
-			X509Certificate certificate = (X509Certificate) cf
+			return(X509Certificate) cf
 					.generateCertificate(new ByteArrayInputStream(Base64.getDecoder().decode(cert)));
-			return certificate;
+			
 		} catch (CertificateException e) {
 			lOGGER.error("Exception in generate Certficate for generating thumbprint: "+e.getMessage());
 			return null;
@@ -372,14 +371,14 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		String cert = null;
 		String token = kernelAuthLib.getTokenByRole("regproc");
 		String url = ApplnURI + props.getProperty("getPartnerCertificateUrl");
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, String> map = new HashMap<>();
 		map.put(GlobalConstants.PARTNERID, partnerId);
 		lOGGER.info("Getting certificate for partner "+partnerId);
 		Response response = RestClient.getRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		JSONObject responseJson = new JSONObject(response.asString());
-		if(!responseJson.get("response").toString().equals("null"))
+		if(!responseJson.get(GlobalConstants.RESPONSE).toString().equals("null"))
 		{
-			JSONObject certiResponseJson = new JSONObject(responseJson.get("response").toString());
+			JSONObject certiResponseJson = new JSONObject(responseJson.get(GlobalConstants.RESPONSE).toString());
 			cert = certiResponseJson.get("certificateData").toString();
 		}
 		else {
@@ -393,9 +392,9 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		cert = cert.replaceAll("\\s", "");
 		try {
 			CertificateFactory cf = CertificateFactory.getInstance("X.509");
-			X509Certificate certificate = (X509Certificate) cf
+			return(X509Certificate) cf
 					.generateCertificate(new ByteArrayInputStream(Base64.getDecoder().decode(cert)));
-			return certificate;
+			
 		} catch (CertificateException e) {
 			lOGGER.error("Exception in generate Certficate for generating thumbprint: "+e.getMessage());
 			return null;
@@ -419,7 +418,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		Reporter.log(
 				"<b><u>Decrypted Kyc Response: </u></b>(EndPointUrl: " + EncryptUtilBaseUrl + props.get(GlobalConstants.DECRYPTPATH)
 						+ ") <pre>" + ReportUtil.getTextAreaJsonMsgHtml(decryptedKycIdentity) + "</pre>");
-		String keysToValidateInKYC[] = props.getProperty("keysToValidateInKYC").split(",");
+		String[] keysToValidateInKYC = props.getProperty("keysToValidateInKYC").split(",");
 		JSONObject decryptedKycJson = new JSONObject(decryptedKycIdentity);
 		if (decryptedKycJson.length() != 0) {
 			for (String key : keysToValidateInKYC)
@@ -433,7 +432,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 
 	public boolean validateThumbPrintAndIdentity(Response response, String ekycUri) throws AdminTestException {
 		String thumbPrint = JsonPrecondtion.getValueFromJson(response.asString(), "response.thumbprint");
-		String uriParts[] = ekycUri.split("/");
+		String[] uriParts = ekycUri.split("/");
 		String partnerId = uriParts[uriParts.length-2];
 		boolean thumprintValid = validateThumbPrint(thumbPrint, partnerId);
 			if(!thumprintValid)	throw new AdminTestException("Failed in Thumbprint validation");
@@ -446,7 +445,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	}
 	
 	public boolean verifyResponseUsingDigitalSignature(String resonseContent, String digitalSignature) {
-		HashMap<String, String> queryparams = new HashMap<String, String>();
+		HashMap<String, String> queryparams = new HashMap<>();
 		queryparams.put("signature", digitalSignature);
 		String signatureApiPath = EncryptUtilBaseUrl + props.getProperty("validateSignatureUrl");
 		Response response = RestClient.postRequestWithQueryParamAndBody(signatureApiPath, resonseContent,queryparams, MediaType.APPLICATION_JSON,

@@ -81,6 +81,21 @@ public class GlobalConstants {
 	public static final String $PRIMARYLANG$="$PRIMARYLANG$";
 	public static final String BOTHOBJECTSAREEQUAL= "both object are equal";
 	public static final String KYCAUTHENDPOINT = "kycAuthEndPoint";
+	public static final String REFID = "ref_id";
+	public static final String AUDIT = "AUDIT";
+	public static final String EQUAL = "equal";
+	public static final String IDREPO = "idrepo";
+	public static final String TESTCLASSES = "test-classes";
+	public static final String PARTNERTYPE = "partnerType";
+	public static final String CERTIFICATEDATA = "certificateData";
+	public static final String PARTNERDOMAIN = "partnerDomain";
+	public static final String DATA =".data";
+	public static final String AUTOMATION = "automation";
+	public static final String AUTOMATIONLABS = "@automationlabs.com";
+	public static final String REPSONSE = "Repsonse: %s %s%n";
+	public static final String USERCREATEDWITHUSERID = "User created with userId: %s%n";
+	public static final String MOSIP123 = "mosip123";
+	
 	
 	
 	
@@ -134,5 +149,9 @@ public class GlobalConstants {
 	public static final String PROPERTIES = "properties";
 	public static final String CREATEPREREG = "createPrereg.hbs";
 	public static final String CHALLENGE = "challenge";
+	public static final String EXCEPTIONFORJSON = "Exception Occured in retrieving the value from json file: ";
+	public static final String ROLENOTFOUNDINKEYCLOAK = "Role not found in keycloak: %s%n";
+	public static final String USERREMOVEDWITHNAME ="User removed with name: %s%n";
+	public static final String USERNOTFOUNDWITHNAME = "User not found with name: %s%n";
 	
 }
