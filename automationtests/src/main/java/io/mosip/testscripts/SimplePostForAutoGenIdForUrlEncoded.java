@@ -26,6 +26,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.kernel.util.ConfigManager;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -74,6 +75,9 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
+		if (!ConfigManager.IseSignetDeployed()) {
+			throw new SkipException("esignet is not deployed hence skipping the testcase");
 		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		String[] templateFields = testCaseDTO.getTemplateFields();
