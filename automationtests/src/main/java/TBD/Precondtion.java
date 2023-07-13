@@ -37,7 +37,7 @@ public class Precondtion {
 	public static Map<String, String> parseAndWritePropertyFile(String auditMappingPath,Map<String, String> fieldvalue,
 			String outputFilePath) {
 		FileOutputStream outputStream = null;
-		Map<String, String> auditTxnValue = new HashMap<String, String>();
+		Map<String, String> auditTxnValue = new HashMap<>();
 		try {
 			if (getKeywordObject(TestDataConfig.getModuleName()) != null) {
 				fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);
@@ -72,7 +72,7 @@ public class Precondtion {
 	public static Map<String, String> parseAndWriteEmailNotificationPropertyFile(String emailMappingPath,
 			Map<String, String> fieldvalue, String outputFilePath) {
 		FileOutputStream outputStream = null;
-		Map<String, String> emailTemplatevalue = new HashMap<String, String>();
+		Map<String, String> emailTemplatevalue = new HashMap<>();
 		try {
 			if (getKeywordObject(TestDataConfig.getModuleName()) != null) {
 				fieldvalue = getKeywordObject(TestDataConfig.getModuleName()).precondtionKeywords(fieldvalue);

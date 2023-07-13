@@ -93,7 +93,8 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
-		String sendOtpResp = null, sendOtpResTemplate = null;
+		String sendOtpResp = null;
+		String sendOtpResTemplate = null;
 		if(res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
@@ -134,21 +135,20 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 		
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
-		if (testCaseDTO.getInputTemplate().contains("$PRIMARYLANG$"))
+		if (testCaseDTO.getInputTemplate().contains(GlobalConstants.$PRIMARYLANG$))
 			testCaseDTO.setInputTemplate(
-					testCaseDTO.getInputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getOutputTemplate().contains("$PRIMARYLANG$"))
+					testCaseDTO.getInputTemplate().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getOutputTemplate().contains(GlobalConstants.$PRIMARYLANG$))
 			testCaseDTO.setOutputTemplate(
-					testCaseDTO.getOutputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getInput().contains("$PRIMARYLANG$"))
-			testCaseDTO.setInput(testCaseDTO.getInput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getOutput().contains("$PRIMARYLANG$"))
-			testCaseDTO.setOutput(testCaseDTO.getOutput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+					testCaseDTO.getOutputTemplate().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getInput().contains(GlobalConstants.$PRIMARYLANG$))
+			testCaseDTO.setInput(testCaseDTO.getInput().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getOutput().contains(GlobalConstants.$PRIMARYLANG$))
+			testCaseDTO.setOutput(testCaseDTO.getOutput().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			List<String> languageList = new ArrayList<>();
 			languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
 			 for (int i=0; i<languageList.size(); i++) {
 		            	response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),

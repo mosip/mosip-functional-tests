@@ -4,7 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
@@ -24,8 +23,8 @@ import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.global.utils.GlobalMethods;
-import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -85,7 +84,7 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 		            	try {
 		       			 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
 		       			} catch (IOException e) {
-		       				Reporter.log("Exception : " + e.getMessage());
+		       				Reporter.log(GlobalConstants.EXCEPTION + e.getMessage());
 		       			}
 		       		 
 			       		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
@@ -102,7 +101,7 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 			try {
 				 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
 				} catch (IOException e) {
-					Reporter.log("Exception : " + e.getMessage());
+					Reporter.log(GlobalConstants.EXCEPTION + e.getMessage());
 				}
 			 
 			 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
@@ -133,7 +132,7 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 			f.setAccessible(true);
 			f.set(baseTestMethod, testCaseName);
 		} catch (Exception e) {
-			Reporter.log("Exception : " + e.getMessage());
+			Reporter.log(GlobalConstants.EXCEPTION + e.getMessage());
 		}
 	}	
 }

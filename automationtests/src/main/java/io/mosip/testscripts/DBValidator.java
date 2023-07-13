@@ -87,8 +87,8 @@ public class DBValidator extends AdminTestUtil implements ITest {
 		Map<String, Object> response = AuditDBManager.executeQueryAndGetRecord(testCaseDTO.getRole(), query);
 		
 		
-		Map<String, List<OutputValidationDto>> objMap = new HashMap<String, List<OutputValidationDto>>();
-		List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
+		Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
+		List<OutputValidationDto> objList = new ArrayList<>();
 		OutputValidationDto objOpDto = new OutputValidationDto();
 		if(response.size()>0) {
 			

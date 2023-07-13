@@ -18,6 +18,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
+import io.mosip.global.utils.GlobalConstants;
 import io.restassured.response.Response;
 
 public class AssertResponses {
@@ -41,7 +42,7 @@ public class AssertResponses {
 
 			try {
 				Assert.assertTrue(obj1.equals(obj2));
-				logger.info("both object are equal");
+				logger.info(GlobalConstants.BOTHOBJECTSAREEQUAL);
 			} catch (AssertionError e) {
 				Assert.assertTrue(false, "Response Data Mismatch Failure");
 				return false;
@@ -74,7 +75,6 @@ public class AssertResponses {
 			}
 		}else 
 			obj1 =  AssertResponses.getComparableBody(newResponse, outerKeys, innerKeys);
-		//			JSONObject obj1 = AssertResponses.getComparableBody(response.getBody().asString(), outerKeys, innerKeys);
 
 
 			for(int i=1; i<=objectArray.size();i++){
@@ -162,9 +162,9 @@ public class AssertResponses {
 		Map<String, Object> secondMap = g.fromJson(obj2.toJSONString(), mapType);
 		logger.info(com.google.common.collect.Maps.difference(firstMap, secondMap));
 		if (obj1.hashCode() == obj2.hashCode()) {
-			logger.info("both object are equal");
+			logger.info(GlobalConstants.BOTHOBJECTSAREEQUAL);
 			softAssert.assertTrue(obj1.equals(obj2));
-			logger.info("both object are equal");
+			logger.info(GlobalConstants.BOTHOBJECTSAREEQUAL);
 			softAssert.assertAll();
 			return true;
 

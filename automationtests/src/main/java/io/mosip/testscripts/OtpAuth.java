@@ -78,17 +78,20 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
+	public void test(TestCaseDTO testCaseDTO) throws AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
+		if(testCaseDTO.getEndPoint().contains(GlobalConstants.$PARTNERKEYURL$))
 		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", props.getProperty("partnerKeyURL")));
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace(GlobalConstants.$PARTNERKEYURL$, props.getProperty("partnerKeyURL")));
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
-		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
+		String otpRequest = null;
+		String sendOtpReqTemplate = null;
+		String sendOtpEndPoint = null;
+		String otpIdentyEnryptRequestPath = null;
 		if(req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
@@ -103,9 +106,9 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		otpIdentyEnryptRequestPath = otpReqJson.getString("otpIdentyEnryptRequestPath");
 		otpReqJson.remove("otpIdentyEnryptRequestPath");
 		
-		if(sendOtpEndPoint.contains("$partnerKeyURL$"))
+		if(sendOtpEndPoint.contains(GlobalConstants.$PARTNERKEYURL$))
 		{
-			sendOtpEndPoint= sendOtpEndPoint.replace("$partnerKeyURL$", props.getProperty("partnerKeyURL"));
+			sendOtpEndPoint= sendOtpEndPoint.replace(GlobalConstants.$PARTNERKEYURL$, props.getProperty("partnerKeyURL"));
 		}
 		
 		Response otpResponse = null;

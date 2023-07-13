@@ -26,7 +26,6 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
-import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -107,7 +106,7 @@ public class GetWithParamForAutoGenId extends AdminTestUtil implements ITest {
 				
 				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
 				
-				ouputValid = new HashMap<String, List<OutputValidationDto>>();
+				ouputValid = new HashMap<>();
 				ouputValid.put("expected vs actual", List.of(customResponse));
 			}else {
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(

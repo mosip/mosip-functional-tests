@@ -32,7 +32,7 @@ import io.mosip.ida.certificate.PartnerRegistration;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
-
+import static io.mosip.service.BaseTestCase.getRequestJson;
 public class DemoAuth extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(DemoAuth.class);
 	protected String testCaseName = "";

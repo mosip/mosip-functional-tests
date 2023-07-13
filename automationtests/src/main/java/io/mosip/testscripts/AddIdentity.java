@@ -40,7 +40,7 @@ import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
 public class AddIdentity extends AdminTestUtil implements ITest {
-	private static final Logger logger = Logger.getLogger(SimplePost.class);
+	private static final Logger logger = Logger.getLogger(AddIdentity.class);
 	protected String testCaseName = "";
 	public Response response = null;
 
@@ -97,15 +97,15 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		if (testCaseName.equals("Resident_AddIdentity_Valid_Params_AddUser_smoke_Pos")) {
 
 			KeycloakUserManager.removeVidUser();
-			HashMap<String, List<String>> attrmap = new HashMap<String, List<String>>();
-			List<String> list = new ArrayList<String>();
+			HashMap<String, List<String>> attrmap = new HashMap<>();
+			List<String> list = new ArrayList<>();
 			list.add(uin);
 			attrmap.put("individual_id", list);
-			list = new ArrayList<String>();
+			list = new ArrayList<>();
 			String token = AdminTestUtil.generateTokenID(uin, props.getProperty("partner_Token_Id"));
 			list.add(token);
 			attrmap.put("ida_token", list);
-			list = new ArrayList<String>();
+			list = new ArrayList<>();
 			String picture = props.getProperty("picturevalue");
 			list.add(picture);
 			attrmap.put("picture", list);

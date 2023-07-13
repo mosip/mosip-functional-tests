@@ -19,6 +19,7 @@ import org.testng.internal.TestResult;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 
+import io.mosip.admin.fw.util.AdminTestException;
 import io.mosip.admin.fw.util.AdminTestUtil;
 import io.mosip.admin.fw.util.TestCaseDTO;
 import io.mosip.global.utils.GlobalMethods;
@@ -66,7 +67,7 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 	 * @throws Exception 
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws Exception {	
+	public void test(TestCaseDTO testCaseDTO) throws AdminTestException {	
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		if (HealthChecker.signalTerminateExecution) {

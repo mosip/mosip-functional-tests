@@ -263,7 +263,6 @@ public class KeyMgrUtil {
             LocalDateTime dateTime, LocalDateTime dateTimeExp, String organization) throws 
             NoSuchAlgorithmException, OperatorCreationException, CertificateException, KeyStoreException, IOException   {
         KeyPairGenerator generator = KeyPairGenerator.getInstance(RSA_ALGO);
-//        SecureRandom random = new SecureRandom();
         generator.initialize(RSA_KEY_SIZE, BaseTestCase.secureRandom);
         KeyPair keyPair = generator.generateKeyPair();
         X509Certificate signCert = null;
@@ -314,9 +313,7 @@ public class KeyMgrUtil {
             OperatorCreationException, NoSuchAlgorithmException, CertIOException, CertificateException {
         X500Name certIssuer = getCertificateAttributes(signCertType, organization);
         X500Name certSubject = getCertificateAttributes(certType, organization);
-        //LocalDateTime dateTime = LocalDateTime.now();
         Date notBefore = Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
-        //LocalDateTime dateTimeExp = dateTime.plusYears(1);
         Date notAfter = Date.from(dateTimeExp.atZone(ZoneId.systemDefault()).toInstant());
 
         BigInteger certSerialNum = new BigInteger(Long.toString(BaseTestCase.secureRandom.nextLong()));
@@ -452,9 +449,9 @@ public class KeyMgrUtil {
 			String cert = new String(Files.readAllBytes(path));
 			cert = trimBeginEnd(cert);
 			CertificateFactory cf = CertificateFactory.getInstance("X.509");
-			X509Certificate certificate = (X509Certificate) cf
+			return (X509Certificate) cf
 					.generateCertificate(new ByteArrayInputStream(Base64.getDecoder().decode(cert)));
-			return certificate;
+			
 		}
         return null;
 	}
