@@ -80,7 +80,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+	public void test(TestCaseDTO testCaseDTO) throws  AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
@@ -90,7 +90,8 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", props.getProperty("partnerKeyURL")));
 		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
-		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
+		String identityRequest = null;
+		String identityRequestTemplate = null;
 		if (request.has(GlobalConstants.IDENTITYREQUEST)) {
 			identityRequest = request.get(GlobalConstants.IDENTITYREQUEST).toString();
 			request.remove(GlobalConstants.IDENTITYREQUEST);
@@ -100,7 +101,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 		JSONObject identityReqJson = new JSONObject(identityRequest);
 		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
 		identityReqJson.remove("identityRequestTemplate");
-		identityRequestEncUrl = identityReqJson.getString("identityRequestEncUrl");
+		identityReqJson.getString("identityRequestEncUrl");
 		identityReqJson.remove("identityRequestEncUrl");
 		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
 

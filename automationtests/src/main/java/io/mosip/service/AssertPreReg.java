@@ -67,6 +67,7 @@ public class AssertPreReg {
 				recursiveObject(jsonObject, innerKeys);
 
 			} catch (ClassCastException exp) {
+				logger.info("ClassCastException");
 			}
 
 			try {
@@ -74,6 +75,7 @@ public class AssertPreReg {
 				if (jsonArray != null)
 					recursiveArray(jsonArray, innerKeys);
 			} catch (ClassCastException exp1) {
+				logger.info("ClassCastException");
 			}
 		}
 		return object;

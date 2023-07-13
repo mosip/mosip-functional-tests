@@ -76,6 +76,11 @@ public class GlobalConstants {
 	public static final String $1STLANG$ = "$1STLANG$";
 	public static final String $2STLANG$ = "$2STLANG$";
 	public static final String $3STLANG$ = "$3STLANG$";
+	public static final String $PARTNERKEYURL$ = "$partnerKeyURL$";
+	public static final String ESIGNET_ = "ESignet_";
+	public static final String $PRIMARYLANG$="$PRIMARYLANG$";
+	public static final String BOTHOBJECTSAREEQUAL= "both object are equal";
+	public static final String KYCAUTHENDPOINT = "kycAuthEndPoint";
 	
 	
 	

@@ -26,6 +26,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -78,16 +79,16 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 		auditLogCheck = testCaseDTO.isAuditLogCheck();
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		
-		if (testCaseDTO.getInputTemplate().contains("$PRIMARYLANG$"))
+		if (testCaseDTO.getInputTemplate().contains(GlobalConstants.$PRIMARYLANG$))
 			testCaseDTO.setInputTemplate(
-					testCaseDTO.getInputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getOutputTemplate().contains("$PRIMARYLANG$"))
+					testCaseDTO.getInputTemplate().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getOutputTemplate().contains(GlobalConstants.$PRIMARYLANG$))
 			testCaseDTO.setOutputTemplate(
-					testCaseDTO.getOutputTemplate().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getInput().contains("$PRIMARYLANG$"))
-			testCaseDTO.setInput(testCaseDTO.getInput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
-		if (testCaseDTO.getOutput().contains("$PRIMARYLANG$"))
-			testCaseDTO.setOutput(testCaseDTO.getOutput().replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0)));
+					testCaseDTO.getOutputTemplate().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getInput().contains(GlobalConstants.$PRIMARYLANG$))
+			testCaseDTO.setInput(testCaseDTO.getInput().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
+		if (testCaseDTO.getOutput().contains(GlobalConstants.$PRIMARYLANG$))
+			testCaseDTO.setOutput(testCaseDTO.getOutput().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
@@ -124,7 +125,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 				
 				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
 				
-				ouputValid = new HashMap<String, List<OutputValidationDto>>();
+				ouputValid = new HashMap<>();
 				ouputValid.put("expected vs actual", List.of(customResponse));
 			}else {
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(

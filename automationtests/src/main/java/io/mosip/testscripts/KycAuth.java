@@ -27,6 +27,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -39,7 +40,7 @@ public class KycAuth extends AdminTestUtil implements ITest {
 
 	@BeforeClass
 	public static void setPrerequiste() {
-		
+		return;
 		
 	}
 
@@ -84,9 +85,9 @@ public class KycAuth extends AdminTestUtil implements ITest {
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String kycAuthEndPoint = null;
-		if (request.has("kycAuthEndPoint")) {
-			kycAuthEndPoint = request.get("kycAuthEndPoint").toString();
-			request.remove("kycAuthEndPoint");
+		if (request.has(GlobalConstants.KYCAUTHENDPOINT)) {
+			kycAuthEndPoint = request.get(GlobalConstants.KYCAUTHENDPOINT).toString();
+			request.remove(GlobalConstants.KYCAUTHENDPOINT);
 		}
 		
 		String requestString = buildIdentityRequest(request.toString());
@@ -114,7 +115,7 @@ public class KycAuth extends AdminTestUtil implements ITest {
 		
 		String requestJson = null;
 
-		HashMap<String, String> headers = new HashMap<String, String>();
+		HashMap<String, String> headers = new HashMap<>();
 		headers.put(SIGNATURE_HEADERNAME, signature);
 		String token = kernelAuthLib.getTokenByRole(testCaseDTO.getRole());
 		
@@ -159,5 +160,6 @@ public class KycAuth extends AdminTestUtil implements ITest {
 
 	@AfterClass
 	public static void authTestTearDown() {
+		return;
 	}
 }

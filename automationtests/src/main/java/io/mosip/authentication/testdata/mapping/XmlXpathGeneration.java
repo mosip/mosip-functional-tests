@@ -30,14 +30,14 @@ import io.mosip.authentication.fw.precon.XmlPrecondtion;
  *
  */
 public class XmlXpathGeneration extends DefaultHandler {
-	private static final Logger xmlXpathLogger = Logger.getLogger(XmlPrecondtion.class);
-	private static Map<String, String> mappingFieldvalue = new HashMap<String, String>();
-	private static Set<String> xpathList = new HashSet<String>();
+	private static final Logger xmlXpathLogger = Logger.getLogger(XmlXpathGeneration.class);
+	private static Map<String, String> mappingFieldvalue = new HashMap<>();
+	private static Set<String> xpathList = new HashSet<>();
 	String xPath = "/";
 	XMLReader xmlReader;
 	XmlXpathGeneration parent;
 	StringBuilder characters = new StringBuilder();
-	Map<String, Integer> elementNameCount = new HashMap<String, Integer>();
+	Map<String, Integer> elementNameCount = new HashMap<>();
 	private static final String SAX_FEATURE = "http://apache.org/xml/features/disallow-doctype-decl";
 	private static final String SAX_EXTERNAL_GENERAL_FEATURE = "http://xml.org/sax/features/external-general-entities";
 	private static final String SAX_EXTERNAL_PARAMETER_FEATURE = "http://xml.org/sax/features/external-parameter-entities";
@@ -72,7 +72,6 @@ public class XmlXpathGeneration extends DefaultHandler {
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		String value = characters.toString().trim();
 		if (value.length() > 0) {
-			// logger.info(xPath + "='" + characters.toString() + "'");
 			xpathList.add(xPath + "/text()");
 		}
 		xmlReader.setContentHandler(parent);
@@ -172,7 +171,7 @@ public class XmlXpathGeneration extends DefaultHandler {
 			}
 			fieldKey=fieldKey.replace("\"", "");
 			fieldKey=fieldKey.replace(":", "");
-			mappingFieldvalue.put(fieldKey, entry.toString());
+			mappingFieldvalue.put(fieldKey, entry);
 		}
 	}
 }

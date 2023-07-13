@@ -107,7 +107,7 @@ public class RunConfigUtil {
 	 */
 	public static void getTokenIdPropertyValue(String path) {
 		Properties prop = AuthTestsUtil.getPropertyFromRelativeFilePath(path);
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new HashMap<>();
 		for (String key : prop.stringPropertyNames()) {
 			String value = prop.getProperty(key);
 			map.put(key, value);

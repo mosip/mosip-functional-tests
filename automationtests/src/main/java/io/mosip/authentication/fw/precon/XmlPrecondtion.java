@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -78,7 +79,7 @@ public class XmlPrecondtion extends MessagePrecondtion {
 		DocumentBuilder builder = null;
 		Map<String, String> returnMap = null;
 		try {
-			returnMap = new HashMap<String, String>();
+			returnMap = new HashMap<>();
 			File inputFile = new File(path);
 			builderFactory.setFeature(FEATURE, true);
 			builderFactory.setFeature(EXTERNAL_DTD_FEATURE, false);
@@ -170,7 +171,7 @@ public class XmlPrecondtion extends MessagePrecondtion {
 	 */
 	public Map<String, String> parseAndWriteFile(String inputFilePath, Map<String, String> fieldvalue,
 			String outputFilePath, String propFileName) {
-		return null;
+		return Collections.emptyMap();
 	}
 
 	private static NodeList evaluateXpath(XPath xpath, String xpathStr) {

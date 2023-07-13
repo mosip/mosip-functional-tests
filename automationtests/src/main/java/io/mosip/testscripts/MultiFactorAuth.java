@@ -81,9 +81,9 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
-		if (testCaseDTO.getEndPoint().contains("$partnerKeyURL$")) {
+		if (testCaseDTO.getEndPoint().contains(GlobalConstants.$PARTNERKEYURL$)) {
 			testCaseDTO.setEndPoint(
-					testCaseDTO.getEndPoint().replace("$partnerKeyURL$", props.getProperty("partnerKeyURL")));
+					testCaseDTO.getEndPoint().replace(GlobalConstants.$PARTNERKEYURL$, props.getProperty("partnerKeyURL")));
 		}
 		String otpRequest = null;
 		String sendOtpReqTemplate = null;
@@ -100,15 +100,16 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 
 		otpReqJson.remove("sendOtpEndPoint");
 
-		if (sendOtpEndPoint.contains("$partnerKeyURL$")) {
-			sendOtpEndPoint = sendOtpEndPoint.replace("$partnerKeyURL$", props.getProperty("partnerKeyURL"));
+		if (sendOtpEndPoint.contains(GlobalConstants.$PARTNERKEYURL$)) {
+			sendOtpEndPoint = sendOtpEndPoint.replace(GlobalConstants.$PARTNERKEYURL$, props.getProperty("partnerKeyURL"));
 		}
 
 		Response otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint,
 				getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), testCaseDTO.getTestCaseName());
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
-		String sendOtpResp = null, sendOtpResTemplate = null;
+		String sendOtpResp = null;
+		String sendOtpResTemplate = null;
 		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);

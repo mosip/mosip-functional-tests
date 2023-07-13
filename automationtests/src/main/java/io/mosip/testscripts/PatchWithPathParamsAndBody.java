@@ -23,6 +23,7 @@ import io.mosip.authentication.fw.dto.OutputValidationDto;
 import io.mosip.authentication.fw.util.AuthenticationTestException;
 import io.mosip.authentication.fw.util.OutputValidationUtil;
 import io.mosip.authentication.fw.util.ReportUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.service.BaseTestCase;
 import io.mosip.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -64,7 +65,7 @@ public class PatchWithPathParamsAndBody extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
+	public void test(TestCaseDTO testCaseDTO) throws AdminTestException {		
 		testCaseName = testCaseDTO.getTestCaseName(); 
 		
 		if (HealthChecker.signalTerminateExecution) {
@@ -85,27 +86,15 @@ public class PatchWithPathParamsAndBody extends AdminTestUtil implements ITest {
 
 	}
 	
-	private String filterOutputHbs(TestCaseDTO testCaseDTO) {
-		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
-
-		if (outputJson.contains("$1STLANG$"))
-			outputJson = outputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
-		if (outputJson.contains("$2NDLANG$"))
-			outputJson = outputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
-		if (outputJson.contains("$3RDLANG$"))
-			outputJson = outputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
-		return outputJson;
-	}
-
 	private String filterInputHbs(TestCaseDTO testCaseDTO) {
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 
-		if (inputJson.contains("$1STLANG$"))
-			inputJson = inputJson.replace("$1STLANG$", BaseTestCase.languageList.get(0));
-		if (inputJson.contains("$2NDLANG$"))
-			inputJson = inputJson.replace("$2NDLANG$", BaseTestCase.languageList.get(1));
-		if (inputJson.contains("$3RDLANG$"))
-			inputJson = inputJson.replace("$3RDLANG$", BaseTestCase.languageList.get(2));
+		if (inputJson.contains(GlobalConstants.$1STLANG$))
+			inputJson = inputJson.replace(GlobalConstants.$1STLANG$, BaseTestCase.languageList.get(0));
+		if (inputJson.contains(GlobalConstants.$2STLANG$))
+			inputJson = inputJson.replace(GlobalConstants.$2STLANG$, BaseTestCase.languageList.get(1));
+		if (inputJson.contains(GlobalConstants.$3STLANG$))
+			inputJson = inputJson.replace(GlobalConstants.$3STLANG$, BaseTestCase.languageList.get(2));
 		
 		
 		return inputJson;
