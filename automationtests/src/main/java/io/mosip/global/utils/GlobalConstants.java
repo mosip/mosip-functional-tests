@@ -110,6 +110,8 @@ public class GlobalConstants {
 	public static final String REPSONSE = "Repsonse: %s %s%n";
 	public static final String USERCREATEDWITHUSERID = "User created with userId: %s%n";
 	public static final String MOSIP123 = "mosip123";
+	public static final String MOSIP_IO = "@mosip.io";
+	
 	
 	
 	
