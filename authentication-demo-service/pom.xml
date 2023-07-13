@@ -1,36 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	
+
 	<groupId>io.mosip.authentication</groupId>
-	<version>1.2.0.1-SNAPSHOT</version>
+	<version>1.2.1-SNAPSHOT</version>
 	<artifactId>authentication-demo-service</artifactId>
 	<name>authentication-demo-service</name>
 	<packaging>jar</packaging>
-	<description>Mosip api testrig</description>
-	<url>https://github.com/mosip/mosip-functional-tests</url>
-	
-	<scm>
-		<connection>scm:git:git://github.com/mosip/mosip-functional-tests.git</connection>
-		<developerConnection>scm:git:ssh://github.com:mosip/mosip-functional-tests.git</developerConnection>
-		<url>https://github.com/mosip/mosip-functional-tests</url>
-		<tag>HEAD</tag>
-	</scm>
-	<licenses>
-		<license>
-			<name>MPL 2.0</name>
-			<url>https://www.mozilla.org/en-US/MPL/2.0/</url>
-		</license>
-	</licenses>
-	<developers>
-		<developer>
-			<name>Mosip</name>
-			<email>mosip.emailnotifier@gmail.com</email>
-			<organization>io.mosip</organization>
-			<organizationUrl>https://mosip.io</organizationUrl>
-		</developer>
-	</developers>
 
 	<repositories>
 		<repository>
@@ -38,31 +15,31 @@
 			<url>file:///${basedir}/lib</url>
 		</repository>
 
-       	<repository>
-	         <id>snapshots-repo</id>
-	         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-	         <releases><enabled>false</enabled></releases>
-	         <snapshots><enabled>true</enabled></snapshots>
-       	</repository>
+		<repository>
+			<id>snapshots-repo</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<releases><enabled>false</enabled></releases>
+			<snapshots><enabled>true</enabled></snapshots>
+		</repository>
 
-        <repository>
-	         <id>releases-repo</id>
-	         <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-	         <releases><enabled>false</enabled></releases>
-	         <snapshots><enabled>false</enabled></snapshots>
-       	</repository>
+		<repository>
+			<id>releases-repo</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+			<releases><enabled>false</enabled></releases>
+			<snapshots><enabled>false</enabled></snapshots>
+		</repository>
 
-        <repository>
-	        <id>danubetech-maven-public</id>
-	        <url>https://repo.danubetech.com/repository/maven-public/</url>
-      	</repository>
+		<repository>
+			<id>danubetech-maven-public</id>
+			<url>https://repo.danubetech.com/repository/maven-public/</url>
+		</repository>
 	</repositories>
 
 	<properties>
-		<!-- Maven Plugins -->		
+		<!-- Maven Plugins -->
 		<spring.boot.version>2.0.2.RELEASE</spring.boot.version>
 		<spring-cloud-config.version>2.0.0.RELEASE</spring-cloud-config.version>
-		
+
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.version>3.8.0</maven.compiler.version>
@@ -70,9 +47,9 @@
 		<maven.swagger.version>2.9.2</maven.swagger.version>
 		<maven.jacoco.version>0.8.2</maven.jacoco.version>
 		<sonar.skip>true</sonar.skip>
-		
-		<kernel-websubclient-api.version>1.2.0.1-SNAPSHOT</kernel-websubclient-api.version>
-		
+
+		<kernel-websubclient-api.version>1.2.0.1-B1</kernel-websubclient-api.version>
+
 	</properties>
 
 	<dependencies>
@@ -116,7 +93,7 @@
 		<dependency>
 			<groupId>io.mosip.authentication</groupId>
 			<artifactId>authentication-core</artifactId>
-			<version>1.2.0.1-SNAPSHOT</version>
+			<version>1.2.0.1-B3</version>
 			<exclusions>
 				<exclusion>
 					<groupId>commons-codec</groupId>
@@ -139,7 +116,7 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-core</artifactId>
-			<version>1.2.0.1-SNAPSHOT</version>
+			<version>1.2.0.1-B1</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
@@ -158,13 +135,13 @@
 			<artifactId>kernel-websubclient-api</artifactId>
 			<version>${kernel-websubclient-api.version}</version>
 		</dependency>
-		
+
 		<dependency>
-                  <groupId>org.springframework.boot</groupId>
-                  <artifactId>spring-boot-starter-actuator</artifactId>
-                  <version>2.0.2.RELEASE</version>
-                </dependency>
-		
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+			<version>2.0.2.RELEASE</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
@@ -218,13 +195,13 @@
 		</dependency>
 		<dependency>
 			<groupId>commons-codec</groupId>
-		  	<artifactId>commons-codec</artifactId>
-		  	<version>1.11</version>
+			<artifactId>commons-codec</artifactId>
+			<version>1.11</version>
 		</dependency>
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-templatemanager-velocity</artifactId>
-			<version>1.2.0.1-SNAPSHOT</version>
+			<version>1.2.0.1-B1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -249,7 +226,7 @@
 		<dependency>
 			<groupId>io.mosip.kernel</groupId>
 			<artifactId>kernel-keymanager-service</artifactId>
-			<version>1.2.0.1-SNAPSHOT</version>
+			<version>1.2.0.1-B2</version>
 			<classifier>lib</classifier>
 			<exclusions>
 				<exclusion>
@@ -287,22 +264,6 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.2.0</version>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<doclint>none</doclint>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven.compiler.version}</version>
 				<configuration>
@@ -310,39 +271,6 @@
 					<target>${maven.compiler.target}</target>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.2.1</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar-no-fork</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-gpg-plugin</artifactId>
-                  <version>1.5</version>
-                  <executions>
-                        <execution>
-                          <id>sign-artifacts</id>
-                          <phase>verify</phase>
-                          <goals>
-                                <goal>sign</goal>
-                          </goals>
-		          <configuration>
-                		<gpgArguments>
-                    			<arg>--pinentry-mode</arg>
-                    			<arg>loopback</arg>
-                		</gpgArguments>
-            		 </configuration>
-                        </execution>
-                  </executions>
-                </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>

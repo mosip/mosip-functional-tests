@@ -68,7 +68,7 @@ RUN mkdir -p ${loader_path}
 
 ENV loader_path_env=${loader_path}
 
-COPY ./target/authentication-demo-service-*-SNAPSHOT.jar authentication-demo-service.jar
+COPY ./target/authentication-demo-service-*.jar authentication-demo-service.jar
 
 ADD entrypoint.sh $work_dir/entrypoint.sh
 
