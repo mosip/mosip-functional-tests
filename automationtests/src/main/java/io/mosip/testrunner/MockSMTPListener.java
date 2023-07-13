@@ -12,6 +12,7 @@ import java.util.concurrent.CompletionStage;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 
@@ -81,11 +82,12 @@ public class MockSMTPListener{
 				ObjectMapper om = new ObjectMapper();
 
 				root = om.readValue(data.toString(), Root.class);
-				if (!parseOtp(root.html).isEmpty()) {
+				if (!parseOtp(root.html).isEmpty() || !parseAdditionalReqId(root.html).isEmpty()) {
 					emailNotificationMapS.put(root.to.value.get(0).address,root.html);
 					logger.info(" After adding to emailNotificationMap key = " + root.to.value.get(0).address
 							+ " data " + data + " root " + root );
 				}
+
 				else {
 					logger.info(" Skip adding to emailNotificationMap key = " + root.to.value.get(0).address
 							+ " data " + data + " root " + root );
@@ -165,6 +167,12 @@ public class MockSMTPListener{
 		    }
 		}
 		return otp;
+	}
+	
+	public static String parseAdditionalReqId(String message){
+		
+		return StringUtils.substringBetween(message, "AdditionalInfoRequestId", "-BIOMETRIC_CORRECTION-1");
+		
 	}
 	
 }

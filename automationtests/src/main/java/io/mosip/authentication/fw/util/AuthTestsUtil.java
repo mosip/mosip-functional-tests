@@ -1045,57 +1045,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		}
 	}
 
-	/**
-	 * The method will help to run the demoApp bat file through command prompt
-	 */
-	public static void batDemoAppRunner() {
-		try {
-			Runtime.getRuntime().exec(
-					new String[] { "cmd", "/c", "start", "cmd.exe", "/K", demoAppBatchFilePath.getAbsolutePath() });
-			Thread.sleep(60000);
-		} catch (InterruptedException | IOException e) {
-			IDASCRIPT_LOGGER.error("Execption in launching demoApp application: " + e.getMessage());
-			Thread.currentThread().interrupt();
-		}
-	}
-
 	private static File fileDemoAppJarPath;
-
-	/**
-	 * The method will help to run the demoApp sh file through shell command
-	 */
-	public static void shDemoAppRunner() {
-		try {
-			Path path = Paths.get(demoAppBatchFilePath.getAbsolutePath());
-			changeFilePermissionInLinux(path);
-			Runtime.getRuntime().exec(new String[] { "sh", demoAppBatchFilePath.getAbsolutePath() });
-			IDASCRIPT_LOGGER.info("sh file: " + demoAppBatchFilePath.getAbsolutePath());
-			Thread.sleep(60000);
-			IDASCRIPT_LOGGER.info("File path:" + fileDemoAppJarPath.getParentFile() + "/nohup.out");
-			if (new File(fileDemoAppJarPath.getParentFile() + "/nohup.out").exists()) {
-				IDASCRIPT_LOGGER.info("NOHUP FILE AVAILABLE");
-				IDASCRIPT_LOGGER.info(FileUtil.readInput(fileDemoAppJarPath.getParentFile() + "/nohup.out"));
-			} else
-				IDASCRIPT_LOGGER.error("NOHUP FILE NOT AVAILABLE");
-		} catch (InterruptedException | IOException e) {
-			IDASCRIPT_LOGGER.error("Execption in launching demoApp application: " + e.getMessage());
-			Thread.currentThread().interrupt();
-		}
-	}
-
-	/**
-	 * The method will terminate demoApp bat file
-	 */
-	public static void exitDemoAppBatchRunner() {
-		try {
-			Runtime.getRuntime()
-					.exec(new String[] { "cmd", "/c", "start", "cmd.exe", "/K", "taskkill /f /im conhost.exe" });
-			Runtime.getRuntime()
-					.exec(new String[] { "cmd", "/c", "start", "cmd.exe", "/K", "taskkill /f /im java.exe" });
-		} catch (Exception e) {
-			IDASCRIPT_LOGGER.error("Execption in terminating demoApp application" + e.getMessage());
-		}
-	}
 
 	/**
 	 * The method use to add partnerID and License key in endpoint url

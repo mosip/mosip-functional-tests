@@ -79,9 +79,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		auditLogCheck = testCaseDTO.isAuditLogCheck();
-		String otpRequest = null;
-		String sendOtpReqTemplate = null;
-		String sendOtpEndPoint = null;
+		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
 		if (req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
@@ -96,7 +94,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		int maxLoopCount = Integer.parseInt(props.getProperty("uinGenMaxLoopCount"));
 		int currLoopCount = 0;
 		while (currLoopCount < maxLoopCount) {
-			if (testCaseName.contains(GlobalConstants.ESIGNET_)) {
+			if (testCaseName.contains("ESignet_")) {
 				String tempUrl = ApplnURI.replace("-internal", "");
 				otpResponse = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + sendOtpEndPoint,
 						getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, GlobalConstants.RESIDENT,
@@ -124,8 +122,8 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		}
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
-		String sendOtpResp = null; 
-		String sendOtpResTemplate = null;
+		String sendOtpResp = null, 
+				sendOtpResTemplate = null;
 		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
@@ -148,7 +146,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 
 
 
-		if (testCaseName.contains(GlobalConstants.ESIGNET_)) {
+		if (testCaseName.contains("ESignet_")) {
 			String tempUrl = ApplnURI.replace("-internal", "");
 			response = postRequestWithCookieAuthHeaderAndXsrfTokenForAutoGenId(tempUrl + testCaseDTO.getEndPoint(),
 					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
@@ -192,7 +190,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
 		try {
-			if ((!testCaseName.contains(GlobalConstants.ESIGNET_)) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
+			if ((!testCaseName.contains("ESignet_")) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
 				logger.info("waiting for" + props.getProperty("Delaytime")
 						+ " mili secs after VID Generation In RESIDENT SERVICES");
 				Thread.sleep(Long.parseLong(props.getProperty("Delaytime")));
