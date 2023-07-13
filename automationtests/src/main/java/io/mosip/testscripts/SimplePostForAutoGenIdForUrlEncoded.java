@@ -76,6 +76,9 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
+		if (!ConfigManager.IseSignetDeployed()) {
+			throw new SkipException("esignet is not deployed hence skipping the testcase");
+		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
