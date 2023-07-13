@@ -62,19 +62,19 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	public static void mispPartnerGeneration() { 
 		String url = ApplnURI + "/v1/partnermanager/partners";
 		
-		String token = kernelAuthLib.getTokenByRole("partner");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.PARTNER);
 		
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 		
 		requestBody.put("address", address);
 		requestBody.put("contactNumber", contactNumber);
 		requestBody.put("emailId", emailId);
 		requestBody.put("organizationName", mispOrganizationName);
 		requestBody.put(GlobalConstants.PARTNERID, mispPartnerId);
-		requestBody.put("partnerType", mispPartnerType);
+		requestBody.put(GlobalConstants.PARTNERTYPE, mispPartnerType);
 		requestBody.put("policyGroup", policyGroup);
 		
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 		
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
@@ -86,17 +86,17 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
 		lOGGER.info(responseJson);
-		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
+		JSONObject responseValue = (JSONObject) (responseJson.get(GlobalConstants.RESPONSE));
 		lOGGER.info(responseValue);
 	}
 	
 	public static JSONObject getCertificates(String partnerId, String partnerType) {
 		String url = localHostUrl + props.getProperty("getPartnerCertURL");
 		
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, String> map = new HashMap<>();
 		
 		map.put("partnerName", partnerId);
-		map.put("partnerType", partnerType);
+		map.put(GlobalConstants.PARTNERTYPE, partnerType);
 		map.put("moduleName", BaseTestCase.certsForModule);
 		
 		Response response = RestClient.getRequestWithQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
@@ -110,14 +110,14 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	public static void uploadCACertificate(String certValueCA, String partnerDomain) {
 		String url = ApplnURI + "/v1/partnermanager/partners/certificate/ca/upload";
 		
-		String token = kernelAuthLib.getTokenByRole("partner");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.PARTNER);
 		
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 		
-		requestBody.put("certificateData", certValueCA);
-		requestBody.put("partnerDomain", partnerDomain);
+		requestBody.put(GlobalConstants.CERTIFICATEDATA, certValueCA);
+		requestBody.put(GlobalConstants.PARTNERDOMAIN, partnerDomain);
 		
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 		
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
@@ -134,14 +134,14 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	public static void uploadIntermediateCertificate(String certValueIntermediate, String partnerDomain) {
 		String url = ApplnURI + "/v1/partnermanager/partners/certificate/ca/upload";
 		
-		String token = kernelAuthLib.getTokenByRole("partner");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.PARTNER);
 		
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 		
-		requestBody.put("certificateData", certValueIntermediate);
-		requestBody.put("partnerDomain", partnerDomain);
+		requestBody.put(GlobalConstants.CERTIFICATEDATA, certValueIntermediate);
+		requestBody.put(GlobalConstants.PARTNERDOMAIN, partnerDomain);
 		
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 		
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
@@ -158,15 +158,15 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	public static JSONObject uploadPartnerCertificate(String certValuePartner, String partnerDomain, String partnerId) {
 		String url = ApplnURI + "/v1/partnermanager/partners/certificate/upload";
 		
-		String token = kernelAuthLib.getTokenByRole("partner");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.PARTNER);
 		
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 		
-		requestBody.put("certificateData", certValuePartner);
-		requestBody.put("partnerDomain", partnerDomain);
+		requestBody.put(GlobalConstants.CERTIFICATEDATA, certValuePartner);
+		requestBody.put(GlobalConstants.PARTNERDOMAIN, partnerDomain);
 		requestBody.put(GlobalConstants.PARTNERID, partnerId);
 		
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 		
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
@@ -180,7 +180,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		JSONObject responseJson = new JSONObject(response.asString());
 		lOGGER.info(responseJson);
 		
-		JSONObject responseValue = (JSONObject) responseJson.get("response");
+		JSONObject responseValue = (JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 		lOGGER.info(responseValue);
 		
 		return responseValue;
@@ -189,13 +189,13 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	public static void uploadSignedCertificate(String certValueSigned, String partnerType) {
 		String url = localHostUrl + props.getProperty("uploadSignedCertificateUrl");
 		
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 		
 		requestBody.put("certData", certValueSigned);
 		
-		HashMap<String, Object> queryParamMap = new HashMap<String, Object>();
+		HashMap<String, Object> queryParamMap = new HashMap<>();
 		
-		queryParamMap.put("partnerType", partnerType);
+		queryParamMap.put(GlobalConstants.PARTNERTYPE, partnerType);
 		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
 		
 		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
@@ -206,13 +206,13 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	public static String generateMispLicKey(String partnerId) {
 		String url = ApplnURI + "/v1/partnermanager/misps";
 		
-		String token = kernelAuthLib.getTokenByRole("partner");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.PARTNER);
 		
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 		
 		requestBody.put("providerId", partnerId);
 		
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 		
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
@@ -225,7 +225,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
 		lOGGER.info(responseJson);
-		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
+		JSONObject responseValue = (JSONObject) (responseJson.get(GlobalConstants.RESPONSE));
 		lOGGER.info(responseValue);
 		String licenseKey = responseValue.getString("licenseKey");
 		lOGGER.info(licenseKey);

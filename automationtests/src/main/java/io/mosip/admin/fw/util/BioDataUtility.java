@@ -75,7 +75,9 @@ public class BioDataUtility extends AdminTestUtil {
 	}
 	
 	public String constructBiorequest(String input, String bioValueencryptionTemplateJson, boolean isInternal, String testCaseName) throws Exception {
-		String bioValue = null, timestamp = null, transactionId = null;
+		String bioValue = null;
+		String  timestamp = null;
+		String transactionId = null;
 		String previousHash = getHash("");
 		byte[] previousBioDataHash = null;
 		byte [] previousDataByteArr =  "".getBytes(StandardCharsets.UTF_8);
@@ -131,7 +133,7 @@ public class BioDataUtility extends AdminTestUtil {
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
 					AdminTestUtil.generateCurrentUTCTimeStamp(), biometricsMapper + ".data.timestamp");
 
-			String data = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + ".data");
+			String data = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + GlobalConstants.DATA);
 			String bioValue = JsonPrecondtion.getValueFromJson(data, GlobalConstants.BIOVALUE);
 
 			String timestamp = JsonPrecondtion.getValueFromJson(data, "timestamp");
@@ -142,7 +144,7 @@ public class BioDataUtility extends AdminTestUtil {
 			String encryptedSessionKey = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedSessionKey");
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, encryptedBioValue,
 					biometricsMapper + ".data.bioValue");
-			String latestData = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + ".data");
+			String latestData = JsonPrecondtion.getJsonValueFromJson(identityRequest, biometricsMapper + GlobalConstants.DATA);
 			String signedData = "";
 			if (isInternal == false) {
 				signedData = getSignedBiometrics(latestData,"DEVICE");
@@ -159,7 +161,7 @@ public class BioDataUtility extends AdminTestUtil {
 					&& testcaseName.toLowerCase().contains("_neg".toLowerCase()))
 				signedData = signedData.split(Pattern.quote("."))[1];
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, signedData,
-					biometricsMapper + ".data");
+					biometricsMapper + GlobalConstants.DATA);
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, encryptedSessionKey,
 					biometricsMapper + ".sessionKey");
 	        byte [] currentDataByteArr = org.apache.commons.codec.binary.Base64.decodeBase64(bioValue);
@@ -196,7 +198,7 @@ public class BioDataUtility extends AdminTestUtil {
 		String singResponse = null;
 		
         residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
-        HashMap<String, String> pathParamsMap = new HashMap<String, String>();
+        HashMap<String, String> pathParamsMap = new HashMap<>();
         pathParamsMap.put("partnerType", key);
         pathParamsMap.put("moduleName", BaseTestCase.certsForModule);
         pathParamsMap.put("certsDir", ConfigManager.getauthCertsPath());

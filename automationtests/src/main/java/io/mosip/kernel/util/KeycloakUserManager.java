@@ -90,26 +90,26 @@ public class KeycloakUserManager {
 			user.setUsername(moduleSpecificUser);
 			user.setFirstName(moduleSpecificUser);
 			user.setLastName(moduleSpecificUser);
-			user.setEmail("automation" + moduleSpecificUser + "@automationlabs.com");
+			user.setEmail(GlobalConstants.AUTOMATION + moduleSpecificUser + GlobalConstants.AUTOMATIONLABS);
 			RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
 			UsersResource usersRessource = realmResource.users();
 			Response response = null;
 				response = usersRessource.create(user);
  				logger.info(response);
- 				logger.info(String.format("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo()));
+ 				logger.info(String.format(GlobalConstants.REPSONSE, response.getStatus(), response.getStatusInfo()));
 			if (response.getStatus()==409) {
 				continue;
 			}
 			logger.info(response.getLocation());
 			String userId = CreatedResponseUtil.getCreatedId(response);
-			logger.info(String.format("User created with userId: %s%n", userId));
+			logger.info(String.format(GlobalConstants.USERCREATEDWITHUSERID, userId));
 
 			CredentialRepresentation passwordCred = new CredentialRepresentation();
 			
 			passwordCred.setTemporary(false);
 			passwordCred.setType(CredentialRepresentation.PASSWORD);
 			
-			passwordCred.setValue("mosip123");
+			passwordCred.setValue(GlobalConstants.MOSIP123);
 
 			UserResource userResource = usersRessource.get(userId);
 
@@ -123,9 +123,9 @@ public class KeycloakUserManager {
 					if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
 							availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
 					else
-						logger.info(String.format("Role not found in keycloak: %s%n", role));
+						logger.info(String.format(GlobalConstants.ROLENOTFOUNDINKEYCLOAK, role));
 				}else {
-					logger.info(String.format("Role not found in keycloak: %s%n", role));
+					logger.info(String.format(GlobalConstants.ROLENOTFOUNDINKEYCLOAK, role));
 				}
 			}
 			userResource.roles().realmLevel() //
@@ -148,17 +148,17 @@ public class KeycloakUserManager {
 			UsersResource usersRessource = realmResource.users();
 			Response response = usersRessource.create(user);
 			logger.info(response);
-			logger.info(String.format("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo()));
+			logger.info(String.format(GlobalConstants.REPSONSE, response.getStatus(), response.getStatusInfo()));
 			logger.info(response.getLocation());
 			String userId = CreatedResponseUtil.getCreatedId(response);
-			logger.info(String.format("User created with userId: %s%n", userId));
+			logger.info(String.format(GlobalConstants.USERCREATEDWITHUSERID, userId));
 
 			CredentialRepresentation passwordCred = new CredentialRepresentation();
 			
 			passwordCred.setTemporary(false);
 			passwordCred.setType(CredentialRepresentation.PASSWORD);
 			
-			passwordCred.setValue("mosip123");
+			passwordCred.setValue(GlobalConstants.MOSIP123);
 
 			UserResource userResource = usersRessource.get(userId);
 
@@ -172,9 +172,9 @@ public class KeycloakUserManager {
 					if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
 						availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
 				else
-					logger.info(String.format("Role not found in keycloak: %s%n", role));
+					logger.info(String.format(GlobalConstants.ROLENOTFOUNDINKEYCLOAK, role));
 				}else {
-					logger.info(String.format("Role not found in keycloak: %s%n", role));
+					logger.info(String.format(GlobalConstants.ROLENOTFOUNDINKEYCLOAK, role));
 				}
 			}
 			userResource.roles().realmLevel() //
@@ -193,9 +193,9 @@ public class KeycloakUserManager {
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
 				userResource.remove();
-				logger.info(String.format("User removed with name: %s%n", needsToBeRemovedUser));
+				logger.info(String.format(GlobalConstants.USERREMOVEDWITHNAME, needsToBeRemovedUser));
 			} else {
-				logger.info(String.format("User not found with name: %s%n", needsToBeRemovedUser));
+				logger.info(String.format(GlobalConstants.USERNOTFOUNDWITHNAME, needsToBeRemovedUser));
 			}
 
 		}
@@ -213,9 +213,9 @@ public class KeycloakUserManager {
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
 				userResource.remove();
-				logger.info(String.format("User removed with name: %s%n", moduleSpecificUserToBeRemoved));
+				logger.info(String.format(GlobalConstants.USERREMOVEDWITHNAME, moduleSpecificUserToBeRemoved));
 			} else {
-				logger.info(String.format("User not found with name: %s%n", moduleSpecificUserToBeRemoved));
+				logger.info(String.format(GlobalConstants.USERNOTFOUNDWITHNAME, moduleSpecificUserToBeRemoved));
 			}
 
 		}
@@ -231,9 +231,9 @@ public class KeycloakUserManager {
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
 				userResource.remove();
-				logger.info(String.format("User removed with name: %s%n", needsToBeRemovedUser));
+				logger.info(String.format(GlobalConstants.USERREMOVEDWITHNAME, needsToBeRemovedUser));
 			} else {
-				logger.info(String.format("User not found with name: %s%n", needsToBeRemovedUser));
+				logger.info(String.format(GlobalConstants.USERNOTFOUNDWITHNAME, needsToBeRemovedUser));
 			}
 
 		}
@@ -246,7 +246,7 @@ public class KeycloakUserManager {
 		user.setUsername(userid);
 		user.setFirstName(userid);
 		user.setLastName(userid);
-		user.setEmail("automation" + userid + "@automationlabs.com");
+		user.setEmail(GlobalConstants.AUTOMATION + userid + GlobalConstants.AUTOMATIONLABS);
 		if (map != null)
 			user.setAttributes(map);
 		RealmResource realmResource = null;
@@ -262,10 +262,10 @@ public class KeycloakUserManager {
 			} else {
 
 				logger.info(response);
-				logger.info(String.format("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo()));
+				logger.info(String.format(GlobalConstants.REPSONSE, response.getStatus(), response.getStatusInfo()));
 				logger.info(response.getLocation());
 				String userId = CreatedResponseUtil.getCreatedId(response);
-				logger.info(String.format("User created with userId: %s%n", userId));
+				logger.info(String.format(GlobalConstants.USERCREATEDWITHUSERID, userId));
 
 				CredentialRepresentation passwordCred = new CredentialRepresentation();
 
@@ -285,9 +285,9 @@ public class KeycloakUserManager {
 						if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
 							availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
 					else
-						logger.info(String.format("Role not found in keycloak: %s%n", role));
+						logger.info(String.format(GlobalConstants.ROLENOTFOUNDINKEYCLOAK, role));
 					} else {
-						logger.info(String.format("Role not found in keycloak: %s%n", role));
+						logger.info(String.format(GlobalConstants.ROLENOTFOUNDINKEYCLOAK, role));
 					}
 				}
 				userResource.roles().realmLevel() //
@@ -307,17 +307,17 @@ public class KeycloakUserManager {
 			user.setUsername(userid);
 			user.setFirstName(userid);
 			user.setLastName(userid);
-			user.setEmail("automation" + userid + "@automationlabs.com");
+			user.setEmail(GlobalConstants.AUTOMATION + userid + GlobalConstants.AUTOMATIONLABS);
 			RealmResource realmResource=null;
 			 realmResource = keycloakInstance.realm(propsKernel.getProperty("keycloak.realm"));
 
 			UsersResource usersRessource = realmResource.users();
 			Response response = usersRessource.create(user);
 			logger.info(response);
-			logger.info(String.format("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo()));
+			logger.info(String.format(GlobalConstants.REPSONSE, response.getStatus(), response.getStatusInfo()));
 			logger.info(response.getLocation());
 			String userId = CreatedResponseUtil.getCreatedId(response);
-			logger.info(String.format("User created with userId: %s%n", userId));
+			logger.info(String.format(GlobalConstants.USERCREATEDWITHUSERID, userId));
 
 			CredentialRepresentation passwordCred = new CredentialRepresentation();
 			
@@ -337,9 +337,9 @@ public class KeycloakUserManager {
 					if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
 						availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
 				else
-					logger.info(String.format("Role not found in keycloak: %s%n", role));
+					logger.info(String.format(GlobalConstants.ROLENOTFOUNDINKEYCLOAK, role));
 				}else {
-					logger.info(String.format("Role not found in keycloak: %s%n", role));
+					logger.info(String.format(GlobalConstants.ROLENOTFOUNDINKEYCLOAK, role));
 				}
 			}
 			userResource.roles().realmLevel() 
@@ -357,7 +357,7 @@ public class KeycloakUserManager {
 			user.setUsername(moduleSpecificUser);
 			user.setFirstName(moduleSpecificUser);
 			user.setLastName(moduleSpecificUser);
-			user.setEmail("automation" + moduleSpecificUser + "@automationlabs.com");
+			user.setEmail(GlobalConstants.AUTOMATION + moduleSpecificUser + GlobalConstants.AUTOMATIONLABS);
 			if(map!=null)
 		    user.setAttributes(map);
 			RealmResource realmResource=null;
@@ -365,19 +365,19 @@ public class KeycloakUserManager {
 			UsersResource usersRessource = realmResource.users();
 			Response response = usersRessource.create(user);
 			logger.info(response);
-			logger.info(String.format("Repsonse: %s %s%n", response.getStatus(), response.getStatusInfo()));
+			logger.info(String.format(GlobalConstants.REPSONSE, response.getStatus(), response.getStatusInfo()));
 			
 			
 			logger.info(response.getLocation());
 			String userId = CreatedResponseUtil.getCreatedId(response);
-			logger.info(String.format("User created with userId: %s%n", userId));
+			logger.info(String.format(GlobalConstants.USERCREATEDWITHUSERID, userId));
 
 			CredentialRepresentation passwordCred = new CredentialRepresentation();
 			
 			passwordCred.setTemporary(false);
 			passwordCred.setType(CredentialRepresentation.PASSWORD);
 			
-			passwordCred.setValue("mosip123");
+			passwordCred.setValue(GlobalConstants.MOSIP123);
 
 			UserResource userResource = usersRessource.get(userId);
 			userResource.resetPassword(passwordCred);
@@ -390,9 +390,9 @@ public class KeycloakUserManager {
 					if (allRoles.stream().filter(r->r.getName().equals(role)).findFirst().isPresent())
 						availableRoles.add(allRoles.stream().filter(r->r.getName().equals(role)).findFirst().get());
 				else
-					logger.info(String.format("Role not found in keycloak: %s%n", role));
+					logger.info(String.format(GlobalConstants.ROLENOTFOUNDINKEYCLOAK, role));
 				}else {
-					logger.info(String.format("Role not found in keycloak: %s%n", role));
+					logger.info(String.format(GlobalConstants.ROLENOTFOUNDINKEYCLOAK, role));
 				}
 			}
 			userResource.roles().realmLevel() //
@@ -408,9 +408,9 @@ try {
 			if (!usersFromDB.isEmpty()) {
 				UserResource userResource = usersRessource.get(usersFromDB.get(0).getId());
 				userResource.remove();
-				logger.info(String.format("User removed with name: %s%n", user));
+				logger.info(String.format(GlobalConstants.USERREMOVEDWITHNAME, user));
 			} else {
-				logger.info(String.format("User not found with name: %s%n", user));
+				logger.info(String.format(GlobalConstants.USERNOTFOUNDWITHNAME, user));
 			}
 
 }

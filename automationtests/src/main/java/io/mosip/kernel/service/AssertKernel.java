@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
@@ -40,7 +41,7 @@ public class AssertKernel {
 	 * @throws ParseException
 	 */
 	public boolean assertKernel(Response actualResponse, JSONObject expectedResponse,
-			ArrayList<String> listOfElementToRemove){
+			List<String> listOfElementToRemove){
 		new CommonLibrary().checkResponseUTCTime(actualResponse);
 		JSONObject actualResponseBody = null;
 		JSONObject expectedResponseBody = expectedResponse;
@@ -68,7 +69,7 @@ public class AssertKernel {
 	 * @throws ParseException
 	 */
 	public boolean assertKernelWithJsonObject(JSONObject actualResponse, JSONObject expectedResponse,
-			ArrayList<String> listOfElementToRemove){
+			List<String> listOfElementToRemove){
 		
 		JSONObject actualResponseBody = null;
 		JSONObject expectedResponseBody = expectedResponse;
@@ -95,7 +96,7 @@ public class AssertKernel {
 	 * @throws IOException
 	 * @throws ParseException
 	 */
-		public boolean assertIdRepo(Object expectedResponse, Object actualResponse, ArrayList<String> listOfElementToRemove)
+		public boolean assertIdRepo(Object expectedResponse, Object actualResponse, List<String> listOfElementToRemove)
 				throws JsonProcessingException, IOException, ParseException {
 			JSONObject expectedResponseBody = (JSONObject) new JSONParser().parse(expectedResponse.toString());
 			JSONObject actualResponseBody = (JSONObject) new JSONParser().parse(actualResponse.toString());
@@ -125,7 +126,7 @@ public class AssertKernel {
 
 			logger.error("======" + diffJson + "==========");
 			if (diffJson.toString().equals("[]")) {
-				logger.info("equal");
+				logger.info(GlobalConstants.EQUAL);
 				return true;
 			}
 
@@ -140,7 +141,7 @@ public class AssertKernel {
 		} catch (IOException e) {
 			logger.error(e.getStackTrace());
 		}
-		logger.info("equal");
+		logger.info(GlobalConstants.EQUAL);
 		return true;
 
 	}
@@ -182,11 +183,11 @@ public class AssertKernel {
 			}
 			
 				if (diffJson.toString().equals("[]")) {
-					logger.info("equal");
+					logger.info(GlobalConstants.EQUAL);
 					return true;
 				}
 		
-		logger.info("equal");
+		logger.info(GlobalConstants.EQUAL);
 		return true;
 
 	}
@@ -199,18 +200,18 @@ public class AssertKernel {
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked")
-	public static JSONObject removeElementFromBody(JSONObject response, ArrayList<String> listOfElementToRemove) throws ParseException {
+	public static JSONObject removeElementFromBody(JSONObject response, List<String> listOfElementToRemove) throws ParseException {
 		for (String elementToRemove : listOfElementToRemove) {
 			if(response.containsKey(elementToRemove))
 				response.remove(elementToRemove);
 			else {
 				JSONObject responseJson = null;
 
-				if(response.containsKey("response") && response.get("response")!=null)
+				if(response.containsKey(GlobalConstants.RESPONSE) && response.get(GlobalConstants.RESPONSE)!=null)
 					{
-					responseJson = (JSONObject)response.get("response");
+					responseJson = (JSONObject)response.get(GlobalConstants.RESPONSE);
 					if(responseJson.containsKey(elementToRemove))responseJson.remove(elementToRemove);
-					response.put("response", responseJson);
+					response.put(GlobalConstants.RESPONSE, responseJson);
 					}
 				else if(response.containsKey(GlobalConstants.REQUEST) && response.get(GlobalConstants.REQUEST)!=null)
 					{
@@ -233,7 +234,7 @@ public class AssertKernel {
 	 * @param passedAttributes
 	 * @return
 	 */
-	public static boolean validator(JSONArray responseArray, List<String> attributesToValidate, HashMap<String, String> passedAttributes)
+	public static boolean validator(JSONArray responseArray, List<String> attributesToValidate, Map<String, String> passedAttributes)
 	{
 		for(int i=0;i<responseArray.size();i++) {
 	    	 JSONObject object = (JSONObject) responseArray.get(i);
