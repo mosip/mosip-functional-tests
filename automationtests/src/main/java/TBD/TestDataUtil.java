@@ -17,6 +17,7 @@ import io.mosip.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.authentication.fw.util.AuthTestsUtil;
 import io.mosip.authentication.fw.util.FileUtil;
 import io.mosip.authentication.fw.util.RunConfigUtil;
+import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.core.util.HMACUtils;
 
 /**
@@ -160,7 +161,7 @@ public class TestDataUtil {
 	public static void createTestData() {
 		for (Entry<String, Map<String, Map<String, Map<String, Object>>>> testdata : TestDataDto.getTestdata()
 				.entrySet()) {
-			Map<String, Map<String, Map<String, String>>> currenttest = new HashMap<String, Map<String, Map<String, String>>>();
+			Map<String, Map<String, Map<String, String>>> currenttest = new HashMap<>();
 			for (Entry<String, Map<String, Map<String, Object>>> testCase : testdata.getValue().entrySet()) {
 				if (testCase.getKey().toLowerCase()
 						.contains(RunConfigUtil.getTestLevel().toLowerCase())
@@ -168,8 +169,8 @@ public class TestDataUtil {
 					boolean flag = true;
 					setTestCaseName(testCase.getKey());
 					TESTDATAUTILITY_LOGGER.info("TestCaseName : " + getTestCaseName());
-					Map<String, Map<String, String>> currentTestDatajsonFile = new HashMap<String, Map<String, String>>();
-					Map<String, String> fieldValue = new HashMap<String, String>();
+					Map<String, Map<String, String>> currentTestDatajsonFile = new HashMap<>();
+					Map<String, String> fieldValue = new HashMap<>();
 					TestDataUtil.setCurrTestDataDic(null);
 					for (Entry<String, Map<String, Object>> jsonFile : testCase.getValue().entrySet()) {
 						flag = true;
@@ -192,15 +193,15 @@ public class TestDataUtil {
 						}
 						else if (type.equalsIgnoreCase("audit")) {
 							String auditMappingPath = new File(RunConfigUtil.getResourcePath() + "ida/TestData/Audit/"
-									+ testDataFileName + ".properties").getAbsolutePath();
-							fieldValue = new HashMap<String, String>();
+									+ testDataFileName + GlobalConstants.DOTPROPERTIES).getAbsolutePath();
+							fieldValue = new HashMap<>();
 							for (Entry<String, Object> fieldvalMap : jsonFile.getValue().entrySet()) {
 								fieldValue.put(fieldvalMap.getKey(), fieldvalMap.getValue().toString());
 							}
 							fieldValue = Precondtion
 									.parseAndWritePropertyFile(auditMappingPath, fieldValue,
 											new File(RunConfigUtil.getResourcePath() + scenarioPath + "/"
-													+ getTestCaseName() + "/" + testDataFileName + ".properties")
+													+ getTestCaseName() + "/" + testDataFileName + GlobalConstants.DOTPROPERTIES)
 															.getAbsolutePath());
 							// Hashing UIN- kernel dependency
 							for (Entry<String, String> tempMap : fieldValue.entrySet()) {
@@ -213,12 +214,12 @@ public class TestDataUtil {
 								fieldValue.put(tempMap.getKey(), value);
 							}
 							AuthTestsUtil.generateMappingDic(new File(RunConfigUtil.getResourcePath() + scenarioPath
-									+ "/" + getTestCaseName() + "/" + testDataFileName + ".properties").getAbsolutePath(),
+									+ "/" + getTestCaseName() + "/" + testDataFileName + GlobalConstants.DOTPROPERTIES).getAbsolutePath(),
 									fieldValue);
 							flag = false;
 						} else if (type.equalsIgnoreCase("email")) {
 							String emailNotiConfigFile = new File(RunConfigUtil.getResourcePath()
-									+ "ida/TestData/RunConfig/" + testDataFileName + ".properties").getAbsolutePath();
+									+ "ida/TestData/RunConfig/" + testDataFileName + GlobalConstants.DOTPROPERTIES).getAbsolutePath();
 							fieldValue = new HashMap<String, String>();
 							for (Entry<String, Object> fieldvalMap : jsonFile.getValue().entrySet()) {
 								fieldValue.put(fieldvalMap.getKey(), fieldvalMap.getValue().toString());
@@ -226,25 +227,25 @@ public class TestDataUtil {
 							fieldValue = Precondtion
 									.parseAndWriteEmailNotificationPropertyFile(emailNotiConfigFile, fieldValue,
 											new File(RunConfigUtil.getResourcePath() + scenarioPath + "/"
-													+ getTestCaseName() + "/" + testDataFileName + ".properties")
+													+ getTestCaseName() + "/" + testDataFileName + GlobalConstants.DOTPROPERTIES)
 															.getAbsolutePath());
 							flag = false;
 						} else if (type.equalsIgnoreCase("endpoint")) {
-							fieldValue = new HashMap<String, String>();
+							fieldValue = new HashMap<>();
 							for (Entry<String, Object> fieldvalMap : jsonFile.getValue().entrySet()) {
 								fieldValue.put(fieldvalMap.getKey(), fieldvalMap.getValue().toString());
 							}
 							fieldValue = Precondtion
 									.parseAndWritePropertyFile(fieldValue,
 											new File(RunConfigUtil.getResourcePath() + scenarioPath + "/"
-													+ getTestCaseName() + "/" + "url" + ".properties")
+													+ getTestCaseName() + "/" + "url" + GlobalConstants.DOTPROPERTIES)
 															.getAbsolutePath());
 							flag = false;
 						}
 						if (flag) {
-							fieldValue = new HashMap<String, String>();
+							fieldValue = new HashMap<>();
 							String mappingPath = new File(RunConfigUtil.getResourcePath()
-									+ TestDataConfig.getTestDataPath() + mapping + ".properties").getAbsolutePath();
+									+ TestDataConfig.getTestDataPath() + mapping + GlobalConstants.DOTPROPERTIES).getAbsolutePath();
 							setMappingPath(mappingPath);
 							String outputJsonFilePath = new File(RunConfigUtil.getResourcePath() + scenarioPath + "/"
 									+ getTestCaseName() + "/" + testDataFileName + typeOfFile).getAbsolutePath();

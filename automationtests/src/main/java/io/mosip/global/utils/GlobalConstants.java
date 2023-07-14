@@ -68,6 +68,9 @@ public class GlobalConstants {
 	public static final String REST_ASSURED_STRING_1 = "REST-ASSURED: Sending a POST request to ";
 	public static final String REST_ASSURED_STRING_2 = "REST-ASSURED: The response from the request is: ";
 	public static final String REST_ASSURED_STRING_3 = "REST-ASSURED: The response Time is: ";
+	public static final String REST_ASSURED_STRING_4 = "REST-ASSURED: Sending a GET request to ";
+	public static final String REST_ASSURED_STRING_5 = "REST-ASSURED: Sending a PUT request to   ";
+	public static final String REST_ASSURED_STRING_6 = "REST-ASSURED: Sending a DELETE request to   ";
 	public static final String EXCEPTION_OCCURED = "Exception Occured: ";
 	public static final String $VID$ = "$vid$";
 	public static final String $UIN$ = "$uin$";
@@ -111,6 +114,29 @@ public class GlobalConstants {
 	public static final String USERCREATEDWITHUSERID = "User created with userId: %s%n";
 	public static final String MOSIP123 = "mosip123";
 	public static final String MOSIP_IO = "@mosip.io";
+	public static final String EMAILABLEREPORT2NAME = "emailable.report2.name";
+	public static final String TR = "</tr>";
+	public static final String TRTR = "</th></tr>";
+	public static final String NUMATTN = "num attn";
+	public static final String TABLE = "</table>";
+	public static final String TRCLASS = "<tr class=\"";
+	public static final String TDROWSPAN = "<td rowspan=\"";
+	public static final String TD = "</td>";
+	public static final String TDTR = "</td></tr>";
+	public static final String colspan = " colspan=\"";
+	public static final String DOTPROPERTIES = ".properties";
+	public static final String CONFIG = "config/";
+	public static final String ATTACHMENTS = "attachments";
+	public static final String MAILCONTENT = "mailContent";
+	public static final String MAILTO = "mailTo";
+	public static final String MAILSUBJECT = "mailSubject";
+	public static final String MAILCC = "mailCc";
+	public static final String ACCESSTOKEN = "access_token";
+	public static final String APPID = "appId";
+	public static final String PASSWORD = "password";
+	public static final String TOKEN = "token";
+	public static final String SECRETKEY = "secretKey";
+	
 	
 	
 	
@@ -168,5 +194,8 @@ public class GlobalConstants {
 	public static final String ROLENOTFOUNDINKEYCLOAK = "Role not found in keycloak: %s%n";
 	public static final String USERREMOVEDWITHNAME ="User removed with name: %s%n";
 	public static final String USERNOTFOUNDWITHNAME = "User not found with name: %s%n";
+	public static final String ACTUALAUTHREQUESTFORRESIDENT  = "Actual Auth Request for Resident: ";
+	public static final String AUTHCLIENTIDSECRETKEYURL = "authclientidsecretkeyURL";
+	
 	
 }

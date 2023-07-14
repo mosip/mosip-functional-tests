@@ -25,6 +25,7 @@ import org.testng.Reporter;
 import org.testng.xml.XmlSuite;
 
 import io.mosip.admin.fw.util.AdminTestUtil;
+import io.mosip.global.utils.GlobalConstants;
 
 public class CustomTestNGReporter implements IReporter {
 	
@@ -125,47 +126,47 @@ public class CustomTestNGReporter implements IReporter {
 
 					retBuf.append("<td>");
 					retBuf.append(testObj.getName());
-					retBuf.append("</td>");
+					retBuf.append(GlobalConstants.TD);
 
 					retBuf.append("<td>");
 					retBuf.append(totalTestCount);
-					retBuf.append("</td>");
+					retBuf.append(GlobalConstants.TD);
 
 					retBuf.append("<td bgcolor=green>");
 					retBuf.append(totalTestPassed);
-					retBuf.append("</td>");
+					retBuf.append(GlobalConstants.TD);
 
 					retBuf.append("<td bgcolor=yellow>");
 					retBuf.append(totalTestSkipped);
-					retBuf.append("</td>");
+					retBuf.append(GlobalConstants.TD);
 
 					retBuf.append("<td bgcolor=red>");
 					retBuf.append(totalTestFailed);
-					retBuf.append("</td>");
+					retBuf.append(GlobalConstants.TD);
 
 					Date startDate = testObj.getStartDate();
 					retBuf.append("<td>");
 					retBuf.append(this.getDateInStringFormat(startDate));
-					retBuf.append("</td>");
+					retBuf.append(GlobalConstants.TD);
 
 					Date endDate = testObj.getEndDate();
 					retBuf.append("<td>");
 					retBuf.append(this.getDateInStringFormat(endDate));
-					retBuf.append("</td>");
+					retBuf.append(GlobalConstants.TD);
 
 					long deltaTime = endDate.getTime() - startDate.getTime();
 					String deltaTimeStr = this.convertDeltaTimeToString(deltaTime);
 					retBuf.append("<td>");
 					retBuf.append(deltaTimeStr);
-					retBuf.append("</td>");
+					retBuf.append(GlobalConstants.TD);
 
 					retBuf.append("<td>");
 					retBuf.append(this.stringArrayToString(testObj.getIncludedGroups()));
-					retBuf.append("</td>");
+					retBuf.append(GlobalConstants.TD);
 
 					retBuf.append("<td>");
 					retBuf.append(this.stringArrayToString(testObj.getExcludedGroups()));
-					retBuf.append("</td>");
+					retBuf.append(GlobalConstants.TD);
 
 					retBuf.append("</tr>");
 				}
@@ -290,7 +291,7 @@ public class CustomTestNGReporter implements IReporter {
 			long deltaMillis = testResult.getEndMillis() - testResult.getStartMillis();
 			executeTimeStr = this.convertDeltaTimeToString(deltaMillis);
 				
-			Object paramObjArr[] = testResult.getParameters();
+			Object[] paramObjArr = testResult.getParameters();
 			String testParm=testResult.getName();
 			apiName=testParm.substring(0, testParm.indexOf(":"));
 			description=testParm.substring(testParm.lastIndexOf(":")+1);
@@ -317,31 +318,31 @@ public class CustomTestNGReporter implements IReporter {
 			
 			retStrBuf.append("<td>");
 			retStrBuf.append(testClassName);
-			retStrBuf.append("</td>");
+			retStrBuf.append(GlobalConstants.TD);
 			
 			retStrBuf.append("<td>");
 			retStrBuf.append(testMethodName);
-			retStrBuf.append("</td>");
+			retStrBuf.append(GlobalConstants.TD);
 			
 			retStrBuf.append("<td>");
 			retStrBuf.append(startDateStr);
-			retStrBuf.append("</td>");
+			retStrBuf.append(GlobalConstants.TD);
 			
 			retStrBuf.append("<td>");
 			retStrBuf.append(executeTimeStr);
-			retStrBuf.append("</td>");
+			retStrBuf.append(GlobalConstants.TD);
 			
 			retStrBuf.append("<td>");
 			retStrBuf.append(paramStr);
-			retStrBuf.append("</td>");
+			retStrBuf.append(GlobalConstants.TD);
 			
 			retStrBuf.append("<td>");
 			retStrBuf.append(apiName);
-			retStrBuf.append("</td>");
+			retStrBuf.append(GlobalConstants.TD);
 			
 			retStrBuf.append("<td>");
 			retStrBuf.append(exceptionMessage);
-			retStrBuf.append("</td>");
+			retStrBuf.append(GlobalConstants.TD);
 			
 			retStrBuf.append("</tr>");
 
@@ -350,7 +351,7 @@ public class CustomTestNGReporter implements IReporter {
 		return retStrBuf.toString();
 	}
 	
-	private String stringArrayToString(String strArr[])
+	private String stringArrayToString(String[] strArr)
 	{
 		StringBuffer retStrBuf = new StringBuffer();
 		if(strArr!=null)

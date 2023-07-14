@@ -71,8 +71,8 @@ public class OutputValidationUtil extends AuthTestsUtil{
 	 */
 	public static Map<String, List<OutputValidationDto>> compareActuExpValue(Map<String, String> actual,
 			Map<String, String> exp, String actVsExp) {
-		Map<String, List<OutputValidationDto>> objMap = new HashMap<String, List<OutputValidationDto>>();
-		List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
+		Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
+		List<OutputValidationDto> objList = new ArrayList<>();
 		try {
 			for (Entry<String, String> actualEntry : actual.entrySet()) {
 				OutputValidationDto objOpDto = new OutputValidationDto();
@@ -402,7 +402,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 				try {
 				if (actualMap.get(entry.getKey()).toString().contains(",")
 						&& entry.getValue().toString().contains(",")) {
-					String value[] = entry.getValue().toString().split(Pattern.quote("}, {"));
+					String[] value = entry.getValue().toString().split(Pattern.quote("}, {"));
 					for (int i = 0; i < value.length; i++) {
 						String normalise = value[i].replace("{", "").replace("[", "").replace("}", "")
 								.replace("]", "");
