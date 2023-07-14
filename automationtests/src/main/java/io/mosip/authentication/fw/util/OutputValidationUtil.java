@@ -402,7 +402,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 				try {
 				if (actualMap.get(entry.getKey()).toString().contains(",")
 						&& entry.getValue().toString().contains(",")) {
-					String value[] = entry.getValue().toString().split(Pattern.quote("}, {"));
+					String[] value = entry.getValue().toString().split(Pattern.quote("}, {"));
 					for (int i = 0; i < value.length; i++) {
 						String normalise = value[i].replace("{", "").replace("[", "").replace("}", "")
 								.replace("]", "");
