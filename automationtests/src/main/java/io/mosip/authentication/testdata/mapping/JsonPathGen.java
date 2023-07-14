@@ -116,7 +116,7 @@ public class JsonPathGen {
 	 * @return map
 	 */
 	private Map<String, String> modifyList() {
-		Map<String, String> mappingDic = new HashMap<String, String>();
+		Map<String, String> mappingDic = new HashMap<>();
 		for (String str : this.pathList) {
 			String value = str.replace("$.", "");
 			String key = "";

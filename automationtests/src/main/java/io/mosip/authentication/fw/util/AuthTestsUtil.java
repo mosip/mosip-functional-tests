@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -134,7 +135,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		for (int j = 0; j < listOfFiles.length; j++) {
 			if (listOfFiles[j].getName().contains(keywordToFind)) {
 				try (FileOutputStream outputStream = new FileOutputStream(
-						listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json")) {
+						listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json")) {
 					Response response = null;
 					String responseJson = "";
 					if (code == 0)
@@ -175,7 +176,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		for (int j = 0; j < listOfFiles.length; j++) {
 			if (listOfFiles[j].getName().contains(keywordToFind)) {
 				try (FileOutputStream outputStream = new FileOutputStream(
-						listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json")) {
+						listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json")) {
 
 					Response response;
 					if (code == 0)
@@ -215,7 +216,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
 					outputStream = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+							listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json");
 					Response responseJson;
 					if (code == 0)
 						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,
@@ -244,7 +245,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
 			response = RestClient.postRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue);
-			Map<String, List<OutputValidationDto>> objMap = new HashMap<String, List<OutputValidationDto>>();
+			Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response, expCode));
 			objMap.put("Status Code", objList);
@@ -265,7 +266,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			response = RestClient.postRequestWithCookieAndHeader(url, objectData.toJSONString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, cookieValue, authHeaderName,
 					authHeaderValue);
-			Map<String, List<OutputValidationDto>> objMap = new HashMap<String, List<OutputValidationDto>>();
+			Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response, expCode));
 			objMap.put("Status Code", objList);
@@ -295,7 +296,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
 					outputStream = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+							listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json");
 					Response responseJson;
 					if (code == 0)
 						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,
@@ -338,7 +339,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
 					outputStream = new FileOutputStream(
-							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
+							listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json");
 					String responseJson = "";
 					if (code == 0)
 						responseJson = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,
@@ -403,7 +404,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
 			response = RestClient.patchRequest(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON);
-			Map<String, List<OutputValidationDto>> objMap = new HashMap<String, List<OutputValidationDto>>();
+			Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response, expCode));
 			objMap.put("Status Code", objList);
@@ -448,7 +449,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
 			response = RestClient.postRequestWithAuthHeader(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, authHeaderName, authHeaderValue);
-			Map<String, List<OutputValidationDto>> objMap = new HashMap<String, List<OutputValidationDto>>();
+			Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response, expCode));
 			objMap.put("Status Code", objList);
@@ -862,7 +863,7 @@ public class AuthTestsUtil extends BaseTestCase {
 					props.setProperty(entry.getKey(), entry.getValue());
 			}
 			outputStream = new FileOutputStream(filePath);
-			outputStreamWriter = new OutputStreamWriter(outputStream, "UTF-8");
+			outputStreamWriter = new OutputStreamWriter(outputStream, StandardCharsets.UTF_8);
 			props.store(outputStreamWriter, null);
 		} catch (Exception e) {
 			IDASCRIPT_LOGGER.error("Exception in updating the property file" + e.getMessage());
@@ -946,7 +947,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	public static Map<String, String> getPropertyAsMap(String filepath) {
 		Properties prop = new Properties();
 		FileInputStream inputStream = null;
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new HashMap<>();
 		try {
 			inputStream = new FileInputStream(filepath);
 			prop.load(inputStream);
@@ -1057,10 +1058,10 @@ public class AuthTestsUtil extends BaseTestCase {
 		if (file.exists()) {
 			Map<String, String> urlProperty = getPropertyAsMap(file.getAbsolutePath());
 			if (urlProperty.containsKey("partnerIDMispLK")) {
-				return "/" + urlProperty.get("partnerIDMispLK");
+				return File.separator + urlProperty.get("partnerIDMispLK");
 			} else if (urlProperty.containsKey("partnerID") && urlProperty.containsKey("mispLK")
 					&& urlProperty.containsKey(GlobalConstants.APIKEY)) {
-				return "/" + urlProperty.get("mispLK") + "/" + urlProperty.get("partnerID") + "/"
+				return File.separator + urlProperty.get("mispLK") + File.separator + urlProperty.get("partnerID") + File.separator
 						+ urlProperty.get(GlobalConstants.APIKEY);
 			}
 		} else
@@ -1235,7 +1236,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
 			response = RestClient.patchRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue);
-			Map<String, List<OutputValidationDto>> objMap = new HashMap<String, List<OutputValidationDto>>();
+			Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
 			List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 			objList.add(verifyStatusCode(response, expCode));
 			objMap.put("Status Code", objList);
@@ -1308,7 +1309,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 
 	public static void removeOldMosipTempTestResource() {
-		File authTestFile = new File(RunConfigUtil.getGlobalResourcePath() + "/" + RunConfigUtil.resourceFolderName);
+		File authTestFile = new File(RunConfigUtil.getGlobalResourcePath() + File.separator + RunConfigUtil.resourceFolderName);
 		if (authTestFile.exists())
 			if (FileUtil.deleteDirectory(authTestFile))
 				IDASCRIPT_LOGGER.info("Old " + RunConfigUtil.resourceFolderName + " folder successfully deleted!!");
@@ -1330,7 +1331,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			String generateOutputFileKeyword, String cookieName, String cookieValue) {
 		FileOutputStream outputStream = null;
 		try {
-			outputStream = new FileOutputStream(parentFile + "/" + generateOutputFileKeyword + ".json");
+			outputStream = new FileOutputStream(parentFile + File.separator + generateOutputFileKeyword + ".json");
 			String responseJson = getResponseWithCookie(urlPath, cookieName, cookieValue);
 			GlobalMethods.reportResponse(urlPath, responseJson, true);
 			outputStream.write(responseJson.getBytes());
@@ -1411,7 +1412,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		for (int j = 0; j < listOfFiles.length; j++) {
 			if (listOfFiles[j].getName().contains(keywordToFind)) {
 				try (FileOutputStream outputStream = new FileOutputStream(
-						listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json")) {
+						listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json")) {
 					Response response;
 					if (code == 0)
 						response = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,
@@ -1439,7 +1440,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		for (int j = 0; j < listOfFiles.length; j++) {
 			if (listOfFiles[j].getName().contains(keywordToFind)) {
 				try (FileOutputStream outputStream = new FileOutputStream(
-						listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json")) {
+						listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json")) {
 
 					if (code == 0)
 						response = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,

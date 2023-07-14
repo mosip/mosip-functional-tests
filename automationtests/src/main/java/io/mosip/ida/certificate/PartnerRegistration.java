@@ -1,5 +1,6 @@
 package io.mosip.ida.certificate;
 
+import java.io.File;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -46,7 +47,7 @@ public class PartnerRegistration extends AdminTestUtil {
 			lOGGER.error("Failed to generate API key and MISP Lic key");
 			return "";
 		}
-		partnerKeyUrl = mispLicKey + "/" + partnerId + "/" + apiKey;
+		partnerKeyUrl = mispLicKey + File.separator + partnerId + File.separator + apiKey;
 
 		lOGGER.info("partnerKeyUrl = " + partnerKeyUrl);
 
@@ -79,7 +80,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	private static String getLocalHostUrl() {
-		return ConfigManager.getAuthDemoServiceUrl() + "/";
+		return ConfigManager.getAuthDemoServiceUrl() + File.separator;
 	}
 
 	public static void partnerGeneration() {
@@ -87,7 +88,7 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		String token = kernelAuthLib.getTokenByRole("partner");
 
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 
 		requestBody.put("address", address);
 		requestBody.put("contactNumber", contactNumber);
@@ -97,7 +98,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		requestBody.put("partnerType", partnerType);
 		requestBody.put("policyGroup", policyGroup);
 
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
@@ -120,7 +121,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		}
 		String url = localHostUrl + properties.getProperty("getPartnerCertURL");
 
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, String> map = new HashMap<>();
 
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
@@ -144,7 +145,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		}
 		String url = localHostUrl + properties.getProperty("getPartnerCertURL");
 
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, String> map = new HashMap<>();
 
 		map.put("partnerName", partnerId);
 		map.put("partnerType", partnerType);
@@ -169,12 +170,12 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		String token = kernelAuthLib.getTokenByRole("partner");
 
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 
 		requestBody.put("certificateData", certValueCA);
 		requestBody.put("partnerDomain", partnerDomain);
 
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
@@ -194,12 +195,12 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		String token = kernelAuthLib.getTokenByRole("partner");
 
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 
 		requestBody.put("certificateData", certValueIntermediate);
 		requestBody.put("partnerDomain", partnerDomain);
 
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
@@ -219,13 +220,13 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		String token = kernelAuthLib.getTokenByRole("partner");
 
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 
 		requestBody.put("certificateData", certValuePartner);
 		requestBody.put("partnerDomain", partnerDomain);
 		requestBody.put(GlobalConstants.PARTNERID, partnerId);
 
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
@@ -250,11 +251,11 @@ public class PartnerRegistration extends AdminTestUtil {
 			Boolean keyFileNameByPartnerName) {
 		String url = localHostUrl + properties.getProperty("uploadSignedCertificateUrl");
 
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 
 		requestBody.put("certData", certValueSigned);
 
-		HashMap<String, Object> queryParamMap = new HashMap<String, Object>();
+		HashMap<String, Object> queryParamMap = new HashMap<>();
 		queryParamMap.put("partnerName", partnerId);
 		queryParamMap.put("partnerType", partnerType);
 		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
@@ -273,7 +274,7 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		String token = kernelAuthLib.getTokenByRole("partner");
 
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 
 		requestBody.put("address", address);
 		requestBody.put("contactNumber", contactNumber);
@@ -283,7 +284,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		requestBody.put("partnerType", "Device_Provider");
 		requestBody.put("policyGroup", policyGroup);
 
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());
@@ -320,7 +321,7 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		String token = kernelAuthLib.getTokenByRole("partner");
 
-		HashMap<String, String> requestBody = new HashMap<String, String>();
+		HashMap<String, String> requestBody = new HashMap<>();
 
 		requestBody.put("address", address);
 		requestBody.put("contactNumber", contactNumber);
@@ -330,7 +331,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		requestBody.put("partnerType", "FTM_Provider");
 		requestBody.put("policyGroup", policyGroup);
 
-		HashMap<String, Object> body = new HashMap<String, Object>();
+		HashMap<String, Object> body = new HashMap<>();
 
 		body.put("id", GlobalConstants.STRING);
 		body.put(GlobalConstants.METADATA, new HashMap<>());

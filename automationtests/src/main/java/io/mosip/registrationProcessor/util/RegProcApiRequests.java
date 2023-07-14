@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
 
@@ -60,7 +61,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		return newResponse;
 	}
 
-	public Response regProcGetRequest(String url, HashMap<String, String> valueMap, String regProcAuthToken) {
+	public Response regProcGetRequest(String url, Map<String, String> valueMap, String regProcAuthToken) {
 		logger.info("REST-ASSURED: Sending a GET request to " + ApplnURI + url);
 
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, regProcAuthToken);
@@ -100,7 +101,7 @@ public class RegProcApiRequests extends BaseTestCase {
 		return postResponse;
 	}
 
-	public Response regProcPostRequest(String url, HashMap<String, String> valueMap, String contentHeader,
+	public Response regProcPostRequest(String url, Map<String, String> valueMap, String contentHeader,
 			String token) {
 		logger.info("REST:ASSURED:Sending a post request to" + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, token);
@@ -199,7 +200,7 @@ public class RegProcApiRequests extends BaseTestCase {
 	 * @return this method is for get request with authentication(cookie) and with
 	 *         pathParams Map(name, Value).
 	 */
-	public Response getWithPathParam(String url, HashMap<String, String> patharams, String cookie) {
+	public Response getWithPathParam(String url, Map<String, String> patharams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + ApplnURI + url);
 
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);

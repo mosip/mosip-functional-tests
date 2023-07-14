@@ -32,7 +32,7 @@ public class S3Adapter {
 
 	private boolean useAccountAsBucketname = true;
 
-	private static final String SEPARATOR = "/";
+	private static final String SEPARATOR = File.separator;
 	
 	private int reportExpirationInDays = Integer.parseInt(ConfigManager.getReportExpirationInDays());
 

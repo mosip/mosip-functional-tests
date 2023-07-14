@@ -27,7 +27,7 @@ public class DataProviderClass {
 	public static Object[][] getDataProvider(String configFile, String scenario, String testType) {
 		Object[][] returnObj = null;
 		try {
-			// scenario = scenario.replace("/", "_");
+			// scenario = scenario.replace(File.separator, "_");
 			returnObj = new Object[FileUtil.getFolders(new File(configFile)).size() + 1][];
 			int numberOfTestcase = 1;
 			for (File testcase : FileUtil.getFolders(new File(configFile))) {

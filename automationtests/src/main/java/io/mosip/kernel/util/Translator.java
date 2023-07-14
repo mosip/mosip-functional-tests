@@ -1,6 +1,7 @@
 
 package io.mosip.kernel.util;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.apache.log4j.Logger;
@@ -23,7 +24,7 @@ public class Translator {
 
 		try {
 			//String filename = "D:\\Mosip_Automation_Test\\Mosip_Functional_Test_Develop\\mosip-functional-tests\\automationtests\\src\\main\\resources\\config\\lang-isocode-transid.csv";
-			String filename = MosipTestRunner.getGlobalResourcePath() + "/"+"config/lang-isocode-transid.csv";
+			String filename = MosipTestRunner.getGlobalResourcePath() + File.separator+"config/lang-isocode-transid.csv";
 			//CSVHelper csv = new CSVHelper(IDlookupFile);
 			CSVHelper csv = new CSVHelper(filename);
 			String[] rec;

@@ -111,8 +111,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 				}
 				else {
 					response = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + testCaseDTO.getEndPoint(),
-							inputJson, COOKIENAME,
-							testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+							inputJson, COOKIENAME, testCaseDTO.getTestCaseName());
 					
 				}
 			}
@@ -124,7 +123,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			Map<String, List<OutputValidationDto>> ouputValid = null;
 			if(testCaseName.contains("_StatusCode")) {
 				
-				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
+				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput());
 				
 				ouputValid = new HashMap<>();
 				ouputValid.put("expected vs actual", List.of(customResponse));

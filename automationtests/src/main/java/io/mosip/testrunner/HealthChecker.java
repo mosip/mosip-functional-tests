@@ -24,7 +24,7 @@ import io.restassured.response.Response;
 public class HealthChecker implements Runnable {
 	private static final Logger logger = Logger.getLogger(HealthChecker.class);
 	public static boolean bTerminate = false;
-	public static String propsHealthCheckURL = MosipTestRunner.getResourcePath() + "/"
+	public static String propsHealthCheckURL = MosipTestRunner.getResourcePath() + File.separator
 			+ "config/healthCheckEndpoint.properties";
 	public static boolean signalTerminateExecution = false;
 	public static Map<Object, Object> healthCheckFailureMapS = Collections

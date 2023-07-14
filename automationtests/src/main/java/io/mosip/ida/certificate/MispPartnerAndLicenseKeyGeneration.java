@@ -1,5 +1,6 @@
 package io.mosip.ida.certificate;
 
+import java.io.File;
 import java.util.HashMap;
 
 import javax.ws.rs.core.MediaType;
@@ -56,7 +57,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	}
 	
 	private static String getLocalHostUrl() {
-			return ConfigManager.getAuthDemoServiceUrl() + "/";
+			return ConfigManager.getAuthDemoServiceUrl() + File.separator;
 	}
 
 	public static void mispPartnerGeneration() { 

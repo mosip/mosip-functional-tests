@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -41,7 +42,7 @@ public class CSVHelper {
 		
 		try {
 			inputStream = new FileInputStream(fileName);		
-			InputStreamReader filereader = new InputStreamReader(inputStream , "UTF-8");
+			InputStreamReader filereader = new InputStreamReader(inputStream , StandardCharsets.UTF_8);
 			csvReader = new CSVReaderBuilder(filereader)
         								.withSkipLines(1)
         								.build();

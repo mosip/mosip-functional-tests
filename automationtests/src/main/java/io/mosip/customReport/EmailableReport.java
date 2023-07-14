@@ -25,7 +25,6 @@ import org.testng.internal.Utils;
 import org.testng.log4testng.Logger;
 import org.testng.xml.XmlSuite;
 
-import io.mosip.global.utils.GlobalConstants;
 import io.mosip.kernel.util.ConfigManager;
 import io.mosip.kernel.util.S3Adapter;
 
@@ -76,15 +75,15 @@ public class EmailableReport implements IReporter {
         writer.close();
         
         if (ConfigManager.getPushReportsToS3().equalsIgnoreCase("yes")) {
-			File repotFile = new File(System.getProperty("user.dir") + "/" + System.getProperty("testng.outpur.dir")
-					+ "/" + System.getProperty(GlobalConstants.EMAILABLEREPORT2NAME));
-			LOG.info("reportFile is::" + System.getProperty("user.dir") + "/"
-					+ System.getProperty("testng.outpur.dir") + "/" + System.getProperty(GlobalConstants.EMAILABLEREPORT2NAME));
+			File repotFile = new File(System.getProperty("user.dir") + File.separator + System.getProperty("testng.outpur.dir")
+					+ File.separator + System.getProperty("emailable.report2.name"));
+			LOG.info("reportFile is::" + System.getProperty("user.dir") + File.separator
+					+ System.getProperty("testng.outpur.dir") + File.separator + System.getProperty("emailable.report2.name"));
 			S3Adapter s3Adapter = new S3Adapter();
 			boolean isStoreSuccess = false;
 			try {
 				isStoreSuccess = s3Adapter.putObject(ConfigManager.getS3Account(), System.getProperty("modules"), null,
-						null, System.getProperty(GlobalConstants.EMAILABLEREPORT2NAME), repotFile);
+						null, System.getProperty("emailable.report2.name"), repotFile);
 				LOG.info("isStoreSuccess:: " + isStoreSuccess);
 			} catch (Exception e) {
 				LOG.info("error occured while pushing the object" + e.getLocalizedMessage());
@@ -183,13 +182,13 @@ public class EmailableReport implements IReporter {
         writer.print("<th>Time (ms)</th>");
         writer.print("<th>Included Groups</th>");
         writer.print("<th>Excluded Groups</th>");
-        writer.print(GlobalConstants.TR);
+        writer.print("</tr>");
 
         int testIndex = 0;
         for (SuiteResult suiteResult : suiteResults) {
             writer.print("<tr><th colspan=\"7\">");
             writer.print(Utils.escapeHtml(suiteResult.getSuiteName() + "-" + getCommitId()));
-            writer.print(GlobalConstants.TRTR);
+            writer.print("</th></tr>");
 
             for (TestResult testResult : suiteResult.getTestResults()) {
                 int passedTests = testResult.getPassedTestCount();
@@ -210,14 +209,14 @@ public class EmailableReport implements IReporter {
                         .append("</a>").toString());
                 writeTableData(integerFormat.format(passedTests), "num");
                 writeTableData(integerFormat.format(skippedTests),
-                        (skippedTests > 0 ? GlobalConstants.NUMATTN : "num"));
+                        (skippedTests > 0 ? "num attn" : "num"));
                 writeTableData(integerFormat.format(failedTests),
-                        (failedTests > 0 ? GlobalConstants.NUMATTN : "num"));
+                        (failedTests > 0 ? "num attn" : "num"));
                 writeTableData(decimalFormat.format(duration), "num");
                 writeTableData(testResult.getIncludedGroups());
                 writeTableData(testResult.getExcludedGroups());
 
-                writer.print(GlobalConstants.TR);
+                writer.print("</tr>");
 
                 totalPassedTests += passedTests;
                 totalSkippedTests += skippedTests;
@@ -233,15 +232,15 @@ public class EmailableReport implements IReporter {
             writer.print("<th>Total</th>");
             writeTableHeader(integerFormat.format(totalPassedTests), "num");
             writeTableHeader(integerFormat.format(totalSkippedTests),
-                    (totalSkippedTests > 0 ? GlobalConstants.NUMATTN : "num"));
+                    (totalSkippedTests > 0 ? "num attn" : "num"));
             writeTableHeader(integerFormat.format(totalFailedTests),
-                    (totalFailedTests > 0 ? GlobalConstants.NUMATTN : "num"));
+                    (totalFailedTests > 0 ? "num attn" : "num"));
             writeTableHeader(decimalFormat.format(totalDuration), "num");
             writer.print("<th colspan=\"2\"></th>");
-            writer.print(GlobalConstants.TR);
+            writer.print("</tr>");
         }
 
-        writer.print(GlobalConstants.TABLE);
+        writer.print("</table>");
     }
 
     /**
@@ -255,7 +254,7 @@ public class EmailableReport implements IReporter {
         writer.print("<th>Method</th>");
         writer.print("<th>Start</th>");
         writer.print("<th>Time (ms)</th>");
-        writer.print(GlobalConstants.TR);
+        writer.print("</tr>");
         writer.print("</thead>");
 
         int testIndex = 0;
@@ -297,7 +296,7 @@ public class EmailableReport implements IReporter {
             }
         }
 
-        writer.print(GlobalConstants.TABLE);
+        writer.print("</table>");
     }
 
     /**
@@ -311,7 +310,7 @@ public class EmailableReport implements IReporter {
         if (!classResults.isEmpty()) {
             writer.print("<tr><th colspan=\"4\">");
             writer.print(description);
-            writer.print(GlobalConstants.TRTR);
+            writer.print("</th></tr>");
 
             int scenarioIndex = startingScenarioIndex;
             int classIndex = 0;
@@ -335,21 +334,21 @@ public class EmailableReport implements IReporter {
                     long duration = firstResult.getEndMillis() - start;
 
                     if (methodIndex > 0) {
-                        buffer.append(GlobalConstants.TRCLASS).append(cssClass)
+                        buffer.append("<tr class=\"").append(cssClass)
                                 .append("\">");
 
                     }
                     buffer.append("<td><a href=\"#m").append(scenarioIndex)
                             .append("\">").append(methodName)
-                            .append("</a></td>").append(GlobalConstants.TDROWSPAN)
+                            .append("</a></td>").append("<td rowspan=\"")
                             .append(resultsCount).append("\">").append(start)
-                            .append(GlobalConstants.TD).append(GlobalConstants.TDROWSPAN)
+                            .append("</td>").append("<td rowspan=\"")
                             .append(resultsCount).append("\">")
-                            .append(duration).append(GlobalConstants.TDTR);
+                            .append(duration).append("</td></tr>");
                     scenarioIndex++;
 
                     for (int i = 1; i < resultsCount; i++) {
-                        buffer.append(GlobalConstants.TRCLASS).append(cssClass)
+                        buffer.append("<tr class=\"").append(cssClass)
                                 .append("\">").append("<td><a href=\"#m")
                                 .append(scenarioIndex).append("\">")
                                 .append(methodName).append("</a></td></tr>");
@@ -360,14 +359,14 @@ public class EmailableReport implements IReporter {
                     methodIndex++;
                 }
 
-                writer.print(GlobalConstants.TRCLASS);
+                writer.print("<tr class=\"");
                 writer.print(cssClass);
                 writer.print("\">");
-                writer.print(GlobalConstants.TDROWSPAN);
+                writer.print("<td rowspan=\"");
                 writer.print(scenariosPerClass);
                 writer.print("\">");
                 writer.print(Utils.escapeHtml(classResult.getClassName()));
-                writer.print(GlobalConstants.TD);
+                writer.print("</td>");
                 writer.print(buffer);
 
                 classIndex++;
@@ -458,7 +457,7 @@ public class EmailableReport implements IReporter {
             for (Object parameter : parameters) {
                 writer.print("<td>");
                 writer.print(Utils.escapeHtml(Utils.toString(parameter)));
-                writer.print(GlobalConstants.TD);
+                writer.print("</td>");
             }
             writer.print("</tr>");
         }
@@ -467,7 +466,7 @@ public class EmailableReport implements IReporter {
         if (!reporterMessages.isEmpty()) {
             writer.print("<tr><th");
             if (parameterCount > 1) {
-                writer.print(GlobalConstants.colspan);
+                writer.print(" colspan=\"");
                 writer.print(parameterCount);
                 writer.print("\"");
             }
@@ -475,40 +474,40 @@ public class EmailableReport implements IReporter {
 
             writer.print("<tr><td");
             if (parameterCount > 1) {
-                writer.print(GlobalConstants.colspan);
+                writer.print(" colspan=\"");
                 writer.print(parameterCount);
                 writer.print("\"");
             }
             writer.print(">");
             writeReporterMessages(reporterMessages);
-            writer.print(GlobalConstants.TDTR);
+            writer.print("</td></tr>");
         }
 
         Throwable throwable = result.getThrowable();
         if (throwable != null) {
             writer.print("<tr><th");
             if (parameterCount > 1) {
-                writer.print(GlobalConstants.colspan);
+                writer.print(" colspan=\"");
                 writer.print(parameterCount);
                 writer.print("\"");
             }
             writer.print(">");
             writer.print((result.getStatus() == ITestResult.SUCCESS ? "Expected Exception"
                     : "Exception"));
-            writer.print(GlobalConstants.TRTR);
+            writer.print("</th></tr>");
 
             writer.print("<tr><td");
             if (parameterCount > 1) {
-                writer.print(GlobalConstants.colspan);
+                writer.print(" colspan=\"");
                 writer.print(parameterCount);
                 writer.print("\"");
             }
             writer.print(">");
             writeStackTrace(throwable);
-            writer.print(GlobalConstants.TDTR);
+            writer.print("</td></tr>");
         }
 
-        writer.print(GlobalConstants.TABLE);
+        writer.print("</table>");
         writer.print("<p class=\"totop\"><a href=\"#summary\">back to summary</a></p>");
     }
 
