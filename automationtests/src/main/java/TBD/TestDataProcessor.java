@@ -61,7 +61,7 @@ public class TestDataProcessor {
 		FileInputStream inputStream = null;
 		try {
 			inputStream = new FileInputStream(
-					RunConfigUtil.getResourcePath() + modulename + "/" + apiname + "/" + testData + ".yaml");
+					RunConfigUtil.getResourcePath() + modulename + File.separator + apiname + File.separator + testData + ".yaml");
 			YamlDTO obj = new YamlDTO();
 			obj.setYamlObject((Map<String, List<Object>>) yaml.load(inputStream));
 			List<Object> list = obj.getYamlObject().get(dataParam);

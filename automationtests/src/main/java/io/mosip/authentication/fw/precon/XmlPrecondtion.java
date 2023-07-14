@@ -2,6 +2,7 @@ package io.mosip.authentication.fw.precon;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Collections;
@@ -117,7 +118,7 @@ public class XmlPrecondtion extends MessagePrecondtion {
 		try {
 			StringBuilder xmlStringBuilder = new StringBuilder();
 			xmlStringBuilder.append(content);
-			ByteArrayInputStream input = new ByteArrayInputStream(xmlStringBuilder.toString().getBytes("UTF-8"));
+			ByteArrayInputStream input = new ByteArrayInputStream(xmlStringBuilder.toString().getBytes(StandardCharsets.UTF_8));
 			builderFactory.setFeature(FEATURE, true);
 			builderFactory.setFeature(EXTERNAL_DTD_FEATURE, false);
 			builderFactory.setXIncludeAware(false);
@@ -187,14 +188,14 @@ public class XmlPrecondtion extends MessagePrecondtion {
 	private static String normalisedXpath(String xpath) {
 		String normalisedXpath = "//";
 		xpath = xpath.replace("//", "");
-		String[] values = xpath.split(Pattern.quote("/"));
+		String[] values = xpath.split(Pattern.quote(File.separator));
 		for (int i = 0; i < values.length; i++) {
 			if (values[i].contains("@") && values[i].contains(":"))
 				normalisedXpath = normalisedXpath + "@"
-						+ values[i].substring(values[i].indexOf(":") + 1, values[i].length()) + "/";
+						+ values[i].substring(values[i].indexOf(":") + 1, values[i].length()) + File.separator;
 			else
 				normalisedXpath = normalisedXpath + values[i].substring(values[i].indexOf(":") + 1, values[i].length())
-						+ "/";
+						+ File.separator;
 		}
 		normalisedXpath = normalisedXpath.substring(0, normalisedXpath.length() - 1);
 		return normalisedXpath;

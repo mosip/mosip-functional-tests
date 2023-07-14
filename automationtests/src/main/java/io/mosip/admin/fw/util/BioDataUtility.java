@@ -1,5 +1,6 @@
 package io.mosip.admin.fw.util;
 
+import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -40,7 +41,7 @@ public class BioDataUtility extends AdminTestUtil {
 	private static final Logger logger = Logger.getLogger(BioDataUtility.class);
 
 	private String cryptoEncryptUrl = BaseTestCase.ApplnURI + "/idauthentication/v1/internal/encrypt";
-	static String EncryptUtilBaseUrl = ConfigManager.getAuthDemoServiceUrl() + "/";
+	static String EncryptUtilBaseUrl = ConfigManager.getAuthDemoServiceUrl() + File.separator;
 
 	private String encryptIsoBioValue(String isoBiovalue, String timestamp, String bioValueEncryptionTemplateJson,
 			String transactionId, boolean isInternal) {
@@ -184,7 +185,7 @@ public class BioDataUtility extends AdminTestUtil {
 	
 	private String getSignedData(String identityDataBlock, String partnerId) {
 
-		return generateSignatureWithRequest(identityDataBlock, "BOOLEAN:true", partnerId);
+		return generateSignatureWithRequest(identityDataBlock, partnerId);
 	}
 	
 	private String getSignedBiometrics(String identityDataBlock, String key) {

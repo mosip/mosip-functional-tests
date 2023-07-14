@@ -123,7 +123,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 			Map<String, List<OutputValidationDto>> ouputValid = null;
 			if(testCaseName.contains("_StatusCode")) {
 				
-				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
+				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput());
 				
 				ouputValid = new HashMap<>();
 				ouputValid.put("expected vs actual", List.of(customResponse));

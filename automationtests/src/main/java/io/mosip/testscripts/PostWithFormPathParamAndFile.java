@@ -73,12 +73,12 @@ public class PostWithFormPathParamAndFile extends AdminTestUtil implements ITest
 
 		
 		
-		response = postWithFormPathParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
+		response = postWithFormPathParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = null;
 		if(testCaseName.contains("_StatusCode")) {
 			
-			OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
+			OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput());
 			
 			ouputValid = new HashMap<>();
 			ouputValid.put("expected vs actual", List.of(customResponse));

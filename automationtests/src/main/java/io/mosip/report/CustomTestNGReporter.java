@@ -70,7 +70,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 
 			removeOldCustomMosipReport(outputDirectory);
 
-			File targetFile = new File(outputDirectory + "/"+reportProfixFileName/*getCurrentDateForReport()*/+".html");
+			File targetFile = new File(outputDirectory + File.separator+reportProfixFileName/*getCurrentDateForReport()*/+".html");
 			fileWriter = new FileWriter(targetFile);
 			fileWriter.write(finalcustomReport);
 		} catch (NullPointerException | IOException e) {

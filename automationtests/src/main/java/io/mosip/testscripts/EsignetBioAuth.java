@@ -105,7 +105,7 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 		}
 		String encryptedIdentityReq = null;
 		try {
-			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
+			encryptedIdentityReq = getBioDataUtil().constractBioIdentityRequest(identityRequest,
 					getResourcePath() + properties.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
 
 			if (encryptedIdentityReq == null)
@@ -134,7 +134,7 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 			if (testCaseName.contains("ESignet_")) {
 				String tempUrl = ApplnURI.replace("-internal", "");
 				response = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + testCaseDTO.getEndPoint(), authRequest,
-						COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+						COOKIENAME, testCaseDTO.getTestCaseName());
 
 			} else {
 				response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), authRequest, COOKIENAME,

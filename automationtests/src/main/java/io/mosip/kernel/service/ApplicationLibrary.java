@@ -3,6 +3,7 @@ package io.mosip.kernel.service;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
 
@@ -35,13 +36,13 @@ public class ApplicationLibrary extends BaseTestCase {
 				MediaType.APPLICATION_JSON, cookie);
 	}
 
-	public Response postWithPathParams(String endpoint, Object body, HashMap<String, String> pathParams,
+	public Response postWithPathParams(String endpoint, Object body, Map<String, String> pathParams,
 			String cookie) {
 		return commonLibrary.postWithPathParams(ApplnURI + endpoint, body, pathParams, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, cookie);
 	}
 	
-	public Response postWithPathParamsForKeyCloak(String endpoint, HashMap<String, String> pathParams,
+	public Response postWithPathParamsForKeyCloak(String endpoint, Map<String, String> pathParams,
 			String cookie) {
 		return commonLibrary.postWithOnlyPathParams(ApplnURI + endpoint, pathParams, MediaType.APPLICATION_FORM_URLENCODED,
 				MediaType.APPLICATION_FORM_URLENCODED, cookie);
@@ -51,24 +52,24 @@ public class ApplicationLibrary extends BaseTestCase {
 		return commonLibrary.postWithFile(ApplnURI + endpoint, body, file, fileKeyName, MediaType.APPLICATION_JSON, cookie);
 	}
 
-	public Response postWithFileFormParams(String endpoint, HashMap<String, String> formParams, File file, String fileKeyName,
+	public Response postWithFileFormParams(String endpoint, Map<String, String> formParams, File file, String fileKeyName,
 			String cookie) {
 		return commonLibrary.postWithFileFormParams(ApplnURI + endpoint, formParams, file, fileKeyName,
 				MediaType.MULTIPART_FORM_DATA, cookie);
 	}
 
-	public Response postWithFilePathParamsFormParams(String endpoint, HashMap<String, String> pathParams,
-			HashMap<String, String> formParams, File file, String fileKeyName, String cookie) {
+	public Response postWithFilePathParamsFormParams(String endpoint, Map<String, String> pathParams,
+			Map<String, String> formParams, File file, String fileKeyName, String cookie) {
 		return commonLibrary.postWithFilePathParamsFormParams(ApplnURI + endpoint, pathParams, formParams, file, fileKeyName,
 				MediaType.MULTIPART_FORM_DATA, cookie);
 	}
 
-	public Response postWithQueryParams(String endpoint, HashMap<String, String> queryparams, Object body,
+	public Response postWithQueryParams(String endpoint, Map<String, String> queryparams, Object body,
 			String cookie) {
 		return commonLibrary.postWithQueryParams(ApplnURI + endpoint, queryparams, body, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, cookie);
 	}
-	public Response postWithMultiHeaders(String endpoint, Object body, HashMap<String, String> headers,
+	public Response postWithMultiHeaders(String endpoint, Object body, Map<String, String> headers,
 			String contentHeader, String cookie) {
 		return commonLibrary.postWithMultiHeaders(ApplnURI + endpoint, body, headers, MediaType.APPLICATION_JSON, cookie);
 	}
@@ -82,21 +83,21 @@ public class ApplicationLibrary extends BaseTestCase {
 	public Response getWithoutParams(String endpoint, String cookie) {
 		return commonLibrary.getWithoutParams(ApplnURI + endpoint, cookie);
 	}
-	public Response getWithPathParam(String endpoint, HashMap<String, String> patharams, String cookie) {
+	public Response getWithPathParam(String endpoint, Map<String, String> patharams, String cookie) {
 		return commonLibrary.getWithPathParam(ApplnURI + endpoint, patharams, cookie);
 	}
-	public Response getWithQueryParam(String endpoint, HashMap<String, String> queryParams, String cookie) {
+	public Response getWithQueryParam(String endpoint, Map<String, String> queryParams, String cookie) {
 		return commonLibrary.getWithQueryParam(ApplnURI + endpoint, queryParams, cookie);
 	}
-	public Response getWithQueryParamList(String endpoint, HashMap<String, List<String>> queryParams, String cookie) {
+	public Response getWithQueryParamList(String endpoint, Map<String, List<String>> queryParams, String cookie) {
 		return commonLibrary.getWithQueryParamList(ApplnURI + endpoint, queryParams, cookie);
 	}
-	public Response getWithPathQueryParam(String endpoint, HashMap<String, String> pathParams,
-			HashMap<String, String> queryParams, String cookie) {
+	public Response getWithPathQueryParam(String endpoint, Map<String, String> pathParams,
+			Map<String, String> queryParams, String cookie) {
 		return commonLibrary.getWithPathQueryParam(ApplnURI + endpoint,pathParams, queryParams, cookie);
 	}
-	public Response getWithPathParamQueryParamList(String endpoint, HashMap<String, String> pathParams,
-			HashMap<String, List<String>> queryParams, String cookie) {
+	public Response getWithPathParamQueryParamList(String endpoint, Map<String, String> pathParams,
+			Map<String, List<String>> queryParams, String cookie) {
 		return commonLibrary.getWithPathParamQueryParamList(ApplnURI + endpoint, pathParams, queryParams, cookie);
 	}
 	public Response putWithoutData(String endpoint, String cookie) {
@@ -107,26 +108,26 @@ public class ApplicationLibrary extends BaseTestCase {
 		return commonLibrary.putWithJson(ApplnURI + endpoint, body, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, cookie);
 	}
-	public Response putWithPathParams(String endpoint, HashMap<String, String> pathParams, String cookie) {
+	public Response putWithPathParams(String endpoint, Map<String, String> pathParams, String cookie) {
 		return commonLibrary.putWithPathParams(ApplnURI + endpoint, pathParams, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, cookie);
 	}
-	public Response putWithQueryParams(String endpoint, HashMap<String, String> queryParams, String cookie) {
+	public Response putWithQueryParams(String endpoint, Map<String, String> queryParams, String cookie) {
 		return commonLibrary.putWithQueryParams(ApplnURI + endpoint, queryParams, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, cookie);
 	}
-	public Response putWithPathParamsBody(String endpoint, HashMap<String, String> pathParams, Object body, String cookie) {
+	public Response putWithPathParamsBody(String endpoint, Map<String, String> pathParams, Object body, String cookie) {
 		return commonLibrary.putWithPathParamsBody(ApplnURI + endpoint, pathParams, body, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, cookie);
 	}
-	public Response deleteWithPathParams(String endpoint, HashMap<String, String> pathParams, String cookie) {
+	public Response deleteWithPathParams(String endpoint, Map<String, String> pathParams, String cookie) {
 		return commonLibrary.deleteWithPathParams(ApplnURI + endpoint, pathParams, cookie);
 	}
-	public Response deleteWithQueryParams(String endpoint, HashMap<String, String> queryParams, String cookie) {
+	public Response deleteWithQueryParams(String endpoint, Map<String, String> queryParams, String cookie) {
 		return commonLibrary.deleteWithQueryParams(ApplnURI + endpoint, queryParams, cookie);
 	}
-	public Response deleteWithPathQueryParams(String endpoint, HashMap<String, String> pathParams,
-			HashMap<String, String> queryParams, String cookie) {
+	public Response deleteWithPathQueryParams(String endpoint, Map<String, String> pathParams,
+			Map<String, String> queryParams, String cookie) {
 		return commonLibrary.deleteWithPathQueryParams(ApplnURI + endpoint, pathParams, queryParams, cookie);
 	}
 	public Response getConfigProperties(String Resource_URI) {

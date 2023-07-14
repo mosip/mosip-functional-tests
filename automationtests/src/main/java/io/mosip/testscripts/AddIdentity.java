@@ -97,7 +97,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		if (testCaseName.equals("Resident_AddIdentity_Valid_Params_AddUser_smoke_Pos")) {
 
 			KeycloakUserManager.removeVidUser();
-			HashMap<String, List<String>> attrmap = new HashMap<>();
+			Map<String, List<String>> attrmap = new HashMap<>();
 			List<String> list = new ArrayList<>();
 			list.add(uin);
 			attrmap.put("individual_id", list);

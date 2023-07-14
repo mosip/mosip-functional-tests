@@ -73,7 +73,7 @@ public class PostWithFormDataAndFileForNotificationAPI extends AdminTestUtil imp
 		}
 		String inputJson = filterInputHbs(testCaseDTO);
 		
-		response = postWithMultipartFormDataAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(),idKeyName);
+		response = postWithMultipartFormDataAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(),idKeyName);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));

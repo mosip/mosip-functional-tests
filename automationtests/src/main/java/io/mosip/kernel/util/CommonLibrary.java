@@ -105,17 +105,17 @@ public class CommonLibrary extends BaseTestCase {
 		logger.info("=========" + file.getPath());
 		for (File f : file.listFiles()) {
 			if (f.isDirectory() == isfolder)
-				listFoldersFiles.add(configPath + "/" + f.getName());
+				listFoldersFiles.add(configPath + File.separator + f.getName());
 		}
 		return listFoldersFiles;
 	}
 
 	public String getResourcePath() {
-		return MosipTestRunner.getGlobalResourcePath() + "/";
+		return MosipTestRunner.getGlobalResourcePath() + File.separator;
 	}
 	
 	public String getResourcePathForKernel() {
-		return MosipTestRunner.getResourcePath() + "/";
+		return MosipTestRunner.getResourcePath() + File.separator;
 	}
 
 	public JSONObject readJsonData(String path, boolean isRelative) {
@@ -129,7 +129,7 @@ public class CommonLibrary extends BaseTestCase {
 			File fileToRead = new File(path);
 			logger.info("fileToRead : " + fileToRead);
 			inputStream = new FileInputStream(fileToRead);
-			jsonData = (JSONObject) new JSONParser().parse(new InputStreamReader(inputStream, "UTF-8"));
+			jsonData = (JSONObject) new JSONParser().parse(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
 		} catch (FileNotFoundException e) {
 			logger.info("error while reading the file : " + e.getLocalizedMessage() );
 			logger.error(e.getStackTrace());
@@ -299,7 +299,7 @@ public class CommonLibrary extends BaseTestCase {
 		return postResponse;
 	}
 
-	public Response postWithPathParams(String url, Object body, HashMap<String, String> pathParams,
+	public Response postWithPathParams(String url, Object body, Map<String, String> pathParams,
 			String contentHeader, String acceptHeader, String cookie) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -311,7 +311,7 @@ public class CommonLibrary extends BaseTestCase {
 		return postResponse;
 	}
 	
-	public Response postWithOnlyPathParams(String url,  HashMap<String, String> pathParams,
+	public Response postWithOnlyPathParams(String url,  Map<String, String> pathParams,
 			String contentHeader, String acceptHeader, String cookie) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -345,7 +345,7 @@ public class CommonLibrary extends BaseTestCase {
 		return postResponse;
 	}
 
-	public Response postWithFileFormParams(String url, HashMap<String, String> formParams, File file,
+	public Response postWithFileFormParams(String url, Map<String, String> formParams, File file,
 			String fileKeyName, String contentHeader, String cookie) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
 		logger.info("Name of the file is" + file.getName());
@@ -358,8 +358,8 @@ public class CommonLibrary extends BaseTestCase {
 		return postResponse;
 	}
 
-	public Response postWithFilePathParamsFormParams(String url, HashMap<String, String> pathParams,
-			HashMap<String, String> formParams, File file, String fileKeyName, String contentHeader, String cookie) {
+	public Response postWithFilePathParamsFormParams(String url, Map<String, String> pathParams,
+			Map<String, String> formParams, File file, String fileKeyName, String contentHeader, String cookie) {
 		logger.info("REST:ASSURED:Sending post request to" + url);
 		logger.info("Name of the file is" + file.getName());
 
@@ -372,7 +372,7 @@ public class CommonLibrary extends BaseTestCase {
 		return postResponse;
 	}
 
-	public Response postWithQueryParams(String url, HashMap<String, String> queryparams, Object body,
+	public Response postWithQueryParams(String url, Map<String, String> queryparams, Object body,
 			String contentHeader, String acceptHeader, String cookie) {
 		logger.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -384,7 +384,7 @@ public class CommonLibrary extends BaseTestCase {
 		return postResponse;
 	}
 
-	public Response postWithMultiHeaders(String endpoint, Object body, HashMap<String, String> headers,
+	public Response postWithMultiHeaders(String endpoint, Object body, Map<String, String> headers,
 			String contentHeader, String cookie) {
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response postResponse = given().cookie(builder.build()).headers(headers).relaxedHTTPSValidation()
@@ -439,7 +439,7 @@ public class CommonLibrary extends BaseTestCase {
 		return getResponse;
 	}
 
-	public Response getWithPathParam(String url, HashMap<String, String> patharams, String cookie) {
+	public Response getWithPathParam(String url, Map<String, String> patharams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + url);
 
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -450,7 +450,7 @@ public class CommonLibrary extends BaseTestCase {
 		return getResponse;
 	}
 
-	public Response getWithQueryParam(String url, HashMap<String, String> queryParams, String cookie) {
+	public Response getWithQueryParam(String url, Map<String, String> queryParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + url);
 
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -461,7 +461,7 @@ public class CommonLibrary extends BaseTestCase {
 		return getResponse;
 	}
 
-	public Response getWithQueryParamList(String url, HashMap<String, List<String>> queryParams, String cookie) {
+	public Response getWithQueryParamList(String url, Map<String, List<String>> queryParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + url);
 
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -472,8 +472,8 @@ public class CommonLibrary extends BaseTestCase {
 		return getResponse;
 	}
 
-	public Response getWithPathQueryParam(String url, HashMap<String, String> pathParams,
-			HashMap<String, String> queryParams, String cookie) {
+	public Response getWithPathQueryParam(String url, Map<String, String> pathParams,
+			Map<String, String> queryParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + url);
 
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -484,8 +484,8 @@ public class CommonLibrary extends BaseTestCase {
 		return getResponse;
 	}
 
-	public Response getWithPathParamQueryParamList(String url, HashMap<String, String> pathParams,
-			HashMap<String, List<String>> queryParams, String cookie) {
+	public Response getWithPathParamQueryParamList(String url, Map<String, String> pathParams,
+			Map<String, List<String>> queryParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a GET request to " + url);
 
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -517,7 +517,7 @@ public class CommonLibrary extends BaseTestCase {
 		return putResponse;
 	}
 
-	public Response putWithPathParams(String url, HashMap<String, String> pathParams, String contentHeader,
+	public Response putWithPathParams(String url, Map<String, String> pathParams, String contentHeader,
 			String acceptHeader, String cookie) {
 		logger.info("REST-ASSURED: Sending a PUT request to   " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -529,7 +529,7 @@ public class CommonLibrary extends BaseTestCase {
 		return putResponse;
 	}
 
-	public Response putWithQueryParams(String url, HashMap<String, String> queryParams, String contentHeader,
+	public Response putWithQueryParams(String url, Map<String, String> queryParams, String contentHeader,
 			String acceptHeader, String cookie) {
 		logger.info("REST-ASSURED: Sending a PUT request to   " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -541,7 +541,7 @@ public class CommonLibrary extends BaseTestCase {
 		return putResponse;
 	}
 
-	public Response putWithPathParamsBody(String url, HashMap<String, String> pathParams, Object body,
+	public Response putWithPathParamsBody(String url, Map<String, String> pathParams, Object body,
 			String contentHeader, String acceptHeader, String cookie) {
 		logger.info("REST-ASSURED: Sending a PUT request to   " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
@@ -553,7 +553,7 @@ public class CommonLibrary extends BaseTestCase {
 		return putResponse;
 	}
 
-	public Response deleteWithPathParams(String url, HashMap<String, String> pathParams, String cookie) {
+	public Response deleteWithPathParams(String url, Map<String, String> pathParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a DELETE request to   " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams).log()
@@ -564,7 +564,7 @@ public class CommonLibrary extends BaseTestCase {
 	}
 
 	
-	public Response deleteWithQueryParams(String url, HashMap<String, String> queryParams, String cookie) {
+	public Response deleteWithQueryParams(String url, Map<String, String> queryParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a DELETE request to   " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().queryParams(queryParams).log()
@@ -575,8 +575,8 @@ public class CommonLibrary extends BaseTestCase {
 	}
 
 	
-	public Response deleteWithPathQueryParams(String url, HashMap<String, String> pathParams,
-			HashMap<String, String> queryParams, String cookie) {
+	public Response deleteWithPathQueryParams(String url, Map<String, String> pathParams,
+			Map<String, String> queryParams, String cookie) {
 		logger.info("REST-ASSURED: Sending a DELETE request to   " + url);
 		Cookie.Builder builder = new Cookie.Builder(GlobalConstants.AUTHORIZATION, cookie);
 		Response getResponse = given().cookie(builder.build()).relaxedHTTPSValidation().pathParams(pathParams)

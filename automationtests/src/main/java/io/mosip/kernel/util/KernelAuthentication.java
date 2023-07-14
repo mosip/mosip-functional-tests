@@ -173,7 +173,7 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	@SuppressWarnings("unchecked")
 	public HashMap<String, String> getAuthFromEsignet(File fileName) {
-		HashMap<String, String> tokens = new HashMap<String, String>();
+		HashMap<String, String> tokens = new HashMap<>();
 		if (fileName.exists()) {
 			String ESignetCookiesFileString = null;
 			try {

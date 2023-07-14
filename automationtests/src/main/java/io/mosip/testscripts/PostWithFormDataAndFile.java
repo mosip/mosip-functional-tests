@@ -68,7 +68,7 @@ public class PostWithFormDataAndFile extends AdminTestUtil implements ITest {
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		response = postWithFormDataAndMultipleFile(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(),idKeyName);
+		response = postWithFormDataAndMultipleFile(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), testCaseDTO.getRole(), testCaseDTO.getTestCaseName(),idKeyName);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));

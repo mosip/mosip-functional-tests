@@ -1,5 +1,6 @@
 package io.mosip.ida.certificate;
 
+import java.io.File;
 import java.util.HashMap;
 
 import javax.ws.rs.core.MediaType;
@@ -32,7 +33,7 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 	public static void getAndUploadIdaCertificate(String applicationId, String referenceId, String endPoint) {
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
 		String url = ApplnURI + properties.getProperty("getIdaCertificateUrl");
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, String> map = new HashMap<>();
 		map.put("applicationId", applicationId);
 		map.put("referenceId", referenceId);
 		lOGGER.info("Getting certificate for " + referenceId);
@@ -56,7 +57,7 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 			endPoint = endPoint.replace("$CERTSDIR$", ConfigManager.getauthCertsPath());
 		}
 
-		Response reponse = RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl() + "/" + endPoint,
+		Response reponse = RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl() + File.separator + endPoint,
 				request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 		lOGGER.info(reponse);
 

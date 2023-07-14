@@ -49,9 +49,9 @@ public class OutputValidationUtil extends AuthTestsUtil{
 					.retrieveMappingAndItsValueToPerformOutputValidation(actualOutputFile);
 			Map<String, String> exp = MessagePrecondtion.getPrecondtionObject(expOutputFile)
 					.retrieveMappingAndItsValueToPerformOutputValidation(expOutputFile);
-			actualOutputFile = actualOutputFile.substring(actualOutputFile.lastIndexOf("/") + 1,
+			actualOutputFile = actualOutputFile.substring(actualOutputFile.lastIndexOf(File.separator) + 1,
 					actualOutputFile.length());
-			expOutputFile = expOutputFile.substring(expOutputFile.lastIndexOf("/") + 1, expOutputFile.length());
+			expOutputFile = expOutputFile.substring(expOutputFile.lastIndexOf(File.separator) + 1, expOutputFile.length());
 			return compareActuExpValue(actual, exp, actualOutputFile + " vs " + expOutputFile);
 		} catch (Exception e) {
 			OUTPUTVALIDATION_LOGGER.error("Exceptione occured " + e.getMessage());
@@ -71,7 +71,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 	 */
 	public static Map<String, List<OutputValidationDto>> compareActuExpValue(Map<String, String> actual,
 			Map<String, String> exp, String actVsExp) {
-		Map<String, List<OutputValidationDto>> objMap = new HashMap<String, List<OutputValidationDto>>();
+		Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
 		List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 		try {
 			for (Entry<String, String> actualEntry : actual.entrySet()) {

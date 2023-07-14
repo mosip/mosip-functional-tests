@@ -108,8 +108,8 @@ public class FileUtil{
 		BufferedWriter bufferedWriter = null;
 		boolean bReturn = false;
 		try {
-			Path path = Paths.get(AuthTestsUtil.getTestFolder().getAbsolutePath() + "/" + fileName);
-			Charset charset = Charset.forName("UTF-8");
+			Path path = Paths.get(AuthTestsUtil.getTestFolder().getAbsolutePath() + File.separator + fileName);
+			Charset charset = Charset.forName(StandardCharsets.UTF_8.name());
 			bufferedWriter = Files.newBufferedWriter(path, charset);
 			bufferedWriter.write(content);
 			bReturn = true;
@@ -157,10 +157,10 @@ public class FileUtil{
 		boolean bReturn = false;
 		try {
 			Path path = Paths
-					.get(new File(RunConfigUtil.getResourcePath() + RunConfigUtil.objRunConfig.getStoreUINDataPath() + "/" + fileName)
+					.get(new File(RunConfigUtil.getResourcePath() + RunConfigUtil.objRunConfig.getStoreUINDataPath() + File.separator + fileName)
 							.getAbsolutePath());
 			if (!path.toFile().exists()) {
-				Charset charset = Charset.forName("UTF-8");
+				Charset charset = Charset.forName(StandardCharsets.UTF_8.name());
 				createFile(path.toFile(), "");
 				bufferedWriter = Files.newBufferedWriter(path, charset);
 				bufferedWriter.write(JsonPrecondtion.convertJsonContentToXml(content));
@@ -182,7 +182,7 @@ public class FileUtil{
 	 */
 	public static boolean checkFileExistForIdRepo(String fileName) {
 		Path path = Paths.get(new File(RunConfigUtil.getResourcePath() + RunConfigUtil.objRunConfig.getStoreUINDataPath()
-				+ "/" + fileName).getAbsolutePath());
+				+ File.separator + fileName).getAbsolutePath());
 		return path.toFile().exists();
 	}
 
