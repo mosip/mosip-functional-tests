@@ -134,6 +134,7 @@ public class GlobalConstants {
 	public static final String ACCESSTOKEN = "access_token";
 	public static final String APPID = "appId";
 	public static final String PASSWORD = "password";
+	public static final String USER_NAME ="userName";
 	public static final String TOKEN = "token";
 	public static final String SECRETKEY = "secretKey";
 	
@@ -194,8 +195,8 @@ public class GlobalConstants {
 	public static final String ROLENOTFOUNDINKEYCLOAK = "Role not found in keycloak: %s%n";
 	public static final String USERREMOVEDWITHNAME ="User removed with name: %s%n";
 	public static final String USERNOTFOUNDWITHNAME = "User not found with name: %s%n";
-	public static final String ACTUALAUTHREQUESTFORRESIDENT  = "Actual Auth Request for Resident: ";
-	public static final String AUTHCLIENTIDSECRETKEYURL = "authclientidsecretkeyURL";
+	public static final String ACTU_AUTH_REQUESTFOR_RESIDENT  = "Actual Auth Request for Resident: ";
+	public static final String AUTH_CLIENT_IDSECRET_KEYURL = "authclientidsecretkeyURL";
 	
 	
 }

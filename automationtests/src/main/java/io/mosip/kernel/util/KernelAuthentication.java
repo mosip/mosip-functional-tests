@@ -25,7 +25,7 @@ public class KernelAuthentication extends BaseTestCase{
 	String cookie;
 	static String dataKey = "response";
     static String errorKey = "errors";
-    static Map<String, String> tokens = new HashMap<String,String>();
+    static Map<String, String> tokens = new HashMap<>();
 	CommonLibrary clib= new CommonLibrary();
 	public final Map<String, String> props = clib.readProperty("Kernel");
 	
@@ -182,7 +182,7 @@ public class KernelAuthentication extends BaseTestCase{
 				logger.error(e.getStackTrace());
 			}
 			org.json.JSONObject jsonCookies = new org.json.JSONObject(ESignetCookiesFileString);
-			tokens.put("access_token", jsonCookies.get("access_token").toString());
+			tokens.put(GlobalConstants.ACCESSTOKEN, jsonCookies.get(GlobalConstants.ACCESSTOKEN).toString());
 			tokens.put("id_token", jsonCookies.get("id_token").toString());
 		} else {
 			logger.error("ESignetCookiesFile File not Found in location:" + fileName.getAbsolutePath());
@@ -196,10 +196,10 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authInternalRequest);
 
 		JSONObject request = new JSONObject();
-		request.put("appId", ConfigManager.getAdminAppId());
-		request.put("password", admin_password);
+		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
+		request.put(GlobalConstants.PASSWORD, admin_password);
 		
-		request.put("userName", BaseTestCase.currentModule +"-"+ admin_userName);
+		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule +"-"+ admin_userName);
 		
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getAdminClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getAdminClientSecret());
@@ -207,8 +207,7 @@ public class KernelAuthentication extends BaseTestCase{
 
 		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualrequest);
 		String responseBody = reponse.getBody().asString();
-		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
-		return token;
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
 	
 	
@@ -218,85 +217,80 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authInternalRequest);
 
 		JSONObject request = new JSONObject();
-		request.put("appId", ConfigManager.getAdminAppId());
-		request.put("password", props.get("admin_zone_password"));
-		request.put("userName", props.get("admin_zone_userName"));
+		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
+		request.put(GlobalConstants.PASSWORD, props.get("admin_zone_password"));
+		request.put(GlobalConstants.USER_NAME, props.get("admin_zone_userName"));
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getAdminClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getAdminClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
 		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualrequest);
 		String responseBody = reponse.getBody().asString();
-		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
-		return token;
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
 	
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPartner() {		
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", ConfigManager.getPmsAppId());
-		request.put("password", partner_password);
-		request.put("userName", BaseTestCase.currentModule +"-"+partner_userName);
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule +"-"+partner_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
 		Response reponse=appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
-		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
-		return token;			
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
 	
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForNewPartner() {		
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", ConfigManager.getPmsAppId());
-		request.put("password", partner_password);
-		request.put("userName", PartnerRegistration.partnerId);	
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME, PartnerRegistration.partnerId);	
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
 		Response reponse=appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
-		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
-		return token;			
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
 	
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForNewPartnerEsignet() {		
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", ConfigManager.getPmsAppId());
-		request.put("password", partner_password);
-		request.put("userName", AdminTestUtil.genPartnerName);	
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME, AdminTestUtil.genPartnerName);	
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
 		Response reponse=appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
-		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
-		return token;			
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
 	
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForPolicytest() {		
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", ConfigManager.getPmsAppId());
-		request.put("password", props.get("policytest_password"));
-		request.put("userName", BaseTestCase.currentModule +"-"+props.get("policytest_userName"));
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, props.get("policytest_password"));
+		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule +"-"+props.get("policytest_userName"));
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
 		Response reponse=appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
 		String responseBody = reponse.getBody().asString();
-		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
-		return token;			
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -304,15 +298,15 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		logger.info("actualrequest " + actualrequest);
 		JSONObject request=new JSONObject();
-		request.put("appId", ConfigManager.getResidentAppId());
+		request.put(GlobalConstants.APPID, ConfigManager.getResidentAppId());
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getResidentClientId());
-		request.put("secretKey", ConfigManager.getResidentClientSecret());
+		request.put(GlobalConstants.SECRETKEY, ConfigManager.getResidentClientSecret());
 		logger.info("request for  Resident: " + request);
 		logger.info("request for  Resident " + request);
 		actualrequest.put(GlobalConstants.REQUEST, request);
-		logger.info("Actual Auth Request for Resident: " + actualrequest);
-		logger.info("Actual Auth Request for Resident: " + actualrequest);
-		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+		logger.info(GlobalConstants.ACTU_AUTH_REQUESTFOR_RESIDENT + actualrequest);
+		logger.info(GlobalConstants.ACTU_AUTH_REQUESTFOR_RESIDENT + actualrequest);
+		Response reponse=appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie=reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -322,15 +316,15 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		logger.info("actualrequest " + actualrequest);
 		JSONObject request=new JSONObject();
-		request.put("appId", ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getMPartnerMobileClientId());
-		request.put("secretKey", ConfigManager.getMPartnerMobileClientSecret());
+		request.put(GlobalConstants.SECRETKEY, ConfigManager.getMPartnerMobileClientSecret());
 		logger.info("request for  Resident: " + request);
 		logger.info("request for  Resident " + request);
 		actualrequest.put(GlobalConstants.REQUEST, request);
-		logger.info("Actual Auth Request for Resident: " + actualrequest);
-		logger.info("Actual Auth Request for Resident: " + actualrequest);
-		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+		logger.info(GlobalConstants.ACTU_AUTH_REQUESTFOR_RESIDENT + actualrequest);
+		logger.info(GlobalConstants.ACTU_AUTH_REQUESTFOR_RESIDENT + actualrequest);
+		Response reponse=appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie=reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -341,17 +335,16 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authInternalRequest);
 
 		JSONObject request = new JSONObject();
-		request.put("appId", ConfigManager.getResidentAppId());
-		request.put("password", props.get("new_Resident_Password"));
-		request.put("userName", BaseTestCase.currentModule +"-"+props.get("new_Resident_User"));
+		request.put(GlobalConstants.APPID, ConfigManager.getResidentAppId());
+		request.put(GlobalConstants.PASSWORD, props.get("new_Resident_Password"));
+		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule +"-"+props.get("new_Resident_User"));
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getResidentClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getResidentClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
 		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualrequest);
 		String responseBody = reponse.getBody().asString();
-		String token = new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString("token");
-		return token;
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -363,12 +356,12 @@ public class KernelAuthentication extends BaseTestCase{
 				.formParam("grant_type", props.get("keycloak_granttype"))
 				.formParam("client_id", props.get("keycloak_clientid"))
 				.formParam(GlobalConstants.USERNAME, props.get("keycloak_username"))
-				.formParam("password", props.get("keycloak_password")).when()
+				.formParam(GlobalConstants.PASSWORD, props.get("keycloak_password")).when()
 				.post(ApplnURIForKeyCloak + props.get("keycloakAuthURL"));
 		logger.info(response.getBody().asString());
 		
 		String responseBody = response.getBody().asString();
-		String token = new org.json.JSONObject(responseBody).getString("access_token");
+		String token = new org.json.JSONObject(responseBody).getString(GlobalConstants.ACCESSTOKEN);
 		logger.info(token);
 		return token;
 	}
@@ -378,12 +371,12 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", ConfigManager.getHotListAppId());
+		request.put(GlobalConstants.APPID, ConfigManager.getHotListAppId());
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getHotListClientId());
-		request.put("secretKey", ConfigManager.getHotListClientSecret());
+		request.put(GlobalConstants.SECRETKEY, ConfigManager.getHotListClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 		
-		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+		Response reponse=appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie=reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -431,12 +424,12 @@ public class KernelAuthentication extends BaseTestCase{
 	
 	JSONObject actualrequest = getRequestJson(authRequest);
 	JSONObject request=new JSONObject();
-	request.put("appId", ConfigManager.getRegprocAppId());
+	request.put(GlobalConstants.APPID, ConfigManager.getRegprocAppId());
 	request.put(GlobalConstants.CLIENTID, ConfigManager.getRegprocClientId());
-	request.put("secretKey", ConfigManager.getRegprocClientSecret());
+	request.put(GlobalConstants.SECRETKEY, ConfigManager.getRegprocClientSecret());
 	actualrequest.put(GlobalConstants.REQUEST, request);
 	
-	Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+	Response reponse=appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 	cookie=reponse.getCookie(GlobalConstants.AUTHORIZATION);
 	logger.info("Regproc Cookie is:: " + cookie);
 	return cookie;
@@ -448,12 +441,12 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", ConfigManager.getResidentAppId());
+		request.put(GlobalConstants.APPID, ConfigManager.getResidentAppId());
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getResidentClientId());
-		request.put("secretKey", ConfigManager.getResidentClientSecret());
+		request.put(GlobalConstants.SECRETKEY, ConfigManager.getResidentClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 		
-		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+		Response reponse=appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie=reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -463,12 +456,12 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", ConfigManager.getidRepoAppId());
+		request.put(GlobalConstants.APPID, ConfigManager.getidRepoAppId());
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getidRepoClientId());
-		request.put("secretKey", ConfigManager.getIdRepoClientSecret());
+		request.put(GlobalConstants.SECRETKEY, ConfigManager.getIdRepoClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 		
-		Response reponse=appl.postWithJson(props.get("authclientidsecretkeyURL"), actualrequest);
+		Response reponse=appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
 		cookie=reponse.getCookie(GlobalConstants.AUTHORIZATION);
 		return cookie;
 	}
@@ -478,9 +471,9 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 
 		JSONObject request=new JSONObject();
-		request.put("appId", registrationAdmin_appid);
-		request.put("password", registrationAdmin_password);
-		request.put("userName", registrationAdmin_userName);
+		request.put(GlobalConstants.APPID, registrationAdmin_appid);
+		request.put(GlobalConstants.PASSWORD, registrationAdmin_password);
+		request.put(GlobalConstants.USER_NAME, registrationAdmin_userName);
 		actualrequest.put(GlobalConstants.REQUEST, request);
 		
 		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
@@ -493,9 +486,9 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", registrationOfficer_appid);
-		request.put("password", registrationOfficer_password);
-		request.put("userName", registrationOfficer_userName);
+		request.put(GlobalConstants.APPID, registrationOfficer_appid);
+		request.put(GlobalConstants.PASSWORD, registrationOfficer_password);
+		request.put(GlobalConstants.USER_NAME, registrationOfficer_userName);
 		actualrequest.put(GlobalConstants.REQUEST, request);
 		
 		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
@@ -508,9 +501,9 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", registrationSupervisor_appid);
-		request.put("password", registrationSupervisor_password);
-		request.put("userName", registrationSupervisor_userName);
+		request.put(GlobalConstants.APPID, registrationSupervisor_appid);
+		request.put(GlobalConstants.PASSWORD, registrationSupervisor_password);
+		request.put(GlobalConstants.USER_NAME, registrationSupervisor_userName);
 		actualrequest.put(GlobalConstants.REQUEST, request);
 	
 		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
@@ -523,9 +516,9 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", ConfigManager.getAdminAppId());
-		request.put("password", zonalAdmin_password);
-		request.put("userName", zonalAdmin_userName);
+		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
+		request.put(GlobalConstants.PASSWORD, zonalAdmin_password);
+		request.put(GlobalConstants.USER_NAME, zonalAdmin_userName);
 		actualrequest.put(GlobalConstants.REQUEST, request);
 	
 		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
@@ -538,9 +531,9 @@ public class KernelAuthentication extends BaseTestCase{
 		JSONObject actualrequest = getRequestJson(authRequest);
 		
 		JSONObject request=new JSONObject();
-		request.put("appId", ConfigManager.getAdminAppId());
-		request.put("password", zonalApprover_password);
-		request.put("userName", zonalApprover_userName);
+		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
+		request.put(GlobalConstants.PASSWORD, zonalApprover_password);
+		request.put(GlobalConstants.USER_NAME, zonalApprover_userName);
 		actualrequest.put(GlobalConstants.REQUEST, request);
 	
 		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
@@ -552,9 +545,9 @@ public class KernelAuthentication extends BaseTestCase{
 	public String getAuthForAutoUser() {
 		JSONObject actualrequest = getRequestJson(authRequest);	
 		JSONObject request=new JSONObject();
-		request.put("appId", props.get("autoUsr_appid"));
-		request.put("password", props.get("autoUsr_password"));
-		request.put("userName", props.get("autoUsr_user"));
+		request.put(GlobalConstants.APPID, props.get("autoUsr_appid"));
+		request.put(GlobalConstants.PASSWORD, props.get("autoUsr_password"));
+		request.put(GlobalConstants.USER_NAME, props.get("autoUsr_user"));
 		actualrequest.put(GlobalConstants.REQUEST, request);
 		Response reponse=appl.postWithJson(authenticationEndpoint, actualrequest);
 		cookie=reponse.getCookie(GlobalConstants.AUTHORIZATION);
