@@ -1,7 +1,9 @@
 package io.mosip.authentication.testdata.mapping;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -33,7 +35,7 @@ public class XmlXpathGeneration extends DefaultHandler {
 	private static final Logger xmlXpathLogger = Logger.getLogger(XmlXpathGeneration.class);
 	private static Map<String, String> mappingFieldvalue = new HashMap<>();
 	private static Set<String> xpathList = new HashSet<>();
-	String xPath = "/";
+	String xPath = File.separator;
 	XMLReader xmlReader;
 	XmlXpathGeneration parent;
 	StringBuilder characters = new StringBuilder();
@@ -60,7 +62,7 @@ public class XmlXpathGeneration extends DefaultHandler {
 		else
 			count++;
 		elementNameCount.put(qName, count);
-		String childXPath = xPath + "/" + qName + "[" + count + "]";
+		String childXPath = xPath + File.separator + qName + "[" + count + "]";
 		int attsLength = attributes.getLength();
 		for (int x = 0; x < attsLength; x++)
 			xpathList.add(childXPath + "/@" + attributes.getQName(x));
@@ -144,7 +146,7 @@ public class XmlXpathGeneration extends DefaultHandler {
 			for (Entry<String, String> entry : mappingFieldvalue.entrySet()) {
 				prop.setProperty(entry.getKey(), entry.getValue());
 			}
-			prop.store(outputStream, "UTF-8");
+			prop.store(outputStream, StandardCharsets.UTF_8.name());
 		} catch (Exception e) {
 			xmlXpathLogger.error(e.getMessage());
 		}finally {
@@ -159,7 +161,7 @@ public class XmlXpathGeneration extends DefaultHandler {
 		xmlXpathLogger.info(xpathList);
 		for (String entry : xpathList) {
 			String tempValue = entry.replace("[", "").replace("]", "").replace("/text()", "").replace("@", "");
-			String[] listValue = tempValue.split(Pattern.quote("/"));
+			String[] listValue = tempValue.split(Pattern.quote(File.separator));
 			String fieldKey = "";
 			for(int i=1;i<listValue.length;i++) {
 				if(i!=4)

@@ -38,7 +38,7 @@ public class AuditDBManager extends AdminTestUtil {
 
 	public static Map<String, Object> executeQueryAndGetRecord(String moduleName, String query) {
 		Session session = null;
-		Map<String, Object> record = new HashMap<String, Object>();
+		Map<String, Object> record = new HashMap<>();
 		try {
 			session = getDataBaseConnection(moduleName);
 			if (session != null) {

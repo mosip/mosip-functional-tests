@@ -1,3 +1,4 @@
+
 package io.mosip.testscripts;
 
 import java.lang.reflect.Field;
@@ -76,12 +77,12 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 
 		
 		
-		response = postWithParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName, sendEsignetToken);
+		response = postWithParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName, sendEsignetToken);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = null;
 		if(testCaseName.contains("_StatusCode")) {
 			
-			OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput(), testCaseName);
+			OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput());
 			
 			ouputValid = new HashMap<>();
 			ouputValid.put("expected vs actual", List.of(customResponse));

@@ -75,10 +75,10 @@ public class EmailableReport implements IReporter {
         writer.close();
         
         if (ConfigManager.getPushReportsToS3().equalsIgnoreCase("yes")) {
-			File repotFile = new File(System.getProperty("user.dir") + "/" + System.getProperty("testng.outpur.dir")
-					+ "/" + System.getProperty("emailable.report2.name"));
-			LOG.info("reportFile is::" + System.getProperty("user.dir") + "/"
-					+ System.getProperty("testng.outpur.dir") + "/" + System.getProperty("emailable.report2.name"));
+			File repotFile = new File(System.getProperty("user.dir") + File.separator + System.getProperty("testng.outpur.dir")
+					+ File.separator + System.getProperty("emailable.report2.name"));
+			LOG.info("reportFile is::" + System.getProperty("user.dir") + File.separator
+					+ System.getProperty("testng.outpur.dir") + File.separator + System.getProperty("emailable.report2.name"));
 			S3Adapter s3Adapter = new S3Adapter();
 			boolean isStoreSuccess = false;
 			try {

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
@@ -148,7 +149,7 @@ public class AssertKernel {
 	 * @param passedAttributes
 	 * @return
 	 */
-	public static boolean validator(JSONArray responseArray, List<String> attributesToValidate, HashMap<String, String> passedAttributes)
+	public static boolean validator(JSONArray responseArray, List<String> attributesToValidate, Map<String, String> passedAttributes)
 	{
 		    for(int i=0;i<responseArray.size();i++) {
 		    	 JSONObject object = (JSONObject) responseArray.get(0);

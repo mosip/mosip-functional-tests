@@ -49,8 +49,8 @@ import io.restassured.response.Response;
 public class BaseTestCase {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
-	public static MockSMTPListener mockSMTPListener = null;
-	public static List<String> preIds = new ArrayList<String>();
+	protected static MockSMTPListener mockSMTPListener = null;
+	public static List<String> preIds = new ArrayList<>();
 	public ExtentHtmlReporter htmlReporter;
 	public ExtentReports extent;
 	public ExtentTest test;
@@ -159,9 +159,9 @@ public class BaseTestCase {
 	public static String clientAssertionToken;
 	private static String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
 	public static Properties props = getproperty(
-			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
+			MosipTestRunner.getResourcePath() + File.separator + "config/application.properties");
 	public static Properties propsKernel = getproperty(
-			MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
+			MosipTestRunner.getResourcePath() + File.separator + "config/Kernel.properties");
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
@@ -169,7 +169,7 @@ public class BaseTestCase {
 			SEPRATOR = "\\\\";
 			return "WINDOWS";
 		} else if (type.toLowerCase().contains("linux") || type.toLowerCase().contains("unix")) {
-			SEPRATOR = "/";
+			SEPRATOR = File.separator;
 			return "OTHERS";
 		}
 		return null;
@@ -341,7 +341,7 @@ public class BaseTestCase {
 
 	private void copyReportAndLog() {
 		String folderForReport = kernelCmnLib.readProperty("Kernel").get("reportLogPath");
-		String dirToReport = System.getProperty("user.home") + "/" + folderForReport;
+		String dirToReport = System.getProperty("user.home") + File.separator + folderForReport;
 		File dest = new File(dirToReport);
 		if (!dest.exists())
 			dest.mkdir();
@@ -412,7 +412,7 @@ public class BaseTestCase {
 
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, String> map = new HashMap<>();
 		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("userId", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
@@ -424,7 +424,7 @@ public class BaseTestCase {
 
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, String> map = new HashMap<>();
 		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("userId", user);
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
@@ -437,7 +437,7 @@ public class BaseTestCase {
 		String token = kernelAuthLib.getTokenByRole("admin");
 		String url = ApplnURI + propsKernel.getProperty("zoneNameUrl");
 
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, String> map = new HashMap<>();
 
 		map.put("userID", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
 		map.put("langCode", BaseTestCase.getLanguageList().get(0));
@@ -459,16 +459,17 @@ public class BaseTestCase {
 		String token = kernelAuthLib.getTokenByRole("admin");
 		String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
 
-		HashMap<String, String> requestMap = new HashMap<String, String>();
+		HashMap<String, String> requestMap = new HashMap<>();
 
 		requestMap.put("id", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
 		requestMap.put("name", "automation");
 		requestMap.put("statusCode", "active");
+		// TODO remove hardcoding
 		requestMap.put("regCenterId", "10005");
 		requestMap.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		requestMap.put("langCode", "eng");
 
-		HashMap<String, Object> map = new HashMap<String, Object>();
+		HashMap<String, Object> map = new HashMap<>();
 
 		map.put("id", GlobalConstants.STRING);
 		map.put(GlobalConstants.VERSION, GlobalConstants.STRING);
@@ -486,7 +487,7 @@ public class BaseTestCase {
 		String token = kernelAuthLib.getTokenByRole("admin");
 		String url = ApplnURI + propsKernel.getProperty("userCenterMappingUrl");
 
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, String> map = new HashMap<>();
 
 		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		map.put("id", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));

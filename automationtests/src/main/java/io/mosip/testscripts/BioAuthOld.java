@@ -107,7 +107,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 
 		String encryptedIdentityReq = null;
 		try {
-			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
+			encryptedIdentityReq = getBioDataUtil().constractBioIdentityRequest(identityRequest,
 					getResourcePath() + properties.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
 		} catch (Exception e) {
 			logger.error(e.getStackTrace());

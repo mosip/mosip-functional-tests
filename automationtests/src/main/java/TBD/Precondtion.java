@@ -3,6 +3,7 @@ package TBD;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -51,7 +52,7 @@ public class Precondtion {
 						for (Entry<String, String> entry : auditTxnValue.entrySet()) {
 							prop.setProperty(entry.getKey(), entry.getValue());
 						}
-						prop.store(outputStream, "UTF-8");
+						prop.store(outputStream, StandardCharsets.UTF_8.name());
 				}
 			}
 		} catch (Exception e) {
@@ -91,7 +92,7 @@ public class Precondtion {
 						prop.setProperty(entry.getKey(), entry.getValue());
 					}
 					outputStream = new FileOutputStream(outputFilePath);
-					prop.store(new OutputStreamWriter(outputStream, "UTF-8"), null);
+					prop.store(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8), null);
 				}
 			}
 		} catch (Exception e) {

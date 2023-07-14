@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.ws.rs.core.Response;
@@ -32,7 +33,7 @@ public class KeycloakUserManager {
 	
 	private static final Logger logger = Logger.getLogger(KeycloakUserManager.class);
 
-	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
+	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + File.separator+"config/Kernel.properties");
 
 	private static Keycloak getKeycloakInstance() {
 		 Keycloak key=null;
@@ -239,7 +240,7 @@ public class KeycloakUserManager {
 		}
 	}
 
-	public static void createUsers(String userid, String pwd, String rolenum, HashMap<String, List<String>> map) {
+	public static void createUsers(String userid, String pwd, String rolenum, Map<String, List<String>> map) {
 		Keycloak keycloakInstance = getKeycloakInstance();
 		UserRepresentation user = new UserRepresentation();
 		user.setEnabled(true);
@@ -346,7 +347,7 @@ public class KeycloakUserManager {
 					.add((availableRoles.isEmpty() ? allRoles : availableRoles));
 		
 	}
-	public static void createVidUsers(String userid,String pwd, String rolenum,HashMap<String, List<String>> map) {
+	public static void createVidUsers(String userid,String pwd, String rolenum,Map<String, List<String>> map) {
 		Keycloak keycloakInstance = getKeycloakInstance();
 			UserRepresentation user = new UserRepresentation();
 			

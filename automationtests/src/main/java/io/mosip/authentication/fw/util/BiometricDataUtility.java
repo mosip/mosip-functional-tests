@@ -2,6 +2,7 @@ package io.mosip.authentication.fw.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
+import java.nio.charset.StandardCharsets;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.cert.CertificateFactory;
@@ -108,9 +109,9 @@ public class BiometricDataUtility extends AuthTestsUtil {
 		try {
 			String resourcePath = RunConfigUtil.getResourcePath();
 			pkeyfis = new FileInputStream(resourcePath + "ida/TestData/RunConfig/keys/privateKey.pem");
-			String pKey = FileUtil.getFileContent(pkeyfis, "UTF-8");
+			String pKey = FileUtil.getFileContent(pkeyfis, StandardCharsets.UTF_8.name());
 			certfis = new FileInputStream(resourcePath + "ida/TestData/RunConfig/keys/cert.pem");
-			String cert = FileUtil.getFileContent(certfis, "UTF-8");
+			String cert = FileUtil.getFileContent(certfis, StandardCharsets.UTF_8.name());
 			pKey = pKey.replaceAll("-----BEGIN (.*)-----\n", "");
 			pKey = pKey.replaceAll("-----END (.*)----\n", "");
 			pKey = pKey.replaceAll("\\s", "");
@@ -133,7 +134,7 @@ public class BiometricDataUtility extends AuthTestsUtil {
 		}
 	}
 	
-	public static Map<String,Map<String,String>> allDeviceParam = new HashMap<String,Map<String,String>>();
+	public static Map<String,Map<String,String>> allDeviceParam = new HashMap<>();
 
 	public static void storeDeviceDetail(String id) {
 		if (!allDeviceParam.containsKey(id)) {
