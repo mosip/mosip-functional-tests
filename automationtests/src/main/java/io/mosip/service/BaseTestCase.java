@@ -159,9 +159,9 @@ public class BaseTestCase {
 	public static String clientAssertionToken;
 	private static String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
 	public static Properties props = getproperty(
-			MosipTestRunner.getResourcePath() + File.separator + "config/application.properties");
+			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
 	public static Properties propsKernel = getproperty(
-			MosipTestRunner.getResourcePath() + File.separator + "config/Kernel.properties");
+			MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
@@ -169,7 +169,7 @@ public class BaseTestCase {
 			SEPRATOR = "\\\\";
 			return "WINDOWS";
 		} else if (type.toLowerCase().contains("linux") || type.toLowerCase().contains("unix")) {
-			SEPRATOR = File.separator;
+			SEPRATOR = "/";
 			return "OTHERS";
 		}
 		return null;
@@ -341,7 +341,7 @@ public class BaseTestCase {
 
 	private void copyReportAndLog() {
 		String folderForReport = kernelCmnLib.readProperty("Kernel").get("reportLogPath");
-		String dirToReport = System.getProperty("user.home") + File.separator + folderForReport;
+		String dirToReport = System.getProperty("user.home") + "/" + folderForReport;
 		File dest = new File(dirToReport);
 		if (!dest.exists())
 			dest.mkdir();

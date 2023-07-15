@@ -105,17 +105,17 @@ public class CommonLibrary extends BaseTestCase {
 		logger.info("=========" + file.getPath());
 		for (File f : file.listFiles()) {
 			if (f.isDirectory() == isfolder)
-				listFoldersFiles.add(configPath + File.separator + f.getName());
+				listFoldersFiles.add(configPath + "/" + f.getName());
 		}
 		return listFoldersFiles;
 	}
 
 	public String getResourcePath() {
-		return MosipTestRunner.getGlobalResourcePath() + File.separator;
+		return MosipTestRunner.getGlobalResourcePath() + "/";
 	}
 	
 	public String getResourcePathForKernel() {
-		return MosipTestRunner.getResourcePath() + File.separator;
+		return MosipTestRunner.getResourcePath() + "/";
 	}
 
 	public JSONObject readJsonData(String path, boolean isRelative) {

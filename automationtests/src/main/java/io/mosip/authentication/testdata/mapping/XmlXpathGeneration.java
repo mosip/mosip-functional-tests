@@ -35,7 +35,7 @@ public class XmlXpathGeneration extends DefaultHandler {
 	private static final Logger xmlXpathLogger = Logger.getLogger(XmlXpathGeneration.class);
 	private static Map<String, String> mappingFieldvalue = new HashMap<>();
 	private static Set<String> xpathList = new HashSet<>();
-	String xPath = File.separator;
+	String xPath = "/";
 	XMLReader xmlReader;
 	XmlXpathGeneration parent;
 	StringBuilder characters = new StringBuilder();
@@ -62,7 +62,7 @@ public class XmlXpathGeneration extends DefaultHandler {
 		else
 			count++;
 		elementNameCount.put(qName, count);
-		String childXPath = xPath + File.separator + qName + "[" + count + "]";
+		String childXPath = xPath + "/" + qName + "[" + count + "]";
 		int attsLength = attributes.getLength();
 		for (int x = 0; x < attsLength; x++)
 			xpathList.add(childXPath + "/@" + attributes.getQName(x));
@@ -161,7 +161,7 @@ public class XmlXpathGeneration extends DefaultHandler {
 		xmlXpathLogger.info(xpathList);
 		for (String entry : xpathList) {
 			String tempValue = entry.replace("[", "").replace("]", "").replace("/text()", "").replace("@", "");
-			String[] listValue = tempValue.split(Pattern.quote(File.separator));
+			String[] listValue = tempValue.split(Pattern.quote("/"));
 			String fieldKey = "";
 			for(int i=1;i<listValue.length;i++) {
 				if(i!=4)

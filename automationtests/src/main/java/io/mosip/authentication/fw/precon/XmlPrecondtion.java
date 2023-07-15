@@ -188,14 +188,14 @@ public class XmlPrecondtion extends MessagePrecondtion {
 	private static String normalisedXpath(String xpath) {
 		String normalisedXpath = "//";
 		xpath = xpath.replace("//", "");
-		String[] values = xpath.split(Pattern.quote(File.separator));
+		String[] values = xpath.split(Pattern.quote("/"));
 		for (int i = 0; i < values.length; i++) {
 			if (values[i].contains("@") && values[i].contains(":"))
 				normalisedXpath = normalisedXpath + "@"
-						+ values[i].substring(values[i].indexOf(":") + 1, values[i].length()) + File.separator;
+						+ values[i].substring(values[i].indexOf(":") + 1, values[i].length()) + "/";
 			else
 				normalisedXpath = normalisedXpath + values[i].substring(values[i].indexOf(":") + 1, values[i].length())
-						+ File.separator;
+						+ "/";
 		}
 		normalisedXpath = normalisedXpath.substring(0, normalisedXpath.length() - 1);
 		return normalisedXpath;
