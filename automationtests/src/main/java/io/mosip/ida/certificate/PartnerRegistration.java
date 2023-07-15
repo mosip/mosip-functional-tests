@@ -47,7 +47,7 @@ public class PartnerRegistration extends AdminTestUtil {
 			lOGGER.error("Failed to generate API key and MISP Lic key");
 			return "";
 		}
-		partnerKeyUrl = mispLicKey + File.separator + partnerId + File.separator + apiKey;
+		partnerKeyUrl = mispLicKey + "/" + partnerId + "/" + apiKey;
 
 		lOGGER.info("partnerKeyUrl = " + partnerKeyUrl);
 
@@ -80,7 +80,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	private static String getLocalHostUrl() {
-		return ConfigManager.getAuthDemoServiceUrl() + File.separator;
+		return ConfigManager.getAuthDemoServiceUrl() + "/";
 	}
 
 	public static void partnerGeneration() {

@@ -57,7 +57,7 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 			endPoint = endPoint.replace("$CERTSDIR$", ConfigManager.getauthCertsPath());
 		}
 
-		Response reponse = RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl() + File.separator + endPoint,
+		Response reponse = RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl() + "/" + endPoint,
 				request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 		lOGGER.info(reponse);
 

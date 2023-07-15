@@ -135,7 +135,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		for (int j = 0; j < listOfFiles.length; j++) {
 			if (listOfFiles[j].getName().contains(keywordToFind)) {
 				try (FileOutputStream outputStream = new FileOutputStream(
-						listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json")) {
+						listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json")) {
 					Response response = null;
 					String responseJson = "";
 					if (code == 0)
@@ -176,7 +176,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		for (int j = 0; j < listOfFiles.length; j++) {
 			if (listOfFiles[j].getName().contains(keywordToFind)) {
 				try (FileOutputStream outputStream = new FileOutputStream(
-						listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json")) {
+						listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json")) {
 
 					Response response;
 					if (code == 0)
@@ -216,7 +216,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
 					outputStream = new FileOutputStream(
-							listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json");
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					Response responseJson;
 					if (code == 0)
 						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,
@@ -296,7 +296,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
 					outputStream = new FileOutputStream(
-							listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json");
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					Response responseJson;
 					if (code == 0)
 						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,
@@ -339,7 +339,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
 					outputStream = new FileOutputStream(
-							listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json");
+							listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json");
 					String responseJson = "";
 					if (code == 0)
 						responseJson = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,
@@ -1058,10 +1058,10 @@ public class AuthTestsUtil extends BaseTestCase {
 		if (file.exists()) {
 			Map<String, String> urlProperty = getPropertyAsMap(file.getAbsolutePath());
 			if (urlProperty.containsKey("partnerIDMispLK")) {
-				return File.separator + urlProperty.get("partnerIDMispLK");
+				return "/" + urlProperty.get("partnerIDMispLK");
 			} else if (urlProperty.containsKey("partnerID") && urlProperty.containsKey("mispLK")
 					&& urlProperty.containsKey(GlobalConstants.APIKEY)) {
-				return File.separator + urlProperty.get("mispLK") + File.separator + urlProperty.get("partnerID") + File.separator
+				return "/" + urlProperty.get("mispLK") + "/" + urlProperty.get("partnerID") + "/"
 						+ urlProperty.get(GlobalConstants.APIKEY);
 			}
 		} else
@@ -1309,7 +1309,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 
 	public static void removeOldMosipTempTestResource() {
-		File authTestFile = new File(RunConfigUtil.getGlobalResourcePath() + File.separator + RunConfigUtil.resourceFolderName);
+		File authTestFile = new File(RunConfigUtil.getGlobalResourcePath() + "/" + RunConfigUtil.resourceFolderName);
 		if (authTestFile.exists())
 			if (FileUtil.deleteDirectory(authTestFile))
 				IDASCRIPT_LOGGER.info("Old " + RunConfigUtil.resourceFolderName + " folder successfully deleted!!");
@@ -1331,7 +1331,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			String generateOutputFileKeyword, String cookieName, String cookieValue) {
 		FileOutputStream outputStream = null;
 		try {
-			outputStream = new FileOutputStream(parentFile + File.separator + generateOutputFileKeyword + ".json");
+			outputStream = new FileOutputStream(parentFile + "/" + generateOutputFileKeyword + ".json");
 			String responseJson = getResponseWithCookie(urlPath, cookieName, cookieValue);
 			GlobalMethods.reportResponse(urlPath, responseJson, true);
 			outputStream.write(responseJson.getBytes());
@@ -1412,7 +1412,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		for (int j = 0; j < listOfFiles.length; j++) {
 			if (listOfFiles[j].getName().contains(keywordToFind)) {
 				try (FileOutputStream outputStream = new FileOutputStream(
-						listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json")) {
+						listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json")) {
 					Response response;
 					if (code == 0)
 						response = patchRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,
@@ -1440,7 +1440,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		for (int j = 0; j < listOfFiles.length; j++) {
 			if (listOfFiles[j].getName().contains(keywordToFind)) {
 				try (FileOutputStream outputStream = new FileOutputStream(
-						listOfFiles[j].getParentFile() + File.separator + generateOutputFileKeyword + ".json")) {
+						listOfFiles[j].getParentFile() + "/" + generateOutputFileKeyword + ".json")) {
 
 					if (code == 0)
 						response = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, cookieName,

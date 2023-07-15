@@ -495,15 +495,15 @@ public class IdaRunConfig extends RunConfig{
 		String[] folderList = filePath.getName().split(Pattern.quote("."));
 		String temp = "";
 		for (int i = 1; i < folderList.length - 2; i++) {
-			temp = temp + File.separator + folderList[i];
+			temp = temp + "/" + folderList[i];
 		}
 		String testDataFolderName = "";
 		String moduleFolderName="";
 		if (testDataPath.contains("\\")) {
 			String[] list = testDataPath.split(Pattern.quote("\\\\"));
 			testDataFolderName = list[1];
-		} else if (testDataPath.contains(File.separator)) {
-			String[] list = testDataPath.split(Pattern.quote(File.separator));
+		} else if (testDataPath.contains("/")) {
+			String[] list = testDataPath.split(Pattern.quote("/"));
 			moduleFolderName=list[0];
 			testDataFolderName = list[1];
 		}

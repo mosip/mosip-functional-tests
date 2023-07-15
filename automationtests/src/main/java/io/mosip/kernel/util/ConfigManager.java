@@ -213,7 +213,7 @@ public class ConfigManager {
 	}
 
 	public static void init() {
-		propsKernel = getproperty(MosipTestRunner.getResourcePath() + File.separator + "config/Kernel.properties");
+		propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
 
 		pms_client_secret = getValueForKey(MOSIP_PMS_CLIENT_SECRET);
 		pms_client_id = getValueForKey(MOSIP_PMS_CLIENT_ID);
@@ -393,7 +393,7 @@ public class ConfigManager {
 	}
 
 	public static Properties init(String abc) {
-		propsKernel = getproperty(MosipTestRunner.getResourcePath() + File.separator + "config/Kernel.properties");
+		propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
 
 		return propsKernel;
 	}
@@ -648,7 +648,7 @@ public class ConfigManager {
 	}
 
 	public static String getRolesForUser(String userId) {
-		propsKernel = getproperty(MosipTestRunner.getResourcePath() + File.separator + "config/Kernel.properties");
+		propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
 		return propsKernel.getProperty("roles." + userId);
 	}
 

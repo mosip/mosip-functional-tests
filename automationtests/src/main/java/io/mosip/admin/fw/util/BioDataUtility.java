@@ -41,7 +41,7 @@ public class BioDataUtility extends AdminTestUtil {
 	private static final Logger logger = Logger.getLogger(BioDataUtility.class);
 
 	private String cryptoEncryptUrl = BaseTestCase.ApplnURI + "/idauthentication/v1/internal/encrypt";
-	static String EncryptUtilBaseUrl = ConfigManager.getAuthDemoServiceUrl() + File.separator;
+	static String EncryptUtilBaseUrl = ConfigManager.getAuthDemoServiceUrl() + "/";
 
 	private String encryptIsoBioValue(String isoBiovalue, String timestamp, String bioValueEncryptionTemplateJson,
 			String transactionId, boolean isInternal) {
