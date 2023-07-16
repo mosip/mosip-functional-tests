@@ -5,11 +5,11 @@
 	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
 		regression smokeAndRegression -->
 	<listeners>
-		<listener class-name="io.mosip.report.CustomTestNGReporter" />
+		<listener class-name="io.mosip.testrig.apirig.report.CustomTestNGReporter" />
 		<listener
-			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
-		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
-		<listener class-name="io.mosip.customReport.EmailableReport" />
+			class-name="io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestsListener" />
+		<listener class-name="io.mosip.testrig.apirig.authentication.e2e.E2EReport" />
+		<listener class-name="io.mosip.testrig.apirig.customReport.EmailableReport" />
 	</listeners>
 	
 	
@@ -18,49 +18,49 @@
 			value="prerequisite/Machine/CreateMachine.yml" />
 		<parameter name="idKeyName" value="id" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePostForAutoGenId" />
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test> 
 	<test name="CreateIdSchema">
 		<parameter name="ymlFile"
 			value="prerequisite/IdSchema/CreateIdSchema.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="UpdateIdSchema">
 		<parameter name="ymlFile"
 			value="prerequisite/UpdateIdSchema/UpdateIdSchema.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePut" />
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePut" />
 		</classes>
 	</test> 
 	<test name="CreateZoneUser">
 		<parameter name="ymlFile"
 			value="prerequisite/ZoneUser/CreateZoneUser.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="UpdateZoneUserStatus">
 		<parameter name="ymlFile"
 			value="prerequisite/UpdateZoneUserStatus/UpdateZoneUserStatus.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.PatchWithPathParam" />
+			<class name="io.mosip.testrig.apirig.testscripts.PatchWithPathParam" />
 		</classes>
 	</test>
 	<test name="UserCenterMapping">
 		<parameter name="ymlFile"
 			value="prerequisite/UserCenterMapping/UserCenterMapping.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="UpdateUserCenterMappingStatus">
 		<parameter name="ymlFile"
 			value="prerequisite/UpdateUserCenterMappingStatus/UpdateUserCenterMappingStatus.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.PatchWithPathParam" />
+			<class name="io.mosip.testrig.apirig.testscripts.PatchWithPathParam" />
 		</classes>
 	</test>	-->
 	
@@ -68,7 +68,7 @@
 		<parameter name="ymlFile"
 			value="prerequisite/KeyCloak/AddUser/AddUser.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePostForKeyCloak" />
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForKeyCloak" />
 		</classes>
 	</test>
 	
@@ -76,7 +76,7 @@
 		<parameter name="ymlFile"
 			value="prerequisite/KeyCloak/DeleteUser/DeleteUser.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParamForKeyCloak" />
+			<class name="io.mosip.testrig.apirig.testscripts.DeleteWithParamForKeyCloak" />
 		</classes>
 	</test> 
 	
@@ -84,7 +84,7 @@
 		<parameter name="ymlFile"
 			value="prerequisite/KeyCloak/GetRoleIdForAllRoles/GetRoleIdForAllRoles.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak" />
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParamForAutoGenIdForKeyCloak" />
 		</classes>
 	</test>-->
 	
@@ -93,7 +93,7 @@
 		<parameter name="ymlFile"
 			value="prerequisite/KeyCloak/AddUser/AddUser.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePostForKeyCloak" />
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForKeyCloak" />
 		</classes>
 	</test>
 	 <test name="GetUserDetails">
@@ -101,7 +101,7 @@
 			value="prerequisite/KeyCloak/GetUserDetails/GetUserDetails.yml" />
 			<parameter name="idKeyName"	value="id" />
 		<classes>
-			<class name="io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak" />
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParamForAutoGenIdForKeyCloak" />
 		</classes>
 	</test> 
 	
@@ -109,7 +109,7 @@
 		<parameter name="ymlFile"
 			value="prerequisite/KeyCloak/GetRoleIdForAllRoles/GetRoleIdForAllRoles.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak" />
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParamForAutoGenIdForKeyCloak" />
 		</classes>
 	</test>
 	
@@ -118,7 +118,7 @@
 			value="prerequisite/KeyCloak/MapRolesToUser/MapRolesToUser.yml" />
 		<parameter name="pathParams" value="username" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePostForKeyCloak" />
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForKeyCloak" />
 		</classes>
 	</test> 
 	
@@ -126,7 +126,7 @@
 		<parameter name="ymlFile"
 			value="prerequisite/KeyCloak/DeleteUser/DeleteUser.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.DeleteWithParamForKeyCloak" />
+			<class name="io.mosip.testrig.apirig.testscripts.DeleteWithParamForKeyCloak" />
 		</classes>
 	</test> 
 	

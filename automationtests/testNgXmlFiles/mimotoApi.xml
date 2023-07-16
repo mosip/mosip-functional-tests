@@ -5,11 +5,11 @@
 	<!-- Passing Group as parmeter unsing "testType" Possible Groups are: smoke 
 		regression smokeAndRegression -->
 	<listeners>
-		<listener class-name="io.mosip.report.CustomTestNGReporter" />
+		<listener class-name="io.mosip.testrig.apirig.report.CustomTestNGReporter" />
 		<listener
-			class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener" />
-		<listener class-name="io.mosip.authentication.e2e.E2EReport" />
-		<listener class-name="io.mosip.customReport.EmailableReport" />
+			class-name="io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestsListener" />
+		<listener class-name="io.mosip.testrig.apirig.authentication.e2e.E2EReport" />
+		<listener class-name="io.mosip.testrig.apirig.customReport.EmailableReport" />
 	</listeners>
 	
 	
@@ -18,7 +18,7 @@
 		<parameter name="ymlFile"
 			value="mimoto/AddIdentity/AddIdentity.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.AddIdentity" />
+			<class name="io.mosip.testrig.apirig.testscripts.AddIdentity" />
 		</classes>
 	</test>
 	<test name="GenerateVID">
@@ -26,7 +26,7 @@
 			value="mimoto/GenerateVID/createGenerateVID.yml" />
 			<parameter name="idKeyName"	value="vid" />
 		<classes>
-			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
 	
@@ -34,14 +34,14 @@
 		<parameter name="ymlFile"
 			value="mimoto/AuthLock/createAuthLock.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
 	<test name="AuthUnLock">
 		<parameter name="ymlFile"
 			value="mimoto/AuthUnLock/createAuthUnLock.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate" />
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
 	
@@ -50,14 +50,14 @@
 			value="mimoto/CredentialIssuance/RequestCredentials/ReqCredential.yml" />
 			<parameter name="idKeyName"	value="requestId" />
 		<classes>
-			<class name="io.mosip.testscripts.PostWithAutogenIdWithOtpGenerate" />
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
 	 <test name="CredentialCheckStatus">
 		<parameter name="ymlFile"
 			value="mimoto/CredentialIssuance/CredentialCheckStatus/CredentialCheckStatus.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.GetWithParam" />
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	
@@ -65,7 +65,7 @@
 		<parameter name="ymlFile"
 			value="mimoto/CredentialIssuance/DownloadWithReqid/DownloadWithReqid.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.GetWithParamForDownloadCard" />
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParamForDownloadCard" />
 		</classes>
 	</test>
 	
@@ -73,7 +73,7 @@
 		<parameter name="ymlFile"
 			value="mimoto/SendOTPUIN/createSendOTP.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
 	
@@ -81,7 +81,7 @@
 		<parameter name="ymlFile"
 			value="mimoto/AidGetIndividualId/AidGetIndividualId.yml" />
 		<classes>
-			<class name="io.mosip.testscripts.SimplePost" />
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
 	
