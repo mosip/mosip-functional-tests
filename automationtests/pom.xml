@@ -2,7 +2,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.mosip.automationtests</groupId>
+	<groupId>io.mosip.testrig.apirig.automationtests</groupId>
 	<artifactId>automationtests</artifactId>
 	<packaging>jar</packaging>
 	<name>mosip-functional-test</name>
@@ -164,7 +164,7 @@
 		<rest.assured.version>3.0.7</rest.assured.version>
 		<testng.version>6.11</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
-		<fileName>automationtests-1.2.1-SNAPSHOT-jar-with-dependencies</fileName>
+		<fileName>apirig-automationtests-1.2.1-SNAPSHOT-jar-with-dependencies</fileName>
 		
 	</properties>
 	<dependencies>
@@ -592,7 +592,7 @@
                     <!-- add Main-Class to manifest file -->
                     <transformer
                             implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                        <mainClass>io.mosip.testrunner.MosipTestRunner</mainClass>
+                        <mainClass>io.mosip.testrig.apirig.testrunner.MosipTestRunner</mainClass>
                     </transformer>
                 </transformers>
                 <!-- add this to prevent some security issues when merging everything together -->
