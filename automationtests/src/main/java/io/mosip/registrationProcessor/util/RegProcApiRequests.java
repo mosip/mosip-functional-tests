@@ -175,7 +175,7 @@ public class RegProcApiRequests extends BaseTestCase {
 	 * @return String
 	 */
 	public String getResourcePath() {
-		return MosipTestRunner.getGlobalResourcePath() + File.separator;
+		return MosipTestRunner.getGlobalResourcePath() + "/";
 	}
 
 	/**

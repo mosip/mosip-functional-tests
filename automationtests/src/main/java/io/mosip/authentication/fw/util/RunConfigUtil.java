@@ -28,7 +28,7 @@ public class RunConfigUtil {
 	 * @return string, property file path
 	 */
 	public static String getUinPropertyPath() {
-		return RunConfigUtil.objRunConfig.getModuleFolderName()+File.separator + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/uin.properties";
+		return RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/uin.properties";
 	}
 	/**
 	 * The method get static pin UIN property path
@@ -36,7 +36,7 @@ public class RunConfigUtil {
 	 * @return string, property file path
 	 */
 	public static String getStaticPinUinPropertyPath() {
-		return RunConfigUtil.objRunConfig.getModuleFolderName()+File.separator + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/uinStaticPin.properties";
+		return RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/uinStaticPin.properties";
 	}
 	/**
 	 * The method return VID property file path
@@ -44,7 +44,7 @@ public class RunConfigUtil {
 	 * @return string, property file path
 	 */
 	public static String getVidPropertyPath() {
-		return RunConfigUtil.objRunConfig.getModuleFolderName()+File.separator + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/vid.properties";
+		return RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/vid.properties";
 	}
 	/**
 	 * The method get static pin VID property file path
@@ -52,7 +52,7 @@ public class RunConfigUtil {
 	 * @return string, property file path
 	 */
 	public static String getStaticPinVidPropertyPath() {
-		return RunConfigUtil.objRunConfig.getModuleFolderName()+File.separator + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/vidStaticPin.properties";
+		return RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/vidStaticPin.properties";
 	}
 	/**
 	 * The method get tokenId property file path
@@ -60,7 +60,7 @@ public class RunConfigUtil {
 	 * @return string, property file path
 	 */
 	public static String getTokenIdPropertyPath() {
-		return RunConfigUtil.objRunConfig.getModuleFolderName()+File.separator + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/static-tokenId.properties";
+		return RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/static-tokenId.properties";
 	}
 	/**
 	 * The method get partnerID and Misp License key value property file path
@@ -68,7 +68,7 @@ public class RunConfigUtil {
 	 * @return string, property file path
 	 */
 	public static String getPartnerIDMispLKPropertyPath() {
-		return RunConfigUtil.objRunConfig.getModuleFolderName()+File.separator + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/parter-license-id.properties";
+		return RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/parter-license-id.properties";
 	}
 	/**
 	 * The method get partnerID and License key value for the key
@@ -85,7 +85,7 @@ public class RunConfigUtil {
 	 * @return string, property file path
 	 */
 	public static String getRidPropertyPath() {
-		return RunConfigUtil.objRunConfig.getModuleFolderName()+File.separator + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/rid.properties";
+		return RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/rid.properties";
 	}
 	/**
 	 * The method get token ID for UIN and PartnerID
@@ -154,7 +154,7 @@ public class RunConfigUtil {
 	}
 	
 	public static String getResourcePath() {
-		return getGlobalResourcePath()+File.separator+resourceFolderName+File.separator;
+		return getGlobalResourcePath()+"/"+resourceFolderName+"/";
 	}
 	
 	public static String getdemoAppVersion() {
@@ -182,11 +182,11 @@ public class RunConfigUtil {
 	}
 	
 	public static String getBioTestDataPath() {
-		return RunConfigUtil.getResourcePath()+RunConfigUtil.objRunConfig.getModuleFolderName()+File.separator + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/biometricData.yml";
+		return RunConfigUtil.getResourcePath()+RunConfigUtil.objRunConfig.getModuleFolderName()+"/" + RunConfigUtil.objRunConfig.getTestDataFolderName() + "/RunConfig/biometricData.yml";
 	}
 	
 	public static String getAuthTypeStatusPath() {
-		return new File(RunConfigUtil.getResourcePath() + RunConfigUtil.objRunConfig.getModuleFolderName() + File.separator + RunConfigUtil.objRunConfig.getTestDataFolderName()
+		return new File(RunConfigUtil.getResourcePath() + RunConfigUtil.objRunConfig.getModuleFolderName() + "/" + RunConfigUtil.objRunConfig.getTestDataFolderName()
 		+ "/RunConfig/authTypeStatus.properties").getAbsolutePath();
 	}
 	

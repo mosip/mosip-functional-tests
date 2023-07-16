@@ -33,7 +33,7 @@ public class TestCaseReader extends BaseTestCase {
 		ArrayList<String> testCaseNames = new ArrayList<>();
 		
 		for (int j = 0; j < listOfFolders.size(); j++) {
-			String[] arr = listOfFolders.get(j).split(File.separator);
+			String[] arr = listOfFolders.get(j).split("/");
 			switch (testType) {
 			case "smoke":
 				if (arr[arr.length - 1].contains("smoke"))
@@ -69,16 +69,16 @@ public class TestCaseReader extends BaseTestCase {
 	 * @return this method is for reading request and response object form the given testcase folder and returns in array.
 	 */
 	public JSONObject[] readRequestResponseJson(String modulename, String apiname, String testcaseName){
-		String configPath = modulename + File.separator + apiname + File.separator + testcaseName;
+		String configPath = modulename + "/" + apiname + "/" + testcaseName;
 		List<String> listofFiles =  commonLib.getFoldersFilesNameList(configPath, false);
 		JSONObject[] objectData = new JSONObject[2];
 		for (int k = 0; k < listofFiles.size(); k++) {
-			String[] arr = listofFiles.get(k).split(File.separator);
+			String[] arr = listofFiles.get(k).split("/");
 				if (arr[arr.length - 1].toLowerCase().contains(GlobalConstants.REQUEST)) 
-					objectData[0] =  commonLib.readJsonData(configPath+File.separator+arr[arr.length - 1], true);
+					objectData[0] =  commonLib.readJsonData(configPath+"/"+arr[arr.length - 1], true);
 					
 				 else if (arr[arr.length - 1].toLowerCase().contains("response")) 
-					objectData[1] =  commonLib.readJsonData(configPath+File.separator+arr[arr.length - 1], true);
+					objectData[1] =  commonLib.readJsonData(configPath+"/"+arr[arr.length - 1], true);
 		 
 			
 		}

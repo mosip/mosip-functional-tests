@@ -57,7 +57,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	}
 	
 	private static String getLocalHostUrl() {
-			return ConfigManager.getAuthDemoServiceUrl() + File.separator;
+			return ConfigManager.getAuthDemoServiceUrl() + "/";
 	}
 
 	public static void mispPartnerGeneration() { 

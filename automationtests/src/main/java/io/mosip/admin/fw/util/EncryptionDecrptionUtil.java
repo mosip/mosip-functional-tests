@@ -68,7 +68,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	}
 	
 	public static String getEncryptUtilBaseUrl() {
-		return ConfigManager.getAuthDemoServiceUrl() + File.separator;
+		return ConfigManager.getAuthDemoServiceUrl() + "/";
 	}
 	
 	/**
@@ -432,7 +432,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 
 	public boolean validateThumbPrintAndIdentity(Response response, String ekycUri) throws AdminTestException {
 		String thumbPrint = JsonPrecondtion.getValueFromJson(response.asString(), "response.thumbprint");
-		String[] uriParts = ekycUri.split(File.separator);
+		String[] uriParts = ekycUri.split("/");
 		String partnerId = uriParts[uriParts.length-2];
 		boolean thumprintValid = validateThumbPrint(thumbPrint, partnerId);
 			if(!thumprintValid)	throw new AdminTestException("Failed in Thumbprint validation");
