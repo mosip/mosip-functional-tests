@@ -3,6 +3,8 @@ package io.mosip.testrig.apirig.kernel.util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -108,6 +110,9 @@ public class ConfigManager {
 	private static String PACKET_UTILITY_BASE_URL = "packetUtilityBaseUrl";
 	
 	private static String REPORT_EXPIRATION_IN_DAYS = "reportExpirationInDays";
+	
+	private static String SCENARIOS_TOBE_SKIPPED  = "scenariosToSkip";
+	private static String toSkippedList;
 
 	private static String pms_client_secret;
 	private static String pms_client_id;
@@ -332,8 +337,20 @@ public class ConfigManager {
 				: System.getenv(ESIGNET_DEPLOYED);
 		propsKernel.setProperty(ESIGNET_DEPLOYED, esignet_deployed);
 		
-		
+		toSkippedList = System.getenv(SCENARIOS_TOBE_SKIPPED) == null ? propsKernel.getProperty(SCENARIOS_TOBE_SKIPPED)
+				: System.getenv(SCENARIOS_TOBE_SKIPPED);
+		propsKernel.setProperty(SCENARIOS_TOBE_SKIPPED, toSkippedList);
 
+	}
+	
+	public static boolean isInTobeSkippedList(String stringToFind) {
+		List<String> toBeSkippedLsit = Arrays.asList(toSkippedList.split(","));
+		for (String string : toBeSkippedLsit) {
+			if (string.contains(stringToFind)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public static Boolean IseSignetDeployed() {
