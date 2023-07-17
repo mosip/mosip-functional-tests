@@ -2469,7 +2469,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public Object[] getYmlTestData(String ymlPath) {
 		String testType = testLevel;
 		final ObjectMapper mapper = new ObjectMapper();
-		List<TestCaseDTO> testCaseDTOList = new LinkedList<>();
+		List<TestCaseDTO> testCaseDTOList = new LinkedList<TestCaseDTO>();
 		Map<String, Map<String, Map<String, String>>> scriptsMap = loadyaml(ymlPath);
 		for (String key : scriptsMap.keySet()) {
 			Map<String, Map<String, String>> testCases = scriptsMap.get(key);
