@@ -2490,11 +2490,16 @@ public class AdminTestUtil extends BaseTestCase {
 	@SuppressWarnings("unchecked")
 	protected Map<String, Map<String, Map<String, String>>> loadyaml(String path) {
 		Map<String, Map<String, Map<String, String>>> scriptsMap = null;
-		try (FileInputStream inputStream = new FileInputStream(new File(getResourcePath() + path).getAbsoluteFile())) {
+		FileInputStream inputStream = null;
+		try {
 			Yaml yaml = new Yaml();
+			inputStream = new FileInputStream(new File(getResourcePath() + path).getAbsoluteFile());
 			scriptsMap = (Map<String, Map<String, Map<String, String>>>) yaml.load(inputStream);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
+			return null;
+		}finally {
+			closeInputStream(inputStream);
 		}
 		return scriptsMap;
 	}
