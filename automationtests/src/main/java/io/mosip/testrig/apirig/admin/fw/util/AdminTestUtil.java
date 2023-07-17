@@ -3447,7 +3447,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static void copyPreregTestResource() {
-		copymoduleSpecificAndConfigFile(GlobalConstants.PREREG);
+		copymoduleSpecificAndConfigFile("preReg");
 	}
 
 	public static void copyPrerequisiteTestResource() {
