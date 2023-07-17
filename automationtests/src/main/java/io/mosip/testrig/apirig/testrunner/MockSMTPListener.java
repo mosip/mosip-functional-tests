@@ -24,27 +24,24 @@ import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.smtp.pojo.Root;
 
-
-public class MockSMTPListener{
+public class MockSMTPListener {
 	private static Logger logger = Logger.getLogger(MockSMTPListener.class);
-	
-	 
-	public static Map<Object, Object> emailNotificationMapS = Collections.synchronizedMap(new HashMap<Object, Object>()); 
+
+	public static Map<Object, Object> emailNotificationMapS = Collections
+			.synchronizedMap(new HashMap<Object, Object>());
+
 	public static Boolean bTerminate = false;
 
 	public void run() {
 		try {
-			  Properties kernelprops=ConfigManager.propsKernel;
-				String a1="wss://smtp.";
-				String externalurl=kernelprops.getProperty("keycloak-external-url");
-			    String a2=	externalurl.substring(externalurl.indexOf(".")+1);
-			    String a3="/mocksmtp/websocket"; 
-				  
-			WebSocket ws = HttpClient
-					.newHttpClient()
-					.newWebSocketBuilder()
-					.buildAsync(URI.create(a1+a2+a3), new WebSocketClient())
-					.join();
+			Properties kernelprops = ConfigManager.propsKernel;
+			String a1 = "wss://smtp.";
+			String externalurl = kernelprops.getProperty("keycloak-external-url");
+			String a2 = externalurl.substring(externalurl.indexOf(".") + 1);
+			String a3 = "/mocksmtp/websocket";
+
+			WebSocket ws = HttpClient.newHttpClient().newWebSocketBuilder()
+					.buildAsync(URI.create(a1 + a2 + a3), new WebSocketClient()).join();
 		} catch (Exception e) {
 			logger.error(e.getStackTrace());
 		}
@@ -52,9 +49,10 @@ public class MockSMTPListener{
 	}
 
 	private static class WebSocketClient implements WebSocket.Listener {
-		Long count=(long) 00;
-		Root root =new Root();
-		public WebSocketClient() {  
+		Long count = (long) 00;
+		Root root = new Root();
+
+		public WebSocketClient() {
 			return;
 
 		}
@@ -65,7 +63,6 @@ public class MockSMTPListener{
 			WebSocket.Listener.super.onOpen(webSocket);
 		}
 
-
 		@Override
 		public CompletionStage<?> onClose(WebSocket webSocket, int statusCode, String reason) {
 			return Listener.super.onClose(webSocket, statusCode, reason);
@@ -73,68 +70,64 @@ public class MockSMTPListener{
 
 		@Override
 		public CompletionStage<?> onText(WebSocket webSocket, CharSequence data, boolean last) {
-			if(bTerminate) {
+			if (bTerminate) {
 				logger.info(emailNotificationMapS);
-				logger.info("End Closure of listner " );
+				logger.info("End Closure of listner ");
 				onClose(webSocket, 0, "After suite invoked closing");
 			}
-			try {       
+			try {
 				ObjectMapper om = new ObjectMapper();
 
 				root = om.readValue(data.toString(), Root.class);
 				if (!parseOtp(root.html).isEmpty() || !parseAdditionalReqId(root.html).isEmpty()) {
-					emailNotificationMapS.put(root.to.value.get(0).address,root.html);
-					logger.info(" After adding to emailNotificationMap key = " + root.to.value.get(0).address
-							+ " data " + data + " root " + root );
+					emailNotificationMapS.put(root.to.value.get(0).address, root.html);
+					logger.info(" After adding to emailNotificationMap key = " + root.to.value.get(0).address + " data "
+							+ data + " root " + root);
 				}
 
 				else {
-					logger.info(" Skip adding to emailNotificationMap key = " + root.to.value.get(0).address
-							+ " data " + data + " root " + root );
+					logger.info(" Skip adding to emailNotificationMap key = " + root.to.value.get(0).address + " data "
+							+ data + " root " + root);
 				}
-			} catch (JsonProcessingException | JSONException e) {
+			} catch (Exception e) {
 
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 			}
 
 			return WebSocket.Listener.super.onText(webSocket, data, last);
 		}
-	
-		
 
 		@Override
 		public void onError(WebSocket webSocket, Throwable error) {
 
 			logger.info("Bad day! " + webSocket.toString());
-			logger.error(error.getStackTrace());
+			logger.error(error.getMessage());
 			WebSocket.Listener.super.onError(webSocket, error);
 		}
 	}
-	
-	public static String getOtp(String emailId){
+
+	public static String getOtp(String emailId) {
 		int otpExpTime = AdminTestUtil.getOtpExpTimeFromActuator();
-		int otpCheckLoopCount = (otpExpTime * 1000)/AdminTestUtil.OTP_CHECK_INTERVAL;
-		
+		int otpCheckLoopCount = (otpExpTime * 1000) / AdminTestUtil.OTP_CHECK_INTERVAL;
+
 		int counter = 0;
-		
+
 		String otp = "";
-		if(ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase(GlobalConstants.TRUE_STRING))
-		{
+		if (ConfigManager.getUsePreConfiguredOtp().equalsIgnoreCase(GlobalConstants.TRUE_STRING)) {
 			return ConfigManager.getPreConfiguredOtp();
 		}
 		while (counter < otpCheckLoopCount) {
-			if(emailNotificationMapS.get(emailId)!=null) {
-				String html=(String) emailNotificationMapS.get(emailId);
-				emailNotificationMapS.remove(emailId);	
+			if (emailNotificationMapS.get(emailId) != null) {
+				String html = (String) emailNotificationMapS.get(emailId);
+				emailNotificationMapS.remove(emailId);
 				otp = parseOtp(html);
-				if (otp != null && otp.length()>0) {
+				if (otp != null && otp.length() > 0) {
 					logger.info("Found the OTP = " + otp);
 					return otp;
-				}
-				else {
+				} else {
 					logger.info("html Message = " + html + " Email = " + emailId);
 				}
-				
+
 			}
 			logger.info("*******Checking the email for OTP...*******");
 			counter++;
@@ -145,34 +138,73 @@ public class MockSMTPListener{
 				logger.info(e.getMessage());
 				Thread.currentThread().interrupt();
 			}
-			
+
 		}
 		logger.info("OTP not found even after " + otpCheckLoopCount + " retries");
 		return otp;
 	}
-	
-	public static String parseOtp(String message){
+
+	public static String getAdditionalReqId(String emailId) {
+
+		int counter = 0;
+
+		String additionalRequestId = "";
+
+		int additionalRequestIdLoopCount =10;
 		
+		while (counter < additionalRequestIdLoopCount ) {
+			if (emailNotificationMapS.get(emailId) != null) {
+				String html = (String) emailNotificationMapS.get(emailId);
+				emailNotificationMapS.remove(emailId);
+				additionalRequestId = parseAdditionalReqId(html);
+				if (additionalRequestId != null && additionalRequestId.length() > 0) {
+					logger.info("Found the additionalRequestId = " + additionalRequestId);
+					return additionalRequestId;
+				} else {
+					logger.info("html Message = " + html + " Email = " + emailId);
+				}
+
+			}
+			logger.info("*******Checking the email for additionalRequestId...*******");
+			counter++;
+			try {
+				logger.info("Not received additionalRequestId yet, waiting for 10 Sec");
+				Thread.sleep(AdminTestUtil.OTP_CHECK_INTERVAL);
+			} catch (InterruptedException e) {
+				logger.info(e.getMessage());
+				Thread.currentThread().interrupt();
+			}
+
+		}
+		logger.info("OTP not found even after " + additionalRequestIdLoopCount + " retries");
+		return additionalRequestId;
+	}
+	
+	public static String parseOtp(String message) {
+
 		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");
 		String otp = "";
-		if(message!=null) {
-		    Matcher mMatcher = mPattern.matcher(message);
-		    if(mMatcher.find()) {
-		        otp = mMatcher.group(0);
-		        otp = otp.trim();
-		        logger.info("Extracted OTP: "+ otp+ " message : "+ message);
-		    }else {
-		    	logger.info("Failed to extract the OTP!! "+ "message : " + message);
-		    	
-		    }
+		if (message != null) {
+			Matcher mMatcher = mPattern.matcher(message);
+			if (mMatcher.find()) {
+				otp = mMatcher.group(0);
+				otp = otp.trim();
+				logger.info("Extracted OTP: " + otp + " message : " + message);
+			} else {
+				logger.info("Failed to extract the OTP!! " + "message : " + message);
+
+			}
 		}
 		return otp;
 	}
-	
-	public static String parseAdditionalReqId(String message){
-		
-		return StringUtils.substringBetween(message, "AdditionalInfoRequestId", "-BIOMETRIC_CORRECTION-1");
-		
+
+	public static String parseAdditionalReqId(String message) {
+		String additionalReqId = StringUtils.substringBetween(message, "AdditionalInfoRequestId",
+				"-BIOMETRIC_CORRECTION-1");
+		if (additionalReqId == null)
+			return "";
+		else
+			return additionalReqId;
 	}
-	
+
 }
