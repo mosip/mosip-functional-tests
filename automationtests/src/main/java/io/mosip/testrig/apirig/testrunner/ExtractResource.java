@@ -84,6 +84,8 @@ public class ExtractResource {
 		try {
 			File resourceFile = new File(MosipTestRunner.jarUrl).getParentFile();
 			File destinationFile = new File(resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
+			LOGGER.info("resourceFile " + MosipTestRunner.jarUrl);
+			LOGGER.info("destinationFile " + resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
 			org.apache.commons.io.FileUtils.copyInputStreamToFile(MosipTestRunner.class.getResourceAsStream("/" + path),
 					destinationFile);
 			return true;
