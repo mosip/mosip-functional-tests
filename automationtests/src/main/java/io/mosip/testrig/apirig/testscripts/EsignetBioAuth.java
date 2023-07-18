@@ -101,7 +101,7 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 		identityReqJson.remove("identityRequestEncUrl");
 		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
 		if (identityRequest.contains("$DOMAINURI$")) {
-			String domainUrl = ConfigManager.getEsignetBaseUrl();
+			String domainUrl = ApplnURI.replace("api-internal", GlobalConstants.ESIGNET);
 			identityRequest = identityRequest.replace("$DOMAINURI$", domainUrl);
 		}
 		String encryptedIdentityReq = null;
