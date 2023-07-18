@@ -61,6 +61,7 @@ public class ConfigManager {
 	private static String LANG_SELECT = "langselect";
 
 	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
+	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
 
 	private static String PRECONFIGOTP = "preconfiguredOtp";
 	private static String DB_PORT = "db-port";
@@ -155,6 +156,7 @@ public class ConfigManager {
 	private static String langselect;
 	private static String usePreConfiguredOtp;
 	private static String preconfiguredOtp;
+	private static String eSignetbaseurl;
 	
 	private static String dbPort;
 	private static String dbDomain;
@@ -332,6 +334,13 @@ public class ConfigManager {
 				: System.getenv(ESIGNET_DEPLOYED);
 		propsKernel.setProperty(ESIGNET_DEPLOYED, esignet_deployed);
 		
+		if (System.getenv(ESIGNET_BASE_URL) != null) {
+			eSignetbaseurl =System.getenv(ESIGNET_BASE_URL);
+		} else {
+			eSignetbaseurl = System.getProperty("env.endpoint").replace("-internal", "");
+		}
+		propsKernel.setProperty(ESIGNET_BASE_URL, eSignetbaseurl);
+		
 		
 
 	}
@@ -355,6 +364,11 @@ public class ConfigManager {
 	
 	public static String getLangselect() {
 		return langselect;
+
+	}
+	
+	public static String getEsignetBaseUrl() {
+		return eSignetbaseurl;
 
 	}
 	

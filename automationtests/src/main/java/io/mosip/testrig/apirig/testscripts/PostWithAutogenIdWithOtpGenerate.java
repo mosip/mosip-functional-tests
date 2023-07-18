@@ -101,7 +101,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 				if (!ConfigManager.IseSignetDeployed()) {
 					throw new SkipException("esignet is not deployed hence skipping the testcase");
 				}
-				String tempUrl = ApplnURI.replace("-internal", "");
+				String tempUrl = ConfigManager.getEsignetBaseUrl();
 				otpResponse = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + sendOtpEndPoint,
 						getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,
 						testCaseDTO.getTestCaseName());
@@ -156,7 +156,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 			if (!ConfigManager.IseSignetDeployed()) {
 				throw new SkipException("esignet is not deployed hence skipping the testcase");
 			}
-			String tempUrl = ApplnURI.replace("-internal", "");
+			String tempUrl = ConfigManager.getEsignetBaseUrl();
 			response = postRequestWithCookieAuthHeaderAndXsrfTokenForAutoGenId(tempUrl + testCaseDTO.getEndPoint(),
 					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
 					testCaseDTO.getTestCaseName(), idKeyName);

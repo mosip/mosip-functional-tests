@@ -4508,7 +4508,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		JSONObject responseJson = null;
 		JSONArray responseArray = null;
-		String url = ApplnURI.replace(GlobalConstants.API_INTERNAL, GlobalConstants.ESIGNET)
+		String url = ConfigManager.getEsignetBaseUrl()
 				+ propsKernel.getProperty("actuatorEsignetEndpoint");
 		String value = null;
 		try {
