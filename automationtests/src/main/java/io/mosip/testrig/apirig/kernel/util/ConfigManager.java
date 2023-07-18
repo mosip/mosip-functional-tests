@@ -97,7 +97,7 @@ public class ConfigManager {
 	private static String IAM_REALM_ID = "keycloak-realm-id";
 	private static String IAM_USERS_TO_CREATE = "iam-users-to-create";
 	private static String IAM_USERS_PASSWORD = "iam-users-password";
-	
+
 	private static String ESIGNET_DEPLOYED = "eSignetDeployed";
 	private static String esignet_deployed;
 
@@ -106,12 +106,12 @@ public class ConfigManager {
 	private static String MOUNT_PATH = "mountPath";
 	private static String AUTHCERTS_PATH = "authCertsPath";
 	private static String MOUNT_PATH_FOR_SCENARIO = "mountPathForScenario";
-	
+
 	private static String PACKET_UTILITY_BASE_URL = "packetUtilityBaseUrl";
-	
+
 	private static String REPORT_EXPIRATION_IN_DAYS = "reportExpirationInDays";
-	
-	private static String SCENARIOS_TOBE_SKIPPED  = "scenariosToSkip";
+
+	private static String SCENARIOS_TO_BE_SKIPPED = "scenariosToSkip";
 	private static String toSkippedList;
 
 	private static String pms_client_secret;
@@ -160,7 +160,7 @@ public class ConfigManager {
 	private static String langselect;
 	private static String usePreConfiguredOtp;
 	private static String preconfiguredOtp;
-	
+
 	private static String dbPort;
 	private static String dbDomain;
 	private static String hibernateConnectionDriverClass;
@@ -290,12 +290,11 @@ public class ConfigManager {
 				? propsKernel.getProperty(AUTH_DEMO_SERVICE_PORT)
 				: System.getenv(AUTH_DEMO_SERVICE_PORT);
 		propsKernel.setProperty(AUTH_DEMO_SERVICE_PORT, authDemoServicePort);
-		
+
 		reportExpirationInDays = System.getenv(REPORT_EXPIRATION_IN_DAYS) == null
 				? propsKernel.getProperty(REPORT_EXPIRATION_IN_DAYS)
 				: System.getenv(REPORT_EXPIRATION_IN_DAYS);
 		propsKernel.setProperty(REPORT_EXPIRATION_IN_DAYS, reportExpirationInDays);
-		
 
 		authDemoServiceBaseUrl = System.getenv(AUTH_DEMO_SERVICE_BASE_URL) == null
 				? propsKernel.getProperty(AUTH_DEMO_SERVICE_BASE_URL)
@@ -304,55 +303,67 @@ public class ConfigManager {
 
 		mountPath = System.getenv(MOUNT_PATH) == null ? propsKernel.getProperty(MOUNT_PATH) : System.getenv(MOUNT_PATH);
 		propsKernel.setProperty(MOUNT_PATH, mountPath);
-		
-		authCertsPath = System.getenv(AUTHCERTS_PATH) == null ? propsKernel.getProperty(AUTHCERTS_PATH) : System.getenv(AUTHCERTS_PATH);
+
+		authCertsPath = System.getenv(AUTHCERTS_PATH) == null ? propsKernel.getProperty(AUTHCERTS_PATH)
+				: System.getenv(AUTHCERTS_PATH);
 		propsKernel.setProperty(AUTHCERTS_PATH, authCertsPath);
-		
-		mountPathForScenario = System.getenv(MOUNT_PATH_FOR_SCENARIO) == null ? propsKernel.getProperty(MOUNT_PATH_FOR_SCENARIO) : System.getenv(MOUNT_PATH_FOR_SCENARIO);
+
+		mountPathForScenario = System.getenv(MOUNT_PATH_FOR_SCENARIO) == null
+				? propsKernel.getProperty(MOUNT_PATH_FOR_SCENARIO)
+				: System.getenv(MOUNT_PATH_FOR_SCENARIO);
 		propsKernel.setProperty(MOUNT_PATH_FOR_SCENARIO, mountPathForScenario);
-		
-		packetUtilityBaseUrl = System.getenv(PACKET_UTILITY_BASE_URL) == null ? propsKernel.getProperty(PACKET_UTILITY_BASE_URL) : System.getenv(PACKET_UTILITY_BASE_URL);
+
+		packetUtilityBaseUrl = System.getenv(PACKET_UTILITY_BASE_URL) == null
+				? propsKernel.getProperty(PACKET_UTILITY_BASE_URL)
+				: System.getenv(PACKET_UTILITY_BASE_URL);
 		propsKernel.setProperty(PACKET_UTILITY_BASE_URL, packetUtilityBaseUrl);
-		
-		push_reports_to_s3 =System.getenv(PUSH_TO_S3) == null ? propsKernel.getProperty(PUSH_TO_S3) : System.getenv(PUSH_TO_S3);
+
+		push_reports_to_s3 = System.getenv(PUSH_TO_S3) == null ? propsKernel.getProperty(PUSH_TO_S3)
+				: System.getenv(PUSH_TO_S3);
 		propsKernel.setProperty(PUSH_TO_S3, push_reports_to_s3);
-		
-		enableDebug =System.getenv(ENABLE_DEBUG) == null ? propsKernel.getProperty(ENABLE_DEBUG) : System.getenv(ENABLE_DEBUG);
+
+		enableDebug = System.getenv(ENABLE_DEBUG) == null ? propsKernel.getProperty(ENABLE_DEBUG)
+				: System.getenv(ENABLE_DEBUG);
 		propsKernel.setProperty(ENABLE_DEBUG, enableDebug);
-		
-		threadCount =System.getenv(THREAD_COUNT) == null ? propsKernel.getProperty(THREAD_COUNT) : System.getenv(THREAD_COUNT);
+
+		threadCount = System.getenv(THREAD_COUNT) == null ? propsKernel.getProperty(THREAD_COUNT)
+				: System.getenv(THREAD_COUNT);
 		propsKernel.setProperty(THREAD_COUNT, threadCount);
-		
-		langselect =System.getenv(LANG_SELECT) == null ? propsKernel.getProperty(LANG_SELECT) : System.getenv(LANG_SELECT);
+
+		langselect = System.getenv(LANG_SELECT) == null ? propsKernel.getProperty(LANG_SELECT)
+				: System.getenv(LANG_SELECT);
 		propsKernel.setProperty(LANG_SELECT, langselect);
-		
-		
-		usePreConfiguredOtp =System.getenv(USEPRECONFIGOTP) == null ? propsKernel.getProperty(USEPRECONFIGOTP) : System.getenv(USEPRECONFIGOTP);
+
+		usePreConfiguredOtp = System.getenv(USEPRECONFIGOTP) == null ? propsKernel.getProperty(USEPRECONFIGOTP)
+				: System.getenv(USEPRECONFIGOTP);
 		propsKernel.setProperty(USEPRECONFIGOTP, usePreConfiguredOtp);
-		
-		preconfiguredOtp =System.getenv(PRECONFIGOTP) == null ? propsKernel.getProperty(PRECONFIGOTP) : System.getenv(PRECONFIGOTP);
+
+		preconfiguredOtp = System.getenv(PRECONFIGOTP) == null ? propsKernel.getProperty(PRECONFIGOTP)
+				: System.getenv(PRECONFIGOTP);
 		propsKernel.setProperty(PRECONFIGOTP, preconfiguredOtp);
-		
+
 		esignet_deployed = System.getenv(ESIGNET_DEPLOYED) == null ? propsKernel.getProperty(ESIGNET_DEPLOYED)
 				: System.getenv(ESIGNET_DEPLOYED);
 		propsKernel.setProperty(ESIGNET_DEPLOYED, esignet_deployed);
-		
-		toSkippedList = System.getenv(SCENARIOS_TOBE_SKIPPED) == null ? propsKernel.getProperty(SCENARIOS_TOBE_SKIPPED)
-				: System.getenv(SCENARIOS_TOBE_SKIPPED);
-		propsKernel.setProperty(SCENARIOS_TOBE_SKIPPED, toSkippedList);
+
+		toSkippedList = System.getenv(SCENARIOS_TO_BE_SKIPPED) == null
+				? propsKernel.getProperty(SCENARIOS_TO_BE_SKIPPED)
+				: System.getenv(SCENARIOS_TO_BE_SKIPPED);
+		propsKernel.setProperty(SCENARIOS_TO_BE_SKIPPED, toSkippedList);
 
 	}
-	
+
 	public static boolean isInTobeSkippedList(String stringToFind) {
-		List<String> toBeSkippedLsit = Arrays.asList(toSkippedList.split(","));
-		for (String string : toBeSkippedLsit) {
-			if (string.contains(stringToFind)) {
-				return true;
+		synchronized (toSkippedList) {
+			List<String> toBeSkippedLsit = Arrays.asList(toSkippedList.split(","));
+			for (String string : toBeSkippedLsit) {
+				if (string.equalsIgnoreCase(stringToFind))
+					return true;
 			}
 		}
 		return false;
 	}
-	
+
 	public static Boolean IseSignetDeployed() {
 		return esignet_deployed.equalsIgnoreCase("yes");
 	}
@@ -360,7 +371,7 @@ public class ConfigManager {
 	public static String getAuthDemoServicePort() {
 		return authDemoServicePort;
 	}
-	
+
 	public static String getReportExpirationInDays() {
 		return reportExpirationInDays;
 	}
@@ -369,25 +380,27 @@ public class ConfigManager {
 		return authDemoServiceBaseUrl;
 
 	}
-	
+
 	public static String getLangselect() {
 		return langselect;
 
 	}
-	
+
 	public static String getUsePreConfiguredOtp() {
 		return usePreConfiguredOtp;
 
 	}
+
 	public static String getPreConfiguredOtp() {
 		return preconfiguredOtp;
 
 	}
+
 	public static String getThreadCount() {
 		return threadCount;
 
 	}
-	
+
 	public static String getEnableDebug() {
 		return enableDebug;
 
@@ -396,15 +409,15 @@ public class ConfigManager {
 	public static String getmountPath() {
 		return mountPath;
 	}
-	
+
 	public static String getmountPathForScenario() {
 		return mountPathForScenario;
 	}
-	
+
 	public static String getpacketUtilityBaseUrl() {
 		return packetUtilityBaseUrl;
 	}
-	
+
 	public static String getauthCertsPath() {
 		return authCertsPath;
 	}
@@ -678,7 +691,7 @@ public class ConfigManager {
 			prop.load(inputStream);
 		} catch (IOException e) {
 			LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
-		}finally {
+		} finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}
 		return prop;
