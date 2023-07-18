@@ -120,7 +120,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 				if (!ConfigManager.IseSignetDeployed()) {
 					throw new SkipException("esignet is not deployed hence skipping the testcase");
 				}
-				String tempUrl = ApplnURI.replace("-internal", "");
+				String tempUrl = ConfigManager.getEsignetBaseUrl();
 				if(testCaseName.contains("_AuthorizationCode_")) {
 					response = postRequestWithCookieAuthHeaderAndXsrfTokenForAutoGenId(tempUrl + testCaseDTO.getEndPoint(), inputJson,
 							COOKIENAME, testCaseDTO.getTestCaseName(), idKeyName);

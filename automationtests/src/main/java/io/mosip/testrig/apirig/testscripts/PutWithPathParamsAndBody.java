@@ -27,6 +27,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestExceptio
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -95,7 +96,7 @@ public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		
 		else {
 			if(testCaseName.contains("ESignet_")) {
-				String tempUrl = ApplnURI.replace("-internal", "");
+				String tempUrl = ConfigManager.getEsignetBaseUrl();
 				response = putWithPathParamsBodyAndBearerToken(tempUrl + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 			}
 			else {
