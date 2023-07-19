@@ -179,30 +179,30 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static Map<String, String> keycloakRolesMap = new HashMap<>();
 	protected static Map<String, String> keycloakUsersMap = new HashMap<>();
 	protected static RSAKey oidcJWKKey1 = null;
-	protected static File oidcJWK1 = new File("src/main/resources/oidcJWK1.txt");
-	protected static File oidcJWK2 = new File("src/main/resources/oidcJWK2.txt");
-	protected static File bindingJWK1 = new File("src/main/resources/bindingJWK1.txt");
-	protected static File bindingJWKVid = new File("src/main/resources/bindingJWKVid.txt");
-	protected static File bindingConsentJWK = new File("src/main/resources/bindingConsentJWK.txt");
-	protected static File bindingConsentJWKVid = new File("src/main/resources/bindingConsentJWKVid.txt");
-	protected static File bindingConsentSameClaimJWK = new File("src/main/resources/bindingConsentSameClaimJWK.txt");
+	protected static File oidcJWK1 = new File(getResourcePath() + "oidcJWK1.txt");
+	protected static File oidcJWK2 = new File(getResourcePath() + "oidcJWK2.txt");
+	protected static File bindingJWK1 = new File(getResourcePath() + "bindingJWK1.txt");
+	protected static File bindingJWKVid = new File(getResourcePath() + "bindingJWKVid.txt");
+	protected static File bindingConsentJWK = new File(getResourcePath() + "bindingConsentJWK.txt");
+	protected static File bindingConsentJWKVid = new File(getResourcePath() + "bindingConsentJWKVid.txt");
+	protected static File bindingConsentSameClaimJWK = new File(getResourcePath() + "bindingConsentSameClaimJWK.txt");
 	protected static File bindingConsentVidSameClaimJWK = new File(
-			"src/main/resources/bindingConsentVidSameClaimJWK.txt");
-	protected static File clientPrivateKey = new File("src/main/resources/config/clientPrivateKey.txt");
+			getResourcePath() + "bindingConsentVidSameClaimJWK.txt");
+	protected static File clientPrivateKey = new File(getResourcePath() + "clientPrivateKey.txt");
 	public static final String XSRF_HEADERNAME = "X-XSRF-TOKEN";
 	public static final String OAUTH_HASH_HEADERNAME = "oauth-details-hash";
 	public static final String OAUTH_TRANSID_HEADERNAME = "oauth-details-key";
 	protected static String encryptedSessionKeyString;
-	private static File eSignetUINCookiesFile = new File("src/main/resources/ESignetUINCookiesResponse.txt");
-	private static File eSignetVIDCookiesFile = new File("src/main/resources/ESignetVIDCookiesResponse.txt");
-	private static File bindingCertFile = new File("src/main/resources/BINDINGCERTFile.txt");
-	private static File bindingCertFileVid = new File("src/main/resources/BINDINGCERTFileVid.txt");
-	private static File bindingCertConsentFile = new File("src/main/resources/BINDINGCERTCONSENTFile.txt");
-	private static File bindingCertConsentVidFile = new File("src/main/resources/BINDINGCERTCONSENTVidFile.txt");
+	private static File eSignetUINCookiesFile = new File(getResourcePath() + "ESignetUINCookiesResponse.txt");
+	private static File eSignetVIDCookiesFile = new File(getResourcePath() + "ESignetVIDCookiesResponse.txt");
+	private static File bindingCertFile = new File(getResourcePath() + "BINDINGCERTFile.txt");
+	private static File bindingCertFileVid = new File(getResourcePath() + "BINDINGCERTFileVid.txt");
+	private static File bindingCertConsentFile = new File(getResourcePath() + "BINDINGCERTCONSENTFile.txt");
+	private static File bindingCertConsentVidFile = new File(getResourcePath() + "BINDINGCERTCONSENTVidFile.txt");
 	private static File bindingCertConsentSameClaimFile = new File(
-			"src/main/resources/BINDINGCERTCONSENTSAMECLAIMFile.txt");
+			getResourcePath() + "BINDINGCERTCONSENTSAMECLAIMFile.txt");
 	private static File bindingCertConsentVidSameClaimFile = new File(
-			"src/main/resources/BINDINGCERTCONSENTVIDSAMECLAIMFile.txt");
+			getResourcePath() + "BINDINGCERTCONSENTVIDSAMECLAIMFile.txt");
 
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
