@@ -44,7 +44,6 @@ public class MosipTestRunner {
 
 	public static String jarUrl = MosipTestRunner.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 	public static List<String> languageList = new ArrayList<>();
-	public static File oidcJWK1 = new File("src/main/resources/oidcJWK1.txt");
 
 	/**
 	 * C Main method to start mosip test execution
