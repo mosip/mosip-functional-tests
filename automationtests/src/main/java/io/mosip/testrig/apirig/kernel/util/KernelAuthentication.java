@@ -63,8 +63,8 @@ public class KernelAuthentication extends BaseTestCase{
 	private String authInternalRequest="config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp= props.get("preregSendOtp");
 	private String preregValidateOtp= props.get("preregValidateOtp");
-	private static File ESignetUINCookiesFile = new File("src/main/resources/ESignetUINCookiesResponse.txt");
-	private static File ESignetVIDCookiesFile = new File("src/main/resources/ESignetVIDCookiesResponse.txt");
+	private static File ESignetUINCookiesFile = new File(AdminTestUtil.getResourcePath() + "ESignetUINCookiesResponse.txt");
+	private static File ESignetVIDCookiesFile = new File(AdminTestUtil.getResourcePath() + "ESignetVIDCookiesResponse.txt");
 
 	public String getTokenByRole(String role) {
 		return getTokenByRole(role, null);

@@ -1,7 +1,6 @@
 package io.mosip.testrig.apirig.global.utils;
 
-
-
+import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 
 public class GlobalConstants {
 	public static final String PREREG = "prereg";
@@ -94,9 +93,9 @@ public class GlobalConstants {
 	public static final String ID_VERSION = "idVersion";
 	public static final String SCHEMA_JSON = "schemaJson";
 	public static final String REQUIRED = "required";
-	public static final String ADDIDENTITY_HBS = "addIdentity.hbs";
-	public static final String UPDATEDRAFT_HBS = "updateDraft.hbs";
-	public static final String CREATEPREREG_HBS = "createPrereg.hbs";
+	public static final String ADDIDENTITY_HBS = AdminTestUtil.getResourcePath() + "addIdentity.hbs";
+	public static final String UPDATEDRAFT_HBS = AdminTestUtil.getResourcePath() + "updateDraft.hbs";
+	public static final String CREATEPREREG_HBS = AdminTestUtil.getResourcePath() + "createPrereg.hbs";
 	public static final String PROPERTY_SOURCES = "propertySources";
 	public static final String MAILINATOR_COM = "@mailinator.com";
 	public static final String REFID = "ref_id";
