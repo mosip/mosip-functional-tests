@@ -208,74 +208,74 @@ public class AdminTestUtil extends BaseTestCase {
 	private static final String SIGN_ALGO = "RS256";
 	public static final int OTP_CHECK_INTERVAL = 10000;
 
-	protected static boolean triggerIdPKeyGen1 = true;
+	protected static boolean triggerESignetKeyGen1 = true;
 
-	private static void settriggerIdPKeyGen1(boolean value) {
-		triggerIdPKeyGen1 = value;
+	private static void settriggerESignetKeyGen1(boolean value) {
+		triggerESignetKeyGen1 = value;
 	}
 
-	private static boolean gettriggerIdPKeyGen1() {
-		return triggerIdPKeyGen1;
+	private static boolean gettriggerESignetKeyGen1() {
+		return triggerESignetKeyGen1;
 	}
 
-	protected static boolean triggerIdPKeyGen2 = true;
+	protected static boolean triggerESignetKeyGen2 = true;
 
-	private static void settriggerIdPKeyGen2(boolean value) {
-		triggerIdPKeyGen2 = value;
+	private static void settriggerESignetKeyGen2(boolean value) {
+		triggerESignetKeyGen2 = value;
 	}
 
-	private static boolean gettriggerIdPKeyGen2() {
-		return triggerIdPKeyGen2;
+	private static boolean gettriggerESignetKeyGen2() {
+		return triggerESignetKeyGen2;
 	}
 
-	protected static boolean triggerIdPKeyGen3 = true;
+	protected static boolean triggerESignetKeyGen3 = true;
 
-	private static void settriggerIdPKeyGen3(boolean value) {
-		triggerIdPKeyGen3 = value;
+	private static void settriggerESignetKeyGen3(boolean value) {
+		triggerESignetKeyGen3 = value;
 	}
 
-	private static boolean gettriggerIdPKeyGen3() {
-		return triggerIdPKeyGen3;
+	private static boolean gettriggerESignetKeyGen3() {
+		return triggerESignetKeyGen3;
 	}
 
-	protected static boolean triggerIdPKeyGen4 = true;
+	protected static boolean triggerESignetKeyGen4 = true;
 
-	private static void settriggerIdPKeyGen4(boolean value) {
-		triggerIdPKeyGen4 = value;
+	private static void settriggerESignetKeyGen4(boolean value) {
+		triggerESignetKeyGen4 = value;
 	}
 
-	private static boolean gettriggerIdPKeyGen4() {
-		return triggerIdPKeyGen4;
+	private static boolean gettriggerESignetKeyGen4() {
+		return triggerESignetKeyGen4;
 	}
 
-	protected static boolean triggerIdPKeyGen5 = true;
+	protected static boolean triggerESignetKeyGen5 = true;
 
-	private static void settriggerIdPKeyGen5(boolean value) {
-		triggerIdPKeyGen5 = value;
+	private static void settriggerESignetKeyGen5(boolean value) {
+		triggerESignetKeyGen5 = value;
 	}
 
-	private static boolean gettriggerIdPKeyGen5() {
-		return triggerIdPKeyGen5;
+	private static boolean gettriggerESignetKeyGen5() {
+		return triggerESignetKeyGen5;
 	}
 
-	protected static boolean triggerIdPKeyGen6 = true;
+	protected static boolean triggerESignetKeyGen6 = true;
 
-	private static void settriggerIdPKeyGen6(boolean value) {
-		triggerIdPKeyGen6 = value;
+	private static void settriggerESignetKeyGen6(boolean value) {
+		triggerESignetKeyGen6 = value;
 	}
 
-	private static boolean gettriggerIdPKeyGen6() {
-		return triggerIdPKeyGen6;
+	private static boolean gettriggerESignetKeyGen6() {
+		return triggerESignetKeyGen6;
 	}
 
-	protected static boolean triggerIdPKeyGen7 = true;
+	protected static boolean triggerESignetKeyGen7 = true;
 
-	private static void settriggerIdPKeyGen7(boolean value) {
-		triggerIdPKeyGen7 = value;
+	private static void settriggerESignetKeyGen7(boolean value) {
+		triggerESignetKeyGen7 = value;
 	}
 
-	private static boolean gettriggerIdPKeyGen7() {
-		return triggerIdPKeyGen7;
+	private static boolean gettriggerESignetKeyGen7() {
+		return triggerESignetKeyGen7;
 	}
 
 	/**
@@ -1815,7 +1815,7 @@ public class AdminTestUtil extends BaseTestCase {
 							MediaType.APPLICATION_JSON, cookieName, token);
 				}
 
-			} else if (testCaseName.contains(GlobalConstants.IDP_ACCESS_TOKEN)) {
+			} else if (testCaseName.contains("_IdpAccessToken_")) {
 				JSONObject request = new JSONObject(jsonInput);
 				if (request.has(GlobalConstants.IDP_ACCESS_TOKEN)) {
 					token = request.get(GlobalConstants.IDP_ACCESS_TOKEN).toString();
@@ -2882,9 +2882,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$BINDINGJWKKEY$")) {
 			String jwkKey = "";
-			if (gettriggerIdPKeyGen3()) {
+			if (gettriggerESignetKeyGen3()) {
 				jwkKey = generateAndWriteJWKKey(bindingJWK1);
-				settriggerIdPKeyGen3(false);
+				settriggerESignetKeyGen3(false);
 			} else {
 				jwkKey = getJWKKey(bindingJWK1);
 			}
@@ -2893,9 +2893,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$BINDINGJWKKEYVID$")) {
 			String jwkKey = "";
-			if (gettriggerIdPKeyGen4()) {
+			if (gettriggerESignetKeyGen4()) {
 				jwkKey = generateAndWriteJWKKey(bindingJWKVid);
-				settriggerIdPKeyGen4(false);
+				settriggerESignetKeyGen4(false);
 			} else {
 				jwkKey = getJWKKey(bindingJWKVid);
 			}
@@ -2904,9 +2904,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$BINDINGCONSENTJWKKEY$")) {
 			String jwkKey = "";
-			if (gettriggerIdPKeyGen5()) {
+			if (gettriggerESignetKeyGen5()) {
 				jwkKey = generateAndWriteJWKKey(bindingConsentJWK);
-				settriggerIdPKeyGen5(false);
+				settriggerESignetKeyGen5(false);
 			} else {
 				jwkKey = getJWKKey(bindingConsentJWK);
 			}
@@ -2915,9 +2915,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$BINDINGCONSENTJWKKEYVID$")) {
 			String jwkKey = "";
-			if (gettriggerIdPKeyGen6()) {
+			if (gettriggerESignetKeyGen6()) {
 				jwkKey = generateAndWriteJWKKey(bindingConsentJWKVid);
-				settriggerIdPKeyGen6(false);
+				settriggerESignetKeyGen6(false);
 			} else {
 				jwkKey = getJWKKey(bindingConsentJWKVid);
 			}
@@ -2926,9 +2926,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$BINDINGCONSENTSAMECLAIMJWKKEY$")) {
 			String jwkKey = "";
-			if (gettriggerIdPKeyGen7()) {
+			if (gettriggerESignetKeyGen7()) {
 				jwkKey = generateAndWriteJWKKey(bindingConsentSameClaimJWK);
-				settriggerIdPKeyGen7(false);
+				settriggerESignetKeyGen7(false);
 			} else {
 				jwkKey = getJWKKey(bindingConsentSameClaimJWK);
 			}
@@ -2937,9 +2937,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$OIDCJWKKEY$")) {
 			String jwkKey = "";
-			if (gettriggerIdPKeyGen1()) {
+			if (gettriggerESignetKeyGen1()) {
 				jwkKey = generateAndWriteJWKKey(oidcJWK1);
-				settriggerIdPKeyGen1(false);
+				settriggerESignetKeyGen1(false);
 			} else {
 				jwkKey = getJWKKey(oidcJWK1);
 			}
@@ -2948,9 +2948,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$OIDCJWKKEY2$")) {
 			String jwkKey = "";
-			if (gettriggerIdPKeyGen2()) {
+			if (gettriggerESignetKeyGen2()) {
 				jwkKey = generateAndWriteJWKKey(oidcJWK2);
-				settriggerIdPKeyGen2(false);
+				settriggerESignetKeyGen2(false);
 			} else {
 				jwkKey = getJWKKey(oidcJWK2);
 			}
