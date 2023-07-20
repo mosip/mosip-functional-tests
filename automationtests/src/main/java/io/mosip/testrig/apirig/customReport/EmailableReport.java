@@ -106,7 +106,7 @@ public class EmailableReport implements IReporter {
 					try {
 						isStoreSuccess = s3Adapter.putObject(ConfigManager.getS3Account(),
 								System.getProperty("modules"), null, null,
-								System.getProperty(GlobalConstants.EMAILABLEREPORT2NAME), newReportFile);
+								newString, newReportFile);
 						LOG.info("isStoreSuccess:: " + isStoreSuccess);
 					} catch (Exception e) {
 						LOG.info("error occured while pushing the object" + e.getLocalizedMessage());
