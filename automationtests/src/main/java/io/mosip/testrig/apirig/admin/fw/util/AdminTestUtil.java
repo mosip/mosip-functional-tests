@@ -3837,7 +3837,8 @@ public class AdminTestUtil extends BaseTestCase {
 								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3 + "1")); // fullName1
 							} else {
 								studentJSON.put(GlobalConstants.VALUE,
-										propsMap.getProperty(objIDJson3) + BaseTestCase.getLanguageList().get(j));
+										(propsMap.getProperty(objIDJson3) == null) ? "TEST_"+objIDJson3
+												: propsMap.getProperty(objIDJson3)+ BaseTestCase.getLanguageList().get(j));
 							}
 							jArray.put(studentJSON);
 						}
@@ -4008,7 +4009,10 @@ public class AdminTestUtil extends BaseTestCase {
 						{
 							JSONObject studentJSON = new JSONObject();
 							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
-							studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3));
+							studentJSON.put(GlobalConstants.VALUE,
+									(propsMap.getProperty(objIDJson3) == null) ? "TEST_"+objIDJson3
+											: propsMap.getProperty(objIDJson3));
+							
 							jArray.put(studentJSON);
 						}
 					}
@@ -4192,7 +4196,9 @@ public class AdminTestUtil extends BaseTestCase {
 						{
 							JSONObject studentJSON = new JSONObject();
 							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
-							studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3));
+							studentJSON.put(GlobalConstants.VALUE,
+									(propsMap.getProperty(objIDJson3) == null) ? "TEST_"+objIDJson3
+											: propsMap.getProperty(objIDJson3));
 							jArray.put(studentJSON);
 						}
 					}
