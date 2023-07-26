@@ -477,12 +477,13 @@ public class Decrypt {
 	@PostMapping(path = "/decryptWithPartnerKey", produces = MediaType.TEXT_PLAIN_VALUE)
 	public String decryptWithPartnerKey(
 			@RequestBody String data,
+			@RequestParam(name = "partnerType", required = true) PartnerTypes partnerType,
 			@RequestParam(name = "partnerName", required = false) String partnerName,
 			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
 			@RequestParam(name = "certsDir", required = false) String certsDir,
 			@RequestParam(name = "moduleName", required = false) String moduleName
 			) throws Exception {
-		PrivateKeyEntry ekycKey = keyMgrUtil.getKeyEntry(keyMgrUtil.getKeysDirPath(certsDir, moduleName), PartnerTypes.EKYC, partnerName, keyFileNameByPartnerName);
+		PrivateKeyEntry ekycKey = keyMgrUtil.getKeyEntry(keyMgrUtil.getKeysDirPath(certsDir, moduleName), partnerType, partnerName, keyFileNameByPartnerName);
 		return cryptoCoreUtil.decrypt(data, ekycKey);
 	}
 
