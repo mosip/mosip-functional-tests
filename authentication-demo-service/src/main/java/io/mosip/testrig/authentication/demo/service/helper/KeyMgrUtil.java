@@ -157,7 +157,7 @@ public class KeyMgrUtil {
             KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
 	            try(InputStream p12FileStream = new FileInputStream(filePath);) {
 	            keyStore.load(p12FileStream, getP12Pass());
-	            return (PrivateKeyEntry) keyStore.getEntry(KEY_ALIAS, new PasswordProtection (getP12Pass()));
+	            return (PrivateKeyEntry) keyStore.getEntry(getKeyAlias(), new PasswordProtection (getP12Pass()));
             }
         }
         return null;
@@ -208,7 +208,7 @@ public class KeyMgrUtil {
 
         KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
         keyStore.load(null, getP12Pass());
-        keyStore.setEntry(KEY_ALIAS, privateKeyEntry, new PasswordProtection (getP12Pass()));
+        keyStore.setEntry(getKeyAlias(), privateKeyEntry, new PasswordProtection (getP12Pass()));
         Path parentPath = Paths.get(p12FilePath).getParent();
         if (parentPath != null && !Files.exists(parentPath)) {
             Files.createDirectories(parentPath);
@@ -368,7 +368,7 @@ public class KeyMgrUtil {
 
             KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
             keyStore.load(null, getP12Pass());
-            keyStore.setEntry(KEY_ALIAS, newPrivateKeyEntry, new PasswordProtection (getP12Pass()));
+            keyStore.setEntry(getKeyAlias(), newPrivateKeyEntry, new PasswordProtection (getP12Pass()));
             
             OutputStream outputStream = new FileOutputStream(partnerFilePath);
             keyStore.store(outputStream, getP12Pass());
@@ -378,6 +378,10 @@ public class KeyMgrUtil {
         }
         return false;
     }
+
+	private String getKeyAlias() {
+		return environment.getProperty("key.alias", KEY_ALIAS);
+	}
 
     
     public String getKeysDirPath(String certsDir, String moduleName) {
