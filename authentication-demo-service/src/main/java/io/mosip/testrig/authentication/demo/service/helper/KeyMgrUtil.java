@@ -380,7 +380,7 @@ public class KeyMgrUtil {
     }
 
 	private String getKeyAlias() {
-		return environment.getProperty("key.alias", KEY_ALIAS);
+		return environment.getProperty("p12.key.alias", KEY_ALIAS);
 	}
 
     
