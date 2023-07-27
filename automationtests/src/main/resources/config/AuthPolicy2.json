@@ -36,10 +36,6 @@
           "mandatory": false
         }         
       ],
-      "kycLanguages": [
-                "ara",
-				"eng"
-				],
       "allowedKycAttributes": [
         {
           "attributeName": "fullName"

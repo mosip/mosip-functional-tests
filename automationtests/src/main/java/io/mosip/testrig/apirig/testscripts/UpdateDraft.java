@@ -76,7 +76,7 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 		if (BaseTestCase.languageList.size() == 2) {
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }", "");
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Female\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Madhu.GN\" }", "");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Lisa.GN\" }", "");
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }", "");
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line2\" }", "");
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }", "");
@@ -88,7 +88,7 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 					", { \"language\": \"$2NDLANG$\", \"value\": \"Female\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Female\" }",
 					"");
 			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"Mrs Madhu.GN\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Madhu.GN\" }",
+					", { \"language\": \"$2NDLANG$\", \"value\": \"Mrs Lisa.GN\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Lisa.GN\" }",
 					"");
 			jsonInput = jsonInput.replace(
 					", { \"language\": \"$2NDLANG$\", \"value\": \"Line1\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }",

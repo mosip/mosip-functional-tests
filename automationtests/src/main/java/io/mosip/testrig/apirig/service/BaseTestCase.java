@@ -34,6 +34,7 @@ import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.kernel.util.CommonLibrary;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.kernel.util.KernelAuthentication;
 import io.mosip.testrig.apirig.testrunner.MockSMTPListener;
 import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
@@ -66,6 +67,7 @@ public class BaseTestCase {
 	public String idaCookie = null;
 	public String idrepoCookie = null;
 	public String regProcCookie = null;
+	public String regProCookie = null;
 	public String regAdminCookie = null;
 	public String registrationOfficerCookie = null;
 	public String regSupervisorCookie = null;
@@ -511,6 +513,12 @@ public class BaseTestCase {
 	}
 
 	public static List<String> getSupportedIdTypesValueFromActuator() {
+		
+		// TODO Remove this work around after the IDA actuator works
+		if (!AdminTestUtil.isTargetEnvLTS()) {
+			supportedIdType.add("UIN");
+			supportedIdType.add("VID");
+		}
 
 		if (!supportedIdType.isEmpty()) {
 			return supportedIdType;

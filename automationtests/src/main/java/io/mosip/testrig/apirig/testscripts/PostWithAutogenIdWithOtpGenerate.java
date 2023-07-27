@@ -27,6 +27,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -76,6 +77,9 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
+		if ((!AdminTestUtil.isTargetEnvLTS()) && BaseTestCase.currentModule.equals("auth") && testCaseName.startsWith("auth_GenerateVID_")) {
+			throw new SkipException("Generating VID using IdRepo API on Pre-LTS. Hence skipping this test case");
 		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
@@ -142,8 +146,13 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 			
-			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
-				throw new AdminTestException("Failed at otp output validation");
+			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
+				if (otpResponse.asString().contains("IDA-OTA-001"))
+					throw new AdminTestException("Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
+				else
+					throw new AdminTestException("Failed at otp output validation");
+			}
+				
 		}
 		else {
 			throw new AdminTestException("Invalid otp response");
@@ -200,9 +209,12 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	public void waittime() {
 		try {
 			if ((!testCaseName.contains(GlobalConstants.ESIGNET_)) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
-				logger.info("waiting for" + properties.getProperty("Delaytime")
+				long delayTime = Long.parseLong(properties.getProperty("Delaytime"));
+				if (!AdminTestUtil.isTargetEnvLTS())
+					delayTime = Long.parseLong(properties.getProperty("uinGenDelayTime")) * Long.parseLong(properties.getProperty("uinGenMaxLoopCount"));
+				logger.info("waiting for " + delayTime
 						+ " mili secs after VID Generation In RESIDENT SERVICES");
-				Thread.sleep(Long.parseLong(properties.getProperty("Delaytime")));
+				Thread.sleep(delayTime);
 			}
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());

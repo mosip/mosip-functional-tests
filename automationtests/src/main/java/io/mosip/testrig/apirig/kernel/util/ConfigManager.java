@@ -113,6 +113,11 @@ public class ConfigManager {
 	private static String REPORT_EXPIRATION_IN_DAYS = "reportExpirationInDays";
 
 	private static String SCENARIOS_TO_BE_SKIPPED = "scenariosToSkip";
+	
+	private static String PARTNER_URL_SUFFIX = "partnerUrlSuffix";
+	
+	private static String partnerUrlSuffix;
+	
 	private static String toSkippedList;
 
 	private static String pms_client_secret;
@@ -359,6 +364,10 @@ public class ConfigManager {
 				? propsKernel.getProperty(SCENARIOS_TO_BE_SKIPPED)
 				: System.getenv(SCENARIOS_TO_BE_SKIPPED);
 		propsKernel.setProperty(SCENARIOS_TO_BE_SKIPPED, toSkippedList);
+		
+		partnerUrlSuffix = System.getenv(PARTNER_URL_SUFFIX) == null ? propsKernel.getProperty(PARTNER_URL_SUFFIX)
+				: System.getenv(PARTNER_URL_SUFFIX);
+		propsKernel.setProperty(PARTNER_URL_SUFFIX, partnerUrlSuffix);
 
 	}
 
@@ -371,6 +380,10 @@ public class ConfigManager {
 			}
 		}
 		return false;
+	}
+	
+	public static String getPartnerUrlSuffix() {
+		return partnerUrlSuffix;
 	}
 
 	public static Boolean IseSignetDeployed() {

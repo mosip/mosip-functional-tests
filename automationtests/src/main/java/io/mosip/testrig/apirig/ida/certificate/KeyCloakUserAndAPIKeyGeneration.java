@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.kernel.util.KeycloakUserManager;
 import io.restassured.response.Response;
 
@@ -18,7 +19,8 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 	
 	static String partnerId = PartnerRegistration.partnerId;
 	static String emailId = PartnerRegistration.emailId;
-	static String role = PartnerRegistration.partnerType;
+	static String role = AdminTestUtil.isTargetEnvLTS() ? PartnerRegistration.partnerType
+			: PartnerRegistration.role;
 	static String policyGroup = PartnerRegistration.policyGroup;
 	static String randomAbbreviation = generateRandomAlphabeticString(4).toUpperCase();
 	static String policyName = AdminTestUtil.policyName;
@@ -28,10 +30,45 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		String mappingKey = submittingPartnerAndGetMappingKey();
 		approvePartnerAPIKey(mappingKey);
 		return createAPIKey();
-		
-		
-		
 	}
+	
+	public static String createKCUserAndGetAPIKeyNonLTS() {
+		KeycloakUserManager.createKeyCloakUsers(partnerId, emailId, role);
+		String apiRequestId = submittingPartnerAndGetApiRequestId();
+		approvePartnerAPIKeyNonLTS(apiRequestId);
+		return createAPIKeyNonLTS();
+	}
+	
+	public static String submittingPartnerAndGetApiRequestId() {
+		String url = ApplnURI + "/v1/partnermanager/partners/"+partnerId+"/apikey/request";
+		
+		String token = kernelAuthLib.getTokenByRole("partner");
+		
+		HashMap<String, String> requestBody = new HashMap<>();
+		
+		requestBody.put("policyName", policyName);
+		requestBody.put("useCaseDescription", "mapping Partner to policyName");
+		
+		HashMap<String, Object> body = new HashMap<>();
+		
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
+		
+		Response response = RestClient.patchRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		lOGGER.info(response);
+		JSONObject responseJson = new JSONObject(response.asString());
+		lOGGER.info(responseJson);
+		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
+		lOGGER.info(responseValue);
+		String apiRequestId = responseValue.getString("apiRequestId");
+		lOGGER.info(apiRequestId);
+		
+		return apiRequestId;
+	}
+	
 	public static String submittingPartnerAndGetMappingKey() {
 		String url = ApplnURI + "/v1/partnermanager/partners/"+partnerId+"/policy/map";
 		
@@ -62,6 +99,29 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		return mappingKey;
 	}
 	
+	public static void approvePartnerAPIKeyNonLTS(String apiRequestId){
+		String url = ApplnURI + "/v1/partnermanager/partners/apikey/"+apiRequestId;
+		
+		String token = kernelAuthLib.getTokenByRole("partner");
+		
+		HashMap<String, String> requestBody = new HashMap<>();
+		
+		requestBody.put("status", "Approved");
+		
+		HashMap<String, Object> body = new HashMap<>();
+		
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
+		
+		Response response = RestClient.patchRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		lOGGER.info(response);
+		JSONObject responseJson = new JSONObject(response.asString());
+		lOGGER.info(responseJson);
+	}
+	
 	public static void approvePartnerAPIKey(String mappingKey){
 		String url = ApplnURI + "/v1/partnermanager/partners/policy/"+mappingKey;
 		
@@ -83,6 +143,27 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		lOGGER.info(response);
 		JSONObject responseJson = new JSONObject(response.asString());
 		lOGGER.info(responseJson);
+	}
+	
+	public static String createAPIKeyNonLTS(){
+		String url = ApplnURI + "/v1/partnermanager/partners/"+partnerId+"/apikey/request";
+		
+		String token = kernelAuthLib.getTokenByRole("partner");
+		
+		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		lOGGER.info(response);
+		JSONObject responseJson = new JSONObject(response.asString());
+		lOGGER.info(responseJson);
+		
+		String apiKey = responseJson.getJSONArray("response").getJSONObject(0).getString(GlobalConstants.PARTNER_APIKEY);
+		
+		
+//		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
+//		lOGGER.info(responseValue);
+//		String apiKey = responseValue.getString(GlobalConstants.PARTNER_APIKEY);
+//		lOGGER.info(apiKey);
+		
+		return apiKey;
 	}
 	
 	public static String createAPIKey(){

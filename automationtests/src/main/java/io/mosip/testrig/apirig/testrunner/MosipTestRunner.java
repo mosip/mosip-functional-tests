@@ -67,11 +67,11 @@ public class MosipTestRunner {
 			ConfigManager.init(); 
 			BaseTestCase.suiteSetup();
 			AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
-			HealthChecker healthcheck = new HealthChecker();
-			healthcheck.setCurrentRunningModule(BaseTestCase.currentModule);
-			Thread trigger = new Thread(healthcheck);
-			trigger.start();
-
+//			HealthChecker healthcheck = new HealthChecker();
+//			healthcheck.setCurrentRunningModule(BaseTestCase.currentModule);
+//			Thread trigger = new Thread(healthcheck);
+//			trigger.start();
+			KeycloakUserManager.removeUser();
 			KeycloakUserManager.createUsers(); 
 
 			String partnerKeyURL = "";
@@ -118,7 +118,7 @@ public class MosipTestRunner {
 
 		MockSMTPListener.bTerminate = true;
 
-		HealthChecker.bTerminate = true;
+//		HealthChecker.bTerminate = true;
 
 		System.exit(0);
 
