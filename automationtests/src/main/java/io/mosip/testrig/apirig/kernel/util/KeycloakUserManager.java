@@ -151,7 +151,13 @@ public class KeycloakUserManager {
 			logger.info(response);
 			logger.info(String.format(GlobalConstants.REPSONSE, response.getStatus(), response.getStatusInfo()));
 			logger.info(response.getLocation());
-			String userId = CreatedResponseUtil.getCreatedId(response);
+			String userId = "";
+			if (!response.getStatusInfo().equals(Response.Status.CONFLICT)){
+				userId = CreatedResponseUtil.getCreatedId(response);
+			}
+			else {
+				userId = getKeycloakUserID(needsToBeCreatedUser);
+			}
 			logger.info(String.format(GlobalConstants.USERCREATEDWITHUSERID, userId));
 
 			CredentialRepresentation passwordCred = new CredentialRepresentation();
@@ -181,6 +187,20 @@ public class KeycloakUserManager {
 			userResource.roles().realmLevel() //
 					.add((availableRoles.isEmpty() ? allRoles : availableRoles));
 		}
+	}
+	
+	public static String getKeycloakUserID(String userName) {
+		Keycloak keycloakInstance = getKeycloakInstance();
+		RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
+		UsersResource usersRessource = realmResource.users();
+
+		List<UserRepresentation> usersFromDB = usersRessource.search(userName);
+		if (!usersFromDB.isEmpty()) {
+			return usersFromDB.get(0).getId();
+		} else {
+			return "";
+		}
+
 	}
 	
 	public static void removeKeyCloakUser(String partnerId) {

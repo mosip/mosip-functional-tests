@@ -41,11 +41,15 @@ public class ReportUtil {
 							+ "    <td>" + dto.getExpValue() + "</td>\r\n" + "    <td>" + dto.getActualValue()
 							+ "</td>\r\n" + "    <td bgcolor='RED'>" + dto.getStatus() + "</td>\r\n" + "  </tr>\r\n";
 				}
-				else if (dto.getStatus().equals("WARNING")) {
-					htmlforReport = htmlforReport + "  <tr>\r\n" + "    <td>" + dto.getFieldName() + "</td>\r\n"
-							+ "    <td>" + dto.getExpValue() + "</td>\r\n" + "    <td>" + dto.getActualValue()
-							+ "</td>\r\n" + "    <td bgcolor='LIGHTYELLOW'>" + dto.getStatus() + "</td>\r\n" + "  </tr>\r\n";
-				}
+				// If it is warning basically we haven't compared or ignored the comparison.
+				// so no point in printing that content in the report.
+				/*
+				 * else if (dto.getStatus().equals("WARNING")) { htmlforReport = htmlforReport +
+				 * "  <tr>\r\n" + "    <td>" + dto.getFieldName() + "</td>\r\n" + "    <td>" +
+				 * dto.getExpValue() + "</td>\r\n" + "    <td>" + dto.getActualValue() +
+				 * "</td>\r\n" + "    <td bgcolor='LIGHTYELLOW'>" + dto.getStatus() +
+				 * "</td>\r\n" + "  </tr>\r\n"; }
+				 */
 			}
 		}
 		htmlforReport = htmlforReport + "</table>";

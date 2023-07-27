@@ -110,6 +110,8 @@ import io.mosip.testrig.apirig.testrunner.MockSMTPListener;
 import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Ravi Kant
@@ -207,6 +209,8 @@ public class AdminTestUtil extends BaseTestCase {
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
 	public static final int OTP_CHECK_INTERVAL = 10000;
+	
+	private static String targetEnvVersion = "";
 
 	protected static boolean triggerESignetKeyGen1 = true;
 
@@ -2379,7 +2383,10 @@ public class AdminTestUtil extends BaseTestCase {
 			return null;
 		int indexof = testCaseName.indexOf("_");
 		String autogenIdKeyName = testCaseName.substring(indexof + 1);
-		autogenIdKeyName = autogenIdKeyName + "_" + fieldName;
+		if ((!AdminTestUtil.isTargetEnvLTS()) && fieldName.equals("VID") && BaseTestCase.currentModule.equals("auth"))
+			autogenIdKeyName = autogenIdKeyName + "_" + fieldName.toLowerCase();
+		else
+			autogenIdKeyName = autogenIdKeyName + "_" + fieldName;
 		logger.info("key for testCase: " + testCaseName + " : " + autogenIdKeyName);
 		return autogenIdKeyName;
 	}
@@ -3799,6 +3806,7 @@ public class AdminTestUtil extends BaseTestCase {
 		FileWriter fileWriter3 = null;
 		FileReader fileReader = null;
 		BufferedReader bufferedReader = null;
+		String mobileno = "7019858531";
 
 		try {
 			JSONObject jObj = new JSONObject(schemaFile);
@@ -3806,6 +3814,8 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject objIDJson = objIDJson4.getJSONObject(GlobalConstants.IDENTITY);
 			JSONObject objIDJson2 = objIDJson.getJSONObject(GlobalConstants.PROPERTIES);
 			JSONArray objIDJson1 = objIDJson.getJSONArray(GlobalConstants.REQUIRED);
+//			objIDJson1.put("mobileno");
+			objIDJson1.put("email");
 
 			fileWriter1 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS);
 			fileWriter1.write("{\n");
@@ -3835,7 +3845,14 @@ public class AdminTestUtil extends BaseTestCase {
 							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
 							if (objIDJson3.contains(GlobalConstants.FULLNAME) && regenerateHbs == true) {
 								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3 + "1")); // fullName1
-							} else {
+							}
+							else if (objIDJson3.contains(GlobalConstants.FIRST_NAME) && regenerateHbs == true) {
+								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3 + 1)); // fullName1
+							}
+							else if (objIDJson3.contains(GlobalConstants.GENDER)) {
+								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3));
+							}
+							else {
 								studentJSON.put(GlobalConstants.VALUE,
 										propsMap.getProperty(objIDJson3) + BaseTestCase.getLanguageList().get(j));
 							}
@@ -3866,10 +3883,23 @@ public class AdminTestUtil extends BaseTestCase {
 						fileWriter2.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
 								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
 					}
+					
+					else if (objIDJson3.equals("mobileno")) {
+						fileWriter2.write(",\t  \"" + objIDJson3 + "\":" + " " + "" + "" + mobileno + "" + "\n");
+					}
+					
+					else if (objIDJson3.equals("email")) {
+						fileWriter2
+						.write(",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
+					}
 
 					else if (objIDJson3.equals(GlobalConstants.INDIVIDUALBIOMETRICS)) {
 						fileWriter2.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
 								+ "\t\t\"version\": 1,\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  }\n");
+					}
+					else if (objIDJson3.equals(GlobalConstants.PROOF_OF_ADDRESS)) {
+						fileWriter2.write("\t  \"proofOfAddress\": {\n" + "\t\t\"format\": \"txt\",\n"
+								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
 					}
 
 					else if (objIDJson3.equals(GlobalConstants.IDSCHEMAVERSION)) {
@@ -3877,8 +3907,7 @@ public class AdminTestUtil extends BaseTestCase {
 					}
 
 					else {
-						fileWriter2
-								.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
 
 					}
 					fileWriter2.close();
@@ -4287,6 +4316,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public static void createAndPublishPolicy() {
+		if (!AdminTestUtil.isTargetEnvLTS()) {
+			// In case of 1.1.5 we don't have auto sync of certificates between Key manager cert store and IDA cert store
+			// So use the predefined certificate folder and partner key
+			return ;
+		}
 
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.PARTNER);
 
@@ -4425,40 +4459,62 @@ public class AdminTestUtil extends BaseTestCase {
 			return null;
 		}
 	}
+	
+	public static boolean isTargetEnvLTS() {
+
+		if (targetEnvVersion.isEmpty()) {
+
+			Response response = null;
+			JSONObject responseJson = null;
+			String url = ApplnURI + propsKernel.getProperty("auditActuatorEndpoint");
+			try {
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				GlobalMethods.reportResponse(url, response);
+
+				responseJson = new JSONObject(response.getBody().asString());
+
+				targetEnvVersion = responseJson.getJSONObject("build").getString("version");
+
+			} catch (Exception e) {
+				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			}
+		}
+		return targetEnvVersion.contains("1.2");
+	}
+	
+	
+	private static String otpExpTime = "";
 
 	public static int getOtpExpTimeFromActuator() {
-		Response response = null;
-		int otpExpTime = 10;
-		org.json.JSONObject responseJson = null;
-		JSONArray responseArray = null;
-		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
-		try {
-			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(url, response);
+		if (otpExpTime.isEmpty()) {
+			Response response = null;
+			org.json.JSONObject responseJson = null;
+			JSONArray responseArray = null;
+			String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
+			try {
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				GlobalMethods.reportResponse(url, response);
 
-			responseJson = new org.json.JSONObject(response.getBody().asString());
-			responseArray = responseJson.getJSONArray("propertySources");
+				responseJson = new org.json.JSONObject(response.getBody().asString());
+				responseArray = responseJson.getJSONArray("propertySources");
 
-			for (int i = 0, size = responseArray.length(); i < size; i++) {
-				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
-				logger.info("eachJson is :" + eachJson.toString());
-				if (eachJson.get("name").toString().contains(
-						"configService:https://github.com/mosip/mosip-config/application-default.properties")) {
+				for (int i = 0, size = responseArray.length(); i < size; i++) {
+					org.json.JSONObject eachJson = responseArray.getJSONObject(i);
+					logger.info("eachJson is :" + eachJson.toString());
+					if (eachJson.get("name").toString().contains(
+							"configService:https://github.com/mosip/mosip-config/application-default.properties")) {
 
-					org.json.JSONObject otpExpiryTime = (org.json.JSONObject) eachJson
-							.getJSONObject(GlobalConstants.PROPERTIES).get("mosip.kernel.otp.expiry-time");
-					String otpExpiryTimeVal = otpExpiryTime.getString(GlobalConstants.VALUE);
-					otpExpTime = Integer.parseInt(otpExpiryTimeVal);
-					break;
+						org.json.JSONObject otpExpiryTime = (org.json.JSONObject) eachJson
+								.getJSONObject(GlobalConstants.PROPERTIES).get("mosip.kernel.otp.expiry-time");
+						otpExpTime = otpExpiryTime.getString(GlobalConstants.VALUE);
+						break;
+					}
 				}
+			} catch (Exception e) {
+				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			}
-
-			return otpExpTime;
-		} catch (Exception e) {
-			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			return otpExpTime;
 		}
-
+		return Integer.parseInt(otpExpTime);
 	}
 
 	public static String getValueFromActuator(String section, String key) {
@@ -4827,6 +4883,17 @@ public class AdminTestUtil extends BaseTestCase {
 		if (!OutputValidationUtil.publishOutputResult(objMap))
 			throw new AdminTestException("Failed at output validation");
 		Reporter.log(ReportUtil.getOutputValidationReport(objMap));
+	}
+	
+	public static String getPartnerIdFromPartnerURL(String partnerKeyURLSuffix) {
+        Pattern pattern = Pattern.compile("/(.*?)/");
+        Matcher matcher = pattern.matcher(partnerKeyURLSuffix);
+        String substring = "";
+        if (matcher.find()) {
+            substring = matcher.group(1);
+        }
+        System.out.println(substring); // substring
+        return substring;
 	}
 
 }

@@ -6,18 +6,8 @@
         "identity": {
             "IDSchemaVersion": $SCHEMAVERSION$,
             "email": "{{email}}",
-            "phone": "{{phone}}",
             "dateOfBirth": "{{dateOfBirth}}",
-            "UIN": "{{UIN}}",
-            "fullName": [
-		        {{#each fullName}}
-		        {
-		          "language": "{{language}}",
-		          "value": "{{value}}"
-		        }
-		        {{#unless @last}},{{/unless}}
-		      	{{/each}}
-		      ]
+            "UIN": "{{UIN}}"
 		  }
     },
     "requesttime": "{{requesttime}}",

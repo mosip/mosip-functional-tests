@@ -136,8 +136,12 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			logger.info(ouputValid);
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
-			if (!OutputValidationUtil.publishOutputResult(ouputValid))
-				throw new AdminTestException("Failed at output validation");
+			if (!OutputValidationUtil.publishOutputResult(ouputValid)) {
+				if (response.asString().contains("IDA-OTA-001"))
+					throw new AdminTestException("Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
+				else
+					throw new AdminTestException("Failed at otp output validation");
+			}
 		}
 
 	}
