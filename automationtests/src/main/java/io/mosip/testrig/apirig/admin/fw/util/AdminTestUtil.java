@@ -3782,7 +3782,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String modifySchemaGenerateHbs(boolean regenerateHbs) {
 		String ja3 = "";
-		if (identityHbs != null && regenerateHbs) {
+		if (identityHbs != null && !regenerateHbs) {
 			return identityHbs;
 		}
 		StringBuffer everything = new StringBuffer("");

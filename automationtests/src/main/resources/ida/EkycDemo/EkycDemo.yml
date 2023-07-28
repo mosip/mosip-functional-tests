@@ -23,7 +23,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "1970/07/08",
+      "value": "1980/08/10",
         "key": "dob"
     }'
       output: '{
@@ -192,7 +192,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+      "value": "auth_AddIdentity_ValidParamms_smoke_Pos@mosip.net",
         "key": "emailId"
     }'
       output: '{
@@ -358,7 +358,7 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
+      "language": "eng",
       "value": "Mrs Lisa.GN"
     }
   ],
@@ -377,8 +377,8 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "FR"
+      "language": "eng",
+      "value": "Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -465,7 +465,7 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
+      "language": "eng",
       "value": "Miss Lisa.GN"
     }
   ],
@@ -484,7 +484,7 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
+      "language": "eng",
       "value": "Mr Lisa.GN"
     }
   ],
@@ -503,7 +503,7 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
+      "language": "eng",
       "value": "Mrs Lisa.GN"
     }
   ],
@@ -522,7 +522,7 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
+      "language": "eng",
       "value": "Miss. Lisa.GN"
     }
   ],
@@ -541,7 +541,7 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
+      "language": "eng",
       "value": "MISS. Lisa.GN"
     }
   ],
@@ -560,8 +560,8 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Miss Madhu GN"
+      "language": "eng",
+      "value": "Miss Lisa GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -580,7 +580,7 @@ EkycDemo:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Miss Madhu GN"
+      "value": "Miss Lisa GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -621,7 +621,7 @@ EkycDemo:
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-      "value": "51",
+      "value": "41",
     "key": "age",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
@@ -789,7 +789,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "1970/07/08",
+      "value": "1980/08/10",
         "key": "dob"
     }'
       output: '{
