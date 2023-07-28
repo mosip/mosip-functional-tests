@@ -153,7 +153,7 @@ DemoAuthNew:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+      "value": "auth_AddIdentity_ValidParamms_smoke_Pos@mosip.net",
         "key": "emailId"
     }'
       output: '{
@@ -213,7 +213,7 @@ DemoAuthNew:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+      "value": "auth_AddIdentity_ValidParamms_smoke_Pos@mosip.net",
         "key": "emailId"
     }'
       output: '{
@@ -398,7 +398,7 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
+      "language": "eng",
       "value": "Miss Lisa.GN"
     }
   ],
@@ -417,7 +417,7 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
+      "language": "eng",
       "value": "Mr Lisa.GN"
     }
   ],
@@ -455,7 +455,7 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
+      "language": "eng",
       "value": "Miss. Lisa.GN"
     }
   ],
@@ -474,7 +474,7 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
+      "language": "eng",
       "value": "MISS. Lisa.GN"
     }
   ],
@@ -493,8 +493,8 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Miss Madhu GN"
+      "language": "eng",
+      "value": "Miss Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -596,7 +596,7 @@ DemoAuthNew:
       inputTemplate: ida/DemoAuth/DemoAuth
       outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
-    "value": "51",
+    "value": "41",
   "key": "age",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
