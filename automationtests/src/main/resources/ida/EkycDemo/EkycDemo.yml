@@ -377,8 +377,8 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "eng",
-      "value": "Lisa.GN"
+      "language": "$PRIMARYLANG$",
+      "value": "$NAMEPRIMARYLANG$"
     }
   ],
         "timestamp": "$TIMESTAMP$",
