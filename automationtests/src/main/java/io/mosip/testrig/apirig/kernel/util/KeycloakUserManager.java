@@ -38,9 +38,9 @@ public class KeycloakUserManager {
 	private static Keycloak getKeycloakInstance() {
 		 Keycloak key=null;
 		try {
-			
-	key=KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
-				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(ConfigManager.getAutomationClientId()).clientSecret(ConfigManager.getAutomationClientSecret())
+			String automationClientId = BaseTestCase.isTargetEnvLTS() ? ConfigManager.getAutomationClientId() : ConfigManager.getPmsClientId();
+			key=KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
+				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(automationClientId).clientSecret(ConfigManager.getAutomationClientSecret())
 				.build();
 	logger.info(ConfigManager.getIAMUrl());
 	logger.info(key.toString() + key.realms());

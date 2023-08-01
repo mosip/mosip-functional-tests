@@ -209,8 +209,6 @@ public class AdminTestUtil extends BaseTestCase {
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
 	public static final int OTP_CHECK_INTERVAL = 10000;
-	
-	private static String targetEnvVersion = "";
 
 	protected static boolean triggerESignetKeyGen1 = true;
 
@@ -2383,7 +2381,7 @@ public class AdminTestUtil extends BaseTestCase {
 			return null;
 		int indexof = testCaseName.indexOf("_");
 		String autogenIdKeyName = testCaseName.substring(indexof + 1);
-		if ((!AdminTestUtil.isTargetEnvLTS()) && fieldName.equals("VID") && BaseTestCase.currentModule.equals("auth"))
+		if ((!BaseTestCase.isTargetEnvLTS()) && fieldName.equals("VID") && BaseTestCase.currentModule.equals("auth"))
 			autogenIdKeyName = autogenIdKeyName + "_" + fieldName.toLowerCase();
 		else
 			autogenIdKeyName = autogenIdKeyName + "_" + fieldName;
@@ -3814,9 +3812,10 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject objIDJson = objIDJson4.getJSONObject(GlobalConstants.IDENTITY);
 			JSONObject objIDJson2 = objIDJson.getJSONObject(GlobalConstants.PROPERTIES);
 			JSONArray objIDJson1 = objIDJson.getJSONArray(GlobalConstants.REQUIRED);
-//			objIDJson1.put("mobileno");
-			objIDJson1.put("email");
-
+			if (!isTargetEnvLTS()) {
+				objIDJson1.put("mobileno");
+				objIDJson1.put("email");
+			}
 			fileWriter1 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS);
 			fileWriter1.write("{\n");
 			fileWriter1.write("  \"id\": \"{{id}}\",\n");
@@ -3885,10 +3884,10 @@ public class AdminTestUtil extends BaseTestCase {
 					}
 					
 					else if (objIDJson3.equals("mobileno")) {
-						fileWriter2.write(",\t  \"" + objIDJson3 + "\":" + " " + "" + "" + mobileno + "" + "\n");
+						fileWriter2.write(",\t  \"" + objIDJson3 + "\":" + " " + "\"" + mobileno + "\"" + "\n");
 					}
 					
-					else if (objIDJson3.equals("email")) {
+					else if (objIDJson3.equals("email") && !isTargetEnvLTS()) {
 						fileWriter2
 						.write(",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
 					}
@@ -4316,7 +4315,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	public static void createAndPublishPolicy() {
-		if (!AdminTestUtil.isTargetEnvLTS()) {
+		if (!BaseTestCase.isTargetEnvLTS()) {
 			// In case of 1.1.5 we don't have auto sync of certificates between Key manager cert store and IDA cert store
 			// So use the predefined certificate folder and partner key
 			return ;
@@ -4460,33 +4459,16 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 	}
 	
-	public static boolean isTargetEnvLTS() {
 
-		if (targetEnvVersion.isEmpty()) {
-
-			Response response = null;
-			JSONObject responseJson = null;
-			String url = ApplnURI + propsKernel.getProperty("auditActuatorEndpoint");
-			try {
-				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-				GlobalMethods.reportResponse(url, response);
-
-				responseJson = new JSONObject(response.getBody().asString());
-
-				targetEnvVersion = responseJson.getJSONObject("build").getString("version");
-
-			} catch (Exception e) {
-				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			}
-		}
-		return targetEnvVersion.contains("1.2");
-	}
 	
 	
 	private static String otpExpTime = "";
 
 	public static int getOtpExpTimeFromActuator() {
 		if (otpExpTime.isEmpty()) {
+			String section = "configService:https://github.com/mosip/mosip-config/application-default.properties";
+			if (!BaseTestCase.isTargetEnvLTS()) 
+				section = "configService:https://github.com/mosip/mosip-config/sandbox/application-lts.properties";
 			Response response = null;
 			org.json.JSONObject responseJson = null;
 			JSONArray responseArray = null;
@@ -4501,8 +4483,7 @@ public class AdminTestUtil extends BaseTestCase {
 				for (int i = 0, size = responseArray.length(); i < size; i++) {
 					org.json.JSONObject eachJson = responseArray.getJSONObject(i);
 					logger.info("eachJson is :" + eachJson.toString());
-					if (eachJson.get("name").toString().contains(
-							"configService:https://github.com/mosip/mosip-config/application-default.properties")) {
+					if (eachJson.get("name").toString().contains(section)) {
 
 						org.json.JSONObject otpExpiryTime = (org.json.JSONObject) eachJson
 								.getJSONObject(GlobalConstants.PROPERTIES).get("mosip.kernel.otp.expiry-time");

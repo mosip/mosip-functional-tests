@@ -78,7 +78,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		if ((!AdminTestUtil.isTargetEnvLTS()) && BaseTestCase.currentModule.equals("auth") && testCaseName.startsWith("auth_GenerateVID_")) {
+		if ((!BaseTestCase.isTargetEnvLTS()) && BaseTestCase.currentModule.equals("auth") && testCaseName.startsWith("auth_GenerateVID_")) {
 			throw new SkipException("Generating VID using IdRepo API on Pre-LTS. Hence skipping this test case");
 		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
@@ -210,7 +210,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		try {
 			if ((!testCaseName.contains(GlobalConstants.ESIGNET_)) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
 				long delayTime = Long.parseLong(properties.getProperty("Delaytime"));
-				if (!AdminTestUtil.isTargetEnvLTS())
+				if (!BaseTestCase.isTargetEnvLTS())
 					delayTime = Long.parseLong(properties.getProperty("uinGenDelayTime")) * Long.parseLong(properties.getProperty("uinGenMaxLoopCount"));
 				logger.info("waiting for " + delayTime
 						+ " mili secs after VID Generation In RESIDENT SERVICES");

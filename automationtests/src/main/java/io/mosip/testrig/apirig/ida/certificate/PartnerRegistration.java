@@ -31,13 +31,12 @@ public class PartnerRegistration extends AdminTestUtil {
 	public static String deviceOrganizationName = "mosip_deviceorg" + timeStamp;
 	public static String ftmOrganizationName = "mosip_ftmorg" + timeStamp;
 	public static String partnerId = organizationName;
-	public static String role = "AUTH_PARTNER";
-	public static String partnerType = "Auth_Partner";
+	public static String partnerType = "AUTH_PARTNER";
 	static String getPartnerType = "RELYING_PARTY";
 	public static String policyGroup = AdminTestUtil.policyGroup;
 
 	public static String generateAndGetPartnerKeyUrl() {
-		if (!AdminTestUtil.isTargetEnvLTS()) {
+		if (!BaseTestCase.isTargetEnvLTS()) {
 			// In case of 1.1.5 we don't have auto sync of certificates between Key manager cert store and IDA cert store
 			// So use the predefined certificate folder and partner key
 			partnerKeyUrl = ConfigManager.getPartnerUrlSuffix();
@@ -49,10 +48,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		deviceGeneration();
 
 		getAndUploadCertificates();
-		if (AdminTestUtil.isTargetEnvLTS())
-			apiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetAPIKey();
-		else
-			apiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetAPIKeyNonLTS();
+		apiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetAPIKey();
 		String mispLicKey = MispPartnerAndLicenseKeyGeneration.getAndUploadCertificatesAndGenerateMispLicKey();
 		
 		if (apiKey.isEmpty() || mispLicKey.isEmpty()) {
@@ -375,7 +371,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static void deleteCertificates() {
-		if (!AdminTestUtil.isTargetEnvLTS()) {
+		if (!BaseTestCase.isTargetEnvLTS()) {
 			// In case of 1.1.5 we don't have auto sync of certificates between Keymanager cert store and IDA cert store
 			// So use the predefined certificate folder and partnerkey
 			return ;

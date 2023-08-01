@@ -24,7 +24,7 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 	}
 
 	public static void getThumbprints() {
-		if (!AdminTestUtil.isTargetEnvLTS()) {
+		if (!BaseTestCase.isTargetEnvLTS()) {
 			// In case of 1.1.5 we don't have auto sync of certificates between Keymanager cert store and IDA cert store
 			// So use the predefined certificate folder and partnerkey
 			return ;

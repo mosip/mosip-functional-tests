@@ -25,7 +25,6 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	public static String mispOrganizationName = "mosip-" + timeStamp;
 	public static String mispPartnerId = mispOrganizationName;
 	public static String mispPartnerType = "Misp_Partner";
-	public static String mispPartnerTypeNonLTS = "MISP_Partner";
 	static String getPartnerType = "MISP";
 	
 	public static String getAndUploadCertificatesAndGenerateMispLicKey() {
@@ -73,10 +72,7 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 		requestBody.put("emailId", emailId);
 		requestBody.put("organizationName", mispOrganizationName);
 		requestBody.put(GlobalConstants.PARTNERID, mispPartnerId);
-		if (AdminTestUtil.isTargetEnvLTS())
-			requestBody.put(GlobalConstants.PARTNERTYPE, mispPartnerType);
-		else
-			requestBody.put(GlobalConstants.PARTNERTYPE, mispPartnerTypeNonLTS);
+		requestBody.put(GlobalConstants.PARTNERTYPE, mispPartnerType);
 		requestBody.put("policyGroup", policyGroup);
 		
 		HashMap<String, Object> body = new HashMap<>();

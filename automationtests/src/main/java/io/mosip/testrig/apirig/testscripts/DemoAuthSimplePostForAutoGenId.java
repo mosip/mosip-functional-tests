@@ -111,7 +111,7 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 		
 		if (input.contains("$NAMEPRIMARYLANG$")) {
 			String name = "";
-			if (AdminTestUtil.isTargetEnvLTS())
+			if (BaseTestCase.isTargetEnvLTS())
 				name = propsMap.getProperty("fullName");
 			else
 				name = propsMap.getProperty("firstName");
