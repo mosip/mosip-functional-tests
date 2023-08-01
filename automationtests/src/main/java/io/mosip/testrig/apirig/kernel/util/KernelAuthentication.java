@@ -88,7 +88,7 @@ public class KernelAuthentication extends BaseTestCase{
 				idaCookie = kernelAuthLib.getAuthForIDA();
 			return idaCookie;
 		case "idrepo":
-			if (AdminTestUtil.isTargetEnvLTS()) {
+			if (BaseTestCase.isTargetEnvLTS()) {
 				if(!kernelCmnLib.isValidToken(idrepoCookie))
 					idrepoCookie = kernelAuthLib.getAuthForIDREPO();
 				return idrepoCookie;
@@ -157,7 +157,7 @@ public class KernelAuthentication extends BaseTestCase{
 				residentNewCookieKc = kernelAuthLib.getAuthForNewResidentKc();
 			return residentNewCookieKc;
 		case "hotlist":
-			if (AdminTestUtil.isTargetEnvLTS()) {
+			if (BaseTestCase.isTargetEnvLTS()) {
 				if(!kernelCmnLib.isValidToken(hotlistCookie))
 					residentCookie = kernelAuthLib.getAuthForHotlist();
 				return residentCookie;

@@ -67,10 +67,14 @@ public class MosipTestRunner {
 			ConfigManager.init(); 
 			BaseTestCase.suiteSetup();
 			AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
-//			HealthChecker healthcheck = new HealthChecker();
-//			healthcheck.setCurrentRunningModule(BaseTestCase.currentModule);
-//			Thread trigger = new Thread(healthcheck);
-//			trigger.start();
+			
+			// For now we are not doing health check for qa-115.
+			if (BaseTestCase.isTargetEnvLTS()) {
+				HealthChecker healthcheck = new HealthChecker();
+				healthcheck.setCurrentRunningModule(BaseTestCase.currentModule);
+				Thread trigger = new Thread(healthcheck);
+				trigger.start();
+			}
 			KeycloakUserManager.removeUser();
 			KeycloakUserManager.createUsers(); 
 
@@ -117,8 +121,9 @@ public class MosipTestRunner {
 		}
 
 		MockSMTPListener.bTerminate = true;
-
-//		HealthChecker.bTerminate = true;
+		
+		if (BaseTestCase.isTargetEnvLTS())
+			HealthChecker.bTerminate = true;
 
 		System.exit(0);
 
