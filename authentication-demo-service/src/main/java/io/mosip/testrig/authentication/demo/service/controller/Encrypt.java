@@ -257,11 +257,22 @@ public class Encrypt {
 
 	@PostMapping(path = "/splitEncryptedData", produces = MediaType.APPLICATION_JSON_VALUE)
 	public SplittedEncryptedData splitEncryptedData(@RequestBody String data) {
+		boolean encryptedDataHasVersion = env.getProperty("encryptedDataHasVersion", boolean.class, false);
 		byte[] dataBytes = CryptoUtil.decodeURLSafeBase64(data);
 		byte[][] splits = splitAtFirstOccurance(dataBytes, keySplitter.getBytes());
 		byte[] thumbPrintAndSessionKey = splits[0];	
-		byte[] thumbPrint = Arrays.copyOfRange(thumbPrintAndSessionKey, 6, 38);//Skip the 6 bytes version and take 32 bytes
-		byte[] sessionKey = Arrays.copyOfRange(thumbPrintAndSessionKey, 38, thumbPrintAndSessionKey.length);
+		byte[] sessionKey;
+		byte[] thumbPrint;
+		
+		if(encryptedDataHasVersion) {
+			 thumbPrint = Arrays.copyOfRange(thumbPrintAndSessionKey, 6, 38);//Skip the 6 bytes version and take 32 bytes
+			 sessionKey = Arrays.copyOfRange(thumbPrintAndSessionKey, 38, thumbPrintAndSessionKey.length);
+		}
+		else {
+			 thumbPrint = Arrays.copyOfRange(thumbPrintAndSessionKey, 0, 32);
+			 sessionKey = Arrays.copyOfRange(thumbPrintAndSessionKey, 32, thumbPrintAndSessionKey.length);
+		}
+		
 		byte[] encryptedData = splits[1];
 		return new SplittedEncryptedData(CryptoUtil.encodeToURLSafeBase64(sessionKey), CryptoUtil.encodeToURLSafeBase64(encryptedData), digestAsPlainText(thumbPrint));
 	}
