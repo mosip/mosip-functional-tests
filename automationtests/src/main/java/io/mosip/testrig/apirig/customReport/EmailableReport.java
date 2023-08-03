@@ -206,18 +206,10 @@ public class EmailableReport implements IReporter {
 		totalDuration = 0;
 
 		writer.print("<table>");
-		writer.print("<tr>");
-		writer.print("<th>Test</th>");
-		writer.print("<th># Passed</th>");
-		writer.print("<th># Skipped</th>");
-		writer.print("<th># Failed</th>");
-		writer.print("<th>Time (ms)</th>");
-		writer.print("<th>Included Groups</th>");
-		writer.print("<th>Excluded Groups</th>");
-		writer.print(GlobalConstants.TR);
+		
 
 		int testIndex = 0;
-		for (SuiteResult suiteResult : suiteResults) {
+		for (SuiteResult suiteResult : suiteResults) {			
 			writer.print("<tr><th colspan=\"7\">");
 			writer.print(Utils.escapeHtml(suiteResult.getSuiteName() + "-" + getCommitId()));
 			writer.print(GlobalConstants.TRTR);
@@ -226,6 +218,16 @@ public class EmailableReport implements IReporter {
 			writer.print(Utils.escapeHtml("Server Component Details " + AdminTestUtil.getServerComponentsDetails()));
 			writer.print("</pre></span>");
 			writer.print(GlobalConstants.TRTR);
+			
+			writer.print("<tr>");
+			writer.print("<th>Test</th>");
+			writer.print("<th># Passed</th>");
+			writer.print("<th># Skipped</th>");
+			writer.print("<th># Failed</th>");
+			writer.print("<th>Time (ms)</th>");
+			writer.print("<th>Included Groups</th>");
+			writer.print("<th>Excluded Groups</th>");
+			writer.print(GlobalConstants.TR);
 			
 			for (TestResult testResult : suiteResult.getTestResults()) {
 				int passedTests = testResult.getPassedTestCount();
