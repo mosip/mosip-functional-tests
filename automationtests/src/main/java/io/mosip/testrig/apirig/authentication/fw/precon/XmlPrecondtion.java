@@ -223,7 +223,7 @@ public class XmlPrecondtion extends MessagePrecondtion {
 				}
 			}
 		} catch (Exception e) {
-			XMLPRECONDTION_LOGGER.error(e.getStackTrace());
+			XMLPRECONDTION_LOGGER.error(e.getMessage());
 		}
 	}
 
@@ -247,7 +247,7 @@ public class XmlPrecondtion extends MessagePrecondtion {
 				}
 			}
 		} catch (Exception e) {
-			XMLPRECONDTION_LOGGER.error(e.getStackTrace());
+			XMLPRECONDTION_LOGGER.error(e.getMessage());
 		}
 	}
 

@@ -954,7 +954,7 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			map = mapper.readValue(inputJson, Map.class);
 		} catch (JsonProcessingException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
 		logger.info(inputJson);
@@ -1162,7 +1162,7 @@ public class AdminTestUtil extends BaseTestCase {
 			encodedStr = encoder.encodeToString(value.getBytes());
 			return encodedStr;
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 			return "Error While EncodeingBase64";
 		}
 
@@ -1192,7 +1192,7 @@ public class AdminTestUtil extends BaseTestCase {
 			try {
 				formParams.put(GlobalConstants.REQUEST, encodeBase64(req.toString()));
 			} catch (Exception e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 			}
 		} else {
 			pathParams.put(GlobalConstants.PREREGISTRATIONID, req.get(GlobalConstants.PREREGISTRATIONID).toString());
@@ -2528,7 +2528,7 @@ public class AdminTestUtil extends BaseTestCase {
 			Context context = Context.newBuilder(map).build();
 			resultJson = compiledTemplate.apply(context);
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		return resultJson;
 	}
@@ -2971,7 +2971,7 @@ public class AdminTestUtil extends BaseTestCase {
 				oidcJWKKey1 = RSAKey.parse(oidcJWKKeyString);
 				logger.info("oidcJWKKey1 =" + oidcJWKKey1);
 			} catch (java.text.ParseException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 			}
 			JSONObject request = new JSONObject(jsonString);
 			String clientId = null;
@@ -3191,7 +3191,7 @@ public class AdminTestUtil extends BaseTestCase {
 			try {
 				finalObject.put(GlobalConstants.IDENTITY, parser.parse(finalString));
 			} catch (ParseException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 			}
 		}
 		return Base64.getEncoder().encodeToString(finalObject.toString().getBytes());
@@ -3393,7 +3393,7 @@ public class AdminTestUtil extends BaseTestCase {
 			csvBody.get(row)[col] = replace;
 			csvWriter.writeAll(csvBody);
 		} catch (IOException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		return inputFile;
 	}
@@ -3416,7 +3416,7 @@ public class AdminTestUtil extends BaseTestCase {
 			singResponse = sign(request, false, true, false, null, getKeysDirPath(), partnerId);
 		} catch (NoSuchAlgorithmException | UnrecoverableEntryException | KeyStoreException | CertificateException
 				| OperatorCreationException | JoseException | IOException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		return singResponse;
 
@@ -3928,7 +3928,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		} catch (NullPointerException | IOException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		} finally {
 			closeFileWriter(fileWriter1);
 			closeFileWriter(fileWriter2);
@@ -4099,7 +4099,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		} catch (NullPointerException | IOException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		} finally {
 			closeFileWriter(fileWriter1);
 			closeFileWriter(fileWriter2);
@@ -4283,7 +4283,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		} catch (IOException | NullPointerException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		} finally {
 			closeFileWriter(fileWriter1);
 			closeFileWriter(fileWriter2);
@@ -4421,7 +4421,7 @@ public class AdminTestUtil extends BaseTestCase {
 			FileUtils.touch(fileName);// File got created
 			FileUtils.writeStringToFile(fileName, content, StandardCharset.UTF_8.name());
 		} catch (IOException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 	}
 

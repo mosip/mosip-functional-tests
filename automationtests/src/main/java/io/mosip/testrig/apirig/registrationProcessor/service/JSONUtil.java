@@ -32,7 +32,7 @@ public class JSONUtil {
 			file.flush();
 
 		} catch (IOException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 	}
 
@@ -47,7 +47,7 @@ public class JSONUtil {
 			bufferedReader = new BufferedReader(fileReader);
 			json = gson.fromJson(bufferedReader, JSONObject.class);
 		} catch (FileNotFoundException | NullPointerException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		} finally {
 			AdminTestUtil.closeBufferedReader(bufferedReader);
 			AdminTestUtil.closeFileReader(fileReader);
@@ -61,7 +61,7 @@ public class JSONUtil {
 			fileWriter = new FileWriter(packetMetaInfoFile);
 			fileWriter.write(jsonObject.toJSONString());
 		} catch (NullPointerException | IOException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}finally {
 			AdminTestUtil.closeFileWriter(fileWriter);
 		}

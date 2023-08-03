@@ -56,7 +56,7 @@ public class RegProcApiRequests extends BaseTestCase {
 			logger.info("REST-ASSURED: the response time is: " + newResponse.time());
 
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		return newResponse;
 	}
@@ -73,7 +73,7 @@ public class RegProcApiRequests extends BaseTestCase {
 			logger.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
 			logger.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		return getResponse;
 	}
@@ -226,7 +226,7 @@ public class RegProcApiRequests extends BaseTestCase {
 			}
 
 		} catch (java.text.ParseException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		return utcCheck;
 
@@ -267,7 +267,7 @@ public class RegProcApiRequests extends BaseTestCase {
 					.response();
 			return postResponse;
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		return null;
 	}
@@ -282,7 +282,7 @@ public class RegProcApiRequests extends BaseTestCase {
 					.contentType(contentHeader).accept(acceptHeader).log().all().when().post(ApplnURI + url).then()
 					.log().all().extract().response();
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		return postResponse;
 	}
