@@ -139,7 +139,7 @@ public class AssertKernel {
 			}
 
 		} catch (IOException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		logger.info(GlobalConstants.EQUAL);
 		return true;

@@ -198,7 +198,7 @@ public class MosipTestRunner {
 			final KeyPair keypair = keyGenerator.generateKeyPair();
 			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
 		} catch (NoSuchAlgorithmException e) {
-			LOGGER.error(e.getStackTrace());
+			LOGGER.error(e.getMessage());
 		}
 		return publicKey;
 	}
@@ -225,7 +225,7 @@ public class MosipTestRunner {
                 throw e;
             }
         } catch (Exception e) {
-        	LOGGER.error(e.getStackTrace());
+        	LOGGER.error(e.getMessage());
         }
         return vcString;
 	}
@@ -241,7 +241,7 @@ public class MosipTestRunner {
 			
 			return jwk.toJSONString();
 		} catch (NoSuchAlgorithmException e) {
-			LOGGER.error(e.getStackTrace());
+			LOGGER.error(e.getMessage());
 			return null;
 		}
 	}

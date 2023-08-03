@@ -179,7 +179,7 @@ public class KernelAuthentication extends BaseTestCase{
 			try {
 				ESignetCookiesFileString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
 			} catch (IOException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 			}
 			org.json.JSONObject jsonCookies = new org.json.JSONObject(ESignetCookiesFileString);
 			tokens.put(GlobalConstants.ACCESSTOKEN, jsonCookies.get(GlobalConstants.ACCESSTOKEN).toString());

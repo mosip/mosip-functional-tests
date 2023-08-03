@@ -46,7 +46,7 @@ public class E2EReport implements IReporter{
 				}
 			}
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		} finally {
 			return e2eReport;
 		}

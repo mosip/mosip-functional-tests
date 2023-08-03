@@ -74,7 +74,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 			fileWriter = new FileWriter(targetFile);
 			fileWriter.write(finalcustomReport);
 		} catch (NullPointerException | IOException e) {
-			CustomTestNGReporterLog.error(e.getStackTrace());
+			CustomTestNGReporterLog.error(e.getMessage());
 		} finally {
 			AdminTestUtil.closeFileWriter(fileWriter);
 		}
@@ -104,7 +104,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 			}
 
 		} catch (NullPointerException | IOException e) {
-			CustomTestNGReporterLog.error(e.getStackTrace());
+			CustomTestNGReporterLog.error(e.getMessage());
 		} finally {
 			AdminTestUtil.closeBufferedReader(bufferedReader);
 			AdminTestUtil.closeFileReader(fileReader);
@@ -217,7 +217,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 
 			retBuf.append("<tr>");
 		} catch (Exception e) {
-			CustomTestNGReporterLog.error(e.getStackTrace());
+			CustomTestNGReporterLog.error(e.getMessage());
 		}
 		return retBuf.toString();
 	}
@@ -311,7 +311,7 @@ public class CustomTestNGReporter extends Reporter implements IReporter {
 				}
 			}
 		} catch (Exception e) {
-			CustomTestNGReporterLog.error(e.getStackTrace());
+			CustomTestNGReporterLog.error(e.getMessage());
 		}
 		return retBuf.toString();
 	}
