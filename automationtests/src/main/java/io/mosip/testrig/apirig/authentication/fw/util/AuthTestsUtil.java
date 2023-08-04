@@ -152,7 +152,7 @@ public class AuthTestsUtil extends BaseTestCase {
 					outputStream.write(responseJson.getBytes());
 				} catch (Exception e) {
 					bReturn = false;
-					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getStackTrace());
+					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 					break;
 				}
 			}
@@ -191,7 +191,7 @@ public class AuthTestsUtil extends BaseTestCase {
 					outputStream.write(response.asString().getBytes());
 				} catch (Exception e) {
 					bReturn = false;
-					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getStackTrace());
+					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 					break;
 				}
 			}
@@ -1426,7 +1426,7 @@ public class AuthTestsUtil extends BaseTestCase {
 					outputStream.write(response.asString().getBytes());
 				} catch (Exception e) {
 					bReturn = false;
-					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getStackTrace());
+					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 					break;
 				}
 			}

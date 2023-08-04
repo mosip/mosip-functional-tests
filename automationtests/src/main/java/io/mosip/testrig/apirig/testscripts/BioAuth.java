@@ -158,7 +158,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			try {
 				res = resJsonObject.get("response").toString();
 			} catch (JSONException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 			}
 		}
 

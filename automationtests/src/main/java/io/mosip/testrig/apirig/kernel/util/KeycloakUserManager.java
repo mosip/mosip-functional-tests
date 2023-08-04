@@ -316,7 +316,7 @@ public class KeycloakUserManager {
 
 			}
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 
 	}
@@ -437,7 +437,7 @@ try {
 }
 catch(Exception e)
 {
-	logger.error(e.getStackTrace());
+	logger.error(e.getMessage());
 	
 }
 			

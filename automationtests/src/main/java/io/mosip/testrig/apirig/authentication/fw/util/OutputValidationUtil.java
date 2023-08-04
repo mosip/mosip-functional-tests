@@ -419,7 +419,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 				}
 				}catch(Exception e)
 				{
-					OUTPUTVALIDATION_LOGGER.error(e.getStackTrace());
+					OUTPUTVALIDATION_LOGGER.error(e.getMessage());
 				}
 			}
 		}

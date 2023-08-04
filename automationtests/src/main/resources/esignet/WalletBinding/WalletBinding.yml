@@ -510,7 +510,7 @@ WalletBinding:
       output: '{
       "errors": [
     {
-      "errorCode": "key_binding_failed",
+      "errorCode": "invalid_auth_factor_type_or_challenge_format",
       "errorMessage": "request.challengeList[0].authFactorType: invalid_auth_factor_type"
     }
   ],
@@ -846,7 +846,7 @@ WalletBinding:
       output: '{
        "errors": [
     {
-      "errorCode": "unsupported_challenge_format",
+      "errorCode": "invalid_auth_factor_type_or_challenge_format",
       "errorMessage": "request.format: unsupported_challenge_format"
     }
   ],
@@ -1770,7 +1770,7 @@ WalletBinding:
       output: '{
       "errors": [
     {
-      "errorCode": "key_binding_failed",
+      "errorCode": "invalid_auth_factor_type_or_challenge_format",
       "errorMessage": "request.challengeList[0].authFactorType: invalid_auth_factor_type"
     }
   ],
@@ -2106,7 +2106,7 @@ WalletBinding:
       output: '{
        "errors": [
     {
-      "errorCode": "unsupported_challenge_format",
+      "errorCode": "invalid_auth_factor_type_or_challenge_format",
       "errorMessage": "request.format: unsupported_challenge_format"
     }
   ],

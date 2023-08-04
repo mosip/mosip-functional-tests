@@ -222,7 +222,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 			try {
 				resp = resJsonObject.get("response").toString();
 			} catch (JSONException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 			}
 		}
 

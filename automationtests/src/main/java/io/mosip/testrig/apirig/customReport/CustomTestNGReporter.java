@@ -57,7 +57,7 @@ public class CustomTestNGReporter implements IReporter {
 			
 		}catch(Exception e)
 		{
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		finally {
 			AdminTestUtil.closeFileWriter(fileWriter);
@@ -83,7 +83,7 @@ public class CustomTestNGReporter implements IReporter {
 			}
 			
 		} catch (NullPointerException |IOException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}finally{
 			AdminTestUtil.closeBufferedReader(bufferedReader);
 			AdminTestUtil.closeFileReader(fileReader);
@@ -172,7 +172,7 @@ public class CustomTestNGReporter implements IReporter {
 				}
 			}
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		return retBuf.toString();
 	}
@@ -235,7 +235,7 @@ public class CustomTestNGReporter implements IReporter {
 				}
 			}
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		return retBuf.toString();
 	}
