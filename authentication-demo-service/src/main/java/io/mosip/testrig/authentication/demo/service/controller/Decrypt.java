@@ -441,9 +441,7 @@ public class Decrypt {
 			@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
 			@RequestParam(name = "certsDir", required = false) String certsDir,
 			@RequestParam(name = "moduleName", required = false) String moduleName
-			) throws CertificateException, IOException, 
-			NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, OperatorCreationException, 
-			InvalidKeyException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
+			) throws Exception {
 				
 		String identity = requestData.get("identity");
 		PrivateKeyEntry ekycKey = keyMgrUtil.getKeyEntry(keyMgrUtil.getKeysDirPath(certsDir, moduleName), PartnerTypes.EKYC, partnerName, keyFileNameByPartnerName);
