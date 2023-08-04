@@ -188,9 +188,7 @@ public class Encrypt {
 			@RequestParam(name = "timestamp", required = false) @Nullable String timestamp,
 			@RequestParam(name = "transactionId", required = false) @Nullable String transactionId,
 			@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal)
-			throws KeyManagementException, NoSuchAlgorithmException, IOException, JSONException, InvalidKeyException,
-			NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException,
-			InvalidKeySpecException {
+			throws Exception {
 		RestTemplate restTemplate = createRestTemplate();
 
 		byte[] xorBytes = BytesUtil.getXOR(timestamp, transactionId);
@@ -256,7 +254,7 @@ public class Encrypt {
 	}
 
 	@PostMapping(path = "/splitEncryptedData", produces = MediaType.APPLICATION_JSON_VALUE)
-	public SplittedEncryptedData splitEncryptedData(@RequestBody String data) {
+	public SplittedEncryptedData splitEncryptedData(@RequestBody String data) throws Exception {
 		boolean encryptedDataHasVersion = env.getProperty("encryptedDataHasVersion", boolean.class, false);
 		byte[] dataBytes = CryptoUtil.decodeURLSafeBase64(data);
 		byte[][] splits = splitAtFirstOccurance(dataBytes, keySplitter.getBytes());
@@ -264,14 +262,14 @@ public class Encrypt {
 		byte[] sessionKey;
 		byte[] thumbPrint;
 		
-		if(encryptedDataHasVersion) {
-			 thumbPrint = Arrays.copyOfRange(thumbPrintAndSessionKey, 6, 38);//Skip the 6 bytes version and take 32 bytes
-			 sessionKey = Arrays.copyOfRange(thumbPrintAndSessionKey, 38, thumbPrintAndSessionKey.length);
+		if (thumbPrintAndSessionKey.length >= 288) {
+			thumbPrint = Arrays.copyOfRange(thumbPrintAndSessionKey, thumbPrintAndSessionKey.length - 288,
+					thumbPrintAndSessionKey.length - 256);// Skip the 6 bytes version and take 32 bytes
+			sessionKey = Arrays.copyOfRange(thumbPrintAndSessionKey, thumbPrintAndSessionKey.length - 256,
+					thumbPrintAndSessionKey.length);
 		}
 		else {
-			 thumbPrint = Arrays.copyOfRange(thumbPrintAndSessionKey, 0, 32);
-			 sessionKey = Arrays.copyOfRange(thumbPrintAndSessionKey, 32, thumbPrintAndSessionKey.length);
-		}
+			 throw new Exception("Invalid Encrypted Session Key");		}
 		
 		byte[] encryptedData = splits[1];
 		return new SplittedEncryptedData(CryptoUtil.encodeToURLSafeBase64(sessionKey), CryptoUtil.encodeToURLSafeBase64(encryptedData), digestAsPlainText(thumbPrint));
