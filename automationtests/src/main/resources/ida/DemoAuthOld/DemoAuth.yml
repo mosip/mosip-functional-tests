@@ -399,7 +399,7 @@ DemoAuth:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Miss Madhu.GN"
+      "value": "Miss Lisa.GN"
     }
   ],
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptName"
@@ -426,7 +426,7 @@ DemoAuth:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Mr Madhu.GN"
+      "value": "Mr Lisa.GN"
     }
   ],
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptName"
@@ -453,7 +453,7 @@ DemoAuth:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Madhu.GN"
+      "value": "Lisa.GN"
     }
   ],
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptName"
@@ -480,7 +480,7 @@ DemoAuth:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Miss. Madhu.GN"
+      "value": "Miss. Lisa.GN"
     }
   ],
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptName"
@@ -507,7 +507,7 @@ DemoAuth:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "MISS. Madhu.GN"
+      "value": "MISS. Lisa.GN"
     }
   ],
     "identityRequestTemplate": "ida/DemoAuth/DemoIdentityEncryptName"

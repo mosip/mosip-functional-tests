@@ -88,13 +88,24 @@ public class KernelAuthentication extends BaseTestCase{
 				idaCookie = kernelAuthLib.getAuthForIDA();
 			return idaCookie;
 		case "idrepo":
-			if(!kernelCmnLib.isValidToken(idrepoCookie))
-				idrepoCookie = kernelAuthLib.getAuthForIDREPO();
-			return idrepoCookie;
+			if (BaseTestCase.isTargetEnvLTS()) {
+				if(!kernelCmnLib.isValidToken(idrepoCookie))
+					idrepoCookie = kernelAuthLib.getAuthForIDREPO();
+				return idrepoCookie;
+			}
+			else {
+				if(!kernelCmnLib.isValidToken(regProCookie))
+					regProCookie = kernelAuthLib.getAuthForRegProc();
+				return regProCookie;
+			}
 		case "regproc":
 			if(!kernelCmnLib.isValidToken(regProcCookie))
 				regProcCookie = kernelAuthLib.getAuthForRegistrationProcessor();
 			return regProcCookie;
+		case "regpro":
+			if(!kernelCmnLib.isValidToken(regProCookie))
+				regProCookie = kernelAuthLib.getAuthForRegProc();
+			return regProCookie;
 		case "admin":
 			if(!kernelCmnLib.isValidToken(adminCookie))
 				adminCookie = kernelAuthLib.getAuthForAdmin();
@@ -146,9 +157,15 @@ public class KernelAuthentication extends BaseTestCase{
 				residentNewCookieKc = kernelAuthLib.getAuthForNewResidentKc();
 			return residentNewCookieKc;
 		case "hotlist":
-			if(!kernelCmnLib.isValidToken(hotlistCookie))
-				residentCookie = kernelAuthLib.getAuthForHotlist();
-			return residentCookie;
+			if (BaseTestCase.isTargetEnvLTS()) {
+				if(!kernelCmnLib.isValidToken(hotlistCookie))
+					residentCookie = kernelAuthLib.getAuthForHotlist();
+				return residentCookie;
+			}else {
+				if(!kernelCmnLib.isValidToken(regProCookie))
+					regProCookie = kernelAuthLib.getAuthForRegProc();
+				return regProCookie;
+			}
 		case "globaladmin":
 			if(!kernelCmnLib.isValidToken(zonemapCookie))
 				zonemapCookie = kernelAuthLib.getAuthForzoneMap();
@@ -427,6 +444,22 @@ public class KernelAuthentication extends BaseTestCase{
 	request.put(GlobalConstants.APPID, ConfigManager.getRegprocAppId());
 	request.put(GlobalConstants.CLIENTID, ConfigManager.getRegprocClientId());
 	request.put(GlobalConstants.SECRETKEY, ConfigManager.getRegprocClientSecret());
+	actualrequest.put(GlobalConstants.REQUEST, request);
+	
+	Response reponse=appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);
+	cookie=reponse.getCookie(GlobalConstants.AUTHORIZATION);
+	logger.info("Regproc Cookie is:: " + cookie);
+	return cookie;
+}
+	
+	@SuppressWarnings("unchecked")
+	public String getAuthForRegProc() {
+	
+	JSONObject actualrequest = getRequestJson(authRequest);
+	JSONObject request=new JSONObject();
+	request.put(GlobalConstants.APPID, "regproc");
+	request.put(GlobalConstants.CLIENTID, "mosip-regproc-client");
+	request.put(GlobalConstants.SECRETKEY, "abc123");
 	actualrequest.put(GlobalConstants.REQUEST, request);
 	
 	Response reponse=appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);

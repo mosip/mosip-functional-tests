@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.kernel.util.KeycloakUserManager;
 import io.restassured.response.Response;
 
@@ -28,10 +29,8 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		String mappingKey = submittingPartnerAndGetMappingKey();
 		approvePartnerAPIKey(mappingKey);
 		return createAPIKey();
-		
-		
-		
 	}
+	
 	public static String submittingPartnerAndGetMappingKey() {
 		String url = ApplnURI + "/v1/partnermanager/partners/"+partnerId+"/policy/map";
 		

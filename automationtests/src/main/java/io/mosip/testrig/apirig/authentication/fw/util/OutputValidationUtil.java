@@ -16,6 +16,7 @@ import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.Reporter;
+import org.testng.SkipException;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -219,6 +220,8 @@ public class OutputValidationUtil extends AuthTestsUtil{
 							.error("The expected json path " + expEntry.getKey() + " is not available in actual json");
 				}
 			}
+			if(objList.isEmpty())
+				throw new SkipException("Marking testcase as Skipped, as no Output comparison done");
 			objMap.put(actVsExp, objList);
 		} catch (JSONException | IOException e) {
 			OUTPUTVALIDATION_LOGGER.error("Kyc Verification failed " + e.getMessage());

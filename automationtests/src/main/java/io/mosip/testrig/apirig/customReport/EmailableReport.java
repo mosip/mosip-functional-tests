@@ -206,7 +206,6 @@ public class EmailableReport implements IReporter {
 		totalDuration = 0;
 
 		writer.print("<table>");
-		
 
 		int testIndex = 0;
 		for (SuiteResult suiteResult : suiteResults) {			
@@ -221,12 +220,13 @@ public class EmailableReport implements IReporter {
 			
 			writer.print("<tr>");
 			writer.print("<th>Test</th>");
+			writer.print("<th># Total</th>");
 			writer.print("<th># Passed</th>");
 			writer.print("<th># Skipped</th>");
 			writer.print("<th># Failed</th>");
 			writer.print("<th>Time (ms)</th>");
-			writer.print("<th>Included Groups</th>");
-			writer.print("<th>Excluded Groups</th>");
+//			writer.print("<th>Included Groups</th>");
+//			writer.print("<th>Excluded Groups</th>");
 			writer.print(GlobalConstants.TR);
 			
 			for (TestResult testResult : suiteResult.getTestResults()) {
@@ -244,13 +244,14 @@ public class EmailableReport implements IReporter {
 				buffer.setLength(0);
 				writeTableData(buffer.append("<a href=\"#t").append(testIndex).append("\">")
 						.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString());
+				writeTableData(integerFormat.format(passedTests + skippedTests + failedTests), "num");
 				writeTableData(integerFormat.format(passedTests), "num");
 				writeTableData(integerFormat.format(skippedTests),
 						(skippedTests > 0 ? GlobalConstants.NUMATTN : "num"));
 				writeTableData(integerFormat.format(failedTests), (failedTests > 0 ? GlobalConstants.NUMATTN : "num"));
 				writeTableData(decimalFormat.format(duration), "num");
-				writeTableData(testResult.getIncludedGroups());
-				writeTableData(testResult.getExcludedGroups());
+//				writeTableData(testResult.getIncludedGroups());
+//				writeTableData(testResult.getExcludedGroups());
 
 				writer.print(GlobalConstants.TR);
 
@@ -266,6 +267,7 @@ public class EmailableReport implements IReporter {
 		if (testIndex > 1) {
 			writer.print("<tr>");
 			writer.print("<th>Total</th>");
+			writeTableHeader(integerFormat.format(totalPassedTests + totalSkippedTests + totalFailedTests), "num");
 			writeTableHeader(integerFormat.format(totalPassedTests), "num");
 			writeTableHeader(integerFormat.format(totalSkippedTests),
 					(totalSkippedTests > 0 ? GlobalConstants.NUMATTN : "num"));

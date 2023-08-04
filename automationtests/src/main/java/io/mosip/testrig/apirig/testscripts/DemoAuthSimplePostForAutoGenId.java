@@ -81,6 +81,21 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
+		
+		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
+				throw new SkipException("Idtype UIN is not supported. Hence skipping the testcase");
+			}
+		}
+		
+		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
+			}
+		}
+		
 		if (testCaseDTO.getEndPoint().contains("$PartnerKeyURL$")) {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
@@ -93,6 +108,15 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 
 		if (input.contains("$PRIMARYLANG$"))
 			input = input.replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0));
+		
+		if (input.contains("$NAMEPRIMARYLANG$")) {
+			String name = "";
+			if (BaseTestCase.isTargetEnvLTS())
+				name = propsMap.getProperty("fullName");
+			else
+				name = propsMap.getProperty("firstName");
+			input = input.replace("$NAMEPRIMARYLANG$", name + BaseTestCase.languageList.get(0));
+		}
 
 		String[] templateFields = testCaseDTO.getTemplateFields();
 

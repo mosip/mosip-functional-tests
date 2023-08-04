@@ -38,9 +38,9 @@ public class KeycloakUserManager {
 	private static Keycloak getKeycloakInstance() {
 		 Keycloak key=null;
 		try {
-			
-	key=KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
-				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(ConfigManager.getAutomationClientId()).clientSecret(ConfigManager.getAutomationClientSecret())
+			String automationClientId = BaseTestCase.isTargetEnvLTS() ? ConfigManager.getAutomationClientId() : ConfigManager.getPmsClientId();
+			key=KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
+				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(automationClientId).clientSecret(ConfigManager.getAutomationClientSecret())
 				.build();
 	logger.info(ConfigManager.getIAMUrl());
 	logger.info(key.toString() + key.realms());
@@ -151,7 +151,13 @@ public class KeycloakUserManager {
 			logger.info(response);
 			logger.info(String.format(GlobalConstants.REPSONSE, response.getStatus(), response.getStatusInfo()));
 			logger.info(response.getLocation());
-			String userId = CreatedResponseUtil.getCreatedId(response);
+			String userId = "";
+			if (!response.getStatusInfo().equals(Response.Status.CONFLICT)){
+				userId = CreatedResponseUtil.getCreatedId(response);
+			}
+			else {
+				userId = getKeycloakUserID(needsToBeCreatedUser);
+			}
 			logger.info(String.format(GlobalConstants.USERCREATEDWITHUSERID, userId));
 
 			CredentialRepresentation passwordCred = new CredentialRepresentation();
@@ -181,6 +187,20 @@ public class KeycloakUserManager {
 			userResource.roles().realmLevel() //
 					.add((availableRoles.isEmpty() ? allRoles : availableRoles));
 		}
+	}
+	
+	public static String getKeycloakUserID(String userName) {
+		Keycloak keycloakInstance = getKeycloakInstance();
+		RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
+		UsersResource usersRessource = realmResource.users();
+
+		List<UserRepresentation> usersFromDB = usersRessource.search(userName);
+		if (!usersFromDB.isEmpty()) {
+			return usersFromDB.get(0).getId();
+		} else {
+			return "";
+		}
+
 	}
 	
 	public static void removeKeyCloakUser(String partnerId) {

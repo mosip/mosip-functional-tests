@@ -19,6 +19,13 @@
 			<class name="io.mosip.testrig.apirig.testscripts.AddIdentity" />
 		</classes>
 	</test>
+	<test name="CreateVID">
+		<parameter name="ymlFile"	value="ida/CreateVID/CreateVid.yml" />
+	    <parameter name="idKeyName" value="VID" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
 
 	<test name="GenerateVID">
 		<parameter name="ymlFile"
