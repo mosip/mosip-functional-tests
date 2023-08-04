@@ -72,7 +72,7 @@ public class CommonLibrary extends BaseTestCase {
 			}
 
 		} catch (java.text.ParseException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 
 	}
@@ -132,7 +132,7 @@ public class CommonLibrary extends BaseTestCase {
 			jsonData = (JSONObject) new JSONParser().parse(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
 		} catch (FileNotFoundException e) {
 			logger.info("error while reading the file : " + e.getLocalizedMessage() );
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 			logger.info("File Not Found at the given path");
 		}
 		catch (IOException | ParseException | NullPointerException e) {
@@ -253,7 +253,7 @@ public class CommonLibrary extends BaseTestCase {
 				
 			
 			} catch (IOException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 			}
 			return jsnString;
 			

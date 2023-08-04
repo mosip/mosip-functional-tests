@@ -1878,6 +1878,12 @@ GenerateVID:
     }
   ],
   "sendOtpResp":{
+    "errors": [
+    {
+      "errorCode": "IDA-OTA-008",
+      "message": "$IGNORE$"
+    }
+  ],
         "sendOtpResTemplate":"resident/error"
     }
 }'
