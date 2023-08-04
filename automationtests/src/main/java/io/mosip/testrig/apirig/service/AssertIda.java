@@ -61,7 +61,7 @@ public class AssertIda {
 			}
 
 		} catch (IOException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		logger.info("equal");
 		return true;

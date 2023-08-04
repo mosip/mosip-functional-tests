@@ -43,7 +43,7 @@ public class MockSMTPListener {
 			WebSocket ws = HttpClient.newHttpClient().newWebSocketBuilder()
 					.buildAsync(URI.create(a1 + a2 + a3), new WebSocketClient()).join();
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 
 	}

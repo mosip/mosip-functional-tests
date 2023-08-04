@@ -165,7 +165,7 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 			try {
 				resp = resJsonObject.get("response").toString();
 			} catch (JSONException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 			}
 			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
 			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+properties.getProperty("decryptkycdataurl"), 

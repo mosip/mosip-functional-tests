@@ -128,7 +128,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 				+ " mili secs to test expire otp case in RESIDENT Service");
 				Thread.sleep(Long.parseLong(properties.getProperty("expireOtpTime")));
 			} catch (NumberFormatException | InterruptedException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 				Thread.currentThread().interrupt();
 			}
 		}

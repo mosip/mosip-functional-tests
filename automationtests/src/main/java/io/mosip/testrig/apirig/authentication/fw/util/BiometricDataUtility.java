@@ -126,7 +126,7 @@ public class BiometricDataUtility extends AuthTestsUtil {
 			JWSValidation jws = new JWSValidation();
 			return jws.jwsSign(identityDataBlock, privateKey, certificate);
 		} catch (Exception e) {
-			logger.error("Exception Occured in signing the bio data:" + e.getStackTrace());
+			logger.error("Exception Occured in signing the bio data:" + e.getMessage());
 			return "Automation error occured: "+e.getMessage();
 		}finally {
 			AdminTestUtil.closeInputStream(pkeyfis);

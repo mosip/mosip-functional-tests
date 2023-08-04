@@ -62,7 +62,7 @@ public class HealthChecker implements Runnable {
 				}
 			}
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		} finally {
 			AdminTestUtil.closeBufferedReader(bufferedReader);
 			AdminTestUtil.closeFileReader(fileReader);
@@ -86,7 +86,7 @@ public class HealthChecker implements Runnable {
 			try {
 				Thread.sleep(60000);
 			} catch (InterruptedException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 				Thread.currentThread().interrupt();
 			}
 		}
