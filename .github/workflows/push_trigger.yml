@@ -9,6 +9,7 @@ on:
       - develop
       - MOSIP-*
       - "0.9"
+      - 115_compatible_Test
 
 jobs:
   build-authentication-demo-service:
