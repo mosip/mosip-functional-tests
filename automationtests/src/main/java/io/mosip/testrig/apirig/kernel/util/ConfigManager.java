@@ -377,6 +377,10 @@ public class ConfigManager {
 	public static Boolean IseSignetDeployed() {
 		return esignet_deployed.equalsIgnoreCase("yes");
 	}
+	
+	public static Boolean IsDebugEnabled() {
+		return enableDebug.equalsIgnoreCase("yes");
+	}
 
 	public static String getAuthDemoServicePort() {
 		return authDemoServicePort;
