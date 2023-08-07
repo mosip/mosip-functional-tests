@@ -250,10 +250,17 @@ public class KernelAuthentication extends BaseTestCase{
 	public String getAuthForPartner() {		
 		
 		JSONObject request=new JSONObject();
+		
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
 		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule +"-"+partner_userName);
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		if (BaseTestCase.isTargetEnvLTS()) {
+			request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		}
+		else {
+			request.put(GlobalConstants.CLIENTID, ConfigManager.getPartnerClientId());
+		}
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
 		actualInternalrequest.put(GlobalConstants.REQUEST, request);
