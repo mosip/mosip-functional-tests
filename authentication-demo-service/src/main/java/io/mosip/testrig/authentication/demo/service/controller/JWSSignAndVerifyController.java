@@ -246,8 +246,8 @@ public class JWSSignAndVerifyController {
 	 * NoSuchAlgorithmException, CertificateException, InvalidKeyException,
 	 * NoSuchProviderException, SignatureException, CertificateParsingException,
 	 * CertificateEncodingException, JoseException { String commonName = "sanz";
-	 * String organizationalUnit = "Mindtree Hi-Tech World"; String organization =
-	 * "Mindtree Limited"; String country = "india";
+	 * String organizationalUnit = " Hi-Tech World"; String organization =
+	 * "XYZ Limited"; String country = "india";
 	 * 
 	 * int keySize = 2048; int validDays = 9999; X500Name distinguishedName = new
 	 * X500Name(commonName, organizationalUnit, organization, country); KeyPair kp =
