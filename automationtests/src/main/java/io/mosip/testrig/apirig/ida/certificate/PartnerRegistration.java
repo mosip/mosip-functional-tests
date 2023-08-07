@@ -36,11 +36,19 @@ public class PartnerRegistration extends AdminTestUtil {
 	public static String policyGroup = AdminTestUtil.policyGroup;
 
 	public static String generateAndGetPartnerKeyUrl() {
+		if (!BaseTestCase.isTargetEnvLTS()) {
+			// In case of 1.1.5 we don't have auto sync of certificates between Key manager cert store and IDA cert store
+			// So use the predefined certificate folder and partner key
+			partnerKeyUrl = ConfigManager.getPartnerUrlSuffix();
+			partnerId = getPartnerIdFromPartnerURL(partnerKeyUrl);
+			return ConfigManager.getPartnerUrlSuffix();
+		}
+		String apiKey = "";
 		ftmGeneration();
 		deviceGeneration();
 
 		getAndUploadCertificates();
-		String apiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetAPIKey();
+		apiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetAPIKey();
 		String mispLicKey = MispPartnerAndLicenseKeyGeneration.getAndUploadCertificatesAndGenerateMispLicKey();
 		
 		if (apiKey.isEmpty() || mispLicKey.isEmpty()) {
@@ -363,6 +371,13 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static void deleteCertificates() {
+		if (!BaseTestCase.isTargetEnvLTS()) {
+			// In case of 1.1.5 we don't have auto sync of certificates between Keymanager cert store and IDA cert store
+			// So use the predefined certificate folder and partnerkey
+			return ;
+		}
+		
+		
 		if (localHostUrl == null) {
 			localHostUrl = getLocalHostUrl();
 		}

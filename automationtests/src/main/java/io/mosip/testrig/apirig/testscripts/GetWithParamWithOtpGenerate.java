@@ -106,8 +106,12 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 		
-		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
-			throw new AdminTestException("Failed at otp output validation");
+		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
+			if (otpResponse.asString().contains("IDA-OTA-001"))
+				throw new AdminTestException("Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
+			else
+				throw new AdminTestException("Failed at otp output validation");
+		}
 		
 		JSONObject reqvOtp = new JSONObject(testCaseDTO.getInput());
 		JSONObject reqvtOtp = (JSONObject) reqvOtp.get(GlobalConstants.SENDOTP);

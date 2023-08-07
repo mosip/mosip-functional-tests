@@ -153,7 +153,7 @@ DemoAuthNew:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+      "value": "auth_AddIdentity_ValidParamms_smoke_Pos@mosip.net",
         "key": "emailId"
     }'
       output: '{
@@ -213,7 +213,7 @@ DemoAuthNew:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+      "value": "auth_AddIdentity_ValidParamms_smoke_Pos@mosip.net",
         "key": "emailId"
     }'
       output: '{
@@ -319,7 +319,7 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data gender in eng did not match",
+          "errorMessage": "$IGNORE$",
           "actionMessage": "Please re-enter your gender in eng"
         }
       ],
@@ -345,7 +345,7 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data gender in eng did not match",
+          "errorMessage": "$IGNORE$",
           "actionMessage": "Please re-enter your gender in eng"
         }
       ],
@@ -361,7 +361,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "FR"
+      "value": "$NAMEPRIMARYLANG$"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -380,7 +380,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Madhu.GN"
+      "value": "Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -398,8 +398,8 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Miss Madhu.GN"
+      "language": "eng",
+      "value": "Miss Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -417,8 +417,8 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Mr Madhu.GN"
+      "language": "eng",
+      "value": "Mr Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -437,7 +437,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Madhu.GN"
+      "value": "Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -455,8 +455,8 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Miss. Madhu.GN"
+      "language": "eng",
+      "value": "Miss. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -474,8 +474,8 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "MISS. Madhu.GN"
+      "language": "eng",
+      "value": "MISS. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -493,8 +493,8 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Miss Madhu GN"
+      "language": "eng",
+      "value": "Miss Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -513,7 +513,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "FR"
+      "value": "$NAMEPRIMARYLANG$"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -542,7 +542,7 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data name in eng did not match",
+          "errorMessage": "$IGNORE$",
           "actionMessage": "Please re-enter your name in eng"
         }
       ],
@@ -568,7 +568,7 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data name in eng did not match",
+          "errorMessage": "$IGNORE$",
           "actionMessage": "Please re-enter your name in eng"
         }
       ],
@@ -596,7 +596,7 @@ DemoAuthNew:
       inputTemplate: ida/DemoAuth/DemoAuth
       outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
-    "value": "51",
+    "value": "41",
   "key": "age",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"

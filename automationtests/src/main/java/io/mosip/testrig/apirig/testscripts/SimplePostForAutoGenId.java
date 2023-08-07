@@ -80,6 +80,9 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
+		if (BaseTestCase.isTargetEnvLTS() && BaseTestCase.currentModule.equals("auth") && testCaseName.startsWith("auth_GenerateVID_")) {
+			throw new SkipException("Generating VID using resident API on LTS. Hence skipping this test case");
+		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		String inputJson = "";
