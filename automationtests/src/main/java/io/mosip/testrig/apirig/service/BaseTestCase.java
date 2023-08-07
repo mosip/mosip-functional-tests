@@ -34,6 +34,7 @@ import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.kernel.util.CommonLibrary;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.kernel.util.KernelAuthentication;
 import io.mosip.testrig.apirig.testrunner.MockSMTPListener;
 import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
@@ -66,6 +67,7 @@ public class BaseTestCase {
 	public String idaCookie = null;
 	public String idrepoCookie = null;
 	public String regProcCookie = null;
+	public String regProCookie = null;
 	public String regAdminCookie = null;
 	public String registrationOfficerCookie = null;
 	public String regSupervisorCookie = null;
@@ -489,25 +491,85 @@ public class BaseTestCase {
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(response);
 	}
+	
+	public static String getValueFromActuators(String endPoint, String section, String key) {
+
+		Response response = null;
+		org.json.JSONObject responseJson = null;
+		JSONArray responseArray = null;
+		String url = ApplnURI + endPoint;
+		String value = null;
+		try {
+			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			GlobalMethods.reportResponse(url, response);
+
+			responseJson = new org.json.JSONObject(response.getBody().asString());
+			responseArray = responseJson.getJSONArray("propertySources");
+
+			for (int i = 0, size = responseArray.length(); i < size; i++) {
+				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
+				if (eachJson.get("name").toString().contains(section)) {
+					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
+							.get(GlobalConstants.VALUE).toString();
+					break;
+				}
+			}
+
+			return value;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			return value;
+		}
+
+	}
 
 	public static List<String> getLanguageList() {
 		if (!languageList.isEmpty()) {
 			return languageList;
 		}
-		String url = ApplnURI + props.getProperty("preregLoginConfigUrl");
-		Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
-		org.json.JSONObject responseValue = (org.json.JSONObject) responseJson.get("response");
+		String section = "";
 		
-		String mandatoryLanguages = (String) responseValue.get("mosip.mandatory-languages");
+		if (isTargetEnvLTS()) 
+			section = "/mosip/mosip-config/application-default.properties";
+		else 
+			section = "/mosip/mosip-config/sandbox/admin-mz.properties";
+		
+		String mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
+				section, "mosip.mandatory-languages");
+		String optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
+				section, "mosip.optional-languages");
+		
 		if (mandatoryLanguages != null && !mandatoryLanguages.isBlank())
 			languageList.addAll(Arrays.asList(mandatoryLanguages.split(",")));
 		
-		String optionalLanguages = (String) responseValue.get("mosip.optional-languages");
 		if (optionalLanguages != null && !optionalLanguages.isBlank())
 			languageList.addAll(Arrays.asList(optionalLanguages.split(",")));
 
 		return languageList;
+	}
+	
+	private static String targetEnvVersion = "";
+	
+	public static boolean isTargetEnvLTS() {
+
+		if (targetEnvVersion.isEmpty()) {
+
+			Response response = null;
+			org.json.JSONObject responseJson = null;
+			String url = ApplnURI + propsKernel.getProperty("auditActuatorEndpoint");
+			try {
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				GlobalMethods.reportResponse(url, response);
+
+				responseJson = new org.json.JSONObject(response.getBody().asString());
+
+				targetEnvVersion = responseJson.getJSONObject("build").getString("version");
+
+			} catch (Exception e) {
+				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			}
+		}
+		return targetEnvVersion.contains("1.2");
 	}
 
 	public static List<String> getSupportedIdTypesValueFromActuator() {
@@ -515,6 +577,11 @@ public class BaseTestCase {
 		if (!supportedIdType.isEmpty()) {
 			return supportedIdType;
 		}
+		
+		String section = "configService:https://github.com/mosip/mosip-config/id-authentication-default.properties";
+		if (!BaseTestCase.isTargetEnvLTS())
+			section = "configService:https://github.com/mosip/mosip-config/sandbox/id-authentication-lts.properties";
+		
 		Response response = null;
 
 		org.json.JSONObject responseJson = null;
@@ -530,8 +597,7 @@ public class BaseTestCase {
 			for (int i = 0, size = responseArray.length(); i < size; i++) {
 				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
 				logger.info("eachJson is :" + eachJson.toString());
-				if (eachJson.get("name").toString().contains(
-						"configService:https://github.com/mosip/mosip-config/id-authentication-default.properties")) {
+				if (eachJson.get("name").toString().contains(section)) {
 					org.json.JSONObject idTypes = (org.json.JSONObject) eachJson.getJSONObject("properties")
 							.get("request.idtypes.allowed");
 					String newIdTypes = idTypes.getString(GlobalConstants.VALUE);
