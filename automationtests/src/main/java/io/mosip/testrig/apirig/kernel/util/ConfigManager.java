@@ -20,6 +20,7 @@ public class ConfigManager {
 	private static String MOSIP_PMS_CLIENT_SECRET = "mosip_pms_client_secret";
 	private static String MOSIP_PMS_CLIENT_ID = "mosip_pms_client_id";
 	private static String MOSIP_PMS_APP_ID = "mosip_pms_app_id";
+	private static String MOSIP_PARTNER_CLIENT_ID = "mosip_partner_client_id";
 
 	private static String MOSIP_RESIDENT_CLIENT_SECRET = "mosip_resident_client_secret";
 	private static String MOSIP_RESIDENT_CLIENT_ID = "mosip_resident_client_id";
@@ -123,6 +124,7 @@ public class ConfigManager {
 	private static String pms_client_secret;
 	private static String pms_client_id;
 	private static String pms_app_id;
+	private static String partner_client_id;
 
 	private static String resident_client_secret;
 	private static String resident_client_id;
@@ -229,6 +231,8 @@ public class ConfigManager {
 
 		pms_client_secret = getValueForKey(MOSIP_PMS_CLIENT_SECRET);
 		pms_client_id = getValueForKey(MOSIP_PMS_CLIENT_ID);
+		partner_client_id = getValueForKey(MOSIP_PARTNER_CLIENT_ID);
+		
 		pms_app_id = getValueForKey(MOSIP_PMS_APP_ID);
 		resident_client_secret = getValueForKey(MOSIP_RESIDENT_CLIENT_SECRET);
 		resident_client_id = getValueForKey(MOSIP_RESIDENT_CLIENT_ID);
@@ -461,6 +465,11 @@ public class ConfigManager {
 
 	public static String getPmsClientId() {
 		return pms_client_id;
+	}
+	
+	
+	public static String getPartnerClientId() {
+		return partner_client_id;
 	}
 
 	public static String getPmsAppId() {
