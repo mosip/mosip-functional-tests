@@ -8,8 +8,12 @@ import io.restassured.response.Response;
 public class GlobalMethods {
 
 	public static void reportRequest(String request) {
+		if(request!=null)
 		Reporter.log(GlobalConstants.REPORT_REQUEST_PREFIX + ReportUtil.getTextAreaJsonMsgHtml(request)
 				+ GlobalConstants.REPORT_REQUEST_SUFFIX);
+		else
+			Reporter.log(GlobalConstants.REPORT_REQUEST_PREFIX + "Empty Input"
+			+ GlobalConstants.REPORT_REQUEST_SUFFIX);
 	}
 
 	public static void reportResponse(String url, Response response) {
