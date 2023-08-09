@@ -1376,7 +1376,7 @@ public class AdminTestUtil extends BaseTestCase {
 		for (File specificFile : listFiles) {
 			if (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase("insert")
 					&& specificFile.getName().equals(formParams.get(GlobalConstants.TABLENAME) + ".csv")) {
-				specificFile = updateCSV(specificFile.getAbsolutePath(), "OLD", 1, 0);
+//				specificFile = updateCSV(specificFile.getAbsolutePath(), "OLD", 1, 0);
 				listFiles = new File[1];
 				listFiles[0] = specificFile;
 			} else {
