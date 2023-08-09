@@ -63,7 +63,8 @@ public class ConfigManager {
 	private static String ENABLE_DEBUG = "enableDebug";
 	private static String THREAD_COUNT = "threadCount";
 	private static String LANG_SELECT = "langselect";
-
+	private static String ADMIN_USER_NAME = "admin_userName";
+	
 	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
 
@@ -127,6 +128,8 @@ public class ConfigManager {
 	private static String pms_client_id;
 	private static String pms_app_id;
 	private static String partner_client_id;
+	private static String admin_userName;
+
 
 	private static String resident_client_secret;
 	private static String resident_client_id;
@@ -375,6 +378,10 @@ public class ConfigManager {
 		partnerUrlSuffix = System.getenv(PARTNER_URL_SUFFIX) == null ? propsKernel.getProperty(PARTNER_URL_SUFFIX)
 				: System.getenv(PARTNER_URL_SUFFIX);
 		propsKernel.setProperty(PARTNER_URL_SUFFIX, partnerUrlSuffix);
+		
+		admin_userName = System.getenv(ADMIN_USER_NAME) == null ? propsKernel.getProperty(ADMIN_USER_NAME)
+				: System.getenv(ADMIN_USER_NAME);
+		propsKernel.setProperty(ADMIN_USER_NAME, admin_userName);
 
 	}
 
@@ -388,6 +395,10 @@ public class ConfigManager {
 			}
 		}
 		return false;
+	}
+	
+	public static String getadminUserName() {
+		return admin_userName;
 	}
 	
 	public static String getPartnerUrlSuffix() {
