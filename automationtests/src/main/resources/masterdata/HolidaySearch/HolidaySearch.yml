@@ -28,7 +28,6 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
 		"isActive": $IGNORE$,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
@@ -36,7 +35,6 @@ HolidaySearch:
 		"holidayName": "AutoTest user Eng",
 		"holidayDesc": "$IGNORE$",
 		"langCode": "eng"
-	}]
 }'
    MasterData_HolidaySearch_equals_holidayName_ara_pos:
       endPoint: /v1/masterdata/holidays/search
@@ -67,7 +65,6 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
 		"isActive": $IGNORE$,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
@@ -75,7 +72,6 @@ HolidaySearch:
 		"holidayName": "AutoTest user Ara",
 		"holidayDesc": "$IGNORE$",
 		"langCode": "ara"
-	}]
 }'
    MasterData_HolidaySearch_startsWith_holidayName_eng_pos:
       endPoint: /v1/masterdata/holidays/search
@@ -106,7 +102,6 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
 		"isActive": $IGNORE$,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
@@ -114,7 +109,6 @@ HolidaySearch:
 		"holidayName": "AutoTest user Eng",
 		"holidayDesc": "$IGNORE$",
 		"langCode": "eng"
-	}]
 }'
    MasterData_HolidaySearch_startsWith_holidayName_ara_pos:
       endPoint: /v1/masterdata/holidays/search
@@ -145,7 +139,6 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
 		"isActive": $IGNORE$,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
@@ -153,7 +146,6 @@ HolidaySearch:
 		"holidayName": "AutoTest user Ara",
 		"holidayDesc": "$IGNORE$",
 		"langCode": "ara"
-	}]
 }'
    MasterData_HolidaySearch_contains_holidayName_eng_pos:
       endPoint: /v1/masterdata/holidays/search
@@ -184,7 +176,6 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
 		"isActive": $IGNORE$,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
@@ -192,7 +183,6 @@ HolidaySearch:
 		"holidayName": "$IGNORE$",
 		"holidayDesc": "$IGNORE$",
 		"langCode": "eng"
-	}]
 }'
    
    

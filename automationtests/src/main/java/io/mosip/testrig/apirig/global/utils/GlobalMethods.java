@@ -8,7 +8,7 @@ import io.restassured.response.Response;
 public class GlobalMethods {
 
 	public static void reportRequest(String request) {
-		Reporter.log(GlobalConstants.REPORT_REQUEST_PREFIX + ReportUtil.getTextAreaJsonMsgHtml(request)
+		Reporter.log(GlobalConstants.REPORT_REQUEST_PREFIX + ReportUtil.getTextAreaJsonMsgHtml(request == null ? "No request body" : request)
 				+ GlobalConstants.REPORT_REQUEST_SUFFIX);
 	}
 

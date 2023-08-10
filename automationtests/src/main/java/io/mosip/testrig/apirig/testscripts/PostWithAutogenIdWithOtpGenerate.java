@@ -143,7 +143,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		if (otpResponse != null) {
 			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
-					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 			
 			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
@@ -177,7 +177,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()));
+				response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

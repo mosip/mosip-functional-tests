@@ -43,9 +43,7 @@ FetchMachine:
   "regCenterId": "10011"
 }'
       output: '{
-"machines": [{
-			"isActive": true
-		}]
+		"isActive": true
 }'
    Masterdata_FetchMachine_inValid_regCenterId:
       endPoint: /v1/masterdata/machines/mappedmachines/{regCenterId}

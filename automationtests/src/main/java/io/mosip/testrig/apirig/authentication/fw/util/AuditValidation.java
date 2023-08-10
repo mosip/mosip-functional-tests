@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
+import io.mosip.testrig.apirig.admin.fw.util.AdminTestException;
 import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 
@@ -29,11 +30,12 @@ public class AuditValidation {
 	 * @param listOfFiles
 	 * @param keywordToFind
 	 * @return Map, Output Validation report
+	 * @throws AdminTestException 
 	 * @throws IOException 
 	 * @throws JsonMappingException 
 	 * @throws JsonParseException 
 	 */
-	public static Map<String, List<OutputValidationDto>> verifyAuditTxn(File[] listOfFiles, String keywordToFind){
+	public static Map<String, List<OutputValidationDto>> verifyAuditTxn(File[] listOfFiles, String keywordToFind) throws AdminTestException{
 		auth_txn_file = FileUtil.getFileFromList(listOfFiles, keywordToFind);
 		Map<String, String> exp = AuthTestsUtil.getPropertyAsMap(auth_txn_file.getAbsolutePath());
 		Map<String, String> act = DbConnection.getDataForQuery(
@@ -41,7 +43,7 @@ public class AuditValidation {
 						+ exp.get("request_trn_id") + "' order by cr_dtimes desc limit 1",
 				"IDA");
 		AuthTestsUtil.generateMappingDic(auth_txn_file.getAbsolutePath(), preconAuditKeywords(exp, act));
-		return OutputValidationUtil.compareActuExpValue(act, exp, "Audit Transaction Validation");
+		return OutputValidationUtil.doJsonOutputValidation(act, exp, false, "Audit Transaction Validation", false);
 	}
 
 	/**
@@ -50,11 +52,12 @@ public class AuditValidation {
 	 * @param listOfFiles
 	 * @param keywordToFind
 	 * @return Map, Output Validation report
+	 * @throws AdminTestException 
 	 * @throws IOException 
 	 * @throws JsonMappingException 
 	 * @throws JsonParseException 
 	 */
-	public static Map<String, List<OutputValidationDto>> verifyAuditLog(File[] listOfFiles, String keywordToFind) {
+	public static Map<String, List<OutputValidationDto>> verifyAuditLog(File[] listOfFiles, String keywordToFind) throws AdminTestException {
 		audit_log_file = FileUtil.getFileFromList(listOfFiles, keywordToFind);
 		Map<String, String> exp = AuthTestsUtil.getPropertyAsMap(audit_log_file.getAbsolutePath());
 		Map<String, String> act = null;
@@ -74,7 +77,7 @@ public class AuditValidation {
 			act = DbConnection.getDataForQuery(
 					getAuditLogQuery(exp.get(GlobalConstants.APP_NAME), exp.get(GlobalConstants.MODULE_NAME), exp.get(GlobalConstants.REFID)), GlobalConstants.AUDIT);
 		}
-		return OutputValidationUtil.compareActuExpValue(act, exp, "Audit Log Validation");
+		return OutputValidationUtil.doJsonOutputValidation(act, exp, false, "Audit Log Validation", false);
 	}	
 	
 	/**
