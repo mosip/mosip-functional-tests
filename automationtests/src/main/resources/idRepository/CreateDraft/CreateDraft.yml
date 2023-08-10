@@ -21,7 +21,12 @@ CreateDraft:
       "registrationId":"$RID$"
       }'
       output: '{
-    "message": "Record already exists in DB"
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-012",
+      "message": "Record already exists in DB"
+    }
+  ]
 }'
   IdRepository_CreateDraft_delete_Smoke_Pos:
       endPoint: /idrepository/v1/identity/draft/create/{registrationId}

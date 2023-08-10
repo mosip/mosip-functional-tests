@@ -28,7 +28,12 @@ ReactivateVIDs:
     "version": "v1"
 }'  
       output: '{
-    "vidStatus": "ACTIVE"
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-007",
+      "message": "No Record(s) found"
+    }
+  ]
 }'
 
   IdRepository_ReactivateVIDs_Onetime_Smoke_Pos:

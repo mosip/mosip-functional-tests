@@ -2,6 +2,7 @@ BindingOtp:
    MobileId_BindingOtp_Valid_UIN_All_Smoke:
       endPoint: /residentmobileapp/binding-otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: mobileId/BindingOtp/BindingOtp

@@ -11,7 +11,7 @@ PublishDraft:
       output: '{
       "status": "ACTIVATED"
 }'
-  IdRepository_RePublishDraft_valid_smoke:
+  IdRepository_RePublishDraft_Invalid_Neg:
       endPoint: /idrepository/v1/identity/draft/publish/{registrationId}
       role: idrepo
       restMethod: get
@@ -21,5 +21,10 @@ PublishDraft:
       "registrationId":"$RID$"
       }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-007",
       "message": "No Record(s) found"
+    }
+  ]
 }'
