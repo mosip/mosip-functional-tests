@@ -4941,5 +4941,26 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return path + "- No Response";
 	}
+	
+	public static String getLocationData() {
+		
+		Response response = null;
+		JSONObject responseJson = null;
+		String url = ApplnURI + props.getProperty("fetchLocationData");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+		String waitInterval = null;
+		try {
+			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token, IDTOKENCOOKIENAME, idToken);
+
+			responseJson = new JSONObject(response.getBody().asString());
+
+
+			return waitInterval;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			return waitInterval;
+		}
+	}
 
 }

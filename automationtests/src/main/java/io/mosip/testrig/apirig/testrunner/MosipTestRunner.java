@@ -77,6 +77,8 @@ public class MosipTestRunner {
 			}
 			KeycloakUserManager.removeUser();
 			KeycloakUserManager.createUsers(); 
+			
+			AdminTestUtil.getLocationData();
 
 			String partnerKeyURL = "";
 
