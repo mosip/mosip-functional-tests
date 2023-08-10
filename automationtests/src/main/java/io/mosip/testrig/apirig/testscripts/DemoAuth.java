@@ -156,7 +156,7 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 		}
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), ActualOPJson);
+				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

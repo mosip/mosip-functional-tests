@@ -103,8 +103,12 @@ UpdateBlockListedWords:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "bullwordupd",
-	"langCode": "eng"
+  "errors": [
+    {
+      "errorCode": "KER-MSD-008",
+      "message": "$IGNORE$"
+    }
+  ]
 }'
    Masterdata_UpdateBlockListedWords_Invalid_DescriptionLength257:
       endPoint: /v1/masterdata/blocklistedwords

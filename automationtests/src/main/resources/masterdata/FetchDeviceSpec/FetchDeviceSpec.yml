@@ -2,6 +2,7 @@ FetchDeviceSpec:
    MasterData_FetchDeviceSpec_allValid_smoke_with_lang:
       endPoint: /v1/masterdata/devicespecifications/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpec
@@ -19,6 +20,7 @@ FetchDeviceSpec:
    MasterData_FetchDeviceSpec_allValid_byDeviceTypeCode_smoke:
       endPoint: /v1/masterdata/devicespecifications/devicetypecode/{devicetypecode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpec
@@ -36,6 +38,7 @@ FetchDeviceSpec:
    MasterData_FetchDeviceSpec_allValid_smoke_with_lang_and_deviceType:
       endPoint: /v1/masterdata/devicespecifications/{langcode}/{devicetypecode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchDeviceSpec/fetchDeviceSpec

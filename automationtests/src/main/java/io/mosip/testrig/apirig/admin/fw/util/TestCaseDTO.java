@@ -16,4 +16,5 @@ public class TestCaseDTO {
 	private boolean regenerateHbs;
 	private boolean validityCheckRequired;
 	private boolean auditLogCheck;
+	private boolean checkErrorsOnlyInResponse;
 }

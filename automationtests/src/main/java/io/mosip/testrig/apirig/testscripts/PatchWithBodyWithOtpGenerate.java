@@ -91,7 +91,7 @@ public class PatchWithBodyWithOtpGenerate extends AdminTestUtil implements ITest
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
@@ -104,7 +104,7 @@ public class PatchWithBodyWithOtpGenerate extends AdminTestUtil implements ITest
 		Response response = patchRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()));
+				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

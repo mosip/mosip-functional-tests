@@ -28,18 +28,22 @@ public class ReportUtil {
 		String htmlforReport = "<table width='90%' charset='UTF8'>\r\n" + "  <tr>\r\n" + "    <th>FieldName</th>\r\n"
 				+ "    <th>Expected Value</th> \r\n" + "    <th>Actual Value</th>\r\n" + "    <th>Status</th>\r\n"
 				+ "  </tr>\r\n";
+		boolean outputValidationDone = false;
+		String temp = "";
 
 		for (Entry<String, List<OutputValidationDto>> entry : outputresult.entrySet()) {
-			Reporter.log("<b> Output validation for: </b>" + entry.getKey());
+			temp = "<b> Output validation for: </b>" + entry.getKey()+ "\r\n";
 			for (OutputValidationDto dto : entry.getValue()) {
 				if (dto.getStatus().equals("PASS")) {
 					htmlforReport = htmlforReport + "  <tr>\r\n" + "    <td>" + dto.getFieldName() + "</td>\r\n"
 							+ "    <td>" + dto.getExpValue() + "</td>\r\n" + "    <td>" + dto.getActualValue()
 							+ "</td>\r\n" + "    <td bgcolor='Green'>" + dto.getStatus() + "</td>\r\n" + "  </tr>\r\n";
+					outputValidationDone = true;
 				} else if (dto.getStatus().equals(GlobalConstants.FAIL_STRING)) {
 					htmlforReport = htmlforReport + "  <tr>\r\n" + "    <td>" + dto.getFieldName() + "</td>\r\n"
 							+ "    <td>" + dto.getExpValue() + "</td>\r\n" + "    <td>" + dto.getActualValue()
 							+ "</td>\r\n" + "    <td bgcolor='RED'>" + dto.getStatus() + "</td>\r\n" + "  </tr>\r\n";
+					outputValidationDone = true;
 				}
 				// If it is warning basically we haven't compared or ignored the comparison.
 				// so no point in printing that content in the report.
@@ -52,13 +56,17 @@ public class ReportUtil {
 				 */
 			}
 		}
-		htmlforReport = htmlforReport + "</table>";
+		if (!outputValidationDone) {
+			return "<b> Marking test case as passed. As Output validation not performed and no errors in the response </b>";
+		}
+			
+		htmlforReport = temp + htmlforReport + "</table>";
 		return htmlforReport;
 	}
 
 
 	/**
-	 * Publish the request and response message in textarea 
+	 * Publish the request and response message in text area 
 	 * 
 	 * @param content
 	 * @return test area html

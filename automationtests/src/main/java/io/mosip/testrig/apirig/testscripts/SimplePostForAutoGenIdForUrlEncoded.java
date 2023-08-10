@@ -96,7 +96,7 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 
 					Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 							response.asString(),
-							getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()));
+							getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 					if (testCaseDTO.getTestCaseName().toLowerCase().contains("dynamic")) {
 						JSONObject json = new JSONObject(response.asString());
 						idField = json.getJSONObject("response").get("id").toString();
@@ -119,7 +119,7 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 			}
 
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-					.doJsonOutputValidation(response.asString(), outputJson);
+					.doJsonOutputValidation(response.asString(), outputJson, testCaseDTO.isCheckErrorsOnlyInResponse());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");

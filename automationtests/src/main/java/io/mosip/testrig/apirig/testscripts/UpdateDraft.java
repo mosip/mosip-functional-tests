@@ -114,7 +114,7 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

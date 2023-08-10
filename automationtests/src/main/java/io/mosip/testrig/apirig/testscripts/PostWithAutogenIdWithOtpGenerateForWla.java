@@ -108,7 +108,7 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
@@ -144,7 +144,7 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		}
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()));
+				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

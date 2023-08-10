@@ -98,7 +98,7 @@ public class BookAppoinmentByPrid extends AdminTestUtil implements ITest {
 		 response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJosn, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

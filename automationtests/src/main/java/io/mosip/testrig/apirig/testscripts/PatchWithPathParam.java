@@ -78,7 +78,7 @@ public class PatchWithPathParam extends AdminTestUtil implements ITest {
 		            	
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 								response.asString(),
-								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()));
+								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 						Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -90,7 +90,7 @@ public class PatchWithPathParam extends AdminTestUtil implements ITest {
 			response = patchWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 			
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-					.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+					.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

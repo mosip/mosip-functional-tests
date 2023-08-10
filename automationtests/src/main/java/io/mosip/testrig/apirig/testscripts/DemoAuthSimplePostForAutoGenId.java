@@ -134,7 +134,7 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 
 					Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 							response.asString(),
-							getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()));
+							getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 					if (testCaseDTO.getTestCaseName().toLowerCase().contains("dynamic")) {
 						JSONObject json = new JSONObject(response.asString());
 						idField = json.getJSONObject("response").get("id").toString();
@@ -179,7 +179,7 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 			}
 
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-					.doJsonOutputValidation(response.asString(), ActualOPJson);
+					.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
