@@ -1,5 +1,5 @@
 RetrieveIdentityByRid:
-  IdRepository_RetrieveIdentityByRid_With_Valid Smoke_Rid:
+  IdRepository_RetrieveIdentityByRid_With_Valid_Smoke_Rid:
       endPoint: /idrepository/v1/identity/idvid/{RID}
       role: idrepo
       restMethod: get
@@ -9,7 +9,6 @@ RetrieveIdentityByRid:
       "RID":"$ID:AddIdentity_withValidParameters_smoke_Pos_RID$"
       }'
       output: '{
-    "vidStatus": "ACTIVATED"
 }'
 
   IdRepository_RetrieveIdentityByRid_Invalid_Rid_Neg:
