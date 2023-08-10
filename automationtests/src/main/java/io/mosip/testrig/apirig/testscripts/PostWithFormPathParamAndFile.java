@@ -84,7 +84,7 @@ public class PostWithFormPathParamAndFile extends AdminTestUtil implements ITest
 			ouputValid.put("expected vs actual", List.of(customResponse));
 		}else {
 			ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		}
 		
 		logger.info(ouputValid);

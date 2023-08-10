@@ -286,6 +286,16 @@ public class AdminTestUtil extends BaseTestCase {
 	private static boolean gettriggerESignetKeyGen7() {
 		return triggerESignetKeyGen7;
 	}
+	
+	protected static boolean triggerESignetKeyGen8 = true;
+
+	private static void settriggerESignetKeyGen8(boolean value) {
+		triggerESignetKeyGen8 = value;
+	}
+
+	private static boolean gettriggerESignetKeyGen8() {
+		return triggerESignetKeyGen8;
+	}
 
 	/**
 	 * This method will hit post request and return the response
@@ -1376,7 +1386,7 @@ public class AdminTestUtil extends BaseTestCase {
 		for (File specificFile : listFiles) {
 			if (formParams.get(GlobalConstants.OPERATION).equalsIgnoreCase("insert")
 					&& specificFile.getName().equals(formParams.get(GlobalConstants.TABLENAME) + ".csv")) {
-				specificFile = updateCSV(specificFile.getAbsolutePath(), "OLD", 1, 0);
+//				specificFile = updateCSV(specificFile.getAbsolutePath(), "OLD", 1, 0);
 				listFiles = new File[1];
 				listFiles[0] = specificFile;
 			} else {
@@ -2945,6 +2955,17 @@ public class AdminTestUtil extends BaseTestCase {
 				jwkKey = getJWKKey(bindingConsentSameClaimJWK);
 			}
 			jsonString = jsonString.replace("$BINDINGCONSENTSAMECLAIMJWKKEY$", jwkKey);
+		}
+		
+		if (jsonString.contains("$BINDINGCONSENTSAMECLAIMVIDJWKKEY$")) {
+			String jwkKey = "";
+			if (gettriggerESignetKeyGen8()) {
+				jwkKey = generateAndWriteJWKKey(bindingConsentVidSameClaimJWK);
+				settriggerESignetKeyGen8(false);
+			} else {
+				jwkKey = getJWKKey(bindingConsentVidSameClaimJWK);
+			}
+			jsonString = jsonString.replace("$BINDINGCONSENTSAMECLAIMVIDJWKKEY$", jwkKey);
 		}
 
 		if (jsonString.contains("$OIDCJWKKEY$")) {

@@ -76,7 +76,7 @@ public class PostWithFormDataAndFileForNotificationAPI extends AdminTestUtil imp
 		response = postWithMultipartFormDataAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(),idKeyName);
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

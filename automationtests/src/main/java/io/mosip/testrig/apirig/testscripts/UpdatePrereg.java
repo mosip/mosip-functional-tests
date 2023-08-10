@@ -122,7 +122,7 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 		            	
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 								response.asString(),
-								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()));
+								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 						Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -134,7 +134,7 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 			response = putWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 			
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-					.doJsonOutputValidation(response.asString(), outputJson);
+					.doJsonOutputValidation(response.asString(), outputJson, testCaseDTO.isCheckErrorsOnlyInResponse());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

@@ -118,7 +118,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
-				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 		OutputValidationUtil.publishOutputResult(ouputValidOtp);
 
@@ -177,7 +177,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

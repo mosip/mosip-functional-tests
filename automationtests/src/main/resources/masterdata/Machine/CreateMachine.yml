@@ -236,16 +236,12 @@ CreateMachine:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-    "id":"$IGNORE$", 
-    "name": "HMT",
-	"machineSpecId": "1001",
-	"serialNum":"FB5962911687",
-	"ipAddress": "192.168.0.424",
-	"isActive": "$IGNORE$",
-	"langCode": "eng",
-	"macAddress": "$IGNORE$",
-	"zoneCode": "CST",
-	"validityDateTime": "$IGNORE$"
+  "errors": [
+    {
+      "errorCode": "KER-MSD-255",
+      "message": "Admin not authorized to access this Machine for this Zone"
+    }
+  ]
 }'
    Masterdata_CreateMachine_inValid_MachineName_AboveMaxLen64:
       endPoint: /v1/masterdata/machines

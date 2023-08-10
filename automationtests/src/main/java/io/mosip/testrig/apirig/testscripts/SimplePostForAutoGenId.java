@@ -108,7 +108,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 
 					Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 							response.asString(),
-							getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()));
+							getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 					if (testCaseDTO.getTestCaseName().toLowerCase().contains("dynamic")) {
 						JSONObject json = new JSONObject(response.asString());
 						idField = json.getJSONObject("response").get("id").toString();
@@ -147,7 +147,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 				ouputValid.put("expected vs actual", List.of(customResponse));
 			}else {
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(
-					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 			}
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

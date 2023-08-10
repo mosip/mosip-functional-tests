@@ -118,7 +118,7 @@ UpdateRegCenterType:
       templateFields: ["name","descr"]
       restMethod: put
       inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/RegCenterType/regCenterTypeResult
       input: '{
     "code": "ALT-3",
     "langCode": "eng",

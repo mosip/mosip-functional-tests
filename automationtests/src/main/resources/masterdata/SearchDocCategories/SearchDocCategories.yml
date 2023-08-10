@@ -190,6 +190,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_inValid_filter_value:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories

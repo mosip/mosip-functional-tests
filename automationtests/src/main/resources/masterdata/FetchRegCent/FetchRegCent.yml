@@ -2,6 +2,7 @@ FetchRegCent:
    MasterData_FetchRegCent_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -28,6 +29,7 @@ FetchRegCent:
    MasterData_FetchRegCent_coordinate_specific_allValid_smoke:
       endPoint: /v1/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -111,6 +113,7 @@ FetchRegCent:
    MasterData_FetchRegCent_By_LocationCode_allValid_smoke:
       endPoint: /v1/masterdata/getlocspecificregistrationcenters/{langcode}/{locationcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -219,6 +222,7 @@ FetchRegCent:
    MasterData_FetchRegCent_By_id_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters/{id}/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -331,6 +335,7 @@ FetchRegCent:
    MasterData_FetchRegCent_By_HierarchyLevel__ListText_langCode_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name=Rabat Sale Kenitra
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -438,6 +443,7 @@ FetchRegCent:
    MasterData_FetchRegCent_by_langCode_zoneCode_allValid_smoke:
       endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -494,6 +500,7 @@ FetchRegCent:
       endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/{name}
       role: admin
       templateFields: ["name"]
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
       outputTemplate: masterdata/FetchRegCent/fetchAllRegCentWithPaginationResult
@@ -579,6 +586,7 @@ FetchRegCent:
    MasterData_FetchRegCent_By_zoneCode:
       endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
