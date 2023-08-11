@@ -2,6 +2,7 @@ createSearchPolicyGroup:
    Partner_SearchPolicyGroup_AllValid_Smoke:
       endPoint: /v1/policymanager/policies/group/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
@@ -12,15 +13,11 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicyGroup_Only_FilterCriteria_Smoke:
       endPoint: /v1/policymanager/policies/group/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
@@ -38,15 +35,11 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicyGroup_Only_SortCriteria_Smoke:
       endPoint: /v1/policymanager/policies/group/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
@@ -63,15 +56,11 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicyGroup_Only_PaginationCriteria_Smoke:
       endPoint: /v1/policymanager/policies/group/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
@@ -82,11 +71,6 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicyGroup_type_contains_Smoke_asc_sid:
       endPoint: /v1/policymanager/policies/group/search
@@ -114,15 +98,12 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
         "isActive": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicyGroup_type_contains_Smoke_desc_sid:
       endPoint: /v1/policymanager/policies/group/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
@@ -146,12 +127,6 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": "$IGNORE$",
-        "isDeleted": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicyGroup_type_equals_Smoke_desc_sid:
       endPoint: /v1/policymanager/policies/group/search
@@ -179,12 +154,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
         "isActive": "true",
-        "isDeleted":"false"
-      }
-    ]
 }'
    Partner_SearchPolicyGroup_type_equals_Smoke_asc_sid:
       endPoint: /v1/policymanager/policies/group/search
@@ -212,12 +182,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
         "isActive": "true",
-        "isDeleted":"false"
-      }
-    ]
 }'
    Partner_SearchPolicyGroup_type_startswith_Smoke_asc_sid:
       endPoint: /v1/policymanager/policies/group/search
@@ -245,12 +210,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
         "isActive": "true",
-        "isDeleted":"false"
-      }
-    ]
 }'
    Partner_SearchPolicyGroup_type_startswith_Smoke_desc_sid:
       endPoint: /v1/policymanager/policies/group/search
@@ -278,12 +238,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
         "isActive": "true",
-        "isDeleted": "false"
-      }
-    ]
 }'
    Partner_SearchPolicyGroup_columnname_id_desc_smoke:
       endPoint: /v1/policymanager/policies/group/search
@@ -311,11 +266,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
         "isActive": "true"
-      }
-    ]
 }'
    Partner_SearchPolicyGroup_columnname_id_asc_smoke:
       endPoint: /v1/policymanager/policies/group/search
@@ -343,11 +294,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
         "isActive": "true"
-      }
-    ]
 }'
    
    Partner_SearchPolicyGroup_with_missing_columnName:

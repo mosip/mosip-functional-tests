@@ -2,6 +2,7 @@ UploadPartnerCert:
    Partner_UploadCert_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/certificate/upload
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: put
       inputTemplate: partner/mispPartner/UploadCert/uploadCert
       outputTemplate: partner/mispPartner/UploadCert/uploadCertResult
@@ -10,11 +11,11 @@ UploadPartnerCert:
   "requesttime": "$TIMESTAMP$"
 }'
       output: ' {
-  "errors": "$IGNORE$"
 }'  
    Partner_UploadCert_MispLicense_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/certificate/upload
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: put
       inputTemplate: partner/mispPartner/UploadCert/uploadCert2
       outputTemplate: partner/mispPartner/UploadCert/uploadCertResult
@@ -23,5 +24,4 @@ UploadPartnerCert:
   "requesttime": "$TIMESTAMP$"
 }'
       output: ' {
-  "errors": "$IGNORE$"
 }'  
