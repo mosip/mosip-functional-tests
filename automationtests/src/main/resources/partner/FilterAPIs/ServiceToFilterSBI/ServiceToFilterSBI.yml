@@ -14,11 +14,7 @@ ServiceToFilterSBI:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
         "fieldValue": "Tech-123"
-      }
-    ]
 }'
    partner_ServiceToFilterSBI_All_Valid_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface/filtervalues
@@ -35,11 +31,7 @@ ServiceToFilterSBI:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
         "fieldValue": "Tech-123"
-      }
-    ]
 }'
    partner_ServiceToFilterSBI_InValid_Empty_type:
       endPoint: /v1/partnermanager/securebiometricinterface/filtervalues
