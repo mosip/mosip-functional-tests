@@ -371,14 +371,14 @@ public class BaseTestCase {
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
 		request.put("zoneCode", props.get("zoneCode_to_beMapped"));
-		request.put("userId", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		request.put("userId", BaseTestCase.currentModule + "-" + ConfigManager.getadminUserName());
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		actualrequest.put(GlobalConstants.REQUEST, request);
 		logger.info(actualrequest);
 		Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
-		logger.info(propsKernel.get("admin_userName") + "Mapped to" + props.get("zoneCode_to_beMapped") + "Zone");
+		logger.info(ConfigManager.getadminUserName() + "Mapped to" + props.get("zoneCode_to_beMapped") + "Zone");
 		logger.info(response);
 
 	}
@@ -409,7 +409,7 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
 		HashMap<String, String> map = new HashMap<>();
 		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
-		map.put("userId", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		map.put("userId", BaseTestCase.currentModule + "-" + ConfigManager.getadminUserName());
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(response);
@@ -434,7 +434,7 @@ public class BaseTestCase {
 
 		HashMap<String, String> map = new HashMap<>();
 
-		map.put("userID", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		map.put("userID", BaseTestCase.currentModule + "-" + ConfigManager.getadminUserName());
 		map.put("langCode", BaseTestCase.getLanguageList().get(0));
 
 		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
@@ -456,7 +456,7 @@ public class BaseTestCase {
 
 		HashMap<String, String> requestMap = new HashMap<>();
 
-		requestMap.put("id", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		requestMap.put("id", BaseTestCase.currentModule + "-" + ConfigManager.getadminUserName());
 		requestMap.put("name", "automation");
 		requestMap.put("statusCode", "active");
 		// TODO remove hardcoding
@@ -485,7 +485,7 @@ public class BaseTestCase {
 		HashMap<String, String> map = new HashMap<>();
 
 		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
-		map.put("id", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		map.put("id", BaseTestCase.currentModule + "-" + ConfigManager.getadminUserName());
 
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
