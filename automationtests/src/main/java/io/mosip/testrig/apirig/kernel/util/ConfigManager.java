@@ -63,7 +63,7 @@ public class ConfigManager {
 	private static String ENABLE_DEBUG = "enableDebug";
 	private static String THREAD_COUNT = "threadCount";
 	private static String LANG_SELECT = "langselect";
-	private static String ADMIN_USER_NAME = "admin_userName";
+
 	
 	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
@@ -116,19 +116,21 @@ public class ConfigManager {
 	private static String REPORT_EXPIRATION_IN_DAYS = "reportExpirationInDays";
 
 	private static String SCENARIOS_TO_BE_SKIPPED = "scenariosToSkip";
+    private static String ADMIN_USER_NAME = "admin_userName";
 	
 	private static String PARTNER_URL_SUFFIX = "partnerUrlSuffix";
 	
 	private static String partnerUrlSuffix;
 	
 	private static String toSkippedList;
+	private static String userAdminName;
 
 	private static String pms_client_secret;
 	private static String partner_client_secret;
 	private static String pms_client_id;
 	private static String pms_app_id;
 	private static String partner_client_id;
-	private static String admin_userName;
+
 
 
 	private static String resident_client_secret;
@@ -379,10 +381,10 @@ public class ConfigManager {
 				: System.getenv(PARTNER_URL_SUFFIX);
 		propsKernel.setProperty(PARTNER_URL_SUFFIX, partnerUrlSuffix);
 		
-		admin_userName = System.getenv(ADMIN_USER_NAME) == null ? propsKernel.getProperty(ADMIN_USER_NAME)
+		userAdminName = System.getenv(ADMIN_USER_NAME) == null
+				? propsKernel.getProperty(ADMIN_USER_NAME)
 				: System.getenv(ADMIN_USER_NAME);
-		propsKernel.setProperty(ADMIN_USER_NAME, admin_userName);
-
+		propsKernel.setProperty(ADMIN_USER_NAME, userAdminName);
 	}
 
 	public static boolean isInTobeSkippedList(String stringToFind) {
@@ -397,8 +399,9 @@ public class ConfigManager {
 		return false;
 	}
 	
-	public static String getadminUserName() {
-		return admin_userName;
+	public static String getUserAdminName() {
+		return userAdminName;
+
 	}
 	
 	public static String getPartnerUrlSuffix() {
