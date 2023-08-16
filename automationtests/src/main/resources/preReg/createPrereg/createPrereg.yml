@@ -17,7 +17,6 @@ CreatePrereg:
   "id": "mosip.pre-registration.demographic.create"
 }'
       output: '{
-  "statusCode": "Application_Incomplete",
   "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_All_Valid_Smoke_UpdateDocRefID_sid:
@@ -38,7 +37,6 @@ CreatePrereg:
   "id": "mosip.pre-registration.demographic.create"
 }'
       output: '{
-  "statusCode": "Application_Incomplete",
   "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_All_Valid_Smoke_BookByPRID_sid:
@@ -58,8 +56,7 @@ CreatePrereg:
   "requesttime": "$TIMESTAMP$",
   "id": "mosip.pre-registration.demographic.create"
 }'
-     output: '{
-  "statusCode": "Application_Incomplete",
+      output: '{
   "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_Valid_Smoke_sid:
@@ -80,7 +77,6 @@ CreatePrereg:
   "id": "mosip.pre-registration.demographic.create"
 }'
       output: '{
-  "statusCode": "Application_Incomplete",
   "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_Smoke_alldel_sid:
@@ -101,7 +97,6 @@ CreatePrereg:
   "id": "mosip.pre-registration.demographic.create"
 }'
       output: '{
-  "statusCode": "Application_Incomplete",
   "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_Smoke_CancellAppointment_sid:
@@ -122,7 +117,6 @@ CreatePrereg:
   "id": "mosip.pre-registration.demographic.create"
 }'
       output: '{
-  "statusCode": "Application_Incomplete",
   "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_Smoke_CancelApplicationsAppointment_sid:
@@ -143,7 +137,6 @@ CreatePrereg:
   "id": "mosip.pre-registration.demographic.create"
 }'
       output: '{
-  "statusCode": "Application_Incomplete",
   "langCode": "$1STLANG$"
 }'
    Prereg_CreatePrereg_in_Valid_id_sid:

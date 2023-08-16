@@ -32,7 +32,7 @@ public class KernelAuthentication extends BaseTestCase {
 	private String admin_password = props.get("admin_password");
 	
 //	private String admin_userName = props.get("admin_userName");
-	private String admin_userName = ConfigManager.getadminUserName();
+	private String admin_userName = ConfigManager.getUserAdminName();
 	
 	private String partner_password = props.get("partner_user_password");
 	private String partner_userName = props.get("partner_userName");
@@ -217,7 +217,7 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.APPID, ConfigManager.getAdminAppId());
 		request.put(GlobalConstants.PASSWORD, admin_password);
 
-		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + admin_userName);
+		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName());
 
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getAdminClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getAdminClientSecret());
