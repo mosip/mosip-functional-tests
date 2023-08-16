@@ -4984,8 +4984,8 @@ public class AdminTestUtil extends BaseTestCase {
 			responseJson = new JSONObject(response.getBody().asString());
 			
 			try {
-			    JSONObject responseObject = new JSONObject(responseJson);
-			    JSONArray data = responseObject.getJSONObject("response").getJSONArray("data");
+				JSONObject responseObject = responseJson.getJSONObject("response");
+			    JSONArray data = responseObject.getJSONArray("data");
 
 
 			    // Initialize variables for a, b, and c
@@ -5010,7 +5010,7 @@ public class AdminTestUtil extends BaseTestCase {
 			    System.out.println("c: " + c);
 
 			} catch (Exception e) {
-			    e.printStackTrace();
+				logger.error(e.getMessage());
 			}
 
 
