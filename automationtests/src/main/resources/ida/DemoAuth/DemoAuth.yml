@@ -389,7 +389,7 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
-  auth_DemoAuth_same_Name2_Valid_uin_Smoke_Pos:
+  auth_DemoAuth_same_Name2_Valid_titleFromAdmin_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -399,7 +399,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "eng",
-      "value": "Miss Lisa.GN"
+      "value": "Miss-TitleFromServer Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -408,7 +408,7 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
-  auth_DemoAuth_same_Name3_Valid_uin_Smoke_Pos:
+  auth_DemoAuth_same_Name3_Valid_titleFromAdmin_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -418,7 +418,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "eng",
-      "value": "Mr Lisa.GN"
+      "value": "Mr-TitleFromServer Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -446,7 +446,7 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
-  auth_DemoAuth_same_Name5_Valid_uin_Smoke_Pos:
+  auth_DemoAuth_same_Name5_Valid_titleFromAdmin_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -456,7 +456,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "eng",
-      "value": "Miss. Lisa.GN"
+      "value": "Miss-TitleFromServer. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -465,7 +465,7 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
-  auth_DemoAuth_same_Name6_Valid_uin_Smoke_Pos:
+  auth_DemoAuth_same_Name6_Valid_titleFromAdmin_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -475,7 +475,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "eng",
-      "value": "MISS. Lisa.GN"
+      "value": "Miss-TitleFromServer. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -484,7 +484,7 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
-  auth_DemoAuth_same_Name7_Valid_uin_Smoke_Pos:
+  auth_DemoAuth_same_Name7_Valid_titleFromAdmin_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -494,7 +494,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "eng",
-      "value": "Miss Lisa.GN"
+      "value": "Miss-TitleFromServer. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
