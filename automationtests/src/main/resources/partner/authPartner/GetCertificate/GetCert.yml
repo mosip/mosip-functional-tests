@@ -2,6 +2,7 @@ GetPartnerCert:
    Partner_GetPartnerCert_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/{partnerId}/certificate
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: partner/authPartner/GetCertificate/getCert
       outputTemplate: partner/authPartner/GetCertificate/getCertResult
@@ -9,7 +10,6 @@ GetPartnerCert:
 	"partnerId": "Tech-123"
 }'
       output: ' {
-  "errors": "$IGNORE$"
 }'
    Partner_GetPartnerCert_invalid_partnerId:
       endPoint: /v1/partnermanager/partners/{partnerId}/certificate

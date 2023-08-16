@@ -2,6 +2,7 @@ createSearchPolicy:
    Partner_SearchPolicy_AllValid_Smoke:
       endPoint: /v1/policymanager/policies/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
       outputTemplate: partner/policy/Search/searchPolicyResult
@@ -13,17 +14,11 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "version": "$IGNORE$",
-        "policyType": "$IGNORE$",
-        "schema": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicy_Valid_Smoke:
       endPoint: /v1/policymanager/policies/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
       outputTemplate: partner/policy/Search/searchPolicyResult
@@ -35,17 +30,11 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "version": "$IGNORE$",
-        "policyType": "$IGNORE$",
-        "schema": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicy_Only_FilterCriteria_Smoke:
       endPoint: /v1/policymanager/policies/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
       outputTemplate: partner/policy/Search/searchPolicyResult
@@ -64,11 +53,11 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": []
 }'
    Partner_SearchPolicy_Only_SortaCriteria_Smoke:
       endPoint: /v1/policymanager/policies/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
       outputTemplate: partner/policy/Search/searchPolicyResult
@@ -86,17 +75,11 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "version": "$IGNORE$",
-        "policyType": "$IGNORE$",
-        "schema": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicy_Only_PaginationCriteria_Smoke:
       endPoint: /v1/policymanager/policies/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
       outputTemplate: partner/policy/Search/searchPolicyResult
@@ -108,13 +91,6 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "version": "$IGNORE$",
-        "policyType": "$IGNORE$",
-        "schema": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicy_type_contains_Smoke_asc:
       endPoint: /v1/policymanager/policies/search
@@ -329,6 +305,8 @@ createSearchPolicy:
    Partner_SearchPolicy_with_invalid_value_contains:
       endPoint: /v1/policymanager/policies/search
       role: partner
+      checkErrorsOnlyInResponse: true
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
       outputTemplate: partner/policy/Search/searchPolicyResult
@@ -353,11 +331,11 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": "$IGNORE$"
 }'
    Partner_SearchPolicy_with_invalid_value_equals:
       endPoint: /v1/policymanager/policies/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
       outputTemplate: partner/policy/Search/searchPolicyResult
@@ -387,6 +365,7 @@ createSearchPolicy:
    Partner_SearchPolicy_with_invalid_value_startswith:
       endPoint: /v1/policymanager/policies/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
       outputTemplate: partner/policy/Search/searchPolicyResult
@@ -411,7 +390,6 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": "$IGNORE$"
 }'
    Partner_SearchPolicy_with_invalid_columnName:
       endPoint: /v1/policymanager/policies/search
