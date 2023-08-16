@@ -30,8 +30,10 @@ public class KernelAuthentication extends BaseTestCase {
 	public final Map<String, String> props = clib.readProperty("Kernel");
 
 	private String admin_password = props.get("admin_password");
-	private String admin_userName = props.get("admin_userName");
-
+	
+//	private String admin_userName = props.get("admin_userName");
+	private String admin_userName = ConfigManager.getadminUserName();
+	
 	private String partner_password = props.get("partner_user_password");
 	private String partner_userName = props.get("partner_userName");
 
