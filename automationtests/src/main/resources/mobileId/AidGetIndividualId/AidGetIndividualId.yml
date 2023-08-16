@@ -43,7 +43,12 @@ AidGetIndividualId:
 	 }
 }'
       output: '{
-       "transactionID": "$TRANSACTIONID$",
+  "errors": [
+    {
+      "errorCode": "RES-SER-457",
+      "errorMessage": "AID not found"
+    }
+  ],
         "sendOtpResp":{
 	        "maskedMobile": "XXXXXX3210",
 	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
@@ -69,7 +74,12 @@ AidGetIndividualId:
 	 }
 }'
       output: '{
-       "transactionID": "$TRANSACTIONID$",
+  "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "errorMessage": "OTP is invalid"
+    }
+  ],
         "sendOtpResp":{
 	        "maskedMobile": "XXXXXX3210",
 	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",

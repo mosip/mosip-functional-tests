@@ -39,7 +39,12 @@ RetrieveAuthTypeStatus:
     "ID": "kajnfajk"
 }'
       output: '{
-
+        "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
 }'
 
   IdRepository_RetrieveAuthTypeStatus_Uin_Empty_Id_Neg:
@@ -70,7 +75,12 @@ RetrieveAuthTypeStatus:
     "ID": " "
 }'
       output: '{
-
+        "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
 }'
 
   IdRepository_RetrieveAuthTypeStatus_Vid_Invalid_Id_Neg:
@@ -83,7 +93,12 @@ RetrieveAuthTypeStatus:
     "ID": "kajnfajk"
 }'
       output: '{
-
+        "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
 }'
 
   IdRepository_RetrieveAuthTypeStatus_Vid_Empty_Id_Neg:
@@ -114,5 +129,10 @@ RetrieveAuthTypeStatus:
     "ID": " "
 }'
       output: '{
-
+        "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
 }'

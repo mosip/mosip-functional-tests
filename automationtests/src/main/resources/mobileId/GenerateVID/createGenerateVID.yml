@@ -151,8 +151,12 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "errors": [
+    {
+      "errorCode": "RES-SER-422",
+      "errorMessage": "Invalid Input Parameter - transactionID"
+    }
+  ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",

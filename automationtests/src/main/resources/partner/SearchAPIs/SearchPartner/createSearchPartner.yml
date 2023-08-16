@@ -2,6 +2,7 @@ createSearchPartner:
    Partner_SearchPartner_AllValid_Smoke:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -13,11 +14,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_Only_SortCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -40,6 +41,7 @@ createSearchPartner:
    Partner_SearchPartner_Only_FilterCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -57,11 +59,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_Only_PaginationCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -73,11 +75,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_type_contains_Smoke_asc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -102,11 +104,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_type_contains_Smoke_desc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -131,11 +133,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_type_equals_Smoke_desc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -160,11 +162,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_type_equals_Smoke_asc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -189,11 +191,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_type_startswith_Smoke_asc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -218,11 +220,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_type_startswith_Smoke_desc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -247,7 +249,6 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_columnname_id_desc_sid:
       endPoint: /v1/partnermanager/partners/search

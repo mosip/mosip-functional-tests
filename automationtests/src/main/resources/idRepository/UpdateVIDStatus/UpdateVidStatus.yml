@@ -167,7 +167,7 @@ UpdateVidStatus:
     }
   ]
 }'
-  IdRepository_UpdateVidStatus_withVidStatus_USED_For Vid Type_Perpetual:
+  IdRepository_UpdateVidStatus_withVidStatus_USED_For_Vid Type_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
       restMethod: PATCH
@@ -181,7 +181,7 @@ UpdateVidStatus:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "vidStatus": "USED"
+    "vidStatus": "ACTIVE"
 }'
   IdRepository_UpdateVidStatus_withInvalidversion_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}

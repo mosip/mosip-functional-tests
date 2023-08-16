@@ -453,6 +453,8 @@ public class OutputValidationUtil extends AuthTestsUtil{
 	
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
 			String expOutputJson, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors) throws AdminTestException {
+		if (doesResponseHasErrorCode(actualOutputJson, 500))
+			throw new AdminTestException("Internal Server Error. Hence marking the test case as failed");
 		JsonPrecondtion jsonPrecondtion = new JsonPrecondtion();
 		Map<String, String> actual = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
 		Map<String, String> exp = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);
@@ -462,7 +464,6 @@ public class OutputValidationUtil extends AuthTestsUtil{
 	
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(Map<String, String> actualOutput,
 			Map<String, String> expOutput, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors) throws AdminTestException {
-		
 		try {
 			return compareActuExpValue(actualOutput, expOutput, context);
 		}catch (SkipException e) {
@@ -487,6 +488,15 @@ public class OutputValidationUtil extends AuthTestsUtil{
 			breturn = (errors.length() > 0);
 			
 		return breturn;
+	}
+	
+	public static boolean doesResponseHasErrorCode(String responseString, int errorCode) {
+		JSONObject responseJson = new JSONObject(responseString);
+		if (responseJson.has("status")) {
+			return responseJson.getInt("status") == errorCode;
+		}
+			
+		return false;
 	}
 	
 }
