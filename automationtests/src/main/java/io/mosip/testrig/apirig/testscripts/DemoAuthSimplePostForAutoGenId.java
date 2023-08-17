@@ -109,6 +109,12 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 		if (input.contains("$PRIMARYLANG$"))
 			input = input.replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0));
 		
+		
+		if (input.contains("name") & testCaseDTO.getTestCaseName().contains("titleFromAdmin")) {
+			input = AdminTestUtil.inputTitleHandler(input);
+		}
+		
+		
 		if (input.contains("$NAMEPRIMARYLANG$")) {
 			String name = "";
 			if (BaseTestCase.isTargetEnvLTS())

@@ -4969,5 +4969,107 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return path + "- No Response";
 	}
+	
+	public static String getLocationData() {
+		
+		Response response = null;
+		JSONObject responseJson = null;
+		String url = ApplnURI + props.getProperty("fetchLocationData");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+		String waitInterval = null;
+		try {
+			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+
+			responseJson = new JSONObject(response.getBody().asString());
+			
+			try {
+				JSONObject responseObject = responseJson.getJSONObject("response");
+			    JSONArray data = responseObject.getJSONArray("data");
+
+
+			    // Initialize variables for a, b, and c
+			    String a = "";
+			    int b = -1;
+			    String c = "";
+
+			    for (int i = 0; i < data.length(); i++) {
+			        JSONObject entry = data.getJSONObject(i);
+			        String langCode = entry.getString("langCode");
+
+			        if (BaseTestCase.languageList.get(0).equals(langCode)) {
+			            a = entry.getString("hierarchyName");
+			            b = entry.getInt("hierarchyLevel");
+			            c = entry.optString("parentLocCode", "");
+			            break;
+			        }
+			    }
+
+			    System.out.println("a: " + a);
+			    System.out.println("b: " + b);
+			    System.out.println("c: " + c);
+
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+
+
+			return waitInterval;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			return waitInterval;
+		}
+	}
+	
+	public static String inputTitleHandler(String jsonString) {
+		Response response = null;
+		JSONObject responseJson = null;
+		String url = ApplnURI + props.getProperty("fetchTitle");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+		String firstWord = "";
+		String value = "";
+		String langcode = "";
+		JSONObject jsonObject = new JSONObject(jsonString);
+		JSONArray nameArray = jsonObject.getJSONArray("name");
+		if (nameArray.length() > 0) {
+			JSONObject nameObject = nameArray.getJSONObject(0);
+			value = nameObject.getString("value");
+			firstWord = value.split("\\s+")[0]; //Miss-TitleFromServer
+			jsonString = jsonString.replace(firstWord, propsMap.getProperty(firstWord));
+			firstWord = propsMap.getProperty(firstWord);  //MIS
+			langcode = nameObject.getString("language");
+
+		} else {
+			System.out.println("No 'name' data found.");
+		}
+
+		url = url + "/" + langcode;
+		try {
+			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+					GlobalConstants.AUTHORIZATION, token);
+
+			responseJson = new JSONObject(response.getBody().asString());
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+
+		try {
+
+			JSONArray titleList = responseJson.getJSONObject("response").getJSONArray("titleList");
+			for (int i = 0; i < titleList.length(); i++) {
+				JSONObject titleObject = titleList.getJSONObject(i);
+				if (titleObject.getString("code").equals(firstWord)) {
+					String titleName = titleObject.getString("titleName");
+					jsonString = jsonString.replace(firstWord, titleName);
+					break; 
+				}
+			}
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+
+		return jsonString;
+	}
+
 
 }

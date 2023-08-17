@@ -77,6 +77,10 @@ public class MosipTestRunner {
 			}
 			KeycloakUserManager.removeUser();
 			KeycloakUserManager.createUsers(); 
+			
+			
+			List<String> localLanguageList = new ArrayList<>(BaseTestCase.getLanguageList());
+			AdminTestUtil.getLocationData();
 
 			String partnerKeyURL = "";
 
@@ -89,7 +93,7 @@ public class MosipTestRunner {
 
 			}
 
-			List<String> localLanguageList = new ArrayList<>(BaseTestCase.getLanguageList());
+			
 
 
 			if (BaseTestCase.listOfModules.contains(GlobalConstants.MASTERDATA)) {
