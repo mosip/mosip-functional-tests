@@ -14,13 +14,9 @@ PolicyGroupFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
         "fieldID": "name",
         "fieldValue": "update_policy_group",
         "fieldCode": "update_policy_group"
-      }
-    ]
 }'
    partner_PolicyGroupFilter_all_Valid_Smoke:
       endPoint: /v1/policymanager/policies/group/filtervalues
@@ -37,13 +33,9 @@ PolicyGroupFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
         "fieldID": "name",
         "fieldValue": "mpolicygroup-default-auth",
         "fieldCode": "mpolicygroup-default-auth"
-      }
-    ]
 }'
    partner_PolicyGroupFilter_using_desc_Valid_Smoke:
       endPoint: /v1/policymanager/policies/group/filtervalues

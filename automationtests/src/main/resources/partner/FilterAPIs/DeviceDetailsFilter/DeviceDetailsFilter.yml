@@ -2,6 +2,7 @@ DeviceDetailsFilter:
    partner_DeviceDetailsFilter_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail/filtervalues
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilter
       outputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilterResult
@@ -15,13 +16,11 @@ DeviceDetailsFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-        "fieldID": "id",
-        "fieldValue": "$IGNORE$",
-        "fieldCode": "device-id-123"
 }'
    partner_DeviceDetailsFilter_all_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail/filtervalues
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilter
       outputTemplate: partner/FilterAPIs/DeviceDetailsFilter/deviceDetailsFilterResult

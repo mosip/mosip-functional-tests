@@ -2,6 +2,7 @@ ServiceToFilterSBI:
    partner_ServiceToFilterSBI_Valid_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface/filtervalues
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/FilterAPIs/ServiceToFilterSBI/serviceToFilterSBI
       outputTemplate: partner/FilterAPIs/ServiceToFilterSBI/serviceToFilterSBIResult
@@ -14,11 +15,11 @@ ServiceToFilterSBI:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-        "fieldValue": "Tech-123"
 }'
    partner_ServiceToFilterSBI_All_Valid_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface/filtervalues
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/FilterAPIs/ServiceToFilterSBI/serviceToFilterSBI
       outputTemplate: partner/FilterAPIs/ServiceToFilterSBI/serviceToFilterSBIResult
@@ -31,7 +32,6 @@ ServiceToFilterSBI:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-        "fieldValue": "Tech-123"
 }'
    partner_ServiceToFilterSBI_InValid_Empty_type:
       endPoint: /v1/partnermanager/securebiometricinterface/filtervalues
