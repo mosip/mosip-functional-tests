@@ -28,7 +28,7 @@ uploadPartnerCert:
       output: ' {
   "errors": [
         {
-            "errorCode": "$IGNORE$",
+            "errorCode": "KER-KMS-013",
             "message": "$IGNORE$"
         }
     ]
