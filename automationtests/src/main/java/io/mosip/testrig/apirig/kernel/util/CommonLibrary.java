@@ -222,18 +222,15 @@ public class CommonLibrary extends BaseTestCase {
 			return bReturn;
         try {
             DecodedJWT decodedJWT = JWT.decode(cookie);
-            // Get the expiration time
             long expirationTime = decodedJWT.getExpiresAt().getTime();
-            // Check if the token is expired
             if (expirationTime < System.currentTimeMillis()) {
-                System.out.println("The token is expired");
+            	logger.info("The token is expired");
             } else {
             	bReturn = true;
-                System.out.println("The token is not expired");
+            	logger.info("The token is not expired");
             }
         } catch (JWTDecodeException e) {
-            // The token is invalid
-            System.out.println("The token is invalid");
+        	logger.info("The token is invalid");
         }
         return bReturn;
     }
