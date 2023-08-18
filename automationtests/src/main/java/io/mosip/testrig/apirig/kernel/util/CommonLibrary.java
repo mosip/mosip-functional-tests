@@ -230,7 +230,7 @@ public class CommonLibrary extends BaseTestCase {
             	logger.info("The token is not expired");
             }
         } catch (JWTDecodeException e) {
-        	logger.info("The token is invalid");
+        	logger.error("The token is invalid");
         }
         return bReturn;
     }
