@@ -127,6 +127,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
+      "isActive": true
 }'
    Partner_SearchPolicyGroup_type_equals_Smoke_desc_sid:
       endPoint: /v1/policymanager/policies/group/search
@@ -154,7 +155,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-        "isActive": "true"
+        "isActive": true
 }'
    Partner_SearchPolicyGroup_type_equals_Smoke_asc_sid:
       endPoint: /v1/policymanager/policies/group/search
@@ -182,7 +183,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-        "isActive": "true"
+        "isActive": true
 }'
    Partner_SearchPolicyGroup_type_startswith_Smoke_asc_sid:
       endPoint: /v1/policymanager/policies/group/search
@@ -210,7 +211,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-        "isActive": "true"
+        "isActive": true
 }'
    Partner_SearchPolicyGroup_type_startswith_Smoke_desc_sid:
       endPoint: /v1/policymanager/policies/group/search
@@ -238,7 +239,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-        "isActive": "true"
+        "isActive": true
 }'
    Partner_SearchPolicyGroup_columnname_id_desc_smoke:
       endPoint: /v1/policymanager/policies/group/search
@@ -266,7 +267,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-        "isActive": "true"
+        "isActive": true
 }'
    Partner_SearchPolicyGroup_columnname_id_asc_smoke:
       endPoint: /v1/policymanager/policies/group/search
@@ -294,7 +295,7 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-        "isActive": "true"
+        "isActive": true
 }'
    
    Partner_SearchPolicyGroup_with_missing_columnName:
