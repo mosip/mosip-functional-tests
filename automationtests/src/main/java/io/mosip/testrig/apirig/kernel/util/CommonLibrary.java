@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.PublicKey;
 import java.text.SimpleDateFormat;
 import java.time.Clock;
 import java.time.LocalDateTime;
@@ -31,6 +32,9 @@ import org.json.simple.parser.ParseException;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.testng.Assert;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.exceptions.JWTDecodeException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 
@@ -213,8 +217,31 @@ public class CommonLibrary extends BaseTestCase {
 	}
 
 	public boolean isValidToken(String cookie) {
+		boolean bReturn = false;
+		if (cookie == null)
+			return bReturn;
+        try {
+            DecodedJWT decodedJWT = JWT.decode(cookie);
+            // Get the expiration time
+            long expirationTime = decodedJWT.getExpiresAt().getTime();
+            // Check if the token is expired
+            if (expirationTime < System.currentTimeMillis()) {
+                System.out.println("The token is expired");
+            } else {
+            	bReturn = true;
+                System.out.println("The token is not expired");
+            }
+        } catch (JWTDecodeException e) {
+            // The token is invalid
+            System.out.println("The token is invalid");
+        }
+        return bReturn;
+    }
+
+	public boolean isValidTokenOnline(String cookie) {
 
 		logger.info("========= Revalidating the token =========");
+		
 		Response response = applicationLibrary.getWithoutParams("/v1/authmanager/authorize/admin/validateToken",
 				cookie);
 		JSONObject responseJson = null;
