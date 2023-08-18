@@ -13,12 +13,12 @@ UpdateHoliday:
     "holidayId": "$ID:CreateHoliday_All_Valid_Smoke_sid_holidayId$",
     "isActive": true,
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
         "holidayId": $IGNORE$,
-        "locationCode": "KTA",
+        "locationCode": "$IGNORE$",
         "holidayDate": "2020-08-15",
         "holidayName": "AutoTest user",
         "langCode": "eng"
@@ -37,7 +37,7 @@ UpdateHoliday:
     "holidayId": "$ID:CreateHoliday_All_Valid_Smoke_sid_holidayId$",
     "isActive": false,
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -62,7 +62,7 @@ UpdateHoliday:
     "holidayId": "$ID:CreateHoliday_All_Valid_Smoke_sid_holidayId$",
     "isActive": false,
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -87,7 +87,7 @@ UpdateHoliday:
     "holidayId": "$ID:CreateHoliday_All_Valid_Smoke_sid_holidayId$",
     "isActive": false,
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -112,7 +112,7 @@ UpdateHoliday:
     "holidayId": "$ID:CreateHoliday_All_Valid_Smoke_sid_holidayId$",
     "isActive": false,
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -137,7 +137,7 @@ UpdateHoliday:
     "holidayId": "$ID:CreateHoliday_All_Valid_Smoke_sid_holidayId$",
     "isActive": false,
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -187,7 +187,7 @@ UpdateHoliday:
     "holidayId": "$ID:CreateHoliday_All_Valid_Smoke_sid_holidayId$",
     "isActive": false,
     "langCode": "eng",
-    "locationCode": "GST",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
