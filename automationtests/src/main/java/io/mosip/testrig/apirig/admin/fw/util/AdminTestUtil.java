@@ -2,6 +2,7 @@ package io.mosip.testrig.apirig.admin.fw.util;
 
 import static io.restassured.RestAssured.given;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
@@ -2502,20 +2503,40 @@ public class AdminTestUtil extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected Map<String, Map<String, Map<String, String>>> loadyaml(String path) {
-		Map<String, Map<String, Map<String, String>>> scriptsMap = null;
+	    Map<String, Map<String, Map<String, String>>> scriptsMap = null;
 		FileInputStream inputStream = null;
-		try {
-			Yaml yaml = new Yaml();
+		BufferedInputStream bufferedInput = null;
+		int customBufferSize = 16384; // 16 KB
+	    try {
 			inputStream = new FileInputStream(new File(getResourcePath() + path).getAbsoluteFile());
-			scriptsMap = (Map<String, Map<String, Map<String, String>>>) yaml.load(inputStream);
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-			return null;
-		}finally {
+	        bufferedInput = new BufferedInputStream(inputStream, customBufferSize);		
+	        Yaml yaml = new Yaml();
+	        scriptsMap = yaml.loadAs(bufferedInput, Map.class);
+	    } catch (Exception e) {
+	        logger.error("Error loading YAML: " + e.getMessage());
+	    }		
+		finally {
 			closeInputStream(inputStream);
 		}
-		return scriptsMap;
+	    return scriptsMap;
 	}
+
+//	@SuppressWarnings("unchecked")
+//	protected Map<String, Map<String, Map<String, String>>> loadyaml(String path) {
+//		Map<String, Map<String, Map<String, String>>> scriptsMap = null;
+//		FileInputStream inputStream = null;
+//		try {
+//			Yaml yaml = new Yaml();
+//			inputStream = new FileInputStream(new File(getResourcePath() + path).getAbsoluteFile());
+//			scriptsMap = (Map<String, Map<String, Map<String, String>>>) yaml.load(inputStream);
+//		} catch (Exception e) {
+//			logger.error(e.getMessage());
+//			return null;
+//		}finally {
+//			closeInputStream(inputStream);
+//		}
+//		return scriptsMap;
+//	}
 
 	public String getJsonFromTemplate(String input, String template) {
 		return getJsonFromTemplate(input, template, true);
@@ -2529,7 +2550,7 @@ public class AdminTestUtil extends BaseTestCase {
 			Gson gson = new Gson();
 			Type type = new TypeToken<Map<String, Object>>() {
 			}.getType();
-			logger.info(input);
+//			logger.info(input);
 			Map<String, Object> map = gson.fromJson(input, type);
 			String templateJsonString;
 			if (readFile) {

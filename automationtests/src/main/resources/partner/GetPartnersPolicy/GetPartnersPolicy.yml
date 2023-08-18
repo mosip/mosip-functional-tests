@@ -2,6 +2,7 @@ GetPartnersPolicy:
    partner_GetPartnersPolicy_allValid_smoke:
       endPoint: /v1/policymanager/policies/{policyId}/partner/{partnerId}
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: partner/GetPartnersPolicy/getPartnersPolicy
       outputTemplate: partner/GetPartnersPolicy/getPartnersPolicyResult

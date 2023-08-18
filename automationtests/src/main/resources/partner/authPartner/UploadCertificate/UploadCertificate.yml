@@ -23,7 +23,7 @@ uploadCACert:
       output: ' {
     "errors": [
     {
-      "errorCode": "$IGNORE$",
+      "errorCode": "KER-PCM-003",
       "message": "$IGNORE$"
     }
   ]

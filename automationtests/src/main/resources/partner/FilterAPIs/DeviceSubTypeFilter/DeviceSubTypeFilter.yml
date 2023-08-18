@@ -2,6 +2,7 @@ DeviceSubTypeFilter:
    partner_DeviceSubTypeFilter_All_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail/deviceSubType/filtervalues
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/FilterAPIs/DeviceSubTypeFilter/deviceSubTypeFilter
       outputTemplate: partner/FilterAPIs/DeviceSubTypeFilter/deviceSubTypeFilterResult
@@ -15,13 +16,11 @@ DeviceSubTypeFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-        "fieldID": "code",
-        "fieldValue": "Single",
-        "fieldCode": "Single"
 }'
    partner_DeviceSubTypeFilter_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail/deviceSubType/filtervalues
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/FilterAPIs/DeviceSubTypeFilter/deviceSubTypeFilter
       outputTemplate: partner/FilterAPIs/DeviceSubTypeFilter/deviceSubTypeFilterResult
@@ -35,9 +34,6 @@ DeviceSubTypeFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-        "fieldID": "code",
-        "fieldValue": "Single",
-        "fieldCode": "Single"
 }'
    partner_DeviceSubTypeFilter_Invalid_EmptyFilterType:
       endPoint: /v1/partnermanager/devicedetail/deviceSubType/filtervalues

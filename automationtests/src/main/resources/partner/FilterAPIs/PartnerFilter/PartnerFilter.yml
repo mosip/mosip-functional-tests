@@ -14,13 +14,9 @@ PartnerFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
         "fieldID": "id",
         "fieldValue": "mpartner-default-abis",
         "fieldCode": "mpartner-default-abis"
-      }
-    ]
 }'
    partner_PartnerFilter_all_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/filtervalues
@@ -37,13 +33,9 @@ PartnerFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
         "fieldID": "id",
         "fieldValue": "mpartner-default-abis",
         "fieldCode": "mpartner-default-abis"
-      }
-    ]
 }'
    partner_PartnerFilter_Invalid_EmptyFilterType:
       endPoint: /v1/partnermanager/partners/filtervalues
