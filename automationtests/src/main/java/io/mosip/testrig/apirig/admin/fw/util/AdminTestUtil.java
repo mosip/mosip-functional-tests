@@ -2740,6 +2740,27 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$MISPPARTNEREMAIL$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$MISPPARTNEREMAIL$", genMispPartnerEmail);
+		
+		
+		
+		
+		if (jsonString.contains("$LOCATIONCODE$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONCODE$", locationCode);
+		
+		
+		//Need to handle int replacement
+		//if (jsonString.contains("$HIERARCHYLEVEL$"))
+			//jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYLEVEL$", hierarchyLevel);
+		
+		if (jsonString.contains("$HIERARCHYNAME$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYNAME$", hierarchyName);
+		
+		if (jsonString.contains("$PARENTLOCCODE$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$PARENTLOCCODE$", parentLocCode);
+		
+		
+		
+		
 
 		if (jsonString.contains("$CACERT$")) {
 			JSONObject request = new JSONObject(jsonString);
@@ -4970,13 +4991,12 @@ public class AdminTestUtil extends BaseTestCase {
 		return path + "- No Response";
 	}
 	
-	public static String getLocationData() {
+	public static void getLocationData() {
 		
 		Response response = null;
 		JSONObject responseJson = null;
 		String url = ApplnURI + props.getProperty("fetchLocationData");
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-		String waitInterval = null;
 		try {
 			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
@@ -4988,36 +5008,96 @@ public class AdminTestUtil extends BaseTestCase {
 			    JSONArray data = responseObject.getJSONArray("data");
 
 
-			    // Initialize variables for a, b, and c
-			    String a = "";
-			    int b = -1;
-			    String c = "";
 
 			    for (int i = 0; i < data.length(); i++) {
 			        JSONObject entry = data.getJSONObject(i);
 			        String langCode = entry.getString("langCode");
 
 			        if (BaseTestCase.languageList.get(0).equals(langCode)) {
-			            a = entry.getString("hierarchyName");
-			            b = entry.getInt("hierarchyLevel");
-			            c = entry.optString("parentLocCode", "");
+			        	hierarchyName = entry.getString("hierarchyName");
+			        	hierarchyLevel = entry.getInt("hierarchyLevel");
+			        	parentLocCode = entry.optString("parentLocCode", "");
 			            break;
 			        }
 			    }
 
-			    System.out.println("a: " + a);
-			    System.out.println("b: " + b);
-			    System.out.println("c: " + c);
 
 			} catch (Exception e) {
 				logger.error(e.getMessage());
 			}
 
 
-			return waitInterval;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			return waitInterval;
+		}
+	}
+	
+	
+public static void  getLocationLevelData() {
+		
+	Response response = null;
+	JSONObject responseJson = null;
+	String url = ApplnURI + props.getProperty("fetchLocationLevel") + BaseTestCase.getLanguageList().get(0);
+	String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+		
+		
+	try {
+
+		response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+				GlobalConstants.AUTHORIZATION, token);
+
+		responseJson = new JSONObject(response.getBody().asString());
+
+		try {
+			JSONObject responseObject = responseJson.getJSONObject("response");
+			JSONArray data = responseObject.getJSONArray("locations");
+
+			JSONObject entry = data.getJSONObject(0);
+			locationCode = entry.getString("code");
+
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+
+	} catch (Exception e) {
+		logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+	}
+	}
+
+
+	public static void getZoneName() {
+
+		Response response = null;
+		JSONObject responseJson = null;
+		String url = ApplnURI + props.getProperty("fetchZone");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+		
+		
+		HashMap<String, String> map = new HashMap<>();
+		map.put("userID", ConfigManager.getUserAdminName());
+		map.put("langCode", BaseTestCase.getLanguageList().get(0));
+		 
+
+		try {
+
+			response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+
+			responseJson = new JSONObject(response.getBody().asString());
+
+			try {
+				JSONObject responseObject = responseJson.getJSONObject("response");
+				JSONArray data = responseObject.getJSONArray("locations");
+
+				JSONObject entry = data.getJSONObject(0);
+				locationCode = entry.getString("code");
+
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 	}
 	
