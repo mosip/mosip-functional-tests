@@ -16,6 +16,7 @@ import java.util.Properties;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.testng.TestNG;
 
@@ -66,6 +67,8 @@ public class MosipTestRunner {
 				ExtractResource.extractResourceFromJar();
 			}
 			ConfigManager.init(); 
+//			configureLog4j();
+//			setLogLevelForAllClasses(Level.ERROR);
 //			Logger.getRootLogger().setLevel(Level.ERROR);
 			BaseTestCase.suiteSetup();
 			AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
@@ -135,6 +138,15 @@ public class MosipTestRunner {
 		System.exit(0);
 
 	}
+	
+	private static void configureLog4j() {
+        // Configure log4j programmatically (you can also use a properties file)
+        PropertyConfigurator.configure(MosipTestRunner.getResourcePath() + "/" + "log4j.properties");
+    }
+    private static void setLogLevelForAllClasses(Level level) {
+        Logger rootLogger = Logger.getRootLogger();
+        rootLogger.setLevel(level);
+    }
 
 	/**
 	 * The method to start mosip testng execution
