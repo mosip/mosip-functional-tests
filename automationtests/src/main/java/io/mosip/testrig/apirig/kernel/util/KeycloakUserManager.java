@@ -34,21 +34,29 @@ public class KeycloakUserManager {
 	private static final Logger logger = Logger.getLogger(KeycloakUserManager.class);
 
 	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
+	public static Keycloak key = null;
+	
+	public static void closeKeycloakInstance() {
+		if (key != null) {
+			key.close();
+			key = null;
+		}
+	}
 
 	private static Keycloak getKeycloakInstance() {
-		 Keycloak key=null;
-		try {
-			String automationClientId = BaseTestCase.isTargetEnvLTS() ? ConfigManager.getAutomationClientId() : ConfigManager.getPmsClientId();
-			key=KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
-				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(automationClientId).clientSecret(ConfigManager.getAutomationClientSecret())
-				.build();
-	logger.info(ConfigManager.getIAMUrl());
-	logger.info(key.toString() + key.realms());
-		}catch(Exception e)
-		{
-			throw e;
-			
-		}
+		if (key != null)
+			return key;
+			try {
+				String automationClientId = BaseTestCase.isTargetEnvLTS() ? ConfigManager.getAutomationClientId()
+						: ConfigManager.getPmsClientId();
+				key = KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl())
+						.realm(ConfigManager.getIAMRealmId()).grantType(OAuth2Constants.CLIENT_CREDENTIALS)
+						.clientId(automationClientId).clientSecret(ConfigManager.getAutomationClientSecret()).build();
+				logger.info(ConfigManager.getIAMUrl());
+				logger.info(key.toString() + key.realms());
+			} catch (Exception e) {
+				throw e;
+			}
 		return key;
 	}
 

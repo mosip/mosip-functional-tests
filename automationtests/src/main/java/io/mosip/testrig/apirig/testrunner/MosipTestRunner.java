@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.testng.TestNG;
@@ -65,6 +66,7 @@ public class MosipTestRunner {
 				ExtractResource.extractResourceFromJar();
 			}
 			ConfigManager.init(); 
+//			Logger.getRootLogger().setLevel(Level.ERROR);
 			BaseTestCase.suiteSetup();
 			AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
 			
@@ -76,7 +78,8 @@ public class MosipTestRunner {
 				trigger.start();
 			}
 			KeycloakUserManager.removeUser();
-			KeycloakUserManager.createUsers(); 
+			KeycloakUserManager.createUsers();
+			KeycloakUserManager.closeKeycloakInstance();
 			
 			
 			List<String> localLanguageList = new ArrayList<>(BaseTestCase.getLanguageList());
@@ -211,14 +214,28 @@ public class MosipTestRunner {
 		}
 		return publicKey;
 	}
+	public static KeyPairGenerator keyPairGen = null;
+	
+	public static KeyPairGenerator getKeyPairGeneratorInstance() {
+		if (keyPairGen != null)
+			return keyPairGen;
+		try {
+			keyPairGen = KeyPairGenerator.getInstance("RSA");
+			keyPairGen.initialize(2048);
+
+		} catch (NoSuchAlgorithmException e) {
+			LOGGER.error(e.getMessage());
+		}
+
+		return keyPairGen;
+	}
 	
 	public static String generatePublicKeyForMimoto() {
-        KeyPairGenerator keyPairGen;
+        
         String vcString = "";
         try {
-            keyPairGen = KeyPairGenerator.getInstance("RSA");
-            keyPairGen.initialize(2048);
-            KeyPair keyPair = keyPairGen.generateKeyPair();
+        	KeyPairGenerator keyPairGenerator = getKeyPairGeneratorInstance();
+            KeyPair keyPair = keyPairGenerator.generateKeyPair();
             PublicKey publicKey = keyPair.getPublic();
             StringWriter stringWriter = new StringWriter();
             try (JcaPEMWriter pemWriter = new JcaPEMWriter(stringWriter)) {

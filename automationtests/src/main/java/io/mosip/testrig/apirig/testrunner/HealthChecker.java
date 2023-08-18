@@ -84,7 +84,7 @@ public class HealthChecker implements Runnable {
 				signalTerminateExecution = true;
 			}
 			try {
-				Thread.sleep(60000);
+				Thread.sleep(120000);
 			} catch (InterruptedException e) {
 				logger.error(e.getMessage());
 				Thread.currentThread().interrupt();
