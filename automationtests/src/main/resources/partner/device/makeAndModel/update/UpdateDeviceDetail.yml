@@ -16,10 +16,11 @@ createServiceToUpdateDeviceDetail:
     "model": "FRO90000",
     "partnerOrganizationName": "Techno",
     "requesttime": "$TIMESTAMP$"
-  }'
+}'
       output: '{
-        "id": "device-id-123"
-    }'
+ 	"id": "device-id-123"
+  }'
+
    Partner_ServiceToUpdateDeviceDetail_afterReject_InValid:
       endPoint: /v1/partnermanager/devicedetail
       role: partner
@@ -37,10 +38,11 @@ createServiceToUpdateDeviceDetail:
     "model": "FRO90000",
     "partnerOrganizationName": "Techno",
     "requesttime": "$TIMESTAMP$"
-  }'
+}'
       output: '{
-        "id": "device-id-124"
-    }'
+ 	"id": "device-id-124"
+  }'
+
    Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_DeviceId:
       endPoint: /v1/partnermanager/devicedetail
       role: partner

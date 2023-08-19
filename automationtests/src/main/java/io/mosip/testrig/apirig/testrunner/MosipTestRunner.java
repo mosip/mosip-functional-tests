@@ -14,7 +14,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.testng.TestNG;
 
@@ -65,6 +67,9 @@ public class MosipTestRunner {
 				ExtractResource.extractResourceFromJar();
 			}
 			ConfigManager.init(); 
+//			configureLog4j();
+//			setLogLevelForAllClasses(Level.ERROR);
+//			Logger.getRootLogger().setLevel(Level.ERROR);
 			BaseTestCase.suiteSetup();
 			AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
 			
@@ -76,9 +81,12 @@ public class MosipTestRunner {
 				trigger.start();
 			}
 			KeycloakUserManager.removeUser();
-			KeycloakUserManager.createUsers(); 
+			KeycloakUserManager.createUsers();
+			KeycloakUserManager.closeKeycloakInstance();
 			
-			//AdminTestUtil.getLocationData();
+			
+			List<String> localLanguageList = new ArrayList<>(BaseTestCase.getLanguageList());
+			AdminTestUtil.getLocationData();
 
 			String partnerKeyURL = "";
 
@@ -91,10 +99,13 @@ public class MosipTestRunner {
 
 			}
 
-			List<String> localLanguageList = new ArrayList<>(BaseTestCase.getLanguageList());
+			
 
 
 			if (BaseTestCase.listOfModules.contains(GlobalConstants.MASTERDATA)) {
+				
+				AdminTestUtil.getLocationLevelData();
+				AdminTestUtil.getLocationData();
 				BaseTestCase.mapUserToZone();
 				BaseTestCase.mapZone();
 
@@ -130,6 +141,15 @@ public class MosipTestRunner {
 		System.exit(0);
 
 	}
+	
+	private static void configureLog4j() {
+        // Configure log4j programmatically (you can also use a properties file)
+        PropertyConfigurator.configure(MosipTestRunner.getResourcePath() + "/" + "log4j.properties");
+    }
+    private static void setLogLevelForAllClasses(Level level) {
+        Logger rootLogger = Logger.getRootLogger();
+        rootLogger.setLevel(level);
+    }
 
 	/**
 	 * The method to start mosip testng execution
@@ -209,14 +229,28 @@ public class MosipTestRunner {
 		}
 		return publicKey;
 	}
+	public static KeyPairGenerator keyPairGen = null;
+	
+	public static KeyPairGenerator getKeyPairGeneratorInstance() {
+		if (keyPairGen != null)
+			return keyPairGen;
+		try {
+			keyPairGen = KeyPairGenerator.getInstance("RSA");
+			keyPairGen.initialize(2048);
+
+		} catch (NoSuchAlgorithmException e) {
+			LOGGER.error(e.getMessage());
+		}
+
+		return keyPairGen;
+	}
 	
 	public static String generatePublicKeyForMimoto() {
-        KeyPairGenerator keyPairGen;
+        
         String vcString = "";
         try {
-            keyPairGen = KeyPairGenerator.getInstance("RSA");
-            keyPairGen.initialize(2048);
-            KeyPair keyPair = keyPairGen.generateKeyPair();
+        	KeyPairGenerator keyPairGenerator = getKeyPairGeneratorInstance();
+            KeyPair keyPair = keyPairGenerator.generateKeyPair();
             PublicKey publicKey = keyPair.getPublic();
             StringWriter stringWriter = new StringWriter();
             try (JcaPEMWriter pemWriter = new JcaPEMWriter(stringWriter)) {

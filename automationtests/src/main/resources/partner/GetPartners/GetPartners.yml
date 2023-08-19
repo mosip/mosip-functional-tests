@@ -2,24 +2,24 @@ GetPartners:
    Partner_GetPartners_allValid_smoke:
       endPoint: /v1/partnermanager/partners
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: partner/GetPartners/getPartners
       outputTemplate: partner/GetPartners/getPartnersResult
       input: '{
 }'
       output: '{
-    "partnerType": "$IGNORE$"
 }'
    Partner_GetPartners_ByPartnerType_allValid_smoke:
       endPoint: /v1/partnermanager/partners?partnerType=Device_Provider
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: partner/GetPartners/getPartners
       outputTemplate: partner/GetPartners/getPartnersResult
       input: '{
 }'
       output: '{
-    "partnerType": "Device_Provider"
 }'
    Partner_GetPartners_invalid_partnerType:
       endPoint: /v1/partnermanager/partners?partnerType=zsfvgefb

@@ -2,6 +2,7 @@ package io.mosip.testrig.apirig.admin.fw.util;
 
 import static io.restassured.RestAssured.given;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
@@ -2502,20 +2503,40 @@ public class AdminTestUtil extends BaseTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected Map<String, Map<String, Map<String, String>>> loadyaml(String path) {
-		Map<String, Map<String, Map<String, String>>> scriptsMap = null;
+	    Map<String, Map<String, Map<String, String>>> scriptsMap = null;
 		FileInputStream inputStream = null;
-		try {
-			Yaml yaml = new Yaml();
+		BufferedInputStream bufferedInput = null;
+		int customBufferSize = 16384; // 16 KB
+	    try {
 			inputStream = new FileInputStream(new File(getResourcePath() + path).getAbsoluteFile());
-			scriptsMap = (Map<String, Map<String, Map<String, String>>>) yaml.load(inputStream);
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-			return null;
-		}finally {
+	        bufferedInput = new BufferedInputStream(inputStream, customBufferSize);		
+	        Yaml yaml = new Yaml();
+	        scriptsMap = yaml.loadAs(bufferedInput, Map.class);
+	    } catch (Exception e) {
+	        logger.error("Error loading YAML: " + e.getMessage());
+	    }		
+		finally {
 			closeInputStream(inputStream);
 		}
-		return scriptsMap;
+	    return scriptsMap;
 	}
+
+//	@SuppressWarnings("unchecked")
+//	protected Map<String, Map<String, Map<String, String>>> loadyaml(String path) {
+//		Map<String, Map<String, Map<String, String>>> scriptsMap = null;
+//		FileInputStream inputStream = null;
+//		try {
+//			Yaml yaml = new Yaml();
+//			inputStream = new FileInputStream(new File(getResourcePath() + path).getAbsoluteFile());
+//			scriptsMap = (Map<String, Map<String, Map<String, String>>>) yaml.load(inputStream);
+//		} catch (Exception e) {
+//			logger.error(e.getMessage());
+//			return null;
+//		}finally {
+//			closeInputStream(inputStream);
+//		}
+//		return scriptsMap;
+//	}
 
 	public String getJsonFromTemplate(String input, String template) {
 		return getJsonFromTemplate(input, template, true);
@@ -2529,7 +2550,7 @@ public class AdminTestUtil extends BaseTestCase {
 			Gson gson = new Gson();
 			Type type = new TypeToken<Map<String, Object>>() {
 			}.getType();
-			logger.info(input);
+//			logger.info(input);
 			Map<String, Object> map = gson.fromJson(input, type);
 			String templateJsonString;
 			if (readFile) {
@@ -2740,6 +2761,27 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$MISPPARTNEREMAIL$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$MISPPARTNEREMAIL$", genMispPartnerEmail);
+		
+		
+		
+		
+		if (jsonString.contains("$LOCATIONCODE$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONCODE$", locationCode);
+		
+		
+		//Need to handle int replacement
+		//if (jsonString.contains("$HIERARCHYLEVEL$"))
+			//jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYLEVEL$", hierarchyLevel);
+		
+		if (jsonString.contains("$HIERARCHYNAME$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$HIERARCHYNAME$", hierarchyName);
+		
+		if (jsonString.contains("$PARENTLOCCODE$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$PARENTLOCCODE$", parentLocCode);
+		
+		
+		
+		
 
 		if (jsonString.contains("$CACERT$")) {
 			JSONObject request = new JSONObject(jsonString);
@@ -4970,13 +5012,12 @@ public class AdminTestUtil extends BaseTestCase {
 		return path + "- No Response";
 	}
 	
-	public static String getLocationData() {
+	public static void getLocationData() {
 		
 		Response response = null;
 		JSONObject responseJson = null;
 		String url = ApplnURI + props.getProperty("fetchLocationData");
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-		String waitInterval = null;
 		try {
 			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
@@ -4984,40 +5025,100 @@ public class AdminTestUtil extends BaseTestCase {
 			responseJson = new JSONObject(response.getBody().asString());
 			
 			try {
-			    JSONObject responseObject = new JSONObject(responseJson);
-			    JSONArray data = responseObject.getJSONObject("response").getJSONArray("data");
+				JSONObject responseObject = responseJson.getJSONObject("response");
+			    JSONArray data = responseObject.getJSONArray("data");
 
 
-			    // Initialize variables for a, b, and c
-			    String a = "";
-			    int b = -1;
-			    String c = "";
 
 			    for (int i = 0; i < data.length(); i++) {
 			        JSONObject entry = data.getJSONObject(i);
 			        String langCode = entry.getString("langCode");
 
 			        if (BaseTestCase.languageList.get(0).equals(langCode)) {
-			            a = entry.getString("hierarchyName");
-			            b = entry.getInt("hierarchyLevel");
-			            c = entry.optString("parentLocCode", "");
+			        	hierarchyName = entry.getString("hierarchyName");
+			        	hierarchyLevel = entry.getInt("hierarchyLevel");
+			        	parentLocCode = entry.optString("parentLocCode", "");
 			            break;
 			        }
 			    }
 
-			    System.out.println("a: " + a);
-			    System.out.println("b: " + b);
-			    System.out.println("c: " + c);
 
 			} catch (Exception e) {
-			    e.printStackTrace();
+				logger.error(e.getMessage());
 			}
 
 
-			return waitInterval;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			return waitInterval;
+		}
+	}
+	
+	
+public static void  getLocationLevelData() {
+		
+	Response response = null;
+	JSONObject responseJson = null;
+	String url = ApplnURI + props.getProperty("fetchLocationLevel") + BaseTestCase.getLanguageList().get(0);
+	String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+		
+		
+	try {
+
+		response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+				GlobalConstants.AUTHORIZATION, token);
+
+		responseJson = new JSONObject(response.getBody().asString());
+
+		try {
+			JSONObject responseObject = responseJson.getJSONObject("response");
+			JSONArray data = responseObject.getJSONArray("locations");
+
+			JSONObject entry = data.getJSONObject(0);
+			locationCode = entry.getString("code");
+
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+
+	} catch (Exception e) {
+		logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+	}
+	}
+
+
+	public static void getZoneName() {
+
+		Response response = null;
+		JSONObject responseJson = null;
+		String url = ApplnURI + props.getProperty("fetchZone");
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+		
+		
+		HashMap<String, String> map = new HashMap<>();
+		map.put("userID", ConfigManager.getUserAdminName());
+		map.put("langCode", BaseTestCase.getLanguageList().get(0));
+		 
+
+		try {
+
+			response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+
+			responseJson = new JSONObject(response.getBody().asString());
+
+			try {
+				JSONObject responseObject = responseJson.getJSONObject("response");
+				JSONArray data = responseObject.getJSONArray("locations");
+
+				JSONObject entry = data.getJSONObject(0);
+				locationCode = entry.getString("code");
+
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 	}
 	

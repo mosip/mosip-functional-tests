@@ -9,9 +9,9 @@ UpdateLocationData:
       input: '{
     "code": "TST12",
     "name": "Test_Loc_A_updated",
-    "hierarchyLevel": "4",
-    "hierarchyName": "City",
-    "parentLocCode": "KNT",
+    "hierarchyLevel": "0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",
     "langCode": "eng",
     "isActive": true,
     "requesttime": "$TIMESTAMP$"
@@ -35,9 +35,9 @@ UpdateLocationData:
       input: '{
     "code": "anyString",
     "name": "Test_Loc_B_2",
-    "hierarchyLevel":"4",
-    "hierarchyName":"TestZone",
-    "parentLocCode":"KNT",    
+    "hierarchyLevel": "0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
     "langCode": "eng",
     "isActive": false,
     "requesttime": "$TIMESTAMP$"
@@ -60,9 +60,9 @@ UpdateLocationData:
       input: '{
     "code": "",
     "name": "Test_Loc_1_A",
-    "hierarchyLevel":"4",
-    "hierarchyName":"TestZone",
-    "parentLocCode":"KNT",    
+    "hierarchyLevel": "0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
     "langCode": "eng",
     "isActive": false,
     "requesttime": "$TIMESTAMP$"
@@ -85,9 +85,9 @@ UpdateLocationData:
       input: '{
     "code": "NST",
     "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
-    "hierarchyLevel":"4",
-    "hierarchyName":"TestZone",
-    "parentLocCode":"KNT",    
+    "hierarchyLevel": "0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
     "langCode": "eng",
     "isActive": false,
     "requesttime": "$TIMESTAMP$"
@@ -110,9 +110,9 @@ UpdateLocationData:
       input: '{
     "code": "NST",
     "name": "",
-    "hierarchyLevel":"4",
-    "hierarchyName":"TestZone",
-    "parentLocCode":"KNT",    
+    "hierarchyLevel": "0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
     "langCode": "eng",
     "isActive": false,
     "requesttime": "$TIMESTAMP$"
@@ -136,8 +136,8 @@ UpdateLocationData:
     "code": "NST",
     "name": "NDATA",
     "hierarchyLevel":"2147483647",
-    "hierarchyName":"TestZone",
-    "parentLocCode":"KNT",    
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
     "langCode": "eng",
     "isActive": false,
     "requesttime": "$TIMESTAMP$"
@@ -160,9 +160,9 @@ UpdateLocationData:
       input: '{
     "code": "NST",
     "name": "NDATA",
-    "hierarchyLevel":"11",
-    "hierarchyName":"TestZone",
-    "parentLocCode":"KNT",    
+    "hierarchyLevel": "0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
     "langCode": "eng",
     "isActive": false,
     "requesttime": "$TIMESTAMP$"
@@ -185,9 +185,9 @@ UpdateLocationData:
       input: '{
     "code": "NST",
     "name": "NDATA",
-    "hierarchyLevel":"3",
+    "hierarchyLevel": "0",
     "hierarchyName":"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
-    "parentLocCode":"KNT",    
+    "parentLocCode": "$PARENTLOCCODE$",    
     "langCode": "eng",
     "isActive": false,
     "requesttime": "$TIMESTAMP$"
@@ -211,8 +211,8 @@ UpdateLocationData:
     "code": "NST",
     "name": "NDATA",
     "hierarchyLevel":"3",
-    "hierarchyName":"",
-    "parentLocCode":"KNT",    
+    "hierarchyName": "",
+    "parentLocCode": "$PARENTLOCCODE$",    
     "langCode": "eng",
     "isActive": false,
     "requesttime": "$TIMESTAMP$"
@@ -236,8 +236,8 @@ UpdateLocationData:
     "code": "NST",
     "name": "NDATA",
     "hierarchyLevel":"4",
-    "hierarchyName":"TestZone",
-    "parentLocCode":"fbheafg",    
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "ENTLOCCOD",    
     "langCode": "eng",
     "isActive": false,
     "requesttime": "$TIMESTAMP$"
@@ -262,9 +262,9 @@ UpdateLocationData:
       input: '{
     "code": "NST",
     "name": "NDATA",
-    "hierarchyLevel":"3",
-    "hierarchyName":"City",
-    "parentLocCode":"KNT",    
+    "hierarchyLevel":"0",
+    "hierarchyName": "$HIERARCHYNAME$",
+    "parentLocCode": "$PARENTLOCCODE$",    
     "langCode": "eng",
     "isActive": false,
     "requesttime": "2019/12/20"

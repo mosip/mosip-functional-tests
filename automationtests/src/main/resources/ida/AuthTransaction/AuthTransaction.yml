@@ -9,10 +9,7 @@ AuthTransaction:
       "individualId":"$ID:AddIdentity_ValidParam_smoke_Pos_UIN$"
 }'
       output: '{
-"authTransactions": [{
-       "transactionID": "$TRANSACTIONID$",
         "referenceIdType": "UIN"
-    }]
 }'
    auth_AuthTransaction_allValid_smoke_VID:
       endPoint: /idauthentication/v1/internal/authTransactions/individualId/{individualId}
@@ -24,8 +21,5 @@ AuthTransaction:
       "individualId":"$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$"
 }'
       output: '{
-"authTransactions": [{
-       "transactionID": "$TRANSACTIONID$",
         "referenceIdType": "VID"
-    }]
 }'

@@ -13,11 +13,11 @@ CreateHoliday:
     "holidayName": "AutoTest user Eng",
     "isActive": true,
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-     "locationCode": "KTA",
+     "locationCode": "$IGNORE$",
      "holidayDate": "2020-08-15",
      "holidayName": "AutoTest user Eng",
      "langCode": "eng"
@@ -36,7 +36,7 @@ CreateHoliday:
     "holidayName": "AutoTest user",
     "isActive": false,
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -61,7 +61,7 @@ CreateHoliday:
     "holidayName": "AutoTest user",
     "isActive": false,
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -86,7 +86,7 @@ CreateHoliday:
     "holidayName": "AutoTest user",
     "isActive": false,
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -111,7 +111,7 @@ CreateHoliday:
     "holidayName": "$REMOVE$",
     "isActive": false,
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -136,7 +136,7 @@ CreateHoliday:
     "holidayName": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
     "isActive": false,
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
@@ -238,7 +238,7 @@ CreateHoliday:
     "holidayName": "AutoTest user",
     "isActive": "$REMOVE$",
     "langCode": "eng",
-    "locationCode": "KTA",
+    "locationCode": "$LOCATIONCODE$",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{

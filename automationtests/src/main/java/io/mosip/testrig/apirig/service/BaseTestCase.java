@@ -125,7 +125,14 @@ public class BaseTestCase {
 	private static final char[] nNumericAllowed = "0123456789".toCharArray();
 	public static SecureRandom secureRandom = new SecureRandom();
 	
-	public static String currentRunningLanguage = "";
+	public static String hierarchyName = "";
+	public static int hierarchyLevel = 0;
+	public static String parentLocCode = "";
+	
+	public static String locationCode = "";
+	
+	
+	
 	public static String genRid = "27847" + generateRandomNumberString(10);
 
 	public static String genPolicyNumber = "9" + generateRandomNumberString(5);
@@ -164,6 +171,8 @@ public class BaseTestCase {
 			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
 	public static Properties propsKernel = getproperty(
 			MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
+	
+	public static String currentRunningLanguage = "";
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");

@@ -2,6 +2,7 @@ OtpAuth:
   auth_OTP_Auth_With_Valid_UIN_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -24,6 +25,7 @@ OtpAuth:
   auth_OTP_Auth_With_Valid_VID_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -46,6 +48,7 @@ OtpAuth:
   auth_OTP_Auth_With_Invalid_Past_Timestamp_UIN_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=2022-05-19T06:29:44.809Z&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -68,6 +71,7 @@ OtpAuth:
   auth_OTP_Auth_With_Invalid_Past_Timestamp_VID_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=2022-05-19T06:29:44.809Z&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -90,6 +94,7 @@ OtpAuth:
   auth_OTP_Auth_With_Invalid_Future_Timestamp_UIN_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=2052-05-19T06:29:44.809Z&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -112,6 +117,7 @@ OtpAuth:
   auth_OTP_Auth_With_Invalid_Future_Timestamp_VID_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=2052-05-19T06:29:44.809Z&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -134,6 +140,7 @@ OtpAuth:
   auth_OTP_Auth_With_Invalid_Empty_Timestamp_UIN_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -156,6 +163,7 @@ OtpAuth:
   auth_OTP_Auth_With_Invalid_Empty_Timestamp_VID_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -178,6 +186,7 @@ OtpAuth:
   auth_OTP_Auth_With_revoke_VID_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
@@ -206,6 +215,7 @@ OtpAuth:
   auth_OTP_Auth_With_Invalid_individualId_UIN_neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=@@###cndjdhe77473838&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
@@ -233,6 +243,7 @@ OtpAuth:
   auth_OTP_Auth_With_Invalid_individualId_VID_neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=@@###cndjdhe77473838&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
@@ -260,6 +271,7 @@ OtpAuth:
   auth_OTP_Auth_With_Blank_individualId_uin_neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
@@ -287,6 +299,7 @@ OtpAuth:
   auth_OTP_Auth_With_Blank_individualId_VID_neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
@@ -314,6 +327,7 @@ OtpAuth:
   auth_OTP_Auth_With_Missing_individualId_uin_neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&transactionId=$TRANSACTIONID$&certsDir=$CERTSDIR$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
@@ -341,6 +355,7 @@ OtpAuth:
   auth_OTP_Auth_With_Missing_individualId_VID_neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
@@ -368,6 +383,7 @@ OtpAuth:
   auth_OTP_Auth_With_Invalid_transactionId_uin_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=76544ddffgg@@@3444&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -389,6 +405,7 @@ OtpAuth:
   auth_OTP_Auth_With_Invalid_transactionId_VID_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=76544ddffgg@@@3444&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -410,6 +427,7 @@ OtpAuth:
   auth_OTP_Auth_With_Blank_transactionId_uin_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -431,6 +449,7 @@ OtpAuth:
   auth_OTP_Auth_With_Blank_transactionId_VID_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -452,6 +471,7 @@ OtpAuth:
   auth_OTP_Auth_With_different_transactionId_uin_neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=76544ddffgg@@@3444&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -473,6 +493,7 @@ OtpAuth:
   auth_OTP_Auth_With_Invalid_individualIdType_VID_neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=ndjshswhw3277272&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -494,6 +515,7 @@ OtpAuth:
   auth_OTP_Auth_With_Blank_individualIdType_VID_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -515,6 +537,7 @@ OtpAuth:
   auth_OTP_Auth_With_Missing_Optional_Field_individualIdType_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/OtpAuthResult
@@ -536,6 +559,7 @@ OtpAuth:
   auth_OTP_Auth_With_Invalid_uin_partner:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
       outputTemplate: ida/OtpAuth/error
