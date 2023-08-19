@@ -429,8 +429,8 @@ public class ConfigManager {
 
 	}
 
-	public static String getLangselect() {
-		return langselect;
+	public static int getLangselect() {
+		return Integer.parseInt(langselect);
 
 	}
 	
