@@ -1106,6 +1106,7 @@ AuthLock:
    Resident_AuthLock_Valid_UIN_Email_All:
       endPoint: /resident/v1/req/auth-lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult

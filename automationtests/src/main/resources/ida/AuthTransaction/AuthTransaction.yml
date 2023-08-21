@@ -2,6 +2,7 @@ AuthTransaction:
    auth_AuthTransaction_allValid_smoke_UIN:
       endPoint: /idauthentication/v1/internal/authTransactions/individualId/{individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: ida/AuthTransaction/authTransaction
       outputTemplate: ida/AuthTransaction/authTransactionResult
@@ -14,6 +15,7 @@ AuthTransaction:
    auth_AuthTransaction_allValid_smoke_VID:
       endPoint: /idauthentication/v1/internal/authTransactions/individualId/{individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: ida/AuthTransaction/authTransaction
       outputTemplate: ida/AuthTransaction/authTransactionResult

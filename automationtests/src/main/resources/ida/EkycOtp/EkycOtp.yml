@@ -92,7 +92,7 @@ EkycOtp:
   auth_EkycOtp_Auth_With_Invalid_Future_Timestamp_UIN_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=2052-05-19T06:29:44.809Z&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
-      checkErrorsOnlyInResponse: trues
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/EkycOtp/EkycOtp
       outputTemplate: ida/EkycOtp/EkycOtpResult
