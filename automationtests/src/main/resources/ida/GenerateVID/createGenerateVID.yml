@@ -2,6 +2,7 @@ GenerateVID:
    auth_GenerateVID_All_Valid_Smoke_Perpetual_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/GenerateVID/createGenerateVID
       outputTemplate: ida/GenerateVID/createGenerateVIDResult
@@ -35,6 +36,7 @@ GenerateVID:
    auth_GenerateVID_to_revoke_Perpetual_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/GenerateVID/createGenerateVID
       outputTemplate: ida/GenerateVID/createGenerateVIDResult
@@ -68,6 +70,7 @@ GenerateVID:
    auth_GenerateVID_to_test_hotlist_Perpetual_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/GenerateVID/createGenerateVID
       outputTemplate: ida/GenerateVID/createGenerateVIDResult
@@ -101,6 +104,7 @@ GenerateVID:
    auth_GenerateVID_All_Valid_Smoke_Temp_VID_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/GenerateVID/createGenerateVID
       outputTemplate: ida/GenerateVID/createGenerateVIDResult
