@@ -155,7 +155,7 @@ GetCoordinateSpecificRegistrationCenters:
       output: '{
 	  "errors": [
 	    {
-	      "errorCode": "$IGNORE$",
+	      "errorCode": "RES-SER-418",
 	      "message": "$IGNORE$"
 	    }
   	]
@@ -176,7 +176,7 @@ GetCoordinateSpecificRegistrationCenters:
       output: '{
 		  "errors": [
 		    {
-		      "errorCode": "$IGNORE$",
+		      "errorCode": "RES-SER-418",
 		      "message": "$IGNORE$"
 		    }
 		  ]
@@ -198,7 +198,7 @@ GetCoordinateSpecificRegistrationCenters:
       output: '{
 		  "errors": [
 		    {
-		      "errorCode": "$IGNORE$",
+		      "errorCode": "RES-SER-418",
 		      "message": "$IGNORE$"
 		    }
 		  ]

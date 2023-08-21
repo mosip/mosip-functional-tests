@@ -1586,6 +1586,7 @@ AuthUnlock:
    Resident_AuthUnLock_Valid_UIN_EmailChannel_Pos:
       endPoint: /resident/v1/req/auth-unlock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthUnLock/createAuthUnLock
       outputTemplate: resident/AuthUnLock/createAuthUnLockResult

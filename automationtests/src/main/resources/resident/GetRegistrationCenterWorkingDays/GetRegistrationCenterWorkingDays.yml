@@ -78,8 +78,8 @@ GetRegistrationCenterWorkingDays:
       inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
       outputTemplate: resident/error
       input: '{
-  "langCode": "eng",
-  "registrationCenterID": ""
+		  "langCode": "eng",
+		  "registrationCenterID": ""
 }'
       output: "404"
 
