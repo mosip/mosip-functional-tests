@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,6 +29,7 @@ import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.testrig.apirig.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 
 /**
  * Perform output validation between expected and actual json file or message
@@ -38,6 +40,13 @@ import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 public class OutputValidationUtil extends AuthTestsUtil{
 
 	private static final Logger OUTPUTVALIDATION_LOGGER = Logger.getLogger(OutputValidationUtil.class);
+	
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			OUTPUTVALIDATION_LOGGER.setLevel(Level.ALL);
+		else
+			OUTPUTVALIDATION_LOGGER.setLevel(Level.ERROR);
+	}
 	
 	/**
 	 * The method will perform output validation by comparing expected and actual value
