@@ -56,6 +56,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.util.io.pem.PemObject;
@@ -296,6 +297,13 @@ public class AdminTestUtil extends BaseTestCase {
 
 	private static boolean gettriggerESignetKeyGen8() {
 		return triggerESignetKeyGen8;
+	}
+	
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
 	}
 
 	/**
@@ -569,19 +577,19 @@ public class AdminTestUtil extends BaseTestCase {
 		if (testCaseName.contains("Wla_uin_")) {
 			fileName = bindingCertFile;
 		}
-		if (testCaseName.contains("Wla_vid_")) {
+		else if (testCaseName.contains("Wla_vid_")) {
 			fileName = bindingCertFileVid;
 		}
-		if (testCaseName.contains("_Consentuin_")) {
+		else if (testCaseName.contains("_Consentuin_")) {
 			fileName = bindingCertConsentFile;
 		}
-		if (testCaseName.contains("_ConsentVid_")) {
+		else if (testCaseName.contains("_ConsentVid_")) {
 			fileName = bindingCertConsentVidFile;
 		}
-		if (testCaseName.contains("_Consent_SameClaim_uin_")) {
+		else if (testCaseName.contains("_Consent_SameClaim_uin_")) {
 			fileName = bindingCertConsentSameClaimFile;
 		}
-		if (testCaseName.contains("_Consent_SameClaim_Vid_")) {
+		else if (testCaseName.contains("_Consent_SameClaim_Vid_")) {
 			fileName = bindingCertConsentVidSameClaimFile;
 		}
 
@@ -2542,12 +2550,13 @@ public class AdminTestUtil extends BaseTestCase {
 		return getJsonFromTemplate(input, template, true);
 
 	}
+	
+	public static Handlebars handlebars = new Handlebars();
+	public static Gson gson = new Gson();
 
 	public String getJsonFromTemplate(String input, String template, boolean readFile) {
 		String resultJson = null;
 		try {
-			Handlebars handlebars = new Handlebars();
-			Gson gson = new Gson();
 			Type type = new TypeToken<Map<String, Object>>() {
 			}.getType();
 //			logger.info(input);

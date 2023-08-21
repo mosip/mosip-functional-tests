@@ -25,6 +25,7 @@ import com.nimbusds.jose.jwk.RSAKey;
 
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.admin.fw.util.EncryptionDecrptionUtil;
+import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.ida.certificate.CertificateGenerationUtil;
@@ -71,6 +72,8 @@ public class MosipTestRunner {
 //			setLogLevelForAllClasses(Level.ERROR);
 //			Logger.getRootLogger().setLevel(Level.ERROR);
 			BaseTestCase.suiteSetup();
+			AdminTestUtil.setLogLevel();
+			OutputValidationUtil.setLogLevel();
 			AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
 			
 			// For now we are not doing health check for qa-115.

@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.simple.JSONArray;
@@ -51,6 +52,13 @@ public class CommonLibrary extends BaseTestCase {
 
 	private static Logger logger = Logger.getLogger(CommonLibrary.class);
 	private ApplicationLibrary applicationLibrary = new ApplicationLibrary();
+	
+	public CommonLibrary() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 
 	public void checkResponseUTCTime(Response response) {
 		logger.info(response.asString());

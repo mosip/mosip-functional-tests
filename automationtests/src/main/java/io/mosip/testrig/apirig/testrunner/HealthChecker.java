@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
@@ -22,6 +23,14 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class HealthChecker implements Runnable {
+	
+	public HealthChecker() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
+	
 	private static final Logger logger = Logger.getLogger(HealthChecker.class);
 	public static boolean bTerminate = false;
 	public static String propsHealthCheckURL = MosipTestRunner.getResourcePath() + "/"
