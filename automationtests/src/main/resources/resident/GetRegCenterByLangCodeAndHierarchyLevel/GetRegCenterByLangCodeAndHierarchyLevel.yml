@@ -137,7 +137,7 @@ GetRegCenterByLangCodeAndHierarchyLevel:
 	  ]
 }'
 
-   Resident_GetRegCenterByLangCodeAndHierarchyLevel_Empty_LangCode_MandatoryFields_Neg:
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_StatusCode_Empty_LangCode_MandatoryFields_Neg:
       endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
       role: resident
       restMethod: get
@@ -148,11 +148,9 @@ GetRegCenterByLangCodeAndHierarchyLevel:
 		  "hierarchylevel": "5",
 		  "name": "10112"
 }'
-      output: '{
-		
-}'
+      output: "404"
 
-   Resident_GetRegCenterByLangCodeAndHierarchyLevel_Empty_Level_MandatoryFields_Neg:
+   Resident_GetRegCenterByLangCodeAndHierarchyLevel_StatusCode_Empty_Level_MandatoryFields_Neg:
       endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
       role: resident
       restMethod: get
@@ -163,9 +161,7 @@ GetRegCenterByLangCodeAndHierarchyLevel:
 		  "hierarchylevel": "",
 		  "name": "10112"
 }'
-      output: '{
-		
-}'
+      output: "404"
 
    Resident_GetRegCenterByLangCodeAndHierarchyLevel_Empty_Name_MandatoryFields_Neg:
       endPoint: /resident/v1/proxy/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name={name}
@@ -179,7 +175,12 @@ GetRegCenterByLangCodeAndHierarchyLevel:
 		  "name": ""
 }'
       output: '{
-		
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Registration Center not found"
+    }
+  ]
 }'
 
    Resident_GetRegCenterByLangCodeAndHierarchyLevel_0_all_Valid_Smoke:

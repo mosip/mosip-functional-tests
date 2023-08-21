@@ -155,7 +155,7 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
       output: '{
 	   "errors": [
 	    {
-	      "errorCode": "$IGNORE$",
+	      "errorCode": "RES-SER-418",
 	      "message": "$IGNORE$"
 	    }
 	  ]
@@ -257,7 +257,7 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
 	  ]
 }'
 
-   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_LangCode_Empty_Neg:
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_StatusCode_LangCode_Empty_Neg:
       endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
       role: resident
       restMethod: get
@@ -272,11 +272,9 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
 		"sortBy":"createdDateTime",
 		"orderBy":"desc"
 }'
-      output: '{
-	   
-}'
+      output: "404"
 
-   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_HierarchyLevel_Empty_Neg:
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_StatusCode_HierarchyLevel_Empty_Neg:
       endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
       role: resident
       restMethod: get
@@ -291,11 +289,9 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
 		"sortBy":"createdDateTime",
 		"orderBy":"desc"
 }'
-      output: '{
-	   
-}'
+      output: "404"
 
-   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_Name_Empty_Neg:
+   Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_StatusCode_Name_Empty_Neg:
       endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}
       role: resident
       restMethod: get
@@ -310,9 +306,7 @@ GetRegistrationCenterByHierarchyLevelAndTextPaginated:
 		"sortBy":"createdDateTime",
 		"orderBy":"desc"
 }'
-      output: '{
-	   
-}'
+      output: "404"
 
    Resident_GetRegistrationCenterByHierarchyLevelAndTextPaginated_0_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}?pageNumber={pageNumber}&pageSize={pageSize}&orderBy={orderBy}&sortBy={sortBy}

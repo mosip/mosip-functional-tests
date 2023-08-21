@@ -455,6 +455,8 @@ public class OutputValidationUtil extends AuthTestsUtil{
 			String expOutputJson, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors) throws AdminTestException {
 		if (doesResponseHasErrorCode(actualOutputJson, 500))
 			throw new AdminTestException("Internal Server Error. Hence marking the test case as failed");
+		if (doesResponseHasErrorCode(actualOutputJson, 404))
+			throw new AdminTestException("Server not found. Hence marking the test case as failed");
 		JsonPrecondtion jsonPrecondtion = new JsonPrecondtion();
 		Map<String, String> actual = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
 		Map<String, String> exp = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);

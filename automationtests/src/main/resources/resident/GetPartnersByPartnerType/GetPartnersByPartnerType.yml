@@ -52,6 +52,12 @@ GetPartnersByPartnerType:
       	"partnerType": ""
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "Authentication Failed"
+    }
+  ]
 }'
 
    Resident_GetPartnersByPartnerType_vid_all_Valid_Smoke:

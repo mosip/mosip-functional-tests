@@ -494,6 +494,7 @@ AuthHistory:
    Resident_AuthHistory_With_UIN_Email_smoke_Pos:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/AuthHistory/authHistoryResult

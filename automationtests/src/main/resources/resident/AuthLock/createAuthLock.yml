@@ -331,12 +331,12 @@ AuthLock:
         "maskedEmail": "$IGNORE$"
     }
 }'
-   Resident_AuthLock_Missing_individualIdType_Neg:
+   Resident_AuthLock_Missing_individualIdType_Pos:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
       inputTemplate: resident/AuthLock/createAuthLock
-      outputTemplate: resident/error
+      outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Positive_TRE_smoke_UIN$",
@@ -1168,6 +1168,12 @@ AuthLock:
     }
   ],
   "sendOtpResp":{
+    "errors": [
+    {
+      "errorCode": "IDA-OTA-008",
+      "message": "$IGNORE$"
+    }
+  ],
         "sendOtpResTemplate":"resident/error"
     }
 }'

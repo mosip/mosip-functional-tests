@@ -357,7 +357,12 @@ GetNotifications:
 	    "pageFetch":"2"
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "RES-SER-446",
+      "message": "Invalid page start value"
+    }
+  ]
 }'
 
    Resident_GetNotifications_uin_Neg_Value_pageFetch_Neg:
@@ -372,5 +377,10 @@ GetNotifications:
 	    "pageFetch":"-2"
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "RES-SER-447",
+      "message": "Invalid page fetch value"
+    }
+  ]
 }'

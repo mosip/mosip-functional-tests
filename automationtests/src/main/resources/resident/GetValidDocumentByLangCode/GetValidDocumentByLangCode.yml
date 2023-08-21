@@ -2,6 +2,7 @@ GetValidDocumentByLangCode:
    Resident_GetValidDocumentByLangCode_All_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
       outputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCodeResult
@@ -49,7 +50,7 @@ GetValidDocumentByLangCode:
       }]
 }'
 
-   Resident_GetValidDocumentByLangCode_Empty_Invalid_Neg:
+   Resident_GetValidDocumentByLangCode_StatusCode_Empty_Invalid_Neg:
       endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
       role: resident
       restMethod: get
@@ -58,10 +59,7 @@ GetValidDocumentByLangCode:
       input: '{
       "langCode": ""
 }'
-      output: '{
-      	"error": "Not Found",
-  		"message": "$IGNORE$"
-}'
+      output: "404"
 
    Resident_GetValidDocumentByLangCode_Invalid_LangCode_Neg:
       endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
