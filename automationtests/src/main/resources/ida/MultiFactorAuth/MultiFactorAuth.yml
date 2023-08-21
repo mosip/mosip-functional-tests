@@ -1909,7 +1909,7 @@ MultiFactorAuth:
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_missing_bioSubType:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
-      checkErrorsOnlyInResponse: trues
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
@@ -2084,7 +2084,7 @@ MultiFactorAuth:
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_invalid_bioType:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
-      checkErrorsOnlyInResponse: trues
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
@@ -2407,7 +2407,7 @@ MultiFactorAuth:
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_With_Finger_Invalid:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
-      checkErrorsOnlyInResponse: trues
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
@@ -2497,7 +2497,7 @@ MultiFactorAuth:
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_invalid_Bio-Type_value_as_IR_instead_of_Iris:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
-      checkErrorsOnlyInResponse: trues
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/error
