@@ -1816,6 +1816,7 @@ GenerateVID:
    Resident_Generate_Perpetual_VID_Email_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult

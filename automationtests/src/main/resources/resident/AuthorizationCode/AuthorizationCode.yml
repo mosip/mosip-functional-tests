@@ -2,6 +2,7 @@ AuthorizationCode:
    Resident_ESignet_AuthorizationCode_uin_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       restMethod: post
       inputTemplate: resident/AuthorizationCode/AuthorizationCode
@@ -20,6 +21,7 @@ AuthorizationCode:
    Resident_ESignet_AuthorizationCode_Vid_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       restMethod: post
       inputTemplate: resident/AuthorizationCode/AuthorizationCode

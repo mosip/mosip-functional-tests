@@ -381,7 +381,7 @@ GenerateVIDNew:
 	    "maskedEmail": "res***************@gmail.com"
 }'
 
-   Resident_Generate_Perpetual_VID_TransID_uin_Invalid_Pos:
+   Resident_Generate_Perpetual_VID_TransID_uin_Invalid:
       endPoint: /resident/v1/generate-vid
       role: residentNewVid
       restMethod: post
@@ -395,7 +395,12 @@ GenerateVIDNew:
         "vidType": "Perpetual"
     }'
       output: '{
-      
+  "errors": [
+    {
+      "errorCode": "RES-SER-513",
+      "message": "$IGNORE$"
+    }
+  ]
 }'
 
    Resident_Generate_Perpetual_VID_uin_EmptyChannel_Pos:
@@ -412,7 +417,12 @@ GenerateVIDNew:
         "vidType": "Perpetual"
     }'
       output: '{
-      	
+  "errors": [
+    {
+      "errorCode": "RES-SER-513",
+      "message": "$IGNORE$"
+    }
+  ]
 }'
 
    Resident_Generate_Perpetual_VID_uin_Empty_TransID_Invalid_Neg:

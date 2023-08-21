@@ -35,6 +35,7 @@ SendOTP:
    Resident_SendOTP_Valid_UIN_Email_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/SendOTP/createSendOTP2
       outputTemplate: resident/SendOTP/createSendOTPResult

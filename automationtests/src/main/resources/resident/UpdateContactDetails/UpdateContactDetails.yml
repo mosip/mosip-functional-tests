@@ -314,7 +314,12 @@ UpdateContactDetails:
     }
   ],
      "sendOtpResp":{
-	        "errorCode": "KER-ATH-401",
+  "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "Authentication Failed"
+    }
+  ],
 	        "sendOtpResTemplate":"resident/error"
     }
 }'

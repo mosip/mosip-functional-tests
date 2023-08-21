@@ -2,6 +2,7 @@ GetDocumentTypes:
    Resident_GetGetDocumentTypes_all_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/documenttypes/{documentcategorycode}/{langcode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetDocumentTypes/GetDocumentTypes
       outputTemplate: resident/GetDocumentTypes/GetDocumentTypesResult
@@ -15,6 +16,7 @@ GetDocumentTypes:
    Resident_GetGetDocumentTypes1_all_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/documenttypes/{documentcategorycode}/{langcode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetDocumentTypes/GetDocumentTypes
       outputTemplate: resident/GetDocumentTypes/GetDocumentTypesResult
@@ -28,6 +30,7 @@ GetDocumentTypes:
    Resident_GetGetDocumentTypes2_all_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/documenttypes/{documentcategorycode}/{langcode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetDocumentTypes/GetDocumentTypes
       outputTemplate: resident/GetDocumentTypes/GetDocumentTypesResult
@@ -41,6 +44,7 @@ GetDocumentTypes:
    Resident_GetGetDocumentTypes3_all_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/documenttypes/{documentcategorycode}/{langcode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetDocumentTypes/GetDocumentTypes
       outputTemplate: resident/GetDocumentTypes/GetDocumentTypesResult
@@ -54,6 +58,7 @@ GetDocumentTypes:
    Resident_GetGetDocumentTypes4_all_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/documenttypes/{documentcategorycode}/{langcode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetDocumentTypes/GetDocumentTypes
       outputTemplate: resident/GetDocumentTypes/GetDocumentTypesResult

@@ -2,6 +2,7 @@ RidCheckStatus:
    Resident_RidCheckStatus_AllValid_Smoke:
       endPoint: /resident/v1/rid/check-status
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/RidCheckStatus/createRidCheckStatusResult

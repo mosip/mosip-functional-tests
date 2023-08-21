@@ -90,7 +90,12 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
 		"templatetypecode": "tnc-update-demo"
 }'
       output: '{
-        
+  "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "Authentication Failed"
+    }
+  ]
 }'
 
    Resident_GetAllTemplateBylangCodeAndTemplateTypeCode_vid_1_Valid_Smoke:

@@ -70,7 +70,7 @@ GetRegistrationCenterWorkingDays:
 	  ]
 }'
 
-   Resident_GetRegistrationCenterWorkingDays_Empty_registrationCenterID_Neg:
+   Resident_GetRegistrationCenterWorkingDays_StatusCode_Empty_registrationCenterID_Neg:
       endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: resident
       templateFields: ["langCode"]
@@ -81,10 +81,9 @@ GetRegistrationCenterWorkingDays:
   "langCode": "eng",
   "registrationCenterID": ""
 }'
-      output: '{
-}'
+      output: "404"
 
-   Resident_GetRegistrationCenterWorkingDays_Empty_langCode_Neg:
+   Resident_GetRegistrationCenterWorkingDays_StatusCode_Empty_langCode_Neg:
       endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: resident
       restMethod: get
@@ -94,5 +93,4 @@ GetRegistrationCenterWorkingDays:
 		  "langCode": "",
 		  "registrationCenterID": "10011"
 		}'
-      output: '{
-}'
+      output: "404"

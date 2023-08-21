@@ -34,7 +34,7 @@ GetLocationHierarchyByLanguageCode:
   ]
 }'
 
-   Resident_GetLocationHierarchyByLanguageCode_Empty_LangCode_Neg:
+   Resident_GetLocationHierarchyByLanguageCode_StatusCode_Empty_LangCode_Neg:
       endPoint: /resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}
       role: resident
       restMethod: get
@@ -43,6 +43,4 @@ GetLocationHierarchyByLanguageCode:
       input: '{
       "langCode":""
 }'
-      output: '{
-        
-}'
+      output: "404"

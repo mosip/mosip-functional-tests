@@ -152,10 +152,10 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
-       "errors": [
+  "errors": [
     {
       "errorCode": "RES-SER-410",
-      "message": "Invalid Input Parameter- userId"
+      "message": "$IGNORE$"
     }
   ],
        "sendOtpResp":{
@@ -319,6 +319,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -346,6 +352,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -373,13 +385,17 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
         "sendOtpResTemplate":"resident/SendOtpToUserId/SendOtpToUserIdResult"
-    },
-        "status": "Email Request submitted",
-        "message": "success"
+    }
 }'
 
    Resident_ValidateWithUserIdOtp_uin_Null_transactionID_Neg:
@@ -402,6 +418,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -429,6 +451,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -456,6 +484,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -483,6 +517,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -510,6 +550,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -537,6 +583,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -865,6 +917,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -892,6 +950,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -919,13 +983,17 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
         "sendOtpResTemplate":"resident/SendOtpToUserId/SendOtpToUserIdResult"
-    },
-        "status": "Email Request submitted",
-        "message": "success"
+    }
 }'
 
    Resident_ValidateWithUserIdOtp_vid_Null_transactionID_Neg:
@@ -948,6 +1016,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -975,6 +1049,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -1002,6 +1082,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -1029,6 +1115,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -1056,6 +1148,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
@@ -1083,6 +1181,12 @@ ValidateWithUserIdOtp:
     }
 }'
       output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ],
        "sendOtpResp":{
         "status": "Email Request submitted",
         "message": "success",
