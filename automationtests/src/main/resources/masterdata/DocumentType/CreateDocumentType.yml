@@ -17,7 +17,7 @@ CreateDocumentType:
       output: '{
 	"code": "TestDocType0010",
 	"description": "TestDocType0010 Card Holder",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"langCode": "eng",
 	"name": "TestDocType0010 Card"
 }'
@@ -39,7 +39,7 @@ CreateDocumentType:
       output: '{
 	"code": "TestDocType0020",
 	"description": "$IGNORE$",
-	"isActive": $IGNORE$,
+	"isActive": "$IGNORE$",
 	"langCode": "eng",
 	"name": "TestDocType0020 Card"
 }'

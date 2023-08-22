@@ -28,6 +28,7 @@ SearchMachineSpec:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
+	"data": [{
 	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
@@ -36,7 +37,8 @@ SearchMachineSpec:
 	"minDriverversion": "3.2",
 	"description": "HP brand",
 	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
+	}]
 }'
    Masterdata_SearchMachineSpec_Valid_sortType_DESC:
       endPoint: /v1/masterdata/machinespecifications/search
@@ -65,6 +67,7 @@ SearchMachineSpec:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
+	"data": [{
 	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
@@ -73,7 +76,8 @@ SearchMachineSpec:
 	"minDriverversion": "3.2",
 	"description": "HP brand",
 	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
+	}]
 }'
    Masterdata_SearchMachineSpec_Valid_col_as_Model:
       endPoint: /v1/masterdata/machinespecifications/search
@@ -102,6 +106,7 @@ SearchMachineSpec:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
+	"data": [{
 	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
@@ -110,7 +115,8 @@ SearchMachineSpec:
 	"minDriverversion": "3.2",
 	"description": "HP brand",
 	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
+	}]
 }'
    Masterdata_SearchMachineSpec_Valid_col_as_Brand:
       endPoint: /v1/masterdata/machinespecifications/search
@@ -148,7 +154,7 @@ SearchMachineSpec:
 	"minDriverversion": "3.2",
 	"description": "HP brand",
 	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
 	}]
 }'
    Masterdata_SearchMachineSpec_Valid_col_as_isActive:
@@ -178,6 +184,7 @@ SearchMachineSpec:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
+	"data": [{
 	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
@@ -186,7 +193,8 @@ SearchMachineSpec:
 	"minDriverversion": "3.2",
 	"description": "HP brand",
 	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
+	}]
 }'
    Masterdata_SearchMachineSpec_Valid_col_as_Name_FltrTyp_startsWith:
       endPoint: /v1/masterdata/machinespecifications/search
@@ -215,6 +223,7 @@ SearchMachineSpec:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
+	"data": [{
 	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
@@ -223,7 +232,8 @@ SearchMachineSpec:
 	"minDriverversion": "3.2",
 	"description": "HP brand",
 	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
+	}]
 }'
    Masterdata_SearchMachineSpec_Valid_col_as_Name_FltrTyp_contains:
       endPoint: /v1/masterdata/machinespecifications/search
@@ -252,6 +262,7 @@ SearchMachineSpec:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
+	"data": [{
 	"id": "$IGNORE$",
 	"name": "HP",
 	"brand": "HP",
@@ -260,7 +271,8 @@ SearchMachineSpec:
 	"minDriverversion": "3.2",
 	"description": "HP brand",
 	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
+	}]
 }'
    Masterdata_SearchMachineSpec_inValid_columnName_blank:
       endPoint: /v1/masterdata/machinespecifications/search

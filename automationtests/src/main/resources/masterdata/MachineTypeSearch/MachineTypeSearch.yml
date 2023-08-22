@@ -30,7 +30,7 @@ MachineTypeSearch:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
         "code": "Laptop-2",
         "langCode": "eng",
@@ -63,7 +63,7 @@ MachineTypeSearch:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
         "langCode": "$IGNORE$",
