@@ -29,6 +29,8 @@ import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.ida.certificate.CertificateGenerationUtil;
+import io.mosip.testrig.apirig.ida.certificate.KeyCloakUserAndAPIKeyGeneration;
+import io.mosip.testrig.apirig.ida.certificate.MispPartnerAndLicenseKeyGeneration;
 import io.mosip.testrig.apirig.ida.certificate.PartnerRegistration;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.kernel.util.KeycloakUserManager;
@@ -68,12 +70,8 @@ public class MosipTestRunner {
 				ExtractResource.extractResourceFromJar();
 			}
 			ConfigManager.init(); 
-//			configureLog4j();
-//			setLogLevelForAllClasses(Level.ERROR);
-//			Logger.getRootLogger().setLevel(Level.ERROR);
 			BaseTestCase.suiteSetup();
-			AdminTestUtil.setLogLevel();
-			OutputValidationUtil.setLogLevel();
+			setLogLevels();
 			AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
 			
 			// For now we are not doing health check for qa-115.
@@ -145,14 +143,13 @@ public class MosipTestRunner {
 
 	}
 	
-	private static void configureLog4j() {
-        // Configure log4j programmatically (you can also use a properties file)
-        PropertyConfigurator.configure(MosipTestRunner.getResourcePath() + "/" + "log4j.properties");
-    }
-    private static void setLogLevelForAllClasses(Level level) {
-        Logger rootLogger = Logger.getRootLogger();
-        rootLogger.setLevel(level);
-    }
+	private static void setLogLevels(){
+		AdminTestUtil.setLogLevel();
+		OutputValidationUtil.setLogLevel();
+		PartnerRegistration.setLogLevel();
+		KeyCloakUserAndAPIKeyGeneration.setLogLevel();
+		MispPartnerAndLicenseKeyGeneration.setLogLevel();
+	}
 
 	/**
 	 * The method to start mosip testng execution

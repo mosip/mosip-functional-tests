@@ -15,6 +15,7 @@ import java.util.Properties;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
@@ -214,9 +215,15 @@ public class BaseTestCase {
 		logger.info("Configs from properties file are set.");
 
 	}
+	
+	
 
 
 	public static void suiteSetup() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
 		File logFile = new File("./src/logs/mosip-api-test.log");
 		if (logFile.exists())
 			try {

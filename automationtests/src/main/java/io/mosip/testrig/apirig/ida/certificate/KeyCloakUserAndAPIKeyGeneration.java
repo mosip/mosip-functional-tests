@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
@@ -23,6 +24,13 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 	static String policyGroup = PartnerRegistration.policyGroup;
 	static String randomAbbreviation = generateRandomAlphabeticString(4).toUpperCase();
 	static String policyName = AdminTestUtil.policyName;
+	
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			lOGGER.setLevel(Level.ALL);
+		else
+			lOGGER.setLevel(Level.ERROR);
+	}
 	
 	public static String createKCUserAndGetAPIKey() {
 		KeycloakUserManager.createKeyCloakUsers(partnerId, emailId, role);

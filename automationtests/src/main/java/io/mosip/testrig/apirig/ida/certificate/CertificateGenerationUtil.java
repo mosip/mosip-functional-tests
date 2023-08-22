@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
@@ -19,6 +20,10 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 	private static final Logger lOGGER = Logger.getLogger(CertificateGenerationUtil.class);
 
 	static {
+		if (ConfigManager.IsDebugEnabled())
+			lOGGER.setLevel(Level.ALL);
+		else
+			lOGGER.setLevel(Level.ERROR);
 		lOGGER.info("EncryptUtilBaseUrl " + ConfigManager.getAuthDemoServiceUrl());
 		getThumbprints();
 	}
@@ -46,9 +51,7 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		JSONObject responseJson = new JSONObject(response.asString());
 		JSONObject responseValue = (JSONObject) responseJson.get("response");
-		lOGGER.info(responseValue);
 		String idaCertValue = responseValue.getString("certificate");
-		lOGGER.info(idaCertValue);
 
 		JSONObject request = new JSONObject();
 		request.put("certData", idaCertValue);
@@ -64,8 +67,6 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 
 		Response reponse = RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl() + "/" + endPoint,
 				request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
-		lOGGER.info(reponse);
-
 	}
 
 }
