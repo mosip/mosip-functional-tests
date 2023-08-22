@@ -390,7 +390,8 @@ public class ConfigManager {
 	public static boolean isInTobeSkippedList(String stringToFind) {
 		synchronized (toSkippedList) {
 			List<String> toBeSkippedLsit = Arrays.asList(toSkippedList.split(","));
-			LOGGER.info("toSkippedList:  " + toSkippedList + ", toBeSkippedLsit : "+ toBeSkippedLsit + ", stringToFind : "+ stringToFind );
+			if (ConfigManager.IsDebugEnabled())
+				LOGGER.info("toSkippedList:  " + toSkippedList + ", toBeSkippedLsit : "+ toBeSkippedLsit + ", stringToFind : "+ stringToFind );
 			for (String string : toBeSkippedLsit) {
 				if (string.equalsIgnoreCase(stringToFind))
 					return true;

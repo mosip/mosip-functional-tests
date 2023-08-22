@@ -116,7 +116,6 @@ public class PostWithOnlyPathParam extends AdminTestUtil implements ITest {
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 			}
 			
-			logger.info(ouputValid);
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

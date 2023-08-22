@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
@@ -34,6 +35,13 @@ public class PartnerRegistration extends AdminTestUtil {
 	public static String partnerType = "AUTH_PARTNER";
 	static String getPartnerType = "RELYING_PARTY";
 	public static String policyGroup = AdminTestUtil.policyGroup;
+	
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			lOGGER.setLevel(Level.ALL);
+		else
+			lOGGER.setLevel(Level.ERROR);
+	}
 
 	public static String generateAndGetPartnerKeyUrl() {
 		if (!BaseTestCase.isTargetEnvLTS()) {
