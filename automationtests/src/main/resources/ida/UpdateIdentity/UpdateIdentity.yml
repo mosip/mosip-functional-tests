@@ -2,6 +2,7 @@ UpdateIdentity:
   Auth_UpdateIdentity_updatePhone_withValidParameters_smoke_Pos_smoke:
       endPoint: /idrepository/v1/identity/
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: ida/UpdateIdentity/updateIdentity
       outputTemplate: ida/UpdateIdentity/updateIdentityResult

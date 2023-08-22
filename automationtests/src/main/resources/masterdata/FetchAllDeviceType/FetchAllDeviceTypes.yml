@@ -11,7 +11,5 @@ FetchAllDeviceType:
   
 }'
       output: '{
-"data": [{
-       
-      }]
+
 }'

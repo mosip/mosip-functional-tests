@@ -12,7 +12,6 @@ BulkUpload:
     "tableName":"gender"
   }'
       output: '{
-     "transcationId": "$IGNORE$",
      "tableName": "gender",
      "operation": "insert"
 }'
