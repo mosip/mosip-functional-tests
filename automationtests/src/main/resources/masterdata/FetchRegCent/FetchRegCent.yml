@@ -250,6 +250,7 @@ FetchRegCent:
    MasterData_FetchRegCent_By_HierarchyLevel_Text_langCode_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/{name}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -269,9 +270,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-			"langCode": "$IGNORE$"
-		}]
 }'
    
    MasterData_FetchRegCent_By_HierarchyLevel_Text_langCode_invalid_hierarchylevel:

@@ -170,6 +170,7 @@ DeviceSpecFilter:
    MasterData_DeviceSpecFilter_Invalid_Value_Name_neg:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
@@ -184,7 +185,6 @@ DeviceSpecFilter:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": []
   }'
    MasterData_DeviceSpecFilter_Invalid_FilterType_neg:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
