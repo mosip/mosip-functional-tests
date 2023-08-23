@@ -19,6 +19,22 @@ import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 public class ReportUtil {
 	
 	/**
+	 * Publish the request and response headers in text area
+	 * @param content
+	 * @return test area html
+	 */
+	public static String getTextAreaForHeaders(String headers) {
+		String formattedHeader = "No headers";
+		if (headers != null)
+			formattedHeader = headers;
+		StringBuilder sb = new StringBuilder();
+		sb.append("<div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>");
+		sb.append(formattedHeader);
+		sb.append("</textarea> </div>");
+		return sb.toString();
+	}
+	
+	/**
 	 * Method to show the output validation result in table format in testng report
 	 * 
 	 * @param outputresultRunConfigUtil.getResourcePath()
@@ -73,9 +89,9 @@ public class ReportUtil {
 	 */
 	public static String getTextAreaJsonMsgHtml(String content) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("<textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>");
+		sb.append("<div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>");
 		sb.append(JsonPrecondtion.toPrettyFormat(content));
-		sb.append("</textarea>");
+		sb.append("</textarea> </div>");
 		return sb.toString();
 	}
 }

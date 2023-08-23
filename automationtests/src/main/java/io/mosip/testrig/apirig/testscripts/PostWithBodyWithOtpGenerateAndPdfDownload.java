@@ -130,10 +130,10 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 			}
 		 
 		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
-			 GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), "Not able to download UIN Card");
+			 GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), "Not able to download UIN Card");
 		 }
 		 else {
-			 GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
+			 GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
 		 }
 		
 	}

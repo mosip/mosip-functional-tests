@@ -83,7 +83,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			String json = getEncryption(jsonString);
 			JSONObject jsonobj = new JSONObject(json);
 			Reporter.log("<b> <u>Encryption of identity request</u> </b>");
-			GlobalMethods.reportRequest(json);
+			GlobalMethods.reportRequest(null, json);
 			ecryptData.put("key", jsonobj.get(key).toString());
 			ecryptData.put("data", jsonobj.get(data).toString());
 			ecryptData.put("hmac", jsonobj.get(hmac).toString());
@@ -107,7 +107,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 			String json = getIntenalEncryption(jsonString);
 			JSONObject jsonobj = new JSONObject(json);
 			Reporter.log("<b> <u>Encryption of identity request</u> </b>");
-			GlobalMethods.reportRequest(json);
+			GlobalMethods.reportRequest(null, json);
 			ecryptData.put("key", jsonobj.get(key).toString());
 			ecryptData.put("data", jsonobj.get(data).toString());
 			ecryptData.put("hmac", jsonobj.get(hmac).toString());
@@ -129,7 +129,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		try {
 			JSONObject objectData = new JSONObject(jsonString);
 			Reporter.log("<b><u> Identity request:</u></b>");
-			GlobalMethods.reportRequest(objectData.toString());
+			GlobalMethods.reportRequest(null, objectData.toString());
 			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get("encryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
@@ -148,7 +148,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		try {
 			JSONObject objectData = new JSONObject(jsonString);
 			Reporter.log("<b><u> Identity request:</u></b>");
-			GlobalMethods.reportRequest(objectData.toString());
+			GlobalMethods.reportRequest(null, objectData.toString());
 			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get("internalEncryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {

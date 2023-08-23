@@ -100,10 +100,10 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 		       			}
 		       		 
 			       		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
-			       			GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), "Not able to download");
+			       			GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), "Not able to download");
 			       		 }
 			       		 else {
-			       			GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
+			       			GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
 			       		 }
 		        }
 		}  
@@ -117,10 +117,10 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 				}
 			 
 			 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
-				 GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), "Not able to download");
+				 GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), "Not able to download");
 			 }
 			 else {
-				 GlobalMethods.reportResponse(ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
+				 GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
 			 }
 		}
 		 

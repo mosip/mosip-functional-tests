@@ -43,7 +43,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			JSONParser parser = new JSONParser();
 			JSONObject jsonobj = (JSONObject) parser.parse(json);
 			Reporter.log("<b> <u>Encryption of identity request</u> </b>");
-			GlobalMethods.reportRequest(json);
+			GlobalMethods.reportRequest(null, json);
 			ecryptData.put("key", jsonobj.get(key).toString());
 			ecryptData.put("data", jsonobj.get(data).toString());
 			ecryptData.put("hmac", jsonobj.get(hmac).toString());
@@ -67,7 +67,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 			JSONParser parser = new JSONParser();
 			JSONObject jsonobj = (JSONObject) parser.parse(json);
 			Reporter.log("<b> <u>Encryption of identity request</u> </b>");
-			GlobalMethods.reportRequest(json);
+			GlobalMethods.reportRequest(null, json);
 			ecryptData.put("key", jsonobj.get(key).toString());
 			ecryptData.put("data", jsonobj.get(data).toString());
 			ecryptData.put("hmac", jsonobj.get(hmac).toString());
@@ -88,7 +88,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
 			Reporter.log("<b><u> Identity request:</u></b>");
-			GlobalMethods.reportRequest(objectData.toString());
+			GlobalMethods.reportRequest(null, objectData.toString());
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncryptionPath(), objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
@@ -107,7 +107,7 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 		try {
 			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
 			Reporter.log("<b><u> Identity request:</u></b>");
-			GlobalMethods.reportRequest(objectData.toString());
+			GlobalMethods.reportRequest(null, objectData.toString());
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getInternalEncryptionPath(), objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
