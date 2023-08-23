@@ -517,7 +517,7 @@ public class BaseTestCase {
 		String value = null;
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(url, response);
+			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			responseJson = new org.json.JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
@@ -575,7 +575,7 @@ public class BaseTestCase {
 			String url = ApplnURI + propsKernel.getProperty("auditActuatorEndpoint");
 			try {
 				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-				GlobalMethods.reportResponse(url, response);
+				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 				responseJson = new org.json.JSONObject(response.getBody().asString());
 
@@ -605,7 +605,7 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(url, response);
+			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			responseJson = new org.json.JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
