@@ -4,7 +4,7 @@ DeleteSpecificDocForaPRID:
       role: batch
       restMethod: post
       inputTemplate: preReg/DeleteSpecificDocForaPRID/deleteSpecificDocForaPRID
-      outputTemplate: preReg/error
+      outputTemplate: preReg/DeleteSpecificDocForaPRID/deleteSpecificDocForaPRIDResult
       input: '{
 	"preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$",
 	"documentId": "$ID:UploadDocument_All_Valid_Smoke_sid_docId$"
