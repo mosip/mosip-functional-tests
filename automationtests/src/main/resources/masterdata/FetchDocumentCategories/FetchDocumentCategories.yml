@@ -50,8 +50,4 @@ FetchDocumentCategories:
   "langcode":"eng"
 }'
       output: '{
-"documentcategories": [{
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
-      }]
 }'

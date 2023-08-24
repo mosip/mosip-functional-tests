@@ -17,7 +17,7 @@ GetimmediateChildrenByLocationCode:
         "hierarchyName": "$IGNORE$",
         "parentLocCode": "$IGNORE$",
         "langCode": "eng",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
     }]
 }'
 

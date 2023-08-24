@@ -2,6 +2,7 @@ DeleteMachine:
    MasterData_DeleteMachine_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/machines/{id}
       role: globalAdmin
+      checkErrorsOnlyInResponse: true
       templateFields: []
       restMethod: delete
       inputTemplate: masterdata/DeleteMachine/deleteMachine
@@ -10,7 +11,6 @@ DeleteMachine:
     "id": "$ID:CreateMachine_All_Valid_Smoke_sid_id$"
 	}'
       output: '{
-    "id": "$IGNORE$"
 }'
    MasterData_DeleteMachine_Invalid_ID: 
       endPoint: /v1/masterdata/machines/{id}

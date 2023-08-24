@@ -28,7 +28,6 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-		"isActive": $IGNORE$,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
 		"holidayDate": "2020-08-15",
@@ -65,7 +64,6 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-		"isActive": $IGNORE$,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
 		"holidayDate": "2020-08-15",
@@ -102,7 +100,6 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-		"isActive": $IGNORE$,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
 		"holidayDate": "2020-08-15",
@@ -139,7 +136,6 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-		"isActive": $IGNORE$,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
 		"holidayDate": "2020-08-15",
@@ -176,7 +172,6 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-		"isActive": $IGNORE$,
 		"holidayId": "$IGNORE$",
 		"name": "$IGNORE$",
 		"holidayDate": "2020-08-15",

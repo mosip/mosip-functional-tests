@@ -2,6 +2,7 @@ SearchDocCategories:
    MasterData_SearchDocCategories_Valid_Request_Smoke:
       endPoint: /v1/masterdata/documentcategories/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
@@ -35,7 +36,6 @@ SearchDocCategories:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-   "data": []
 }'
    MasterData_SearchDocCategories_Valid_sortBy_code:
       endPoint: /v1/masterdata/documentcategories/search

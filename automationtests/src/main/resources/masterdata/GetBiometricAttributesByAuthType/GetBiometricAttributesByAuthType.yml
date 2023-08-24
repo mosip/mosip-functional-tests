@@ -16,7 +16,7 @@ GetBiometricAttributesByAuthType:
         "description": "$IGNORE$",
         "biometricTypeCode": "FNR",
         "langCode": "eng",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
     }]
 }'
 

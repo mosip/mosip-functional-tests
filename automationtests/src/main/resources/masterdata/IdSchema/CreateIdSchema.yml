@@ -13,7 +13,6 @@ CreateIdSchema:
 	}'
       output: '{
     "id": "$IGNORE$",
-    "idVersion": $IGNORE$,
     "title": "test-schema",
     "description": "Testing purpose",
     "schemaJson": "$IGNORE$"

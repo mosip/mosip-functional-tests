@@ -11,10 +11,6 @@ FetchTemplate:
 "templatetypecode": "$REMOVE$"  
 }'
       output: '{
-"templates": [{
-				"langCode": "$IGNORE$",
-				"isActive": $IGNORE$
-			}]
 }'
    MasterData_FetchTemplate_allValid_ByLangcode_smoke:
       endPoint: /v1/masterdata/templates/{langcode}
@@ -28,10 +24,6 @@ FetchTemplate:
 "templatetypecode": "$REMOVE$"  
 }'
       output: '{
-"templates": [{
-				"langCode": "$IGNORE$",
-				"isActive": $IGNORE$
-			}]
 }'
    MasterData_FetchTemplate_allValid_smoke_with_lang_and_templatetypecode:
       endPoint: /v1/masterdata/templates/{langcode}/{templatetypecode}

@@ -14,7 +14,7 @@ GetUserDetails:
       "name": "$IGNORE$",
       "statusCode": "$IGNORE$",
       "regCenterId": "10005",
-      "isActive": $IGNORE$,
+      "isActive": "$IGNORE$",
       "zoneCode": "$IGNORE$"
 }'
    MasterData_GetUserDetails_ByUserId_allValid_smoke:
@@ -32,7 +32,7 @@ GetUserDetails:
       "name": "$IGNORE$",
       "statusCode": "$IGNORE$",
       "regCenterId": "10005",
-      "isActive": $IGNORE$,
+      "isActive": "$IGNORE$",
       "zoneCode": "$IGNORE$"
 }'
    MasterData_GetUserDetails_InValid_InvalidUserID:

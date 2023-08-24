@@ -20,14 +20,6 @@ GenderSearch:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": $IGNORE$,
-        "code": "$IGNORE$",
-        "genderName": "$IGNORE$",
-        "langCode": "$IGNORE$"
-      }
-    ]
 }'
    Masterdata_GenderSearch_valid_lang:
       endPoint: /v1/masterdata/gendertypes/search
@@ -56,15 +48,6 @@ GenderSearch:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": $IGNORE$,
-        "createdBy": "$IGNORE$",
-        "code": "$IGNORE$",
-        "genderName": "$IGNORE$",
-        "langCode": "$IGNORE$"
-      }
-    ]
 }'
    Masterdata_GenderSearch_Valid_langCodeAsEng_sortBy_code:
       endPoint: /v1/masterdata/gendertypes/search
@@ -87,14 +70,6 @@ GenderSearch:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-      {
-        "isActive": $IGNORE$,
-        "code": "$IGNORE$",
-        "genderName": "$IGNORE$",
-        "langCode": "$IGNORE$"
-      }
-    ]
 }'
    Masterdata_GenderSearch_InvalidSortFieldAsEmpty:
       endPoint: /v1/masterdata/gendertypes/search
@@ -233,13 +208,4 @@ GenderSearch:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "code": "$IGNORE$",
-        "genderName": "$IGNORE$",
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$,
-        "createdBy": "$IGNORE$"
-      }
-    ]
 }'

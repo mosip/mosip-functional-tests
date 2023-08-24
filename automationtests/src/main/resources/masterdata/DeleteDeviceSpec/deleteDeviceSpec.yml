@@ -2,6 +2,7 @@ DeleteDeviceSpec:
    MasterData_DeleteDeviceSpec_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/devicespecifications/{id}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: []
       restMethod: delete
       inputTemplate: masterdata/DeleteDeviceSpec/deleteDeviceSpec
@@ -10,7 +11,6 @@ DeleteDeviceSpec:
     "id": "$ID:CreateDeviceSpecification_All_Valid_Smoke_sid_id$"
 	}'
       output: '{
-    "id": "$ID:CreateDeviceSpecification_All_Valid_Smoke_sid_id$"
 }'
    MasterData_DeleteDeviceSpec_Invalid_ID: 
       endPoint: /v1/masterdata/devicespecifications/{id}

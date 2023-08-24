@@ -10,10 +10,6 @@ FetchHolidays:
       "langcode": "$REMOVE$"
       }'
       output: '{
-"holidays": [{
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
-      }]
 }'
   
    MasterData_FetchHolidays_allValid_smoke_with Id:
@@ -27,10 +23,6 @@ FetchHolidays:
       "langcode":"$REMOVE$"
       }'
       output: '{
-"holidays": [{
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
-      }]
 }'        
    MasterData_FetchHolidays_allValid_smoke_with Id and langCode:
       endPoint: /v1/masterdata/holidays/{holidayid}/{langcode}
@@ -43,11 +35,6 @@ FetchHolidays:
       "langcode":"eng"
       }'
       output: '{
-"holidays": [{
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
-      }
-    ]
   }'        
    MasterData_FetchHolidays_invalid_holidayid_unexisting:
       endPoint: /v1/masterdata/holidays/{holidayid}

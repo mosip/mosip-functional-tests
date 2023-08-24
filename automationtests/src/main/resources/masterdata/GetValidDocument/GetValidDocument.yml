@@ -15,6 +15,6 @@ GetValidDocument:
       "docCategoryCode": "$IGNORE$",
       "docTypeName": "$IGNORE$",
       "langCode": "eng",
-      "isActive": $IGNORE$
+      "isActive": "$IGNORE$"
       }]
 }'

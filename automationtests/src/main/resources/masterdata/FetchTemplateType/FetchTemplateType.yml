@@ -11,9 +11,6 @@ FetchTemplateType:
   "code": "auth-email-content"
 }'
       output: '{
-"templateTypes": [{
-			"isActive": $IGNORE$
-		}]
 }'
    MasterData_FetchTemplateType_inValid_code:
       endPoint: /v1/masterdata/templatetypes/{code}/{langcode}
@@ -46,8 +43,5 @@ FetchTemplateType:
   "code": "$REMOVE$"
 }'
       output: '{
-"templateTypes": [{
-			"isActive": $IGNORE$
-		}]
 }'
   

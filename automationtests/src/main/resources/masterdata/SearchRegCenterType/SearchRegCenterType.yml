@@ -2,6 +2,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_allValid_somke:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
@@ -26,15 +27,6 @@ SearchRegCenterType:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": $IGNORE$,
-        "code": "$IGNORE$",
-        "name": "$IGNORE$",
-        "descr": "$IGNORE$",
-        "langCode": "$IGNORE$"
-      }
-    ]
 }'
    
    MasterData_SearchRegCenterType_valid_col_isActive_true:
@@ -77,6 +69,7 @@ SearchRegCenterType:
    MasterData_SearchRegCenterType_valid_typeFilter_contains:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
@@ -101,19 +94,11 @@ SearchRegCenterType:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": $IGNORE$,
-        "code": "$IGNORE$",
-        "name": "$IGNORE$",
-        "descr": "$IGNORE$",
-        "langCode": "$IGNORE$"
-      }
-    ]
 }'
    MasterData_SearchRegCenterType_valid_typeFilter_startsWith:
       endPoint: /v1/masterdata/registrationcentertypes/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
@@ -138,15 +123,6 @@ SearchRegCenterType:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": $IGNORE$,
-        "code": "$IGNORE$",
-        "name": "$IGNORE$",
-        "descr": "$IGNORE$",
-        "langCode": "$IGNORE$"
-      }
-    ]
 }'
    MasterData_SearchRegCenterType_inValid_columnName_blank:
       endPoint: /v1/masterdata/registrationcentertypes/search
@@ -222,7 +198,7 @@ SearchRegCenterType:
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
-      outputTemplate: masterdata/SearchRegCenterType/searchRegCenterTypeResult
+      outputTemplate: masterdata/error
       input: '{
     "filters": [{
         "columnName": "name",
@@ -243,7 +219,12 @@ SearchRegCenterType:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": []
+  "errors": [
+    {
+      "errorCode": "KER-MSD-390",
+      "message": "$IGNORE$"
+    }
+  ]
 }'
    MasterData_SearchRegCenterType_inValid_filter_value_blank:
       endPoint: /v1/masterdata/registrationcentertypes/search

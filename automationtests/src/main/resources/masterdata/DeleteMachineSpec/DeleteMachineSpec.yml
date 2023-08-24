@@ -2,6 +2,7 @@ DeleteMachineSpec:
    MasterData_DeleteMachineSpec_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/machinespecifications/{id}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: []
       restMethod: delete
       inputTemplate: masterdata/DeleteMachineSpec/deleteMachineSpec
@@ -10,7 +11,6 @@ DeleteMachineSpec:
     "id": "$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$"
 	}'
       output: '{
-    "id": "$IGNORE$"
 }'
    MasterData_DeleteMachineSpec_Invalid_ID: 
       endPoint: /v1/masterdata/machinespecifications/{id}

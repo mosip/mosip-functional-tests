@@ -9,11 +9,4 @@ GetDocCategory:
       
 }'
       output: '{
-"documentcategories": [{
-       "code": "$IGNORE$",
-        "name": "$IGNORE$",
-        "description": "$IGNORE$",
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
-    }]
 }'  

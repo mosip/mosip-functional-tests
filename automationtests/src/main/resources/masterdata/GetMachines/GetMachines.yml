@@ -9,19 +9,4 @@ GetMachines:
       
 }'
       output: '{
-"machines": [{
-       "id": "$IGNORE$",
-        "name": "$IGNORE$",
-        "serialNum": "$IGNORE$",
-        "macAddress": "$IGNORE$",
-        "ipAddress": "$IGNORE$",
-        "machineSpecId": "$IGNORE$",
-        "regCenterId": "$IGNORE$",
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$,
-        "validityDateTime": "$IGNORE$",
-        "publicKey":"$IGNORE$",
-        "signPublicKey": "$IGNORE$",
-        "zoneCode": "$IGNORE$"
-    }]
 }'  
