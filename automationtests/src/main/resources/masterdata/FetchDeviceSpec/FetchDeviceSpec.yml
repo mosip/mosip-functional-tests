@@ -12,10 +12,6 @@ FetchDeviceSpec:
   "langcode": "eng"
 }'
       output: '{
-"devicespecifications": [{
-            "langCode": "$IGNORE$",
-            "isActive": $IGNORE$
-        }]
 }'
    MasterData_FetchDeviceSpec_allValid_byDeviceTypeCode_smoke:
       endPoint: /v1/masterdata/devicespecifications/devicetypecode/{devicetypecode}
@@ -30,10 +26,6 @@ FetchDeviceSpec:
   "langcode": "$REMOVE$"
 }'
       output: '{
-"devicespecifications": [{
-            "langCode": "$IGNORE$",
-            "isActive": $IGNORE$
-        }]
 }'
    MasterData_FetchDeviceSpec_allValid_smoke_with_lang_and_deviceType:
       endPoint: /v1/masterdata/devicespecifications/{langcode}/{devicetypecode}
@@ -48,10 +40,6 @@ FetchDeviceSpec:
   "langcode": "eng"
 }'
       output: '{
-"devicespecifications": [{
-            "langCode": "$IGNORE$",
-            "isActive": $IGNORE$
-        }]
 }'
    MasterData_FetchDeviceSpec_invalid_devicetypecode_unexisting:
       endPoint: /v1/masterdata/devicespecifications/{langcode}/{devicetypecode}

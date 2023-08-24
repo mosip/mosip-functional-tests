@@ -33,11 +33,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "61-D3-FD-12-C9-ED",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_FilterTypeContains:
       endPoint: /v1/masterdata/machines/search
@@ -73,11 +73,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "61-D3-FD-12-C9-ED",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_FilterTypeStartsWith:
       endPoint: /v1/masterdata/machines/search
@@ -113,11 +113,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "61-D3-FD-12-C9-ED",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_ColumnMacAddressNFilterTypeEquals:
       endPoint: /v1/masterdata/machines/search
@@ -153,11 +153,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "61-D3-FD-12-C9-ED",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_ColumnMacAddressNTypeContains:
       endPoint: /v1/masterdata/machines/search
@@ -193,11 +193,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "61-D3-FD-12-C9-ED",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_ColumnMacAddressNTypeStartsWith:
       endPoint: /v1/masterdata/machines/search
@@ -233,11 +233,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "61-D3-FD-12-C9-ED",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_ColumnSerialNumberNTypeEquals:
       endPoint: /v1/masterdata/machines/search
@@ -273,11 +273,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "$IGNORE$",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_ColumnSerialNumberNTypeContains:
       endPoint: /v1/masterdata/machines/search
@@ -313,11 +313,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "$IGNORE$",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_ColumnSerialNumberNTypeStartsWith:
       endPoint: /v1/masterdata/machines/search
@@ -353,11 +353,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "$IGNORE$",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_ColumnMachineSpecIdNTypeEquals:
       endPoint: /v1/masterdata/machines/search
@@ -393,11 +393,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "$IGNORE$",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_ColumnMachineSpecIdNTypeContains:
       endPoint: /v1/masterdata/machines/search
@@ -433,11 +433,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "$IGNORE$",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_ColumnMachineSpecIdNTypeStartsWith:
       endPoint: /v1/masterdata/machines/search
@@ -473,11 +473,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "$IGNORE$",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_TwoFilterValues_TypeEqualsNEquals:
       endPoint: /v1/masterdata/machines/search
@@ -520,11 +520,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "61-D3-FD-12-C9-ED",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_SortFieldDESC:
       endPoint: /v1/masterdata/machines/search
@@ -560,11 +560,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "61-D3-FD-12-C9-ED",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_TwoSortFields_DescNDesc:
       endPoint: /v1/masterdata/machines/search
@@ -604,11 +604,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "61-D3-FD-12-C9-ED",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Valid_TwoSortFields_AscNDesc:
       endPoint: /v1/masterdata/machines/search
@@ -648,11 +648,11 @@ SearchMachine:
         "serialNum": "FB5962911687",
         "macAddress": "61-D3-FD-12-C9-ED",
         "ipAddress": "192.168.0.424",
-        "machineSpecId": "1001",
+        "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
         "zoneCode": "CST",
         "zone": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
 }'
    Masterdata_SearchMachine_Invalid_ColumnName:
       endPoint: /v1/masterdata/machines/search

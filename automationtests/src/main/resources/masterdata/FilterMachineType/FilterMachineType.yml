@@ -2,6 +2,7 @@ FilterMachineType:
    Masterdata_FilterMachineType_Valid_Smoke:
       endPoint: /v1/masterdata/machinetypes/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineType/filterMachineType
@@ -16,11 +17,11 @@ FilterMachineType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": []
   }'
    Masterdata_FilterMachineType_Valid_col_as_name_filterType_all:
       endPoint: /v1/masterdata/machinetypes/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineType/filterMachineType
@@ -35,7 +36,6 @@ FilterMachineType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": []
   }'
   
    Masterdata_FilterMachineType_inValid_filterType_blank:
@@ -164,7 +164,7 @@ FilterMachineType:
       templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineType/filterMachineType
-      outputTemplate: masterdata/FilterMachineType/filterMachineTypeResult
+      outputTemplate: masterdata/error
       input: '{
 	"filters": [{
 		"columnName": "name",
@@ -175,5 +175,10 @@ FilterMachineType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": []
+  "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
   }'

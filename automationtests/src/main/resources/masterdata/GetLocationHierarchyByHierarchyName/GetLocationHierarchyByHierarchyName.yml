@@ -16,7 +16,7 @@ GetLocationHierarchyByHierarchyName:
         "hierarchyName": "City",
         "parentLocCode": "$IGNORE$",
         "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
     }]
 }'
 

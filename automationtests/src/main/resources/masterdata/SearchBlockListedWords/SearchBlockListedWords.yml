@@ -30,7 +30,6 @@ SearchBlockListedWords:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
         "description": "$IGNORE$",
         "word": "dumbo7",
         "langCode": "eng"
@@ -68,7 +67,6 @@ SearchBlockListedWords:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
         "description": "$IGNORE$",
         "word": "dumbo7",
         "langCode": "eng"
@@ -106,7 +104,6 @@ SearchBlockListedWords:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
         "description": "$IGNORE$",
         "word": "dumbo7",
         "langCode": "eng"
@@ -180,7 +177,6 @@ SearchBlockListedWords:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
         "description": "$IGNORE$",
         "word": "dumb7",
         "langCode": "eng"

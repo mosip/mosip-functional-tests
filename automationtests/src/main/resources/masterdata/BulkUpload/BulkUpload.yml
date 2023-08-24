@@ -1,5 +1,5 @@
 BulkUpload:
-   Admin_BulkUpload_Smoke_sid:
+   Masterdata_BulkUpload_Smoke_sid:
       endPoint: /v1/admin/bulkupload
       role: admin
       restMethod: post
@@ -15,7 +15,7 @@ BulkUpload:
      "tableName": "gender",
      "operation": "insert"
 }'
-   Admin_BulkUpload_update_gender_name:
+   Masterdata_BulkUpload_update_gender_name:
       endPoint: /v1/admin/bulkupload
       role: admin
       restMethod: post

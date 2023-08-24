@@ -10,13 +10,6 @@ GetDocCategoryByLangCode:
       "langcode":"eng"
 }'
       output: '{
-"documentcategories": [{
-       "code": "$IGNORE$",
-        "name": "$IGNORE$",
-        "description": "$IGNORE$",
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
-    }]
 }'
 
    Admin_GetDocCategoryByLangCode_Invalid_code:

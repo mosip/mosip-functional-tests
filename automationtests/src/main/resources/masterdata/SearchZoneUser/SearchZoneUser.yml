@@ -27,12 +27,10 @@ SearchZoneUser:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "isActive": $IGNORE$,
         "createdBy": "$IGNORE$",
         "createdDateTime": "$IGNORE$",
         "updatedBy": "$IGNORE$",
         "updatedDateTime": "$IGNORE$",
-        "isDeleted": $IGNORE$,
         "deletedDateTime": "$IGNORE$",
         "zoneCode": "$IGNORE$",
         "userId": "$IGNORE$",

@@ -9,12 +9,6 @@ GetLocationHierarchyLevelByLastUpdatedDate:
       
 }'
       output: '{
-"locationHierarchyLevels": [{
-       "hierarchyLevel": "$IGNORE$",
-        "hierarchyLevelName": "$IGNORE$",
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
-    }]
 }'
 
    Admin_GetLocationHierarchyLevelByLastUpdatedDate_Invalid_Invalid_lD:

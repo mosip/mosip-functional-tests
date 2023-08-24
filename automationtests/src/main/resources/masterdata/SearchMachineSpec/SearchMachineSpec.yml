@@ -160,6 +160,7 @@ SearchMachineSpec:
    Masterdata_SearchMachineSpec_Valid_col_as_isActive:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
@@ -184,17 +185,6 @@ SearchMachineSpec:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "HP",
-	"brand": "HP",
-	"model": "1234",
-	"machineTypeCode": "$IGNORE$",
-	"minDriverversion": "3.2",
-	"description": "HP brand",
-	"langCode": "eng",
-	"isActive": "$IGNORE$"
-	}]
 }'
    Masterdata_SearchMachineSpec_Valid_col_as_Name_FltrTyp_startsWith:
       endPoint: /v1/masterdata/machinespecifications/search

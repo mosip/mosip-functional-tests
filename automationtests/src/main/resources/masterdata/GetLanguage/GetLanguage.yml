@@ -14,6 +14,6 @@ GetLanguage:
         "name": "$IGNORE$",
         "family": "$IGNORE",
         "nativeName": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
     }]
 }'  

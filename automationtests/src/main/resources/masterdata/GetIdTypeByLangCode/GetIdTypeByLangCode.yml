@@ -14,7 +14,7 @@ GetIdTypeByLangCode:
         "descr": "$IGNORE$",
         "name": "$IGNORE$",
         "langCode": "eng",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
     }]
 }'
 

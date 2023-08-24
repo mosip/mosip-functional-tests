@@ -17,7 +17,7 @@ UpdateHoliday:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-        "holidayId": $IGNORE$,
+        "holidayId": "$IGNORE$",
         "locationCode": "$IGNORE$",
         "holidayDate": "2020-08-15",
         "holidayName": "AutoTest user",

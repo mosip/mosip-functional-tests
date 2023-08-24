@@ -14,7 +14,7 @@ FetchModule:
         "name": "$IGNORE$",
         "langCode": "eng",
         "description": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
     }]
 }'       
    MasterData_FetchModule_Invalid_smoke_with_Invalid_langcode:

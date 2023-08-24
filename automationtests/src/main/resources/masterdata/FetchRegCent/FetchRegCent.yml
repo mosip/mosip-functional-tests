@@ -379,7 +379,7 @@ FetchRegCent:
   "timestamp": "2021-01-20T06:22:07.797Z"
 }'
       output: '{
-  "status":"$IGNORE$"
+  "status":"Valid"
 }'
    
    MasterData_FetchRegCent_validateTimestamp_invalid_id:
