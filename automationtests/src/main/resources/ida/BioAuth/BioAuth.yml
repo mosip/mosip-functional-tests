@@ -789,8 +789,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - request/biometrics/0/data/bioSubType - dh363737dbsb"
+          "errorCode": "IDA-MLC-009"
         }
       ],
         "authStatus": false

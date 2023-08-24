@@ -15,10 +15,7 @@ OtpAuth:
       output: '{
   "authStatus": "true",
  "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
 
@@ -38,10 +35,7 @@ OtpAuth:
       output: '{
   "authStatus": "true",
  "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
 
@@ -61,10 +55,7 @@ OtpAuth:
       output: '{
   "authStatus": "false",
  "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
 
@@ -84,10 +75,7 @@ OtpAuth:
       output: '{
   "authStatus": "false",
  "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
 
@@ -107,10 +95,7 @@ OtpAuth:
       output: '{
   "authStatus": "false",
  "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
 
@@ -130,10 +115,7 @@ OtpAuth:
       output: '{
   "authStatus": "false",
  "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
 
@@ -153,10 +135,7 @@ OtpAuth:
       output: '{
   "authStatus": "false",
  "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
 
@@ -176,10 +155,7 @@ OtpAuth:
       output: '{
   "authStatus": "false",
  "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
 
@@ -199,17 +175,12 @@ OtpAuth:
       output: '{
       "errors": [
     {
-      "errorCode": "IDA-MLC-018",
-      "errorMessage": "VID not available in database",
-      "actionMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-018"
     }
-  ],
+  ]
   "authStatus": "false",
  "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Invalid_individualId_UIN_neg:
@@ -229,15 +200,11 @@ OtpAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - individualId"
+      "errorCode": "IDA-MLC-009"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Invalid_individualId_VID_neg:
@@ -257,15 +224,11 @@ OtpAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - individualId"
+      "errorCode": "IDA-MLC-009"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Blank_individualId_uin_neg:
@@ -285,15 +248,11 @@ OtpAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - individualId"
+      "errorCode": "IDA-MLC-009"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Blank_individualId_VID_neg:
@@ -313,15 +272,11 @@ OtpAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - individualId"
+      "errorCode": "IDA-MLC-009"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Missing_individualId_uin_neg:
@@ -341,15 +296,11 @@ OtpAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - individualId"
+      "errorCode": "IDA-MLC-009"
     }
   ],
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Missing_individualId_VID_neg:
@@ -369,15 +320,11 @@ OtpAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - individualId"
+      "errorCode": "IDA-MLC-009"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Invalid_transactionId_uin_Neg:
@@ -396,10 +343,7 @@ OtpAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Invalid_transactionId_VID_Neg:
@@ -418,10 +362,7 @@ OtpAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Blank_transactionId_uin_Neg:
@@ -440,10 +381,7 @@ OtpAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Blank_transactionId_VID_Neg:
@@ -462,10 +400,8 @@ OtpAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_different_transactionId_uin_neg:
@@ -484,10 +420,8 @@ OtpAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Invalid_individualIdType_VID_neg:
@@ -506,10 +440,7 @@ OtpAuth:
       output: '{
     "authStatus": true,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Blank_individualIdType_VID_Pos:
@@ -528,10 +459,7 @@ OtpAuth:
       output: '{
     "authStatus": true,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Missing_Optional_Field_individualIdType_VID:
@@ -550,10 +478,7 @@ OtpAuth:
       output: '{
   "authStatus": "true",
  "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_OTP_Auth_With_Invalid_uin_partner:
@@ -573,18 +498,13 @@ OtpAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-007",
-      "errorMessage": "Request could not be processed. Please try again"
+      "errorCode": "IDA-MLC-007"
     },
     {
-      "errorCode": "IDA-MPA-009",
-      "errorMessage": "Partner is not registered"
+      "errorCode": "IDA-MPA-009"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
