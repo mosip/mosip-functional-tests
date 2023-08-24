@@ -9,5 +9,4 @@ FetchIdSchema:
   
 }'
       output: '{
-   "response": "$IGNORE$"
 }'      

@@ -10,7 +10,6 @@ DeleteTemplate:
     "id": "$ID:CreateTemplate_All_Valid_Smoke_sid_id$"
 	}'
       output: '{
-    "id": "$IGNORE$"
 }'
    MasterData_DeleteTemplate_Invalid_ID: 
       endPoint: /v1/masterdata/templates/{id}

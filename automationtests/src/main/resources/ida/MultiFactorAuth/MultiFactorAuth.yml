@@ -32,10 +32,7 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_Face_With_InValid_transactionId_uin_Neg:
@@ -71,10 +68,7 @@ MultiFactorAuth:
       output: '{
     "authStatus": true,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_Face_With_Missing_transactionId_uin_Neg:
@@ -110,10 +104,7 @@ MultiFactorAuth:
       output: '{
     "authStatus": true,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_Face_With_Valid_vid_Smoke_Pos:
@@ -149,10 +140,7 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_Face_With_revoked_vid:
@@ -194,10 +182,7 @@ MultiFactorAuth:
     }
   ],
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_Face_With_InValid_vid_transactionId_Neg:
@@ -233,10 +218,7 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_Face_With_blank_vid_transactionId_Neg:
@@ -272,10 +254,7 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RingFinger_With_Valid_uin_Smoke_Pos:
@@ -311,10 +290,7 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RingFinger_With_missing_transactionId_uin_Neg:
@@ -350,10 +326,7 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RingFinger_With_invalid_transactionId_uin_Neg:
@@ -389,10 +362,7 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RingFinger_With_vid_InValid_transactionId_Neg:
@@ -427,10 +397,7 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RingFinger_With_vid_blank_transactionId_Neg:
@@ -466,10 +433,7 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RingFinger_With_Valid_VID_Smoke_Pos:
@@ -505,10 +469,7 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_uin_Valid_Smoke_Pos:
@@ -544,10 +505,7 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_uin_InValid_transactionId_Neg:
@@ -583,10 +541,7 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_uin_blank_transactionId_Neg:
@@ -622,10 +577,8 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftMiddleFingerr_With_Valid_VID_Smoke_Pos:
@@ -661,10 +614,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIndexFingerr_With_uin_Valid_Smoke_Pos:
@@ -700,10 +651,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIndexFingerr_With_Valid_vid_Smoke_Pos:
@@ -739,10 +688,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftLittleFinger_With_uin_Valid_Smoke_Pos:
@@ -778,10 +725,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftLittleFinger_With_Valid_VID_Smoke_Pos:
@@ -817,10 +762,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RightIndexFinger_With_uin_Valid_Smoke_Pos:
@@ -856,10 +799,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RightIndexFinger_With_Valid_VID_Smoke_Pos:
@@ -895,10 +836,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RightRingFinger_With_uin_Valid_Smoke_Pos:
@@ -934,10 +873,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RightRingFinger_With_Valid_VID_Smoke_Pos:
@@ -973,10 +910,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RightMiddleFinger_With_uin_Valid_Smoke_Pos:
@@ -1012,10 +947,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RightMiddleFinger_With_Valid_VID_Smoke_Pos:
@@ -1051,10 +984,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RightLittleFinger_With_uin_Valid_Smoke_Pos:
@@ -1090,10 +1021,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RightLittleFinger_With_Valid_VID_Smoke_Pos:
@@ -1129,10 +1058,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftThumb_With_uin_Valid_Smoke_Pos:
@@ -1168,10 +1095,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftThumb_With_Valid_VID_Smoke_Pos:
@@ -1207,10 +1132,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RightThumb_With_Valid_uin_Smoke_Pos:
@@ -1246,10 +1169,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RightThumb_With_Valid_VID_Smoke_Pos:
@@ -1285,10 +1206,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RightIris_With_uin_Valid_Smoke_Pos:
@@ -1324,10 +1243,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_RightIris_With_Valid_VID_Smoke_Pos:
@@ -1363,10 +1280,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_uin_Valid_Smoke_Pos:
@@ -1402,10 +1317,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With__VID_Valid_Smoke_Pos:
@@ -1441,10 +1354,8 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_InValid_transactionId_Neg:
@@ -1480,10 +1391,8 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_InValid_transactionId_Neg:
@@ -1519,10 +1428,8 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_blank_transactionId_Neg:
@@ -1558,10 +1465,8 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_uin_blank_transactionId_Neg:
@@ -1597,10 +1502,8 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_blank_individualIdType_Pos:
@@ -1636,10 +1539,8 @@ MultiFactorAuth:
       output: '{
     "authStatus": true,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_invalid_individualIdType_Pos:
@@ -1675,10 +1576,8 @@ MultiFactorAuth:
       output: '{
     "authStatus": true,
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_invalid_bioSubType:
@@ -1715,15 +1614,11 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-009"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_invalid_bioSubType:
@@ -1760,15 +1655,12 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-009"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_blank_bioSubType:
@@ -1805,15 +1697,12 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioSubType"
+      "errorCode": "IDA-MLC-006"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_blank_bioSubType:
@@ -1850,15 +1739,12 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioSubType"
+      "errorCode": "IDA-MLC-006"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_missing_bioSubType_Neg:
@@ -1896,14 +1782,12 @@ MultiFactorAuth:
    "errors": [
     {
       "errorCode": "IDA-MLC-006",
-      "errorMessage": "$IGNORE$"
+      
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_missing_bioSubType:
@@ -1940,15 +1824,12 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-006"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_BLANK_bioType:
@@ -1985,10 +1866,8 @@ MultiFactorAuth:
     "authStatus": "$IGNORE$",
    "errors": "$IGNORE$",
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_BLANK_bioType:
@@ -2025,15 +1904,12 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-006",
-      "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioType"
+      "errorCode": "IDA-MLC-006"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_missing_bioType:
@@ -2070,15 +1946,12 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-011",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-011"
     }
   ],
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_invalid_bioType:
@@ -2115,15 +1988,12 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-011",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-011"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_valid_bioType_and_invalid_digitalId_type:
@@ -2160,19 +2030,14 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-007",
-      "errorMessage": "Request could not be processed. Please try again"
-    },
-    {
-      "errorCode": "IDA-DPM-004",
-      "errorMessage": "Device Type and Biometric Type do not match"
+      "errorCode": "IDA-MLC-007"
     }
-  ],
+    {
+      "errorCode": "IDA-DPM-004"
+    }
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_valid_bioType_and_invalid_digitalId_type:
@@ -2209,19 +2074,14 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-007",
-      "errorMessage": "Request could not be processed. Please try again"
-    },
-    {
-      "errorCode": "IDA-DPM-004",
-      "errorMessage": "Device Type and Biometric Type do not match"
+      "errorCode": "IDA-MLC-007"
     }
-  ],
+    {
+      "errorCode": "IDA-DPM-004"
+    }
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_INvalid_bioValue:
@@ -2258,15 +2118,11 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-BIA-001",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-BIA-001"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_INvalid_bioValue:
@@ -2303,15 +2159,12 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-BIA-001",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-BIA-001"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_With_Face_Invalid:
@@ -2348,15 +2201,11 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-BIA-001",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-BIA-001"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_With_Face_Invalid:
@@ -2394,14 +2243,12 @@ MultiFactorAuth:
    "errors": [
     {
       "errorCode": "IDA-BIA-001",
-      "errorMessage": "$IGNORE$"
+      "errorMessage": "$IGNORE$
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_With_Finger_Invalid:
@@ -2438,15 +2285,12 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-BIA-001",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-BIA-001"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+       
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_With_Finger_Invalid:
@@ -2483,15 +2327,11 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-BIA-001",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-BIA-001"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_VID_invalid_Bio-Type_value_as_IR_instead_of_Iris:
@@ -2528,15 +2368,11 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-011",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-011"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_LeftIris_With_UIN_invalid_Bio-Type_value_as_IR_instead_of_Iris:
@@ -2573,15 +2409,12 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-011",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-011"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+      
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_With_VID_invalid_Bio-Type_value_as_FIR_instead_of_Finger:
@@ -2619,14 +2452,10 @@ MultiFactorAuth:
    "errors": [
     {
       "errorCode": "IDA-MLC-011",
-      "errorMessage": "$IGNORE$"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_With_UIN_invalid_Bio-Type_value_as_FIR_instead_of_Finger:
@@ -2663,15 +2492,11 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-011",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-011"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_with_uin_invalid_partner:
@@ -2708,18 +2533,13 @@ MultiFactorAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-007",
-      "errorMessage": "Request could not be processed. Please try again"
+      "errorCode": "IDA-MLC-007"
     },
     {
-      "errorCode": "IDA-MPA-009",
-      "errorMessage": "Partner is not registered"
+      "errorCode": "IDA-MPA-009"
     }
-  ],
+  ]
   "sendOtpResp":{
-        "transactionID": "$IGNORE$",
-        "maskedMobile": "$IGNORE$",
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes",
-        "maskedEmail": "$IGNORE$"
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'

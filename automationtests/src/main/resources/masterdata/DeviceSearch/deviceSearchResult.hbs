@@ -1,20 +1,8 @@
 {
-  "version": "$IGNORE$",
-  "responsetime": "$IGNORE$",
-  "metadata": "$IGNORE$",
   "response": {
-    "fromRecord": "$IGNORE$",
-    "toRecord": "$IGNORE$",
-    "totalRecord": "$IGNORE$",
     "data": [
      {{#each data}}
       {
-        "createdBy": "$IGNORE$",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": "$IGNORE$",
-        "updatedDateTime": "$IGNORE$",
-        "isDeleted": "$IGNORE$",
-        "deletedDateTime": "$IGNORE$",        
         "id": "{{id}}",
         "name": "{{name}}",
         "serialNum": "{{serialNum}}",
@@ -29,6 +17,5 @@
        {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
-  },
-  "errors": "$IGNORE$"
+  }
 }

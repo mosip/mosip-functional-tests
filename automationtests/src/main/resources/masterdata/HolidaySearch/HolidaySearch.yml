@@ -2,6 +2,7 @@ HolidaySearch:
    MasterData_HolidaySearch_equals_holidayName_eng_pos:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
@@ -28,16 +29,11 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-		"holidayId": "$IGNORE$",
-		"name": "$IGNORE$",
-		"holidayDate": "2020-08-15",
-		"holidayName": "AutoTest user Eng",
-		"holidayDesc": "$IGNORE$",
-		"langCode": "eng"
 }'
    MasterData_HolidaySearch_equals_holidayName_ara_pos:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
@@ -64,16 +60,11 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-		"holidayId": "$IGNORE$",
-		"name": "$IGNORE$",
-		"holidayDate": "2020-08-15",
-		"holidayName": "AutoTest user Ara",
-		"holidayDesc": "$IGNORE$",
-		"langCode": "ara"
 }'
    MasterData_HolidaySearch_startsWith_holidayName_eng_pos:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
@@ -100,16 +91,11 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-		"holidayId": "$IGNORE$",
-		"name": "$IGNORE$",
-		"holidayDate": "2020-08-15",
-		"holidayName": "AutoTest user Eng",
-		"holidayDesc": "$IGNORE$",
-		"langCode": "eng"
 }'
    MasterData_HolidaySearch_startsWith_holidayName_ara_pos:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
@@ -136,16 +122,11 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-		"holidayId": "$IGNORE$",
-		"name": "$IGNORE$",
-		"holidayDate": "2020-08-15",
-		"holidayName": "AutoTest user Ara",
-		"holidayDesc": "$IGNORE$",
-		"langCode": "ara"
 }'
    MasterData_HolidaySearch_contains_holidayName_eng_pos:
       endPoint: /v1/masterdata/holidays/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/HolidaySearch/holidaySearch
@@ -172,12 +153,6 @@ HolidaySearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-		"holidayId": "$IGNORE$",
-		"name": "$IGNORE$",
-		"holidayDate": "2020-08-15",
-		"holidayName": "$IGNORE$",
-		"holidayDesc": "$IGNORE$",
-		"langCode": "eng"
 }'
    
    

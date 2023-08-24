@@ -9,8 +9,4 @@ FetchAllUISpec:
   
 }'
       output: '{
-   "jsonSpec": [{
-          "type": "$IGNORE$",
-          "spec": "$IGNORE$"
-        }]
 }'

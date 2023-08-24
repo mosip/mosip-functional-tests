@@ -232,8 +232,7 @@ DeviceSearch:
       output: '{
   "errors": [
     {
-      "errorCode": "KER-MSD-358",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-358"
     }
   ]
 }'

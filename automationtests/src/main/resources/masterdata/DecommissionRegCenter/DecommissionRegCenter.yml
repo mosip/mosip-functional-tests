@@ -9,5 +9,4 @@ DecommissionRegCenter:
     "regCenterID": "$ID:CreateRegCenter_allValid_smoke_sid_id$"
 	}'
       output: '{
-    "id": "$IGNORE$"
 }'

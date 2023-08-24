@@ -22,9 +22,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-			"langCode": "$IGNORE$"
-		}]
 }'
    MasterData_FetchRegCent_coordinate_specific_allValid_smoke:
       endPoint: /v1/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
@@ -49,9 +46,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-			"langCode": "$IGNORE$"
-		}]
 }'
    
    MasterData_FetchRegCent_coordinate_specific_invalid_latitude:
@@ -133,9 +127,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-			"langCode": "$IGNORE$"
-		}]
 }'
    MasterData_FetchRegCent_By_LocationCode_invalid_locationcode:
       endPoint: /v1/masterdata/getlocspecificregistrationcenters/{langcode}/{locationcode}
@@ -188,7 +179,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-			"langCode": "$IGNORE$"
 }'
    
    MasterData_FetchRegCent_Holidays_invalid_registrationcenterid:
@@ -242,9 +232,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-			"langCode": "$IGNORE$"
-		}]
 }'
    
    MasterData_FetchRegCent_By_HierarchyLevel_Text_langCode_allValid_smoke:
@@ -353,9 +340,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-			"langCode": "$IGNORE$"
-		}]
 }'
    MasterData_FetchRegCent_validateTimestamp_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters/validate/{id}/{langcode}/{timestamp}
@@ -433,8 +417,7 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-033",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-033"
     }
   ]
 }'
@@ -461,9 +444,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-      "langCode": "$IGNORE$"
-    }]
 }'
    
    MasterData_FetchRegCent_by_langCode_zoneCode_InValid_zonecode:
@@ -604,9 +584,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-      "langCode": "$IGNORE$"
-    }]
 }'
    MasterData_FetchRegCent_By_zoneCode_invalid_invalid_zonecode:
       endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}

@@ -199,8 +199,7 @@ DeviceSpecSearch:
       output: '{
   "errors": [
     {
-      "errorCode": "KER-MSD-317",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-317"
     }
   ]
 }'
@@ -235,8 +234,7 @@ DeviceSpecSearch:
       output: '{
   "errors": [
     {
-      "errorCode": "KER-MSD-313",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-313"
     }
   ]
 }'
@@ -271,8 +269,7 @@ DeviceSpecSearch:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-313",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-313"
     }
   ]
 }'
@@ -391,8 +388,7 @@ DeviceSpecSearch:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-318",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-318"
     }
   ]
 }'
@@ -427,8 +423,7 @@ DeviceSpecSearch:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-318",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-318"
     }
   ]
 }'
@@ -463,8 +458,7 @@ DeviceSpecSearch:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-317",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-317"
     }
   ]
 }'
