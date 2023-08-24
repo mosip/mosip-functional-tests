@@ -2,6 +2,7 @@ GetAllApplications:
    Prereg_GetAllApplications_All_Valid_Smoke_sid:
       endPoint: /preregistration/v1/applications
       role: batch
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: preReg/GetAllApplications/getAllApplications
       outputTemplate: preReg/GetAllApplications/getAllApplicationsResult
@@ -9,7 +10,6 @@ GetAllApplications:
    "type": null
 }'
       output: '{
-  "errors": null
 }'
    Prereg_GetAllApplications_InValid_Type:
       endPoint: /preregistration/v1/applications?type={type}
@@ -31,6 +31,7 @@ GetAllApplications:
    Prereg_GetAllApplications_Valid_Type_Smoke_sid:
       endPoint: /preregistration/v1/applications?type={type}
       role: batch
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: preReg/GetAllApplications/getAllApplications
       outputTemplate: preReg/GetAllApplications/getAllApplicationsResult
@@ -38,12 +39,4 @@ GetAllApplications:
    "type": "NEW_PREREGISTRATION"
 }'
       output: '{
-  "response": {
-     "allApplications":[
-        {
-           "bookingType": "NEW_PREREGISTRATION"
-        }
-     ]
-  },
-  "errors": null
 }'

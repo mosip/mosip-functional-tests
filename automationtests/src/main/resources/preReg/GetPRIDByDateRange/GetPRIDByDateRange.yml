@@ -165,8 +165,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_003",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_PAM_CORE_003"
     }
   ]
 }'
@@ -187,8 +186,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_003",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_PAM_CORE_003"
     }
   ]
 }'
@@ -209,8 +207,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_015",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_015"
     }
   ]
 }'
