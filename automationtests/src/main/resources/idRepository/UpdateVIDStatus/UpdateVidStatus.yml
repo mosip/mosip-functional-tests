@@ -172,7 +172,7 @@ UpdateVidStatus:
       role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
-      outputTemplate: idRepository/error
+      outputTemplate: idRepository/UpdateVIDStatus/UpdateVidStatusResult
       input: '{
     "vidStatus": "USED",
     "id": "mosip.vid.update",
