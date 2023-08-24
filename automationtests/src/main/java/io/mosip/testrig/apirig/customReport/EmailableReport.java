@@ -455,20 +455,22 @@ public class EmailableReport implements IReporter {
 
 		Object[] parameters = result.getParameters();
 		int parameterCount = (parameters == null ? 0 : parameters.length);
-		if (parameterCount > 0) {
-			writer.print("<tr class=\"param\">");
-			for (int i = 1; i <= parameterCount; i++) {
-				writer.print("<th>Testcase Input");
-				writer.print("</th>");
+		if (ConfigManager.IsDebugEnabled()) {
+			if (parameterCount > 0) {
+				writer.print("<tr class=\"param\">");
+				for (int i = 1; i <= parameterCount; i++) {
+					writer.print("<th>Testcase Input");
+					writer.print("</th>");
+				}
+				writer.print("</tr><tr class=\"param stripe\">");
+				for (Object parameter : parameters) {
+					String testcaseDTO = Utils.toString(parameter).replace("TestCaseDTO(", "");
+					writer.print("<td>");
+					writer.print(Utils.escapeHtml(testcaseDTO.substring(0, testcaseDTO.length()-1)));
+					writer.print("</td>");
+				}
+				writer.print(GlobalConstants.TR);
 			}
-			writer.print("</tr><tr class=\"param stripe\">");
-			for (Object parameter : parameters) {
-				String testcaseDTO = Utils.toString(parameter).replace("TestCaseDTO(", "");
-				writer.print("<td>");
-				writer.print(Utils.escapeHtml(testcaseDTO.substring(0, testcaseDTO.length()-1)));
-				writer.print("</td>");
-			}
-			writer.print(GlobalConstants.TR);
 		}
 
 		List<String> reporterMessages = Reporter.getOutput(result);
