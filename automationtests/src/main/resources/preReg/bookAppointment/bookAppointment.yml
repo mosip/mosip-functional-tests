@@ -99,8 +99,8 @@ BookAppointment:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_015",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_015"
+      
     }
   ]
 }'
@@ -363,8 +363,8 @@ BookAppointment:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_031",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_BOOK_RCI_031"
+      
     }
   ]
 }'
@@ -555,8 +555,8 @@ BookAppointment:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_015",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_015"
+      
     }
   ]
 }'
@@ -628,8 +628,8 @@ BookAppointment:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_013",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_013"
+      
     }
   ]
 }'
