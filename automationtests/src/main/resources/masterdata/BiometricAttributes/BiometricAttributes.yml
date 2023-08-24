@@ -16,8 +16,6 @@ BiometricAttributes:
 	"requesttime": "$TIMESTAMP$"
 	}'
       output: '{
-     "code": "$IGNORE$",
-    "langCode": "$IGNORE$"
 }'
 
    MasterData_BiometricAttributes_Invalid_empty_biometricTypeCode:
@@ -64,8 +62,7 @@ BiometricAttributes:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-APP-103",
-      "message": "$IGNORE$"
+      "errorCode": "KER-APP-103"
     }
   ]
 }'

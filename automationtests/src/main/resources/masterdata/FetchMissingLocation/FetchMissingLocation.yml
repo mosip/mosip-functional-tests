@@ -9,5 +9,4 @@ FetchMissingLocation:
   "langcode": "eng"
 }'
       output: '{
-  "response": "$IGNORE$"
 }'

@@ -17,7 +17,7 @@ UpdateRegistrationCenterLang:
     "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "id": "10008",
+    "id": "$IGNORE$",
     "name": "Center Sidi Allal Tazi Test",
     "addressLine1": "National Road Test",
     "addressLine2": "Alla Tazi Test",

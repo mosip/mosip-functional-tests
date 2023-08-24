@@ -9,8 +9,4 @@ FetchUISpec:
   "domain": "registration-client"
 }'
       output: '{
-   "jsonSpec": [{
-          "type": "$IGNORE$",
-          "spec": "$IGNORE$"
-        }]
 }'      

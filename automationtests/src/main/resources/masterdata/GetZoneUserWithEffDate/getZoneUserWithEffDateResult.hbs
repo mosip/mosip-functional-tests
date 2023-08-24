@@ -1,25 +1,12 @@
 {
-  "id": "$IGNORE$",
-  "version": "$IGNORE$",
-  "responsetime": "$IGNORE$",
-  "metadata": "$IGNORE$",
   "response": {
     "userResponseDto": [
     {{#each userResponseDto}}
       {
-        "isActive": {{isActive}},
-        "createdBy": "$IGNORE$",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": "$IGNORE$",
-        "updatedDateTime": "$IGNORE$",
-        "isDeleted": $IGNORE$,
-        "deletedDateTime": "$IGNORE$",
-        "zoneCode": "$IGNORE$",
-        "userId": "$IGNORE$"
+        "isActive": {{isActive}}
       }
       {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
-  },
-  "errors": "$IGNORE$"
+  }
 }

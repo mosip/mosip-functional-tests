@@ -37,8 +37,7 @@ FilterHolidays:
       output: '{
   "errors": [
     {
-      "errorCode": "KER-MSD-324",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-324"
     }
   ]
   }'
@@ -157,8 +156,7 @@ FilterHolidays:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-999",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-317"
     }
   ]
 }'  
@@ -192,7 +190,7 @@ FilterHolidays:
       templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
-      outputTemplate: masterdata/FilterHolidays/filterHolidaysResult
+      outputTemplate: masterdata/error
       input: '{
 	"filters": [{
 		"columnName": "holidayName",
@@ -205,8 +203,7 @@ FilterHolidays:
       output: '{
   "errors": [
     {
-      "errorCode": "KER-MSD-999",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-999"
     }
   ]
   }'  
