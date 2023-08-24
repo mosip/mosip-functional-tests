@@ -1,20 +1,13 @@
 {
-  "id": "$IGNORE$",
-  "version": "$IGNORE$",
-  "responsetime": "$IGNORE$",
-  "metadata": "$IGNORE$",
   "response": {
     "templateFileFormats": [
     {{#each templateFileFormats}}
       {
         "code": "{{code}}",
-        "description": "$IGNORE$",
-        "langCode": "$IGNORE$",
-        "isActive": {{isActive}}
+        "isActive": "{{isActive}}"
       }
       {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
-  },
-  "errors": "$IGNORE$"
+  }
 }

@@ -43,13 +43,15 @@ public class ExtractResource {
 			if (src != null) {
 				URL jar = src.getLocation();
 				zipInputStream = new ZipInputStream(jar.openStream());
+				File resourceFile = new File(MosipTestRunner.jarUrl).getParentFile();
+				String resourceFileParentPath = resourceFile.getAbsolutePath() + "/MosipTestResource/";
 				while (true) {
 					ZipEntry e = zipInputStream.getNextEntry();
 					if (e == null)
 						break;
 					String name = e.getName();
 					if (name.startsWith(key) && name.contains(".")) {
-						if (copyFilesFromJarToOutsideResource(name))
+						if (copyFilesFromJarToOutsideResource(resourceFileParentPath, name))
 							LOGGER.info("Copied the file: " + name + " to external resource successfully..!");
 						else
 							LOGGER.error("Fail to copy file: " + name + " to external resource");
@@ -80,14 +82,12 @@ public class ExtractResource {
 	 * @param path
 	 * @return
 	 */
-	private static boolean copyFilesFromJarToOutsideResource(String path) {
+	private static boolean copyFilesFromJarToOutsideResource(String resourceFileParentPath, String resourceFileName) {
 		try {
-			File resourceFile = new File(MosipTestRunner.jarUrl).getParentFile();
-			File destinationFile = new File(resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
-			LOGGER.info("resourceFile " + MosipTestRunner.jarUrl);
-			LOGGER.info("destinationFile " + resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
-			org.apache.commons.io.FileUtils.copyInputStreamToFile(MosipTestRunner.class.getResourceAsStream("/" + path),
-					destinationFile);
+			String resourceFileAbsolutePath =  resourceFileParentPath + resourceFileName;
+			File destinationFile = new File(resourceFileAbsolutePath);
+			LOGGER.info("resourceFile : " + MosipTestRunner.jarUrl + "destinationFile : " + resourceFileAbsolutePath);
+			org.apache.commons.io.FileUtils.copyInputStreamToFile(MosipTestRunner.class.getResourceAsStream("/" + resourceFileName), destinationFile);
 			return true;
 		} catch (Exception e) {
 			LOGGER.error(
@@ -95,7 +95,27 @@ public class ExtractResource {
 							+ e.getMessage());
 			return false;
 		}
-	}	
+	}
+	
+	
+	
+	
+//	private static boolean copyFilesFromJarToOutsideResource(String path) {
+//		try {
+//			File resourceFile = new File(MosipTestRunner.jarUrl).getParentFile();
+//			File destinationFile = new File(resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
+//			LOGGER.info("resourceFile " + MosipTestRunner.jarUrl);
+//			LOGGER.info("destinationFile " + resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
+//			org.apache.commons.io.FileUtils.copyInputStreamToFile(MosipTestRunner.class.getResourceAsStream("/" + path),
+//					destinationFile);
+//			return true;
+//		} catch (Exception e) {
+//			LOGGER.error(
+//					"Exception Occured in copying the resource from jar. Kindly build new jar to perform smooth test execution: "
+//							+ e.getMessage());
+//			return false;
+//		}
+//	}	
 	
 	/**
 	 * The method to remove old generated mosip test resource

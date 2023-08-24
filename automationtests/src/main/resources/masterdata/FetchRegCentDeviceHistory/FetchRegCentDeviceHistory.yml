@@ -73,8 +73,7 @@ FetchRegCentDeviceHistory:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-033",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-033"
     }
   ]
 }'

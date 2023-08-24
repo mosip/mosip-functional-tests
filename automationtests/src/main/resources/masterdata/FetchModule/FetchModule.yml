@@ -10,11 +10,7 @@ FetchModule:
 }'
       output: '{
 "modules": [{
-        "id": "$IGNORE$",
-        "name": "$IGNORE$",
-        "langCode": "eng",
-        "description": "$IGNORE$",
-        "isActive": "$IGNORE$"
+        "langCode": "eng"
     }]
 }'       
    MasterData_FetchModule_Invalid_smoke_with_Invalid_langcode:
