@@ -1,24 +1,13 @@
 {
-    "id": null,
-    "version": null,
-    "errors": null,
     "response": {
         "authTransactions": [
             {{#each authTransactions}}
       {
         "transactionID": "{{code}}",
-        "requestdatetime": "$IGNORE$",
-        "authtypeCode": "$IGNORE$",
-        "statusCode": "$IGNORE$",
-        "statusComment": "$IGNORE$",
-		"referenceIdType": "{{referenceIdType}}",
-        "entityName": "$IGNORE$",
-        "requestSignature": "$IGNORE$",
-        "responseSignature": "$IGNORE$"
+		"referenceIdType": "{{referenceIdType}}"
       }
       {{#unless @last}},{{/unless}}
       	{{/each}},
         ]
     },
-    "responseTime": "$IGNORE$"
 }

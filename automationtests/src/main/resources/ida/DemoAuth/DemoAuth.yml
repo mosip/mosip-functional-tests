@@ -51,10 +51,9 @@ DemoAuthNew:
       output: '{
         "errors": [
         {
-          "errorCode": "IDA-MLC-001",
-          "errorMessage": "$IGNORE$"
+          "errorCode": "IDA-MLC-001"
         }
-      ],
+      ]
   		"authStatus": "false"
 }'
 
@@ -73,10 +72,9 @@ DemoAuthNew:
       output: '{
         "errors": [
         {
-          "errorCode": "IDA-MLC-001",
-          "errorMessage": "$IGNORE$"
+          "errorCode": "IDA-MLC-001"
         }
-      ],
+      ]
   		"authStatus": "false"
 }'
 
@@ -95,10 +93,9 @@ DemoAuthNew:
       output: '{
         "errors": [
         {
-          "errorCode": "IDA-MLC-001",
-          "errorMessage": "$IGNORE$"
+          "errorCode": "IDA-MLC-001"
         }
-      ],
+      ]
   		"authStatus": "false"
 }'
 
@@ -118,8 +115,7 @@ DemoAuthNew:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - request/demographics/dob"
+      "errorCode": "IDA-MLC-009"
     }
   ]
 }'
@@ -139,8 +135,7 @@ DemoAuthNew:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - request/demographics/dob"
+      "errorCode": "IDA-MLC-009"
     }
   ]
 }'
@@ -175,10 +170,9 @@ DemoAuthNew:
       output: '{
         "errors": [
         {
-          "errorCode": "IDA-MLC-001",
-          "errorMessage": "$IGNORE$"
+          "errorCode": "IDA-MLC-001"
         }
-      ],
+      ]
   		"authStatus": "false"
 }'
 
@@ -197,10 +191,9 @@ DemoAuthNew:
       output: '{
         "errors": [
         {
-          "errorCode": "IDA-MLC-001",
-          "errorMessage": "$IGNORE$"
+          "errorCode": "IDA-MLC-001"
         }
-      ],
+      ]
   		"authStatus": "false"
 }'
 
@@ -235,8 +228,7 @@ DemoAuthNew:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data emailId did not match"
+      "errorCode": "IDA-DEA-001"
     }
   ]
 }'
@@ -256,8 +248,7 @@ DemoAuthNew:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data emailId did not match"
+      "errorCode": "IDA-DEA-001"
     }
   ]
 }'
@@ -318,11 +309,9 @@ DemoAuthNew:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-DEA-001",
-          "errorMessage": "$IGNORE$",
-          "actionMessage": "Please re-enter your gender in eng"
+          "errorCode": "IDA-DEA-001"
         }
-      ],
+      ]
         "authStatus": false
 }'
   auth_DemoAuth_InValid_uin_gender:
@@ -344,11 +333,9 @@ DemoAuthNew:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-DEA-001",
-          "errorMessage": "$IGNORE$",
-          "actionMessage": "Please re-enter your gender in eng"
+          "errorCode": "IDA-DEA-001"
         }
-      ],
+      ]
         "authStatus": false
 }'
   auth_DemoAuth_Name_Valid_uin_Smoke_Pos:
@@ -542,7 +529,6 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-DEA-001",
-          "errorMessage": "$IGNORE$",
           "actionMessage": "Please re-enter your name in eng"
         }
       ],
@@ -568,7 +554,6 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-DEA-001",
-          "errorMessage": "$IGNORE$",
           "actionMessage": "Please re-enter your name in eng"
         }
       ],
@@ -677,7 +662,6 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data phoneNumber did not match",
           "actionMessage": "Please re-enter your phoneNumber"
         }
       ],
@@ -699,7 +683,6 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data phoneNumber did not match",
           "actionMessage": "Please re-enter your phoneNumber"
         }
       ],
@@ -736,9 +719,8 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - individualId"
         }
-      ],
+      ]
       "authStatus": false
 }'
   auth_DemoAuth_DOB_Missing_individualId:
@@ -757,9 +739,8 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - individualId"
         }
-      ],
+      ]
         "authStatus": false
 }'
   auth_DemoAuth_DOB_Blank_individualId:
@@ -778,9 +759,8 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - individualId"
         }
-      ],
+      ]
         "authStatus": false
 }'
   auth_DemoAuth_DOB_Invalid_transactionId_uin_Neg:
@@ -829,9 +809,8 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-MLC-019",
-          "errorMessage": "demo Auth Type is Locked for the UIN"
         }
-      ],
+      ]
         "authStatus": false
 }'
 
@@ -851,9 +830,8 @@ DemoAuthNew:
     "errors": [
             {
               "errorCode": "IDA-MLC-019",
-              "errorMessage": "demo Auth Type is Locked for the UIN"
             }
-          ],
+          ]
             "authStatus": false
 }'
   auth_DemoAuth_revoke_vid_Pos:
@@ -872,8 +850,7 @@ DemoAuthNew:
   "authStatus": "false",
   "errors": [
     {
-      "errorCode": "IDA-MLC-018",
-      "errorMessage": "VID not available in database"
+      "errorCode": "IDA-MLC-018"
     }
   ]
 }'
@@ -893,8 +870,7 @@ DemoAuthNew:
       "errors": [
         {
           "errorCode": "IDA-MLC-007",
-          "errorMessage": "Request could not be processed. Please try again"
-        },
+        }
         {
           "errorCode": "IDA-MPA-009",
           "errorMessage": "Partner is not registered"
@@ -919,9 +895,8 @@ DemoAuthNew:
       "errors": [
             {
               "errorCode": "IDA-MLC-019",
-              "errorMessage": "demo Auth Type is Locked for the UIN"
             }
-          ],
+          ]
             "authStatus": false
 }'
 
@@ -941,8 +916,7 @@ DemoAuthNew:
       "errors": [
             {
               "errorCode": "IDA-MLC-019",
-              "errorMessage": "demo Auth Type is Locked for the UIN"
             }
-          ],
+          ]
             "authStatus": false
 }'

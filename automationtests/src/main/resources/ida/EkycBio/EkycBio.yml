@@ -867,10 +867,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-MLC-018",
-          "errorMessage": "VID not available in database"
+          "errorCode": "IDA-MLC-018"
         }
-      ],
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_invalid_uin_bioSubType:
@@ -901,10 +900,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - request/biometrics/0/data/bioSubType - L@@@$%4556eft"
+          "errorCode": "IDA-MLC-009"
         }
-      ],
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_invalid_bioSubType_VID:
@@ -935,10 +933,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - request/biometrics/0/data/bioSubType - L@@@$%4556eft"
-        }
-      ],
+          "errorCode": "IDA-MLC-009"
+}
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_blank_uin_bioSubType:
@@ -969,10 +966,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-MLC-006",
-          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioSubType"
+          "errorCode": "IDA-MLC-006"
         }
-      ],
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_blank_bioSubType_VID:
@@ -1003,10 +999,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-MLC-006",
-          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioSubType"
+          "errorCode": "IDA-MLC-006"
         }
-      ],
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_Blank_uin_bioType:
@@ -1037,10 +1032,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-MLC-006",
-          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioType"
+          "errorCode": "IDA-MLC-006"
         }
-      ],
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_Blank_bioType_VID:
@@ -1071,10 +1065,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-MLC-006",
-          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioType"
+          "errorCode": "IDA-MLC-006"
         }
-      ],
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_Invalid_uin_bioType:
@@ -1105,11 +1098,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-MLC-011",
-          "errorMessage": "Unsupported Authentication Type - bio-ddff3355",
-          "actionMessage": "Please use other Authentication Types in the request"
+          "errorCode": "IDA-MLC-011"
         }
-      ],
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_Invalid_bioType_VID:
@@ -1140,11 +1131,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-MLC-011",
-          "errorMessage": "Unsupported Authentication Type - bio-ddff3355",
-          "actionMessage": "Please use other Authentication Types in the request"
+          "errorCode": "IDA-MLC-011"
         }
-      ],
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_Iris_With_FaceBio_uin_Invalid:
@@ -1175,11 +1164,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-BIA-001",
-          "errorMessage": "Biometric data - Iris did not match",
-          "actionMessage": "Please give your biometrics again"
+          "errorCode": "IDA-BIA-001"
         }
-      ],
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_Iris_With_FaceBio_Invalid_VID:
@@ -1210,11 +1197,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-BIA-001",
-          "errorMessage": "Biometric data - Iris did not match",
-          "actionMessage": "Please give your biometrics again"
+          "errorCode": "IDA-BIA-001"
         }
-      ],
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_Finger_With_FaceBio_uin_Invalid:
@@ -1245,11 +1230,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-BIA-001",
-          "errorMessage": "Biometric data - Finger did not match",
-          "actionMessage": "Please give your biometrics again"
+          "errorCode": "IDA-BIA-001"
         }
-      ],
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_Finger_With_FaceBio_Invalid_VID:
@@ -1280,11 +1263,9 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-BIA-001",
-          "errorMessage": "Biometric data - Finger did not match",
-          "actionMessage": "Please give your biometrics again"
+          "errorCode": "IDA-BIA-001"
         }
-      ],
+      ]
         "kycStatus": false
 }'
   auth_EkycBio_Finger_With_dummy_partnerkey_Pos_vid:
@@ -1315,13 +1296,11 @@ EkycBio:
       output: '{
      "errors": [
         {
-          "errorCode": "IDA-MLC-007",
-          "errorMessage": "Request could not be processed. Please try again"
+          "errorCode": "IDA-MLC-007"
         },
         {
           "errorCode": "IDA-MPA-009",
-          "errorMessage": "Partner is not registered"
         }
-      ],
+      ]
         "kycStatus": false
 }'
