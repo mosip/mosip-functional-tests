@@ -503,7 +503,7 @@ public class EmailableReport implements IReporter {
 				writer.print("\"");
 			}
 			writer.print(">");
-			writer.print((result.getStatus() == ITestResult.SUCCESS ? "Expected Exception" : "Exception"));
+			writer.print((result.getStatus() == ITestResult.SUCCESS ? "Expected Exception" : "Output Validation Exception"));
 			writer.print(GlobalConstants.TRTR);
 
 			writer.print("<tr><td");
@@ -522,7 +522,7 @@ public class EmailableReport implements IReporter {
 	}
 
 	protected void writeReporterMessages(List<String> reporterMessages) {
-		writer.print("<div class=\"messages\">");
+		writer.print("<div class=\"Request and Response messages including headers\">");
 		Iterator<String> iterator = reporterMessages.iterator();
 		assert iterator.hasNext();
 		if (Reporter.getEscapeHtml()) {
