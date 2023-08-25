@@ -2,6 +2,7 @@ GenerateLinkCodeConsent:
    ESignet_GenerateLinkCode_Consent_uin_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/GenerateLinkCode/GenerateLinkCode
@@ -17,6 +18,7 @@ GenerateLinkCodeConsent:
    ESignet_GenerateLinkCode_Consent_Vid_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/GenerateLinkCode/GenerateLinkCode

@@ -13,15 +13,15 @@ createPublishPolicy:
       output: '{
         "policyGroupName": "$IGNORE$",
         "policyGroupDesc": "$IGNORE$",
-        "policyGroupStatus": true,
+        "policyGroupStatus": "true",
         "policyName": "$IGNORE$",
         "policyDesc": "$IGNORE$",
         "policyType": "Auth",
         "status": "PUBLISHED",
-        "is_Active": true,
+        "is_Active": "true",
         "authType": "bio",
         "authSubType": "$IGNORE$",
-		"mandatory": $IGNORE$,
+		"mandatory": "$IGNORE$",
         "attributeName": "$IGNORE$",
         "authTokenType": "$IGNORE$"
 }'
@@ -40,15 +40,15 @@ createPublishPolicy:
       output: '{
         "policyGroupName": "$IGNORE$",
         "policyGroupDesc": "$IGNORE$",
-        "policyGroupStatus": true,
+        "policyGroupStatus": "true",
         "policyName": "$IGNORE$",
         "policyDesc": "$IGNORE$",
-        "policyType": "Auth",
+        "policyType": "MISP",
         "status": "PUBLISHED",
-        "is_Active": true,
-        "authType": "bio",
+        "is_Active": "true",
+        "authType": "$IGNORE$",
         "authSubType": "$IGNORE$",
-		"mandatory": $IGNORE$,
+		"mandatory": "$IGNORE$",
         "attributeName": "$IGNORE$",
         "authTokenType": "$IGNORE$"
 }'
@@ -67,15 +67,15 @@ createPublishPolicy:
       output: '{
         "policyGroupName": "$IGNORE$",
         "policyGroupDesc": "$IGNORE$",
-        "policyGroupStatus": true,
+        "policyGroupStatus": "true",
         "policyName": "$IGNORE$",
         "policyDesc": "$IGNORE$",
         "policyType": "Auth",
         "status": "PUBLISHED",
-        "is_Active": true,
+        "is_Active": "true",
         "authType": "bio",
         "authSubType": "$IGNORE$",
-		"mandatory": $IGNORE$,
+		"mandatory": "$IGNORE$",
         "attributeName": "$IGNORE$",
         "authTokenType": "$IGNORE$"
 }'
@@ -94,15 +94,15 @@ createPublishPolicy:
       output: '{
         "policyGroupName": "$IGNORE$",
         "policyGroupDesc": "$IGNORE$",
-        "policyGroupStatus": true,
+        "policyGroupStatus": "true",
         "policyName": "$IGNORE$",
         "policyDesc": "$IGNORE$",
         "policyType": "Auth",
         "status": "PUBLISHED",
-        "is_Active": true,
-        "authType": "bio",
+        "is_Active": "true",
+        "authType": "$IGNORE$",
         "authSubType": "$IGNORE$",
-		"mandatory": $IGNORE$,
+		"mandatory": "$IGNORE$",
         "attributeName": "$IGNORE$",
         "authTokenType": "$IGNORE$"
 }'
@@ -121,15 +121,15 @@ createPublishPolicy:
       output: '{
         "policyGroupName": "$IGNORE$",
         "policyGroupDesc": "$IGNORE$",
-        "policyGroupStatus": true,
+        "policyGroupStatus": "true",
         "policyName": "$IGNORE$",
         "policyDesc": "$IGNORE$",
-        "policyType": "Auth",
+        "policyType": "MISP",
         "status": "PUBLISHED",
-        "is_Active": true,
-        "authType": "bio",
+        "is_Active": "true",
+        "authType": "$IGNORE$",
         "authSubType": "$IGNORE$",
-		"mandatory": $IGNORE$,
+		"mandatory": "$IGNORE$",
         "attributeName": "$IGNORE$",
         "authTokenType": "$IGNORE$"
 }'
@@ -148,15 +148,15 @@ createPublishPolicy:
       output: '{
         "policyGroupName": "$IGNORE$",
         "policyGroupDesc": "$IGNORE$",
-        "policyGroupStatus": true,
+        "policyGroupStatus": "true",
         "policyName": "$IGNORE$",
         "policyDesc": "$IGNORE$",
         "policyType": "Auth",
         "status": "PUBLISHED",
-        "is_Active": true,
+        "is_Active": "true",
         "authType": "bio",
         "authSubType": "$IGNORE$",
-		"mandatory": $IGNORE$,
+		"mandatory": "$IGNORE$",
         "attributeName": "$IGNORE$",
         "authTokenType": "$IGNORE$"
 }'
@@ -175,15 +175,15 @@ createPublishPolicy:
       output: '{
         "policyGroupName": "$IGNORE$",
         "policyGroupDesc": "$IGNORE$",
-        "policyGroupStatus": true,
+        "policyGroupStatus": "true",
         "policyName": "$IGNORE$",
         "policyDesc": "$IGNORE$",
-        "policyType": "Auth",
+        "policyType": "MISP",
         "status": "PUBLISHED",
-        "is_Active": true,
-        "authType": "bio",
+        "is_Active": "true",
+        "authType": "$IGNORE$",
         "authSubType": "$IGNORE$",
-		"mandatory": $IGNORE$,
+		"mandatory": "$IGNORE$",
         "attributeName": "$IGNORE$",
         "authTokenType": "$IGNORE$"
 }'
@@ -202,15 +202,15 @@ createPublishPolicy:
       output: '{
         "policyGroupName": "$IGNORE$",
         "policyGroupDesc": "$IGNORE$",
-        "policyGroupStatus": true,
+        "policyGroupStatus": "true",
         "policyName": "$IGNORE$",
         "policyDesc": "$IGNORE$",
         "policyType": "Auth",
         "status": "PUBLISHED",
-        "is_Active": true,
+        "is_Active": "true",
         "authType": "bio",
         "authSubType": "$IGNORE$",
-		"mandatory": $IGNORE$,
+		"mandatory": "$IGNORE$",
         "attributeName": "$IGNORE$",
         "authTokenType": "$IGNORE$"
 }'

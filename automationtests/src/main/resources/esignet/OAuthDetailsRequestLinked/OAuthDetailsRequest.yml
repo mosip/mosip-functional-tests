@@ -2,6 +2,7 @@ OAuthDetailsRequestLinked:
    ESignet_OAuthDetailsRequest_LinkAuth_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
@@ -25,6 +26,7 @@ OAuthDetailsRequestLinked:
    ESignet_OAuthDetailsRequest_LinkAuth_Vid_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
@@ -48,6 +50,7 @@ OAuthDetailsRequestLinked:
    ESignet_OAuthDetailsRequest_LinkAuth_Consent_SameClaim_Uin_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
@@ -71,6 +74,7 @@ OAuthDetailsRequestLinked:
    ESignet_OAuthDetailsRequest_LinkAuth_Consent_SameClaim_Vid_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
@@ -94,6 +98,7 @@ OAuthDetailsRequestLinked:
    ESignet_OAuthDetailsRequest_LinkAuth_Other_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult

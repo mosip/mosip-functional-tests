@@ -17,8 +17,7 @@ UpdatePolicy:
       output: ' {
   "errors": [
     {
-      "errorCode": "PMS_POL_055",
-      "message": "Published policy cannot be updated."
+      "errorCode": "PMS_POL_055"
     }
   ]
 }'
