@@ -39,7 +39,6 @@ FetchTemplate:
 }'
       output: '{
 "templates": [{
-				"langCode": "$IGNORE$",
 				"isActive": true
 			}]
 }'

@@ -25,7 +25,6 @@ FetchGenderType:
    "gendername":"Male"
 }'
       output: '{
-	"status": "$IGNORE$"
 }'
    Masterdata_FetchGenderType_Validate_gender_name_invalid:
       endPoint: /v1/masterdata/gendertypes/validate/{gendername}

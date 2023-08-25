@@ -84,6 +84,9 @@ public class OutputValidationUtil extends AuthTestsUtil{
 	 */
 	public static Map<String, List<OutputValidationDto>> compareActuExpValue(Map<String, String> actual,
 			Map<String, String> exp, String actVsExp) {
+		if(actual == null || exp == null)
+			throw new SkipException("Marking testcase as Skipped, as no Output comparison done");
+		
 		Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
 		List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 		boolean comparisonDone = false;

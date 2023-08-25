@@ -218,8 +218,7 @@ UpdatePreregistration:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_015",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_015"
     }
   ]
 }'
@@ -244,8 +243,7 @@ UpdatePreregistration:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_003",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_003"
     }
   ]
 }'

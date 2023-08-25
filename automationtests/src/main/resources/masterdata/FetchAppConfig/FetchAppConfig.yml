@@ -8,14 +8,4 @@ FetchAppConfig:
       input: '{
 }'
       output: '{
-    "primaryLangCode": "$IGNORE$",
-    "secondaryLangCode": "$IGNORE$",
-    "supportedLanguages": "$IGNORE$",
-    "leftToRightOrientation": "$IGNORE$",
-    "countryCode": "$IGNORE$",
-    "locationHierarchyLevel": "$IGNORE$",
-    "rightToLeftOrientation": "$IGNORE$",
-    "version": "$IGNORE$",
-    "optionalLanguages": "$IGNORE$",
-    "mandatoryLanguages": "$IGNORE$"
 }'

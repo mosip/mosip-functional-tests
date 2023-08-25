@@ -1,23 +1,12 @@
 {
-  "id": "$IGNORE$",
-  "version": "$IGNORE$",
-  "responsetime": "$IGNORE$",
-  "metadata": "$IGNORE$",
   "response": {
   	 "locations": [
 	{{#each locations}}
       {
-        "code": "$IGNORE$",
-        "name": "$IGNORE$",
-        "hierarchyLevel": $IGNORE$,
-        "hierarchyName": "$IGNORE$",
-        "parentLocCode": "$IGNORE$",
-        "langCode": "{langCode}",
-        "isActive": $IGNORE$
+        "langCode": "{{langCode}}"
       }
 	{{#unless @last}},{{/unless}}
       	{{/each}}
     ]
-  },
-  "errors": "$IGNORE$"
+  }
 }

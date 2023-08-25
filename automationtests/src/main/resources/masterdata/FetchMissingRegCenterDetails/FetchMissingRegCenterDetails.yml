@@ -10,5 +10,4 @@ FetchMissingRegCenterDetails:
   "langcode": "eng"
 }'
       output: '{
-  "response": "$IGNORE$"
 }'

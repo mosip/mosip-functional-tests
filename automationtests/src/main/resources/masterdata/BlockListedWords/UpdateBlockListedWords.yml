@@ -59,8 +59,7 @@ UpdateBlockListedWords:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-999",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-999"
     }
   ]
 }'
@@ -105,8 +104,7 @@ UpdateBlockListedWords:
       output: '{
   "errors": [
     {
-      "errorCode": "KER-MSD-008",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-008"
     }
   ]
 }'

@@ -1,23 +1,14 @@
 {
-  "id": "$IGNORE$",
-  "version": "$IGNORE$",
-  "responsetime": "$IGNORE$",
-  "metadata": "$IGNORE$",
   "response": {
     "biometricattributes": [
 	
     {{#each biometricattributes}}
       {
-        "code": "$IGNORE$",
-        "name": "$IGNORE$",
-        "description": "$IGNORE$",
         "biometricTypeCode": "{{biometricTypeCode}}",
-        "langCode": "{{langCode}}",
-        "isActive": $IGNORE$
+        "langCode": "{{langCode}}"
       }
       {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
-  },
-  "errors": "$IGNORE$"
+  }
 }

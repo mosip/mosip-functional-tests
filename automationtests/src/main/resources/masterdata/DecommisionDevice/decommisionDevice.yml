@@ -23,8 +23,7 @@ DecommisionDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-042"
     }
   ]
 }'

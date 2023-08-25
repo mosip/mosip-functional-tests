@@ -1,8 +1,4 @@
 {
-  "id": "$IGNORE$",
-  "version": "$IGNORE$",
-  "responsetime": "$IGNORE$",
-  "metadata": "$IGNORE$",
   "response": {
     "templates": [
     {{#each templates}}
@@ -17,11 +13,10 @@
         "moduleName": "ID Authentication",
         "templateTypeCode": "{{templateTypeCode}}",
         "langCode": "{{langCode}}",
-        "isActive": {{isActive}}
+        "isActive": "{{isActive}}"
       }
       {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
-  },
-  "errors": "$IGNORE$"
+  }
 }
