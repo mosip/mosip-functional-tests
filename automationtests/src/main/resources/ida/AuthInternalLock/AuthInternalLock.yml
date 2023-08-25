@@ -14,6 +14,7 @@ AuthInternalLock:
     "unlockForSeconds": 500
 }'
       output: '{
+	"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
   auth_AuthInternal_Lock_UIN_Unlock_DemoAuth_Smoke_Pos:
@@ -31,7 +32,7 @@ AuthInternalLock:
     "unlockForSeconds": 500
 }'
       output: '{
-    "responsetime": "$IGNORE$"
+	"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
   auth_AuthInternal_Permanent_Lock_BioAuth_Smoke_Pos:
@@ -49,7 +50,7 @@ AuthInternalLock:
     "unlockForSeconds": 0
 }'
       output: '{
-    "responsetime": "$IGNORE$"
+	"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
   auth_AuthInternal_Permanent_Lock_DemoAuth_Smoke_Pos:
@@ -67,7 +68,7 @@ AuthInternalLock:
     "unlockForSeconds": 0
 }'
       output: '{
-    "responsetime": "$IGNORE$"
+	"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
   auth_AuthInternal_Lock_UIN_Unlock_WithSecs_BioAuth_Smoke_Pos:
@@ -85,7 +86,7 @@ AuthInternalLock:
     "unlockForSeconds": 5
 }'
       output: '{
-    "responsetime": "$IGNORE$"
+	"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
   auth_AuthInternal_Lock_UIN_Unlock_WithSecs_DemoAuth_Smoke_Pos:
@@ -103,7 +104,7 @@ AuthInternalLock:
     "unlockForSeconds": 5
 }'
       output: '{
-    "responsetime": "$IGNORE$"
+	"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
   auth_AuthInternal_Permanent_Lock_BioAuth_Valid_Smoke_Pos:
@@ -121,7 +122,7 @@ AuthInternalLock:
     "unlockForSeconds": 0
 }'
       output: '{
-    "message": "$IGNORE$"
+	"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
   auth_AuthInternal_Permanent_Lock_DemoAuth_Valid_Smoke_Pos:
@@ -139,5 +140,5 @@ AuthInternalLock:
     "unlockForSeconds": 0
 }'
       output: '{
-    "message": "$IGNORE$"
+	"message": "Notification has been sent to the provided contact detail(s)"
 }'

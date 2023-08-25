@@ -66,9 +66,9 @@ MultiFactorAuth:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": true,
+  "authStatus": "true",
   "sendOtpResp":{
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_Face_With_Missing_transactionId_uin_Neg:
@@ -102,9 +102,9 @@ MultiFactorAuth:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": true,
+  "authStatus": "true",
   "sendOtpResp":{
-        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
+        "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
   auth_MultiFactorAuth_Biometric_Face_With_Valid_vid_Smoke_Pos:
@@ -175,12 +175,6 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-018",
-      "errorMessage": "VID not available in database"
-    }
-  ],
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
@@ -577,7 +571,6 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -614,7 +607,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -651,7 +643,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -688,7 +679,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -725,7 +715,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -762,7 +751,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -799,7 +787,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -836,7 +823,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -873,7 +859,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -910,7 +895,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        "
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -947,7 +931,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-       
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -984,7 +967,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-       
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -1021,7 +1003,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -1058,7 +1039,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -1095,7 +1075,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -1132,7 +1111,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-       
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -1169,7 +1147,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-       
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -1206,7 +1183,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -1243,7 +1219,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -1280,7 +1255,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-       
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -1317,7 +1291,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -1354,7 +1327,6 @@ MultiFactorAuth:
       output: '{
   "authStatus": "true",
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
 }'
@@ -1391,7 +1363,6 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1428,7 +1399,6 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-       
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1465,7 +1435,6 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1502,7 +1471,6 @@ MultiFactorAuth:
       output: '{
     "authStatus": false,
   "sendOtpResp":{
-       
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1539,7 +1507,6 @@ MultiFactorAuth:
       output: '{
     "authStatus": true,
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1576,7 +1543,6 @@ MultiFactorAuth:
       output: '{
     "authStatus": true,
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1612,11 +1578,6 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009"
-    }
-  ]
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
@@ -1653,13 +1614,7 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009"
-    }
-  ]
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1695,13 +1650,7 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006"
-    }
-  ]
   "sendOtpResp":{
-       
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1737,13 +1686,7 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006"
-    }
-  ]
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1779,14 +1722,7 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006",
-      
-    }
-  ]
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1822,13 +1758,7 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006"
-    }
-  ]
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1863,10 +1793,8 @@ MultiFactorAuth:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": "$IGNORE$",
-   "errors": "$IGNORE$",
+    "authStatus": false,
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1902,13 +1830,7 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-006"
-    }
-  ]
   "sendOtpResp":{
-       
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1944,13 +1866,7 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-011"
-    }
-  ],
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -1986,13 +1902,7 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-011"
-    }
-  ]
   "sendOtpResp":{
-       
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -2028,14 +1938,6 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-007"
-    }
-    {
-      "errorCode": "IDA-DPM-004"
-    }
-  ]
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
@@ -2072,14 +1974,6 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-007"
-    }
-    {
-      "errorCode": "IDA-DPM-004"
-    }
-  ]
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
@@ -2116,11 +2010,6 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-BIA-001"
-    }
-  ]
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
@@ -2157,13 +2046,7 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-BIA-001"
-    }
-  ]
   "sendOtpResp":{
-       
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -2199,11 +2082,6 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-BIA-001"
-    }
-  ]
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
@@ -2240,14 +2118,7 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-BIA-001",
-      "errorMessage": "$IGNORE$
-    }
-  ]
   "sendOtpResp":{
-        
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -2283,13 +2154,7 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-BIA-001"
-    }
-  ]
   "sendOtpResp":{
-       
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -2325,11 +2190,6 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-BIA-001"
-    }
-  ]
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
@@ -2366,11 +2226,6 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-011"
-    }
-  ]
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
@@ -2407,13 +2262,7 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-011"
-    }
-  ]
   "sendOtpResp":{
-      
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
@@ -2449,11 +2298,6 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-011",
-    }
-  ]
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
@@ -2490,11 +2334,6 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-011"
-    }
-  ]
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
@@ -2531,14 +2370,6 @@ MultiFactorAuth:
     }'
       output: '{
     "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-007"
-    },
-    {
-      "errorCode": "IDA-MPA-009"
-    }
-  ]
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
