@@ -2,6 +2,7 @@ LinkedAuthenticationConsentWla:
    ESignet_LinkedAuthenticationWla_Consentuin_SCert_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/v2/authenticate
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/LinkedAuthenticationWla/LinkedAuthenticationWla
@@ -52,6 +53,7 @@ LinkedAuthenticationConsentWla:
    ESignet_LinkedAuthenticationWla_ConsentVid_SCert_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/v2/authenticate
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/LinkedAuthenticationWla/LinkedAuthenticationWla

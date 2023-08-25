@@ -2,6 +2,7 @@ AuthorizationCodeConsent:
    ESignet_AuthorizationCode_Consent_uin_Claim2_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsent
@@ -19,6 +20,7 @@ AuthorizationCodeConsent:
    ESignet_AuthorizationCode_Consent_Vid_Claim2_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsent
@@ -36,6 +38,7 @@ AuthorizationCodeConsent:
    ESignet_AuthorizationCode_Consent_uin_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsent
@@ -53,6 +56,7 @@ AuthorizationCodeConsent:
    ESignet_AuthorizationCode_Consent_Vid_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsent

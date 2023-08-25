@@ -14,8 +14,7 @@ DeactivatePolicy:
       output: ' {
     "errors": [
         {
-            "errorCode": "PMS_POL_058",
-            "message": "Status cannot be changed for published policy."
+            "errorCode": "PMS_POL_058"
         }
     ]
 }'
