@@ -865,12 +865,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-018"
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_invalid_uin_bioSubType:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -898,12 +893,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-009"
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_invalid_bioSubType_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -931,12 +921,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-009"
-}
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_blank_uin_bioSubType:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -964,12 +949,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-006"
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_blank_bioSubType_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -997,12 +977,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-006"
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Blank_uin_bioType:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1030,12 +1005,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-006"
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Blank_bioType_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1063,12 +1033,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-006"
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Invalid_uin_bioType:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1096,12 +1061,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-011"
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Invalid_bioType_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1129,12 +1089,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-011"
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Iris_With_FaceBio_uin_Invalid:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1162,12 +1117,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-BIA-001"
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Iris_With_FaceBio_Invalid_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1195,12 +1145,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-BIA-001"
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Finger_With_FaceBio_uin_Invalid:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1228,12 +1173,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-BIA-001"
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Finger_With_FaceBio_Invalid_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1261,12 +1201,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-BIA-001"
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Finger_With_dummy_partnerkey_Pos_vid:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1294,13 +1229,5 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-007"
-        },
-        {
-          "errorCode": "IDA-MPA-009",
-        }
-      ]
-        "kycStatus": false
+     "kycStatus": "false"
 }'
