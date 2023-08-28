@@ -39,8 +39,7 @@ UpdateOIDCClient:
       output: '{
   "errors": [
     {
-      "errorCode": "PMS_IDP_004",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "PMS_IDP_004"
     }
   ]
 }'

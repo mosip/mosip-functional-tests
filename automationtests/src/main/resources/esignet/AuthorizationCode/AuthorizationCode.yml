@@ -3,6 +3,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/AuthorizationCode/AuthorizationCodeResult
@@ -20,6 +21,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -42,6 +44,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -64,6 +67,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -86,6 +90,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -108,6 +113,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -130,6 +136,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -153,6 +160,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -176,6 +184,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -199,6 +208,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -221,6 +231,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/AuthorizationCode/AuthorizationCodeResult
@@ -238,6 +249,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -260,6 +272,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -282,6 +295,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -304,6 +318,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -326,6 +341,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -348,6 +364,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/AuthorizationCode/AuthorizationCodeResult
@@ -365,6 +382,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -387,6 +405,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -409,6 +428,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -431,6 +451,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -453,6 +474,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -475,6 +497,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -498,6 +521,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -521,6 +545,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -544,6 +569,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -566,6 +592,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/AuthorizationCode/AuthorizationCodeResult
@@ -583,6 +610,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -605,6 +633,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -627,6 +656,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -649,6 +679,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error
@@ -671,6 +702,7 @@ AuthorizationCode:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
       outputTemplate: esignet/error

@@ -2,6 +2,7 @@ OAuthDetailsRequestConsent:
    ESignet_OAuthDetailsRequest_Consent_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsent
       outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult
@@ -25,6 +26,7 @@ OAuthDetailsRequestConsent:
    ESignet_OAuthDetailsRequest_Consent_Claim2_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentNewClaim
       outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult
@@ -48,6 +50,7 @@ OAuthDetailsRequestConsent:
    ESignet_OAuthDetailsRequest_Consent_Invalid_Scen_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsent
       outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult
@@ -71,6 +74,7 @@ OAuthDetailsRequestConsent:
    ESignet_OAuthDetailsRequest_Consent_Vid_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsent
       outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult
@@ -94,6 +98,7 @@ OAuthDetailsRequestConsent:
    ESignet_OAuthDetailsRequest_Consent_Vid_Claim2_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentNewClaim
       outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult
@@ -117,6 +122,7 @@ OAuthDetailsRequestConsent:
    ESignet_OAuthDetailsRequest_Consent_User2_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsent
       outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult
@@ -140,6 +146,7 @@ OAuthDetailsRequestConsent:
    ESignet_OAuthDetailsRequest_Consent_Vid_User2_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsent
       outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult

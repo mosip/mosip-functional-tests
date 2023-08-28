@@ -3,6 +3,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/AuthenticateUser/AuthenticateUserResult
@@ -35,6 +36,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/AuthenticateUser/AuthenticateUserResult
@@ -67,6 +69,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsentResult
@@ -100,6 +103,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/AuthenticateUser/AuthenticateUserResult
@@ -132,6 +136,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/AuthenticateUser/AuthenticateUserResult
@@ -164,6 +169,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsentResult
@@ -197,6 +203,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -235,6 +242,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -273,6 +281,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -311,6 +320,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -349,6 +359,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -387,6 +398,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -425,6 +437,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -463,6 +476,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -501,6 +515,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -539,6 +554,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -577,6 +593,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -615,6 +632,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -653,6 +671,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -691,6 +710,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -729,6 +749,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -767,6 +788,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -805,6 +827,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -843,6 +866,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -881,6 +905,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -919,6 +944,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -957,6 +983,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -995,6 +1022,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1033,6 +1061,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1071,6 +1100,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1109,6 +1139,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/AuthenticateUser/AuthenticateUserResult
@@ -1141,6 +1172,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1179,6 +1211,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1217,6 +1250,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1255,6 +1289,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1293,6 +1328,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1331,6 +1367,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1369,6 +1406,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1407,6 +1445,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1445,6 +1484,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1483,6 +1523,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1521,6 +1562,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1559,6 +1601,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1597,6 +1640,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1635,6 +1679,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1673,6 +1718,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1711,6 +1757,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1749,6 +1796,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1787,6 +1835,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1825,6 +1874,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1863,6 +1913,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1901,6 +1952,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1939,6 +1991,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -1977,6 +2030,7 @@ AuthenticateUser:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error

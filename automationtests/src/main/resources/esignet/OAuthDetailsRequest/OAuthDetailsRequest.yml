@@ -3,6 +3,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -26,6 +27,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -49,6 +51,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -72,6 +75,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsent
       outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult
       input: '{
@@ -95,6 +99,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -118,6 +123,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsent
       outputTemplate: esignet/Consent/OAuthDetailsRequestConsent/OAuthDetailsRequestConsentResult
       input: '{
@@ -141,6 +147,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -164,6 +171,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -187,6 +195,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -210,6 +219,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -232,6 +242,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -255,6 +266,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -278,6 +290,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -300,6 +313,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -322,6 +336,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -344,6 +359,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -366,6 +382,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -388,6 +405,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -410,6 +428,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -432,6 +451,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -454,6 +474,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -477,6 +498,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -500,6 +522,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -523,6 +546,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -546,6 +570,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -569,6 +594,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -592,6 +618,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -615,6 +642,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -638,6 +666,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -661,6 +690,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -684,6 +714,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -707,6 +738,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -730,6 +762,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -753,6 +786,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -776,6 +810,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -804,6 +839,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -832,6 +868,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -860,6 +897,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -888,6 +926,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -916,6 +955,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -944,6 +984,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -972,6 +1013,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1000,6 +1042,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1028,6 +1071,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1056,6 +1100,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1084,6 +1129,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1112,6 +1158,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1140,6 +1187,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1168,6 +1216,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1196,6 +1245,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1224,6 +1274,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1252,6 +1303,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1280,6 +1332,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1303,6 +1356,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1326,6 +1380,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1349,6 +1404,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1372,6 +1428,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1395,6 +1452,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1418,6 +1476,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestEmptyClaims
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1438,12 +1497,13 @@ OAuthDetailsRequest:
        
 }'
 
-   ESignet_OAuthDetailsRequest_Empty_Claims_Pos:
+   ESignet_OAuthDetailsRequest_Empty_Claims_Neg:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestEmptyClaims
-      outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
+      outputTemplate: esignet/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
@@ -1461,8 +1521,7 @@ OAuthDetailsRequest:
       output: '{
        	"errors": [
     {
-      "errorCode": "unknown_error",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "unknown_error"
     }
   ]
 }'
@@ -1471,6 +1530,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestInvalidClaim
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1494,6 +1554,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1517,6 +1578,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1540,6 +1602,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1563,6 +1626,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1586,6 +1650,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1609,6 +1674,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1633,12 +1699,13 @@ OAuthDetailsRequest:
   ]
 }'
 
-   ESignet_OAuthDetailsRequest_Empty_display_Pos:
+   ESignet_OAuthDetailsRequest_Empty_display_Neg:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
-      outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
+      outputTemplate: esignet/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
@@ -1653,13 +1720,18 @@ OAuthDetailsRequest:
 	    "claimsLocales": "en"
 }'
       output: '{
-       
+  "errors": [
+    {
+      "errorCode": "invalid_display"
+    }
+  ]
 }'
 
    ESignet_OAuthDetailsRequest_Null_display_Neg:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1684,12 +1756,13 @@ OAuthDetailsRequest:
   ]
 }'
 
-   ESignet_OAuthDetailsRequest_SpaceValue_display_Pos:
+   ESignet_OAuthDetailsRequest_SpaceValue_display_Neg:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
-      outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
+      outputTemplate: esignet/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
@@ -1704,13 +1777,18 @@ OAuthDetailsRequest:
 	    "claimsLocales": "en"
 }'
       output: '{
-       
+  "errors": [
+    {
+      "errorCode": "invalid_display"
+    }
+  ]
 }'
 
    ESignet_OAuthDetailsRequest_Invalid_State_Pos:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1734,6 +1812,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1757,6 +1836,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1780,6 +1860,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1803,6 +1884,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1826,6 +1908,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1849,6 +1932,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1872,6 +1956,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1895,6 +1980,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -1918,6 +2004,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1946,6 +2033,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -1974,6 +2062,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -2002,6 +2091,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
       input: '{
@@ -2020,12 +2110,13 @@ OAuthDetailsRequest:
       output: '{
 }'
 
-   ESignet_OAuthDetailsRequest_Empty_Prompt_Pos:
+   ESignet_OAuthDetailsRequest_Empty_Prompt_Neg:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
-      outputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequestResult
+      outputTemplate: esignet/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
@@ -2040,13 +2131,18 @@ OAuthDetailsRequest:
 	    "claimsLocales": "en"
 }'
       output: '{
-       	
+  "errors": [
+    {
+      "errorCode": "invalid_prompt"
+    }
+  ]
 }'
 
    ESignet_OAuthDetailsRequest_Null_Prompt_Neg:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{
@@ -2075,6 +2171,7 @@ OAuthDetailsRequest:
       endPoint: /v1/esignet/authorization/oauth-details
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: esignet/OAuthDetailsRequest/OAuthDetailsRequest
       outputTemplate: esignet/error
       input: '{

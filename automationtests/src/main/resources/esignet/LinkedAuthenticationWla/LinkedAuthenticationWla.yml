@@ -2,6 +2,7 @@ LinkedAuthenticationWla:
    ESignet_LinkedAuthenticationWla_Consent_SameClaim_uin_SCert_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/v2/authenticate
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/LinkedAuthenticationWla/LinkedAuthenticationWla
@@ -52,6 +53,7 @@ LinkedAuthenticationWla:
    ESignet_LinkedAuthenticationWla_Consent_SameClaim_Vid_SCert_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/v2/authenticate
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/LinkedAuthenticationWla/LinkedAuthenticationWla
@@ -102,6 +104,7 @@ LinkedAuthenticationWla:
    ESignet_LinkedAuthenticationWla_uin_SCert_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/authenticate
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/LinkedAuthenticationWla/LinkedAuthenticationWla
@@ -151,6 +154,7 @@ LinkedAuthenticationWla:
    ESignet_LinkedAuthenticationWla_vid_SCert_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/authenticate
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/LinkedAuthenticationWla/LinkedAuthenticationWla

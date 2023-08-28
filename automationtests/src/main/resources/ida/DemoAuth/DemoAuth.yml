@@ -12,13 +12,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-        "errors": [
-        {
-          "errorCode": "IDA-MLC-019",
-          "errorMessage": "demo Auth Type is Locked for the UIN"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_DOB_Valid_Smoke_VID_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -49,12 +43,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-        "errors": [
-        {
-          "errorCode": "IDA-MLC-001"
-        }
-      ]
-  		"authStatus": "false"
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_DOB_Invalid_Future_Timestamp_VID_Neg:
@@ -70,12 +59,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-        "errors": [
-        {
-          "errorCode": "IDA-MLC-001"
-        }
-      ]
-  		"authStatus": "false"
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_DOB_Empty_Timestamp_VID_Neg:
@@ -91,12 +75,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-        "errors": [
-        {
-          "errorCode": "IDA-MLC-001"
-        }
-      ]
-  		"authStatus": "false"
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_DOB_InValid_uin_Dateofbirth:
@@ -112,12 +91,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_DOB_InValid_Dateofbirth_with_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -132,12 +106,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_Email_Valid_Smoke_Pos_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -168,12 +137,7 @@ DemoAuthNew:
         "key": "emailId"
     }'
       output: '{
-        "errors": [
-        {
-          "errorCode": "IDA-MLC-001"
-        }
-      ]
-  		"authStatus": "false"
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_Email_Invalid_Future_Timestamp_VID_Neg_VID:
@@ -189,12 +153,7 @@ DemoAuthNew:
         "key": "emailId"
     }'
       output: '{
-        "errors": [
-        {
-          "errorCode": "IDA-MLC-001"
-        }
-      ]
-  		"authStatus": "false"
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_Email_Valid_Smoke_Poss_VID:
@@ -225,12 +184,7 @@ DemoAuthNew:
         "key": "emailId"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-DEA-001"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_Email_InValid_Email_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -245,12 +199,7 @@ DemoAuthNew:
         "key": "emailId"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-DEA-001"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_gender_Valid_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -307,12 +256,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001"
-        }
-      ]
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_InValid_uin_gender:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -331,12 +275,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001"
-        }
-      ]
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_Name_Valid_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -526,13 +465,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001",
-          "actionMessage": "Please re-enter your name in eng"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_InValid_Name_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -551,13 +484,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001",
-          "actionMessage": "Please re-enter your name in eng"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_age_Valid_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -602,13 +529,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data age did not match"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_age_InValid_uin:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -623,13 +544,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data age did not match"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_PhoneNumber_Valid_VID_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -659,13 +574,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001",
-          "actionMessage": "Please re-enter your phoneNumber"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_PhoneNumber_InValid_PhoneNumber_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -680,13 +589,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001",
-          "actionMessage": "Please re-enter your phoneNumber"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_PhoneNumber__with_Valid_TVID_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -716,12 +619,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-MLC-009",
-        }
-      ]
-      "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_DOB_Missing_individualId:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -736,12 +634,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-MLC-009",
-        }
-      ]
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_DOB_Blank_individualId:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -756,12 +649,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-MLC-009",
-        }
-      ]
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_DOB_Invalid_transactionId_uin_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=123453636372829267890&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -806,12 +694,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-MLC-019",
-        }
-      ]
-        "authStatus": false
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_DOB_Lock_Permanent_Valid_UIN_Neg:
@@ -827,12 +710,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-    "errors": [
-            {
-              "errorCode": "IDA-MLC-019",
-            }
-          ]
-            "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_revoke_vid_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -847,12 +725,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-  "authStatus": "false",
-  "errors": [
-    {
-      "errorCode": "IDA-MLC-018"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_dummy_partnerkey_uin_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -867,16 +740,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-MLC-007",
-        }
-        {
-          "errorCode": "IDA-MPA-009",
-          "errorMessage": "Partner is not registered"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_DOB_Unlock_AllValid_UIN_Neg:
@@ -892,14 +756,8 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-            {
-              "errorCode": "IDA-MLC-019",
-            }
-          ]
-            "authStatus": false
+        "authStatus": "false"
 }'
-
   auth_DemoAuth_DOB_Lock_Permanent_AllValid_UIN_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParams_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -913,10 +771,5 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-            {
-              "errorCode": "IDA-MLC-019",
-            }
-          ]
-            "authStatus": false
+        "authStatus": "false"
 }'
