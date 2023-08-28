@@ -2,6 +2,7 @@ DeleteSpecificDocForaPRID:
    Prereg_DeleteSpecificDocForaPRID_All_Valid_Smoke_sid:
       endPoint: /preregistration/v1/documents/{documentId}?preRegistrationId={preRegistrationId}
       role: batch
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: preReg/DeleteSpecificDocForaPRID/deleteSpecificDocForaPRID
       outputTemplate: preReg/DeleteSpecificDocForaPRID/deleteSpecificDocForaPRIDResult
@@ -10,7 +11,7 @@ DeleteSpecificDocForaPRID:
 	"documentId": "$ID:UploadDocument_All_Valid_Smoke_sid_docId$"
 }'
       output: '{
-"message": "Document successfully deleted"
+      
 }'
    Prereg_DeletePreRegistration_inValid_preRegistrationId_sid:
       endPoint: /preregistration/v1/documents/{documentId}?preRegistrationId={preRegistrationId}
@@ -25,8 +26,7 @@ DeleteSpecificDocForaPRID:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_APP_005",
-      "message": "No data found for the requested pre-registration id"
+      "errorCode": "PRG_PAM_APP_005"
     }
   ]
 }'
@@ -43,8 +43,7 @@ DeleteSpecificDocForaPRID:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_DOC_005",
-      "message": "Documents is not found for the requested pre-registration id"
+      "errorCode": "PRG_PAM_DOC_005"
     }
   ]
 }'

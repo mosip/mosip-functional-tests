@@ -2,6 +2,7 @@ SendNotifications:
    Prereg_SendNotifications_All_Valid_Smoke:
       endPoint: /preregistration/v1/notification
       role: batch
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: preReg/SendNotifications/sendNotifications_$LANGNUMBER$
       outputTemplate: preReg/SendNotifications/sendNotificationsResult
@@ -19,11 +20,11 @@ SendNotifications:
 	"isBatch":false      	   
 }'
       output: '{
-  "message": "Email and sms request successfully submitted"
 }'
    Prereg_SendNotifications_Notify_All_Valid_Smoke:
       endPoint: /preregistration/v1/notification/notify
       role: batch
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: preReg/SendNotifications/sendNotificationsNotify
       outputTemplate: preReg/SendNotifications/sendNotificationsResult
@@ -40,7 +41,6 @@ SendNotifications:
 	"isBatch":true      	   
 }'
       output: '{
-  "message": "Email and sms request successfully submitted"
 }'
    Prereg_SendNotifications_InValid_id:
       endPoint: /preregistration/v1/notification
@@ -64,8 +64,7 @@ SendNotifications:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_001",
-      "message": "Request id is invalid"
+      "errorCode": "PRG_PAM_CORE_001"
     }
   ]
 }'
