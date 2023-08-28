@@ -10,22 +10,51 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
+import io.mosip.testrig.apirig.authentication.fw.util.RunConfigUtil;
+
 public class ExtractResource {
 	
 	private static final Logger LOGGER = Logger.getLogger(ExtractResource.class);
 	public static void extractCommonResourceFromJar() {
 		getListOfFilesFromJarAndCopyToExternalResource("config/");
-		getListOfFilesFromJarAndCopyToExternalResource("syncdata/");
-		getListOfFilesFromJarAndCopyToExternalResource("kernel/");
 		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
-		getListOfFilesFromJarAndCopyToExternalResource("testngapi.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("log4j.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("healthCheck/");
 		getListOfFilesFromJarAndCopyToExternalResource("spring.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("validations.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("dbFiles/");
 	}
+	
+	public static void copyCommonResources(){
+		copyCommonResources("config/");
+		copyCommonResources("customize-emailable-report-template.html");
+		copyCommonResources("metadata.xml");
+		copyCommonResources("log4j.properties");
+		copyCommonResources("spring.properties");
+		copyCommonResources("validations.properties");
+		copyCommonResources("dbFiles/");
+	}
+	
+	public static void copyCommonResources(String moduleName){
+			try {
+				File destination = new File(
+						MosipTestRunner.getGlobalResourcePath());
+				File source = new File(MosipTestRunner.getGlobalResourcePath().replace("MosipTestResource/MosipTemporaryTestResource", "") + moduleName);
+				if (source.isDirectory())
+					FileUtils.copyDirectoryToDirectory(source, destination);
+				else {
+					destination = new File(
+							MosipTestRunner.getGlobalResourcePath()+ "/" + moduleName);
+					FileUtils.copyFile(source, destination);
+				}
+					
+
+				LOGGER.info("Copied the test resource successfully for " + moduleName);
+			} catch (Exception e) {
+				LOGGER.error(
+						"Exception occured while copying the file for : " + moduleName + " Error : " + e.getMessage());
+			}
+		}
 	
 	public static void getListOfFilesFromJarAndCopyToExternalResource(String key) {
 		ZipInputStream zipInputStream = null;

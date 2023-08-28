@@ -2421,7 +2421,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String getResourcePath() {
-		return getGlobalResourcePath() + "/" + RESOURCE_FOLDER_NAME + "/";
+		return MosipTestRunner.getGlobalResourcePath() + "/";
 	}
 
 	public static void initiateAdminTest() {
@@ -2450,12 +2450,12 @@ public class AdminTestUtil extends BaseTestCase {
 		} else {
 			try {
 				File destination = new File(
-						RunConfigUtil.getGlobalResourcePath() + "/" + RunConfigUtil.resourceFolderName);
-				File source = new File(RunConfigUtil.getGlobalResourcePath() + "/" + moduleName);
+						RunConfigUtil.getGlobalResourcePath());
+				File source = new File(RunConfigUtil.getGlobalResourcePath().replace("MosipTestResource/MosipTemporaryTestResource", "") + moduleName);
 				FileUtils.copyDirectoryToDirectory(source, destination);
 
-				source = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
-				FileUtils.copyDirectoryToDirectory(source, destination);
+//				source = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
+//				FileUtils.copyDirectoryToDirectory(source, destination);
 				logger.info("Copied the test resource successfully for " + moduleName);
 			} catch (Exception e) {
 				logger.error(
