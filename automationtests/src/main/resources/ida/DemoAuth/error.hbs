@@ -1,15 +1,6 @@
 {
   "authResponse": {
     "body": {
-    "errors": [
-      {{#each errors}}
-        {
-            "errorCode": "{{errorCode}}",
-            "errorMessage": "{{errorMessage}}"
-        }
-          {{#unless @last}},{{/unless}}
-      	{{/each}}
-  ]
       "response": {
         "authStatus": {{authStatus}}
       }
