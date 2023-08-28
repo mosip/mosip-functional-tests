@@ -11,7 +11,6 @@ RequestAPIKeyForAuthPartner:
 		"requesttime": "$TIMESTAMP$"
     }'
       output: '{
-        "mappingkey": "$IGNORE$",
         "message": "Policy mapping request submitted successfully."
     }'
    Partner_SubmitPartnerApiKeyRequest_Approval_All_Valid_Smoke_sid:
@@ -26,7 +25,6 @@ RequestAPIKeyForAuthPartner:
 		"requesttime": "$TIMESTAMP$"
     }'
       output: '{
-        "mappingkey": "$IGNORE$",
         "message": "Policy mapping request submitted successfully."
     }'
    Partner_SubmitPartnerApiKeyRequest_invalid_policyName:
@@ -44,7 +42,6 @@ RequestAPIKeyForAuthPartner:
    "errors": [
     {
       "errorCode": "PMS_PRT_098",
-      "message": "$IGNORE$"
     }
   ]
 }'

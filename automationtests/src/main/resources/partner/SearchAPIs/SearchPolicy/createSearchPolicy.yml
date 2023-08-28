@@ -13,13 +13,6 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "version": "$IGNORE$",
-        "policyType": "$IGNORE$",
-        "schema": "IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicy_Only_FilterCriteria_Smoke:
       endPoint: /partnermanagement/v1/policies/policy/search
@@ -70,13 +63,6 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "version": "$IGNORE$",
-        "policyType": "$IGNORE$",
-        "schema": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicy_Only_PaginationCriteria_Smoke:
       endPoint: /partnermanagement/v1/policies/policy/search
@@ -92,13 +78,6 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "version": "$IGNORE$",
-        "policyType": "$IGNORE$",
-        "schema": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPolicy_type_contains_Smoke_asc_sid:
       endPoint: /partnermanagement/v1/policies/policy/search
@@ -337,7 +316,6 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": "$IGNORE$"
 }'
    Partner_SearchPolicy_with_invalid_value_equals:
       endPoint: /partnermanagement/v1/policies/policy/search
@@ -366,7 +344,6 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": "$IGNORE$"
 }'
    Partner_SearchPolicy_with_invalid_value_startswith:
       endPoint: /partnermanagement/v1/policies/policy/search
@@ -395,7 +372,6 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": "$IGNORE$"
 }'
    Partner_SearchPolicy_with_invalid_columnName:
       endPoint: /partnermanagement/v1/policies/policy/search
@@ -458,7 +434,6 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": "$IGNORE$"
 }'
    Partner_SearchPolicy_with_missing_type:
       endPoint: /partnermanagement/v1/policies/policy/search

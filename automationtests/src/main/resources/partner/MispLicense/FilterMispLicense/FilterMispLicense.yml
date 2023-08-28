@@ -114,8 +114,7 @@ FilterMispLicense:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-317",
-      "message": "$IGNORE$"
+      "errorCode": "PMS-MSD-317"
     }
   ]
 }'

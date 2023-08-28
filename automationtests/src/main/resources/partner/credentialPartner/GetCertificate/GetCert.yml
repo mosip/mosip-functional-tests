@@ -10,5 +10,4 @@ getPartnerCert:
 	"partnerId": "MOVP"
 }'
       output: ' {
-  "errors": "$IGNORE$"
 }'

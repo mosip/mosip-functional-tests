@@ -10,5 +10,4 @@ getPartnerCert:
   "partnerId": "MISP"
 }'
       output: ' {
-  "errors": "$IGNORE$"
 }'

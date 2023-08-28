@@ -1,24 +1,12 @@
 {
-  "responsetime": "$IGNORE$",
   "response": {
-    "fromRecord": "$IGNORE$",
-    "toRecord": "$IGNORE$",
-    "totalRecord": "$IGNORE$",
     "data": [
      {{#each data}}
       {
-        "code": "$IGNORE$",
-        "deviceType": "$IGNORE$",
-        "name": "$IGNORE$",
-        "desciption": "$IGNORE$",
-        "isDeleted": "$IGNORE$",
-        "crBy": "$IGNORE$",
-        "crDtimes": "$IGNORE$",
         "active": "{{active}}"
       }
        {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
-  },
-  "errors": "$IGNORE$"
+  }
 }

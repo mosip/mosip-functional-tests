@@ -11,7 +11,6 @@ GetValueForConfigKey:
 }'
       output: '{
     "key": "pmp.datashare.policy.schema",
-    "value": "$IGNORE$"
   } '
   
    partner_GetValueForConfigKey_allValid_smoke:
@@ -26,5 +25,4 @@ GetValueForConfigKey:
 }'
       output: '{
     "key": "abcd",
-    "value": "$IGNORE$"
   } '

@@ -1,26 +1,12 @@
 {
-  "id": null,
-  "version": null,
-  "responsetime": "$IGNORE$",
-  "metadata": null,
   "response": {
-    "fromRecord": "$IGNORE$",
-    "toRecord": "$IGNORE$",
-    "totalRecord": "$IGNORE$",
     "data": [
      {{#each data}}
       {
-        "code": "$IGNORE$",
-        "crBy": "$IGNORE$",
-        "crDtimes": "$IGNORE$",
-        "isActive": {{isActive}},
-        "isDeleted": "$IGNORE$",
-        "partnerDescription": "$IGNORE$",
-        "isPolicyRequired": "$IGNORE$"
+        "isActive": {{isActive}}
       }
        {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
-  },
-  "errors": "$IGNORE$"
+  }
 }

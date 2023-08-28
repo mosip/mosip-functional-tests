@@ -9,7 +9,6 @@ GetPartnerApiKeyRequest:
     "partnerId": "Tech-123"
 }'
       output: '{
-   "errors": "$IGNORE$"      
 }'
    Partner_GetPartnerApiKeyRequest_InValid_partnerId:
       endPoint: /v1/partnermanager/partners/{partnerId}/apikey/request
