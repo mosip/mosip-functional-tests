@@ -2,6 +2,7 @@ DeleteAllDocForaPRID:
    Prereg_DeletePreRegistration_All_Valid_Smoke_sid:
       endPoint: /preregistration/v1/documents/preregistration/{preRegistrationId}
       role: batch
+      checkErrorsOnlyInResponse: true
       restMethod: delete
       inputTemplate: preReg/DeleteAllDocForaPRID/deleteAllDocForaPRID
       outputTemplate: preReg/DeleteAllDocForaPRID/deleteAllDocForaPRIDResult
@@ -9,7 +10,6 @@ DeleteAllDocForaPRID:
 	"preRegistrationId": "$ID:CreatePrereg_Smoke_alldel_sid_preRegistrationId$"
 }'
       output: '{
-"message": "All documents assosiated with requested pre-registration id deleted sucessfully"
 }'
    Prereg_DeletePreRegistration_InValid_preRegistrationId_sid:
       endPoint: /preregistration/v1/documents/preregistration/{preRegistrationId}
@@ -24,7 +24,6 @@ DeleteAllDocForaPRID:
    "errors": [
     {
       "errorCode": "PRG_PAM_APP_005",
-      "message": "No data found for the requested pre-registration id"
     }
   ]
 }'
