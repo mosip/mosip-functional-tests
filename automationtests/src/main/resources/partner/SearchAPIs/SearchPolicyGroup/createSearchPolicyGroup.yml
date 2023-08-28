@@ -98,7 +98,6 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-        "isActive": "$IGNORE$"
 }'
    Partner_SearchPolicyGroup_type_contains_Smoke_desc_sid:
       endPoint: /v1/policymanager/policies/group/search

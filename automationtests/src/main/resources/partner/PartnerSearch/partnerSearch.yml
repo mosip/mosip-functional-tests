@@ -323,11 +323,7 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": $IGNORE$
-      }
-    ]
+  
 }'
    Partner_SearchPartner_columnname_address_desc_sid:
       endPoint: /v1/partnermanager/partners/search
@@ -356,11 +352,7 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": $IGNORE$
-      }
-    ]
+   
 }'
    Partner_SearchPartner_with_invalid_value_containts:
       endPoint: /v1/partnermanager/partners/search

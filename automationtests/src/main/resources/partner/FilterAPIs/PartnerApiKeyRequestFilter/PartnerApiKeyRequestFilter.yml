@@ -107,7 +107,6 @@ PartnerApiKeyRequestFilter:
    "errors": [
     {
       "errorCode": "PMS-MSD-317",
-      "message": "$IGNORE$"
     }
   ]
 }'

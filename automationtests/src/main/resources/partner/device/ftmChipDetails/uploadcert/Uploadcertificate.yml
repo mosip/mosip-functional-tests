@@ -13,7 +13,6 @@ UploadCertificateOfFtpChip:
     "partnerDomain": "DEVICE"   
   }'
       output: ' {
-  "certificateId": "$IGNORE$"
 }'
    Partner_UploadCertificate_InValid_ftpProviderId:
       endPoint: /v1/partnermanager/ftpchipdetail/uploadcertificate

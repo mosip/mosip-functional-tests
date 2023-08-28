@@ -108,8 +108,7 @@ createPartnerSelfRegistration:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "$IGNORE$"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -159,8 +158,7 @@ createPartnerSelfRegistration:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "$IGNORE$"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

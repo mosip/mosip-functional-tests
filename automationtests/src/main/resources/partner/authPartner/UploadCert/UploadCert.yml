@@ -11,8 +11,7 @@ uploadPartnerCert:
       output: ' {
   "errors": [
         {
-            "errorCode": "PMS_COR_001",
-            "message": "$IGNORE$"
+            "errorCode": "PMS_COR_001"
         }
     ]
 }'
@@ -28,8 +27,7 @@ uploadPartnerCert:
       output: ' {
   "errors": [
         {
-            "errorCode": "KER-KMS-013",
-            "message": "$IGNORE$"
+            "errorCode": "KER-KMS-013"
         }
     ]
 }'

@@ -1,31 +1,12 @@
 {
-  "id": "$IGNORE$",
-  "version": "$IGNORE$",
-  "responsetime": "$IGNORE$",
-  "metadata": "$IGNORE$",
   "response": {
-    "fromRecord": "$IGNORE$",
-    "toRecord": "$IGNORE$",
-    "totalRecord": "$IGNORE$",
     "data": [
      {{#each data}}
       {
-        "apikeyRequestId": "{{apikeyRequestId}}",
-        "crBy": "$IGNORE$",
-        "crDtimes": "$IGNORE$",
-        "delDtimes": null,
-        "isDeleted": "$IGNORE$",
-        "policyId": "$IGNORE$",
-        "requestDatetimes": "$IGNORE$",
-        "requestDetail": "$IGNORE$",
-        "statusCode": "$IGNORE$",
-        "updBy": "$IGNORE$",
-        "updDtimes": "$IGNORE$",
-        "partnerId": "$IGNORE$"
+        "apikeyRequestId": "{{apikeyRequestId}}"
       }
        {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
-  },
-  "errors": "$IGNORE$"
+  }
 }
