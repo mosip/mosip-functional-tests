@@ -75,7 +75,7 @@ public class ExtractResource {
 	 */
 	private static boolean copyFilesFromJarToOutsideResource(String resourceFileParentPath, String resourceFileName) {
 		try {
-			String resourceFileAbsolutePath =  resourceFileParentPath + resourceFileName;
+			String resourceFileAbsolutePath =  resourceFileParentPath + "MosipTemporaryTestResource/" + resourceFileName;
 			File destinationFile = new File(resourceFileAbsolutePath);
 			LOGGER.info("resourceFile : " + MosipTestRunner.jarUrl + "destinationFile : " + resourceFileAbsolutePath);
 			org.apache.commons.io.FileUtils.copyInputStreamToFile(MosipTestRunner.class.getResourceAsStream("/" + resourceFileName), destinationFile);
