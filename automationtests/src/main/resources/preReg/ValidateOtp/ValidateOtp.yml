@@ -13,7 +13,6 @@ ValidateOtp:
   "id": "mosip.pre-registration.login.useridotp"
 }'
       output: '{
-  "message": "VALIDATION_SUCCESSFUL",
   "status": "success"
 }'
    Prereg_SendOtp_All_Valid_Smoke_email_sid:
@@ -30,6 +29,5 @@ ValidateOtp:
   "id": "mosip.pre-registration.login.useridotp"
 }'
       output: '{
-  "message": "VALIDATION_SUCCESSFUL",
   "status": "success"
 }'

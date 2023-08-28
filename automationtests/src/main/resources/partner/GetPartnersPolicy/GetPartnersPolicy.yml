@@ -16,8 +16,7 @@ GetPartnersPolicy:
     "policyGroupName": "mpolicygroup-default-auth",
     "policyId": "mpolicy-default-auth",
     "policyName": "mpolicy-default-auth",
-    "status": "PUBLISHED",
-    "policies": "$IGNORE$"
+    "status": "PUBLISHED"
 }'
 
    partner_GetPartnersPolicy_invalid_partnerId:

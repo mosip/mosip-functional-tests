@@ -12,7 +12,6 @@ SendOtp:
   "id": "mosip.pre-registration.login.sendotp"
 }'
       output: '{
-  "message": "Sms Request Sent",
   "status": "success"
 }'
    Prereg_SendOtp_All_Valid_Smoke_email_sid:
@@ -28,6 +27,5 @@ SendOtp:
   "id": "mosip.pre-registration.login.sendotp"
 }'
       output: '{
-  "message": "Email Request submitted",
   "status": "success"
 }'

@@ -9,5 +9,4 @@ GetFTPChipDetail:
     "ftpChipDetailId": "$ID:CreateFTPChipDetail_All_Valid_Smoke_sid_id$"
   }'
       output: '{
-        "id": "$IGNORE$"
     }'

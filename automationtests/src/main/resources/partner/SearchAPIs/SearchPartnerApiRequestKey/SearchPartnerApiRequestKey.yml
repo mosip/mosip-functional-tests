@@ -12,11 +12,6 @@ SearchPartnerApiRequestKey:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "apikeyRequestId": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPartnerApiRequestKey_Only_FilterCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/request/search
@@ -59,11 +54,6 @@ SearchPartnerApiRequestKey:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "apikeyRequestId": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPartnerApiRequestKey_Only_PaginationCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/request/search
@@ -78,11 +68,6 @@ SearchPartnerApiRequestKey:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "apikeyRequestId": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPartnerApiRequestKey_type_contains_Smoke_asc_sid:
       endPoint: /v1/partnermanager/partners/apikey/request/search

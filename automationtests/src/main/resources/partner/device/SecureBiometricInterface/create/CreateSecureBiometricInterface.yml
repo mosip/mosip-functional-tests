@@ -14,7 +14,6 @@ createSaveSecureBiometricInterface:
     "providerId": "Tech-123"
   }'
       output: '{
-        "id": "$IGNORE$"
     }'
    Partner_SaveSecureBiometricInterface_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/securebiometricinterface
@@ -31,7 +30,6 @@ createSaveSecureBiometricInterface:
     "providerId": "Tech-123"
   }'
       output: '{
-        "id": "$IGNORE$"
     }'
    Partner_SaveSecureBiometricInterface_Missing_InputParameter_swVersion:
       endPoint: /v1/partnermanager/securebiometricinterface

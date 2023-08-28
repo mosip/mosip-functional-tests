@@ -10,7 +10,6 @@ GetPartnerCert:
 		"partnerId": "DPP"
 }'
       output: ' {
-  "errors": "$IGNORE$"
 }'
    Partner_GetPartnerCert_invalid_partnerId:
       endPoint: /v1/partnermanager/partners/{partnerId}/certificate

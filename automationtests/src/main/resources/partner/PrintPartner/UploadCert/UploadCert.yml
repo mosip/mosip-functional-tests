@@ -9,5 +9,4 @@ UploadPartnerCert:
   		"requesttime": "$TIMESTAMP$"
 }'
       output: ' {
-  "errors": "$IGNORE$"
 }'   

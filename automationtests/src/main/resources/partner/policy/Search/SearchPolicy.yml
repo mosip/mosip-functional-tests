@@ -122,8 +122,7 @@ createSearchPolicy:
    "data": [
      {
         "version": "1.0",
-        "policyType": "DataShare",
-        "schema": "$IGNORE$"
+        "policyType": "DataShare"
       }
     ]
 }'
@@ -157,8 +156,7 @@ createSearchPolicy:
    "data": [
      {
         "version": "1.0",
-        "policyType": "DataShare",
-        "schema": "$IGNORE$"
+        "policyType": "DataShare"
       }
     ]
 }'
@@ -297,8 +295,7 @@ createSearchPolicy:
    "data": [
      {
         "version": "1.0",
-        "policyType": "DataShare",
-        "schema": "$IGNORE$"
+        "policyType": "DataShare"
       }
     ]
 }'
@@ -360,7 +357,6 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": "$IGNORE$"
 }'
    Partner_SearchPolicy_with_invalid_value_startswith:
       endPoint: /v1/policymanager/policies/search
@@ -452,7 +448,6 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
-   "errors": "$IGNORE$"
 }'
    Partner_SearchPolicy_with_missing_type:
       endPoint: /v1/policymanager/policies/search

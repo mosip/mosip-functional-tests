@@ -306,7 +306,6 @@ createSearchPartnerType:
   "version": "v1"
 }'
       output: '{
-   "errors": "$IGNORE$"
 }'
    Partner_SearchPartnerType_with_invalid_value_startswith:
       endPoint: /v1/partnermanager/partners/partnertype/search
@@ -334,7 +333,6 @@ createSearchPartnerType:
   "version": "v1"
 }'
       output: '{
-   "errors": "$IGNORE$"
 }'
    Partner_SearchPartnerType_with_invalid_columnName:
       endPoint: /v1/partnermanager/partners/partnertype/search
