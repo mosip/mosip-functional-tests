@@ -67,7 +67,7 @@ public class MosipTestRunner {
 
 			if (checkRunType().equalsIgnoreCase("JAR")) {
 				ExtractResource.removeOldMosipTestTestResource();
-				ExtractResource.extractResourceFromJar();
+				ExtractResource.extractCommonResourceFromJar();
 			}
 			ConfigManager.init(); 
 			BaseTestCase.suiteSetup();

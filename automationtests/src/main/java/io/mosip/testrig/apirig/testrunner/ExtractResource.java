@@ -13,17 +13,10 @@ import org.apache.log4j.Logger;
 public class ExtractResource {
 	
 	private static final Logger LOGGER = Logger.getLogger(ExtractResource.class);
-	public static void extractResourceFromJar() {
-//		getListOfFilesFromJarAndCopyToExternalResource("preReg/");
+	public static void extractCommonResourceFromJar() {
 		getListOfFilesFromJarAndCopyToExternalResource("config/");
-//		getListOfFilesFromJarAndCopyToExternalResource("masterdata/");
 		getListOfFilesFromJarAndCopyToExternalResource("syncdata/");
-//		getListOfFilesFromJarAndCopyToExternalResource("ida/");
 		getListOfFilesFromJarAndCopyToExternalResource("kernel/");
-//		getListOfFilesFromJarAndCopyToExternalResource("regProc/");
-//    	getListOfFilesFromJarAndCopyToExternalResource("idRepository/");
-//		getListOfFilesFromJarAndCopyToExternalResource("resident/");
-//		getListOfFilesFromJarAndCopyToExternalResource("partner/");
 		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
 		getListOfFilesFromJarAndCopyToExternalResource("testngapi.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
@@ -32,8 +25,6 @@ public class ExtractResource {
 		getListOfFilesFromJarAndCopyToExternalResource("spring.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("validations.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("dbFiles/");
-//		getListOfFilesFromJarAndCopyToExternalResource("mobileId/");
-//		getListOfFilesFromJarAndCopyToExternalResource("esignet/");
 	}
 	
 	public static void getListOfFilesFromJarAndCopyToExternalResource(String key) {
