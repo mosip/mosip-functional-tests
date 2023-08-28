@@ -3,6 +3,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -42,6 +43,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -80,6 +82,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -118,6 +121,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -156,6 +160,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -194,6 +199,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -232,6 +238,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -270,6 +277,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -308,6 +316,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -346,6 +355,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -384,6 +394,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -422,6 +433,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -460,6 +472,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -498,6 +511,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -536,6 +550,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -574,6 +589,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -612,6 +628,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -650,6 +667,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -688,6 +706,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -726,6 +745,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -764,6 +784,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -802,6 +823,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -840,6 +862,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult
@@ -878,6 +901,7 @@ BioAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/BioAuthIdp/bioAuth
       outputTemplate: esignet/BioAuthIdp/bioAuthResult

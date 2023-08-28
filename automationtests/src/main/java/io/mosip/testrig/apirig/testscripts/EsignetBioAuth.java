@@ -185,7 +185,10 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
-		} catch (Exception e) {
+		} catch (SkipException e) {
+			throw new SkipException(e.getMessage());
+		}
+		catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 
