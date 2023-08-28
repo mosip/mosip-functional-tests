@@ -21,12 +21,9 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
    MobileId_AuthLock_InValid_Otp_All:
@@ -53,14 +50,11 @@ AuthLock:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-422",
-      "message": "$IGNORE$"
+      "errorCode": "RES-SER-422"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
    MobileId_AuthLock_with_invalidUIN_Valid_Otp_sid:
@@ -87,14 +81,11 @@ AuthLock:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-410",
-      "message": "$IGNORE$"
+      "errorCode": "RES-SER-410"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
    MobileId_AuthLock_Valid_VID_All:
@@ -119,12 +110,9 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
    MobileId_AuthLock_with_invalidVID_Valid_Otp:
@@ -151,14 +139,11 @@ AuthLock:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-410",
-      "message": "$IGNORE$"
+      "errorCode": "RES-SER-410"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
    MobileId_AuthLock_invalidVID_Valid_Otp:
@@ -185,13 +170,10 @@ AuthLock:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-410",
-      "message": "$IGNORE$"
+      "errorCode": "RES-SER-410"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
