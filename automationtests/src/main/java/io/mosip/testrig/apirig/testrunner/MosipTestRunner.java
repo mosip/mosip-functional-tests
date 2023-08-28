@@ -196,7 +196,7 @@ public class MosipTestRunner {
 	 */
 	public static String getGlobalResourcePath() {
 		if (checkRunType().equalsIgnoreCase("JAR")) {
-			return new File(jarUrl).getParentFile().getAbsolutePath() + "/MosipTestResource";
+			return new File(jarUrl).getParentFile().getAbsolutePath() + "/MosipTestResource/MosipTemporaryTestResource";
 		} else if (checkRunType().equalsIgnoreCase("IDE")) {
 			String path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath() + "/MosipTestResource/MosipTemporaryTestResource";
 			if (path.contains(GlobalConstants.TESTCLASSES))
