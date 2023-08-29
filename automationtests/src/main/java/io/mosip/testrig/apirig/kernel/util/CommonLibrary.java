@@ -129,7 +129,7 @@ public class CommonLibrary extends BaseTestCase {
 	}
 
 	public String getResourcePathForKernel() {
-		return MosipTestRunner.getResourcePath() + "/";
+		return MosipTestRunner.getGlobalResourcePath() + "/";
 	}
 
 	public JSONObject readJsonData(String path, boolean isRelative) {
