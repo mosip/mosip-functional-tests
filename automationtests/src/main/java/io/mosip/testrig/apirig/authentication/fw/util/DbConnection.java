@@ -43,7 +43,7 @@ public class DbConnection {
 	
 	public static void main(String[] arg)
 	{
-		DBCONNECTION_LOGGER.info(getDataForQuery("update reg_center_machine_device set device_id = '3000022' where regcntr_id = '10003' and device_id='3000033'","MASTER"));
+	
 	}
 	/**
 	 * Execute query to get generated otp value
