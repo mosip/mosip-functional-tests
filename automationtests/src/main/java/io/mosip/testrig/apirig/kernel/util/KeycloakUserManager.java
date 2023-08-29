@@ -33,7 +33,7 @@ public class KeycloakUserManager {
 	
 	private static final Logger logger = Logger.getLogger(KeycloakUserManager.class);
 
-	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
+	public static Properties propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/Kernel.properties");
 	public static Keycloak key = null;
 	
 	public static void closeKeycloakInstance() {

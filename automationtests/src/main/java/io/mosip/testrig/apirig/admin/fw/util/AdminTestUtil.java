@@ -128,14 +128,14 @@ public class AdminTestUtil extends BaseTestCase {
 
 	private static final Logger logger = Logger.getLogger(AdminTestUtil.class);
 	protected static final Properties properties = getproperty(
-			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
+			MosipTestRunner.getGlobalResourcePath() + "/" + "config/application.properties");
 	protected static final Properties propsMap = getproperty(
-			MosipTestRunner.getResourcePath() + "/" + "config/valueMapping.properties");
+			MosipTestRunner.getGlobalResourcePath() + "/" + "config/valueMapping.properties");
 	protected static final Properties propsBio = getproperty(
 			MosipTestRunner.getGlobalResourcePath() + "/" + "config/bioValue.properties");
 	protected static final Properties propsKernel = getproperty(
-			MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
-	public static String propsHealthCheckURL = MosipTestRunner.getResourcePath() + "/"
+			MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
+	public static String propsHealthCheckURL = MosipTestRunner.getGlobalResourcePath() + "/"
 			+ "config/healthCheckEndpoint.properties";
 	private static String serverComponentsCommitDetails;
 	
