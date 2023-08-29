@@ -26,8 +26,7 @@ CopyDocument:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_017",
-      "message": "Document Category code is invalid"
+      "errorCode": "PRG_CORE_REQ_017"
     }
   ]
 }'
@@ -44,8 +43,7 @@ CopyDocument:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_017",
-      "message": "Document Category code is invalid"
+      "errorCode": "PRG_CORE_REQ_017"
     }
   ]
 }'
@@ -62,8 +60,7 @@ CopyDocument:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_APP_005",
-      "message": "No data found for the requested pre-registration id"
+      "errorCode": "PRG_PAM_APP_005"
     }
   ]
 }'
