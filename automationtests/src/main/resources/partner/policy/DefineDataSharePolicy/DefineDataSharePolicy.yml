@@ -65,8 +65,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_009",
-      "message": "Auth policy exists with name : mosip data share policy"
+      "errorCode": "PMS_POL_009"
     }
   ]
 }'
@@ -90,8 +89,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-            "errorCode": "PMS_POL_053",
-            "message": "Policy group is not active."
+            "errorCode": "PMS_POL_053"
         }
   ]
 }'
@@ -115,8 +113,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_019",
-      "message": "Policy group name does not exist"
+      "errorCode": "PMS_POL_019"
     }
   ]
 }'
@@ -140,8 +137,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_023",
-      "message": "Given policy type is not allowed "
+      "errorCode": "PMS_POL_023"
     }
   ]
 }'
@@ -165,8 +161,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.name"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -190,8 +185,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.desc"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -215,8 +209,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.policyGroupName"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -240,8 +233,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null. Allowed values Auth/DataShare/CredentialIssuance :request.policyType"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

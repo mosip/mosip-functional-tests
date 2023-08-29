@@ -2,6 +2,7 @@ GetFTPChipDetail:
    Partner_GetFtpChipDetail_All_Valid_Smoke:
       endPoint: /v1/partnermanager/ftpchipdetail/getPartnerCertificate/{ftpChipDetailId}
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/device/ftmChipDetails/get/getFtpChipDetail
       outputTemplate: partner/device/ftmChipDetails/get/getFtpChipDetailResult

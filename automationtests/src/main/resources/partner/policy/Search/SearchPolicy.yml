@@ -122,7 +122,8 @@ createSearchPolicy:
    "data": [
      {
         "version": "1.0",
-        "policyType": "DataShare"
+        "policyType": "DataShare",
+        "schema": "$IGNORE$"
       }
     ]
 }'
@@ -156,7 +157,8 @@ createSearchPolicy:
    "data": [
      {
         "version": "1.0",
-        "policyType": "DataShare"
+        "policyType": "DataShare",
+        "schema": "$IGNORE$"
       }
     ]
 }'
@@ -295,7 +297,8 @@ createSearchPolicy:
    "data": [
      {
         "version": "1.0",
-        "policyType": "DataShare"
+        "policyType": "DataShare",
+        "schema": "$IGNORE$"
       }
     ]
 }'

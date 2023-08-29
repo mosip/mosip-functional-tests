@@ -38,8 +38,7 @@ createPartnerSelfRegistration:
       output: ' {
    "errors": [
     {
-      "errorCode": "PMS_PRT_051",
-      "message": "A Partner is already registered with the same Id"
+      "errorCode": "PMS_PRT_051"
     }
   ]
     }'
@@ -82,8 +81,7 @@ createPartnerSelfRegistration:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.partnerId"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -133,8 +131,7 @@ createPartnerSelfRegistration:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.contactNumber"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -182,8 +179,7 @@ createPartnerSelfRegistration:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.partnerType"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

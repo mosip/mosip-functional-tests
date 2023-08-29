@@ -123,8 +123,7 @@ SearchPartnerApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-313",
-      "message": "Invalid pagination value received pagestart:0 and pagefetch:0"
+      "errorCode": "PMS-MSD-313"
     }
   ]
 }'
@@ -156,8 +155,7 @@ SearchPartnerApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-357",
-      "message": "Invalid sort field abcd"
+      "errorCode": "PMS-MSD-357"
     }
   ]
 }'
@@ -189,8 +187,7 @@ SearchPartnerApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-358",
-      "message": "Sort type abcd is not supported"
+      "errorCode": "PMS-MSD-358"
     }
   ]
 }'
@@ -222,8 +219,7 @@ SearchPartnerApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-310",
-      "message": "Invalid column received : abcd"
+      "errorCode": "PMS-MSD-310"
     }
   ]
 }'

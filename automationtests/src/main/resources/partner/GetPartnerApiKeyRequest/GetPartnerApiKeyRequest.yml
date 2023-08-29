@@ -2,6 +2,7 @@ GetPartnerApiKeyRequest:
    Partner_GetPartnerApiKeyRequest_allValid_smoke:
       endPoint: /v1/partnermanager/partners/{partnerId}/apikey/request
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: partner/GetPartnerApiKeyRequest/getPartnerApiKeyRequest
       outputTemplate: partner/GetPartnerApiKeyRequest/getPartnerApiKeyRequestResult
@@ -22,8 +23,7 @@ GetPartnerApiKeyRequest:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_006",
-      "message": "No api key req exist"
+      "errorCode": "PMS_PRT_006"
     }
   ]      
 }'

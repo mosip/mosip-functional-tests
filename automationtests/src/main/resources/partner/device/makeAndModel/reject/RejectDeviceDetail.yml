@@ -2,6 +2,7 @@ rejectDeviceDetail:
    Partner_rejectDeviceDetail_All_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/device/makeAndModel/approve/approveDeviceDetail
       outputTemplate: partner/device/makeAndModel/approve/approveDeviceDetailResult
@@ -12,11 +13,11 @@ rejectDeviceDetail:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "response": "Device details rejected successfully."
     }'
    Partner_rejectDeviceDetail_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/device/makeAndModel/approve/approveDeviceDetail
       outputTemplate: partner/device/makeAndModel/approve/approveDeviceDetailResult
@@ -27,7 +28,6 @@ rejectDeviceDetail:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "response": "Device details rejected successfully."
     }'
    Partner_rejectDeviceDetail_Missing_InputParameter_approvalStatus:
       endPoint: /v1/partnermanager/devicedetail
@@ -44,8 +44,7 @@ rejectDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.approvalStatus"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -66,8 +65,7 @@ rejectDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.id"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

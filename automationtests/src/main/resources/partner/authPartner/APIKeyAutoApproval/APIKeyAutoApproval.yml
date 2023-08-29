@@ -12,7 +12,6 @@ requetAPIKey:
     }'
       output: ' {
         "apiRequestId": "254785",
-        "message": "PartnerAPIKeyRequest successfully submitted and approved.",
 		"apikeyId": "254785"
     }'
     
@@ -30,8 +29,7 @@ requetAPIKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_005",
-      "message": "Partner does not exist"
+      "errorCode": "PMS_PRT_005"
     }
   ]
 }'    

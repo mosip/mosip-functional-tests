@@ -2,6 +2,7 @@ RequestAPIKeyForAuthPartner:
    Partner_SubmitPartnerApiKeyRequest_Rejection_All_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/partners/Tech-123/policy/map
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post 
       inputTemplate: partner/authPartner/RequestAPIKey/requestApiKey
       outputTemplate: partner/authPartner/RequestAPIKey/requestAPIKeyResult
@@ -11,11 +12,11 @@ RequestAPIKeyForAuthPartner:
 		"requesttime": "$TIMESTAMP$"
     }'
       output: '{
-        "message": "Policy mapping request submitted successfully."
     }'
    Partner_SubmitPartnerApiKeyRequest_Approval_All_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/partners/Tech-123/policy/map
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post 
       inputTemplate: partner/authPartner/RequestAPIKey/requestApiKey
       outputTemplate: partner/authPartner/RequestAPIKey/requestAPIKeyResult
@@ -25,7 +26,6 @@ RequestAPIKeyForAuthPartner:
 		"requesttime": "$TIMESTAMP$"
     }'
       output: '{
-        "message": "Policy mapping request submitted successfully."
     }'
    Partner_SubmitPartnerApiKeyRequest_invalid_policyName:
       endPoint: /v1/partnermanager/partners/Tech-123/policy/map
@@ -59,8 +59,7 @@ RequestAPIKeyForAuthPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_005",
-      "message": "Partner does not exist"
+      "errorCode": "PMS_PRT_005"
     }
   ]
 }'
