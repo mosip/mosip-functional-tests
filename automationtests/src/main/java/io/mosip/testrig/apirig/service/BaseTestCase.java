@@ -169,9 +169,9 @@ public class BaseTestCase {
 	public static String clientAssertionToken;
 	private static String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
 	public static Properties props = getproperty(
-			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
+			MosipTestRunner.getGlobalResourcePath() + "/" + "config/application.properties");
 	public static Properties propsKernel = getproperty(
-			MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
+			MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
 	
 	public static String currentRunningLanguage = "";
 
