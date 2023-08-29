@@ -428,7 +428,7 @@ createSearchPolicy:
       role: partner
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
-      outputTemplate: partner/policy/Search/searchPolicyResult
+      outputTemplate: partner/error
       input: '{
     "filters": [
       {
