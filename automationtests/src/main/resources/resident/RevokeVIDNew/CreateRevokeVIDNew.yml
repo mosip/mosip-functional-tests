@@ -88,13 +88,13 @@ RevokeVIDNew:
     }
   ]
 }'
-   Resident_RevokeVIDNew_Using_Vid_Valid_Neg:
+   Resident_RevokeVIDNew_Using_Vid_Valid_Smoke:
       endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Temporary_1_Esignet_Integ_Valid_Smoke_sid_vid$
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
-      outputTemplate: resident/error
+      outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
@@ -103,12 +103,6 @@ RevokeVIDNew:
         "vidStatus": "Revoked"
     }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "RES-SER-406",
-      "message": "Exception while creating VID"
-    }
-  ]
 }'
 
    Resident_RevokeVIDNew_uin_Using_Vid_Invalid_User_Neg:
@@ -128,7 +122,7 @@ RevokeVIDNew:
       output: '{
       "errors": [
     {
-      "errorCode": "RES-SER-407",
+      "errorCode": "RES-SER-454",
       "message": "$IGNORE$"
     }
   ]

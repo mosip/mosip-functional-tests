@@ -1170,8 +1170,7 @@ AuthLock:
       output: '{
   "errors": [
     {
-      "errorCode": "$IGNORE$",
-      "message": "$IGNORE$"
+      "errorCode": "RES-SER-422"
     }
   ],
   "sendOtpResp":{
