@@ -19,7 +19,6 @@ createServiceToUpdateDeviceDetail:
     "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-      "id": "$IGNORE$"
   }'
 
    Partner_ServiceToUpdateDeviceDetail_afterReject_InValid:
