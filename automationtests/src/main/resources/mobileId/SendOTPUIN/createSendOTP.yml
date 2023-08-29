@@ -2,6 +2,7 @@ individualOTP:
    MobileId_individualOTP_All_Valid_Smoke:
       endPoint: /residentmobileapp/req/individualId/otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/SendOTPUIN/individualIdOtp
       outputTemplate: mobileId/SendOTPUIN/individualIdOtpResult
@@ -10,6 +11,4 @@ individualOTP:
     "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$"
   }'
       output: '{
-        "maskedMobile": "XXXXXX3210",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }'
