@@ -11,8 +11,7 @@ GetApplicationWithPrId:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_APP_013",
-      "message": "No Records Found"
+      "errorCode": "PRG_APP_013"
     }
   ]
 }'
