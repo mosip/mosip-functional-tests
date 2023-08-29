@@ -62,8 +62,7 @@ GetRequestCardVid:
       output: '{
       "errors": [
     {
-      "errorCode": "RES-SER-454",
-      "message": "$IGNORE$"
+      "errorCode": "RES-SER-454"
     }
   ]
 }'
