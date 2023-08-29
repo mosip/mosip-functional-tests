@@ -110,6 +110,7 @@ import io.mosip.testrig.apirig.kernel.util.KernelAuthentication;
 import io.mosip.testrig.apirig.kernel.util.KeycloakUserManager;
 import io.mosip.testrig.apirig.kernel.util.Translator;
 import io.mosip.testrig.apirig.service.BaseTestCase;
+import io.mosip.testrig.apirig.testrunner.ExtractResource;
 import io.mosip.testrig.apirig.testrunner.MockSMTPListener;
 import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
@@ -2420,7 +2421,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String getResourcePath() {
-		return getGlobalResourcePath() + "/" + RESOURCE_FOLDER_NAME + "/";
+		return MosipTestRunner.getGlobalResourcePath() + "/";
 	}
 
 	public static void initiateAdminTest() {
@@ -2444,20 +2445,24 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static void copymoduleSpecificAndConfigFile(String moduleName) {
-		File destination = null;
-		File source = null;
-		try {
-			destination = new File(
-					RunConfigUtil.getGlobalResourcePath() + "/" + RunConfigUtil.resourceFolderName);
-			source = new File(RunConfigUtil.getGlobalResourcePath() + "/" + moduleName);
-			FileUtils.copyDirectoryToDirectory(source, destination);
+		if (MosipTestRunner.checkRunType().equalsIgnoreCase("JAR")) {
+			ExtractResource.getListOfFilesFromJarAndCopyToExternalResource(moduleName + "/");
+		} else {
+			try {
+				File destination = new File(
+						RunConfigUtil.getGlobalResourcePath());
+				File source = new File(RunConfigUtil.getGlobalResourcePath().replace("MosipTestResource/MosipTemporaryTestResource", "") + moduleName);
+				FileUtils.copyDirectoryToDirectory(source, destination);
 
-			source = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
-			FileUtils.copyDirectoryToDirectory(source, destination);
-			logger.info("Copied the test resource successfully for " + moduleName);
-		} catch (Exception e) {
-			logger.error("Exception occured while copying the file for : " + moduleName + " Error : " + e.getMessage());
+//				source = new File(RunConfigUtil.getGlobalResourcePath() + "/config");
+//				FileUtils.copyDirectoryToDirectory(source, destination);
+				logger.info("Copied the test resource successfully for " + moduleName);
+			} catch (Exception e) {
+				logger.error(
+						"Exception occured while copying the file for : " + moduleName + " Error : " + e.getMessage());
+			}
 		}
+
 	}
 
 	public static void copyAdminTestResource() {

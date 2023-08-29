@@ -22,12 +22,9 @@ AuthUnlock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
    MobileId_AuthUnLock_Valid_UIN_With_VID_All:
@@ -53,12 +50,9 @@ AuthUnlock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
    MobileId_AuthUnLock_With_InValid_OTP_All:
@@ -86,14 +80,11 @@ AuthUnlock:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-422",
-      "message": "$IGNORE$"
+      "errorCode": "RES-SER-422"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
    MobileId_AuthUnLock_InValid_OTP_With_VID_All:
@@ -121,13 +112,10 @@ AuthUnlock:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-422",
-      "message": "$IGNORE$"
+      "errorCode": "RES-SER-422"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'

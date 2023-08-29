@@ -79,8 +79,7 @@ AddIdentity:
       output: '{
     "errors": [
         {
-            "errorCode": "IDR-IDC-004",
-            "message": "$IGNORE$"
+            "errorCode": "IDR-IDC-004"
         }
     ]
 }'

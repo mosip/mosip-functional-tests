@@ -238,7 +238,9 @@ public class BaseTestCase {
 
 		String[] modulesSpecified = System.getProperty("modules").split(",");
 		listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
-		AuthTestsUtil.removeOldMosipTempTestResource();
+		if (!MosipTestRunner.checkRunType().equalsIgnoreCase("JAR")) {
+			AuthTestsUtil.removeOldMosipTempTestResource();
+		}
 		if (listOfModules.contains("auth")) {
 			setReportName("auth");
 			BaseTestCase.currentModule = "auth";
