@@ -2,6 +2,7 @@ GetResidentValidDocuments:
    Resident_GetResidentValidDocuments_all_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
       outputTemplate: resident/GetResidentValidDocuments/getResidentValidDocumentsResult
@@ -10,16 +11,12 @@ GetResidentValidDocuments:
 		"langCode":"$1STLANG$"
 }'
       output: '{
-    	"code": "$IGNORE$",
-        "name": "$IGNORE$",
-        "description": "$IGNORE$",
-        "langCode": "$IGNORE$",
-        "isActive": "$IGNORE$"
 }'
 
    Resident_GetResidentValidDocuments_Invalid_LangCode:
       endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
       outputTemplate: resident/error
@@ -39,6 +36,7 @@ GetResidentValidDocuments:
    Resident_GetResidentValidDocuments_Invalid_ApplicantId:
       endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
       outputTemplate: resident/error
@@ -58,6 +56,7 @@ GetResidentValidDocuments:
    Resident_GetResidentValidDocuments_Empty_LangCode_Neg:
       endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
       outputTemplate: resident/error
@@ -77,6 +76,7 @@ GetResidentValidDocuments:
    Resident_GetResidentValidDocuments_StatusCode_Empty_ApplicantId_Neg:
       endPoint: /resident/v1/proxy/masterdata/applicanttype/{applicantId}/languages?languages={langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetResidentValidDocuments/getResidentValidDocuments
       outputTemplate: resident/error

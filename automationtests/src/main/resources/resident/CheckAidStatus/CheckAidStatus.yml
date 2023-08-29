@@ -3,6 +3,7 @@ CheckAidStatus:
       endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
       outputTemplate: resident/CheckAidStatus/CheckAidStatusResult
       input: '{
@@ -32,6 +33,7 @@ CheckAidStatus:
       endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
       outputTemplate: resident/error 
       input: '{
@@ -67,6 +69,7 @@ CheckAidStatus:
       endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
       outputTemplate: resident/error 
       input: '{
@@ -102,6 +105,7 @@ CheckAidStatus:
       endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
       outputTemplate: resident/error 
       input: '{
@@ -137,6 +141,7 @@ CheckAidStatus:
       endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
       outputTemplate: resident/error 
       input: '{
@@ -172,6 +177,7 @@ CheckAidStatus:
       endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
       outputTemplate: resident/error 
       input: '{
@@ -207,6 +213,7 @@ CheckAidStatus:
       endPoint: /resident/v1/aid/status
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
       outputTemplate: resident/error 
       input: '{

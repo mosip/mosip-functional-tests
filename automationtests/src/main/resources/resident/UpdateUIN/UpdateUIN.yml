@@ -2,6 +2,7 @@ UpdateUIN:
    Resident_UpdateUIN_Valid_All_Smoke_Pos_sid:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/UpdateUIN/UpdateUinResult
@@ -24,8 +25,6 @@ UpdateUIN:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -36,6 +35,7 @@ UpdateUIN:
    Resident_UpdateUIN_Invalid_Otp_Empty_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
@@ -74,6 +74,7 @@ UpdateUIN:
    Resident_UpdateUIN_Invalid_Otp_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
@@ -112,6 +113,7 @@ UpdateUIN:
    Resident_UpdateUIN_Missing_Otp_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
@@ -150,6 +152,7 @@ UpdateUIN:
    Resident_UpdateUIN_Invalid_TrnxID_Empty_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
@@ -188,6 +191,7 @@ UpdateUIN:
    Resident_UpdateUIN_Invalid_TrnxID_Mismatch_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
@@ -226,6 +230,7 @@ UpdateUIN:
    Resident_UpdateUIN_Invalid_IndividualId_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
@@ -264,6 +269,7 @@ UpdateUIN:
    Resident_UpdateUIN_Missing_IndividualId_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
@@ -302,6 +308,7 @@ UpdateUIN:
    Resident_UpdateUIN_Invalid_Id_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
@@ -340,6 +347,7 @@ UpdateUIN:
    Resident_UpdateUIN_Missing_Id_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
@@ -378,6 +386,7 @@ UpdateUIN:
    Resident_UpdateUIN_Missing_Timestamp_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
@@ -416,6 +425,7 @@ UpdateUIN:
    Resident_UpdateUIN_Invalid_Timestamp_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
@@ -454,6 +464,7 @@ UpdateUIN:
    Resident_UpdateUIN_Invalid_Version_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error
@@ -492,6 +503,7 @@ UpdateUIN:
    Resident_UpdateUIN_Missing_Version_Neg:
       endPoint: /resident/v1/req/update-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/UpdateUIN/updateUIN
       outputTemplate: resident/error

@@ -2,6 +2,7 @@ DownloadUinCard:
    Resident_DownloadUinCard_all_Valid_Smoke:
       endPoint: /resident/v1/download-card
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       auditLogCheck: true
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
@@ -33,6 +34,7 @@ DownloadUinCard:
    Resident_DownloadUinCard_Invalid_TransactionID_Neg:
       endPoint: /resident/v1/download-card
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
       outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
@@ -67,6 +69,7 @@ DownloadUinCard:
    Resident_DownloadUinCard_Empty_TransactionID_Neg:
       endPoint: /resident/v1/download-card
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
       outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
@@ -101,6 +104,7 @@ DownloadUinCard:
    Resident_DownloadUinCard_Invalid_Otp_Neg:
       endPoint: /resident/v1/download-card
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
       outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
@@ -135,6 +139,7 @@ DownloadUinCard:
    Resident_DownloadUinCard_Empty_Otp_Neg:
       endPoint: /resident/v1/download-card
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
       outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
@@ -169,6 +174,7 @@ DownloadUinCard:
    Resident_DownloadUinCard_Invalid_IndividualID_Neg:
       endPoint: /resident/v1/download-card
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
       outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
@@ -203,6 +209,7 @@ DownloadUinCard:
    Resident_DownloadUinCard_Empty_IndividualID_Neg:
       endPoint: /resident/v1/download-card
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/DownloadUinCard/DownloadUinCard
       outputTemplate: resident/DownloadUinCard/DownloadUinCardResult

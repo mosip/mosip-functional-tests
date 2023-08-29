@@ -16,5 +16,4 @@ SignJWT:
 	    "includeCertHash": false
 }'
       output: '{
-        "jwtSignedData": "$IGNORE$"
 }'

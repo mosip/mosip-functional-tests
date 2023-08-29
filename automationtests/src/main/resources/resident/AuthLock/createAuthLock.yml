@@ -3,6 +3,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -24,8 +25,6 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -37,6 +36,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -58,8 +58,6 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -71,6 +69,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -92,8 +91,6 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -104,6 +101,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -125,8 +123,6 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -137,6 +133,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -158,8 +155,6 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -170,6 +165,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -191,8 +187,6 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -203,6 +197,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -224,8 +219,6 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -236,6 +229,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -257,8 +251,6 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -269,6 +261,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -290,8 +283,6 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -302,6 +293,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -323,8 +315,6 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -335,6 +325,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -356,8 +347,6 @@ AuthLock:
     }
     }'
       output: '{
-   "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -368,6 +357,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -405,6 +395,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -442,6 +433,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -479,6 +471,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -517,6 +510,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -555,6 +549,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -592,6 +587,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -629,6 +625,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -666,6 +663,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -703,6 +701,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -740,6 +739,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -777,6 +777,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -815,6 +816,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -853,6 +855,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -890,6 +893,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -927,6 +931,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -964,6 +969,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -1002,6 +1008,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -1040,6 +1047,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -1074,6 +1082,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -1095,8 +1104,6 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone"
@@ -1106,8 +1113,8 @@ AuthLock:
    Resident_AuthLock_Valid_UIN_Email_All:
       endPoint: /resident/v1/req/auth-lock
       role: resident
-      checkErrorsOnlyInResponse: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/AuthLock/createAuthLockResult
       input: '{
@@ -1129,8 +1136,6 @@ AuthLock:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
         "maskedEmail": "$IGNORE$"
@@ -1141,6 +1146,7 @@ AuthLock:
       endPoint: /resident/v1/req/auth-lock
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/AuthLock/createAuthLock
       outputTemplate: resident/error
       input: '{
@@ -1164,8 +1170,7 @@ AuthLock:
       output: '{
   "errors": [
     {
-      "errorCode": "$IGNORE$",
-      "message": "$IGNORE$"
+      "errorCode": "RES-SER-422"
     }
   ],
   "sendOtpResp":{

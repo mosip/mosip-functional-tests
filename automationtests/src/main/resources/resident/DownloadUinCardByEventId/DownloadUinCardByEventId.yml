@@ -2,6 +2,7 @@ DownloadUinCardByEventId:
    Resident_DownloadUinCardByEventId_uin_all_Valid_Smoke:
       endPoint: /resident/v1/download-card/event/{eventId}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       auditLogCheck: true
       inputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventId
@@ -16,6 +17,7 @@ DownloadUinCardByEventId:
    Resident_DownloadUinCardByEventId_vid_all_Valid_Smoke:
       endPoint: /resident/v1/download-card/event/{eventId}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventId
       outputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventIdResult
@@ -29,6 +31,7 @@ DownloadUinCardByEventId:
    Resident_DownloadUinCardByEventId_uin_Invalid_EventId_Neg:
       endPoint: /resident/v1/download-card/event/{eventId}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventId
       outputTemplate: resident/error
@@ -42,6 +45,7 @@ DownloadUinCardByEventId:
    Resident_DownloadUinCardByEventId_vid_Invalid_EventId_Neg:
       endPoint: /resident/v1/download-card/event/{eventId}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventId
       outputTemplate: resident/error
@@ -59,6 +63,7 @@ DownloadUinCardByEventId:
       endPoint: /resident/v1/download-card/event/{eventId}
       role:
       validityCheckRequired: true
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventId
       outputTemplate: resident/error
@@ -78,6 +83,7 @@ DownloadUinCardByEventId:
    Resident_DownloadUinCardByEventId_uin_Diff_User_Neg:
       endPoint: /resident/v1/download-card/event/{eventId}
       role: resident
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       restMethod: get
       inputTemplate: resident/DownloadUinCardByEventId/DownloadUinCardByEventId

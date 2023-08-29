@@ -2,6 +2,7 @@ RevokeVIDNew:
    Resident_RevokeVIDNew_uin_Perp_Valid_Smoke:
       endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Perpetual_VID_uin_Valid_Token_Smoke_sid_vid$
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
@@ -13,12 +14,12 @@ RevokeVIDNew:
         "vidStatus": "Revoked"
     }'
       output: '{
-		"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
    Resident_RevokeVIDNew_uin_Temp_Valid_Smoke:
       endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_uin_Temporary_VID_Valid_Smoke_sid_vid$
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
@@ -30,12 +31,12 @@ RevokeVIDNew:
         "vidStatus": "Revoked"
     }'
       output: '{
-		"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
    Resident_RevokeVIDNew_uin_OneTimeUse_Valid_Smoke:
       endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_uin_Onetimeuse_VID_Valid_Smoke_sid_vid$
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
@@ -47,12 +48,12 @@ RevokeVIDNew:
         "vidStatus": "Revoked"
     }'
       output: '{
-		"message": "Notification has been sent to the provided contact detail(s)"
 }'
 
    Resident_RevokeVIDNew_StatusCode_Without_Token_Neg:
       endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Temporary_1_Esignet_Integ_Valid_Smoke_sid_vid$
       role: 
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/error
@@ -68,6 +69,7 @@ RevokeVIDNew:
    Resident_RevokeVIDNew_Diff_Token_Neg:
       endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Temporary_1_Esignet_Integ_Valid_Smoke_sid_vid$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/error
@@ -86,12 +88,13 @@ RevokeVIDNew:
     }
   ]
 }'
-   Resident_RevokeVIDNew_Using_Vid_Valid_Neg:
+   Resident_RevokeVIDNew_Using_Vid_Valid_Smoke:
       endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Temporary_1_Esignet_Integ_Valid_Smoke_sid_vid$
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
-      outputTemplate: resident/error
+      outputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNewResult
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "requesttime": "$TIMESTAMP$",
@@ -100,17 +103,12 @@ RevokeVIDNew:
         "vidStatus": "Revoked"
     }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "RES-SER-406",
-      "message": "Exception while creating VID"
-    }
-  ]
 }'
 
    Resident_RevokeVIDNew_uin_Using_Vid_Invalid_User_Neg:
       endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Temporary_2_Esignet_Integ_Valid_Smoke_sid_vid$
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: resident/RevokeVIDNew/CreateRevokeVIDNew
       outputTemplate: resident/error

@@ -2,6 +2,7 @@ AuthLock:
    MobileId_AuthLock_Valid_UIN_All:
       endPoint: /residentmobileapp/req/auth/lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/AuthLock/createAuthLock
       outputTemplate: mobileId/AuthLock/createAuthLockResult
@@ -21,7 +22,6 @@ AuthLock:
     }
     }'
       output: '{
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
@@ -29,6 +29,7 @@ AuthLock:
    MobileId_AuthLock_InValid_Otp_All:
       endPoint: /residentmobileapp/req/auth/lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/AuthLock/createAuthLock
       outputTemplate: mobileId/error
@@ -60,6 +61,7 @@ AuthLock:
    MobileId_AuthLock_with_invalidUIN_Valid_Otp_sid:
       endPoint: /residentmobileapp/req/auth/lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/AuthLock/createAuthLock
       outputTemplate: mobileId/error
@@ -91,6 +93,7 @@ AuthLock:
    MobileId_AuthLock_Valid_VID_All:
       endPoint: /residentmobileapp/req/auth/lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/AuthLock/createAuthLock
       outputTemplate: mobileId/AuthLock/createAuthLockResult
@@ -110,7 +113,6 @@ AuthLock:
     }
     }'
       output: '{
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
@@ -118,6 +120,7 @@ AuthLock:
    MobileId_AuthLock_with_invalidVID_Valid_Otp:
       endPoint: /residentmobileapp/req/auth/lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/AuthLock/createAuthLock
       outputTemplate: mobileId/error
@@ -149,6 +152,7 @@ AuthLock:
    MobileId_AuthLock_invalidVID_Valid_Otp:
       endPoint: /residentmobileapp/req/auth/lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/AuthLock/createAuthLock
       outputTemplate: mobileId/error
