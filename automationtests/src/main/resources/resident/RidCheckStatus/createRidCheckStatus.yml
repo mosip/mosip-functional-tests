@@ -13,11 +13,11 @@ RidCheckStatus:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-   "ridStatus": "$IGNORE$"
 }'
    Resident_RidCheckStatus_Missing_InputParameter_individualId:
       endPoint: /resident/v1/rid/check-status
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/error
@@ -38,6 +38,7 @@ RidCheckStatus:
    Resident_RidCheckStatus_Invalid_InputParameter_individualId:
       endPoint: /resident/v1/rid/check-status
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/error
@@ -59,6 +60,7 @@ RidCheckStatus:
    Resident_RidCheckStatus_Missing_InputParameter_individualIdType:
       endPoint: /resident/v1/rid/check-status
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/error
@@ -79,6 +81,7 @@ RidCheckStatus:
    Resident_RidCheckStatus_Invalid_InputParameter_individualIdType:
       endPoint: /resident/v1/rid/check-status
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/error
@@ -99,6 +102,7 @@ RidCheckStatus:
    Resident_RidCheckStatus_Missing_Id:
       endPoint: /resident/v1/rid/check-status
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/error
@@ -119,6 +123,7 @@ RidCheckStatus:
    Resident_RidCheckStatus_Missing_timestamp:
       endPoint: /resident/v1/rid/check-status
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/error
@@ -139,6 +144,7 @@ RidCheckStatus:
    Resident_RidCheckStatus_Invalid_timestamp:
       endPoint: /resident/v1/rid/check-status
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/RidCheckStatus/createRidCheckStatus
       outputTemplate: resident/error

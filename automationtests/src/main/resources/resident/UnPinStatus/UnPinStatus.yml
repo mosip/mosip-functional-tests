@@ -9,8 +9,7 @@ UnPinStatus:
       	"eventId": "$ID:GetServiceHistory_uin_all_Valid_Smoke_sid_eventId$"
 }'
       output: '{
-      		"status": "200",
-        	"message": "SUCCESS"
+      		"status": "200"
 }'
 
    Resident_UnPinStatus_vid_all_Valid_Smoke:
@@ -23,8 +22,7 @@ UnPinStatus:
       	"eventId": "$ID:GetServiceHistory_vid_all_Valid_Smoke_sid_eventId$"
 }'
       output: '{
-      		"status": "200",
-        	"message": "SUCCESS"
+      		"status": "200"
 }'
 
    Resident_UnPinStatus_uin_Invalid_Input_Neg:

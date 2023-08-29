@@ -2,6 +2,7 @@ DownloadSupportingDocs:
    Resident_DownloadSupportingDocs_all_Valid_smoke:
       endPoint: /resident/v1/download/supporting-documents
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadSupportingDocs/DownloadSupportingDocs
       outputTemplate: resident/DownloadSupportingDocs/DownloadSupportingDocsResult
@@ -14,6 +15,7 @@ DownloadSupportingDocs:
    Resident_DownloadSupportingDocs_Valid_smoke:
       endPoint: /resident/v1/download/supporting-documents
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadSupportingDocs/DownloadSupportingDocs
       outputTemplate: resident/DownloadSupportingDocs/DownloadSupportingDocsResult
@@ -27,6 +29,7 @@ DownloadSupportingDocs:
    Resident_DownloadSupportingDocs_Empty_Lang_Neg:
       endPoint: /resident/v1/download/supporting-documents
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadSupportingDocs/DownloadSupportingDocs
       outputTemplate: resident/error
@@ -40,6 +43,7 @@ DownloadSupportingDocs:
    Resident_DownloadSupportingDocs_Invalid_token_Neg:
       endPoint: /resident/v1/download/supporting-documents
       role: invalid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadSupportingDocs/DownloadSupportingDocs
       outputTemplate: resident/error
@@ -52,6 +56,7 @@ DownloadSupportingDocs:
    Resident_DownloadSupportingDocs_Invalid_lang_Neg:
       endPoint: /resident/v1/download/supporting-documents
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadSupportingDocs/DownloadSupportingDocs
       outputTemplate: resident/error
@@ -64,6 +69,7 @@ DownloadSupportingDocs:
    Resident_DownloadSupportingDocs_Absent_langCode_Neg:
       endPoint: /resident/v1/download/supporting-documents
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadSupportingDocs/DownloadSupportingDocs
       outputTemplate: resident/error

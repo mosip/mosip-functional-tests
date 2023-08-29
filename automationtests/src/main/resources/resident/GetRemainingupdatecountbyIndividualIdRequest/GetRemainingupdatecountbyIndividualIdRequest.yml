@@ -2,6 +2,7 @@ GetRemainingupdatecountbyIndividualIdRequest:
    Resident_GetRemainingupdatecountbyIndividualIdRequest_Valid_Smoke:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest
       outputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequestResult
@@ -17,6 +18,7 @@ GetRemainingupdatecountbyIndividualIdRequest:
    Resident_GetRemainingupdatecountby_Invalid_IndividualIdRequest_Negative:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest
       outputTemplate: resident/error
@@ -37,6 +39,7 @@ GetRemainingupdatecountbyIndividualIdRequest:
    Resident_GetRemainingupdatecountby_StatusCode_empty_IndividualIdRequest_Negative:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest
       outputTemplate: resident/error
@@ -50,6 +53,7 @@ GetRemainingupdatecountbyIndividualIdRequest:
    Resident_GetRemainingupdatecountbyIndividualIdRequest_Invalid_Token:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: invalid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest
       outputTemplate: resident/error

@@ -2,6 +2,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_uin_all_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -24,6 +25,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_uin_Invalid_User_Neg:
       endPoint: /resident/v1/download/service-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -46,6 +48,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_uin_Missing_LangCode_Neg:
       endPoint: /resident/v1/download/service-history
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -68,6 +71,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_uin_FromDate_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -90,6 +94,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_uin_ToDate_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -112,6 +117,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_uin_PageStart_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -134,6 +140,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_uin_ServiceType_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -156,6 +163,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_uin_SortType_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -178,6 +186,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_uin_StatusFilter_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -200,6 +209,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_vid_all_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -222,6 +232,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_vid_Missing_LangCode_Neg:
       endPoint: /resident/v1/download/service-history
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -244,6 +255,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_vid_FromDate_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -266,6 +278,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_vid_ToDate_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -288,6 +301,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_vid_PageStart_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -310,6 +324,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_vid_ServiceType_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -332,6 +347,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_vid_SortType_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
@@ -354,6 +370,7 @@ DownloadServiceHistory:
    Resident_DownloadServiceHistory_vid_StatusFilter_Valid_Smoke:
       endPoint: /resident/v1/download/service-history
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/DownloadServiceHistory/DownloadServiceHistory
       outputTemplate: resident/DownloadServiceHistory/DownloadServiceHistoryResult
