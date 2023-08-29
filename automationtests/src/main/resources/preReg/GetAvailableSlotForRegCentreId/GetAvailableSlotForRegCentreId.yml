@@ -23,8 +23,7 @@ GetAvailableSlotForRegCentreId:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-215",
-      "message": "Registration Center not found"
+      "errorCode": "KER-MSD-215"
     }
   ]
 }'

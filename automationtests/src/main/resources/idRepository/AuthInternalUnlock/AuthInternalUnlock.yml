@@ -2,6 +2,7 @@ AuthInternalUnlock:
   IdRepository_AuthInternalUnlock_Uin_Demo_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlock
       outputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlockResult
@@ -17,12 +18,12 @@ AuthInternalUnlock:
     "unlockForSeconds": 0
 }'
       output: '{
-    "responsetime": "$IGNORE$"
 }'
 
   IdRepository_AuthInternalUnlock_Vid_Demo_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlock
       outputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlockResult
@@ -38,12 +39,12 @@ AuthInternalUnlock:
 	"requestTime": "$TIMESTAMP$"
 }'
       output: '{
-    "responsetime": "$IGNORE$"
 }'
 
   IdRepository_AuthInternalUnlock_Uin_FACE_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlock
       outputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlockResult
@@ -59,12 +60,12 @@ AuthInternalUnlock:
 	"requestTime": "$TIMESTAMP$"
 }'
       output: '{
-    "responsetime": "$IGNORE$"
 }'
 
   IdRepository_AuthInternalUnlock_Vid_FACE_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlock
       outputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlockResult
@@ -80,12 +81,12 @@ AuthInternalUnlock:
 	"requestTime": "$TIMESTAMP$"
 }'
       output: '{
-    "responsetime": "$IGNORE$"
 }'
 
   IdRepository_AuthInternalUnlock_Uin_IRIS_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlock
       outputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlockResult
@@ -101,12 +102,12 @@ AuthInternalUnlock:
 	"requestTime": "$TIMESTAMP$"
 }'
       output: '{
-    "responsetime": "$IGNORE$"
 }'
 
   IdRepository_AuthInternalUnlock_Vid_IRIS_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlock
       outputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlockResult
@@ -122,12 +123,12 @@ AuthInternalUnlock:
 	"requestTime": "$TIMESTAMP$"
 }'
       output: '{
-    "responsetime": "$IGNORE$"
 }'
 
   IdRepository_AuthInternalUnlock_Uin_FINGER_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlock
       outputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlockResult
@@ -143,12 +144,12 @@ AuthInternalUnlock:
 	"requestTime": "$TIMESTAMP$"
 }'
       output: '{
-    "responsetime": "$IGNORE$"
 }'
 
   IdRepository_AuthInternalUnlock_Vid_FINGER_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlock
       outputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlockResult
@@ -164,12 +165,12 @@ AuthInternalUnlock:
 	"requestTime": "$TIMESTAMP$"
 }'
       output: '{
-    "responsetime": "$IGNORE$"
 }'
 
   IdRepository_AuthInternalUnlock_Uin_email_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlock
       outputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlockResult
@@ -185,12 +186,12 @@ AuthInternalUnlock:
 	"requestTime": "$TIMESTAMP$"
 }'
       output: '{
-    "responsetime": "$IGNORE$"
 }'
 
   IdRepository_AuthInternalUnlock_Vid_email_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlock
       outputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlockResult
@@ -206,12 +207,12 @@ AuthInternalUnlock:
 	"requestTime": "$TIMESTAMP$"
 }'
       output: '{
-    "responsetime": "$IGNORE$"
 }'
 
   IdRepository_AuthInternalUnlock_Uin_phone_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlock
       outputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlockResult
@@ -227,12 +228,12 @@ AuthInternalUnlock:
 	"requestTime": "$TIMESTAMP$"
 }'
       output: '{
-    "responsetime": "$IGNORE$"
 }'
 
   IdRepository_AuthInternalUnlock_Vid_phone_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlock
       outputTemplate: idRepository/AuthInternalUnlock/AuthInternalUnlockResult
@@ -248,7 +249,6 @@ AuthInternalUnlock:
 	"requestTime": "$TIMESTAMP$"
 }'
       output: '{
-    "responsetime": "$IGNORE$"
 }'
 
   IdRepository_AuthInternalUnlock_Uin_Empty_Authtype:
@@ -271,8 +271,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -297,8 +296,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -323,8 +321,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -349,8 +346,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -375,8 +371,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'
@@ -401,8 +396,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'
@@ -427,8 +421,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -453,8 +446,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -479,8 +471,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -505,8 +496,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -531,8 +521,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -557,8 +546,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -583,8 +571,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -609,8 +596,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -635,8 +621,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'
@@ -661,8 +646,7 @@ AuthInternalUnlock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'

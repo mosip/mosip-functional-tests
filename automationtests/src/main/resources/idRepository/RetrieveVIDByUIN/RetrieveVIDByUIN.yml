@@ -10,6 +10,7 @@ RetrieveVIDByUIN:
       "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$"
       }'
       output: '{
+      "vidType": "$IGNORE$"
 }'
   IdRepository_RetrieveVIDByUIN_With_Valid_Smoke_Perp:
       endPoint: /idrepository/v1/vid/uin/{UIN}
@@ -22,6 +23,8 @@ RetrieveVIDByUIN:
       "UIN":"$ID:AddIdentity_ValidParam_smoke_Pos_UIN$"
       }'
       output: '{
+      "vidType": "$IGNORE$"
+      
 }'
 
   IdRepository_RetrieveVIDByUIN_With_All_Vid_Valid_Smoke:
@@ -35,6 +38,7 @@ RetrieveVIDByUIN:
       "UIN":"$ID:AddIdentity_For_NewScen_smoke_Pos_UIN$"
       }'
       output: '{
+      "vidType": "$IGNORE$"
 }'
 
   IdRepository_RetrieveVIDByUIN_With_Invalid Uin:
@@ -49,8 +53,7 @@ RetrieveVIDByUIN:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'
@@ -67,8 +70,7 @@ RetrieveVIDByUIN:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -85,8 +87,7 @@ RetrieveVIDByUIN:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'

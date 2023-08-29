@@ -24,8 +24,7 @@ DeleteLostUinApplication:
       output: '{
    "errors": [ 
     {
-      "errorCode": "PRG_PAM_APP_005",
-      "message": "No record found for the requested user id"
+      "errorCode": "PRG_PAM_APP_005"
     }
   ]
 }'

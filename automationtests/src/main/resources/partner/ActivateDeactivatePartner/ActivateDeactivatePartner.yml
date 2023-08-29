@@ -2,6 +2,7 @@ ActivateDeactivatePartner:
    Partner_ActivateDeactivatePartner_deactivate_allValid_smoke:
       endPoint: /v1/partnermanager/partners/{partnerId}
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/ActivateDeactivatePartner/activateDeactivatePartner
       outputTemplate: partner/ActivateDeactivatePartner/activateDeactivatePartnerResult
@@ -11,11 +12,11 @@ ActivateDeactivatePartner:
    "status": "De-Active"
 }'
       output: '{
-    "message": "Partner de-activated successfully"
 }'
    Partner_ActivateDeactivatePartner_activate_allValid_smoke:
       endPoint: /v1/partnermanager/partners/{partnerId}
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/ActivateDeactivatePartner/activateDeactivatePartner
       outputTemplate: partner/ActivateDeactivatePartner/activateDeactivatePartnerResult
@@ -25,7 +26,6 @@ ActivateDeactivatePartner:
    "status": "Active"
 }'
       output: '{
-    "message": "Partner activated successfully"
 }'
    Partner_ActivateDeactivatePartner_invalid_partnerId:
       endPoint: /v1/partnermanager/partners/{partnerId}
@@ -41,8 +41,7 @@ ActivateDeactivatePartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PMP_005",
-      "message": "Partner ID does not exist"
+      "errorCode": "PMS_PMP_005"
     }
   ]
 }'

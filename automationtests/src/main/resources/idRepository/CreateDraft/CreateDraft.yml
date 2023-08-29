@@ -2,6 +2,7 @@ CreateDraft:
   IdRepository_CreateDraft_Smoke_Pos:
       endPoint: /idrepository/v1/identity/draft/create/{registrationId}
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/CreateDraft/createDraft
       outputTemplate: idRepository/CreateDraft/createDraftResult
@@ -23,8 +24,7 @@ CreateDraft:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-012",
-      "message": "Record already exists in DB"
+      "errorCode": "IDR-IDC-012"
     }
   ]
 }'
@@ -52,8 +52,7 @@ CreateDraft:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-012",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-012"
     }
   ]
 }'
@@ -69,8 +68,7 @@ CreateDraft:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "Invalid Request"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'

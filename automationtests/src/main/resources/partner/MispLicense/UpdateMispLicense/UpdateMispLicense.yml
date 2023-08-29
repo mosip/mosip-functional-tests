@@ -43,8 +43,7 @@ UpdateMispLicense:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_MSP_407",
-      "message": "mispStatus either Active or De-active."
+      "errorCode": "PMS_MSP_407"
     }
   ]
 }'

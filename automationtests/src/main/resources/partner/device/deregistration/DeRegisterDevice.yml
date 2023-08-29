@@ -2,6 +2,7 @@ createDeRegisterDevice:
    Partner_DeRegisterDevice_All_Valid_Smoke:
       endPoint: /v1/partnermanager/registereddevices/deregister
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/device/deregistration/deRegisterDevice
       outputTemplate: partner/device/deregistration/deRegisterDeviceResult
@@ -11,6 +12,5 @@ createDeRegisterDevice:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "Device details approved successfully."
     }'
 

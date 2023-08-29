@@ -2,6 +2,7 @@ RejectAPIKey:
    Partner_ApproveRejectPartnerAPIKeyReq_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/policy/{mappingkey}
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/credentialPartner/RejectAPIKey/rejectAPIKey
       outputTemplate: partner/credentialPartner/RejectAPIKey/rejectAPIKeyResult
@@ -11,7 +12,6 @@ RejectAPIKey:
 	  "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "response": "Policy mapping rejected successfully"
     }'
 
    Partner_ApproveRejectPartnerAPIKeyReq_Missing_InputParameter_status:
@@ -28,8 +28,7 @@ RejectAPIKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.status"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

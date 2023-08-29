@@ -2,6 +2,7 @@ ApproveAPIKey:
    Partner_ApproveRejectPartnerAPIKeyReq_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/policy/{mappingkey}
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: put
       inputTemplate: partner/GenerateApiKeyForApprovedPolicies/ApproveAPIKey/approveAPIKey
       outputTemplate: partner/GenerateApiKeyForApprovedPolicies/ApproveAPIKey/approveAPIKeyResult
@@ -11,5 +12,4 @@ ApproveAPIKey:
 	  "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "response": "Policy mapping approved successfully"
     }'

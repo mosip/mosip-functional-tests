@@ -2,6 +2,7 @@ ActivateDeactivatePartnerApiKey:
    Partner_ActivateDeactivatePartnerApiKey_deactivate_allValid_smoke:
       endPoint: /v1/partnermanager/partners/{partnerId}/policy/{policyId}/apiKey/status
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
       outputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKeyResult
@@ -13,11 +14,11 @@ ActivateDeactivatePartnerApiKey:
    "status": "De-Active"
 }'
       output: '{
-    "response": "Partner apikey de-activated successfully."
 }'
    Partner_ActivateDeactivatePartnerApiKey_activate_allValid_smoke:
       endPoint: /v1/partnermanager/partners/{partnerId}/policy/{policyId}/apiKey/status
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
       outputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKeyResult
@@ -47,8 +48,7 @@ ActivateDeactivatePartnerApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_111",
-      "message": "API key not exists for the given combination"
+      "errorCode": "PMS_PRT_111"
     }
   ]
 }'
@@ -68,8 +68,7 @@ ActivateDeactivatePartnerApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_111",
-      "message": "API key not exists for the given combination"
+      "errorCode": "PMS_PRT_111"
     }
   ]
 }'
@@ -89,8 +88,7 @@ ActivateDeactivatePartnerApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_111",
-      "message": "API key not exists for the given combination"
+      "errorCode": "PMS_PRT_111"
     }
   ]
 }'

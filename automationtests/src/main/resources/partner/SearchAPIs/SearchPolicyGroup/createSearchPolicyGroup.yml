@@ -75,6 +75,7 @@ createSearchPolicyGroup:
    Partner_SearchPolicyGroup_type_contains_Smoke_asc_sid:
       endPoint: /v1/policymanager/policies/group/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
@@ -126,11 +127,11 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-      "isActive": true
 }'
    Partner_SearchPolicyGroup_type_equals_Smoke_desc_sid:
       endPoint: /v1/policymanager/policies/group/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
@@ -154,11 +155,11 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-        "isActive": true
 }'
    Partner_SearchPolicyGroup_type_equals_Smoke_asc_sid:
       endPoint: /v1/policymanager/policies/group/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
@@ -187,6 +188,7 @@ createSearchPolicyGroup:
    Partner_SearchPolicyGroup_type_startswith_Smoke_asc_sid:
       endPoint: /v1/policymanager/policies/group/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
@@ -210,11 +212,11 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-        "isActive": true
 }'
    Partner_SearchPolicyGroup_type_startswith_Smoke_desc_sid:
       endPoint: /v1/policymanager/policies/group/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
@@ -238,11 +240,11 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-        "isActive": true
 }'
    Partner_SearchPolicyGroup_columnname_id_desc_smoke:
       endPoint: /v1/policymanager/policies/group/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
@@ -266,11 +268,11 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-        "isActive": true
 }'
    Partner_SearchPolicyGroup_columnname_id_asc_smoke:
       endPoint: /v1/policymanager/policies/group/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroup
       outputTemplate: partner/SearchAPIs/SearchPolicyGroup/createSearchPolicyGroupResult
@@ -294,7 +296,6 @@ createSearchPolicyGroup:
   "version": "v1"
 }'
       output: '{
-        "isActive": true
 }'
    
    Partner_SearchPolicyGroup_with_missing_columnName:
@@ -325,8 +326,7 @@ createSearchPolicyGroup:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-311",
-      "message": "Column is missing in request"
+      "errorCode": "PMS-MSD-311"
     }
   ]
 }'

@@ -24,7 +24,7 @@ public class DBManager {
 		try {
 			session = getDataBaseConnection(ConfigManager.getPMSDbUrl(), ConfigManager.getPMSDbUser(),
 					ConfigManager.getPMSDbPass(), ConfigManager.getPMSDbSchema());
-			executeQueries(session, MosipTestRunner.getResourcePath() + "/"	+ "config/pmsDataDeleteQueries.txt");		
+			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/pmsDataDeleteQueries.txt");		
 		} catch (Exception e) {
 			logger.error("Error:: While executing PMS DB Quiries." + e.getMessage());
 		} finally {
@@ -38,7 +38,7 @@ public class DBManager {
 		try {
 			session = getDataBaseConnection(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
 					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema());
-			executeQueries(session, MosipTestRunner.getResourcePath() + "/"	+ "config/keyManagerDataDeleteQueries.txt");				
+			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/keyManagerDataDeleteQueries.txt");				
 			} catch (Exception e) {
 				logger.error("Error:: While executing PMS DB Quiries." + e.getMessage());
 			} finally {
@@ -52,7 +52,7 @@ public class DBManager {
 		try {
 			session = getDataBaseConnection(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
 					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema());
-			executeQueries(session,  MosipTestRunner.getResourcePath() + "/"	+ "config/masterDataDeleteQueries.txt");
+			executeQueries(session,  MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/masterDataDeleteQueries.txt");
 			} catch (Exception e) {
 				logger.error("Error:: While executing MASTER DB Quiries." + e.getMessage());
 			} finally {

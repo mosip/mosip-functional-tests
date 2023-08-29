@@ -8,9 +8,9 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/BindingOtp/BindingOtpResult
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
         "maskedMobile": "$IGNORE$"
@@ -25,9 +25,9 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/BindingOtp/BindingOtpResult
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
         "maskedMobile": "$IGNORE$"
@@ -41,15 +41,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "@#DSDFD@#",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "@#DSDFD@#",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "message": "$IGNORE$"
+      "errorCode": "IDA-MLC-009"
     }
   ]
 }'
@@ -62,15 +61,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$REMOVE$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$REMOVE$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-011",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-011"
     }
   ]
 }'
@@ -83,15 +81,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_identifier",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_identifier"
     }
   ]
 }'
@@ -104,15 +101,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "null",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "null",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "message": "$IGNORE$"
+      "errorCode": "IDA-MLC-009"
     }
   ]
 }'
@@ -125,15 +121,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "E M A I L"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "E M A I L"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-011",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-011"
     }
   ]
 }'
@@ -146,15 +141,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "sdsgsg"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "sdsgsg"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-011",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-011"
     }
   ]
 }'
@@ -167,15 +161,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "$IGNORE$"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "$IGNORE$"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-011",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-011"
     }
   ]
 }'
@@ -188,15 +181,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: ""}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: ""}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_otp_channel",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_otp_channel"
     }
   ]
 }'
@@ -209,15 +201,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "null"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "null"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-011",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-011"
     }
   ]
 }'
@@ -230,15 +221,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": "$IGNORE$"
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": "$IGNORE$"
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_otp_channel",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_otp_channel"
     }
   ]
 }'
@@ -251,15 +241,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": ""
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": ""
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_otp_channel",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_otp_channel"
     }
   ]
 }'
@@ -272,15 +261,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": "null"
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": "null"
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_otp_channel",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_otp_channel"
     }
   ]
 }'
@@ -293,15 +281,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "2022-11-08T06:35:53",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "2022-11-08T06:35:53",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ]
 }'
@@ -314,15 +301,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "2022-11-07T06:51:30.195Z",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "2022-11-07T06:51:30.195Z",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ]
 }'
@@ -335,15 +321,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "2033-11-07T06:51:30.195Z",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "2033-11-07T06:51:30.195Z",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ]
 }'
@@ -356,15 +341,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$IGNORE$",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "$IGNORE$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ]
 }'
@@ -377,15 +361,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "",
-	    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ]
 }'
@@ -398,15 +381,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "@#DSDFD@#",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "@#DSDFD@#",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "message": "$IGNORE$"
+      "errorCode": "IDA-MLC-009"
     }
   ]
 }'
@@ -419,15 +401,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$REMOVE$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$REMOVE$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-011",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-011"
     }
   ]
 }'
@@ -440,15 +421,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_identifier",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_identifier"
     }
   ]
 }'
@@ -461,15 +441,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "null",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "null",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "message": "$IGNORE$"
+      "errorCode": "IDA-MLC-009"
     }
   ]
 }'
@@ -482,15 +461,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": [{channel: "E M A I L"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "E M A I L"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-011",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-011"
     }
   ]
 }'
@@ -503,15 +481,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": [{channel: "sdsgsg"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "sdsgsg"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-011",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-011"
     }
   ]
 }'
@@ -524,15 +501,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": [{channel: "$IGNORE$"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "$IGNORE$"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-011",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-011"
     }
   ]
 }'
@@ -545,15 +521,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": [{channel: ""}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: ""}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_otp_channel",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_otp_channel"
     }
   ]
 }'
@@ -566,15 +541,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": [{channel: "null"}]
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "null"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-011",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-011"
     }
   ]
 }'
@@ -587,15 +561,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": "$IGNORE$"
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": "$IGNORE$"
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_otp_channel",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_otp_channel"
     }
   ]
 }'
@@ -608,15 +581,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": ""
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": ""
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_otp_channel",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_otp_channel"
     }
   ]
 }'
@@ -629,15 +601,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$TIMESTAMP$",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": "null"
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": "null"
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_otp_channel",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_otp_channel"
     }
   ]
 }'
@@ -650,15 +621,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "2022-11-08T06:35:53",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "2022-11-08T06:35:53",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ]
 }'
@@ -671,15 +641,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "2022-11-07T06:51:30.195Z",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "2022-11-07T06:51:30.195Z",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ]
 }'
@@ -692,15 +661,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "2033-11-07T06:51:30.195Z",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "2033-11-07T06:51:30.195Z",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ]
 }'
@@ -713,15 +681,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "$IGNORE$",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "$IGNORE$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ]
 }'
@@ -734,15 +701,14 @@ BindingOtp:
       inputTemplate: mobileId/BindingOtp/BindingOtp
       outputTemplate: mobileId/error
       input: '{
-	    "requestTime": "",
-	    "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-	    "otpChannels": [{channel: "EMAIL"}]
+      "requestTime": "",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "EMAIL"}]
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ]
 }'

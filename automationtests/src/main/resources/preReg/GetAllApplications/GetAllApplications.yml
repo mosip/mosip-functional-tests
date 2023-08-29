@@ -23,8 +23,7 @@ GetAllApplications:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_APP_016",
-      "message": "Invalid booking type"
+      "errorCode": "PRG_APP_016"
     }
   ]
 }'

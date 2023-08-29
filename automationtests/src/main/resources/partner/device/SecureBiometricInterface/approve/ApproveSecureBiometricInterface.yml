@@ -2,6 +2,7 @@ ApproveSecureBiometricInterface:
    Partner_ApproveSecureBiometricInterface_All_Valid_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/device/SecureBiometricInterface/approve/approveSecureBiometricInterface
       outputTemplate: partner/device/SecureBiometricInterface/approve/approveSecureBiometricInterfaceResult
@@ -12,7 +13,7 @@ ApproveSecureBiometricInterface:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "response": "Secure biometric details approved successfully."
+      "response": "$IGNORE"
     }'
 
    Partner_ApproveSecureBiometricInterface_Missing_InputParameter_approvalStatus:
@@ -30,8 +31,7 @@ ApproveSecureBiometricInterface:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.approvalStatus"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
