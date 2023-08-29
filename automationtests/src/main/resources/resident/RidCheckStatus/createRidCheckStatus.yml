@@ -13,6 +13,7 @@ RidCheckStatus:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
+      	"ridStatus": "PROCESSED"
 }'
    Resident_RidCheckStatus_Missing_InputParameter_individualId:
       endPoint: /resident/v1/rid/check-status

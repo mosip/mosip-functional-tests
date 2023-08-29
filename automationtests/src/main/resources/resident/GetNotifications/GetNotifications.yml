@@ -89,25 +89,19 @@ GetNotifications:
   ]
 }'
 
-   Resident_GetNotifications_vid_1_Invalid_PageNo_Neg:
+   Resident_GetNotifications_vid_1_Invalid_PageNo_Pos:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
-      outputTemplate: resident/error
+      outputTemplate: resident/GetNotifications/GetNotificationsResult
       input: '{
 		"langCode": "$1STLANG$",
 		"pageStart":"11",
 	    "pageFetch":"2"
 }'
       output: '{
-       "errors": [
-    {
-      "errorCode": "RES-SER-410",
-      "message": "$IGNORE$"
-    }
-  ]
         
 }'
 

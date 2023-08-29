@@ -2,6 +2,7 @@ ReGenerateVID:
    Resident_ReGenerateVID_All_Valid_Smoke_Perpetual_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
@@ -24,8 +25,6 @@ ReGenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -35,6 +34,7 @@ ReGenerateVID:
    Resident_ReGenerateVID_All_Valid_Smoke_Temp_VID_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
@@ -57,8 +57,6 @@ ReGenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",

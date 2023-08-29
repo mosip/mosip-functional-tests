@@ -77,12 +77,11 @@ GetRegistrationCenterWorkingDays:
       endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: resident
       checkErrorsOnlyInResponse: true
-      templateFields: ["langCode"]
       restMethod: get
       inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
       outputTemplate: resident/error
       input: '{
-		  "langCode": "eng",
+		  "langCode": "$1STLANG$",
 		  "registrationCenterID": ""
 }'
       output: "404"

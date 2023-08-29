@@ -1,19 +1,14 @@
 {
-  "URL": "$IGNORE$",
-  "authRequest": "$IGNORE$",
   "authResponse": {
     "body": {
     "errors": [
       {{#each errors}}
         {
-            "errorCode": "{{errorCode}}",
-            "errorMessage": "{{errorMessage}}",
-            "actionMessage": "$IGNORE$"
+            "errorCode": "{{errorCode}}"
         }
           {{#unless @last}},{{/unless}}
       	{{/each}}
   ],
-      "responseTime": "$IGNORE$",
       "response": {
         "kycStatus": {{kycStatus}}
       }
