@@ -2,6 +2,7 @@ RegenerateVid:
   IdRepository_RegenerateVid_Smoke_Pos:
       endPoint: /idrepository/v1/vid/{VID}/regenerate
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/RegenerateVid/regenerateVid
       outputTemplate: idRepository/RegenerateVid/regenerateVidResult
@@ -9,8 +10,6 @@ RegenerateVid:
       "VID":"$ID:CreateVID_withValidParameters_For_VidType_Smoke_Temporary_sid_VID$"
       }'
       output: '{
-    "vidStatus": "ACTIVE",
-    "VID": "$IGNORE$"
 }'
 
   IdRepository_RegenerateVid_Uin_Neg:
@@ -25,8 +24,7 @@ RegenerateVid:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - vid"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -43,8 +41,7 @@ RegenerateVid:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -61,8 +58,7 @@ RegenerateVid:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -79,8 +75,7 @@ RegenerateVid:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'

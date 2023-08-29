@@ -23,8 +23,7 @@ RetrieveIdentityByRid:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-007",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-007"
     }
   ]
 }'
@@ -52,8 +51,7 @@ RetrieveIdentityByRid:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-007",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-007"
     }
   ]
 }'

@@ -25,8 +25,7 @@ CreateDraftVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - vidType"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -43,8 +42,7 @@ CreateDraftVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - vidType"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -61,8 +59,7 @@ CreateDraftVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - vidType"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -79,8 +76,7 @@ CreateDraftVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - UIN"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'

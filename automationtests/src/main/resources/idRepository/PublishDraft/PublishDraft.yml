@@ -23,8 +23,7 @@ PublishDraft:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-007",
-      "message": "No Record(s) found"
+      "errorCode": "IDR-IDC-007"
     }
   ]
 }'

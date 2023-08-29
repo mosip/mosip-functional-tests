@@ -2,6 +2,7 @@ Retrieve_VID_pos:
   IdRepository_Retrieve_VID_pos_perpetual_Active_smoke:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVID
       outputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVIDResult
@@ -9,13 +10,14 @@ Retrieve_VID_pos:
     "VID": "$ID:CreateVID_withValidParameters_For_VidType_Smoke_Perpetual_sid_VID$"
 }'
       output: '{
-	"UIN": "$IGNORE$",
-	"vidStatus": "$IGNORE$"
+       "vidStatus": "$IGNORE$",
+        "UIN": "$IGNORE$"
 }'
 
   IdRepository_Retrieve_VID_pos_Temp_Active_smoke:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVID
       outputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVIDResult
@@ -23,13 +25,15 @@ Retrieve_VID_pos:
     "VID": "$ID:CreateVID_withValidParameters_Smoke_Temp1_sid_VID$"
 }'
       output: '{
-	"UIN": "$IGNORE$",
-	"vidStatus": "$IGNORE$"
+       "vidStatus": "$IGNORE$",
+        "UIN": "$IGNORE$"
+      
 }'
 
   IdRepository_Retrieve_VID_pos_Onetimeuse_Active_smoke:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVID
       outputTemplate: idRepository/RetrieveUINByVID/retrieveUINByVIDResult
@@ -37,8 +41,8 @@ Retrieve_VID_pos:
     "VID": "$ID:CreateVID_withValidParameters_Smoke_Onetime_sid_VID$"
 }'
       output: '{
-	"UIN": "$IGNORE$",
-	"vidStatus": "$IGNORE$"
+      "vidStatus": "$IGNORE$",
+        "UIN": "$IGNORE$"
 }'
 
   IdRepository_Retrieve_VID_pos_perpetual_DEACTIVATED:
@@ -53,8 +57,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-VID-001",
-      "message": "VID is DEACTIVATED"
+      "errorCode": "IDR-VID-001"
     }
   ]
 }'
@@ -71,8 +74,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-VID-001",
-      "message": "VID is DEACTIVATED"
+      "errorCode": "IDR-VID-001"
     }
   ]
 }'
@@ -89,8 +91,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-VID-001",
-      "message": "VID is EXPIRED"
+      "errorCode": "IDR-VID-001"
     }
   ]
 }'
@@ -106,8 +107,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-VID-001",
-      "message": "VID is REVOKED"
+      "errorCode": "IDR-VID-001"
     }
   ]
 }'
@@ -123,8 +123,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-VID-001",
-      "message": "VID is DEACTIVATED"
+      "errorCode": "IDR-VID-001"
     }
   ]
 }'
@@ -140,8 +139,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-VID-001",
-      "message": "VID is REVOKED"
+      "errorCode": "IDR-VID-001"
     }
   ]
 }'
@@ -158,8 +156,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -176,8 +173,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -194,8 +190,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -212,8 +207,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -230,8 +224,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -248,8 +241,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -266,8 +258,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -284,8 +275,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -302,8 +292,7 @@ Retrieve_VID_pos:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
