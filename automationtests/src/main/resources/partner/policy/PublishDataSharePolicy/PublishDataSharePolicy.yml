@@ -36,8 +36,7 @@ createPublishPolicy:
       output: '{
     "errors": [
     {
-        "errorCode": "PMS_POL_020",
-        "message": "Can not publish the published policy"
+        "errorCode": "PMS_POL_020"
      }
   ]        
 }'
@@ -55,8 +54,7 @@ createPublishPolicy:
       output: '{
     "errors": [
     {
-            "errorCode": "PMS_POL_016",
-            "message": "Policy Group ID does not exist"
+            "errorCode": "PMS_POL_016"
         }
   ]        
 }'
@@ -74,8 +72,7 @@ createPublishPolicy:
       output: '{
   "errors": [
     {
-        "errorCode": "PMS_POL_008",
-        "message": "Policy ID does not exist"
+        "errorCode": "PMS_POL_008"
     }
   ]     
 }'

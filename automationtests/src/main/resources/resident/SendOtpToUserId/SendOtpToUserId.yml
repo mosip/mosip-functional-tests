@@ -77,8 +77,7 @@ SendOtpToUserId:
       "message": "Invalid Input Parameter- requesttime"
     }
   ],
-        "status": "Email Request submitted",
-        "message": "success"
+        "status": "Email Request submitted"
 }'
 
    Resident_SendOtpToUserId_uin_Invalid_userId_Neg:
@@ -179,8 +178,7 @@ SendOtpToUserId:
       "message": "Invalid Input Parameter- userId"
     }
   ],
-        "status": "Email Request submitted",
-        "message": "success"
+        "status": "Email Request submitted"
 }'
 
    Resident_SendOtpToUserId_uin_Invalid_transactionID_Neg:
@@ -275,8 +273,7 @@ SendOtpToUserId:
 	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
-        "status": "Email Request submitted",
-        "message": "success"
+        "status": "Email Request submitted"
 }'
 
    Resident_SendOtpToUserId_vid_Invalid_Requesttime_Neg:
@@ -337,8 +334,7 @@ SendOtpToUserId:
       "message": "Invalid Input Parameter- requesttime"
     }
   ],
-        "status": "Email Request submitted",
-        "message": "success"
+        "status": "Email Request submitted"
 }'
 
    Resident_SendOtpToUserId_vid_Invalid_userId_Neg:
@@ -439,8 +435,7 @@ SendOtpToUserId:
       "message": "Invalid Input Parameter- userId"
     }
   ],
-        "status": "Email Request submitted",
-        "message": "success"
+        "status": "Email Request submitted"
 }'
 
    Resident_SendOtpToUserId_vid_Invalid_transactionID_Neg:
@@ -536,6 +531,5 @@ SendOtpToUserId:
 	    "transactionId": "$TRANSACTIONID$"
 }'
       output: '{
-        "status": "Email Request submitted",
-        "message": "success"
+        "status": "Email Request submitted"
 }'

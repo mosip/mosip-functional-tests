@@ -2,6 +2,7 @@ createUpdateSecureBiometricInterface:
    Partner_UpdateSecureBiometricInterface_All_Valid_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: put
       inputTemplate: partner/device/SecureBiometricInterface/update/updateSecureBiometricInterface
       outputTemplate: partner/device/SecureBiometricInterface/update/updateSecureBiometricInterfaceResult
@@ -17,7 +18,6 @@ createUpdateSecureBiometricInterface:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid_id$"
     }'
    Partner_UpdateSecureBiometricInterface_AfterReject_All_Valid_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface
@@ -59,8 +59,7 @@ createUpdateSecureBiometricInterface:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.id"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

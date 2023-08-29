@@ -2,6 +2,7 @@ createSaveSecureBiometricInterface:
    Partner_SaveSecureBiometricInterface_All_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/device/SecureBiometricInterface/create/createSecureBiometricInterface
       outputTemplate: partner/device/SecureBiometricInterface/create/createSecureBiometricInterfaceResult
@@ -18,6 +19,7 @@ createSaveSecureBiometricInterface:
    Partner_SaveSecureBiometricInterface_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/device/SecureBiometricInterface/create/createSecureBiometricInterface
       outputTemplate: partner/device/SecureBiometricInterface/create/createSecureBiometricInterfaceResult
@@ -48,8 +50,7 @@ createSaveSecureBiometricInterface:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.swVersion"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

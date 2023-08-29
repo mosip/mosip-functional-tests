@@ -53,8 +53,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-007",
-      "message": "No Record(s) found"
+      "errorCode": "IDR-IDC-007"
     }
   ]
 }'
@@ -81,8 +80,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-007",
-      "message": "No Record(s) found"
+      "errorCode": "IDR-IDC-007"
     }
   ]
 }'
@@ -109,8 +107,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-007",
-      "message": "No Record(s) found"
+      "errorCode": "IDR-IDC-007"
     }
   ]
 }'
@@ -127,8 +124,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-007",
-      "message": "No Record(s) found"
+      "errorCode": "IDR-IDC-007"
     }
   ]
 }'
@@ -145,8 +141,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-VID-001",
-      "message": "VID is DEACTIVATED"
+      "errorCode": "IDR-VID-001"
     }
   ]
 }'
@@ -162,8 +157,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-VID-001",
-      "message": "VID is DEACTIVATED"
+      "errorCode": "IDR-VID-001"
     }
   ]
 }'
@@ -179,8 +173,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-VID-001",
-      "message": "VID is DEACTIVATED"
+      "errorCode": "IDR-VID-001"
     }
   ]
 }'

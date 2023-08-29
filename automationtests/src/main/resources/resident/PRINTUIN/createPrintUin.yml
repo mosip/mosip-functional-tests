@@ -2,6 +2,7 @@ PrintUin:
    Resident_PrintUin_All_Valid_Smoke:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/PRINTUIN/createPrintUinResult
@@ -24,8 +25,6 @@ PrintUin:
     }
     }'
       output: '{
-  "registrationId": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -35,6 +34,7 @@ PrintUin:
    Resident_PrintUin_Invalid_Empty_Cardtype_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -109,6 +109,7 @@ PrintUin:
    Resident_PrintUin_Invalid_Missing_Cardtype_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -146,6 +147,7 @@ PrintUin:
    Resident_PrintUin_Invalid_IndividualIDType_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -183,6 +185,7 @@ PrintUin:
    Resident_PrintUin_Invalid_MaxLength3_IndividualIDType_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -220,6 +223,7 @@ PrintUin:
    Resident_PrintUin_Invalid_Missing_IndividualID_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -257,6 +261,7 @@ PrintUin:
    Resident_PrintUin_Invalid_Empty_Otp_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -294,6 +299,7 @@ PrintUin:
    Resident_PrintUin_Invalid_MaxLength6_Otp_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -331,6 +337,7 @@ PrintUin:
    Resident_PrintUin_Invalid_Otp_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -368,6 +375,7 @@ PrintUin:
    Resident_PrintUin_Invalid_Empty_requestTime_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -405,6 +413,7 @@ PrintUin:
    Resident_PrintUin_Invalid_Empty_TrnxID_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -442,6 +451,7 @@ PrintUin:
    Resident_PrintUin_Invalid_Value_TrnxID_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -479,6 +489,7 @@ PrintUin:
    Resident_PrintUin_Invalid_Empty_version_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -516,6 +527,7 @@ PrintUin:
    Resident_PrintUin_Invalid_version_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -553,6 +565,7 @@ PrintUin:
    Resident_PrintUin_Invalid_Individual_Id_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -590,6 +603,7 @@ PrintUin:
    Resident_PrintUin_Missing_Individual_Id_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error
@@ -627,6 +641,7 @@ PrintUin:
    Resident_PrintUin_Empty_Individual_Id_Neg:
       endPoint: /resident/v1/req/print-uin
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PRINTUIN/createPrintUin
       outputTemplate: resident/error

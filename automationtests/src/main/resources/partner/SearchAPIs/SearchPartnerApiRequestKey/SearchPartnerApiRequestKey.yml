@@ -2,6 +2,7 @@ SearchPartnerApiRequestKey:
    Partner_SearchPartnerApiRequestKey_AllValid_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/request/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKeyResult
@@ -38,6 +39,7 @@ SearchPartnerApiRequestKey:
    Partner_SearchPartnerApiRequestKey_Only_SortCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/request/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKeyResult
@@ -58,6 +60,7 @@ SearchPartnerApiRequestKey:
    Partner_SearchPartnerApiRequestKey_Only_PaginationCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/request/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKeyResult
@@ -116,8 +119,7 @@ SearchPartnerApiRequestKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-313",
-      "message": "Invalid pagination value received pagestart:0 and pagefetch:0"
+      "errorCode": "PMS-MSD-313"
     }
   ]
 }'

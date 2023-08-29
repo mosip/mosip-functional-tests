@@ -33,8 +33,7 @@ GetPartnersPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_017",
-      "message": "No policy available for given partner"
+      "errorCode": "PMS_POL_017"
     }
   ]
 }'

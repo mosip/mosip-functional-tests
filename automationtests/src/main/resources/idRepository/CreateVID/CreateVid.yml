@@ -161,8 +161,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - version"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -182,8 +181,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - version"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -203,8 +201,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -224,8 +221,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -245,8 +241,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -266,8 +261,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - vidType"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -287,8 +281,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - vidType"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -308,8 +301,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - id"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -329,8 +321,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - id"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -350,8 +341,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - id"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -371,8 +361,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - version"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -392,8 +381,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -413,8 +401,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -434,8 +421,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -455,8 +441,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - vidType"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -476,8 +461,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - vidType"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -497,8 +481,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - vidType"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -518,8 +501,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - id"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -539,8 +521,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - id"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -560,8 +541,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - id"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -581,8 +561,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - version"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -602,8 +581,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - version"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -623,8 +601,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - version"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -644,8 +621,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -665,8 +641,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - vidType"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -686,8 +661,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - id"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -707,8 +681,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - version"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -728,8 +701,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -749,8 +721,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - vidType"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -770,8 +741,7 @@ CreateVID:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - id"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'

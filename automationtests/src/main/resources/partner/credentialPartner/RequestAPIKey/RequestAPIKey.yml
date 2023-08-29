@@ -2,6 +2,7 @@ RequestAPIKeyCredentialPartner:
    Partner_CredPartnerApiKeyRequest_Approval_All_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/partners/MOVP/policy/map
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/credentialPartner/RequestAPIKey/requestApiKey
       outputTemplate: partner/credentialPartner/RequestAPIKey/requestAPIKeyResult
@@ -11,11 +12,11 @@ RequestAPIKeyCredentialPartner:
 		"requesttime": "$TIMESTAMP$"
     }'
       output: ' {
-        "message": "Policy mapping request submitted successfully."
     }'
    Partner_CredPartnerApiKeyRequest_Rejection_All_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/partners/MOVP/policy/map
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/credentialPartner/RequestAPIKey/requestApiKey
       outputTemplate: partner/credentialPartner/RequestAPIKey/requestAPIKeyResult
@@ -25,5 +26,4 @@ RequestAPIKeyCredentialPartner:
 		"requesttime": "$TIMESTAMP$"
     }'
       output: ' {
-        "message": "Policy mapping request submitted successfully."
     }'

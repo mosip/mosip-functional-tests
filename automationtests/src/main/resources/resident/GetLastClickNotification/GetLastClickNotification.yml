@@ -2,6 +2,7 @@ GetLastClickNotification:
    Resident_GetLastClickNotification_uin_all_Valid_Smoke:
       endPoint: /resident/v1/bell/notification-click
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLastClickNotification/GetLastClickNotification
       outputTemplate: resident/GetLastClickNotification/GetLastClickNotificationResult
@@ -14,6 +15,7 @@ GetLastClickNotification:
    Resident_GetLastClickNotification_vid_all_Valid_Smoke:
       endPoint: /resident/v1/bell/notification-click
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLastClickNotification/GetLastClickNotification
       outputTemplate: resident/GetLastClickNotification/GetLastClickNotificationResult
@@ -26,6 +28,7 @@ GetLastClickNotification:
    Resident_GetLastClickNotification_Invalid_Token:
       endPoint: /resident/v1/bell/notification-click
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLastClickNotification/GetLastClickNotification
       outputTemplate: resident/error

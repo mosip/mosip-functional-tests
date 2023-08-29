@@ -160,8 +160,7 @@ CreatePrereg:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_001",
-      "message": "Request id is invalid"
+      "errorCode": "PRG_PAM_CORE_001"
     }
   ]
 }'
@@ -185,8 +184,7 @@ CreatePrereg:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_001",
-      "message": "Request id is invalid"
+      "errorCode": "PRG_PAM_CORE_001"
     }
   ]
 }'
@@ -210,8 +208,7 @@ CreatePrereg:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_001",
-      "message": "Request id is invalid"
+      "errorCode": "PRG_PAM_CORE_001"
     }
   ]
 }'
@@ -235,8 +232,7 @@ CreatePrereg:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_014",
-      "message": "Lang code is invalid"
+      "errorCode": "PRG_CORE_REQ_014"
     }
   ]
 }'
@@ -260,8 +256,7 @@ CreatePrereg:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_014",
-      "message": "Lang code is invalid"
+      "errorCode": "PRG_CORE_REQ_014"
     }
   ]
 }'
@@ -285,8 +280,7 @@ CreatePrereg:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-IOV-004",
-      "message": "Invalid input parameter - identity/email"
+      "errorCode": "KER-IOV-004"
     }
   ]
 }'
@@ -334,8 +328,7 @@ CreatePrereg:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_003",
-      "message": "Invalid request time"
+      "errorCode": "PRG_CORE_REQ_003"
     }
   ]
 }'
@@ -359,8 +352,7 @@ CreatePrereg:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_013",
-      "message": "Request date should be current date"
+      "errorCode": "PRG_CORE_REQ_013"
     }
   ]
 }'
@@ -384,8 +376,7 @@ CreatePrereg:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_002",
-      "message": "Request version is invalid"
+      "errorCode": "PRG_CORE_REQ_002"
     }
   ]
 }'
@@ -409,8 +400,7 @@ CreatePrereg:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_002",
-      "message": "Request version is invalid"
+      "errorCode": "PRG_CORE_REQ_002"
     }
   ]
 }'

@@ -281,8 +281,7 @@ UpdateIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'

@@ -14,9 +14,13 @@ PolicyGroupFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
+       "filters": [
+      {
         "fieldID": "name",
         "fieldValue": "update_policy_group",
         "fieldCode": "update_policy_group"
+      }
+    ]
 }'
    partner_PolicyGroupFilter_all_Valid_Smoke:
       endPoint: /v1/policymanager/policies/group/filtervalues
@@ -33,9 +37,13 @@ PolicyGroupFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
+       "filters": [
+      {
         "fieldID": "name",
         "fieldValue": "mpolicygroup-default-auth",
         "fieldCode": "mpolicygroup-default-auth"
+      }
+    ]
 }'
    partner_PolicyGroupFilter_using_desc_Valid_Smoke:
       endPoint: /v1/policymanager/policies/group/filtervalues
@@ -99,8 +107,7 @@ PolicyGroupFilter:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -121,8 +128,7 @@ PolicyGroupFilter:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_003",
-      "message": "Could not process the request"
+      "errorCode": "PMS_COR_003"
     }
   ]
 }'

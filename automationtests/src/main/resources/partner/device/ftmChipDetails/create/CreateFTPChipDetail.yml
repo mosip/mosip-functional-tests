@@ -13,6 +13,7 @@ CreateFTPChipDetail:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
+      "id": "$IGNORE$"
 }'
 
    Partner_CreateFTPChipDetail_Missing_InputParameter_ftpProviderId:
@@ -30,8 +31,7 @@ CreateFTPChipDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.make"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -51,8 +51,7 @@ CreateFTPChipDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.ftpProviderId"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

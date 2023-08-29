@@ -13,8 +13,6 @@ GenerateVIDNew:
         "vidType": "Temporary"
     }'
       output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
 	    "maskedPhone": "******3210",
 	    "maskedEmail": "res***************@gmail.com"
 }'
@@ -33,8 +31,6 @@ GenerateVIDNew:
         "vidType": "Temporary"
     }'
       output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
 	    "maskedPhone": "******3210",
 	    "maskedEmail": "res***************@gmail.com"
 }'
@@ -53,8 +49,6 @@ GenerateVIDNew:
         "vidType": "Onetimeuse"
     }'
       output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
 	    "maskedPhone": "******3210",
 	    "maskedEmail": "res***************@gmail.com"
 }'
@@ -73,8 +67,6 @@ GenerateVIDNew:
         "vidType": "Perpetual"
     }'
       output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact phone number",
 	    "maskedPhone": "******3210",
 	    "maskedEmail": "$IGNORE$"
 }'
@@ -93,8 +85,6 @@ GenerateVIDNew:
         "vidType": "Perpetual"
     }'
       output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided email ",
 	    "maskedPhone": "$IGNORE$",
 	    "maskedEmail": "res***************@gmail.com"
 }'
@@ -113,8 +103,6 @@ GenerateVIDNew:
         "vidType": "Perpetual"
     }'
       output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
 	    "maskedPhone": "******3210",
 	    "maskedEmail": "res***************@gmail.com"
 }'
@@ -333,8 +321,6 @@ GenerateVIDNew:
         "vidType": "Perpetual"
     }'
       output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
 	    "maskedPhone": "******3210",
 	    "maskedEmail": "res***************@gmail.com"
 }'
@@ -375,8 +361,6 @@ GenerateVIDNew:
         "vidType": "Onetimeuse"
     }'
       output: '{
-      	"vid": "$IGNORE$",
-	    "message": "Notification has been sent to the provided contact detail(s)",
 	    "maskedPhone": "******3210",
 	    "maskedEmail": "res***************@gmail.com"
 }'

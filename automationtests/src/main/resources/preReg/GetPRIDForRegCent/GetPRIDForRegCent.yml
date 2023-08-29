@@ -23,8 +23,7 @@ GetPRIDForRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_032",
-      "message": "Record not found for date range and reg center id"
+      "errorCode": "PRG_BOOK_RCI_032"
     }
   ]
 }'

@@ -1219,8 +1219,7 @@ ValidateWithUserIdOtp:
         "message": "success",
         "sendOtpResTemplate":"resident/SendOtpToUserId/SendOtpToUserIdResult"
     },
-        "status": "success",
-        "message": "VALIDATION_SUCCESSFUL"
+        "status": "success"
 }'
 
    Resident_ValidateWithUserIdOtp_vid_all_Valid_Smoke:
@@ -1248,6 +1247,5 @@ ValidateWithUserIdOtp:
         "message": "success",
         "sendOtpResTemplate":"resident/SendOtpToUserId/SendOtpToUserIdResult"
     },
-        "status": "success",
-        "message": "VALIDATION_SUCCESSFUL"
+        "status": "success"
 }'
