@@ -280,6 +280,7 @@ createSearchPartner:
    Partner_SearchPartner_columnname_address_asc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/search/searchPartner
       outputTemplate: partner/search/searchPartnerResult

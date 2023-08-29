@@ -104,7 +104,7 @@ PartnerApiKeyRequestFilter:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-317",
+      "errorCode": "PMS-MSD-317"
     }
   ]
 }'

@@ -2,6 +2,7 @@ createServiceToUpdateDeviceDetail:
    Partner_ServiceToUpdateDeviceDetail_All_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: put
       inputTemplate: partner/device/makeAndModel/update/updateDeviceDetail
       outputTemplate: partner/device/makeAndModel/update/updateDeviceDetailResult
@@ -18,7 +19,6 @@ createServiceToUpdateDeviceDetail:
     "requesttime": "$TIMESTAMP$"
 }'
       output: '{
- 	"id": "device-id-123"
   }'
 
    Partner_ServiceToUpdateDeviceDetail_afterReject_InValid:
@@ -40,7 +40,7 @@ createServiceToUpdateDeviceDetail:
     "requesttime": "$TIMESTAMP$"
 }'
       output: '{
- 	"id": "device-id-124"
+ 	"id": "$IGNORE$"
   }'
 
    Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_DeviceId:

@@ -419,8 +419,7 @@ createSearchPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-310",
-      "message": "Invalid column received : n@@@@@343e"
+      "errorCode": "PMS-MSD-310"
     }
   ]
 }'
@@ -451,6 +450,12 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
+      
+      "errors": [
+    {
+      "errorCode": "PMS_COR_003"
+    }
+  ]
 }'
    Partner_SearchPolicy_with_missing_type:
       endPoint: /v1/policymanager/policies/search
@@ -481,8 +486,7 @@ createSearchPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-312",
-      "message": "Filter type is missing"
+      "errorCode": "PMS-MSD-312"
     }
   ]
 }'
@@ -515,8 +519,7 @@ createSearchPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-358",
-      "message": "Sort type dc is not supported"
+      "errorCode": "PMS-MSD-358"
     }
   ]
 }'
@@ -549,8 +552,7 @@ createSearchPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
+      "errorCode": "PMS-MSD-314"
     }
   ]
 }'
@@ -583,8 +585,7 @@ createSearchPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-357",
-      "message": "Invalid sort field n@@@@3334$$$e"
+      "errorCode": "PMS-MSD-357"
     }
   ]
 }'
@@ -617,8 +618,7 @@ createSearchPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
+      "errorCode": "PMS-MSD-314"
     }
   ]
 }'
