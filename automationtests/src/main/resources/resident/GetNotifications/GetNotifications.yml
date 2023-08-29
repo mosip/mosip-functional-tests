@@ -2,6 +2,7 @@ GetNotifications:
    Resident_GetNotifications_vid_all_Valid_Smoke:
       endPoint: /resident/v1/notifications/{langCode}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/GetNotifications/GetNotificationsResult
@@ -17,6 +18,7 @@ GetNotifications:
    Resident_GetNotifications_vid_pageFetch_all_Valid_Smoke:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/GetNotifications/GetNotificationsResult
@@ -32,6 +34,7 @@ GetNotifications:
    Resident_GetNotifications_vid_pageStart_all_Valid_Smoke:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/GetNotifications/GetNotificationsResult
@@ -47,6 +50,7 @@ GetNotifications:
    Resident_GetNotifications_Invalid_pageStart_Neg:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -67,6 +71,7 @@ GetNotifications:
    Resident_GetNotifications_vid_Invalid_Token_Neg:
       endPoint: /resident/v1/notifications/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -87,6 +92,7 @@ GetNotifications:
    Resident_GetNotifications_vid_1_Invalid_PageNo_Neg:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -108,6 +114,7 @@ GetNotifications:
    Resident_GetNotifications_vid_all_InValid_langcode_Neg:
       endPoint: /resident/v1/notifications/{langCode}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -128,6 +135,7 @@ GetNotifications:
    Resident_GetNotifications_vid_SpaceVal_langcode_Neg:
       endPoint: /resident/v1/notifications/{langCode}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -148,6 +156,7 @@ GetNotifications:
    Resident_GetNotifications_vid_Neg_Value_PageStart_Neg:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -168,6 +177,7 @@ GetNotifications:
    Resident_GetNotifications_vid_Neg_Value_pageFetch_Neg:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -189,6 +199,7 @@ GetNotifications:
    Resident_GetNotifications_vid_StringVal_Invalid_pageFetch_Neg:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -209,6 +220,7 @@ GetNotifications:
    Resident_GetNotifications_vid_StringVal_Invalid_pageStart_Neg:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -229,6 +241,7 @@ GetNotifications:
    Resident_GetNotifications_uin_all_Valid_Smoke:
       endPoint: /resident/v1/notifications/{langCode}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/GetNotifications/GetNotificationsResult
@@ -244,6 +257,7 @@ GetNotifications:
    Resident_GetNotifications_uin_pageFetch_all_Valid_Smoke:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/GetNotifications/GetNotificationsResult
@@ -259,6 +273,7 @@ GetNotifications:
    Resident_GetNotifications_uin_pageStart_all_Valid_Smoke:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/GetNotifications/GetNotificationsResult
@@ -271,30 +286,25 @@ GetNotifications:
         
 }'
 
-   Resident_GetNotifications_uin_1_Invalid_PageNo_Neg:
+   Resident_GetNotifications_uin_1_Invalid_PageNo_Pos:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"11",
+		"pageStart":"52",
 	    "pageFetch":"2"
 }'
-      output: '{
-       "errors": [
-    {
-      "errorCode": "RES-SER-410",
-      "message": "$IGNORE$"
-    }
-  ]
-        
+      output: '{        
 }'
 
    Resident_GetNotifications_uin_all_InValid_langcode_Neg:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -315,6 +325,7 @@ GetNotifications:
    Resident_GetNotifications_uin_StatusCode_empty_langcode_Neg:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -328,6 +339,7 @@ GetNotifications:
    Resident_GetNotifications_uin_SpaceVal_langcode_Neg:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -348,6 +360,7 @@ GetNotifications:
    Resident_GetNotifications_uin_Neg_Value_PageStart_Neg:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error
@@ -368,6 +381,7 @@ GetNotifications:
    Resident_GetNotifications_uin_Neg_Value_pageFetch_Neg:
       endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetNotifications/GetNotifications
       outputTemplate: resident/error

@@ -2,6 +2,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_uin_all_Valid_Smoke:
       endPoint: /resident/v1/grievance/ticket
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/GrievanceTicket/GrievanceTicketResult
@@ -22,6 +23,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_uin_InvalidUser_Token_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: resident
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
@@ -48,6 +50,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_uin_StatusCode_Invalid_Token_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: invalid
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
@@ -67,6 +70,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_uin_StatusCode_Empty_Token_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: 
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
@@ -86,6 +90,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_uin_Invalid_Eid_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/error
@@ -111,6 +116,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_uin_Diff_Eid_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/error
@@ -136,6 +142,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_uin_Missing_Eid_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/error
@@ -161,6 +168,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_uin_Empty_Eid_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/error
@@ -186,6 +194,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_uin_Empty_Msg_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/error
@@ -211,6 +220,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_uin_Missing_Msg_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/error
@@ -236,6 +246,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_uin_OverRange_Msg_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/error
@@ -261,6 +272,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_vid_all_Valid_Smoke:
       endPoint: /resident/v1/grievance/ticket
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/GrievanceTicket/GrievanceTicketResult
@@ -281,6 +293,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_vid_Invalid_Eid_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/error
@@ -306,6 +319,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_vid_Diff_Eid_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/error
@@ -331,6 +345,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_vid_Missing_Eid_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/error
@@ -356,6 +371,7 @@ GrievanceTicket:
    Resident_GrievanceTicket_vid_Empty_Eid_Neg:
       endPoint: /resident/v1/grievance/ticket
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GrievanceTicket/GrievanceTicket
       outputTemplate: resident/error

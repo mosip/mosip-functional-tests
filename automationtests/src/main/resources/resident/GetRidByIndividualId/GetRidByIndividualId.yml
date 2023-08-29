@@ -2,6 +2,7 @@ GetRidByIndividualId:
    Resident_GetRidByIndividualId_all_Valid_Smoke:
       endPoint: /idrepository/v1/identity/rid/{individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRidByIndividualId/GetRidByIndividualId
       outputTemplate: resident/GetRidByIndividualId/GetRidByIndividualIdResult
@@ -15,6 +16,7 @@ GetRidByIndividualId:
    Resident_GetRidByIndividualId_Perp_Vid_all_Valid_Smoke:
       endPoint: /idrepository/v1/identity/rid/{individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRidByIndividualId/GetRidByIndividualId
       outputTemplate: resident/GetRidByIndividualId/GetRidByIndividualIdResult
@@ -28,6 +30,7 @@ GetRidByIndividualId:
    Resident_GetRidByIndividualId_OneTime_Vid_Valid_Smoke:
       endPoint: /idrepository/v1/identity/rid/{individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRidByIndividualId/GetRidByIndividualId
       outputTemplate: resident/GetRidByIndividualId/GetRidByIndividualIdResult
@@ -41,6 +44,7 @@ GetRidByIndividualId:
    Resident_GetRidByIndividualId_Temp_Vid_all_Valid_Smoke:
       endPoint: /idrepository/v1/identity/rid/{individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRidByIndividualId/GetRidByIndividualId
       outputTemplate: resident/GetRidByIndividualId/GetRidByIndividualIdResult

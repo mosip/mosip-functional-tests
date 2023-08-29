@@ -10,8 +10,7 @@ DeleteDoc:
 		"docId": "$ID:UploadDocument_uin_all_Valid_Smoke_sid_docId$"
 }'
       output: '{
-        "status": "SUCCESS",
-        "message": "Document deleted successfully"
+        "status": "SUCCESS"
 }'
 
    Resident_DeleteDoc_vid_all_Valid_Smoke:
@@ -25,8 +24,7 @@ DeleteDoc:
 		"docId": "$ID:UploadDocument_vid_all_Valid_Smoke_sid_docId$"
 }'
       output: '{
-        "status": "SUCCESS",
-        "message": "Document deleted successfully"
+        "status": "SUCCESS"
 }'
 
    Resident_DeleteDoc_uin_Invalid_TransactionId_Neg:

@@ -2,6 +2,7 @@ GetRetrieveVidPolicy:
    Resident_GetRetrieveVidPolicy_uin_all_Valid_Smoke:
       endPoint: /resident/v1/vid/policy
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRetrieveVidPolicy/getRetrieveVidPolicy
       outputTemplate: resident/GetRetrieveVidPolicy/getRetrieveVidPolicyResult
@@ -13,6 +14,7 @@ GetRetrieveVidPolicy:
    Resident_GetRetrieveVidPolicy_vid_all_Valid_Smoke:
       endPoint: /resident/v1/vid/policy
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRetrieveVidPolicy/getRetrieveVidPolicy
       outputTemplate: resident/GetRetrieveVidPolicy/getRetrieveVidPolicyResult

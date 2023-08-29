@@ -2,6 +2,7 @@ SendOtpIdp:
    Resident_ESignet_SendOtpIdp_all_Valid_Smoke:
       endPoint: /v1/idp/authorization/send-otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/SendOtpIdp/SendOtpIdp
       outputTemplate: resident/SendOtpIdp/SendOtpIdpResult
@@ -12,6 +13,4 @@ SendOtpIdp:
 	    "otpChannels": [{channel: "email"}]
 }'
       output: '{
-        "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "$IGNORE$"
 }'

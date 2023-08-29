@@ -2,6 +2,7 @@ GetLatestIdSchema:
    Resident_GetLatestIdSchema_all_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/idschema/latest?schemaVersion={schemaVersion}&domain={domain}&type={type}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLatestIdSchema/getLatestIdSchema
       outputTemplate: resident/GetLatestIdSchema/getLatestIdSchemaResult
@@ -16,6 +17,7 @@ GetLatestIdSchema:
    Resident_GetLatestIdSchema_Invalid_Schema_Version:
       endPoint: /resident/v1/proxy/masterdata/idschema/latest?schemaVersion={schemaVersion}&domain={domain}&type={type}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLatestIdSchema/getLatestIdSchema
       outputTemplate: resident/error

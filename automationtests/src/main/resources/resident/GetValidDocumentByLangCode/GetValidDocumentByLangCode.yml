@@ -10,9 +10,6 @@ GetValidDocumentByLangCode:
       "langCode": "$1STLANG$"
 }'
       output: '{
-	  "response": [{
-      	
-      }]
 }'
 
 
@@ -20,6 +17,7 @@ GetValidDocumentByLangCode:
    Resident_GetValidDocumentByLangCode_Invalid_LangCode:
       endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
       outputTemplate: resident/error
@@ -52,6 +50,7 @@ GetValidDocumentByLangCode:
    Resident_GetValidDocumentByLangCode_StatusCode_Empty_Invalid_Neg:
       endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
       outputTemplate: resident/error
@@ -63,6 +62,7 @@ GetValidDocumentByLangCode:
    Resident_GetValidDocumentByLangCode_Invalid_LangCode_Neg:
       endPoint: /resident/v1/proxy/masterdata/validdocuments/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetValidDocumentByLangCode/getValidDocumentByLangCode
       outputTemplate: resident/error

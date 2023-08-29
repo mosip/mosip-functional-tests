@@ -2,6 +2,7 @@ AuthHistory:
    Resident_AuthHistory_With_UIN_smoke_Pos:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/AuthHistory/authHistoryResult
@@ -23,7 +24,6 @@ AuthHistory:
     }
     }'
       output: '{
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -33,6 +33,7 @@ AuthHistory:
    Resident_AuthHistory_With_VID_smoke_Pos:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/AuthHistory/authHistoryResult
@@ -54,7 +55,6 @@ AuthHistory:
     }
     }'
       output: '{
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -64,6 +64,7 @@ AuthHistory:
    Resident_AuthHistory_InValid_UIN_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
@@ -87,7 +88,7 @@ AuthHistory:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-410",
+      "errorCode": "RES-SER-417",
       "message": "$IGNORE$"
     }
   ],
@@ -100,6 +101,7 @@ AuthHistory:
    Resident_AuthHistory_missing_UIN_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
@@ -137,6 +139,7 @@ AuthHistory:
    Resident_AuthHistory_Missing_OTP_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
@@ -173,6 +176,7 @@ AuthHistory:
    Resident_AuthHistory_TransactionMismatch_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
@@ -209,6 +213,7 @@ AuthHistory:
    Resident_AuthHistory_Invalid_Id_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
@@ -245,6 +250,7 @@ AuthHistory:
    Resident_AuthHistory_Missing_Id_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
@@ -281,6 +287,7 @@ AuthHistory:
    Resident_AuthHistory_InValid_version_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
@@ -317,6 +324,7 @@ AuthHistory:
    Resident_AuthHistory_Missing_version_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
@@ -353,6 +361,7 @@ AuthHistory:
    Resident_AuthHistory_Invalid_Timestamp_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
@@ -389,6 +398,7 @@ AuthHistory:
    Resident_AuthHistory_Missing_Timestamp_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
@@ -426,6 +436,7 @@ AuthHistory:
    Resident_AuthHistory_InValid_OTP_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error
@@ -463,6 +474,7 @@ AuthHistory:
    Resident_AuthHistory_With_UIN_Phone_smoke_Pos:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/AuthHistory/authHistoryResult
@@ -484,7 +496,6 @@ AuthHistory:
     }
     }'
       output: '{
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone"
@@ -516,7 +527,6 @@ AuthHistory:
     }
     }'
       output: '{
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
         "maskedEmail": "$IGNORE$"
@@ -525,6 +535,7 @@ AuthHistory:
    Resident_AuthHistory_With_UIN_EmptyChannel_Neg:
       endPoint: /resident/v1/req/auth-history
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuthHistory/authHistory
       outputTemplate: resident/error

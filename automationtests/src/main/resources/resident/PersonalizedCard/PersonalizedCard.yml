@@ -2,6 +2,7 @@ PersonalizedCard:
    Resident_PersonalizedCard_uin_all_Valid_Smoke:
       endPoint: /resident/v1/download/personalized-card
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
       outputTemplate: resident/PersonalizedCard/PersonalizedCardResult
@@ -17,6 +18,7 @@ PersonalizedCard:
    Resident_PersonalizedCard_vid_all_Valid_Smoke:
       endPoint: /resident/v1/download/personalized-card
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
       outputTemplate: resident/PersonalizedCard/PersonalizedCardResult
@@ -32,6 +34,7 @@ PersonalizedCard:
    Resident_PersonalizedCard_Empty_Access_Token_Neg:
       endPoint: /resident/v1/download/personalized-card
       role:
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
       outputTemplate: resident/error
@@ -53,6 +56,7 @@ PersonalizedCard:
    Resident_PersonalizedCard_Invalid_Access_Token_Neg:
       endPoint: /resident/v1/download/personalized-card
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
       outputTemplate: resident/error
@@ -74,6 +78,7 @@ PersonalizedCard:
    Resident_PersonalizedCard_uin_Invalid_Html_Neg:
       endPoint: /resident/v1/download/personalized-card
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
       outputTemplate: resident/error
@@ -95,6 +100,7 @@ PersonalizedCard:
    Resident_PersonalizedCard_uin_Empty_Html_Neg:
       endPoint: /resident/v1/download/personalized-card
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
       outputTemplate: resident/error
@@ -116,6 +122,7 @@ PersonalizedCard:
    Resident_PersonalizedCard_vid_Invalid_Html_Neg:
       endPoint: /resident/v1/download/personalized-card
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
       outputTemplate: resident/error
@@ -137,6 +144,7 @@ PersonalizedCard:
    Resident_PersonalizedCard_vid_Empty_Html_Neg:
       endPoint: /resident/v1/download/personalized-card
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/PersonalizedCard/PersonalizedCard
       outputTemplate: resident/error

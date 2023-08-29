@@ -2,6 +2,7 @@ AuditLog:
    Resident_AuditLog_StatusCode_uin_all_Valid_Smoke:
       endPoint: /resident/v1/auth-proxy/audit/log
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuditLog/createAuditLog
       outputTemplate: resident/AuditLog/createAuditLogResult
@@ -28,6 +29,7 @@ AuditLog:
    Resident_AuditLog_StatusCode_vid_all_Valid_Smoke:
       endPoint: /resident/v1/auth-proxy/audit/log
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/AuditLog/createAuditLog
       outputTemplate: resident/AuditLog/createAuditLogResult

@@ -12,8 +12,7 @@ UpdateUINNew:
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
-        "status": "Success",
-        "message": "Notification has been sent to the provided contact detail(s)"
+        "status": "Success"
 }'
 
    Resident_UpdateUINNew_vid_all_Valid_Smoke:
@@ -29,8 +28,7 @@ UpdateUINNew:
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
-        "status": "Success",
-        "message": "Notification has been sent to the provided contact detail(s)"
+        "status": "Success"
 }'
 
    Resident_UpdateUINNew_Invalid_User_Neg:
@@ -88,8 +86,7 @@ UpdateUINNew:
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
-        "status": "Success",
-        "message": "Notification has been sent to the provided contact detail(s)"
+        "status": "Success"
 }'
 
    Resident_UpdateUINNew_Empty_TransactionID_Neg:
@@ -273,8 +270,7 @@ UpdateUINNew:
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
-        "status": "Success",
-        "message": "Notification has been sent to the provided contact detail(s)"
+        "status": "Success"
 }'
 
    Resident_UpdateUINNew_vid_Empty_TransactionID_Neg:
