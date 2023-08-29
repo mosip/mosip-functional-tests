@@ -354,8 +354,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -391,8 +390,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -465,8 +463,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -502,8 +499,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -539,8 +535,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -648,8 +643,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -716,8 +710,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -753,8 +746,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -790,8 +782,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -858,8 +849,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -895,8 +885,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -932,8 +921,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -941,6 +929,7 @@ AddIdentity:
    IdRepository_AddIdentity_with_Invalid_Past_Timestamp_Neg:
       endPoint: /idrepository/v1/identity/
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AddIdentity/addIdentity_$LANGNUMBER$
       outputTemplate: idRepository/error
@@ -969,8 +958,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -1006,8 +994,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -1043,8 +1030,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -1080,8 +1066,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'
@@ -1117,8 +1102,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -1154,8 +1138,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'

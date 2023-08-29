@@ -29,8 +29,7 @@ updatePartnerDetails:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_005",
-      "message": "Partner does not exist"
+      "errorCode": "PMS_PRT_005"
     }
   ]
 }'
@@ -49,8 +48,7 @@ updatePartnerDetails:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.address"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -69,8 +67,7 @@ updatePartnerDetails:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.contactNumber"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

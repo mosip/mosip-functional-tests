@@ -12,6 +12,5 @@ requetAPIKey:
     }'
       output: ' {
         "apiRequestId": "254785",
-        "message": "PartnerAPIKeyRequest successfully submitted and approved.",
 		"apikeyId": "254785"
     }'

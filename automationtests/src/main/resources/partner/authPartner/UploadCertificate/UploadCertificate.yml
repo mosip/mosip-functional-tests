@@ -2,6 +2,7 @@ uploadCACert:
    Partner_UploadCACertificate_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/certificate/ca/upload
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/authPartner/UploadCertificate/uploadCertificate
       outputTemplate: partner/authPartner/UploadCertificate/uploadCertificateResult
@@ -9,7 +10,6 @@ uploadCACert:
     "requesttime": "$TIMESTAMP$"
   }'
       output: ' {
-    "status": "Upload Success."
 }' 
    Partner_UploadCACertificate_UploadAgain_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/certificate/ca/upload

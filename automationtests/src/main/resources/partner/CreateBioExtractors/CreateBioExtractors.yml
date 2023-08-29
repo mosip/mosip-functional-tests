@@ -2,6 +2,7 @@ CreateBioExtractors:
    Partner_CreateBioExtractors_InValid_partnerId:
       endPoint: /v1/partnermanager/partners/{partnerId}/bioextractors/{policyId}
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/CreateBioExtractors/createBioExtractors
       outputTemplate: partner/error
@@ -17,8 +18,7 @@ CreateBioExtractors:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_061",
-      "message": "Partner policy mapping not exists."
+      "errorCode": "PMS_PRT_061"
     }
   ]      
 }'

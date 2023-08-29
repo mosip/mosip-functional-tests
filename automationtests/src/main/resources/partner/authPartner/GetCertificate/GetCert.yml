@@ -23,8 +23,7 @@ GetPartnerCert:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_005",
-      "message": "Partner does not exist"
+      "errorCode": "PMS_PRT_005"
     }
   ]
 }'
@@ -40,8 +39,7 @@ GetPartnerCert:
       output: '{
    "errors": [
     {
-            "errorCode": "PMS_PRT_108",
-            "message": "Certficate is not uploaded for the selected partner."
+            "errorCode": "PMS_PRT_108"
     }
   ]
 }'

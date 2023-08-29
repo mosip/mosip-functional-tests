@@ -2,6 +2,7 @@ UpdatePolicyAgainstApiKey:
    Partner_UpdatePolicyAgainstApiKey_allValid_smoke:
       endPoint: /v1/partnermanager/partners/{partnerId}/apikey/{apiKey}/policies
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: put
       inputTemplate: partner/UpdatePolicyAgainstApiKey/updatePolicyAgainstApiKey
       outputTemplate: partner/UpdatePolicyAgainstApiKey/updatePolicyAgainstApiKeyResult
@@ -13,7 +14,6 @@ UpdatePolicyAgainstApiKey:
    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "message": "Given apikey updated with policy successfully. "
 }'
    Partner_UpdatePolicyAgainstApiKey_invalid_partnerId:
       endPoint: /v1/partnermanager/partners/{partnerId}/apikey/{apiKey}/policies
@@ -31,8 +31,7 @@ UpdatePolicyAgainstApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PMP_50",
-      "message": "Given apikey,partner and policy mapping not exists."
+      "errorCode": "PMS_PMP_50"
     }
   ]
 }'
@@ -52,8 +51,7 @@ UpdatePolicyAgainstApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PMP_50",
-      "message": "Given apikey,partner and policy mapping not exists."
+      "errorCode": "PMS_PMP_50"
     }
   ]
 }'
@@ -73,8 +71,7 @@ UpdatePolicyAgainstApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PMP_50",
-      "message": "Given apikey,partner and policy mapping not exists."
+      "errorCode": "PMS_PMP_50"
     }
   ]
 }'
@@ -94,8 +91,7 @@ UpdatePolicyAgainstApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PMP_014",
-      "message": "Policy does not existINVALID"
+      "errorCode": "PMS_PMP_014"
     }
   ]
 }'

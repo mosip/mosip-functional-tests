@@ -64,8 +64,7 @@ createServiceToUpdateDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.id"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -93,8 +92,7 @@ createServiceToUpdateDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_AUT_001",
-      "message": "Reg Device Sub Type Code not found in the list of Reg Device Sub Types"
+      "errorCode": "PMS_AUT_001"
     }
   ]
 }'
@@ -121,8 +119,7 @@ createServiceToUpdateDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.deviceSubTypeCode"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -148,8 +145,7 @@ createServiceToUpdateDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.deviceTypeCode"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

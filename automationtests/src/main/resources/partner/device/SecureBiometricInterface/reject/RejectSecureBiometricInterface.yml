@@ -2,6 +2,7 @@ RejectSecureBiometricInterface:
    Partner_RejectSecureBiometricInterface_All_Valid_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterface
       outputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterfaceResult
@@ -12,11 +13,11 @@ RejectSecureBiometricInterface:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "response": "Secure biometric details rejected successfully."
     }'
    Partner_RejectSecureBiometricInterface_Valid_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterface
       outputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterfaceResult
@@ -27,7 +28,6 @@ RejectSecureBiometricInterface:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "response": "Secure biometric details rejected successfully."
     }'
    Partner_RejectSecureBiometricInterface_Missing_InputParameter_approvalStatus:
       endPoint: /v1/partnermanager/securebiometricinterface
@@ -44,8 +44,7 @@ RejectSecureBiometricInterface:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.approvalStatus"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

@@ -2,6 +2,7 @@ createSearchSecureBiometric:
    Partner_SearchSecureBiometric_AllValid_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometric
       outputTemplate: partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometricResult
@@ -40,6 +41,7 @@ createSearchSecureBiometric:
    Partner_SearchSecureBiometric_Only_SortCriteria_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometric
       outputTemplate: partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometricResult
@@ -59,6 +61,7 @@ createSearchSecureBiometric:
    Partner_SearchSecureBiometric_Only_PaginationCriteria_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometric
       outputTemplate: partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometricResult

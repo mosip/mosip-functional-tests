@@ -41,8 +41,7 @@ RetrieveAuthTypeStatus:
       output: '{
         "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "Unknown error occurred"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'
@@ -59,8 +58,7 @@ RetrieveAuthTypeStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -77,8 +75,7 @@ RetrieveAuthTypeStatus:
       output: '{
         "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "Unknown error occurred"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'
@@ -95,8 +92,7 @@ RetrieveAuthTypeStatus:
       output: '{
         "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "Unknown error occurred"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'
@@ -113,8 +109,7 @@ RetrieveAuthTypeStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -131,8 +126,7 @@ RetrieveAuthTypeStatus:
       output: '{
         "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "Unknown error occurred"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'

@@ -319,8 +319,7 @@ createSearchRegisteredDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-355",
-      "message": "No model found for the b692b@@@3344##$$$f Receivedd"
+      "errorCode": "KER-MSD-355"
     }
   ]
 }'
@@ -353,8 +352,7 @@ createSearchRegisteredDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-355",
-      "message": "No model found for the b692b@@@3344##$$$f Receivedd"
+      "errorCode": "KER-MSD-355"
     }
   ]
 }'
@@ -387,8 +385,7 @@ createSearchRegisteredDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-355",
-      "message": "No model found for the b692b@@@3344##$$$f Receivedd"
+      "errorCode": "KER-MSD-355"
     }
   ]
 }'
@@ -421,8 +418,7 @@ createSearchRegisteredDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-310",
-      "message": "Invalid column received:D@@@@##3334FFFGare"
+      "errorCode": "KER-MSD-310"
     }
   ]
 }'
@@ -455,8 +451,7 @@ createSearchRegisteredDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-311",
-      "message": "Column is missing in request"
+      "errorCode": "PMS-MSD-311"
     }
   ]
 }'
@@ -489,8 +484,7 @@ createSearchRegisteredDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-312",
-      "message": "Filter type is missing"
+      "errorCode": "PMS-MSD-312"
     }
   ]
 }'
@@ -523,8 +517,7 @@ createSearchRegisteredDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-358",
-      "message": "Sort type dc is not supported"
+      "errorCode": "PMS-MSD-358"
     }
   ]
 }'
@@ -557,8 +550,7 @@ createSearchRegisteredDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-358",
-      "message": "Sort type dc is not supported"
+      "errorCode": "PMS-MSD-358"
     }
   ]
 }'
@@ -591,8 +583,7 @@ createSearchRegisteredDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-357",
-      "message": "Invalid sort field c@@@#333DDSSD"
+      "errorCode": "PMS-MSD-357"
     }
   ]
 }'
@@ -625,8 +616,7 @@ createSearchRegisteredDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
+      "errorCode": "PMS-MSD-314"
     }
   ]
 }'

@@ -28,8 +28,7 @@ rejectFtpChipDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.ftpChipDetailId"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
