@@ -731,19 +731,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @param otpMappingFieldName
 	 * @return String , OTP Value
 	 */
-	public String getOtpValue(String inputFilePath, String mappingFileName, String otpMappingFieldName) {
-		String value = JsonPrecondtion.getValueFromJson(inputFilePath, mappingFileName, otpMappingFieldName);
-		if (value.contains(":")) {
-			if (proxy)
-				return "111111";
-			String[] otpKeyword = value.split(":");
-			String otpQuery = otpKeyword[0];
-			String waitTime = otpKeyword[1];
-			wait(Integer.parseInt(waitTime) * 1000);
-			return DbConnection.getDataForQuery(otpQuery, "KERNEL").get("otp");
-		} else
-			return value;
-	}
+	
 
 	/**
 	 * The method retrieve value from json
@@ -1088,24 +1076,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		return null;
 	}
 
-	/**
-	 * The method will get otp value
-	 * 
-	 * @param value
-	 * @return OTP value
-	 */
-	public String getOtpValue(String value) {
-		if (value.contains(":")) {
-			if (proxy)
-				return "111111";
-			String[] otpKeyword = value.split(":");
-			String otpQuery = otpKeyword[0];
-			String waitTime = otpKeyword[1];
-			wait(Integer.parseInt(waitTime) * 1000);
-			return DbConnection.getDataForQuery(otpQuery, "KERNEL").get("otp");
-		} else
-			return value;
-	}
+
 
 	/**
 	 * The method returns run config path

@@ -136,24 +136,11 @@ public class BiometricDataUtility extends AuthTestsUtil {
 	
 	public static Map<String,Map<String,String>> allDeviceParam = new HashMap<>();
 
-	public static void storeDeviceDetail(String id) {
-		if (!allDeviceParam.containsKey(id)) {
-			String deviceParams[] = id.split(":");
-			Map<String, String> deviceParam = getDataFromRegisteredDeviceMaster(deviceParams[0],deviceParams[1]);
-			deviceParam.putAll(getDataFromMosipDeviceService(deviceParams[0],deviceParams[2]));
-			allDeviceParam.put(id, deviceParam);
-		}
-	}
 	
-	private static Map<String,String> getDataFromRegisteredDeviceMaster(String id,String deviceId) {
-		String query = "select * from master.registered_device_master where provider_id='" + id + "'"+" and device_id='"+deviceId+"'";
-		return DbConnection.getDataForQuery(query, "MASTER");
-	}
 	
-	private static Map<String,String> getDataFromMosipDeviceService(String id,String model) {
-		String query = "select * from master.mosip_device_service where dprovider_id='" + id + "'"+" and model='"+model+"'";
-		return DbConnection.getDataForQuery(query, "MASTER");
-	}
+	
+	
+	
 	
 	
 }
