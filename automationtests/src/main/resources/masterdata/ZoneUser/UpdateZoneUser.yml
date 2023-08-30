@@ -6,11 +6,11 @@ UpdateZoneUser:
       inputTemplate: masterdata/ZoneUser/updateZoneUser
       outputTemplate: masterdata/ZoneUser/zoneUserResult
       input: '{
-    "zoneCode": "BSN",
+    "zoneCode": "$ZONE_CODE$",
     "userId": "func_auto_test_user",
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-        "zoneCode": "BSN",
+        "zoneCode": "$ZONE_CODE$",
         "userId": "func_auto_test_user"
     }'

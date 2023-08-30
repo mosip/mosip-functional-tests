@@ -105,6 +105,8 @@ public class MosipTestRunner {
 				AdminTestUtil.getLocationData();
 				BaseTestCase.mapUserToZone();
 				BaseTestCase.mapZone();
+				AdminTestUtil.getZoneName();
+				
 
 				for (int i = 0; i < localLanguageList.size(); i++) {
 					BaseTestCase.languageList.clear();
