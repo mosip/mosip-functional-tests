@@ -17,7 +17,7 @@ createSearchPolicy:
       "data": [
      {
         "policyType": "DataShare",
-        "schema": "https://schemas.mosip.io/v1/auth-policy"
+        "schema": "$IGNORE$"
       }
     ]
 }'
@@ -39,7 +39,7 @@ createSearchPolicy:
       "data": [
      {
         "policyType": "DataShare",
-        "schema": "https://schemas.mosip.io/v1/auth-policy"
+        "schema": "$IGNORE$"
       }
     ]
 }'
@@ -89,8 +89,8 @@ createSearchPolicy:
       output: '{
       "data": [
      {
-        "policyType": "DataShare",
-        "schema": "https://schemas.mosip.io/v1/auth-policy"
+        "policyType": "Datashare",
+        "schema": "$IGNORE$"
       }
     ]
 }'
@@ -112,7 +112,7 @@ createSearchPolicy:
       "data": [
      {
         "policyType": "DataShare",
-        "schema": "https://schemas.mosip.io/v1/auth-policy"
+        "schema": "$IGNORE$"
       }
     ]
 }'

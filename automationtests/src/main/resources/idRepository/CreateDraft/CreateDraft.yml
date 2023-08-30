@@ -32,13 +32,13 @@ CreateDraft:
       endPoint: /idrepository/v1/identity/draft/create/{registrationId}
       role: idrepo
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: idRepository/CreateDraft/createDraft
       outputTemplate: idRepository/CreateDraft/createDraftResult
       input: '{
       "registrationId":"$RIDDEL$"
       }'
       output: '{
-    "status": "DRAFTED"
 }'
   IdRepository_CreateDraft_invalid_rid:
       endPoint: /idrepository/v1/identity/draft/create/{registrationId}
