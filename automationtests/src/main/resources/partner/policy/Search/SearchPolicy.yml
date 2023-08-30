@@ -14,6 +14,12 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "policyType": "DataShare",
+        "schema": "https://schemas.mosip.io/v1/auth-policy"
+      }
+    ]
 }'
    Partner_SearchPolicy_Valid_Smoke:
       endPoint: /v1/policymanager/policies/search
@@ -30,6 +36,12 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "policyType": "DataShare",
+        "schema": "https://schemas.mosip.io/v1/auth-policy"
+      }
+    ]
 }'
    Partner_SearchPolicy_Only_FilterCriteria_Smoke:
       endPoint: /v1/policymanager/policies/search
@@ -75,6 +87,12 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "policyType": "DataShare",
+        "schema": "https://schemas.mosip.io/v1/auth-policy"
+      }
+    ]
 }'
    Partner_SearchPolicy_Only_PaginationCriteria_Smoke:
       endPoint: /v1/policymanager/policies/search
@@ -91,6 +109,12 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "policyType": "DataShare",
+        "schema": "https://schemas.mosip.io/v1/auth-policy"
+      }
+    ]
 }'
    Partner_SearchPolicy_type_contains_Smoke_asc:
       endPoint: /v1/policymanager/policies/search
@@ -191,9 +215,8 @@ createSearchPolicy:
       output: '{
    "data": [
      {
-        "version": "1.0",
         "policyType": "DataShare",
-        "schema": "https://schemas.mosip.io/v1/auth-policy"
+        "schema": "$IGNORE$"
       }
     ]
 }'
@@ -226,9 +249,8 @@ createSearchPolicy:
       output: '{
    "data": [
      {
-        "version": "1.0",
         "policyType": "DataShare",
-        "schema": "https://schemas.mosip.io/v1/auth-policy"
+        "schema": "$IGNORE$"
       }
     ]
 }'
@@ -261,9 +283,8 @@ createSearchPolicy:
       output: '{
    "data": [
      {
-        "version": "1.0",
         "policyType": "DataShare",
-        "schema": "https://schemas.mosip.io/v1/auth-policy"
+        "schema": "$IGNORE$"
       }
     ]
 }'

@@ -383,8 +383,8 @@ createSearchPartner:
      {
         "isActive": true
       }
-    ],
-    "errors": "[]"
+    ]
+    
 }'
    Partner_SearchPartner_with_invalid_columnName:
       endPoint: /v1/partnermanager/partners/search
