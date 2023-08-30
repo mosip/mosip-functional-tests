@@ -88,7 +88,7 @@ AuthHistory:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-417",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ],

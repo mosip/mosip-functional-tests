@@ -1,6 +1,6 @@
 GetIdentityMapping:
    Resident_GetIdentityMapping_all_Valid_Smoke:
-      endPoint: /resident/v1/proxy/config/identity-mapping
+      endPoint: /resident/v1/auth-proxy/config/identity-mapping
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: get
