@@ -89,7 +89,7 @@ createSearchPolicy:
       output: '{
       "data": [
      {
-        "policyType": "DataShare",
+        "policyType": "Datashare",
         "schema": "$IGNORE$"
       }
     ]
