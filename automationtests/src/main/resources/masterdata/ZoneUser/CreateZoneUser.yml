@@ -6,14 +6,14 @@ CreateZoneUser:
       inputTemplate: masterdata/ZoneUser/zoneUser
       outputTemplate: masterdata/ZoneUser/zoneUserResult
       input: '{
-    "zoneCode": "CST",
+    "zoneCode": "$ZONE_CODE$",
     "userId": "func_auto_test_user",
     "isActive": true,
     "langCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-        "zoneCode": "CST",
+        "zoneCode": "$ZONE_CODE$",
         "userId": "func_auto_test_user"
     }'
     
@@ -24,7 +24,7 @@ CreateZoneUser:
       inputTemplate: masterdata/ZoneUser/zoneUser
       outputTemplate: masterdata/error
       input: '{
-    "zoneCode": "CST",
+    "zoneCode": "$ZONE_CODE$",
     "userId": "",
     "isActive": true,
     "langCode": "eng",

@@ -2777,7 +2777,8 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$MISPPARTNEREMAIL$", genMispPartnerEmail);
 		
 		
-		
+		if (jsonString.contains("$ZONE_CODE$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$ZONE_CODE$", ZonelocationCode);
 		
 		if (jsonString.contains("$LOCATIONCODE$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONCODE$", locationCode);
@@ -5108,9 +5109,10 @@ public static void  getLocationLevelData() {
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
 		
 		
-		HashMap<String, String> map = new HashMap<>();
-		map.put("userID", ConfigManager.getUserAdminName());
+		Map<String, String> map = new HashMap<>();
+		
 		map.put("langCode", BaseTestCase.getLanguageList().get(0));
+		map.put("userID", "masterdata-"+ConfigManager.getUserAdminName());
 		 
 
 		try {
@@ -5122,10 +5124,8 @@ public static void  getLocationLevelData() {
 
 			try {
 				JSONObject responseObject = responseJson.getJSONObject("response");
-				JSONArray data = responseObject.getJSONArray("locations");
 
-				JSONObject entry = data.getJSONObject(0);
-				locationCode = entry.getString("code");
+				ZonelocationCode = responseObject.getString("zoneCode");
 
 			} catch (Exception e) {
 				logger.error(e.getMessage());

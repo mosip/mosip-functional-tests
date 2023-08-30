@@ -131,6 +131,7 @@ public class BaseTestCase {
 	public static String parentLocCode = "";
 	
 	public static String locationCode = "";
+	public static String ZonelocationCode = "";
 	
 	
 	
