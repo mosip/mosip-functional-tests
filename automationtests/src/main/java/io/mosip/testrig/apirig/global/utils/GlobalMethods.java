@@ -7,6 +7,13 @@ import io.restassured.response.Response;
 
 public class GlobalMethods {
 
+	
+	public static void ReportRequestAndResponse(String reqHeader,String resHeader,String url, String requestBody, String response) {
+	reportRequest(reqHeader,requestBody);
+	reportResponse(resHeader,url, response);				
+	}	
+	
+	
 	public static void reportRequest(String requestHeader, String request) {
 		
 		String formattedHeader = ReportUtil.getTextAreaForHeaders(requestHeader);
