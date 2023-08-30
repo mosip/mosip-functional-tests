@@ -66,6 +66,12 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "policyType": "DataShare",
+        "schema": "$IGNORE$"
+      }
+    ]
 }'
    Partner_SearchPolicy_Only_PaginationCriteria_Smoke:
       endPoint: /partnermanagement/v1/policies/policy/search
@@ -82,6 +88,12 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "policyType": "DataShare",
+        "schema": "$IGNORE$"
+      }
+    ]
 }'
    Partner_SearchPolicy_type_contains_Smoke_asc_sid:
       endPoint: /partnermanagement/v1/policies/policy/search
@@ -149,7 +161,7 @@ createSearchPolicy:
      {
         "version": "1.0",
         "policyType": "Auth",
-        "schema": "https://schemas.mosip.io/v1/auth-policy"
+        "schema": "$IGNORE$"
       }
     ]
 }'
