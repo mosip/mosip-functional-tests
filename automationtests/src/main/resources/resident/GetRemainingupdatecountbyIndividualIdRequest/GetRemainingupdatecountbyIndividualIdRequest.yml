@@ -63,5 +63,9 @@ GetRemainingupdatecountbyIndividualIdRequest:
  		  "attribute_list": "fullName"
 }'
       output: '{
-   		
+  "errors": [
+    {
+      "errorCode": "KER-ATH-403"
+    }
+  ]
 }'
