@@ -25,7 +25,7 @@ public class ReportUtil {
 	 */
 	public static String getTextAreaForHeaders(String headers) {
 		String formattedHeader = "No headers";
-		if (headers != null)
+		if (headers != null && !headers.isEmpty())
 			formattedHeader = headers;
 		StringBuilder sb = new StringBuilder();
 		sb.append("<div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>");
