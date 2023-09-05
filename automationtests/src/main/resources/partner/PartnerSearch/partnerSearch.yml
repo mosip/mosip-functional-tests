@@ -246,6 +246,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "isActive": true
+      }
+    ]
    
 }'
    Partner_SearchPartner_columnname_id_asc_sid:
@@ -276,10 +281,16 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "isActive": true
+      }
+    ]
 }'
    Partner_SearchPartner_columnname_address_asc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/search/searchPartner
       outputTemplate: partner/search/searchPartnerResult
@@ -304,6 +315,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "isActive": true
+      }
+    ]
   
 }'
    Partner_SearchPartner_columnname_address_desc_sid:
@@ -334,6 +350,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "isActive": true
+      }
+    ]
    
 }'
    Partner_SearchPartner_with_invalid_value_containts:

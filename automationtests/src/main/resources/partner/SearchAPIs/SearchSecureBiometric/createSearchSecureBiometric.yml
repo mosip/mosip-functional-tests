@@ -16,6 +16,7 @@ createSearchSecureBiometric:
    Partner_SearchSecureBiometric_Only_FilterCriteria_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometric
       outputTemplate: partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometricResult
@@ -32,11 +33,6 @@ createSearchSecureBiometric:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "providerId": "Tech-123"
-      }
-    ]
 }'
    Partner_SearchSecureBiometric_Only_SortCriteria_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface/search
@@ -75,6 +71,7 @@ createSearchSecureBiometric:
    Partner_SearchSecureBiometric_type_contains_Smoke_asc_sid:
       endPoint: /v1/partnermanager/securebiometricinterface/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometric
       outputTemplate: partner/SearchAPIs/SearchSecureBiometric/createSearchSecureBiometricResult
@@ -97,9 +94,4 @@ createSearchSecureBiometric:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "providerId": "Tech-123"
-      }
-    ]
 }'

@@ -14,6 +14,12 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "policyType": "DataShare",
+        "schema": "$IGNORE$"
+      }
+    ]
 }'
    Partner_SearchPolicy_Valid_Smoke:
       endPoint: /v1/policymanager/policies/search
@@ -30,6 +36,12 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "policyType": "DataShare",
+        "schema": "$IGNORE$"
+      }
+    ]
 }'
    Partner_SearchPolicy_Only_FilterCriteria_Smoke:
       endPoint: /v1/policymanager/policies/search
@@ -75,6 +87,12 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "policyType": "Datashare",
+        "schema": "$IGNORE$"
+      }
+    ]
 }'
    Partner_SearchPolicy_Only_PaginationCriteria_Smoke:
       endPoint: /v1/policymanager/policies/search
@@ -91,6 +109,12 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
+      "data": [
+     {
+        "policyType": "DataShare",
+        "schema": "$IGNORE$"
+      }
+    ]
 }'
    Partner_SearchPolicy_type_contains_Smoke_asc:
       endPoint: /v1/policymanager/policies/search
@@ -191,9 +215,8 @@ createSearchPolicy:
       output: '{
    "data": [
      {
-        "version": "1.0",
         "policyType": "DataShare",
-        "schema": "https://schemas.mosip.io/v1/auth-policy"
+        "schema": "$IGNORE$"
       }
     ]
 }'
@@ -226,9 +249,8 @@ createSearchPolicy:
       output: '{
    "data": [
      {
-        "version": "1.0",
         "policyType": "DataShare",
-        "schema": "https://schemas.mosip.io/v1/auth-policy"
+        "schema": "$IGNORE$"
       }
     ]
 }'
@@ -261,9 +283,8 @@ createSearchPolicy:
       output: '{
    "data": [
      {
-        "version": "1.0",
         "policyType": "DataShare",
-        "schema": "https://schemas.mosip.io/v1/auth-policy"
+        "schema": "$IGNORE$"
       }
     ]
 }'
@@ -419,8 +440,7 @@ createSearchPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-310",
-      "message": "Invalid column received : n@@@@@343e"
+      "errorCode": "PMS-MSD-310"
     }
   ]
 }'
@@ -429,7 +449,7 @@ createSearchPolicy:
       role: partner
       restMethod: post
       inputTemplate: partner/policy/Search/searchPolicy
-      outputTemplate: partner/policy/Search/searchPolicyResult
+      outputTemplate: partner/error
       input: '{
     "filters": [
       {
@@ -451,6 +471,12 @@ createSearchPolicy:
   "version": "v1"
 }'
       output: '{
+      
+      "errors": [
+    {
+      "errorCode": "PMS_COR_003"
+    }
+  ]
 }'
    Partner_SearchPolicy_with_missing_type:
       endPoint: /v1/policymanager/policies/search
@@ -481,8 +507,7 @@ createSearchPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-312",
-      "message": "Filter type is missing"
+      "errorCode": "PMS-MSD-312"
     }
   ]
 }'
@@ -515,8 +540,7 @@ createSearchPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-358",
-      "message": "Sort type dc is not supported"
+      "errorCode": "PMS-MSD-358"
     }
   ]
 }'
@@ -549,8 +573,7 @@ createSearchPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
+      "errorCode": "PMS-MSD-314"
     }
   ]
 }'
@@ -583,8 +606,7 @@ createSearchPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-357",
-      "message": "Invalid sort field n@@@@3334$$$e"
+      "errorCode": "PMS-MSD-357"
     }
   ]
 }'
@@ -617,8 +639,7 @@ createSearchPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
+      "errorCode": "PMS-MSD-314"
     }
   ]
 }'

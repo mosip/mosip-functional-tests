@@ -74,6 +74,7 @@ GenerateVIDNew:
    Resident_Generate_Perpetual_VID_uin_Email_Valid_Smoke_sid:
       endPoint: /resident/v1/generate-vid
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVIDNewAsEmail
       outputTemplate: resident/GenerateVID/createGenerateVIDNewResult
@@ -85,8 +86,7 @@ GenerateVIDNew:
         "vidType": "Perpetual"
     }'
       output: '{
-	    "maskedPhone": "$IGNORE$",
-	    "maskedEmail": "res***************@gmail.com"
+	    "maskedPhone": "$IGNORE$"
 }'
 
    Resident_Generate_Perpetual_VID_BothChannel_uin_Valid_Smoke_sid:

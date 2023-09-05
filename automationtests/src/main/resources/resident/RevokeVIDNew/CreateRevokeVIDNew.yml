@@ -89,7 +89,7 @@ RevokeVIDNew:
   ]
 }'
    Resident_RevokeVIDNew_Using_Vid_Valid_Smoke:
-      endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Temporary_1_Esignet_Integ_Valid_Smoke_sid_vid$
+      endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Onetimeuse_Using_VID_Valid_Smoke_sid_vid$
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: patch
@@ -106,7 +106,7 @@ RevokeVIDNew:
 }'
 
    Resident_RevokeVIDNew_uin_Using_Vid_Invalid_User_Neg:
-      endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_Temporary_2_Esignet_Integ_Valid_Smoke_sid_vid$
+      endPoint: /resident/v1/revoke-vid/$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: patch

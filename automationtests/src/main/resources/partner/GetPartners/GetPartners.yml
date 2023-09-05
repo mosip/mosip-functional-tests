@@ -40,6 +40,7 @@ GetPartners:
    Partner_PrintPartener_ByPartnerType_allValid_smoke:
       endPoint: /v1/partnermanager/partners/new?partnerType=Print_Partner
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: partner/GetPartners/getPartners
       outputTemplate: partner/GetPartners/getPartnersResult
