@@ -1445,3 +1445,36 @@ BioAuth:
       ],
         "authStatus": false
 }'
+  auth_BioAuth_With_Deactivated_UIN:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_deactivate_UIN_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/BioAuth/BioAuth
+      outputTemplate: ida/BioAuth/error
+      input: '{
+          "bioSubType": "",
+          "bioType": "FACE",
+          "bioValue": "$FACE$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "1873299273",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Single",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467171",
+          "type": "Face",
+          "transactionId": "$TRANSACTIONID$",
+          "timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+    "errors": [
+        {
+          "errorCode": "IDA-MLC-019"
+        }
+      ],
+        "authStatus": false
+}'
