@@ -798,7 +798,7 @@ AddIdentity:
       output: '{
   "status":"ACTIVATED"
 }'
-   auth_AddIdentity_deactivate_UIN_smoke:
+   auth_AddIdentity_deactivate_UIN_smoke_sid_Pos:
       endPoint: /idrepository/v1/identity/
       role: idrepo
       regenerateHbs: true      
