@@ -25,3 +25,17 @@ UploadPartnerCert:
 }'
       output: ' {
 }'  
+
+   Partner_UploadCert_MispLicense_MISP3_Valid_Smoke:
+      endPoint: /v1/partnermanager/partners/certificate/upload
+      role: partner
+      checkErrorsOnlyInResponse: true
+      restMethod: put
+      inputTemplate: partner/mispPartner/UploadCert/uploadCert2
+      outputTemplate: partner/mispPartner/UploadCert/uploadCertResult
+      input: '{
+  "partnerId": "MISP3",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+}'  
