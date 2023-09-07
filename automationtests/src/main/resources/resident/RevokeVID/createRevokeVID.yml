@@ -27,8 +27,7 @@ RevokeVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-471",
-      "message": "This VID cannot be revoked since you have logged in using same VID"
+      "errorCode": "RES-SER-471"
     }
   ],
   "sendOtpResp":{
@@ -66,8 +65,7 @@ RevokeVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-471",
-      "message": "This VID cannot be revoked since you have logged in using same VID"
+      "errorCode": "RES-SER-471"
     }
   ],
   "sendOtpResp":{
@@ -105,8 +103,7 @@ RevokeVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-471",
-      "message": "This VID cannot be revoked since you have logged in using same VID"
+      "errorCode": "RES-SER-471"
     }
   ],
   "sendOtpResp":{
@@ -144,8 +141,7 @@ RevokeVID:
       output: '{
    "errors": [
     {
-      "errorCode": "RES-SER-410",
-      "message": "$IGNORE$"
+      "errorCode": "RES-SER-410"
     }
   ],
   "sendOtpResp":{
