@@ -13,6 +13,22 @@ ActivateDeactivatePartner:
 }'
       output: '{
 }'
+
+   Partner_ActivateDeactivatePartner_deactivate_MISP3:
+      endPoint: /v1/partnermanager/partners/{partnerId}
+      role: partner
+      checkErrorsOnlyInResponse: true
+      restMethod: patch
+      inputTemplate: partner/ActivateDeactivatePartner/activateDeactivatePartner
+      outputTemplate: partner/ActivateDeactivatePartner/activateDeactivatePartnerResult
+      input: '{
+   "partnerId": "MISP3",
+   "requesttime": "$TIMESTAMP$",
+   "status": "De-Active"
+}'
+      output: '{
+}'
+
    Partner_ActivateDeactivatePartner_activate_allValid_smoke:
       endPoint: /v1/partnermanager/partners/{partnerId}
       role: partner
