@@ -767,7 +767,15 @@ public class AdminTestUtil extends BaseTestCase {
 		HashMap<String, String> headers = new HashMap<>();
 		headers.put(AUTHORIZATHION_HEADERNAME, AUTH_HEADER_VALUE);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
-		headers.put(SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, partnerId));
+		
+		if(testCaseName.contains("NOAUTH")){
+			headers.put(SIGNATURE_HEADERNAME, "");
+		}
+		else {
+			headers.put(SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, partnerId));
+		}
+		
+		
 		logger.info(GlobalConstants.POST_REQ_URL + url);
 		GlobalMethods.reportRequest(headers.toString(), inputJson);
 		try {
