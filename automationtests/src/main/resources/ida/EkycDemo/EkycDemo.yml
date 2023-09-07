@@ -844,7 +844,7 @@ EkycDemo:
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
-      outputTemplate: ida/EkycDemo/EkycDemoResult
+      outputTemplate: ida/EkycDemo/error
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
@@ -858,4 +858,19 @@ EkycDemo:
         }
       ],
         "kycStatus": false
+}'
+  auth_EkycDemo_Auth_With_Deactivated_UIN:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_deactivate_UIN_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/error
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+  "kycStatus": "true"
 }'

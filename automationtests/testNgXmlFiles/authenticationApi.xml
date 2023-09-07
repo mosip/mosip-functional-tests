@@ -27,6 +27,44 @@
 		</classes>
 	</test>
 
+
+<test name="CreateDraft">
+		<parameter name="ymlFile"	value="ida/CreateDraft/CreateDraft.yml" />
+	<classes>
+		<class name="io.mosip.testrig.apirig.testscripts.PostWithOnlyPathParam" />
+	</classes>
+	</test> 
+	
+	<test name="GetDraft">
+		<parameter name="ymlFile"	value="ida/GetDraft/GetDraft.yml" />
+		<parameter name="idKeyName" value="UIN" />
+	<classes>
+		<class name="io.mosip.testrig.apirig.testscripts.GetWithParamForAutoGenId" />
+	</classes>
+	</test>
+	
+	<test name="CreateDraftVID">
+		<parameter name="ymlFile"	value="ida/CreateDraftVID/CreateDraftVID.yml" />
+	<classes>
+		<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+	</classes>
+	</test>
+	
+	
+	 <test name="UpdateDraft">
+		<parameter name="ymlFile"	value="ida/UpdateDraft/UpdateDraft.yml" />
+		<parameter name="pathParams"	value="registrationId" />
+	<classes>
+		<class name="io.mosip.testrig.apirig.testscripts.UpdateDraft" />
+	</classes>
+	</test> 
+	
+	<test name="PublishDraft">
+		<parameter name="ymlFile"	value="ida/PublishDraft/PublishDraft.yml" />
+	<classes>
+		<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+	</classes>
+	</test>
 	<test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="ida/GenerateVID/createGenerateVID.yml" />
@@ -35,6 +73,13 @@
 			<class
 				name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
+	</test>
+	
+	<test name="DeactivateVIDs">
+		<parameter name="ymlFile"	value="ida/DeactivateUin/DeactivateUin.yml" />
+	<classes>
+		<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+	</classes>
 	</test>
 
 	<test name="RevokeVID">
