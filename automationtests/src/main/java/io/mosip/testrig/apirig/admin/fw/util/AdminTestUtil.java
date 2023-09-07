@@ -350,7 +350,14 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
 			idToken = kernelAuthLib.getTokenByRole(role, IDTOKENCOOKIENAME);
 		} else {
-			token = kernelAuthLib.getTokenByRole(role);
+			
+			if(testCaseName.contains("NOAUTH")){
+				token="";
+			}
+			else {
+				token = kernelAuthLib.getTokenByRole(role);
+			}
+			
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
 		GlobalMethods.reportRequest(null, inputJson);
@@ -695,7 +702,12 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(AUTHORIZATHION_HEADERNAME, AUTH_HEADER_VALUE);
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		headers.put(SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, partnerId));
-		token = kernelAuthLib.getTokenByRole(role);
+		if(testCaseName.contains("NOAUTH")){
+			token="";
+		}
+		else {
+			token = kernelAuthLib.getTokenByRole(role);
+		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
 		GlobalMethods.reportRequest(headers.toString(), inputJson);
 		try {
