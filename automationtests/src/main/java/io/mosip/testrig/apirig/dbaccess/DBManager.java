@@ -99,7 +99,7 @@ public class DBManager {
 				});
 			}
 	}
-	private static Session getDataBaseConnection(String dburl, String userName, String password, String schema) {
+	public static Session getDataBaseConnection(String dburl, String userName, String password, String schema) {
 		SessionFactory factory = null;
 		Session session = null;
 		logger.info("dburl : " + dburl + " userName : " + userName + " password : " + password);

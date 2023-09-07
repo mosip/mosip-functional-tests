@@ -30,6 +30,8 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -86,6 +88,7 @@ import com.nimbusds.jose.JWSAlgorithm;
 import com.nimbusds.jose.JWSHeader;
 import com.nimbusds.jose.JWSSigner;
 import com.nimbusds.jose.crypto.RSASSASigner;
+import com.nimbusds.jose.jwk.JWK;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.util.StandardCharset;
 import com.nimbusds.jwt.JWTClaimsSet;
@@ -437,7 +440,14 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(XSRF_HEADERNAME, properties.getProperty(GlobalConstants.XSRFTOKEN));
 		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
-		token = properties.getProperty(GlobalConstants.XSRFTOKEN);
+		if (testCaseName.contains("_IdpAccessToken_")) {
+			JSONObject requestInput = new JSONObject(inputJson);
+			token = requestInput.get(GlobalConstants.IDP_ACCESS_TOKEN).toString();
+			requestInput.remove(GlobalConstants.IDP_ACCESS_TOKEN);
+			inputJson = requestInput.toString();
+		}else {
+			token = properties.getProperty(GlobalConstants.XSRFTOKEN);
+		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
 		GlobalMethods.reportRequest(headers.toString(), inputJson);
 		try {
@@ -3122,11 +3132,68 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTVIDSAMECLAIM$",
 					generateWLAToken(jsonString, bindingConsentVidSameClaimJWK, bindingCertConsentVidSameClaimFile));
 		}
+		
+		if (jsonString.contains("$PROOFJWT$")) {
+
+			String oidcJWKKeyString = getJWKKey(oidcJWK1);
+			logger.info("oidcJWKKeyString =" + oidcJWKKeyString);
+			try {
+				oidcJWKKey1 = RSAKey.parse(oidcJWKKeyString);
+				logger.info("oidcJWKKey1 =" + oidcJWKKey1);
+			} catch (java.text.ParseException e) {
+				logger.error(e.getMessage());
+			}
+
+			JSONObject request = new JSONObject(jsonString);
+			String clientId = "";
+			String accessToken = "";
+			if (request.has("client_id")) {
+				clientId = request.getString("client_id");
+				request.remove("client_id");
+			}
+			if (request.has("idpAccessToken")) {
+				accessToken = request.getString("idpAccessToken");
+			}
+			jsonString = request.toString();
+			jsonString = replaceKeywordWithValue(jsonString, "$PROOFJWT$", signJWK(clientId, accessToken, oidcJWKKey1));
+		}
 
 		if (jsonString.contains(GlobalConstants.REMOVE))
 			jsonString = removeObject(new JSONObject(jsonString));
 
 		return jsonString;
+	}
+	
+	public static String signJWK(String clientId, String accessToken, RSAKey jwkKey) {
+		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.base.url");
+		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
+				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
+		JWSSigner signer;
+		String proofJWT = "";
+
+		try {
+			signer = new RSASSASigner(jwkKey);
+			
+            String[] jwtParts = accessToken.split("\\.");
+            String jwtPayloadBase64 = jwtParts[1];
+            byte[] jwtPayloadBytes = Base64.getDecoder().decode(jwtPayloadBase64);
+            String jwtPayload = new String(jwtPayloadBytes, StandardCharsets.UTF_8);
+
+			JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
+					.audience("http://localhost:8088/v1/esignet")
+					.claim("nonce", new ObjectMapper().readTree(jwtPayload).get("c_nonce").asText())
+					.issuer(clientId)
+					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
+
+			SignedJWT signedJWT = new SignedJWT(
+					new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(jwkKey.getKeyID()).build(), claimsSet);
+
+			signedJWT.sign(signer);
+			proofJWT = signedJWT.serialize();
+		} catch (Exception e) {
+			logger.error("Exception while signing proof_jwt to get credential: " + e.getMessage());
+		}
+		return proofJWT;
 	}
 
 	public static String generateWLAToken(String jsonString, File jwkfileName, File certFileName) {
@@ -4488,9 +4555,9 @@ public class AdminTestUtil extends BaseTestCase {
 		try {
 			signer = new RSASSASigner(jwkKey);
 
-			JWTClaimsSet claimsSet = new JWTClaimsSet.Builder().subject(clientId)//
-					.audience(tempUrl)//
-					.issuer(clientId)//
+			JWTClaimsSet claimsSet = new JWTClaimsSet.Builder().subject(clientId)
+					.audience(tempUrl)
+					.issuer(clientId)
 					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
 
 			SignedJWT signedJWT = new SignedJWT(
