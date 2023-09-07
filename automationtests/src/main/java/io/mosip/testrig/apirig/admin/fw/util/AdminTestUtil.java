@@ -84,6 +84,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.nimbusds.jose.JOSEException;
+import com.nimbusds.jose.JOSEObjectType;
 import com.nimbusds.jose.JWSAlgorithm;
 import com.nimbusds.jose.JWSHeader;
 import com.nimbusds.jose.JWSSigner;
@@ -449,12 +450,11 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
 		if (testCaseName.contains("_IdpAccessToken_")) {
 			JSONObject requestInput = new JSONObject(inputJson);
-			token = requestInput.get(GlobalConstants.IDP_ACCESS_TOKEN).toString();
+			headers.put(cookieName, "Bearer " + requestInput.get(GlobalConstants.IDP_ACCESS_TOKEN).toString());
 			requestInput.remove(GlobalConstants.IDP_ACCESS_TOKEN);
 			inputJson = requestInput.toString();
-		}else {
-			token = properties.getProperty(GlobalConstants.XSRFTOKEN);
 		}
+		token = properties.getProperty(GlobalConstants.XSRFTOKEN);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
 		GlobalMethods.reportRequest(headers.toString(), inputJson);
 		try {
@@ -3192,13 +3192,13 @@ public class AdminTestUtil extends BaseTestCase {
             String jwtPayload = new String(jwtPayloadBytes, StandardCharsets.UTF_8);
 
 			JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
-					.audience("http://localhost:8088/v1/esignet")
+					.audience(tempUrl)
 					.claim("nonce", new ObjectMapper().readTree(jwtPayload).get("c_nonce").asText())
 					.issuer(clientId)
 					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
 
 			SignedJWT signedJWT = new SignedJWT(
-					new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(jwkKey.getKeyID()).build(), claimsSet);
+					new JWSHeader.Builder(JWSAlgorithm.RS256).type(new JOSEObjectType("openid4vci-proof+jwt")).jwk(jwkKey.toPublicJWK()).build(), claimsSet);
 
 			signedJWT.sign(signer);
 			proofJWT = signedJWT.serialize();
