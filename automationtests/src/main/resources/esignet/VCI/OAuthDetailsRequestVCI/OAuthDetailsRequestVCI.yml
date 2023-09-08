@@ -9,7 +9,7 @@ OAuthDetailsRequestVCI:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
-      	"scope": "sample_vc_ldp",
+      	"scope": "mosip_identity_vc_ldp",
       	"responseType": "code",
       	"redirectUri": "$IDPREDIRECTURI$",
       	"display": "popup",
