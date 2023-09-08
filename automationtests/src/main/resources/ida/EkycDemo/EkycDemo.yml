@@ -875,7 +875,7 @@ EkycDemo:
         "kycStatus": false
 }'
   auth_EkycDemo_Auth_With_Deactivated_UIN:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_deactivate_UIN_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_deactivate_UIN_smoke_sid_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
