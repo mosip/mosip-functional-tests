@@ -22,6 +22,30 @@ defineDataSharePolicy:
     "desc": "mosip data share policy",
     "is_Active": false      
     }'
+    
+   Partner_DefineDataSharePolicy_ToCheckStatus_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicyResult
+      input: '{
+		"desc": "mosip data share policy check status",
+		"name": "mosip data share policy to check status22",
+		"policyId": "MDSP8",
+		"policyGroupName": "mosip policy status testing groupp",
+		"policyType": "DataShare",
+		"format":"extraction",
+		"attributeName":"biometrics",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "mosip policy status testing groupp",
+    "name": "mosip data share policy to check status22",
+    "desc": "mosip data share policy check status",
+    "is_Active": false      
+    }'
    Partner_DefineDataSharePolicy_WithoutMandatoryFields_All_Valid_Smoke_sid:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -237,3 +261,29 @@ defineDataSharePolicy:
     }
   ]
 }'
+
+   Partner_DefineDataSharePolicy_RemovedAttribute_Neg:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/error
+      input: '{
+		"desc": "mosip data share policy7",
+		"name": "mosip data share policy7",
+		"policyId": "MDSP",
+		"policyGroupName": "mosip policy group",
+		"policyType": "DataShare",
+		"format":"extraction",
+		"attributeName":"$REMOVE$",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+      "errors": [
+    {
+      "errorCode": "PMS_PV_006"
+    }
+  ]
+
+    }'
