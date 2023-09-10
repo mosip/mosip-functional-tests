@@ -219,6 +219,8 @@ public class AdminTestUtil extends BaseTestCase {
 			getResourcePath() + "BINDINGCERTCONSENTSAMECLAIMFile.txt");
 	private static File bindingCertConsentVidSameClaimFile = new File(
 			getResourcePath() + "BINDINGCERTCONSENTVIDSAMECLAIMFile.txt");
+	
+	private static final String UIN_CODE_VERIFIER_POS_1 = generateRandomAlphaNumericString(GlobalConstants.INTEGER_36);
 
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
@@ -3151,6 +3153,14 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$WLATOKENCONSENTVIDSAMECLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTVIDSAMECLAIM$",
 					generateWLAToken(jsonString, bindingConsentVidSameClaimJWK, bindingCertConsentVidSameClaimFile));
+		}
+		
+		if (jsonString.contains("$UINCODECHALLENGEPOS1$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$UINCODECHALLENGEPOS1$", GlobalMethods.sha256(UIN_CODE_VERIFIER_POS_1));
+		}
+		
+		if (jsonString.contains("$UINCODEVERIFIERPOS1$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$UINCODEVERIFIERPOS1$", UIN_CODE_VERIFIER_POS_1);
 		}
 		
 		if (jsonString.contains("$PROOFJWT$")) {
