@@ -55,7 +55,7 @@ OAuthDetailsRequestVCI:
   ]
 }'
 
-   ESignet_OAuthDetailsRequest_VCI_uin_Diff_Scope:
+   ESignet_OAuthDetailsRequest_VCI_uin_Diff_Scope_sid:
       endPoint: /v1/esignet/authorization/v2/oauth-details
       role: resident
       restMethod: post
@@ -325,6 +325,162 @@ OAuthDetailsRequestVCI:
 	    "state": "eree2311",
 	    "claimsLocales": "en",
 	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegAuthCodeScen2_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegAuthCodeScen3_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegTokenScen1_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegTokenScen2_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegTokenScen3_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_Hash_CodeChallenge_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
         "codeChallengeMethod": "S256"
 }'
       output: '{
