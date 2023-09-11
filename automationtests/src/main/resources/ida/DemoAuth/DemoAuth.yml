@@ -265,6 +265,150 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
+  auth_DemoAuth_gender_InValid_LangCode:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$123LANG$",
+      "value": "MLE"
+    }
+  ],
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
+  auth_DemoAuth_gender_InValid_Gender_Invalid_RS:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "M@@33E"
+    }
+  ],
+   "residenceStatus": [
+                {
+                    "language": "$PRIMARYLANG$",
+                    "value": "Ner"
+                }
+            ]
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
+  auth_DemoAuth_gender_Valid_Gender_Invalid_RS:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "MLE"
+    }
+  ],
+   "residenceStatus": [
+                {
+                    "language": "$PRIMARYLANG$",
+                    "value": "Ner"
+                }
+            ]
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
+  auth_DemoAuth_gender_InValid_Gender_valid_RS:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "ML@@#E"
+    }
+  ],
+   "residenceStatus": [
+                {
+                    "language": "$PRIMARYLANG$",
+                    "value": "Non-Foreigner"
+                }
+            ]
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
+  auth_DemoAuth_gender_InValid_Gender_valid_RS_with_VID:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "ML@@#E"
+    }
+  ],
+   "residenceStatus": [
+                {
+                    "language": "$PRIMARYLANG$",
+                    "value": "Non-Foreigner"
+                }
+            ]
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
+  auth_DemoAuth_gender_Valid_Gender_valid_RS_with_VID:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "MLE"
+    }
+  ],
+   "residenceStatus": [
+                {
+                    "language": "$PRIMARYLANG$",
+                    "value": "Non-Foreigner"
+                }
+            ]
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
   auth_DemoAuth_gender_InValid_Lang_Valid_Gender:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -297,6 +441,48 @@ DemoAuthNew:
       "value": "MLE"
     }
   ],
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "true"
+}'
+  auth_DemoAuth_gender_Valid_Smoke_Pos_VID_with_RS_DOB:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+    "value": "1970/07/08",
+  "key": "dob",
+   "residenceStatus": [
+                {
+                    "language": "$PRIMARYLANG$",
+                    "value": "Non-Foreigner"
+                }
+            ]
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "true"
+}'
+  auth_DemoAuth_gender_Valid_Smoke_Pos_Temp_VID_with_RS_DOB:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+    "value": "1970/07/08",
+  "key": "dob",
+   "residenceStatus": [
+                {
+                    "language": "$PRIMARYLANG$",
+                    "value": "Non-Foreigner"
+                }
+            ]
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
     }'
