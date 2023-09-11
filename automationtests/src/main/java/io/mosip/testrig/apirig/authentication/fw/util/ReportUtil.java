@@ -90,7 +90,11 @@ public class ReportUtil {
 	public static String getTextAreaJsonMsgHtml(String content) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>");
-		sb.append(JsonPrecondtion.toPrettyFormat(content));
+		try {
+			sb.append(JsonPrecondtion.toPrettyFormat(content));
+		} catch (Exception e) {
+			sb.append(content);
+		}
 		sb.append("</textarea> </div>");
 		return sb.toString();
 	}
