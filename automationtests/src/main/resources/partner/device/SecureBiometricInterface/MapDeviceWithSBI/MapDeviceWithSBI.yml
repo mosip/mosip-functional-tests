@@ -26,6 +26,19 @@ MapDeviceWithSBI:
       output: '{
     }'
     
+   Partner_MapDeviceWithSBI_Multiple_map_smoke:
+      endPoint: /v1/partnermanager/securebiometricinterface/devicedetails/map
+      role: partner
+      restMethod: put
+      inputTemplate: partner/device/SecureBiometricInterface/MapDeviceWithSBI/mapDeviceWithSBI
+      outputTemplate: partner/error
+      input: '{
+    "deviceDetailId": "device-id-123",
+    "sbiId": "$ID:SaveSecureBiometricInterface_TO_Map_sid_id$"
+  }'
+      output: '{
+    }'
+    
    Partner_MapDeviceWithSBI_Multiple_MapDeviceWith_Diff_Provider:
       endPoint: /v1/partnermanager/securebiometricinterface/devicedetails/map
       role: partner
