@@ -2964,6 +2964,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$APIKEY$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$APIKEY$", getAPIKey());
 		}
+		
+		if (jsonString.contains("$MISPLICKEY$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$MISPLICKEY$", getMISPLICKey());
+		}
 
 		if (jsonString.contains("$IDENTITYJSON$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$IDENTITYJSON$", generateIdentityJson(testCaseName));
@@ -3262,6 +3266,11 @@ public class AdminTestUtil extends BaseTestCase {
 	public String getAPIKey() {
 		String[] uriParts = PartnerRegistration.partnerKeyUrl.split("/");
 		return uriParts[uriParts.length - 1];
+	}
+	
+	public String getMISPLICKey() {
+		String[] uriParts = PartnerRegistration.partnerKeyUrl.split("/");
+		return uriParts[0];
 	}
 
 	public String getAutoGenIdFileName(String testCaseName) {
