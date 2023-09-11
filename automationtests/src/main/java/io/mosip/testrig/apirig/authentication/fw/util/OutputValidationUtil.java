@@ -494,12 +494,17 @@ public class OutputValidationUtil extends AuthTestsUtil{
 		JSONObject responseJson = new JSONObject(responseString);
 		boolean breturn = false;
 		JSONArray errors = null;
+		String error = null;
 		if (responseJson.has("errors")) {
 			errors = responseJson.optJSONArray("errors");
 		}
-		
+		else if (responseJson.has("error")) {
+			error = responseJson.getString("error");
+		}
 		if (errors != null)
 			breturn = (errors.length() > 0);
+		else if (error != null)
+			breturn = true;
 			
 		return breturn;
 	}
