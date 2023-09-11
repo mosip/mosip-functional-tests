@@ -12,6 +12,32 @@ AuthTransaction:
       output: '{
         "referenceIdType": "UIN"
 }'
+   auth_AuthTransaction_Invalid_Gender_smoke_demoAuth_UIN:
+      endPoint: /idauthentication/v1/internal/authTransactions/individualId/{individualId}
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: ida/AuthTransaction/authTransaction
+      outputTemplate: ida/AuthTransaction/authTransactionResult
+      input: '{
+      "individualId":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$"
+}'
+      output: '{
+        "referenceIdType": "UIN"
+}'
+   auth_AuthTransaction_valid_Gender_smoke_demoAuth_UIN:
+      endPoint: /idauthentication/v1/internal/authTransactions/individualId/{individualId}
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: ida/AuthTransaction/authTransaction
+      outputTemplate: ida/AuthTransaction/authTransactionResult
+      input: '{
+      "individualId":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$"
+}'
+      output: '{
+        "referenceIdType": "UIN"
+}'
    auth_AuthTransaction_allValid_smoke_VID:
       endPoint: /idauthentication/v1/internal/authTransactions/individualId/{individualId}
       role: resident
