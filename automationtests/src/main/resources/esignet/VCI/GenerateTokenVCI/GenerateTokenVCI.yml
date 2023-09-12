@@ -98,3 +98,43 @@ GenerateTokenVCI:
       output: '{
             "error": "pkce_failed"
 }'
+
+   ESignet_GenerateTokenVCI_uin_NegCredScen1_Smoke_sid:
+      endPoint: /v1/esignet/oauth/v2/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCI
+      outputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCIResult
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_VCI_uin_NegCredScen1_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$",
+  		  "code_verifier": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"
+}'
+      output: '{
+   		"token_type": "Bearer" 
+}'
+
+   ESignet_GenerateTokenVCI_uin_NegCredScen2_Smoke_sid:
+      endPoint: /v1/esignet/oauth/v2/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCI
+      outputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCIResult
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_VCI_uin_NegCredScen2_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$",
+  		  "code_verifier": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"
+}'
+      output: '{
+   		"token_type": "Bearer" 
+}'
