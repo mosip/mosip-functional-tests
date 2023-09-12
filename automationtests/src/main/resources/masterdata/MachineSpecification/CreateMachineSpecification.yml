@@ -531,7 +531,7 @@ CreateMachineSpecification:
       output: '{
     "errors": [
     {
-      "errorCode": "KER-MSD-061"
+      "errorCode": "KER-MSD-999"
     }
   ]
 }'
