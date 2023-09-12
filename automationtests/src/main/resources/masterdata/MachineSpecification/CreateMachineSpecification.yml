@@ -508,3 +508,30 @@ CreateMachineSpecification:
     }
   ]
 }'
+
+   Masterdata_CreateMachineSpecification_Dublicate_Neg:
+      endPoint: /v1/masterdata/machinespecifications
+      role: admin
+      templateFields: ["description"]
+      restMethod: post
+      inputTemplate: masterdata/MachineSpecification/machineSpecification
+      outputTemplate: masterdata/error
+      input: '{
+    "brand": "HP",
+    "description": "HP brand",
+    "id": "HP04",
+    "isActive": true,
+    "langCode": "eng",
+    "machineTypeCode": "Laptop2",
+    "minDriverversion": "3.2",
+    "model": "1234",
+    "name": "HP",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+    "errors": [
+    {
+      "errorCode": "KER-MSD-061"
+    }
+  ]
+}'

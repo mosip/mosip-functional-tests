@@ -18,6 +18,29 @@ CreateRegCenterType:
 	"code": "ALT-3",
 	"langCode": "eng"
 }'
+
+   MasterData_CreateRegCenterType_Dublicate_Centertype_Neg:
+      endPoint: /v1/masterdata/registrationcentertypes
+      role: admin
+      templateFields: ["name","descr"]
+      restMethod: post
+      inputTemplate: masterdata/RegCenterType/regCenterType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "ALT-3",
+    "langCode": "eng",
+    "name": "alternate",
+    "descr": "alternate center",
+    "isActive":true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+	"errors": [
+    {
+      "errorCode": "KER-MSD-101"
+    }
+  ]
+}'
    
    
    MasterData_CreateRegCenterType_InputParameter_Name_Missing:
@@ -134,6 +157,29 @@ CreateRegCenterType:
     {
       "errorCode": "KER-MSD-999",
       "message": "request.isActive: must not be null"
+    }
+  ]
+}'
+
+   MasterData_CreateRegCenterType_SpacialCharacter_Neg:
+      endPoint: /v1/masterdata/registrationcentertypes
+      role: admin
+      templateFields: ["name","descr"]
+      restMethod: post
+      inputTemplate: masterdata/RegCenterType/regCenterType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "A@LT-3",
+    "langCode": "eng",
+    "name": "alt$er@nate",
+    "descr": "alt@ernate center",
+    "isActive":true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+	 "errors": [
+    {
+      "errorCode": "KER-MSD-999"
     }
   ]
 }'

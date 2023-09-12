@@ -183,3 +183,26 @@ CreateDocumentType:
     }
   ]
 }'
+
+   MasterData_CreateDocumentType_Spacial_Character_Neg:
+      endPoint: /v1/masterdata/documenttypes
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DocumentType/documentType
+      outputTemplate: masterdata/error
+      input: '{
+	"code": "TestDoc@Type0010",
+	"description": "TestDocType0010 Card Holder",
+	"isActive": true,
+	"langCode": "eng",
+	"name": "TestDoc$Type@0010 Card",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"errors": [
+    {
+      "errorCode": "KER-MSD-999"
+    }
+  ]
+}'

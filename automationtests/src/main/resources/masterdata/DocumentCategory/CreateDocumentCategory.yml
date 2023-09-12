@@ -223,3 +223,26 @@ CreateDocumentCategory:
     }
   ]
 }'
+
+   MasterData_CreateDocumentCategory_Spacial_Character_Neg:
+      endPoint: /v1/masterdata/documentcategories
+      role: admin
+      templateFields: ["name"]
+      restMethod: post
+      inputTemplate: masterdata/DocumentCategory/documentCategory
+      outputTemplate: masterdata/error
+      input: '{
+     "code": "DocTestC@ode321",
+    "description": "$REMOVE$",
+    "isActive": true,
+    "langCode": "eng",
+    "name": "D@ocC$at",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+	"errors": [
+    {
+      "errorCode": "KER-MSD-999"
+    }
+  ]
+}'
