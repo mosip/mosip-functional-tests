@@ -59,6 +59,23 @@ mvn clean install
 ```
 This creates the jar file in the ‘target’ folder
 
+## Prerequisite Configuration Needed in the Env
+
+ ### Create a GlobalAdmin User
+     create a globalAdmin user, you need to execute the SQL query provided.
+```
+INSERT INTO master.zone_user (zone_code, usr_id, lang_code, is_active, cr_by, cr_dtimes, upd_by, upd_dtimes, is_deleted, del_dtimes)
+VALUES ('MOR', 'globaladmin', 'eng', true, 'workaround', '2023-06-30 14:47:31.756', NULL, NULL, false, NULL);
+```
+Lang Code : Its a dynamic data we have to put the env specific language value
+Zone Code : Its a dynamic data we have to put the env specific zone
+
+### Configuring OTP Count for Default Properties
+    Need to configure OTP-related properties for resident-default properties and id-authentication-default properties
+
+otp.request.flooding.duration=1
+otp.request.flooding.max-count=100
+
 ## Execute Test Automation Suite
   
   Execute the jar from the target folder on the application code deployed. In this example, the application code is run on <base_env>
@@ -72,10 +89,11 @@ java -jar -Dmodules=prereg -Denv.user=dev2 -Denv.endpoint= <base_env> -Denv.lang
 * env.user = user of the env on which you will run the jar file. 
 * env.endpoint = env where the application under test is deployed. Change the env hostname from <base_env> to any env that you will work on
 * env.testlevel = this parameter has to be ‘smoke’ to run only smoke test cases, and it has to be ‘smokeandRegression’ to run all tests of all modules
-* env.langcode = languages which are configured in the env.
 * jar = specify the jar file to be executed
 * The version of the jar file name changes as per development code version.
 Example: Current version of Dev Code Base is 1.2.0.1 so the jar name will be automationtests-1.2.0.1-SNAPSHOT-jar-with-dependencies.jar
+
+### Pre
 
 ## Build and run
 
