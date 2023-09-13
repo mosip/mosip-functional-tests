@@ -172,7 +172,7 @@
 
 
 
-	<test name="HotlistTestcasesAuth">
+	<test name="LockUINVIDTestcasesDEMOAuth">
 		<parameter name="ymlFile"
 			value="ida/HotlistTestcases/HotlistTestcases.yml" />
 		<classes>
@@ -180,7 +180,7 @@
 		</classes>
 	</test>
 
-	<test name="HotlistTestcasesKyc">
+	<test name="LockUINVIDTestcasesEKYCDEMO">
 		<parameter name="ymlFile"
 			value="ida/HotlistTestcases/HotlistTestcasesKyc.yml" />
 		<parameter name="isInternal" value="false" />
