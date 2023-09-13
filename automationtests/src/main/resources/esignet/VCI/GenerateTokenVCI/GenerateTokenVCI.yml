@@ -13,7 +13,7 @@ GenerateTokenVCI:
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$",
-  		  "code_verifier": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"
+  		  "code_verifier": "$CODEVERIFIER$"
 }'
       output: '{
    		"token_type": "Bearer" 
@@ -93,7 +93,7 @@ GenerateTokenVCI:
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$",
-  		  "code_verifier": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"
+  		  "code_verifier": "$CODEVERIFIER$"
 }'
       output: '{
             "error": "pkce_failed"
@@ -113,7 +113,7 @@ GenerateTokenVCI:
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$",
-  		  "code_verifier": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"
+  		  "code_verifier": "$CODEVERIFIER$"
 }'
       output: '{
    		"token_type": "Bearer" 
@@ -133,7 +133,147 @@ GenerateTokenVCI:
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
 		  "redirect_uri": "$IDPREDIRECTURI$",
-  		  "code_verifier": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"
+  		  "code_verifier": "$CODEVERIFIER$"
+}'
+      output: '{
+   		"token_type": "Bearer" 
+}'
+
+   ESignet_GenerateTokenVCI_uin_NegCredScen3_Smoke_sid:
+      endPoint: /v1/esignet/oauth/v2/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCI
+      outputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCIResult
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_VCI_uin_NegCredScen3_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$",
+  		  "code_verifier": "$CODEVERIFIER$"
+}'
+      output: '{
+   		"token_type": "Bearer" 
+}'
+
+   ESignet_GenerateTokenVCI_uin_NegCredScen4_Smoke_sid:
+      endPoint: /v1/esignet/oauth/v2/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCI
+      outputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCIResult
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_VCI_uin_NegCredScen4_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$",
+  		  "code_verifier": "$CODEVERIFIER$"
+}'
+      output: '{
+   		"token_type": "Bearer" 
+}'
+
+   ESignet_GenerateTokenVCI_uin_NegCredScen5_Smoke_sid:
+      endPoint: /v1/esignet/oauth/v2/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCI
+      outputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCIResult
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_VCI_uin_NegCredScen5_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$",
+  		  "code_verifier": "$CODEVERIFIER$"
+}'
+      output: '{
+   		"token_type": "Bearer" 
+}'
+
+   ESignet_GenerateTokenVCI_uin_NegCredScen6_Smoke_sid:
+      endPoint: /v1/esignet/oauth/v2/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCI
+      outputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCIResult
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_VCI_uin_NegCredScen6_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$",
+  		  "code_verifier": "$CODEVERIFIER$"
+}'
+      output: '{
+   		"token_type": "Bearer" 
+}'
+
+   ESignet_GenerateTokenVCI_uin_NegCredScen7_Smoke_sid:
+      endPoint: /v1/esignet/oauth/v2/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCI
+      outputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCIResult
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_VCI_uin_NegCredScen7_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$",
+  		  "code_verifier": "$CODEVERIFIER$"
+}'
+      output: '{
+   		"token_type": "Bearer" 
+}'
+
+   ESignet_GenerateTokenVCI_uin_NegCredScen8_Smoke_sid:
+      endPoint: /v1/esignet/oauth/v2/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCI
+      outputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCIResult
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_VCI_uin_NegCredScen8_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$",
+  		  "code_verifier": "$CODEVERIFIER$"
+}'
+      output: '{
+   		"token_type": "Bearer" 
+}'
+
+   ESignet_GenerateTokenVCI_uin_NegCredScen9_Smoke_sid:
+      endPoint: /v1/esignet/oauth/v2/token
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCI
+      outputTemplate: esignet/VCI/GenerateTokenVCI/GenerateTokenVCIResult
+      input: '{
+		  "grant_type": "authorization_code",
+		  "code": "$ID:AuthorizationCode_VCI_uin_NegCredScen9_Valid_Smoke_sid_code$",
+		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
+		  "redirect_uri": "$IDPREDIRECTURI$",
+  		  "code_verifier": "$CODEVERIFIER$"
 }'
       output: '{
    		"token_type": "Bearer" 
