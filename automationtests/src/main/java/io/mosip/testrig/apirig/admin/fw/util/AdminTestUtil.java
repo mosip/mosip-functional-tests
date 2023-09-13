@@ -453,6 +453,8 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject requestInput = new JSONObject(inputJson);
 			headers.put(cookieName, "Bearer " + requestInput.get(GlobalConstants.IDP_ACCESS_TOKEN).toString());
 			requestInput.remove(GlobalConstants.IDP_ACCESS_TOKEN);
+			if (requestInput.has("client_id"))
+				requestInput.remove("client_id");
 			inputJson = requestInput.toString();
 		}
 		token = properties.getProperty(GlobalConstants.XSRFTOKEN);

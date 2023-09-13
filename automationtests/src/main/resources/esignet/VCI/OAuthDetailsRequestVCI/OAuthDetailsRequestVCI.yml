@@ -486,3 +486,115 @@ OAuthDetailsRequestVCI:
       output: '{
        
 }'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_Invalid_Val_Scope_Neg:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "hafkja",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+    "errors": [
+        {
+            "errorCode": "invalid_scope"
+        }
+    ]
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_Missing_Scope_Neg:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "$REMOVE$",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+    "errors": [
+        {
+            "errorCode": "invalid_scope"
+        }
+    ]
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegCredScen1_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegCredScen2_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'

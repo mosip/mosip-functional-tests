@@ -23,6 +23,33 @@ CreateDeviceSpecification:
       "langCode": "eng"
       }'
       
+   MasterData_CreateDeviceSpecification_Dublicate_DeviceSpecification_Neg:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "hogwarts",
+      "description": "Test DeviceSpec",
+      "deviceTypeCode": "GST4",
+      "id": "743",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "Face scanner",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+     "errors": [
+    {
+      "errorCode": "KER-MSD-999"
+    }
+  ]
+      }'
+      
    MasterData_CreateDeviceSpecification_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
