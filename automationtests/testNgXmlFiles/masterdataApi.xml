@@ -724,7 +724,7 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimpleDelete" />
 		</classes>
 	</test>
-	<!--<test name="FilterLocationData">
+	<test name="FilterLocationData">
 		<parameter name="ymlFile"
 			value="masterdata/FilterLocationData/FilterLocationData.yml" />
 		<classes>
@@ -1421,7 +1421,7 @@
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
-	</test>-->
+	</test>
 	
 	
 	
