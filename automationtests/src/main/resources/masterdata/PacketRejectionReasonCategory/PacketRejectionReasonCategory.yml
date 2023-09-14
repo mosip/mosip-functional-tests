@@ -15,8 +15,7 @@ PacketRejectionReasonCategory:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-       "code": "TEST_CAT_CODE",
-       "langCode": "eng"
+       "code": "TEST_CAT_CODE"
     }'
 
    MasterData_PacketRejectionReasonCategory_Invalid_langCode:

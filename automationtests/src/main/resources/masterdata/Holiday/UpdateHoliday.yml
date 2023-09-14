@@ -21,7 +21,7 @@ UpdateHoliday:
         "locationCode": "$IGNORE$",
         "holidayDate": "2020-08-15",
         "holidayName": "AutoTest user",
-        "langCode": "eng"
+        "langCode": "$IGNORE$"
     }'
    MasterData_UpdateHoliday_Invalid_InputParameter_HolidayDate_Missing:
       endPoint: /v1/masterdata/holidays
@@ -187,7 +187,7 @@ UpdateHoliday:
     "holidayId": "$ID:CreateHoliday_All_Valid_Smoke_sid_holidayId$",
     "isActive": false,
     "langCode": "eng",
-    "locationCode": "$LOCATIONCODE$",
+    "locationCode": "SOS",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{

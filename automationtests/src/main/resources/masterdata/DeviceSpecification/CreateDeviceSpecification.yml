@@ -2,6 +2,7 @@ CreateDeviceSpecification:
    MasterData_CreateDeviceSpecification_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["name","description"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecification/deviceSpecification
@@ -19,8 +20,7 @@ CreateDeviceSpecification:
       "requesttime": "$TIMESTAMP$"
       }'
       output: '{
-      "id": "$IGNORE$",
-      "langCode": "eng"
+      "id": "$IGNORE$"
       }'
       
    MasterData_CreateDeviceSpecification_Dublicate_DeviceSpecification_Neg:

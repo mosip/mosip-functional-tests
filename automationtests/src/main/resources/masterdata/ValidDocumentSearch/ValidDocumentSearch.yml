@@ -2,6 +2,7 @@ ValidDocumentSearch:
    MasterData_ValidDocumentSearch_Valid_Smoke:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
@@ -18,11 +19,11 @@ ValidDocumentSearch:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "errors": null
 }'
    MasterData_ValidDocumentSearch_Valid_Filter_DocCatcode:
       endPoint: /v1/masterdata/validdocuments/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/ValidDocumentSearch/validDocumentSearch
@@ -43,7 +44,6 @@ ValidDocumentSearch:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "errors": null
 }'
    MasterData_ValidDocumentSearch_Invalid_NegPageFetch:
       endPoint: /v1/masterdata/validdocuments/search

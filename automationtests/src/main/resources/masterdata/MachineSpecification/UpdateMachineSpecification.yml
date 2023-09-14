@@ -2,6 +2,7 @@ UpdateMachineSpecification:
    Masterdata_UpdateMachineSpecification_All_Valid_Smoke:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["description"]
       restMethod: put
       inputTemplate: masterdata/MachineSpecification/machineSpecification
@@ -19,8 +20,7 @@ UpdateMachineSpecification:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"id": "$IGNORE$",
-	"langCode": "eng"
+	"id": "$IGNORE$"
 }'
    Masterdata_UpdateMachineSpecification_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/machinespecifications

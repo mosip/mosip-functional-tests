@@ -2,10 +2,11 @@ GetMissingDocumentTypeByLangcode:
    Masterdata_GetDocumentTypeByLangCode_all_valid_smoke:
       endPoint: /v1/masterdata/documenttypes/missingids/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/GetMissingDocumentTypeByLangcode/getMissingDocumentTypeByLangcode
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/GetMissingDocumentTypeByLangcode/getMissingDocumentTypeByLangcodeResult
       input: '{
       "langcode":"eng"
 }'

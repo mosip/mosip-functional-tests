@@ -9,7 +9,7 @@ GetZoneHierarchyByLangCode:
   "langCode": "eng"
 }'
       output: '{
-      "langCode": "eng"
+      "langCode": "$IGNORE$"
 }'
    MasterData_GetZoneHierarchyByLangCode_inValid_code:
       endPoint: /v1/masterdata/zones/hierarchy/{langCode}

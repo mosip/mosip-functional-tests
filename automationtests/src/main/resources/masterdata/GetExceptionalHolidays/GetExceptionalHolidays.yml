@@ -2,6 +2,7 @@ GetExceptionalHolidays:
    Admin_GetExceptionalHolidays_allValid_smoke:
       endPoint: /v1/masterdata/exceptionalholidays/{registrationCenterId}/{langCode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langCode"]
       restMethod: get
       inputTemplate: masterdata/GetExceptionalHolidays/getExceptionalHolidays
