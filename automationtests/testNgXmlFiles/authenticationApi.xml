@@ -188,6 +188,24 @@
 			<class name="io.mosip.testrig.apirig.testscripts.DemoAuth" />
 		</classes>
 	</test>
+	
+	<test name="LockUINVIDTestcasesEKYCBIO">
+		<parameter name="ymlFile"
+			value="ida/BioAuthHotListLock/BioAuth.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.BioAuth" />
+		</classes>
+	</test>
+	
+	<test name="LockUINVIDTestcasesAUTHBIO">
+		<parameter name="ymlFile"
+			value="ida/BioAuthHotListLock/EkycBio.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.BioAuth" />
+		</classes>
+	</test>
 
 
 	<test name="AuthUnLock">
