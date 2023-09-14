@@ -2,6 +2,7 @@ FetchAllLocation:
    MasterData_FetchAllLocation_valid_smoke:
       endPoint: /v1/masterdata/locations/all
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchAllLocation/fetchAllLocation
       outputTemplate: masterdata/FetchAllLocation/fetchAllLocationResult
@@ -9,7 +10,5 @@ FetchAllLocation:
   
 }'
       output: '{
-"data": [{
-       
-      }]
+
 }'

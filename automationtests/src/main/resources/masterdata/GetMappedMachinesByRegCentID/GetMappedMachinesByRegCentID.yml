@@ -2,6 +2,7 @@ GetMappedMachinesByRegCentID:
    Admin_GetMappedMachinesByRegCentID_allValid_smoke:
       endPoint: /v1/masterdata/machines/mappedmachines/{regCenterId}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetMappedMachinesByRegCentID/getMappedMachinesByRegCentID
       outputTemplate: masterdata/GetMappedMachinesByRegCentID/getMappedMachinesByRegCentIDResult

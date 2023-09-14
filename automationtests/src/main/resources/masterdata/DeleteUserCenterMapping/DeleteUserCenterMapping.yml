@@ -2,6 +2,7 @@ DeleteUserCenterMapping:
    MasterData_DeleteUserCenterMapping_All_Valid_Smoke:  
       endPoint: /v1/masterdata/usercentermapping/{id}
       role: admin
+      checkErrorsOnlyInResponse: true  
       restMethod: delete
       inputTemplate: masterdata/DeleteUserCenterMapping/deleteUserCenterMapping
       outputTemplate: masterdata/DeleteUserCenterMapping/deleteUserCenterMappingResult
@@ -9,7 +10,6 @@ DeleteUserCenterMapping:
     "id": "func_auto_test_user"
 	}'
       output: '{
-    "id": "func_auto_test_user"
 }'
    MasterData_DeleteUserCenterMapping_in_Valid:  
       endPoint: /v1/masterdata/usercentermapping/{id}

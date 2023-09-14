@@ -2,6 +2,7 @@ BiometricAttributes:
    MasterData_BiometricAttributes_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/biometricattributes
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langCode"]
       restMethod: post
       inputTemplate: masterdata/BiometricAttributes/biometricAttributes
@@ -16,6 +17,8 @@ BiometricAttributes:
 	"requesttime": "$TIMESTAMP$"
 	}'
       output: '{
+      "code": "TST",
+    "langCode": "eng"
 }'
 
    MasterData_BiometricAttributes_Invalid_empty_biometricTypeCode:

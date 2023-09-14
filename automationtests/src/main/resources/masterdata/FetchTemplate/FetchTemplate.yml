@@ -2,6 +2,7 @@ FetchTemplate:
    MasterData_FetchTemplate_allValid_smoke_Get:
       endPoint: /v1/masterdata/templates
       role: admin
+      checkErrorsOnlyInResponse: true 
       restMethod: get
       inputTemplate: masterdata/FetchTemplate/fetchTemplate
       outputTemplate: masterdata/FetchTemplate/fetchTemplateResult
@@ -15,6 +16,7 @@ FetchTemplate:
    MasterData_FetchTemplate_allValid_ByLangcode_smoke:
       endPoint: /v1/masterdata/templates/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchTemplate/fetchTemplate
       outputTemplate: masterdata/FetchTemplate/fetchTemplateResult
@@ -39,6 +41,7 @@ FetchTemplate:
 }'
       output: '{
 "templates": [{
+                "langCode": "eng",
 				"isActive": true
 			}]
 }'

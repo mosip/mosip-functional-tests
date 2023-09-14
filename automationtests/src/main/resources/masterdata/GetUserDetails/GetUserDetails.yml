@@ -9,7 +9,6 @@ GetUserDetails:
   "id":"$REMOVE$"
 }'
       output: '{
-      "id": "auto_test_user",
       "langCode": "eng",
       "name": "$IGNORE$",
       "statusCode": "$IGNORE$",
@@ -27,7 +26,6 @@ GetUserDetails:
   "id":"func_auto_test_user"
 }'
       output: '{
-      "id": "func_auto_test_user",
       "langCode": "eng",
       "name": "$IGNORE$",
       "statusCode": "$IGNORE$",

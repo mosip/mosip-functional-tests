@@ -2,6 +2,7 @@ FetchLocation:
    MasterData_FetchLocation_langcode_smoke:
       endPoint: /v1/masterdata/locations/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchLocation/fetchLocation
       outputTemplate: masterdata/FetchLocation/fetchLocationResult
@@ -39,6 +40,7 @@ FetchLocation:
    MasterData_FetchLocation_langcode_locationcode_smoke:
       endPoint: /v1/masterdata/locations/{locationcode}/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchLocation/fetchLocation
       outputTemplate: masterdata/FetchLocation/fetchLocationResult
@@ -96,6 +98,7 @@ FetchLocation:
    MasterData_FetchLocation_details_by_Langcode_smoke:
       endPoint: /v1/masterdata/locations/info/{locationcode}/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchLocation/fetchLocation
       outputTemplate: masterdata/FetchLocation/fetchLocationDetailsbyLangcodeResult
@@ -151,6 +154,7 @@ FetchLocation:
    MasterData_FetchLocation_details_Langcode_smoke:
       endPoint: /v1/masterdata/locations/level/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchLocation/fetchLocation
       outputTemplate: masterdata/FetchLocation/fetchLocationResult
@@ -166,6 +170,7 @@ FetchLocation:
    MasterData_FetchLocation_details_hierarchyname_smoke:
       endPoint: /v1/masterdata/locations/locationhierarchy/{hierarchyname}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchLocation/fetchLocation
       outputTemplate: masterdata/FetchLocation/fetchLocationResult

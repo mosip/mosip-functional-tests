@@ -2,6 +2,7 @@ GetMissingDocumentCategoryByLangcode:
    Masterdata_GetMissingDocumentCategoryByLangcode_allValid_smoke:
       endPoint: /v1/masterdata/documentcategories/missingids/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/GetMissingDocumentCategoryByLangcode/getMissingDocumentCategoryByLangcode

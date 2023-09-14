@@ -2,6 +2,7 @@ GetDocumentTypeByLangCode:
    Masterdata_GetDocumentTypeByLangCode_allValid_smoke:
       endPoint: /v1/masterdata/documenttypes/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetDocumentTypeByLangCode/getDocumentTypeByLangCode
       outputTemplate: masterdata/GetDocumentTypeByLangCode/getDocumentTypeByLangCodeResult

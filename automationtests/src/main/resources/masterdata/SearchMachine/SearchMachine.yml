@@ -130,7 +130,7 @@ SearchMachine:
         "ipAddress": "192.168.0.424",
         "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
-        "zoneCode": "CST",
+        "zoneCode": "$ZONE_CODE$",
         "zone": "$IGNORE$",
         "isActive": "$IGNORE$"
       }
@@ -174,7 +174,7 @@ SearchMachine:
         "ipAddress": "192.168.0.424",
         "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
-        "zoneCode": "CST",
+        "zoneCode": "$ZONE_CODE$",
         "zone": "$IGNORE$",
         "isActive": "$IGNORE$"
       }
@@ -218,7 +218,7 @@ SearchMachine:
         "ipAddress": "192.168.0.424",
         "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
-        "zoneCode": "CST",
+        "zoneCode": "$ZONE_CODE$",
         "zone": "$IGNORE$",
         "isActive": "$IGNORE$"
       }
@@ -521,7 +521,7 @@ SearchMachine:
         "ipAddress": "192.168.0.424",
         "machineSpecId": "$IGNORE$",
         "langCode": "$IGNORE$",
-        "zoneCode": "CST",
+        "zoneCode": "$ZONE_CODE$",
         "zone": "$IGNORE$",
         "isActive": "$IGNORE$"
       }

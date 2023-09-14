@@ -10,7 +10,7 @@ FilterLocationData:
 	"filters": [{
 		"columnName": "Zone",
 		"type": "unique",
-		"text": "KTA"
+		"text": "$ZONE_CODE$"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -29,7 +29,7 @@ FilterLocationData:
 	"filters": [{
 		"columnName": "Zone",
 		"type": "",
-		"text": "KTA"
+		"text": "$ZONE_CODE$"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"

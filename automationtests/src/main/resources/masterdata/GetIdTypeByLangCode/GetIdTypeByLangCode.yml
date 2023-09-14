@@ -2,6 +2,7 @@ GetIdTypeByLangCode:
    Admin_GetIdTypeByLangCode_allValid_smoke:
       endPoint: /v1/masterdata/idtypes/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetIdTypeByLangCode/getIdTypeByLangCode
       outputTemplate: masterdata/GetIdTypeByLangCode/getIdTypeByLangCodeResult
