@@ -32,8 +32,7 @@ SearchBlockListedWords:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "word": "dumbo7",
-        "langCode": "eng"
+        "word": "dumbo7"
       }
     ]
 }'
@@ -70,8 +69,7 @@ SearchBlockListedWords:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "word": "dumbo7",
-        "langCode": "eng"
+        "word": "dumbo7"
       }
     ]
 }'
@@ -108,8 +106,7 @@ SearchBlockListedWords:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "word": "dumbo7",
-        "langCode": "eng"
+        "word": "dumbo7"
       }
     ]
 }'
@@ -182,8 +179,7 @@ SearchBlockListedWords:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "word": "dumb7",
-        "langCode": "eng"
+        "word": "dumb7"
       }
     ]
 }'

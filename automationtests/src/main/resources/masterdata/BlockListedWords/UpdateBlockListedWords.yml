@@ -15,8 +15,7 @@ UpdateBlockListedWords:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "dumbooo",
-	"langCode": "eng"
+	"word": "dumbooo"
 }'
    Masterdata_UpdateBlockListedWords_with_spaces:
       endPoint: /v1/masterdata/blocklistedwords

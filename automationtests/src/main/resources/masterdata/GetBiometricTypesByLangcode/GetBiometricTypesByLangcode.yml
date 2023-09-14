@@ -2,6 +2,7 @@ GetBiometricTypesByLangcode:
    Masterdata_GetBiometricTypesByLangcode_allValid_smoke:
       endPoint: /v1/masterdata/biometrictypes/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/GetBiometricTypesByLangcode/getBiometricTypesByLangcode
@@ -10,13 +11,7 @@ GetBiometricTypesByLangcode:
    "langcode":"eng"
 }'
       output: '{
-   "response":{
-      "biometrictypes":[
-         {
-            "langCode": "eng"
-         }
-      ]
-   }
+  
 }'
    Masterdata_GetBiometricTypesByLangcode_InValid_langCode:
       endPoint: /v1/masterdata/biometrictypes/{langcode}

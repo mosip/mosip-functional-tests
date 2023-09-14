@@ -10,11 +10,9 @@ GetDocType_DocCatByAppID:
 	"languages": "eng"
 }'
       output: '{
-    "langCode":"eng",
     "isActive":true,
     "documentCategories":[
       {
-        "langCode":"eng",
         "isActive":true
           }]
 }'

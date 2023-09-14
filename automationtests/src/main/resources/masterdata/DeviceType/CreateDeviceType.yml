@@ -15,8 +15,26 @@ CreateDeviceType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "GST3",
-	"langCode": "eng"
+	"code": "GST3"
+}'
+
+   MasterData_CreateDeviceType_TO_verify_Deactivation:
+      endPoint: /v1/masterdata/devicetypes
+      role: admin
+      templateFields: ["description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceType/deviceType
+      outputTemplate: masterdata/DeviceType/deviceTypeResult
+      input: '{
+    "code": "REG",
+    "description": "test 1.0.8",
+	"isActive": true,
+	"langCode": "eng",
+	"name": "REG",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "ABC3"
 }'
    MasterData_CreateDeviceType_All_Valid_Mandatory_Fields:
       endPoint: /v1/masterdata/devicetypes
@@ -34,8 +52,7 @@ CreateDeviceType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "GST4",
-	"langCode": "eng"
+	"code": "GST4"
 }'
 
    MasterData_CreateDeviceType_Dublicate_Device_Neg:

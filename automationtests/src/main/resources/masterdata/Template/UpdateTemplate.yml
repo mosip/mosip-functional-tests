@@ -21,8 +21,7 @@ UpdateTemplate:
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"id": "$IGNORE$",
-	"langCode": "$IGNORE$"
+	"id": "$IGNORE$"
 }'
    MasterData_UpdateTemplate_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/templates

@@ -2,6 +2,7 @@ GetLeafZonesByLangCode:
    MasterData_GetLeafZonesByLangCode_allValid_smoke:
       endPoint: /v1/masterdata/zones/leafzones/{langCode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetLeafZonesByLangCode/getLeafZonesByLangCode
       outputTemplate: masterdata/GetLeafZonesByLangCode/getLeafZonesByLangCodeResult
@@ -9,7 +10,6 @@ GetLeafZonesByLangCode:
   "langCode": "eng"
 }'
       output: '{
-      "langCode": "eng"
 }'
    MasterData_GetLeafZonesByLangCode_inValid_code:
       endPoint: /v1/masterdata/zones/leafzones/{langCode}

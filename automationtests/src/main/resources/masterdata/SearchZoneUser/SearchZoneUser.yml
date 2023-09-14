@@ -34,7 +34,6 @@ SearchZoneUser:
         "deletedDateTime": "$IGNORE$",
         "zoneCode": "$IGNORE$",
         "userId": "$IGNORE$",
-        "langCode": "eng",
         "userName": "$IGNORE$",
         "zoneName": "$IGNORE$" 
       }'

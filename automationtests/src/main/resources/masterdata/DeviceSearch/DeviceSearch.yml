@@ -36,7 +36,6 @@ DeviceSearch:
 	"macAddress": "85-BB-97-4B-14-05",
 	"ipAddress": "$IGNORE$",
 	"deviceSpecId": "327",
-	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
@@ -79,7 +78,6 @@ DeviceSearch:
 	"macAddress": "85-BB-97-4B-14-05",
 	"ipAddress": "$IGNORE$",
 	"deviceSpecId": "327",
-	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]

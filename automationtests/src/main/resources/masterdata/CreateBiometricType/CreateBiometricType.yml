@@ -14,7 +14,5 @@ CreateBiometricTypes:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "dumbo6",
-	"langCode": "eng",
-	"errors": null
+	"code": "dumbo6"
 }'

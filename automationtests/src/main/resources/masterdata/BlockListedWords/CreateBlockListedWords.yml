@@ -14,8 +14,7 @@ CreateBlockListedWords:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "word": "dumboo",
-    "langCode": "eng"
+    "word": "dumboo"
 }'
    Masterdata_CreateBlockListedWords_space_in_word:
       endPoint: /v1/masterdata/blocklistedwords

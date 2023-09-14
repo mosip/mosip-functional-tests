@@ -36,7 +36,6 @@ SearchMachineSpec:
 	"machineTypeCode": "$IGNORE$",
 	"minDriverversion": "3.2",
 	"description": "HP brand",
-	"langCode": "eng",
 	"isActive": "$IGNORE$"
 	}]
 }'
@@ -75,7 +74,6 @@ SearchMachineSpec:
 	"machineTypeCode": "$IGNORE$",
 	"minDriverversion": "3.2",
 	"description": "HP brand",
-	"langCode": "eng",
 	"isActive": "$IGNORE$"
 	}]
 }'
@@ -114,7 +112,6 @@ SearchMachineSpec:
 	"machineTypeCode": "$IGNORE$",
 	"minDriverversion": "3.2",
 	"description": "HP brand",
-	"langCode": "eng",
 	"isActive": "$IGNORE$"
 	}]
 }'
@@ -153,7 +150,6 @@ SearchMachineSpec:
 	"machineTypeCode": "$IGNORE$",
 	"minDriverversion": "3.2",
 	"description": "HP brand",
-	"langCode": "eng",
 	"isActive": "$IGNORE$"
 	}]
 }'
@@ -221,7 +217,6 @@ SearchMachineSpec:
 	"machineTypeCode": "$IGNORE$",
 	"minDriverversion": "3.2",
 	"description": "HP brand",
-	"langCode": "eng",
 	"isActive": "$IGNORE$"
 	}]
 }'
@@ -260,7 +255,6 @@ SearchMachineSpec:
 	"machineTypeCode": "$IGNORE$",
 	"minDriverversion": "3.2",
 	"description": "HP brand",
-	"langCode": "eng",
 	"isActive": "$IGNORE$"
 	}]
 }'

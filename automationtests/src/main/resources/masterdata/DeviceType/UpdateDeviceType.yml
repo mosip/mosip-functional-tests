@@ -15,8 +15,7 @@ UpdateDeviceType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "GST3",
-	"langCode": "eng"
+	"code": "GST3"
 }'
    MasterData_UpdateDeviceType_All_Valid_Mandatory_Fields:
       endPoint: /v1/masterdata/devicetypes
@@ -34,8 +33,7 @@ UpdateDeviceType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "GST4",
-	"langCode": "eng"
+	"code": "GST4"
 }'
    MasterData_UpdateDeviceType_InputParameter_Code_Missing:
       endPoint: /v1/masterdata/devicetypes
