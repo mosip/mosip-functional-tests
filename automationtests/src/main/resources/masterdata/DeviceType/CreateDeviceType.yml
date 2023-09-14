@@ -34,7 +34,7 @@ CreateDeviceType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "ABC3"
+	"code": "REG"
 }'
    MasterData_CreateDeviceType_All_Valid_Mandatory_Fields:
       endPoint: /v1/masterdata/devicetypes
