@@ -3163,7 +3163,19 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$UINCODEVERIFIERPOS1$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$UINCODEVERIFIERPOS1$", UIN_CODE_VERIFIER_POS_1);
 		}
-
+		
+		if (jsonString.contains("$CODECHALLENGE$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$CODECHALLENGE$", properties.getProperty("codeChallenge"));
+		}
+		
+		if (jsonString.contains("$CODEVERIFIER$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$CODEVERIFIER$", properties.getProperty("codeVerifier"));
+		}
+		
+		if (jsonString.contains("$VCICONTEXTURL$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$VCICONTEXTURL$", properties.getProperty("vciContextURL"));
+		}
+		
 		if (jsonString.contains("$PROOFJWT$")) {
 
 			String oidcJWKKeyString = getJWKKey(oidcJWK1);

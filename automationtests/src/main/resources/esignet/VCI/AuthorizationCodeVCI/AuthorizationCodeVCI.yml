@@ -198,3 +198,115 @@ AuthorizationCodeVCI:
 }'
       output: '{
 }'
+
+   ESignet_AuthorizationCode_VCI_uin_NegCredScen3_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCI
+      outputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCIResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen3_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen3_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+}'
+
+   ESignet_AuthorizationCode_VCI_uin_NegCredScen4_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCI
+      outputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCIResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen4_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen4_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+}'
+
+   ESignet_AuthorizationCode_VCI_uin_NegCredScen5_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCI
+      outputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCIResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen5_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen5_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+}'
+
+   ESignet_AuthorizationCode_VCI_uin_NegCredScen6_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCI
+      outputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCIResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen6_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen6_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+}'
+
+   ESignet_AuthorizationCode_VCI_uin_NegCredScen7_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCI
+      outputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCIResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen7_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen7_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+}'
+
+   ESignet_AuthorizationCode_VCI_uin_NegCredScen8_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCI
+      outputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCIResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen8_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen8_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+}'
+
+   ESignet_AuthorizationCode_VCI_uin_NegCredScen9_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCI
+      outputTemplate: esignet/VCI/AuthorizationCodeVCI/AuthorizationCodeVCIResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen9_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegCredScen9_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+}'
