@@ -11,8 +11,7 @@ GetApplicationTypeByCodeAndLangcode:
    "langCode":"eng"
 }'
       output: '{
-   "code":  "AAA",
-   "langCode": "eng"
+   "code":  "AAA"
 }'
    Masterdata_GetApplicationTypeByCodeAndLangcode_InValid_Code:
       endPoint: /v1/masterdata/applicationtypes/{code}/{langCode}

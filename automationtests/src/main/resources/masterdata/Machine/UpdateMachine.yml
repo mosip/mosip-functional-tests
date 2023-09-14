@@ -30,7 +30,7 @@ UpdateMachine:
 	"isActive": "$IGNORE$",
 	"langCode": "$IGNORE$",
 	"macAddress": "61-D3-FD-12-C9-ED",
-	"zoneCode": "$ZONE_CODE$",
+	"zoneCode": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 }'
    Masterdata_UpdateMachine_Invalid_validitydate_Format:

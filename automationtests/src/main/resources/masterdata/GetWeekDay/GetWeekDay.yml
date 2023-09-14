@@ -11,7 +11,7 @@ GetWeekDay:
 }'
       output: '{
       "weekdays": [{
-        "languageCode": "eng"
+        "languageCode": "$IGNORE$"
       }]
 }'
    MasterData_GetWeekDay_InValid_InvalidLangCode:

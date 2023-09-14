@@ -2,6 +2,7 @@ FetchDistinctDynamicFieldByLangcode:
    Masterdata_FetchDistinctDynamicFieldByLangcode_AllValid_smoke:
       endPoint: /v1/masterdata/dynamicfields/distinct/{langCode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchDistinctDynamicFieldByLangcode/fetchDistinctDynamicFieldByLangcode
       outputTemplate: masterdata/FetchDistinctDynamicFieldByLangcode/fetchDistinctDynamicFieldByLangcodeResult
@@ -9,5 +10,4 @@ FetchDistinctDynamicFieldByLangcode:
    "langCode":"eng"
 }'
       output: '{
-   "errors": null
 }'

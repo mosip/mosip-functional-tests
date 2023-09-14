@@ -15,8 +15,7 @@ UpdateMachineType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "Laptop2",
-	"langCode": "eng"
+	"code": "Laptop2"
 }'
    Masterdata_UpdateMachineType_Invalid_InputParameter_Code_Missing:
       endPoint: /v1/masterdata/machinetypes

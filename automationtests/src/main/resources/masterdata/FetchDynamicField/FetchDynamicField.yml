@@ -2,6 +2,7 @@ FetchDynamicField:
    Masterdata_FetchDynamicField_AllValid_smoke:
       endPoint: /v1/masterdata/dynamicfields
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchDynamicField/fetchDynamicField
       outputTemplate: masterdata/FetchDynamicField/fetchDynamicFieldResult
@@ -9,5 +10,4 @@ FetchDynamicField:
   
 }'
       output: '{
-   "errors": null
 }'

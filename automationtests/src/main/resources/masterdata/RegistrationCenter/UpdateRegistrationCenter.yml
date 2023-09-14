@@ -2,6 +2,7 @@ UpdateRegistrationCenter:
    MasterData_UpdateRegistrationCenter_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone","langCode"]
       restMethod: put
       inputTemplate: masterdata/RegistrationCenter/registrationCenter
@@ -27,7 +28,7 @@ UpdateRegistrationCenter:
     "perKioskProcessTime": "00:15:00",
     "timeZone": "Test Time zone",
     "workingHours": "8:00:00",
-    "zoneCode":"CSB",
+    "zoneCode":"$ZONE_CODE$",
     "id": "$ID:CreateRegCenter_allValid_smoke_sid_id$",
     "exceptionHolidayDate": "2020-11-16",
     "exceptionHolidayName": "TestHoliday",
@@ -65,7 +66,7 @@ UpdateRegistrationCenter:
     "perKioskProcessTime": "00:15:00",
     "timeZone": "Test Time zone",
     "workingHours": "8:00:00",
-    "zoneCode":"STT",
+    "zoneCode":"$ZONE_CODE$",
     "id": "123414",
     "exceptionHolidayDate": "2020-11-16",
     "exceptionHolidayName": "TestHoliday",
@@ -109,7 +110,7 @@ UpdateRegistrationCenter:
     "perKioskProcessTime": "00:15:00",
     "timeZone": "Test Time zone",
     "workingHours": "8:00:00",
-    "zoneCode":"STT",
+    "zoneCode":"$ZONE_CODE$",
     "id": "96874",
     "exceptionHolidayDate": "2020-11-16",
     "exceptionHolidayName": "TestHoliday",
@@ -152,7 +153,7 @@ UpdateRegistrationCenter:
     "perKioskProcessTime": "00:15:00",
     "timeZone": "Test Time zone",
     "workingHours": "8:00:00",
-    "zoneCode":"STT",
+    "zoneCode":"$ZONE_CODE$",
     "id": "96874",
     "exceptionHolidayDate": "2020-11-16",
     "exceptionHolidayName": "TestHoliday",

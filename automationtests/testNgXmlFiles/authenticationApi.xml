@@ -188,6 +188,17 @@
 			<class name="io.mosip.testrig.apirig.testscripts.DemoAuth" />
 		</classes>
 	</test>
+	
+	
+	
+	<test name="LockUINVIDTestcasesAUTHEKYCBIO">
+		<parameter name="ymlFile"
+			value="ida/BioAuthHotListLock/BioAuth.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.BioAuth" />
+		</classes>
+	</test>
 
 
 	<test name="AuthUnLock">

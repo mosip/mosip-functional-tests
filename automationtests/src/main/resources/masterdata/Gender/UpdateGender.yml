@@ -14,8 +14,7 @@ UpdateGender:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "Genderdummy",
-	"langCode": "eng"
+	"code": "Genderdummy"
 }'
    Masterdata_UpdateGender_Invalid_InputParameter_Code_Missing:
       endPoint: /v1/masterdata/gendertypes

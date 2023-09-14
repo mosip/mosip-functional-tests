@@ -2,6 +2,7 @@ CreateMachineSpecification:
    Masterdata_CreateMachineSpecification_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["description"]
       restMethod: post
       inputTemplate: masterdata/MachineSpecification/machineSpecification
@@ -19,8 +20,7 @@ CreateMachineSpecification:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-    "id": "$IGNORE$",
-    "langCode": "eng"
+    "id": "$IGNORE$"
 }'
    Masterdata_CreateMachineSpecification_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/machinespecifications

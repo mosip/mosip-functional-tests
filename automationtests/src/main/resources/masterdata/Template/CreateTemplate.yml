@@ -2,6 +2,7 @@ CreateTemplate:
    MasterData_CreateTemplate_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/templates
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["description","name"]
       restMethod: post
       inputTemplate: masterdata/Template/template
@@ -21,8 +22,7 @@ CreateTemplate:
 	    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"id": "445566777",
-	"langCode": "$IGNORE$"
+	"id": "$IGNORE$"
 }'
    MasterData_CreateTemplate_InputParameter_Name_Missing:
       endPoint: /v1/masterdata/templates

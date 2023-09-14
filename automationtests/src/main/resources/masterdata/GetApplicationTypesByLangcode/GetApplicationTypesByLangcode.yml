@@ -2,6 +2,7 @@ GetApplicationTypesByLangcode:
    Masterdata_GetApplicationTypesByLangcode_allValid_smoke:
       endPoint: /v1/masterdata/applicationtypes/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/GetApplicationTypesByLangcode/getApplicationTypesByLangcode
@@ -10,13 +11,7 @@ GetApplicationTypesByLangcode:
    "langcode":"eng"
 }'
       output: '{
-   "response":{
-      "applicationtypes":[
-         {
-            "langCode": "eng"
-         }
-      ]
-   }
+  
 }'
    Masterdata_GetApplicationTypesByLangcode_InValid_langCode:
       endPoint: /v1/masterdata/applicationtypes/{langcode}

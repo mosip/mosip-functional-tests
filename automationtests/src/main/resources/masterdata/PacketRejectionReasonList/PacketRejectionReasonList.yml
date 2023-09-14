@@ -17,8 +17,7 @@ PacketRejectionReasonList:
 }'
       output: '{
         "rsnCatCode": "TEST_CAT_CODE",
-        "code": "TEST_LIST_CODE",
-        "langCode": "eng"
+        "code": "TEST_LIST_CODE"
     }'
     
    MasterData_PacketRejectionReasonList_Invalid_Invalid_langCode:

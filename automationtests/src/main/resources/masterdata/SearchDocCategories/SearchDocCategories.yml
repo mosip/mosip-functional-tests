@@ -32,7 +32,6 @@ SearchDocCategories:
     ],
       "pageStart": 0,
       "pageFetch": 1,
-    "languageCode": "eng",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{

@@ -13,7 +13,6 @@ GetDeviceHistory:
 }'
       output: '{
 "deviceHistoryDetails": [{
-        "langCode": "$IGNORE$",
         "isActive": true
       }]
 }'

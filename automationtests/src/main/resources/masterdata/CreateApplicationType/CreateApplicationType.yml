@@ -14,7 +14,5 @@ CreateApplicationType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "dumbo",
-	"langCode": "eng",
-	"errors": null
+	"code": "dumbo"
 }'

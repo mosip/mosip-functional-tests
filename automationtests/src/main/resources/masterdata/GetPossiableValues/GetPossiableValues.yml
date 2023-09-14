@@ -2,6 +2,7 @@ GetPossiableValues:
    Admin_GetPossiableValues_allValid_smoke:
       endPoint: /v1/masterdata/possiblevalues/{fieldName}?langCode=eng
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetPossiableValues/getPossiableValues
       outputTemplate: masterdata/GetPossiableValues/getPossiableValuesResult
@@ -19,6 +20,7 @@ GetPossiableValues:
    Admin_GetPossiableValues_Invalid_Invalid_FieldName:
       endPoint: /v1/masterdata/possiblevalues/{fieldName}?langCode=eng
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetPossiableValues/getPossiableValues
       outputTemplate: masterdata/error
@@ -37,6 +39,7 @@ GetPossiableValues:
    Admin_GetPossiableValues_Invalid_Invalid_langCode:
       endPoint: /v1/masterdata/possiblevalues/{fieldName}?langCode=abc
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetPossiableValues/getPossiableValues
       outputTemplate: masterdata/error

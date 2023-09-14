@@ -3163,19 +3163,21 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$UINCODEVERIFIERPOS1$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$UINCODEVERIFIERPOS1$", UIN_CODE_VERIFIER_POS_1);
 		}
-		
+
 		if (jsonString.contains("$CODECHALLENGE$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$CODECHALLENGE$", properties.getProperty("codeChallenge"));
+			jsonString = replaceKeywordWithValue(jsonString, "$CODECHALLENGE$",
+					properties.getProperty("codeChallenge"));
 		}
-		
+
 		if (jsonString.contains("$CODEVERIFIER$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$CODEVERIFIER$", properties.getProperty("codeVerifier"));
 		}
-		
+
 		if (jsonString.contains("$VCICONTEXTURL$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$VCICONTEXTURL$", properties.getProperty("vciContextURL"));
+			jsonString = replaceKeywordWithValue(jsonString, "$VCICONTEXTURL$",
+					properties.getProperty("vciContextURL"));
 		}
-		
+
 		if (jsonString.contains("$PROOFJWT$")) {
 
 			String oidcJWKKeyString = getJWKKey(oidcJWK1);
@@ -4018,11 +4020,21 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject objIDJson = objIDJson4.getJSONObject(GlobalConstants.IDENTITY);
 			JSONObject objIDJson2 = objIDJson.getJSONObject(GlobalConstants.PROPERTIES);
 			JSONArray objIDJson1 = objIDJson.getJSONArray(GlobalConstants.REQUIRED);
+			String phone = getValueFromAuthActuator("json-property", "phone_number");
+			String result = phone.replaceAll("\\[\"|\"\\]", "");
+			
+			if (!isElementPresent(objIDJson1, result)) {
+				objIDJson1.put(result);
+			}
 
-			// if (!isTargetEnvLTS()) {
-			objIDJson1.put(getValueFromAuthActuator("json-property", "phone_number"));
-			objIDJson1.put(getValueFromAuthActuator("json-property", "emailId"));
-			// }
+			System.out.println("result is:" + result);
+			String email = getValueFromAuthActuator("json-property", "emailId");
+			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
+			if (!isElementPresent(objIDJson1, emailResult)) {
+				objIDJson1.put(emailResult);
+			}
+			
+
 			fileWriter1 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS);
 			fileWriter1.write("{\n");
 			fileWriter1.write("  \"id\": \"{{id}}\",\n");
@@ -4088,12 +4100,12 @@ public class AdminTestUtil extends BaseTestCase {
 								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
 					}
 
-					else if (objIDJson3.equals(getValueFromAuthActuator("json-property", "phone_number"))) {
+					else if (objIDJson3.equals(result)) {
 						fileWriter2
 								.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
 					}
 
-					else if (objIDJson3.equals(getValueFromAuthActuator("json-property", "emailId"))) {
+					else if (objIDJson3.equals(emailResult)) {
 						fileWriter2
 								.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
 					}
@@ -5315,6 +5327,16 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		return jsonString;
+	}
+	
+	public static boolean isElementPresent(JSONArray inputArray, String element) {
+		for (int i = 0; i < inputArray.length(); i++) {
+            String tempString = inputArray.getString(i);
+            if (tempString.equalsIgnoreCase(element)) {
+            	return true;
+            }
+        }
+		return false;
 	}
 
 }

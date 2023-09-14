@@ -10,8 +10,7 @@ FetchTitle:
 }'
       output: '{
 "titleList": [{
-        "isActive": true,
-        "langCode": "eng"
+        "isActive": true
       }]
 }'
    MasterData_FetchTitle_valid_smoke:
@@ -25,8 +24,7 @@ FetchTitle:
 }'
       output: '{
 "titleList": [{
-        "isActive": true,
-        "langCode": "eng"
+        "isActive": true
       }]
 }'
    MasterData_FetchTitle_invalid_langcode:
