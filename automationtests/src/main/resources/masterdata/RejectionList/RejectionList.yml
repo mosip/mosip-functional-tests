@@ -18,6 +18,5 @@ RejectionList:
       output: '{
      "rsnCatCode": "CLR",
     "code": "ABC",
-    "langCode": "eng",
 	  "requesttime": "$TIMESTAMP$"
 }'

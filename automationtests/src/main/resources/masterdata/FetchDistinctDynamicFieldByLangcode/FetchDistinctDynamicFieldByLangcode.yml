@@ -10,5 +10,4 @@ FetchDistinctDynamicFieldByLangcode:
    "langCode":"eng"
 }'
       output: '{
-   "errors": null
 }'

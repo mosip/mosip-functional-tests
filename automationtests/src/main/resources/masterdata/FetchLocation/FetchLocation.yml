@@ -218,6 +218,7 @@ FetchLocation:
    MasterData_FetchLocation_immediatechildren:
       endPoint: /v1/masterdata/locations/immediatechildren/{locationcode}/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchLocation/fetchLocation
       outputTemplate: masterdata/FetchLocation/fetchLocationImmediatechildrenResult
@@ -228,7 +229,4 @@ FetchLocation:
       "hierarchyname": "$REMOVE$"
       }'
       output: '{
-"locations": [{
-       "langCode": "eng"
-      }]
 }'

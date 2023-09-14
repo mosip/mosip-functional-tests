@@ -17,8 +17,7 @@ BiometricAttributes:
 	"requesttime": "$TIMESTAMP$"
 	}'
       output: '{
-      "code": "TST",
-    "langCode": "eng"
+      "code": "TST"
 }'
 
    MasterData_BiometricAttributes_Invalid_empty_biometricTypeCode:

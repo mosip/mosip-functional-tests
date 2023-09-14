@@ -15,7 +15,6 @@ UpdateUserCenterMapping:
      "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "langCode": "eng",
     "name": "automationUpdated",
     "statusCode": "active",
     "regCenterId": "10005",

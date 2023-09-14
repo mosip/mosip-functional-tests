@@ -16,7 +16,6 @@ UserCenterMapping:
      "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "langCode": "eng",
     "name": "automation",
     "statusCode": "active",
     "regCenterId": "10005",

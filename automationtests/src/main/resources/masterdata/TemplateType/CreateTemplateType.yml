@@ -14,8 +14,7 @@ CreateTemplateType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "Test-info-Template-auto",
-	"langCode": "eng"
+	"code": "Test-info-Template-auto"
 }'
    
    

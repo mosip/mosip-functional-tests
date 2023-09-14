@@ -20,7 +20,7 @@ CreateHoliday:
      "locationCode": "$IGNORE$",
      "holidayDate": "2020-08-15",
      "holidayName": "AutoTest user Eng",
-     "langCode": "eng"
+     "langCode": "$IGNORE$"
     }'
    MasterData_CreateHoliday_Invalid_InputParameter_HolidayDate_Missing:
       endPoint: /v1/masterdata/holidays

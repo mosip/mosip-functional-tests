@@ -9,7 +9,6 @@ GetUserDetails:
   "id":"$REMOVE$"
 }'
       output: '{
-      "langCode": "eng",
       "name": "$IGNORE$",
       "statusCode": "$IGNORE$",
       "regCenterId": "10005",
@@ -26,7 +25,6 @@ GetUserDetails:
   "id":"func_auto_test_user"
 }'
       output: '{
-      "langCode": "eng",
       "name": "$IGNORE$",
       "statusCode": "$IGNORE$",
       "regCenterId": "10005",

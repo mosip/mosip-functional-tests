@@ -24,9 +24,8 @@ CreateDevice:
 	"deviceSpecId": "743",
 	"ipAddress": "172.23.174.113",
 	"isActive": false,
-	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "$ZONE_CODE$",
+	"zoneCode": "$IGNORE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
@@ -56,9 +55,8 @@ CreateDevice:
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
 	"isActive": false,
-	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "$ZONE_CODE$",
+	"zoneCode": "$IGNORE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"

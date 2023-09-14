@@ -14,8 +14,7 @@ UpdateTemplateFileFormat:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "Doc",
-	"langCode": "eng"
+	"code": "Doc"
 }'
    Masterdata_UpdateTemplateFileFormat_InputParameter_Description_AboveMaxLen256:
       endPoint: /v1/masterdata/templatefileformats

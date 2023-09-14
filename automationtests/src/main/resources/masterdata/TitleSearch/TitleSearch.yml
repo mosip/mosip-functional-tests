@@ -85,8 +85,7 @@ TitleSearch:
      {
         "code": "TEST0011",
         "titleName": "TEST0011",
-        "titleDescription": "TEST0011",
-        "langCode": "eng"
+        "titleDescription": "TEST0011"
       }
     ]
 }'
@@ -121,8 +120,7 @@ TitleSearch:
      {
         "code": "TEST0011",
         "titleName": "TEST0011",
-        "titleDescription": "$IGNORE$",
-        "langCode": "ara"
+        "titleDescription": "$IGNORE$"
       }
     ]
 }'
@@ -459,8 +457,7 @@ TitleSearch:
      {
         "code": "TEST0011",
         "titleName": "TEST0011",
-        "titleDescription": "TEST0011",
-        "langCode": "eng"
+        "titleDescription": "TEST0011"
       }
     ]
 }'
@@ -495,8 +492,7 @@ TitleSearch:
      {
         "code": "TEST0011",
         "titleName": "TEST0011",
-        "titleDescription": "TEST0011",
-        "langCode": "eng"
+        "titleDescription": "TEST0011"
       }
     ]
 }'

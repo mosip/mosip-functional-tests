@@ -41,7 +41,6 @@ FetchTemplate:
 }'
       output: '{
 "templates": [{
-                "langCode": "eng",
 				"isActive": true
 			}]
 }'

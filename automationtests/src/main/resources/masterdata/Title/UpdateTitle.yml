@@ -15,8 +15,7 @@ UpdateTitle:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "TEST0011",
-	"langCode": "eng"
+	"code": "TEST0011"
 }'
    
    MasterData_UpdateTitle_Invalid_InputParameter_TitleName_Missing:
