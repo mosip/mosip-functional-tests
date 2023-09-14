@@ -2,6 +2,7 @@ UpdateTemplate:
    MasterData_UpdateTemplate_All_Valid_Smoke:
       endPoint: /v1/masterdata/templates
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["description","name"]
       restMethod: put
       inputTemplate: masterdata/Template/template
