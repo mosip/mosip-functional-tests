@@ -18,7 +18,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -44,7 +44,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -74,7 +74,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -100,7 +100,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -130,7 +130,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "sdgfdg"
 }'
       output: '{
@@ -190,7 +190,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": ""
 }'
       output: '{
@@ -272,7 +272,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "$REMOVE$"
 }'
       output: '{
@@ -324,7 +324,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -350,7 +350,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -376,7 +376,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -402,7 +402,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -428,7 +428,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -454,7 +454,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -506,7 +506,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -536,7 +536,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -566,7 +566,7 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
@@ -592,7 +592,189 @@ OAuthDetailsRequestVCI:
 	    "nonce": "973eieljzng",
 	    "state": "eree2311",
 	    "claimsLocales": "en",
-	    "codeChallenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
+	    "codeChallenge": "$CODECHALLENGE$",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegCredScen3_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "$CODECHALLENGE$",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegCredScen4_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "$CODECHALLENGE$",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegCredScen5_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "$CODECHALLENGE$",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegCredScen6_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "$CODECHALLENGE$",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegCredScen7_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "$CODECHALLENGE$",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegCredScen8_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "$CODECHALLENGE$",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_uin_NegCredScen9_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCI/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "en",
+	    "codeChallenge": "$CODECHALLENGE$",
         "codeChallengeMethod": "S256"
 }'
       output: '{
