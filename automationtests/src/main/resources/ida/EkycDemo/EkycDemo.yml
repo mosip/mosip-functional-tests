@@ -23,7 +23,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "1970/07/08",
+      "value": "1992/04/15",
         "key": "dob"
     }'
       output: '{
@@ -205,7 +205,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "auth_AddIdentity_ValidParamms_smoke_Pos@mosip.net",
+      "value": "auth_AddIdentity_ValidParam_smoke_Pos@mosip.net",
         "key": "emailId"
     }'
       output: '{
