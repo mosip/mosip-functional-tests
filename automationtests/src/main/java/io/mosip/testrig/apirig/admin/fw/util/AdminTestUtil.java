@@ -3996,6 +3996,7 @@ public class AdminTestUtil extends BaseTestCase {
 		kernelAuthLib = new KernelAuthentication();
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
 		String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+		
 
 		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 				GlobalConstants.AUTHORIZATION, token);
@@ -4014,24 +4015,27 @@ public class AdminTestUtil extends BaseTestCase {
 		FileReader fileReader = null;
 		BufferedReader bufferedReader = null;
 
+		boolean emailFieldAdditionallyAdded=false;
 		try {
 			JSONObject jObj = new JSONObject(schemaFile);
 			JSONObject objIDJson4 = jObj.getJSONObject(GlobalConstants.PROPERTIES);
 			JSONObject objIDJson = objIDJson4.getJSONObject(GlobalConstants.IDENTITY);
 			JSONObject objIDJson2 = objIDJson.getJSONObject(GlobalConstants.PROPERTIES);
 			JSONArray objIDJson1 = objIDJson.getJSONArray(GlobalConstants.REQUIRED);
+
 			String phone = getValueFromAuthActuator("json-property", "phone_number");
 			String result = phone.replaceAll("\\[\"|\"\\]", "");
-			
-			if (!isElementPresent(objIDJson1, result)) {
-				objIDJson1.put(result);
-			}
 
-			System.out.println("result is:" + result);
+			/*
+			 * if (!isElementPresent(objIDJson1, result)) { objIDJson1.put(result); }
+			 */
+
+			//System.out.println("result is:" + result);
 			String email = getValueFromAuthActuator("json-property", "emailId");
 			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
 			if (!isElementPresent(objIDJson1, emailResult)) {
 				objIDJson1.put(emailResult);
+				emailFieldAdditionallyAdded=true;
 			}
 			
 
@@ -4058,7 +4062,7 @@ public class AdminTestUtil extends BaseTestCase {
 					ja3 = "{\n\t\t  \"language\":";
 					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
 
-						{
+					if(BaseTestCase.getLanguageList().get(j)!=null && !BaseTestCase.getLanguageList().get(j).isEmpty())	{
 							JSONObject studentJSON = new JSONObject();
 							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
 							if (objIDJson3.contains(GlobalConstants.FULLNAME) && regenerateHbs == true) {
@@ -4106,8 +4110,15 @@ public class AdminTestUtil extends BaseTestCase {
 					}
 
 					else if (objIDJson3.equals(emailResult)) {
-						fileWriter2
-								.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+						if(emailFieldAdditionallyAdded) {
+							fileWriter2
+							.write(",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
+						}
+						else {
+							fileWriter2
+							.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+						}
+						
 					}
 
 					else if (objIDJson3.equals(GlobalConstants.INDIVIDUALBIOMETRICS)) {
