@@ -38,6 +38,47 @@ UpdateRegistrationCenter:
       output: '{
    "name": "HSR Center updated"
 }'
+
+   MasterData_UpdateRegistrationCenter_numberOfKiosks_smoke:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["name","addressLine1","addressLine2","addressLine3","timeZone","langCode"]
+      restMethod: put
+      inputTemplate: masterdata/RegistrationCenter/registrationCenter
+      outputTemplate: masterdata/RegistrationCenter/registrationCenterResult
+      input: '{
+    "addressLine1": "HSR",
+    "addressLine2": "Venkatapura",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "$LOCATIONCODE$",
+    "isActive": true,
+    "langCode": "eng",
+    "latitude":"78.5478",
+    "locationCode":"$LOCATIONCODE$",
+    "longitude":"45.2456",
+    "lunchEndTime":"00:00:00",
+    "lunchStartTime":"00:00:00",
+    "name": "HSR Center updated",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode":"$ZONE_CODE$",
+    "id": "$ID:CreateRegCenter_allValid_smoke_sid_id$",
+    "numberOfKiosks":12,
+    "exceptionHolidayDate": "2020-11-16",
+    "exceptionHolidayName": "TestHoliday",
+    "exceptionHolidayReson": "CenterCreation", 
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "name": "HSR Center updated"
+}'
    MasterData_CreateRegCenter_Invalid_HolidayLocationCode_blank_eng:
       endPoint: /v1/masterdata/registrationcenters
       role: admin
