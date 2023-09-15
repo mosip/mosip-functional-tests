@@ -423,14 +423,16 @@ public class EmailableReport implements IReporter {
 	 */
 	private int writeScenarioDetails(List<ClassResult> classResults, int startingScenarioIndex) {
 		int scenarioIndex = startingScenarioIndex;
+		String label = "";
 		for (ClassResult classResult : classResults) {
 			String className = classResult.getClassName();
 			for (MethodResult methodResult : classResult.getMethodResults()) {
 				List<ITestResult> results = methodResult.getResults();
 				assert !results.isEmpty();
-
-				String label = Utils
-						.escapeHtml(className + "#" + results.iterator().next().getMethod().getMethodName());
+				if (ConfigManager.IsDebugEnabled())
+					label = Utils.escapeHtml(className + "#" + results.iterator().next().getMethod().getMethodName());
+				else
+					label = Utils.escapeHtml(results.iterator().next().getMethod().getMethodName());
 				for (ITestResult result : results) {
 					writeScenario(scenarioIndex, label, result);
 					scenarioIndex++;
