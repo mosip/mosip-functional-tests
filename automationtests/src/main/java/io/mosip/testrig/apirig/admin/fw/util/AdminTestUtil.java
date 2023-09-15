@@ -3837,6 +3837,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (identityRequest.contains("$LEFTRINGFINGER$"))
 			identityRequest = identityRequest.replace("$LEFTRINGFINGER$",
 					propsBio.getProperty("LeftRingFingerBioValue"));
+		if (identityRequest.contains("$FACEDRAFTVALUE$"))
+			identityRequest = identityRequest.replace("$FACEDRAFTVALUE$",
+					propsBio.getProperty("FACEDRAFTVALUE"));
+		
 		return identityRequest;
 	}
 
