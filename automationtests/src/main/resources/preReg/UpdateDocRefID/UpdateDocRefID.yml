@@ -73,3 +73,43 @@ UpdateDocRefID:
     }
   ]
 }'
+
+   Prereg_UpdateDocRefID_All_SpatialCharacter_RefNum_Neg:
+      endPoint: /preregistration/v1/documents/document/{documentId}?preRegistrationId={preRegistrationId}&refNumber={refNumber}
+      role: batch
+      checkErrorsOnlyInResponse: true
+      restMethod: put
+      inputTemplate: preReg/UpdateDocRefID/updateDocRefID
+      outputTemplate: preReg/error
+      input: '{
+  "documentId": "89jsn$!",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_UpdateDocRefID_sid_preRegistrationId$",
+  "refNumber":"text"
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "PRG_PAM_DOC_005"
+    }
+  ]
+}'
+
+   Prereg_UpdateDocRefID_Exceeding_Limit_RefNum_Neg:
+      endPoint: /preregistration/v1/documents/document/{documentId}?preRegistrationId={preRegistrationId}&refNumber={refNumber}
+      role: batch
+      checkErrorsOnlyInResponse: true
+      restMethod: put
+      inputTemplate: preReg/UpdateDocRefID/updateDocRefID
+      outputTemplate: preReg/error
+      input: '{
+  "documentId": "qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm",
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_UpdateDocRefID_sid_preRegistrationId$",
+  "refNumber":"text"
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "PRG_PAM_DOC_005"
+    }
+  ]
+}'
