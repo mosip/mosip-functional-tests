@@ -246,7 +246,7 @@ SendBindingOtp:
       validityCheckRequired: true
       restMethod: post
       inputTemplate: esignet/SendBindingOtp/SendBindingOtp
-      outputTemplate: esignet/error
+      outputTemplate: esignet/SendBindingOtp/SendBindingOtpResult
       input: '{
         "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
   		"partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
@@ -255,12 +255,8 @@ SendBindingOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-        "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+    "maskedEmail": "$IGNORE$",
+    "maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendBindingOtp_uin_NR_Phone_IndividualId_Neg:
@@ -269,7 +265,7 @@ SendBindingOtp:
       validityCheckRequired: true
       restMethod: post
       inputTemplate: esignet/SendBindingOtp/SendBindingOtp
-      outputTemplate: esignet/error
+      outputTemplate: esignet/SendBindingOtp/SendBindingOtpResult
       input: '{
         "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
   		"partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
@@ -278,12 +274,8 @@ SendBindingOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-        "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+    "maskedEmail": "$IGNORE$",
+    "maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendBindingOtp_uin_Missing_IndividualId_Neg:
