@@ -468,6 +468,13 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="WellKnownVCI">
+		<parameter name="ymlFile"
+			value="esignet/VCI/WellKnownVCI/WellKnownVCI.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="CreateOIDCClient">
 		<parameter name="ymlFile"
 			value="esignet/CreateOIDCClient/CreateOIDCClient.yml" />

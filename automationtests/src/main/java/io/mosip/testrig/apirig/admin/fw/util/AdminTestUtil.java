@@ -204,6 +204,7 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static File bindingConsentSameClaimJWK = new File(getResourcePath() + "bindingConsentSameClaimJWK.txt");
 	protected static File bindingConsentVidSameClaimJWK = new File(
 			getResourcePath() + "bindingConsentVidSameClaimJWK.txt");
+	protected static File bindingConsentEmptyClaimJWK = new File(getResourcePath() + "bindingConsentEmptyClaimJWK.txt");
 	protected static File clientPrivateKey = new File(getResourcePath() + "clientPrivateKey.txt");
 	public static final String XSRF_HEADERNAME = "X-XSRF-TOKEN";
 	public static final String OAUTH_HASH_HEADERNAME = "oauth-details-hash";
@@ -219,6 +220,8 @@ public class AdminTestUtil extends BaseTestCase {
 			getResourcePath() + "BINDINGCERTCONSENTSAMECLAIMFile.txt");
 	private static File bindingCertConsentVidSameClaimFile = new File(
 			getResourcePath() + "BINDINGCERTCONSENTVIDSAMECLAIMFile.txt");
+	private static File bindingCertConsentEmptyClaimFile = new File(
+			getResourcePath() + "BINDINGCERTCONSENTEMPTYCLAIMFile.txt");
 
 	private static final String UIN_CODE_VERIFIER_POS_1 = generateRandomAlphaNumericString(GlobalConstants.INTEGER_36);
 
@@ -304,6 +307,16 @@ public class AdminTestUtil extends BaseTestCase {
 
 	private static boolean gettriggerESignetKeyGen8() {
 		return triggerESignetKeyGen8;
+	}
+	
+	protected static boolean triggerESignetKeyGen9 = true;
+
+	private static void settriggerESignetKeyGen9(boolean value) {
+		triggerESignetKeyGen9 = value;
+	}
+
+	private static boolean gettriggerESignetKeyGen9() {
+		return triggerESignetKeyGen9;
 	}
 
 	public static void setLogLevel() {
@@ -607,6 +620,8 @@ public class AdminTestUtil extends BaseTestCase {
 			fileName = bindingCertConsentSameClaimFile;
 		} else if (testCaseName.contains("_Consent_SameClaim_Vid_")) {
 			fileName = bindingCertConsentVidSameClaimFile;
+		} else if (testCaseName.contains("_Consent_EmptyClaim_uin_")) {
+			fileName = bindingCertConsentEmptyClaimFile;
 		}
 
 		String certificateData = new JSONObject(response.getBody().asString()).getJSONObject(GlobalConstants.RESPONSE)
@@ -3060,6 +3075,17 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTSAMECLAIMVIDJWKKEY$", jwkKey);
 		}
+		
+		if (jsonString.contains("$BINDINGCONSENTEMPTYCLAIMJWKKEY$")) {
+			String jwkKey = "";
+			if (gettriggerESignetKeyGen9()) {
+				jwkKey = generateAndWriteJWKKey(bindingConsentEmptyClaimJWK);
+				settriggerESignetKeyGen9(false);
+			} else {
+				jwkKey = getJWKKey(bindingConsentEmptyClaimJWK);
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTEMPTYCLAIMJWKKEY$", jwkKey);
+		}
 
 		if (jsonString.contains("$OIDCJWKKEY$")) {
 			String jwkKey = "";
@@ -3153,6 +3179,11 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$WLATOKENCONSENTVIDSAMECLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTVIDSAMECLAIM$",
 					generateWLAToken(jsonString, bindingConsentVidSameClaimJWK, bindingCertConsentVidSameClaimFile));
+		}
+		
+		if (jsonString.contains("$WLATOKENCONSENTEMPTYCLAIM$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTEMPTYCLAIM$",
+					generateWLAToken(jsonString, bindingConsentEmptyClaimJWK, bindingCertConsentEmptyClaimFile));
 		}
 
 		if (jsonString.contains("$UINCODECHALLENGEPOS1$")) {
