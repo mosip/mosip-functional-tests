@@ -156,6 +156,16 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at Send OTP output validation");
+		
+		if(testCaseDTO.getTestCaseName().contains("expiredOTP")) {
+			try {
+				Thread.sleep(Long.parseLong(properties.getProperty("expireOtpTime")));
+			} catch (NumberFormatException e) {
+				logger.error("Exception : " + e.getMessage());
+			} catch (InterruptedException e) {
+				logger.error("Exception : " + e.getMessage());
+			}
+		}
 
 		String endPoint = testCaseDTO.getEndPoint();
 		endPoint = uriKeyWordHandelerUri(endPoint, testCaseName);
