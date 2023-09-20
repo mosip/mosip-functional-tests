@@ -24,7 +24,7 @@ SendOtp:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/SendOtp/SendOtp
-      outputTemplate: esignet/error
+      outputTemplate: esignet/SendOtp/SendOtpResult
       input: '{
         "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
@@ -33,12 +33,8 @@ SendOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-      	"errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+        "maskedEmail": "$IGNORE$",
+    	"maskedMobile": "XXXXXX3210"
 }'
 
    ESignet_SendOtp_NR_Phone_Uin_Neg:
@@ -47,7 +43,7 @@ SendOtp:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/SendOtp/SendOtp
-      outputTemplate: esignet/error
+      outputTemplate: esignet/SendOtp/SendOtpResult
       input: '{
         "encodedHash": "$ID:OAuthDetailsRequest_Other_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
@@ -56,12 +52,8 @@ SendOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-      	"errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+        "maskedEmail": "$IGNORE$",
+    	"maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendOtp_Vid_all_Valid_Smoke:
