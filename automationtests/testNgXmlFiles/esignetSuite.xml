@@ -468,6 +468,44 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="OAuthDetailsRequestVCINegTC">
+		<parameter name="ymlFile"
+			value="esignet/VCINegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI.yml" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthenticateUserVCINegTC">
+		<parameter name="ymlFile"
+			value="esignet/VCINegTC/AuthenticateUserVCI/AuthenticateUserVCI.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="AuthorizationCodeVCINegTC">
+		<parameter name="ymlFile"
+			value="esignet/VCINegTC/AuthorizationCodeVCI/AuthorizationCodeVCI.yml" />
+			<parameter name="idKeyName"	value="code" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GenerateTokenVCINegTC">
+		<parameter name="ymlFile"
+			value="esignet/VCINegTC/GenerateTokenVCI/GenerateTokenVCI.yml" />
+			<parameter name="idKeyName"	value="access_token" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
+		</classes>
+	</test>
+	<test name="GetCredentialNegTC">
+		<parameter name="ymlFile"
+			value="esignet/VCINegTC/GetCredential/GetCredential.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="WellKnownVCI">
 		<parameter name="ymlFile"
 			value="esignet/VCI/WellKnownVCI/WellKnownVCI.yml" />
