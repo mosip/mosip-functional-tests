@@ -4709,7 +4709,6 @@ public class AdminTestUtil extends BaseTestCase {
 			String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
 			try {
 				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 				responseJson = new org.json.JSONObject(response.getBody().asString());
 				responseArray = responseJson.getJSONArray("propertySources");
@@ -4722,6 +4721,8 @@ public class AdminTestUtil extends BaseTestCase {
 						org.json.JSONObject otpExpiryTime = (org.json.JSONObject) eachJson
 								.getJSONObject(GlobalConstants.PROPERTIES).get("mosip.kernel.otp.expiry-time");
 						otpExpTime = otpExpiryTime.getString(GlobalConstants.VALUE);
+						if (ConfigManager.IsDebugEnabled())
+							logger.info("Actuator: " +url +" otpExpTime: "+otpExpTime);
 						break;
 					}
 				}
@@ -4741,7 +4742,6 @@ public class AdminTestUtil extends BaseTestCase {
 		String value = null;
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			responseJson = new JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
@@ -4751,6 +4751,8 @@ public class AdminTestUtil extends BaseTestCase {
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
 							.get(GlobalConstants.VALUE).toString();
+					if (ConfigManager.IsDebugEnabled())
+						logger.info("Actuator: " +url + " key: "+key+" value: "+value);
 					break;
 				}
 			}
@@ -4772,7 +4774,6 @@ public class AdminTestUtil extends BaseTestCase {
 		String value = null;
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			responseJson = new JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
@@ -4782,6 +4783,8 @@ public class AdminTestUtil extends BaseTestCase {
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
 							.get(GlobalConstants.VALUE).toString();
+					if (ConfigManager.IsDebugEnabled())
+						logger.info("Actuator: " +url + " key: "+key+" value: "+value);
 					break;
 				}
 			}
@@ -4799,11 +4802,10 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		JSONObject responseJson = null;
 		JSONArray responseArray = null;
-		String url = ConfigManager.getEsignetBaseUrl() + propsKernel.getProperty("actuatorIDAEndpoint");
+		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
 		String value = null;
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			responseJson = new JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
@@ -4813,6 +4815,8 @@ public class AdminTestUtil extends BaseTestCase {
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
 							.get(GlobalConstants.VALUE).toString();
+					if (ConfigManager.IsDebugEnabled())
+						logger.info("Actuator: " +url + " key: "+key+" value: "+value);
 					break;
 				}
 			}
