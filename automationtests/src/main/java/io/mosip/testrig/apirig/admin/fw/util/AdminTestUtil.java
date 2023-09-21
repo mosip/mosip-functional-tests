@@ -4061,9 +4061,9 @@ public class AdminTestUtil extends BaseTestCase {
 			String phone = getValueFromAuthActuator("json-property", "phone_number");
 			String result = phone.replaceAll("\\[\"|\"\\]", "");
 
-			/*
-			 * if (!isElementPresent(objIDJson1, result)) { objIDJson1.put(result); }
-			 */
+			if (!isElementPresent(objIDJson1, result)) {
+				objIDJson1.put(result);
+			}
 
 			//System.out.println("result is:" + result);
 			String email = getValueFromAuthActuator("json-property", "emailId");
