@@ -4051,6 +4051,7 @@ public class AdminTestUtil extends BaseTestCase {
 		BufferedReader bufferedReader = null;
 
 		boolean emailFieldAdditionallyAdded=false;
+		boolean phoneFieldAdditionallyAdded=false;
 		try {
 			JSONObject jObj = new JSONObject(schemaFile);
 			JSONObject objIDJson4 = jObj.getJSONObject(GlobalConstants.PROPERTIES);
@@ -4061,9 +4062,10 @@ public class AdminTestUtil extends BaseTestCase {
 			String phone = getValueFromAuthActuator("json-property", "phone_number");
 			String result = phone.replaceAll("\\[\"|\"\\]", "");
 
-			/*
-			 * if (!isElementPresent(objIDJson1, result)) { objIDJson1.put(result); }
-			 */
+			if (!isElementPresent(objIDJson1, result)) {
+				objIDJson1.put(result);
+				phoneFieldAdditionallyAdded=true;
+			}
 
 			//System.out.println("result is:" + result);
 			String email = getValueFromAuthActuator("json-property", "emailId");
@@ -4140,8 +4142,20 @@ public class AdminTestUtil extends BaseTestCase {
 					}
 
 					else if (objIDJson3.equals(result)) {
-						fileWriter2
-								.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+						
+						if(phoneFieldAdditionallyAdded) {
+							fileWriter2
+							.write(",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
+						}
+						else {
+							fileWriter2
+							.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+						}
+						
+						/*
+						 * fileWriter2 .write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" +
+						 * objIDJson3 + "}}\"" + ",\n");
+						 */
 					}
 
 					else if (objIDJson3.equals(emailResult)) {
