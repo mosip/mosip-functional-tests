@@ -3231,7 +3231,7 @@ public class AdminTestUtil extends BaseTestCase {
 				accessToken = request.getString("idpAccessToken");
 			}
 			jsonString = request.toString();
-			jsonString = replaceKeywordWithValue(jsonString, "$PROOFJWT$", signJWK(clientId, accessToken, oidcJWKKey1));
+			jsonString = replaceKeywordWithValue(jsonString, "$PROOFJWT$", signJWK(clientId, accessToken, oidcJWKKey1, testCaseName));
 		}
 
 		if (jsonString.contains(GlobalConstants.REMOVE))
@@ -3240,12 +3240,15 @@ public class AdminTestUtil extends BaseTestCase {
 		return jsonString;
 	}
 
-	public static String signJWK(String clientId, String accessToken, RSAKey jwkKey) {
+	public static String signJWK(String clientId, String accessToken, RSAKey jwkKey, String testCaseName) {
 		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.base.url");
 		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
 				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 		JWSSigner signer;
 		String proofJWT = "";
+		String nonce = "jwt_payload.c_nonce123";
+		String typ = "openid4vci-proof+jwt";
+		JWK jwkHeader = jwkKey.toPublicJWK();
 
 		try {
 			signer = new RSASSASigner(jwkKey);
@@ -3254,13 +3257,23 @@ public class AdminTestUtil extends BaseTestCase {
 			String jwtPayloadBase64 = jwtParts[1];
 			byte[] jwtPayloadBytes = Base64.getDecoder().decode(jwtPayloadBase64);
 			String jwtPayload = new String(jwtPayloadBytes, StandardCharsets.UTF_8);
+			JWTClaimsSet claimsSet = null;
+			
+			if (testCaseName.contains("_Invalid_C_nonce_")) {
+				claimsSet = new JWTClaimsSet.Builder().audience(tempUrl)
+						.claim("nonce", nonce)
+						.issuer(clientId).issueTime(new Date())
+						.expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
+			} else {
 
-			JWTClaimsSet claimsSet = new JWTClaimsSet.Builder().audience(tempUrl)
-					.claim("nonce", new ObjectMapper().readTree(jwtPayload).get("c_nonce").asText()).issuer(clientId)
-					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
+				claimsSet = new JWTClaimsSet.Builder().audience(tempUrl)
+						.claim("nonce", new ObjectMapper().readTree(jwtPayload).get("c_nonce").asText())
+						.issuer(clientId).issueTime(new Date())
+						.expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
+			}
 
 			SignedJWT signedJWT = new SignedJWT(new JWSHeader.Builder(JWSAlgorithm.RS256)
-					.type(new JOSEObjectType("openid4vci-proof+jwt")).jwk(jwkKey.toPublicJWK()).build(), claimsSet);
+					.type(new JOSEObjectType(typ)).jwk(jwkHeader).build(), claimsSet);
 
 			signedJWT.sign(signer);
 			proofJWT = signedJWT.serialize();
