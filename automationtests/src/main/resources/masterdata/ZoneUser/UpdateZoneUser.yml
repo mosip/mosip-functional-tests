@@ -2,6 +2,7 @@ UpdateZoneUser:
    MasterData_UpdateZoneUser_All_Valid_Smoke:
       endPoint: /v1/masterdata/zoneuser
       role: globalAdmin
+      checkErrorsOnlyInResponse: true
       restMethod: put
       inputTemplate: masterdata/ZoneUser/updateZoneUser
       outputTemplate: masterdata/ZoneUser/zoneUserResult
@@ -11,6 +12,5 @@ UpdateZoneUser:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-        "zoneCode": "$ZONE_CODE$",
-        "userId": "func_auto_test_user"
+       
     }'

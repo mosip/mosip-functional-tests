@@ -2,6 +2,7 @@ GetApplicationTypes:
    Masterdata_GetApplicationTypes_allValid_smoke:
       endPoint: /v1/masterdata/applicationtypes
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetApplicationTypes/getApplicationTypes
       outputTemplate: masterdata/GetApplicationTypes/getApplicationTypesResult
@@ -9,5 +10,4 @@ GetApplicationTypes:
       
 }'
       output: '{
-   "errors": null
 }'

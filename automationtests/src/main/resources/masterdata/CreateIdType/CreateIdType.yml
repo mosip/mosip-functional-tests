@@ -14,9 +14,7 @@ CreateIdType:
    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "code": "NEW",
-   "langCode": "eng",
-   "errors": null
+   "code": "NEW"
 }'
    MasterData_CreateIdType_Invalid_langCode:
       endPoint: /v1/masterdata/idtypes

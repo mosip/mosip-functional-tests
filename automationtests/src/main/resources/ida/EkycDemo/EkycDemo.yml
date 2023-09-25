@@ -23,7 +23,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "1970/07/08",
+      "value": "1992/04/15",
         "key": "dob"
     }'
       output: '{
@@ -205,7 +205,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "auth_AddIdentity_ValidParamms_smoke_Pos@mosip.net",
+      "value": "auth_AddIdentity_ValidParam_smoke_Pos@mosip.net",
         "key": "emailId"
     }'
       output: '{
@@ -359,6 +359,25 @@ EkycDemo:
 }'
   auth_EkycDemo_Auth_With_name_Valid_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
+      input: '{
+    "name": [
+    {
+      "language": "eng",
+      "value": "Mrs Lisa.GN"
+    }
+  ],
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "kycStatus": "true"
+}'
+  auth_EkycDemo_Auth_With_Infant_Valid_UIN_Smoke:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_Infant_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
@@ -875,7 +894,7 @@ EkycDemo:
         "kycStatus": false
 }'
   auth_EkycDemo_Auth_With_Deactivated_UIN:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_deactivate_UIN_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_deactivate_UIN_smoke_sid_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo

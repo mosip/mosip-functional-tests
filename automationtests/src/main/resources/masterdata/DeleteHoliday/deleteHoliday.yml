@@ -9,11 +9,11 @@ DeleteHoliday:
       input: '{
        "requesttime": "$TIMESTAMP$",
       "holidayDate": "2020-08-15",
-      "locationCode": "KTA"
+      "locationCode": "$LOCATIONCODE$"
 }'
       output: '{
       "holidayDate": "2020-08-15",
-      "locationCode": "KTA"
+      "locationCode": "$IGNORE$"
 }'
 
    MasterData_DeleteHoliday_Invalid_requesttime_Neg:  
@@ -26,7 +26,7 @@ DeleteHoliday:
       input: '{
        "requesttime": "ssf$5",
       "holidayDate": "2020-08-15",
-      "locationCode": "KTA"
+      "locationCode": "$LOCATIONCODE$"
 }'
       output: '{
       "errors": [
@@ -36,7 +36,7 @@ DeleteHoliday:
     }
   ],
       "holidayDate": "2020-08-15",
-      "locationCode": "KTA"
+      "locationCode": "$IGNORE$"
 }'
 
    MasterData_DeleteHoliday_Invalid_locationCode:  
@@ -59,7 +59,7 @@ DeleteHoliday:
     }
   ],
       "holidayDate": "2020-08-15",
-      "locationCode": "KTA"
+      "locationCode": "$IGNORE$"
 }'
 
    MasterData_DeleteHoliday_Invalid_holidayDate_Neg:  
@@ -72,7 +72,7 @@ DeleteHoliday:
       input: '{
        "requesttime": "$TIMESTAMP$",
       "holidayDate": "2020-0",
-      "locationCode": "KTA"
+      "locationCode": "$LOCATIONCODE$"
 }'
       output: '{
       "errors": [
@@ -82,5 +82,5 @@ DeleteHoliday:
     }
   ],
       "holidayDate": "2020-08-15",
-      "locationCode": "KTA"
+      "locationCode": "$IGNORE$"
 }'

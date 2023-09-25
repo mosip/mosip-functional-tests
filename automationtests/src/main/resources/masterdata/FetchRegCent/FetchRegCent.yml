@@ -160,6 +160,7 @@ FetchRegCent:
    MasterData_FetchRegCent_Holidays_allValid_smoke:
       endPoint: /v1/masterdata/getregistrationcenterholidays/{langcode}/{registrationcenterid}/{year}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent

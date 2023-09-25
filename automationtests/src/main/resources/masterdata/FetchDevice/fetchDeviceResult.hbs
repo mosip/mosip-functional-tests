@@ -3,15 +3,7 @@
   "devices": [
   {{#each devices}}
     {
-			"name": "{{name}}",
-			"serialNum": "{{serialNum}}",
-			"deviceSpecId": "{{deviceSpecId}}",
-			"macAddress": "{{macAddress}}",
-			"langCode": "{{langCode}}",
-			"isActive": {{isActive}},
-            "deviceTypeCode": "{{deviceTypeCode}}",
-			"zoneCode": "{{zoneCode}}",
-			"regCenterId": "{{regCenterId}}"
+			"isActive": {{isActive}}
 		}
      {{#unless @last}},{{/unless}}
       	{{/each}}

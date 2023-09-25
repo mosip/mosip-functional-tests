@@ -44,6 +44,30 @@ createPartnerSelfRegistration:
   ]
     }'
     
+   Partner_PartnerSelfRegistration_SpaceVAl_PartnerId_Neg:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "moosip@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "Tech -123",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "errors": [
+    {
+      "errorCode": "PMS_PRT_066"
+    }
+  ]
+    }'
+    
    Partner_PartnerSelfRegistration_InActive_policyGroup:
       endPoint: /v1/partnermanager/partners
       role: partner

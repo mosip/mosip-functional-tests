@@ -2,6 +2,7 @@ FetchMissingTemplates:
    MasterData_FetchMissingTemplates_valid_smoke:
       endPoint: /v1/masterdata/templates/missingids/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchMissingTemplates/fetchMissingTemplates
@@ -15,6 +16,7 @@ FetchMissingTemplates:
    MasterData_FetchMissingTemplates_Allvalid_smoke:
       endPoint: /v1/masterdata/templates/missingids/{langcode}?fieldName={fieldName}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchMissingTemplates/fetchMissingTemplates

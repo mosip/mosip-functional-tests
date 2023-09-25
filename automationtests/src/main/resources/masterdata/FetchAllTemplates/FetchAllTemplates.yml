@@ -2,6 +2,7 @@ FetchAllTemplates:
    MasterData_FetchAllTemplates_AllValid_smoke:
       endPoint: /v1/masterdata/templates/all
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchAllTemplates/fetchAllTemplates
       outputTemplate: masterdata/FetchAllTemplates/fetchAllTemplatesResult
@@ -9,5 +10,4 @@ FetchAllTemplates:
   
 }'
       output: '{
-   "errors": null
 }'

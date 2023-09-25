@@ -2,6 +2,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_smoke:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
@@ -31,6 +32,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_contain:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
@@ -128,6 +130,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_startsWith_filterValue_invalid:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
@@ -157,6 +160,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_equals_filterValue_invalid:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails
@@ -186,6 +190,7 @@ SearchTemplateDetails:
    MasterData_SearchTemplateDetails_ColumnName_Name_LangCode_eng_filterType_contains_filterValue_invalid:
       endPoint: /v1/masterdata/templates/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchTemplateDetails/searchTemplateDetails

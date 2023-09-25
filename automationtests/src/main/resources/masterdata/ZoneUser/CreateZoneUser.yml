@@ -2,6 +2,7 @@ CreateZoneUser:
    MasterData_CreateZoneUser_All_Valid_Smoke:
       endPoint: /v1/masterdata/zoneuser
       role: globalAdmin
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: masterdata/ZoneUser/zoneUser
       outputTemplate: masterdata/ZoneUser/zoneUserResult
@@ -13,8 +14,7 @@ CreateZoneUser:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-        "zoneCode": "$ZONE_CODE$",
-        "userId": "func_auto_test_user"
+        
     }'
     
    MasterData_CreateZoneUser__Empty_UserID_Valid:

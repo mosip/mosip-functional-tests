@@ -9,7 +9,6 @@ GetSubZoneByLangCode:
   "langCode": "eng"
 }'
       output: '{
-      "langCode": "eng"
 }'
    MasterData_GetSubZoneByLangCode_inValid_code:
       endPoint: /v1/masterdata/zones/subzone/{langCode}

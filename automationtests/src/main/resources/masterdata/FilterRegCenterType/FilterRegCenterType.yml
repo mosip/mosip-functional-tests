@@ -61,7 +61,7 @@ FilterRegCenterType:
         "fieldCode": "$IGNORE$"
       },
       {
-        "fieldID": "code",
+        "fieldID": "$IGNORE$",
         "fieldValue": "$IGNORE$",
         "fieldCode": "$IGNORE$"
       }

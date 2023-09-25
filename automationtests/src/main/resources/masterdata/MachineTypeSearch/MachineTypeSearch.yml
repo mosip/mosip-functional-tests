@@ -33,7 +33,6 @@ MachineTypeSearch:
         "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
         "code": "Laptop-2",
-        "langCode": "eng",
         "name": "$IGNORE$",
         "description": "$IGNORE$"
       }

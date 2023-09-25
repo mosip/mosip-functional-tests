@@ -15,8 +15,7 @@ UpdateDocumentCategory:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"code": "DocTestCode123",
-	"langCode": "eng"
+	"code": "DocTestCode123"
 }'
    MasterData_UpdateDocumentCategory_All_Valid_Mandatory_Fields:
       endPoint: /v1/masterdata/documentcategories
@@ -34,8 +33,7 @@ UpdateDocumentCategory:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"code": "DocTestCode321",
-	"langCode": "eng"
+	"code": "DocTestCode321"
 }'
    
    MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_Missing:

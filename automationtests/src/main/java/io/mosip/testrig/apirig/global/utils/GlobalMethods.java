@@ -1,13 +1,18 @@
 package io.mosip.testrig.apirig.global.utils;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+import org.apache.log4j.Logger;
 import org.testng.Reporter;
 
+import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
 
 public class GlobalMethods {
 
-	
+	private static final Logger logger = Logger.getLogger(GlobalMethods.class);
 	public static void ReportRequestAndResponse(String reqHeader,String resHeader,String url, String requestBody, String response) {
 	reportRequest(reqHeader,requestBody);
 	reportResponse(resHeader,url, response);				
@@ -47,5 +52,25 @@ public class GlobalMethods {
 			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + url + GlobalConstants.REPORT_RESPONSE_BODY + responseHeader + response
 					+ GlobalConstants.REPORT_RESPONSE_SUFFIX);
 	}
+	
+    // Hashes a string using SHA-256
+	public static String sha256(String input) {
+		String returnString = "";
+        MessageDigest digest;
+		try {
+	        digest = MessageDigest.getInstance("SHA-256");
+	        byte[] hashBytes = digest.digest(input.getBytes());
+
+	        StringBuilder hexStringBuilder = new StringBuilder(2 * hashBytes.length);
+	        for (byte hashByte : hashBytes) {
+	            hexStringBuilder.append(String.format("%02x", hashByte));
+	        }
+	        returnString = hexStringBuilder.toString();
+		} catch (NoSuchAlgorithmException e) {
+			logger.error("Failed while hashing SHA256 for VCI code challenge " + e.getMessage());
+		}
+		return returnString;
+
+    }
 
 }

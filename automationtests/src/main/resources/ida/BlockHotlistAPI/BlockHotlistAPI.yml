@@ -14,6 +14,21 @@ HotlistAPI:
       output: '{
         "status": "BLOCKED"
     }'
+   auth_BlockHotlistAPI_All_Valid_Smoke_UIN_forever_sid:
+      endPoint: /v1/hotlist/block
+      role: hotlist
+      restMethod: post
+      inputTemplate: ida/BlockHotlistAPI/blockHotlistAPI
+      outputTemplate: ida/BlockHotlistAPI/blockHotlistAPIResult
+      input: '{
+    "id": "$ID:AddIdentity_hotlist_UIN_forever_smoke_sid_Pos_UIN$",
+    "idType": "UIN",
+    "requestTime": "$TIMESTAMP$",
+    "expiryTimestamp": ""
+  }'
+      output: '{
+        "status": "BLOCKED"
+    }'
    auth_BlockHotlistAPI_when_id_type_uin_incorrect:
       endPoint: /v1/hotlist/block
       role: hotlist
@@ -127,6 +142,21 @@ HotlistAPI:
       outputTemplate: ida/BlockHotlistAPI/blockHotlistAPIResult
       input: '{
     "id": "78467171Logitech4d36e96c-e325-11ce-bfc1-08002be10318",
+    "idType": "DEVICE",
+    "requestTime": "$TIMESTAMP$",
+    "expiryTimestamp": ""
+  }'
+      output: '{
+        "status": "BLOCKED"
+    }'
+   auth_BlockHotlistAPI_All_Valid_Smoke_deviceProviderId:
+      endPoint: /v1/hotlist/block
+      role: hotlist
+      restMethod: post
+      inputTemplate: ida/BlockHotlistAPI/blockHotlistAPI
+      outputTemplate: ida/BlockHotlistAPI/blockHotlistAPIResult
+      input: '{
+    "id": "571203",
     "idType": "DEVICE",
     "requestTime": "$TIMESTAMP$",
     "expiryTimestamp": ""
