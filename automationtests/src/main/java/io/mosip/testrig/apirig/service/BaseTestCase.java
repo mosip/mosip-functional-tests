@@ -533,6 +533,7 @@ public class BaseTestCase {
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
 							.get(GlobalConstants.VALUE).toString();
+					logger.info("value="+value);
 					break;
 				}
 			}
