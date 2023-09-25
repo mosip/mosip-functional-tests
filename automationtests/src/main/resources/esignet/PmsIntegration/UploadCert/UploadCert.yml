@@ -15,7 +15,7 @@ uploadPartnerCert:
   "errors": "$IGNORE$"
 }'
 
-   Esignet_UploadPartnerCert_Misp_Valid_Smoke:
+   Esignet_UploadPartnerCert_Misp_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/partners/certificate/upload
       role: partner
       checkErrorsOnlyInResponse: true

@@ -1,6 +1,7 @@
 package io.mosip.testrig.apirig.testscripts;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -81,9 +82,18 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 			logger.info("Not Getting"+GlobalConstants.POST_REQ_URL + testCaseDTO.getTestCaseName() + " *******");
 		}
 		
+		Map<String, List<OutputValidationDto>> ouputValid = null;
+		if(testCaseName.contains("_StatusCode")) {
+			
+			OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput());
+			
+			ouputValid = new HashMap<>();
+			ouputValid.put("expected vs actual", List.of(customResponse));
+		}else {
 		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+		 ouputValid = OutputValidationUtil
 				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+		}
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
