@@ -3248,9 +3248,9 @@ public class AdminTestUtil extends BaseTestCase {
 				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 		JWSSigner signer;
 		String proofJWT = "";
-		String nonce = "jwt_payload.c_nonce123";
 		String typ = "openid4vci-proof+jwt";
 		JWK jwkHeader = jwkKey.toPublicJWK();
+		SignedJWT signedJWT = null;
 
 		try {
 			signer = new RSASSASigner(jwkKey);
@@ -3260,22 +3260,28 @@ public class AdminTestUtil extends BaseTestCase {
 			byte[] jwtPayloadBytes = Base64.getDecoder().decode(jwtPayloadBase64);
 			String jwtPayload = new String(jwtPayloadBytes, StandardCharsets.UTF_8);
 			JWTClaimsSet claimsSet = null;
-			
-			if (testCaseName.contains("_Invalid_C_nonce_")) {
-				claimsSet = new JWTClaimsSet.Builder().audience(tempUrl)
-						.claim("nonce", nonce)
-						.issuer(clientId).issueTime(new Date())
-						.expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
-			} else {
+			String nonce = new ObjectMapper().readTree(jwtPayload).get("c_nonce").asText();
 
-				claimsSet = new JWTClaimsSet.Builder().audience(tempUrl)
-						.claim("nonce", new ObjectMapper().readTree(jwtPayload).get("c_nonce").asText())
-						.issuer(clientId).issueTime(new Date())
-						.expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
+			if (testCaseName.contains("_Invalid_C_nonce_"))
+				nonce = "jwt_payload.c_nonce123";
+			if (testCaseName.contains("_Empty_Typ_"))
+				typ = "";
+			if (testCaseName.contains("_Invalid_Typ_"))
+				typ = "openid4vci-123@proof+jwt";
+
+			claimsSet = new JWTClaimsSet.Builder().audience(tempUrl).claim("nonce", nonce).issuer(clientId)
+					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
+
+			if (testCaseName.contains("_Missing_Typ_")) {
+				signedJWT = new SignedJWT(
+						new JWSHeader.Builder(JWSAlgorithm.RS256).jwk(jwkHeader).build(),
+						claimsSet);
+			} else {
+				signedJWT = new SignedJWT(
+						new JWSHeader.Builder(JWSAlgorithm.RS256).type(new JOSEObjectType(typ)).jwk(jwkHeader).build(),
+						claimsSet);
 			}
 
-			SignedJWT signedJWT = new SignedJWT(new JWSHeader.Builder(JWSAlgorithm.RS256)
-					.type(new JOSEObjectType(typ)).jwk(jwkHeader).build(), claimsSet);
 
 			signedJWT.sign(signer);
 			proofJWT = signedJWT.serialize();
