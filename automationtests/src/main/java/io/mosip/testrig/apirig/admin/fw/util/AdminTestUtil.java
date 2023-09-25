@@ -184,7 +184,9 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static String preregHbsForUpdate = null;
 	protected static String timeStamp = String.valueOf(Calendar.getInstance().getTimeInMillis());
 	protected static String policyGroup = "mosip auth policy group " + timeStamp;
+	protected static String policyGroup2 = "mosip auth policy group2 " + timeStamp;
 	protected static String policyName = "mosip auth policy " + timeStamp;
+	protected static String policyName2 = "mosip auth policy2 " + timeStamp;
 	protected static final String UPDATE_UIN_REQUEST = "config/Authorization/requestIdentity.json";
 	protected static final String AUTH_INTERNAL_REQUEST = "config/Authorization/internalAuthRequest.json";
 	protected static final String AUTH_POLICY_BODY = "config/AuthPolicy.json";
@@ -4642,6 +4644,61 @@ public class AdminTestUtil extends BaseTestCase {
 		if (url3.contains("POLICYID")) {
 			url3 = url3.replace("POLICYID", policyId);
 			url3 = url3.replace("POLICYGROUPID", policygroupId);
+
+		}
+
+		Response response3 = RestClient.postRequestWithCookie(url3, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public static void createAndPublishPolicyForKyc() {
+		if (!BaseTestCase.isTargetEnvLTS()) {
+			// In case of 1.1.5 we don't have auto sync of certificates between Key manager
+			// cert store and IDA cert store
+			// So use the predefined certificate folder and partner key
+			return;
+		}
+
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.PARTNER);
+
+		String url2 = ApplnURI + properties.getProperty("policyGroupUrl");
+		org.json.simple.JSONObject actualrequest = getRequestJson(POLICY_GROUP_REQUEST);
+
+		org.json.simple.JSONObject modifiedReq = new org.json.simple.JSONObject();
+		modifiedReq.put("desc", "desc mosip auth policy group");
+		modifiedReq.put("name", policyGroup2);
+
+		actualrequest.put(GlobalConstants.REQUEST, modifiedReq);
+
+		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		String responseBody2 = response2.getBody().asString();
+		String policygroupId2 = new org.json.JSONObject(responseBody2).getJSONObject(GlobalConstants.RESPONSE)
+				.getString("id");
+
+		String url = ApplnURI + properties.getProperty("authPolicyUrl");
+		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY);
+		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST);
+		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR);
+
+		actualrequest2.put("name", policyName2);
+		actualrequest2.put("policyGroupName", policyGroup2);
+		actualrequest2.put("policies", actualrequestAttr);
+		actualrequestBody.put(GlobalConstants.REQUEST, actualrequest2);
+
+		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		String responseBody = response.getBody().asString();
+		String policyId2 = new org.json.JSONObject(responseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
+
+		String url3 = ApplnURI + properties.getProperty("publishPolicyurl");
+
+		if (url3.contains("POLICYID")) {
+			url3 = url3.replace("POLICYID", policyId2);
+			url3 = url3.replace("POLICYGROUPID", policygroupId2);
 
 		}
 
