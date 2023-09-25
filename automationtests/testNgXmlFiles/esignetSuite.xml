@@ -65,8 +65,18 @@
 	<test name ="UploadPartnerCertificate">
 		<parameter name ="ymlFile"
 			value= "esignet/PmsIntegration/UploadCert/UploadCert.yml" />
+			<parameter name="idKeyName" value="signedCertificateData" />
 	<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	
+		<test name ="updatePartnerCertificate">
+		<parameter name ="ymlFile"
+			value= "esignet/PmsIntegration/UpdatePartnerCertificate/UpdatePartnerCertificate.yml" />
+			<parameter name="queryParams" value="partnerType,partnerName,keyFileNameByPartnerName,moduleName" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithBodyAndQueryParamsForAutoGenId" />
 		</classes>
 	</test>
 	

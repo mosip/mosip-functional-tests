@@ -5,7 +5,7 @@ KycBioAuth:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/KycBioAuth/KycBioAuth
-      outputTemplate: esignet/KycBioAuth/KycBioAuthResult
+      outputTemplate: esignet/KycBioAuth/KycBioAuthResultKycStatus
       input: '{
           "bioSubType": "",
           "bioType": "FACE",
@@ -27,13 +27,14 @@ KycBioAuth:
       	  "kycAuthEndPoint": "/idauthentication/v1/kyc-auth/delegated/$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​/$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​/$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$"
 }'
       output: '{
-        "authStatus": true
+        "kycStatus": true
 }'
 
    Esignet_KycBioAuth_vid_all_Valid_Smoke:
       endPoint: /v1/identity/createAuthRequest?id=$ID:Generate_Perpetual_VID_Kyc_Valid_Smoke_sid_vid$&idType=VID&isKyc=true&isInternal=false&transactionId=$TRANSACTIONID$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=bio&moduleName=$MODULENAME$
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/KycBioAuth/KycBioAuth
       outputTemplate: esignet/KycBioAuth/KycBioAuthResult
@@ -58,7 +59,8 @@ KycBioAuth:
       	"kycAuthEndPoint": "/idauthentication/v1/kyc-auth/delegated/$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​/$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​/$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$"
 }'
       output: '{
-        "authStatus": true
+        "authStatus": "$IGNORE$",
+        "kycStatus": true
 }'
 
    Esignet_KycBioAuth_uin_Invalid_Biovalue_Neg:
@@ -67,7 +69,7 @@ KycBioAuth:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/KycBioAuth/KycBioAuth
-      outputTemplate: esignet/KycBioAuth/KycBioAuthResult
+      outputTemplate: esignet/error
       input: '{
           "bioSubType": "",
           "bioType": "FACE",
@@ -89,7 +91,11 @@ KycBioAuth:
       	  "kycAuthEndPoint": "/idauthentication/v1/kyc-auth/delegated/$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​/$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​/$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$"
 }'
       output: '{
-        "authStatus": false
+        "errors": [
+    {
+      "errorCode": "IDA-BIA-001"
+    }
+  ]
 }'
 
    Esignet_KycBioAuth_vid_Invalid_Biovalue_Neg:
@@ -98,7 +104,7 @@ KycBioAuth:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/KycBioAuth/KycBioAuth
-      outputTemplate: esignet/KycBioAuth/KycBioAuthResult
+      outputTemplate: esignet/error
       input: '{
           "bioSubType": "",
           "bioType": "FACE",
@@ -120,7 +126,11 @@ KycBioAuth:
       	"kycAuthEndPoint": "/idauthentication/v1/kyc-auth/delegated/$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​/$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​/$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$"
 }'
       output: '{
-        "authStatus": false
+       "errors": [
+    {
+      "errorCode": "IDA-BIA-001"
+    }
+  ]
 }'
 
    Esignet_KycBioAuth_uin_RingFinger_all_Valid_Smoke:
@@ -129,7 +139,7 @@ KycBioAuth:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/KycBioAuth/KycBioAuth
-      outputTemplate: esignet/KycBioAuth/KycBioAuthResult
+      outputTemplate: esignet/KycBioAuth/KycBioAuthResultKycStatus
       input: '{
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
@@ -151,7 +161,7 @@ KycBioAuth:
       	  "kycAuthEndPoint": "/idauthentication/v1/kyc-auth/delegated/$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​/$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​/$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$"
 }'
       output: '{
-        "authStatus": true
+        "kycStatus": true
 }'
 
    Esignet_KycBioAuth_vid_RingFinger_all_Valid_Smoke:
@@ -160,7 +170,7 @@ KycBioAuth:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/KycBioAuth/KycBioAuth
-      outputTemplate: esignet/KycBioAuth/KycBioAuthResult
+      outputTemplate: esignet/KycBioAuth/KycBioAuthResultKycStatus
       input: '{
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
@@ -182,7 +192,7 @@ KycBioAuth:
       	"kycAuthEndPoint": "/idauthentication/v1/kyc-auth/delegated/$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​/$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​/$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$"
 }'
       output: '{
-        "authStatus": true
+        "kycStatus": true
 }'
 
    Esignet_KycBioAuth_uin_RingFinger_Invalid_Biovalue_Neg:
@@ -191,7 +201,7 @@ KycBioAuth:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/KycBioAuth/KycBioAuth
-      outputTemplate: esignet/KycBioAuth/KycBioAuthResult
+      outputTemplate: esignet/error
       input: '{
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
@@ -213,7 +223,11 @@ KycBioAuth:
       	  "kycAuthEndPoint": "/idauthentication/v1/kyc-auth/delegated/$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​/$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​/$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$"
 }'
       output: '{
-        "authStatus": false
+        "errors": [
+    {
+      "errorCode": "IDA-BIA-001"
+    }
+  ]
 }'
 
    Esignet_KycBioAuth_vid_RingFinger_Invalid_Biovalue_Neg:
@@ -222,7 +236,7 @@ KycBioAuth:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/KycBioAuth/KycBioAuth
-      outputTemplate: esignet/KycBioAuth/KycBioAuthResult
+      outputTemplate: esignet/error
       input: '{
           "bioSubType": "Left RingFinger",
           "bioType": "Finger",
@@ -244,7 +258,11 @@ KycBioAuth:
       	"kycAuthEndPoint": "/idauthentication/v1/kyc-auth/delegated/$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​/$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​/$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$"
 }'
       output: '{
-        "authStatus": false
+       "errors": [
+    {
+      "errorCode": "IDA-BIA-001"
+    }
+  ]
 }'
 
    Esignet_KycBioAuth_uin_LeftIris_all_Valid_Smoke:
@@ -253,7 +271,7 @@ KycBioAuth:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/KycBioAuth/KycBioAuth
-      outputTemplate: esignet/KycBioAuth/KycBioAuthResult
+      outputTemplate: esignet/KycBioAuth/KycBioAuthResultKycStatus
       input: '{
           "bioSubType": "Left",
           "bioType": "Iris",
@@ -275,7 +293,7 @@ KycBioAuth:
       	  "kycAuthEndPoint": "/idauthentication/v1/kyc-auth/delegated/$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​/$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​/$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$"
 }'
       output: '{
-        "authStatus": true
+        "kycStatus": true
 }'
 
    Esignet_KycBioAuth_vid_LeftIris_all_Valid_Smoke:
@@ -284,7 +302,7 @@ KycBioAuth:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/KycBioAuth/KycBioAuth
-      outputTemplate: esignet/KycBioAuth/KycBioAuthResult
+      outputTemplate: esignet/KycBioAuth/KycBioAuthResultKycStatus
       input: '{
           "bioSubType": "Left",
           "bioType": "Iris",
@@ -306,7 +324,7 @@ KycBioAuth:
       	"kycAuthEndPoint": "/idauthentication/v1/kyc-auth/delegated/$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​/$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​/$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$"
 }'
       output: '{
-        "authStatus": true
+        "kycStatus": true
 }'
 
    Esignet_KycBioAuth_uin_LeftIris_Invalid_Biovalue_Neg:
@@ -315,7 +333,7 @@ KycBioAuth:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/KycBioAuth/KycBioAuth
-      outputTemplate: esignet/KycBioAuth/KycBioAuthResult
+      outputTemplate: esignet/error
       input: '{
           "bioSubType": "Left",
           "bioType": "Iris",
@@ -337,7 +355,11 @@ KycBioAuth:
       	  "kycAuthEndPoint": "/idauthentication/v1/kyc-auth/delegated/$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​/$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​/$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$"
 }'
       output: '{
-        "authStatus": false
+       "errors": [
+    {
+      "errorCode": "IDA-BIA-001"
+    }
+  ]
 }'
 
    Esignet_KycBioAuth_vid_LeftIris_Invalid_Biovalue_Neg:
@@ -346,7 +368,7 @@ KycBioAuth:
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/KycBioAuth/KycBioAuth
-      outputTemplate: esignet/KycBioAuth/KycBioAuthResult
+      outputTemplate: esignet/error
       input: '{
           "bioSubType": "Left",
           "bioType": "Iris",
@@ -368,5 +390,9 @@ KycBioAuth:
       	"kycAuthEndPoint": "/idauthentication/v1/kyc-auth/delegated/$ID:GenerateMispLK_All_Valid_Smoke_sid_licenseKey$​/$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$​/$ID:CreateOIDCClient_Misp_Valid_Smoke_sid_clientId$"
 }'
       output: '{
-        "authStatus": false
+       "errors": [
+    {
+      "errorCode": "IDA-BIA-001"
+    }
+  ]
 }'
