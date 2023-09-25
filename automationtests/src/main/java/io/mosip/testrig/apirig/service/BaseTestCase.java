@@ -527,13 +527,14 @@ public class BaseTestCase {
 				responseJson = new org.json.JSONObject(response.getBody().asString());
 				idaActuatorResponseArray = responseJson.getJSONArray("propertySources");
 			}
-
+			logger.info("idaActuatorResponseArray="+idaActuatorResponseArray);
 
 			for (int i = 0, size = idaActuatorResponseArray.length(); i < size; i++) {
 				org.json.JSONObject eachJson = idaActuatorResponseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
 							.get(GlobalConstants.VALUE).toString();
+					logger.info("value="+value);
 					break;
 				}
 			}
