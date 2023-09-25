@@ -551,23 +551,30 @@ public class BaseTestCase {
 			return languageList;
 		}
 		String section = "";
-		
+		String optionalLanguages=null;
+		String mandatoryLanguages=null;
 		if (isTargetEnvLTS()) 
 			section = "/mosip/mosip-config/application-default.properties";
 		else 
 			section = "/mosip/mosip-config/sandbox/admin-mz.properties";
-		
-		String mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
-				section, "mosip.mandatory-languages");
-		String optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
+		try {
+	
+			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
 				section, "mosip.optional-languages");
-		
+			logger.info("optionalLanguages from env:" + optionalLanguages);
+			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
+				section, "mosip.mandatoryLanguages from env:" + mandatoryLanguages);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		if (mandatoryLanguages != null && !mandatoryLanguages.isBlank())
 			languageList.addAll(Arrays.asList(mandatoryLanguages.split(",")));
 		
 		if (optionalLanguages != null && !optionalLanguages.isBlank())
 			languageList.addAll(Arrays.asList(optionalLanguages.split(",")));
-
+		logger.info("languageList from env:" + languageList);
 		return languageList;
 	}
 	
