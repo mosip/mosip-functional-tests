@@ -89,13 +89,16 @@ public class MosipTestRunner {
 			AdminTestUtil.getLocationData();
 
 			String partnerKeyURL = "";
+			//String ekycPartnerKeyURL = "";
 
 			if (BaseTestCase.listOfModules.contains("auth")
 					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
 				PartnerRegistration.deleteCertificates();
 				CertificateGenerationUtil.getThumbprints();
 				AdminTestUtil.createAndPublishPolicy();
+				//AdminTestUtil.createAndPublishPolicyForKyc();
 				partnerKeyURL = PartnerRegistration.generateAndGetPartnerKeyUrl();
+				//ekycPartnerKeyURL = PartnerRegistration.generateAndGetEkycPartnerKeyUrl();
 
 			}
 

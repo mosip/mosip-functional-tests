@@ -511,22 +511,26 @@ public class BaseTestCase {
 		logger.info(response);
 	}
 	
+	public static JSONArray idaActuatorResponseArray = null;
+	
 	public static String getValueFromActuators(String endPoint, String section, String key) {
 
-		Response response = null;
-		org.json.JSONObject responseJson = null;
-		JSONArray responseArray = null;
 		String url = ApplnURI + endPoint;
 		String value = null;
 		try {
-			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+			if (idaActuatorResponseArray == null) {
+				Response response = null;
+				org.json.JSONObject responseJson = null;
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
-			responseJson = new org.json.JSONObject(response.getBody().asString());
-			responseArray = responseJson.getJSONArray("propertySources");
+				responseJson = new org.json.JSONObject(response.getBody().asString());
+				idaActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
 
-			for (int i = 0, size = responseArray.length(); i < size; i++) {
-				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
+
+			for (int i = 0, size = idaActuatorResponseArray.length(); i < size; i++) {
+				org.json.JSONObject eachJson = idaActuatorResponseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
 							.get(GlobalConstants.VALUE).toString();
@@ -547,23 +551,30 @@ public class BaseTestCase {
 			return languageList;
 		}
 		String section = "";
-		
+		String optionalLanguages=null;
+		String mandatoryLanguages=null;
 		if (isTargetEnvLTS()) 
 			section = "/mosip/mosip-config/application-default.properties";
 		else 
 			section = "/mosip/mosip-config/sandbox/admin-mz.properties";
-		
-		String mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
-				section, "mosip.mandatory-languages");
-		String optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
+		try {
+	
+			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
 				section, "mosip.optional-languages");
-		
+			logger.info("optionalLanguages from env:" + optionalLanguages);
+			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
+				section, "mosip.mandatoryLanguages from env:" + mandatoryLanguages);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		if (mandatoryLanguages != null && !mandatoryLanguages.isBlank())
 			languageList.addAll(Arrays.asList(mandatoryLanguages.split(",")));
 		
 		if (optionalLanguages != null && !optionalLanguages.isBlank())
 			languageList.addAll(Arrays.asList(optionalLanguages.split(",")));
-
+		logger.info("languageList from env:" + languageList);
 		return languageList;
 	}
 	

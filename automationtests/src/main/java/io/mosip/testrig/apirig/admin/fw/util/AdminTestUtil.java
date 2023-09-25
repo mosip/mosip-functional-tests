@@ -184,7 +184,9 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static String preregHbsForUpdate = null;
 	protected static String timeStamp = String.valueOf(Calendar.getInstance().getTimeInMillis());
 	protected static String policyGroup = "mosip auth policy group " + timeStamp;
+	protected static String policyGroup2 = "mosip auth policy group2 " + timeStamp;
 	protected static String policyName = "mosip auth policy " + timeStamp;
+	protected static String policyName2 = "mosip auth policy2 " + timeStamp;
 	protected static final String UPDATE_UIN_REQUEST = "config/Authorization/requestIdentity.json";
 	protected static final String AUTH_INTERNAL_REQUEST = "config/Authorization/internalAuthRequest.json";
 	protected static final String AUTH_POLICY_BODY = "config/AuthPolicy.json";
@@ -3231,7 +3233,7 @@ public class AdminTestUtil extends BaseTestCase {
 				accessToken = request.getString("idpAccessToken");
 			}
 			jsonString = request.toString();
-			jsonString = replaceKeywordWithValue(jsonString, "$PROOFJWT$", signJWK(clientId, accessToken, oidcJWKKey1));
+			jsonString = replaceKeywordWithValue(jsonString, "$PROOFJWT$", signJWK(clientId, accessToken, oidcJWKKey1, testCaseName));
 		}
 
 		if (jsonString.contains(GlobalConstants.REMOVE))
@@ -3240,12 +3242,15 @@ public class AdminTestUtil extends BaseTestCase {
 		return jsonString;
 	}
 
-	public static String signJWK(String clientId, String accessToken, RSAKey jwkKey) {
+	public static String signJWK(String clientId, String accessToken, RSAKey jwkKey, String testCaseName) {
 		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.base.url");
 		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
 				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 		JWSSigner signer;
 		String proofJWT = "";
+		String nonce = "jwt_payload.c_nonce123";
+		String typ = "openid4vci-proof+jwt";
+		JWK jwkHeader = jwkKey.toPublicJWK();
 
 		try {
 			signer = new RSASSASigner(jwkKey);
@@ -3254,13 +3259,23 @@ public class AdminTestUtil extends BaseTestCase {
 			String jwtPayloadBase64 = jwtParts[1];
 			byte[] jwtPayloadBytes = Base64.getDecoder().decode(jwtPayloadBase64);
 			String jwtPayload = new String(jwtPayloadBytes, StandardCharsets.UTF_8);
+			JWTClaimsSet claimsSet = null;
+			
+			if (testCaseName.contains("_Invalid_C_nonce_")) {
+				claimsSet = new JWTClaimsSet.Builder().audience(tempUrl)
+						.claim("nonce", nonce)
+						.issuer(clientId).issueTime(new Date())
+						.expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
+			} else {
 
-			JWTClaimsSet claimsSet = new JWTClaimsSet.Builder().audience(tempUrl)
-					.claim("nonce", new ObjectMapper().readTree(jwtPayload).get("c_nonce").asText()).issuer(clientId)
-					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
+				claimsSet = new JWTClaimsSet.Builder().audience(tempUrl)
+						.claim("nonce", new ObjectMapper().readTree(jwtPayload).get("c_nonce").asText())
+						.issuer(clientId).issueTime(new Date())
+						.expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
+			}
 
 			SignedJWT signedJWT = new SignedJWT(new JWSHeader.Builder(JWSAlgorithm.RS256)
-					.type(new JOSEObjectType("openid4vci-proof+jwt")).jwk(jwkKey.toPublicJWK()).build(), claimsSet);
+					.type(new JOSEObjectType(typ)).jwk(jwkHeader).build(), claimsSet);
 
 			signedJWT.sign(signer);
 			proofJWT = signedJWT.serialize();
@@ -4065,6 +4080,7 @@ public class AdminTestUtil extends BaseTestCase {
 		BufferedReader bufferedReader = null;
 
 		boolean emailFieldAdditionallyAdded=false;
+		boolean phoneFieldAdditionallyAdded=false;
 		try {
 			JSONObject jObj = new JSONObject(schemaFile);
 			JSONObject objIDJson4 = jObj.getJSONObject(GlobalConstants.PROPERTIES);
@@ -4075,9 +4091,10 @@ public class AdminTestUtil extends BaseTestCase {
 			String phone = getValueFromAuthActuator("json-property", "phone_number");
 			String result = phone.replaceAll("\\[\"|\"\\]", "");
 
-			/*
-			 * if (!isElementPresent(objIDJson1, result)) { objIDJson1.put(result); }
-			 */
+			if (!isElementPresent(objIDJson1, result)) {
+				objIDJson1.put(result);
+				phoneFieldAdditionallyAdded=true;
+			}
 
 			//System.out.println("result is:" + result);
 			String email = getValueFromAuthActuator("json-property", "emailId");
@@ -4154,8 +4171,20 @@ public class AdminTestUtil extends BaseTestCase {
 					}
 
 					else if (objIDJson3.equals(result)) {
-						fileWriter2
-								.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+						
+						if(phoneFieldAdditionallyAdded) {
+							fileWriter2
+							.write(",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
+						}
+						else {
+							fileWriter2
+							.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+						}
+						
+						/*
+						 * fileWriter2 .write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" +
+						 * objIDJson3 + "}}\"" + ",\n");
+						 */
 					}
 
 					else if (objIDJson3.equals(emailResult)) {
@@ -4649,6 +4678,61 @@ public class AdminTestUtil extends BaseTestCase {
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 
 	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public static void createAndPublishPolicyForKyc() {
+		if (!BaseTestCase.isTargetEnvLTS()) {
+			// In case of 1.1.5 we don't have auto sync of certificates between Key manager
+			// cert store and IDA cert store
+			// So use the predefined certificate folder and partner key
+			return;
+		}
+
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.PARTNER);
+
+		String url2 = ApplnURI + properties.getProperty("policyGroupUrl");
+		org.json.simple.JSONObject actualrequest = getRequestJson(POLICY_GROUP_REQUEST);
+
+		org.json.simple.JSONObject modifiedReq = new org.json.simple.JSONObject();
+		modifiedReq.put("desc", "desc mosip auth policy group");
+		modifiedReq.put("name", policyGroup2);
+
+		actualrequest.put(GlobalConstants.REQUEST, modifiedReq);
+
+		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		String responseBody2 = response2.getBody().asString();
+		String policygroupId2 = new org.json.JSONObject(responseBody2).getJSONObject(GlobalConstants.RESPONSE)
+				.getString("id");
+
+		String url = ApplnURI + properties.getProperty("authPolicyUrl");
+		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY);
+		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST);
+		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR);
+
+		actualrequest2.put("name", policyName2);
+		actualrequest2.put("policyGroupName", policyGroup2);
+		actualrequest2.put("policies", actualrequestAttr);
+		actualrequestBody.put(GlobalConstants.REQUEST, actualrequest2);
+
+		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		String responseBody = response.getBody().asString();
+		String policyId2 = new org.json.JSONObject(responseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
+
+		String url3 = ApplnURI + properties.getProperty("publishPolicyurl");
+
+		if (url3.contains("POLICYID")) {
+			url3 = url3.replace("POLICYID", policyId2);
+			url3 = url3.replace("POLICYGROUPID", policygroupId2);
+
+		}
+
+		Response response3 = RestClient.postRequestWithCookie(url3, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+
+	}
 
 	public static String getJWKKey(File fileName) {
 		String keyString = null;
@@ -4754,7 +4838,6 @@ public class AdminTestUtil extends BaseTestCase {
 			String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
 			try {
 				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 				responseJson = new org.json.JSONObject(response.getBody().asString());
 				responseArray = responseJson.getJSONArray("propertySources");
@@ -4767,6 +4850,8 @@ public class AdminTestUtil extends BaseTestCase {
 						org.json.JSONObject otpExpiryTime = (org.json.JSONObject) eachJson
 								.getJSONObject(GlobalConstants.PROPERTIES).get("mosip.kernel.otp.expiry-time");
 						otpExpTime = otpExpiryTime.getString(GlobalConstants.VALUE);
+						if (ConfigManager.IsDebugEnabled())
+							logger.info("Actuator: " +url +" otpExpTime: "+otpExpTime);
 						break;
 					}
 				}
@@ -4776,26 +4861,28 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return Integer.parseInt(otpExpTime);
 	}
+	
+	public static JSONArray residentActuatorResponseArray = null;
 
 	public static String getValueFromActuator(String section, String key) {
-
-		Response response = null;
-		JSONObject responseJson = null;
-		JSONArray responseArray = null;
 		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
 		String value = null;
 		try {
-			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+			if (residentActuatorResponseArray == null) {
+				Response response = null;
+				JSONObject responseJson = null;
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 
-			responseJson = new JSONObject(response.getBody().asString());
-			responseArray = responseJson.getJSONArray("propertySources");
-
-			for (int i = 0, size = responseArray.length(); i < size; i++) {
-				JSONObject eachJson = responseArray.getJSONObject(i);
+				responseJson = new JSONObject(response.getBody().asString());
+				residentActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
+			for (int i = 0, size = residentActuatorResponseArray.length(); i < size; i++) {
+				JSONObject eachJson = residentActuatorResponseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
 							.get(GlobalConstants.VALUE).toString();
+					if (ConfigManager.IsDebugEnabled())
+						logger.info("Actuator: " +url + " key: "+key+" value: "+value);
 					break;
 				}
 			}
@@ -4807,26 +4894,28 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
+	
+	public static JSONArray esignetActuatorResponseArray = null;
 
 	public static String getValueFromEsignetActuator(String section, String key) {
-
-		Response response = null;
-		JSONObject responseJson = null;
-		JSONArray responseArray = null;
-		String url = ConfigManager.getEsignetBaseUrl() + propsKernel.getProperty("actuatorEsignetEndpoint");
 		String value = null;
+		String url = ConfigManager.getEsignetBaseUrl() + propsKernel.getProperty("actuatorEsignetEndpoint");
 		try {
-			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+			if (esignetActuatorResponseArray == null) {
+				Response response = null;
+				JSONObject responseJson = null;
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				responseJson = new JSONObject(response.getBody().asString());
+				esignetActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
 
-			responseJson = new JSONObject(response.getBody().asString());
-			responseArray = responseJson.getJSONArray("propertySources");
-
-			for (int i = 0, size = responseArray.length(); i < size; i++) {
-				JSONObject eachJson = responseArray.getJSONObject(i);
+			for (int i = 0, size = esignetActuatorResponseArray.length(); i < size; i++) {
+				JSONObject eachJson = esignetActuatorResponseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
 							.get(GlobalConstants.VALUE).toString();
+					if (ConfigManager.IsDebugEnabled())
+						logger.info("Actuator: " +url + " key: "+key+" value: "+value);
 					break;
 				}
 			}
@@ -4838,26 +4927,29 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
+	
+	public static JSONArray authActuatorResponseArray = null;
 
 	public static String getValueFromAuthActuator(String section, String key) {
-
-		Response response = null;
-		JSONObject responseJson = null;
-		JSONArray responseArray = null;
-		String url = ConfigManager.getEsignetBaseUrl() + propsKernel.getProperty("actuatorIDAEndpoint");
+		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
 		String value = null;
 		try {
-			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+			if (authActuatorResponseArray == null) {
+				Response response = null;
+				JSONObject responseJson = null;
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 
-			responseJson = new JSONObject(response.getBody().asString());
-			responseArray = responseJson.getJSONArray("propertySources");
+				responseJson = new JSONObject(response.getBody().asString());
+				authActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
 
-			for (int i = 0, size = responseArray.length(); i < size; i++) {
-				JSONObject eachJson = responseArray.getJSONObject(i);
+			for (int i = 0, size = authActuatorResponseArray.length(); i < size; i++) {
+				JSONObject eachJson = authActuatorResponseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains(section)) {
 					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
 							.get(GlobalConstants.VALUE).toString();
+					if (ConfigManager.IsDebugEnabled())
+						logger.info("Actuator: " +url + " key: "+key+" value: "+value);
 					break;
 				}
 			}
@@ -4869,23 +4961,26 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
+	
+	public static JSONArray configActuatorResponseArray = null;
 
 	public static String getValueFromConfigActuator() {
 
-		Response response = null;
-		JSONObject responseJson = null;
-		JSONArray responseArray = null;
 		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
 		String claims = null;
 		try {
-			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+			if (configActuatorResponseArray == null) {
+				Response response = null;
+				JSONObject responseJson = null;
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
-			responseJson = new JSONObject(response.getBody().asString());
-			responseArray = responseJson.getJSONArray("propertySources");
+				responseJson = new JSONObject(response.getBody().asString());
+				configActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
 
-			for (int i = 0, size = responseArray.length(); i < size; i++) {
-				JSONObject eachJson = responseArray.getJSONObject(i);
+			for (int i = 0, size = configActuatorResponseArray.length(); i < size; i++) {
+				JSONObject eachJson = configActuatorResponseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES)) {
 					String claimVal = eachJson.getJSONObject(GlobalConstants.PROPERTIES)
 							.getJSONObject("mosip.iam.module.login_flow.claims").getString(GlobalConstants.VALUE);
@@ -4902,23 +4997,25 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
+	
+	public static JSONArray regProcActuatorResponseArray = null;
 
 	public static String getRegprocWaitFromActuator() {
-
-		Response response = null;
-		JSONObject responseJson = null;
-		JSONArray responseArray = null;
 		String url = ApplnURI + propsKernel.getProperty("actuatorRegprocEndpoint");
 		String waitInterval = null;
 		try {
-			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+			if (regProcActuatorResponseArray == null) {
+				Response response = null;
+				JSONObject responseJson = null;
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
-			responseJson = new JSONObject(response.getBody().asString());
-			responseArray = responseJson.getJSONArray("propertySources");
+				responseJson = new JSONObject(response.getBody().asString());
+				regProcActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
 
-			for (int i = 0, size = responseArray.length(); i < size; i++) {
-				JSONObject eachJson = responseArray.getJSONObject(i);
+			for (int i = 0, size = regProcActuatorResponseArray.length(); i < size; i++) {
+				JSONObject eachJson = regProcActuatorResponseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains("registration-processor-default.properties")) {
 					waitInterval = eachJson.getJSONObject(GlobalConstants.PROPERTIES)
 							.getJSONObject("registration.processor.reprocess.minutes").get(GlobalConstants.VALUE)
@@ -4932,7 +5029,6 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return waitInterval;
 		}
-
 	}
 
 	public static String isTestCaseValidForExecution(TestCaseDTO testCaseDTO) {
