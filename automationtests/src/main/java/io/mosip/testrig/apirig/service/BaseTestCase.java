@@ -523,8 +523,11 @@ public class BaseTestCase {
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			responseJson = new org.json.JSONObject(response.getBody().asString());
+			logger.info("responseJson:" +responseJson);
 			responseArray = responseJson.getJSONArray("propertySources");
-
+			logger.info("responseArray:" +responseArray);
+			logger.info("responseArray.length()" + responseArray.length());
+			logger.info("endPoint="+endPoint +" section= "+section+" key= "+key);
 			for (int i = 0, size = responseArray.length(); i < size; i++) {
 				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
 				if (eachJson.get("name").toString().contains(section)) {
@@ -558,9 +561,11 @@ public class BaseTestCase {
 			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
 				section, "mosip.optional-languages");
 			logger.info("optionalLanguages from env:" + optionalLanguages);
-			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
-				section, "mosip.mandatoryLanguages from env:" + mandatoryLanguages);
+			 mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
+					section, "mosip.mandatory-languages");
+			logger.info("mandatoryLanguages from env:" + mandatoryLanguages);
 		}
+		
 		catch(Exception e)
 		{
 			e.printStackTrace();
