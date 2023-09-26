@@ -555,9 +555,9 @@ public class BaseTestCase {
 		String optionalLanguages=null;
 		String mandatoryLanguages=null;
 		if (isTargetEnvLTS()) 
-			section = "/mosip/mosip-config/application-default.properties";
+			section = "/mosip-config/application-default.properties";
 		else 
-			section = "/mosip/mosip-config/sandbox/admin-mz.properties";
+			section = "/mosip-config/sandbox/admin-mz.properties";
 		try {
 	
 			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
