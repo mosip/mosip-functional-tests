@@ -9,6 +9,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -41,6 +42,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "$UIN$",
@@ -73,6 +75,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -105,6 +108,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
 
@@ -138,6 +142,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
 
@@ -171,6 +176,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -203,6 +209,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
 
@@ -236,6 +243,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "$UIN$",
@@ -268,6 +276,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "@@GGHHDR",
@@ -305,6 +314,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -343,6 +353,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -380,6 +391,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -417,6 +429,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -455,6 +468,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -492,6 +506,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -529,6 +544,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -566,6 +582,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -603,6 +620,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "$UIN$",
@@ -640,6 +658,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "$UIN$",
@@ -676,6 +695,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -709,6 +729,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -746,6 +767,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -783,6 +805,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "$UIN$",
@@ -819,6 +842,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "$UIN$",
@@ -855,6 +879,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -888,6 +913,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -925,6 +951,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -962,6 +989,7 @@ AddIdentity:
   "value": "dbfkxjf",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1000,6 +1028,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1037,6 +1066,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1074,6 +1104,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1111,6 +1142,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1148,6 +1180,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1185,6 +1218,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1222,6 +1256,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1255,6 +1290,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1288,6 +1324,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1321,6 +1358,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1354,6 +1392,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1387,6 +1426,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1420,6 +1460,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1453,6 +1494,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1486,6 +1528,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",

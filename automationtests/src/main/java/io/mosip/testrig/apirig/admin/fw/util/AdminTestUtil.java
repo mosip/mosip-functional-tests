@@ -3264,24 +3264,38 @@ public class AdminTestUtil extends BaseTestCase {
 
 			if (testCaseName.contains("_Invalid_C_nonce_"))
 				nonce = "jwt_payload.c_nonce123";
-			if (testCaseName.contains("_Empty_Typ_"))
+			else if (testCaseName.contains("_Empty_C_nonce_"))
+				nonce = "";
+			else if (testCaseName.contains("_SpaceVal_C_nonce_"))
+				nonce = "  ";
+			else if (testCaseName.contains("_Empty_Typ_"))
 				typ = "";
-			if (testCaseName.contains("_Invalid_Typ_"))
+			else if (testCaseName.contains("_SpaceVal_Typ_"))
+				typ = "  ";
+			else if (testCaseName.contains("_Invalid_Typ_"))
 				typ = "openid4vci-123@proof+jwt";
+			else if (testCaseName.contains("_Invalid_JwkHeader_"))
+				jwkHeader = RSAKey.parse(getJWKKey(oidcJWK2)).toPublicJWK();
+			else if (testCaseName.contains("_Invalid_Aud_"))
+				tempUrl = "sdfaf";
+			else if (testCaseName.contains("_Invalid_Iss_"))
+				clientId = "sdfdsg";
+			else if (testCaseName.contains("_Invalid_Exp_"))
+				idTokenExpirySecs = 0;
 
 			claimsSet = new JWTClaimsSet.Builder().audience(tempUrl).claim("nonce", nonce).issuer(clientId)
 					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
 
 			if (testCaseName.contains("_Missing_Typ_")) {
+				signedJWT = new SignedJWT(new JWSHeader.Builder(JWSAlgorithm.RS256).jwk(jwkHeader).build(), claimsSet);
+			} else if (testCaseName.contains("_Missing_JwkHeader_")) {
 				signedJWT = new SignedJWT(
-						new JWSHeader.Builder(JWSAlgorithm.RS256).jwk(jwkHeader).build(),
-						claimsSet);
+						new JWSHeader.Builder(JWSAlgorithm.RS256).type(new JOSEObjectType(typ)).build(), claimsSet);
 			} else {
 				signedJWT = new SignedJWT(
 						new JWSHeader.Builder(JWSAlgorithm.RS256).type(new JOSEObjectType(typ)).jwk(jwkHeader).build(),
 						claimsSet);
 			}
-
 
 			signedJWT.sign(signer);
 			proofJWT = signedJWT.serialize();
@@ -4885,9 +4899,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static int getOtpExpTimeFromActuator() {
 		if (otpExpTime.isEmpty()) {
-			String section = "configService:https://github.com/mosip/mosip-config/application-default.properties";
+			String section = "/mosip-config/application-default.properties";
 			if (!BaseTestCase.isTargetEnvLTS())
-				section = "configService:https://github.com/mosip/mosip-config/sandbox/application-lts.properties";
+				section = "/mosip-config/sandbox/application-lts.properties";
 			Response response = null;
 			org.json.JSONObject responseJson = null;
 			JSONArray responseArray = null;
