@@ -2846,7 +2846,7 @@ GenerateVID:
       checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/GenerateVID/createGenerateVID
-      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      outputTemplate: resident/error
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
@@ -2867,10 +2867,18 @@ GenerateVID:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"$IGNORE$",
         "maskedEmail": "$IGNORE$"
+    },
+    
+    "errors": [
+    {
+      "errorCode": "RES-SER-405"
     }
+  ]
+    
+    
 }'
 
    Resident_Generate_Perpetual_VID_Valid_First_Smoke_sid:
