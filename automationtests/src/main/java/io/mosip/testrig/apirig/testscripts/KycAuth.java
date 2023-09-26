@@ -121,7 +121,7 @@ public class KycAuth extends AdminTestUtil implements ITest {
 		HashMap<String, String> headers = new HashMap<>();
 		headers.put(SIGNATURE_HEADERNAME, signature);
 		String token = kernelAuthLib.getTokenByRole(testCaseDTO.getRole());
-		
+		headers.put(COOKIENAME, token);
 		
 		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");
 		
