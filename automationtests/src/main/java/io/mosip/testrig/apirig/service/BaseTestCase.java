@@ -566,9 +566,9 @@ public class BaseTestCase {
 			logger.info("optionalLanguages from env:" + optionalLanguages);
 			
 			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
-				section, "mosip.mandatory-languages" + mandatoryLanguages);
+				section, "mosip.mandatory-languages");
 			
-			logger.info("mandatoryLanguages from env:" + optionalLanguages);
+			logger.info("mandatoryLanguages from env:" + mandatoryLanguages);
 		}
 		catch(Exception e)
 		{
