@@ -4899,9 +4899,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static int getOtpExpTimeFromActuator() {
 		if (otpExpTime.isEmpty()) {
-			String section = "configService:https://github.com/mosip/mosip-config/application-default.properties";
+			String section = "/mosip-config/application-default.properties";
 			if (!BaseTestCase.isTargetEnvLTS())
-				section = "configService:https://github.com/mosip/mosip-config/sandbox/application-lts.properties";
+				section = "/mosip-config/sandbox/application-lts.properties";
 			Response response = null;
 			org.json.JSONObject responseJson = null;
 			JSONArray responseArray = null;
