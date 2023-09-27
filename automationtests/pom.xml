@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.mosip.testrig.apirig.automationtests</groupId>
 	<artifactId>automationtests</artifactId>
@@ -9,6 +9,28 @@
 	<url>http://maven.apache.org</url>
 	<version>1.2.1-SNAPSHOT</version>
 
+	<licenses>
+		<license>
+			<name>MPL 2.0</name>
+			<url>https://www.mozilla.org/en-US/MPL/2.0/</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git://github.com/mosip/esignet.git</connection>
+		<developerConnection>scm:git:ssh://github.com:mosip/esignet.git</developerConnection>
+		<url>https://github.com/mosip/esignet</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<developers>
+		<developer>
+			<name>Mosip</name>
+			<email>mosip.emailnotifier@gmail.com</email>
+			<organization>io.mosip</organization>
+			<organizationUrl>https://github.com/mosip/esignet</organizationUrl>
+		</developer>
+	</developers>
 
 	<properties>
 		<!-- kernel versions -->
@@ -107,9 +129,9 @@
 		<byte.buddy.version>1.9.12</byte.buddy.version>
 		<io.jsonwebtoken.jjwt.version>0.6.0</io.jsonwebtoken.jjwt.version>
 		<apache.directory.api.version>2.0.0.AM2</apache.directory.api.version>
-		
-		
-		
+
+
+
 
 
 
@@ -165,7 +187,7 @@
 		<testng.version>6.11</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
 		<fileName>automationtests-1.2.1-SNAPSHOT-jar-with-dependencies</fileName>
-		
+
 	</properties>
 	<dependencies>
 
@@ -193,7 +215,7 @@
 			<version>3.25.0-GA</version>
 		</dependency>
 		<dependency>
-			<!-- keep the version of this 3 or below 3 else it will convert = to &#x3D; 
+			<!-- keep the version of this 3 or below 3 else it will convert = to &#x3D;
 				ref: https://github.com/handlebars-lang/handlebars.js/issues/1489 -->
 			<groupId>com.github.jknack</groupId>
 			<artifactId>handlebars</artifactId>
@@ -216,10 +238,10 @@
 			<version>${zjsonpatch.version}</version>
 		</dependency>
 		<dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk</artifactId>
-            <version>${aws.javasdk.version}</version>
-        </dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>${aws.javasdk.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
@@ -357,7 +379,7 @@
 			<artifactId>icu4j</artifactId>
 			<version>${icu4j.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
@@ -436,7 +458,7 @@
 		</dependency>
 		<!-- Encryption Decryption Util Jar -->
 
-	 	<dependency>
+		<dependency>
 			<groupId>io.mosip.testrig.authentication.demo</groupId>
 			<artifactId>authentication-demo-service</artifactId>
 			<version>1.2.1-SNAPSHOT</version>
@@ -522,125 +544,166 @@
 					<argLine>-Dfile.encoding=UTF-8</argLine>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>populate-git-commit-information</id>
-                        <goals>
-                            <goal>revision</goal>
-                        </goals>
-                        <configuration>
-                            <verbose>true</verbose>
-                            <dateFormat>MM/dd/yyyy HH:mm:ss Z</dateFormat>
-                            <abbrevLength>8</abbrevLength>
-                            <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                            <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
-                        </configuration>
-                    </execution>
-                </executions>
-                <configuration>
-                    <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-                </configuration>
-            </plugin> 
-			
-			
-			
-			
-<!-- 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
 				<executions>
 					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+						<configuration>
+							<gpgArguments>
+								<arg>--pinentry-mode</arg>
+								<arg>loopback</arg>
+							</gpgArguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>make-jar-executable</id>
 						<phase>package</phase>
 						<goals>
-							<goal>single</goal>
+							<goal>run</goal>
 						</goals>
+						<configuration>
+							<target>
+								<!-- Create a shell script to run the JAR file with executable permission -->
+								<chmod file="${project.build.directory}/*.jar" perm="ugo+rx"/>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>populate-git-commit-information</id>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+						<configuration>
+							<verbose>true</verbose>
+							<dateFormat>MM/dd/yyyy HH:mm:ss Z</dateFormat>
+							<abbrevLength>8</abbrevLength>
+							<generateGitPropertiesFile>true</generateGitPropertiesFile>
+							<generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+						</configuration>
 					</execution>
 				</executions>
 				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>io.mosip.testrunner.MosipTestRunner</mainClass>
-						</manifest>
-					</archive>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
+					<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
 				</configuration>
-			</plugin> -->
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-shade-plugin</artifactId>
-    <version>3.2.4</version>
-    <executions>
-        <execution>
-            <goals>
-                <goal>shade</goal>
-            </goals>
-            <configuration>
-                <finalName>${fileName}</finalName>
-                <transformers>
-                    <!-- need this to merge the services files properly -->
-                    <transformer
-                            implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                    <!-- add Main-Class to manifest file -->
-                    <transformer
-                            implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                        <mainClass>io.mosip.testrig.apirig.testrunner.MosipTestRunner</mainClass>
-                    </transformer>
-                </transformers>
-                <!-- add this to prevent some security issues when merging everything together -->
-                <filters>
-                    <filter>
-                        <artifact>*:*</artifact>
-                        <excludes>
-                            <exclude>META-INF/*.SF</exclude>
-                            <exclude>META-INF/*.DSA</exclude>
-                            <exclude>META-INF/*.RSA</exclude>
-                        </excludes>
-                    </filter>
-                </filters>
-            </configuration>
-        </execution>
-    </executions>
-</plugin>
+			</plugin>
+
+
+
+
+			<!-- 			<plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-assembly-plugin</artifactId>
+                            <executions>
+                                <execution>
+                                    <phase>package</phase>
+                                    <goals>
+                                        <goal>single</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                            <configuration>
+                                <archive>
+                                    <manifest>
+                                        <addClasspath>true</addClasspath>
+                                        <classpathPrefix>lib/</classpathPrefix>
+                                        <mainClass>io.mosip.testrunner.MosipTestRunner</mainClass>
+                                    </manifest>
+                                </archive>
+                                <descriptorRefs>
+                                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                                </descriptorRefs>
+                            </configuration>
+                        </plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.4</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<finalName>${fileName}</finalName>
+							<transformers>
+								<!-- need this to merge the services files properly -->
+								<transformer
+										implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+								<!-- add Main-Class to manifest file -->
+								<transformer
+										implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>io.mosip.testrig.apirig.testrunner.MosipTestRunner</mainClass>
+								</transformer>
+							</transformers>
+							<!-- add this to prevent some security issues when merging everything together -->
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<exclude>META-INF/*.SF</exclude>
+										<exclude>META-INF/*.DSA</exclude>
+										<exclude>META-INF/*.RSA</exclude>
+									</excludes>
+								</filter>
+							</filters>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-    <profiles>
-        <profile>
-            <id>sonar</id>
-            <properties>
-                <sonar.sources>.</sonar.sources>
-                <sonar.inclusions>src/main/java/**,src/main/resources/**</sonar.inclusions>
-                <sonar.exclusions>${sonar.coverage.exclusions}</sonar.exclusions>
-                <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-            </properties>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.sonarsource.scanner.maven</groupId>
-                        <artifactId>sonar-maven-plugin</artifactId>
-                        <version>${maven.sonar.plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sonar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<properties>
+				<sonar.sources>.</sonar.sources>
+				<sonar.inclusions>src/main/java/**,src/main/resources/**</sonar.inclusions>
+				<sonar.exclusions>${sonar.coverage.exclusions}</sonar.exclusions>
+				<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+			</properties>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonarsource.scanner.maven</groupId>
+						<artifactId>sonar-maven-plugin</artifactId>
+						<version>${maven.sonar.plugin.version}</version>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<goals>
+									<goal>sonar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
