@@ -35,7 +35,7 @@ EkycOtp:
   		"timestamp": "$TIMESTAMP$"
     }'
       output: '{
-  "kycStatus": "true",
+  "kycStatus": "false",
  "sendOtpResp":{
         "transactionID": "$IGNORE$",
         "maskedMobile": "$IGNORE$",
