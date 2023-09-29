@@ -59,6 +59,21 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
+  auth_DemoAuth_DOB_Valid_Smoke_VID_invalid_transaction_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1254@#45gg",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
   auth_DemoAuth_DOB_Valid_Smoke_Infant_Uin_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_Infant_smoke_Pos_UIN$&idType=UIN&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -68,11 +83,27 @@ DemoAuthNew:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "1970/07/08",
+      "value": "2023/09/28",
         "key": "dob"
     }'
       output: '{
   "authStatus": "true"
+}'
+
+  auth_DemoAuth_DOB_Valid_Smoke_Infant_Uin_which_locked_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_with_Infant_which_locked_smoke_Pos_UIN$&idType=UIN&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "2023/09/28",
+        "key": "dob"
+    }'
+      output: '{
+  "authStatus": "false"
 }'
 
   auth_DemoAuth_DOB_Invalid_Past_Timestamp_VID_Neg:
