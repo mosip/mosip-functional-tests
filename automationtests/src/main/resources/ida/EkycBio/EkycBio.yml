@@ -53,7 +53,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-        "kycStatus": "true"
+        "kycStatus": "false"
 }'
   auth_EkycBio_Face_With_draft_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GetDraft_all_valid_smoke_sid_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
