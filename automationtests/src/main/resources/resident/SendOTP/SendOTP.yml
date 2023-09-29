@@ -51,6 +51,23 @@ SendOTP:
         "maskedEmail": "$IGNORE$"
     }' 
     
+   Resident_SendOTP_Valid_VID_Use_Smoke:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      restMethod: post
+      inputTemplate: resident/SendOTP/createSendOTP
+      outputTemplate: resident/SendOTP/createSendOTPResult
+      input: '{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:Generate_Perpetual_VID_SecondTime_Smoke_sid_vid$",
+    "individualIdType": "UIN"
+}'
+      output: '{
+        "maskedMobile": "XXXXXX3210",
+        "maskedEmail": "$IGNORE$"
+    }'
+    
    Resident_SendOTP_Valid_UIN_Phone_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
@@ -262,5 +279,42 @@ SendOTP:
 }'
       output: '{
         "maskedMobile": "XXXXXX3210",
+        "maskedEmail": "$IGNORE$"
+    }'
+    
+   Resident_SendOTP_Valid_VID_Phone_Smoke:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      restMethod: post
+      inputTemplate: resident/SendOTP/createSendOTPAsPhone
+      outputTemplate: resident/SendOTP/createSendOTPResult
+      input: '{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "otpChannel": "[\"PHONE\"]",
+    "individualId": "$ID:Generate_Perpetual_VID_For_SendOtp_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID"
+}'
+      output: '{
+        "maskedMobile": "XXXXXX3210",
+        "maskedEmail": "$IGNORE$"
+    }'
+    
+   Resident_SendOTP_Valid_Vid_Email_Smoke:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: resident/SendOTP/createSendOTPAsEmail
+      outputTemplate: resident/SendOTP/createSendOTPResult
+      input: '{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "otpChannel": "[\"EMAIL\"]",
+    "individualId": "$ID:Generate_Perpetual_VID_For_SendOtp_Valid_Smoke_sid_vid$",
+    "individualIdType": "VID"
+}'
+      output: '{
+        "maskedMobile": "$IGNORE$",
         "maskedEmail": "$IGNORE$"
     }'
