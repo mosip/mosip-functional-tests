@@ -89,15 +89,17 @@ public class MosipTestRunner {
 			AdminTestUtil.getLocationData();
 
 			String partnerKeyURL = "";
-			//String ekycPartnerKeyURL = "";
+			String ekycPartnerKeyURL = "";
 
 			if (BaseTestCase.listOfModules.contains("auth")
 					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
 				PartnerRegistration.deleteCertificates();
 				CertificateGenerationUtil.getThumbprints();
 				AdminTestUtil.createAndPublishPolicy();
-				//AdminTestUtil.createAndPublishPolicyForKyc();
 				partnerKeyURL = PartnerRegistration.generateAndGetPartnerKeyUrl();
+				
+				
+				//AdminTestUtil.createAndPublishPolicyForKyc();
 				//ekycPartnerKeyURL = PartnerRegistration.generateAndGetEkycPartnerKeyUrl();
 
 			}
@@ -123,7 +125,7 @@ public class MosipTestRunner {
 
 			} else if (BaseTestCase.listOfModules.contains("auth")
 					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
-				if (partnerKeyURL.isEmpty())
+				if (partnerKeyURL.isEmpty() || ekycPartnerKeyURL.isEmpty())
 					LOGGER.error("partnerKeyURL is null");
 				else
 					startTestRunner();
