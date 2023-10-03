@@ -555,9 +555,9 @@ public class BaseTestCase {
 		String optionalLanguages=null;
 		String mandatoryLanguages=null;
 		if (isTargetEnvLTS()) 
-			section = "/mosip/mosip-config/application-default.properties";
+			section = "/mosip-config/application-default.properties";
 		else 
-			section = "/mosip/mosip-config/sandbox/admin-mz.properties";
+			section = "/mosip-config/sandbox/admin-mz.properties";
 		try {
 	
 			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
@@ -613,9 +613,9 @@ public class BaseTestCase {
 			return supportedIdType;
 		}
 		
-		String section = "configService:https://github.com/mosip/mosip-config/id-authentication-default.properties";
+		String section = "/mosip-config/id-authentication-default.properties";
 		if (!BaseTestCase.isTargetEnvLTS())
-			section = "configService:https://github.com/mosip/mosip-config/sandbox/id-authentication-lts.properties";
+			section = "/mosip-config/sandbox/id-authentication-lts.properties";
 		
 		Response response = null;
 

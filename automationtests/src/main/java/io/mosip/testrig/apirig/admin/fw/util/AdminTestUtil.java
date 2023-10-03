@@ -3167,20 +3167,40 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENT$",
 					generateWLAToken(jsonString, bindingConsentJWK, bindingCertConsentFile));
 		}
+		
+		if (jsonString.contains("$CONSENTDETACHEDSIGNATURE$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATURE$",
+					generateDetachedSignature(jsonString, bindingConsentJWK, bindingCertConsentFile));
+		}
 
 		if (jsonString.contains("$WLATOKENCONSENTVID$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTVID$",
 					generateWLAToken(jsonString, bindingConsentJWKVid, bindingCertConsentVidFile));
+		}
+		
+		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREVID$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATUREVID$",
+					generateDetachedSignature(jsonString, bindingConsentJWKVid, bindingCertConsentVidFile));
 		}
 
 		if (jsonString.contains("$WLATOKENCONSENTSAMECLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTSAMECLAIM$",
 					generateWLAToken(jsonString, bindingConsentSameClaimJWK, bindingCertConsentSameClaimFile));
 		}
+		
+		if (jsonString.contains("$CONSENTDETACHEDSIGNATURESAMECLAIM$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATURESAMECLAIM$",
+					generateDetachedSignature(jsonString, bindingConsentSameClaimJWK, bindingCertConsentSameClaimFile));
+		}
 
 		if (jsonString.contains("$WLATOKENCONSENTVIDSAMECLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTVIDSAMECLAIM$",
 					generateWLAToken(jsonString, bindingConsentVidSameClaimJWK, bindingCertConsentVidSameClaimFile));
+		}
+		
+		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREVIDSAMECLAIM$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATUREVIDSAMECLAIM$",
+					generateDetachedSignature(jsonString, bindingConsentVidSameClaimJWK, bindingCertConsentVidSameClaimFile));
 		}
 		
 		if (jsonString.contains("$WLATOKENCONSENTEMPTYCLAIM$")) {
@@ -3264,24 +3284,42 @@ public class AdminTestUtil extends BaseTestCase {
 
 			if (testCaseName.contains("_Invalid_C_nonce_"))
 				nonce = "jwt_payload.c_nonce123";
-			if (testCaseName.contains("_Empty_Typ_"))
+			else if (testCaseName.contains("_Empty_C_nonce_"))
+				nonce = "";
+			else if (testCaseName.contains("_SpaceVal_C_nonce_"))
+				nonce = "  ";
+			else if (testCaseName.contains("_Empty_Typ_"))
 				typ = "";
-			if (testCaseName.contains("_Invalid_Typ_"))
+			else if (testCaseName.contains("_SpaceVal_Typ_"))
+				typ = "  ";
+			else if (testCaseName.contains("_Invalid_Typ_"))
 				typ = "openid4vci-123@proof+jwt";
+			else if (testCaseName.contains("_Invalid_JwkHeader_"))
+				jwkHeader = RSAKey.parse(getJWKKey(oidcJWK2)).toPublicJWK();
+			else if (testCaseName.contains("_Invalid_Aud_"))
+				tempUrl = "sdfaf";
+			else if (testCaseName.contains("_Empty_Aud_"))
+				tempUrl = "";
+			else if (testCaseName.contains("_SpaceVal_Aud_"))
+				tempUrl = "  ";
+			else if (testCaseName.contains("_Invalid_Iss_"))
+				clientId = "sdfdsg";
+			else if (testCaseName.contains("_Invalid_Exp_"))
+				idTokenExpirySecs = 0;
 
 			claimsSet = new JWTClaimsSet.Builder().audience(tempUrl).claim("nonce", nonce).issuer(clientId)
 					.issueTime(new Date()).expirationTime(new Date(new Date().getTime() + idTokenExpirySecs)).build();
 
 			if (testCaseName.contains("_Missing_Typ_")) {
+				signedJWT = new SignedJWT(new JWSHeader.Builder(JWSAlgorithm.RS256).jwk(jwkHeader).build(), claimsSet);
+			} else if (testCaseName.contains("_Missing_JwkHeader_")) {
 				signedJWT = new SignedJWT(
-						new JWSHeader.Builder(JWSAlgorithm.RS256).jwk(jwkHeader).build(),
-						claimsSet);
+						new JWSHeader.Builder(JWSAlgorithm.RS256).type(new JOSEObjectType(typ)).build(), claimsSet);
 			} else {
 				signedJWT = new SignedJWT(
 						new JWSHeader.Builder(JWSAlgorithm.RS256).type(new JOSEObjectType(typ)).jwk(jwkHeader).build(),
 						claimsSet);
 			}
-
 
 			signedJWT.sign(signer);
 			proofJWT = signedJWT.serialize();
@@ -3311,6 +3349,88 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		return wlaToken;
+	}
+	
+	public static String generateDetachedSignature(String jsonString, File jwkfileName, File certFileName) {
+		RSAKey jwkKey = null;
+		String jwkKeyString = getJWKKey(jwkfileName);
+		logger.info("jwkKeyString =" + jwkKeyString);
+
+		String[] acceptedClaims = null;
+		JSONArray claimJsonArray = null;
+		String[] permittedScope = null;
+		JSONArray permittedScopeArray = null;
+		String detachedSignature = "";
+		String certificate = getJWKKey(certFileName);
+		JSONObject request = new JSONObject(jsonString);
+		claimJsonArray = getArrayFromJson(request, "acceptedClaims");
+		permittedScopeArray = getArrayFromJson(request, "permittedAuthorizeScopes");
+		
+        acceptedClaims = new String[claimJsonArray.length()];
+        permittedScope = new String[permittedScopeArray.length()];
+        
+        for (int i = 0; i < claimJsonArray.length(); i++) {
+            acceptedClaims[i] = claimJsonArray.getString(i);
+        }
+        if (acceptedClaims != null && acceptedClaims instanceof String[]) {
+            Arrays.sort(acceptedClaims);
+        }
+        
+        for (int i = 0; i < permittedScopeArray.length(); i++) {
+        	permittedScope[i] = permittedScopeArray.getString(i);
+        }
+
+
+		try {
+			jwkKey = RSAKey.parse(jwkKeyString);
+			logger.info("jwkKey =" + jwkKey);
+			detachedSignature = getDetachedSignature(acceptedClaims, permittedScope, jwkKey, certificate);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+
+		return detachedSignature;
+		
+	}
+	
+	public static String getDetachedSignature(String[] acceptedClaims, String[] permittedScope, RSAKey jwkKey, String certData)
+			throws JoseException, JOSEException {
+		JSONObject payload = new JSONObject();
+		String signedJWT = null;
+		
+        if (acceptedClaims != null && acceptedClaims instanceof String[]) {
+            Arrays.sort(acceptedClaims);
+            payload.put("accepted_claims", acceptedClaims);
+        }
+		
+        if (permittedScope != null && permittedScope instanceof String[]) {
+            Arrays.sort(permittedScope);
+            payload.put("permitted_authorized_scopes", permittedScope);
+        }
+
+		X509Certificate certificate = (X509Certificate) convertToCertificate(certData);
+		JsonWebSignature jwSign = new JsonWebSignature();
+		if (certificate != null) {
+			jwSign.setX509CertSha256ThumbprintHeaderValue(certificate);
+			jwSign.setPayload(payload.toString());
+			jwSign.setAlgorithmHeaderValue(SIGN_ALGO);
+			jwSign.setKey(jwkKey.toPrivateKey());
+			jwSign.setDoKeyValidation(false);
+			signedJWT = jwSign.getCompactSerialization();
+			String[] parts = signedJWT.split("\\.");
+
+	        return parts[0] + "." + parts[2];
+		}
+		return "";
+	}
+	
+	public static JSONArray getArrayFromJson(JSONObject request, String value) {
+		
+		if (request.getJSONObject(GlobalConstants.REQUEST).has(value)) {
+			return request.getJSONObject(GlobalConstants.REQUEST).getJSONArray(value);
+		}
+		
+		return null;
 	}
 
 	public static String generateAndWriteJWKKey(File fileName) {
@@ -4885,9 +5005,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static int getOtpExpTimeFromActuator() {
 		if (otpExpTime.isEmpty()) {
-			String section = "configService:https://github.com/mosip/mosip-config/application-default.properties";
+			String section = "/mosip-config/application-default.properties";
 			if (!BaseTestCase.isTargetEnvLTS())
-				section = "configService:https://github.com/mosip/mosip-config/sandbox/application-lts.properties";
+				section = "/mosip-config/sandbox/application-lts.properties";
 			Response response = null;
 			org.json.JSONObject responseJson = null;
 			JSONArray responseArray = null;
