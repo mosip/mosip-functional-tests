@@ -39,7 +39,7 @@ jobs:
           settings-path: ${{ github.workspace }} # location for the settings.xml file
       - name: Build with Maven
         run: |
-          cd automationtest
+          cd automationtests
           mvn -B package -s $GITHUB_WORKSPACE/settings.xml --file pom.xml
       - name: Trigger automation run
         run:
