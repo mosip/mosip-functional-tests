@@ -244,6 +244,7 @@ SendBindingOtp:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/SendBindingOtp/SendBindingOtp
       outputTemplate: esignet/SendBindingOtp/SendBindingOtpResult
@@ -263,6 +264,7 @@ SendBindingOtp:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/SendBindingOtp/SendBindingOtp
       outputTemplate: esignet/SendBindingOtp/SendBindingOtpResult
