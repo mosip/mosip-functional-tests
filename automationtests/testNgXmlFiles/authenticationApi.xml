@@ -263,12 +263,35 @@
 		</classes>
 	</test>
 
+<test name="HotlistTestcasesOtpAuth">
+		<parameter name="ymlFile" value="ida/OtpAuth/OtpAuthHotlisted.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.OtpAuthNew" />
+		</classes>
+	</test>
 
 	<test name="UnBlockPartnerId">
 		<parameter name="ymlFile"
 			value="ida/UnBlockHotlistAPI/UnBlockHotlistAPIForPartnerId.yml" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	
+	<test name="HotlistTestcasesOtpAuthWithUnblockedPartner">
+		<parameter name="ymlFile" value="ida/OtpAuth/OtpAuthHotlistedUnblocked.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.OtpAuthNew" />
+		</classes>
+	</test>
+	
+	<test name="BioAuthWithUnblockedPartnerId">
+		<parameter name="ymlFile"
+			value="ida/HotlistTestcases/BioAuthWithUnblockedPartners.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.BioAuth" />
 		</classes>
 	</test>
 </suite>

@@ -5,12 +5,36 @@ LinkedAuthorizationConsent:
       checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      inputTemplate: esignet/LinkedConsent/LinkAuthorizationConsent/LinkAuthorizationConsent
       outputTemplate: esignet/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"linkedTransactionId": "$ID:LinkTransaction_Consent_uin_SameClaim_all_Valid_Smoke_sid_linkTransactionId$",
-      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+      	"acceptedClaims": [{claim: "name"},{claim: "email"}],
+      	"signature": "$CONSENTDETACHEDSIGNATURESAMECLAIM$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   ESignet_LinkedAuthorizationConsent_Consent_Vid_SameClaim_Invalid_Neg:
+      endPoint: /v1/esignet/linked-authorization/v2/consent
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/LinkedConsent/LinkAuthorizationConsent/LinkAuthorizationConsent
+      outputTemplate: esignet/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"linkedTransactionId": "$ID:LinkTransaction_Consent_Vid_SameClaim_all_Valid_Smoke_sid_linkTransactionId$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
+      	"signature": "$CONSENTDETACHEDSIGNATUREVIDSAMECLAIM$"
 }'
       output: '{
   "errors": [
