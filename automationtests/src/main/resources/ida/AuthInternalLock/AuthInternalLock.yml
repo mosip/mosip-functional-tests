@@ -16,6 +16,23 @@ AuthInternalLock:
       output: '{
 	"message": "Notification has been sent to the provided contact detail(s)"
 }'
+  auth_AuthInternal_lock_with_explicitly_Smoke_Pos:
+      endPoint: /idrepository/v1/identity/authtypes/status
+      role: idrepo
+      restMethod: post
+      inputTemplate: ida/AuthInternalLock/authInternalLock
+      outputTemplate: ida/AuthInternalLock/authInternalLockResult
+      input: '{
+    "individualId": "$ID:AddIdentity_lock_unlock_forever_smoke_sid_Pos_UIN$",
+    "individualIdType": "UIN",
+    "authType": "Bio",
+    "authSubType": "Iris",
+    "locked": true,
+    "unlockForSeconds": 5000
+}'
+      output: '{
+	"message": "Notification has been sent to the provided contact detail(s)"
+}'
 
   auth_AuthInternal_Lock_UIN_Unlock_DemoAuth_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status

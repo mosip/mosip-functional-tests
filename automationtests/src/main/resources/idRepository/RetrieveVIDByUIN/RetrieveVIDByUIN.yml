@@ -12,6 +12,23 @@ RetrieveVIDByUIN:
       output: '{
       "vidType": "$IGNORE$"
 }'
+  IdRepository_RetrieveVIDByUIN_With_blocked_vid_:
+      endPoint: /idrepository/v1/vid/uin/{UIN}
+      role: idrepo
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: idRepository/RetrieveVIDByUIN/retrieveVIDByUIN
+      outputTemplate: idRepository/error
+      input: '{
+      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-VID-003"
+    }
+  ]
+}'
   IdRepository_RetrieveVIDByUIN_With_Valid_Smoke_Perp:
       endPoint: /idrepository/v1/vid/uin/{UIN}
       role: idrepo
