@@ -59,7 +59,7 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		
 		HashMap<String, String> requestBody = new HashMap<>();
 		
-		requestBody.put("policyName", policyName2);
+		requestBody.put("policyName", policyName);
 		requestBody.put("useCaseDescription", "mapping Partner to policyName");
 		
 		HashMap<String, Object> body = new HashMap<>();
@@ -89,7 +89,7 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		
 		HashMap<String, String> requestBody = new HashMap<>();
 		
-		requestBody.put("policyName", policyName);
+		requestBody.put("policyName", policyName2);
 		requestBody.put("useCaseDescription", "mapping Partner to policyName");
 		
 		HashMap<String, Object> body = new HashMap<>();
