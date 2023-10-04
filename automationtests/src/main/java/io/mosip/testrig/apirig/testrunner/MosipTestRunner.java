@@ -125,7 +125,8 @@ public class MosipTestRunner {
 
 			} else if (BaseTestCase.listOfModules.contains("auth")
 					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
-				if (partnerKeyURL.isEmpty() || ekycPartnerKeyURL.isEmpty())
+				if (partnerKeyURL.isEmpty())
+				//	if (partnerKeyURL.isEmpty() || ekycPartnerKeyURL.isEmpty())
 					LOGGER.error("partnerKeyURL is null");
 				else
 					startTestRunner();
