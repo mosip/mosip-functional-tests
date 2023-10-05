@@ -47,6 +47,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.xml.bind.DatatypeConverter;
 
+import io.mosip.testrig.authentication.demo.service.dto.*;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
 import org.bouncycastle.operator.OperatorCreationException;
@@ -62,12 +63,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
@@ -90,9 +86,6 @@ import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.testrig.authentication.demo.service.controller.Encrypt.SplittedEncryptedData;
-import io.mosip.testrig.authentication.demo.service.dto.CertificateChainResponseDto;
-import io.mosip.testrig.authentication.demo.service.dto.EncryptionRequestDto;
-import io.mosip.testrig.authentication.demo.service.dto.EncryptionResponseDto;
 import io.mosip.testrig.authentication.demo.service.helper.CertificateTypes;
 import io.mosip.testrig.authentication.demo.service.helper.KeyMgrUtil;
 import io.mosip.testrig.authentication.demo.service.helper.PartnerTypes;
@@ -176,6 +169,8 @@ public class AuthRequestController {
 	private static final String IDA_AUTH_REQUEST_TEMPLATE = "ida.authRequest.template";
 	
 	private static final String IDA_KYC_EXCHANGE_REQUEST_TEMPLATE = "ida.kycExchangeRequest.template";
+
+	private static final String IDA_VCI_EXCHANGE_REQUEST_TEMPLATE = "ida.vciExchangeRequest.template";
 
 	private static final String ID = "id";
 
@@ -574,6 +569,68 @@ public class AuthRequestController {
 					String.format(IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), IDENTITY));
 		}
 	}
+
+	@PostMapping(path = "/create-vci-exchange-request", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {
+			MediaType.APPLICATION_JSON_VALUE })
+	public ResponseEntity<String> createVciExchangeRequest(@RequestParam(name = ID, required = true) @Nullable String id,
+			   @RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
+			   @RequestParam(name = "Authtype", required = false) @Nullable String reqAuth,
+			   @RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
+			   @RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
+			   @RequestParam(name = "vcFormat", required = false) @Nullable String vcFormat,
+			   @RequestParam(name = "credSubjectId", required = false)@Nullable String credSubjectId,
+			   @RequestParam(name = "vcAuthToken", required = false)@Nullable String vcAuthToken,
+			   @RequestParam(name = "keyFileNameByPartnerName", required = false)boolean keyFileNameByPartnerName,
+			   @RequestParam(name = "partnerName", required = false)@Nullable String partnerName,
+			   @RequestBody Map<String, Object> request,
+			   @RequestParam(name = "certsDir", required = false) String certsDir,
+			   @RequestParam(name = "moduleName", required = false) String moduleName) throws Exception {
+		String authRequestTemplate = environment.getProperty(IDA_VCI_EXCHANGE_REQUEST_TEMPLATE);
+		Map<String, Object> reqValues = new HashMap<>();
+
+		if (requestTime == null) {
+			requestTime = DateUtils.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
+		}
+
+		reqValues.put(ID, id);
+		reqValues.put("individualIdType", idType == null || idType.trim().length() == 0 ? IdType.UIN.toString() : idType);
+		reqValues.put(AUTH_TYPE, reqAuth);
+		reqValues.put(TIMESTAMP, requestTime);
+		reqValues.put(TXN, transactionId == null ? "1234567890" : transactionId);
+		reqValues.put(VER, environment.getProperty(IDA_API_VERSION));
+		reqValues.put("vcFormat", vcFormat);
+		reqValues.put("credSubjectId", credSubjectId);
+		reqValues.put("vcAuthToken", vcAuthToken);
+
+		StringWriter writer = new StringWriter();
+		InputStream templateValue;
+		if (request != null && request.size() > 0) {
+			templateValue = templateManager
+					.merge(new ByteArrayInputStream(authRequestTemplate.getBytes(StandardCharsets.UTF_8)), reqValues);
+
+			if (templateValue != null) {
+				IOUtils.copy(templateValue, writer, StandardCharsets.UTF_8);
+				String res = writer.toString();
+				ObjectNode response = mapper.readValue(res.getBytes(), ObjectNode.class);
+
+				HttpHeaders httpHeaders = new HttpHeaders();
+				String responseStr = response.toString();
+
+				String rpSignature = signRequest(PartnerTypes.MISP, partnerName, keyFileNameByPartnerName, responseStr,  certsDir, moduleName);
+				httpHeaders.add("signature", rpSignature);
+				return new ResponseEntity<>(responseStr, httpHeaders, HttpStatus.OK);
+			} else {
+				throw new IdAuthenticationBusinessException(
+						IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(), String.format(
+						IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), TEMPLATE));
+			}
+		} else {
+			throw new IdAuthenticationBusinessException(
+					IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(),
+					String.format(IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), IDENTITY));
+		}
+	}
+
 	
 	/**
 	 * this method is used to create the auth request.
