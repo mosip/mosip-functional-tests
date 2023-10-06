@@ -554,6 +554,29 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="OAuthDetailsRequestVCIVidNegTC">
+		<parameter name="ymlFile"
+			value="esignet/VCIVidNegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI.yml" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthenticateUserVCIVidNegTC">
+		<parameter name="ymlFile"
+			value="esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCI.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name="AuthorizationCodeVCIVidNegTC">
+		<parameter name="ymlFile"
+			value="esignet/VCIVidNegTC/AuthorizationCodeVCI/AuthorizationCodeVCI.yml" />
+			<parameter name="idKeyName"	value="code" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
 	<test name="WellKnownVCI">
 		<parameter name="ymlFile"
 			value="esignet/VCI/WellKnownVCI/WellKnownVCI.yml" />
@@ -580,6 +603,21 @@
 
 
 <!--
+	<test name="GenerateTokenVCIVidNegTC">
+		<parameter name="ymlFile"
+			value="esignet/VCIVidNegTC/GenerateTokenVCI/GenerateTokenVCI.yml" />
+			<parameter name="idKeyName"	value="access_token" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
+		</classes>
+	</test>
+	<test name="GetCredentialVidNegTC">
+		<parameter name="ymlFile"
+			value="esignet/VCIVidNegTC/GetCredential/GetCredential.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>   
 	<test name="KycCreateAuthReq">
 		<parameter name="ymlFile" value="esignet/KycDemoAuth/KycCreateAuthReq.yml" />
 		<parameter name="idKeyName"	value="authReqBody,authSignature" />
