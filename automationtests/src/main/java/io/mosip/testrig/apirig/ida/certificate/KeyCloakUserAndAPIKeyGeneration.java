@@ -47,9 +47,9 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 	
 	public static String createKCUserAndGetAPIKeyForKyc() {
 		KeycloakUserManager.createKeyCloakUsers(ekycPartnerId, emailIdForKyc, role);
-		String mappingKey = submittingPartnerAndGetMappingKey();
+		String mappingKey = submittingPartnerAndGetMappingKeyForKyc();
 		approvePartnerAPIKey(mappingKey);
-		return createAPIKey();
+		return createAPIKeyForEkyc();
 	}
 	
 	public static String submittingPartnerAndGetMappingKey() {
@@ -164,6 +164,37 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		lOGGER.info(apiKey);
 		
 		return apiKey;
+	}
+	
+	public static String createAPIKeyForEkyc(){
+		String url = ApplnURI + "/v1/partnermanager/partners/"+ekycPartnerId+"/generate/apikey";
+		
+		String token = kernelAuthLib.getTokenByRole("partnernewkyc");
+		
+		
+		HashMap<String, String> requestBody = new HashMap<>();
+		
+		requestBody.put("policyName", policyName2);
+		requestBody.put("label", randomAbbreviation+randomAbbreviation);
+		
+		HashMap<String, Object> body = new HashMap<>();
+		
+		body.put("id", GlobalConstants.STRING);
+		body.put(GlobalConstants.METADATA, new HashMap<>());
+		body.put(GlobalConstants.REQUEST, requestBody);
+		body.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		body.put(GlobalConstants.VERSION, GlobalConstants.STRING);
+		
+		Response response = RestClient.patchRequestWithCookie(url, body, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		lOGGER.info(response);
+		JSONObject responseJson = new JSONObject(response.asString());
+		lOGGER.info(responseJson);
+		JSONObject responseValue = (JSONObject) (responseJson.get("response"));
+		lOGGER.info(responseValue);
+		String apiKeyForEkyc = responseValue.getString(GlobalConstants.APIKEY);
+		lOGGER.info(apiKeyForEkyc);
+		
+		return apiKeyForEkyc;
 	}
 
 }

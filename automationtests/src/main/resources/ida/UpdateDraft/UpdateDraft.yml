@@ -10,6 +10,7 @@ UpdateDraft:
   "id": "mosip.id.create",
   "registrationId": "$RID$",
   "biometricReferenceId": "23452353",
+  "addressCopy": "Y",
   "dateOfBirth": "1992/04/15", 
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",

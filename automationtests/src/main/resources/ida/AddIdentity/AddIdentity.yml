@@ -997,7 +997,7 @@ AddIdentity:
       role: idrepo
       restMethod: post
       inputTemplate: ida/AddIdentity/addIdentity_$LANGNUMBER$
-      outputTemplate: ida/AddIdentity/addIdentityResult
+      outputTemplate: ida/error
       input: '{
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
@@ -1017,7 +1017,12 @@ AddIdentity:
    "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-  "status":"ACTIVATED"
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002",
+      "message": "$IGNORE$"
+    }
+  ]
 }'
    auth_AddIdentity_lock_unlock_forever_smoke_sid_Pos:
       endPoint: /idrepository/v1/identity/

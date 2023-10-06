@@ -153,7 +153,7 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		String certValueSigned = signedcertificateValue.getString("signedCertificateData");
 		lOGGER.info(certValueSigned);
-		uploadSignedCertificate(certValueSigned, getEkycPartnerType, ekycPartnerId, true);
+		uploadSignedCertificate(certValueSigned, getEkycPartnerTypeForCert, ekycPartnerId, true);
 
 	}
 

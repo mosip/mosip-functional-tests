@@ -1167,7 +1167,7 @@ DemoAuthNew:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/DemoAuth/DemoAuth
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
       outputTemplate: ida/DemoAuth/error
       input: '{
     "name": [

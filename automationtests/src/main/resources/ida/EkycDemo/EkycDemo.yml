@@ -38,7 +38,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "1980/08/10",
+      "value": "1970/07/08",
         "key": "dob"
     }'
       output: '{
@@ -366,7 +366,7 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "eng",
+      "language": "$PRIMARYLANG$",
       "value": "Mrs Lisa.GN"
     }
   ],
@@ -385,8 +385,8 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "eng",
-      "value": "Mrs Lisa.GN"
+      "language": "$PRIMARYLANG$",
+      "value": "TEST_FIRSTNAMEeng"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -481,7 +481,7 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycDemo_Auth_With_name2_Valid_UIN_Smoke:
+  auth_EkycDemo_Auth_With_name2_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -491,7 +491,7 @@ EkycDemo:
     "name": [
     {
       "language": "eng",
-      "value": "Miss Lisa.GN"
+      "value": "Miss-TitleFromServer Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -500,7 +500,7 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycDemo_Auth_With_name3_Valid_UIN_Smoke:
+  auth_EkycDemo_Auth_With_name3_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -510,7 +510,7 @@ EkycDemo:
     "name": [
     {
       "language": "eng",
-      "value": "Mr Lisa.GN"
+      "value": "Mr-TitleFromServer Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -519,7 +519,7 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycDemo_Auth_With_name4_Valid_UIN_Smoke:
+  auth_EkycDemo_Auth_With_name4_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -528,8 +528,8 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "eng",
-      "value": "Mrs Lisa.GN"
+      "language": "$PRIMARYLANG$",
+      "value": "Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -538,7 +538,7 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycDemo_Auth_With_name5_Valid_UIN_Smoke:
+  auth_EkycDemo_Auth_With_name5_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -548,7 +548,7 @@ EkycDemo:
     "name": [
     {
       "language": "eng",
-      "value": "Miss. Lisa.GN"
+      "value": "Miss-TitleFromServer. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -557,7 +557,7 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycDemo_Auth_With_name6_Valid_UIN_Smoke:
+  auth_EkycDemo_Auth_With_name6_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -567,7 +567,7 @@ EkycDemo:
     "name": [
     {
       "language": "eng",
-      "value": "MISS. Lisa.GN"
+      "value": "Miss-TitleFromServer. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -576,7 +576,7 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycDemo_Auth_With_name7_Valid_UIN_Smoke:
+  auth_EkycDemo_Auth_With_name7_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -586,7 +586,7 @@ EkycDemo:
     "name": [
     {
       "language": "eng",
-      "value": "Miss Lisa GN"
+      "value": "Miss-TitleFromServer. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
