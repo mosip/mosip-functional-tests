@@ -99,8 +99,8 @@ public class MosipTestRunner {
 				partnerKeyURL = PartnerRegistration.generateAndGetPartnerKeyUrl();
 				
 				
-				//AdminTestUtil.createAndPublishPolicyForKyc();
-				//ekycPartnerKeyURL = PartnerRegistration.generateAndGetEkycPartnerKeyUrl();
+				AdminTestUtil.createAndPublishPolicyForKyc();
+				ekycPartnerKeyURL = PartnerRegistration.generateAndGetEkycPartnerKeyUrl();
 
 			}
 

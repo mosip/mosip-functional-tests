@@ -4508,6 +4508,10 @@ public class AdminTestUtil extends BaseTestCase {
 					else if (objIDJson3.equals(GlobalConstants.IDSCHEMAVERSION)) {
 						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
 					}
+					else if (objIDJson3.equals(GlobalConstants.PROOF_OF_ADDRESS)) {
+						fileWriter2.write("\t  \"proofOfAddress\": {\n" + "\t\t\"format\": \"txt\",\n"
+								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
+					}
 
 					else {
 						fileWriter2
