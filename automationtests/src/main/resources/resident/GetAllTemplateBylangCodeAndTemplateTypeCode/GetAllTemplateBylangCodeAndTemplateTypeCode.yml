@@ -8,7 +8,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
       outputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCodeResult
       input: '{
 		"langcode": "$1STLANG$",
-		"templatetypecode": "tnc-update-demo"
+		"templatetypecode": "mosip.email.template.property"
 }'
       output: '{
         
@@ -23,7 +23,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
       outputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCodeResult
       input: '{
 		"langcode": "$1STLANG$",
-		"templatetypecode": "tnc-share-cred-with-partner"
+		"templatetypecode": "mosip.email.template.property"
 }'
       output: '{
         
@@ -38,7 +38,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
       outputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCodeResult
       input: '{
 		"langcode": "$1STLANG$",
-		"templatetypecode": "tnc-order-a-physical-card"
+		"templatetypecode": "mosip.email.template.property"
 }'
       output: '{
         
@@ -53,7 +53,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
       outputTemplate: resident/error
       input: '{
 		"langcode": "hinn",
-		"templatetypecode": "tnc-update-demo"
+		"templatetypecode": "mosip.email.template.property"
 }'
       output: '{
         "errors": [
@@ -93,7 +93,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
       outputTemplate: resident/error
       input: '{
 		"langcode": "$1STLANG$",
-		"templatetypecode": "tnc-update-demo"
+		"templatetypecode": "mosip.email.template.property"
 }'
       output: '{
   "errors": [
@@ -113,7 +113,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
       outputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCodeResult
       input: '{
 		"langcode": "$1STLANG$",
-		"templatetypecode": "tnc-update-demo"
+		"templatetypecode": "mosip.email.template.property"
 }'
       output: '{
         
@@ -128,7 +128,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
       outputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCodeResult
       input: '{
 		"langcode": "$1STLANG$",
-		"templatetypecode": "tnc-share-cred-with-partner"
+		"templatetypecode": "mosip.email.template.property"
 }'
       output: '{
         
@@ -143,7 +143,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
       outputTemplate: resident/GetAllTemplateBylangCodeAndTemplateTypeCode/GetAllTemplateBylangCodeAndTemplateTypeCodeResult
       input: '{
 		"langcode": "$1STLANG$",
-		"templatetypecode": "tnc-order-a-physical-card"
+		"templatetypecode": "mosip.email.template.property"
 }'
       output: '{
         
@@ -158,7 +158,7 @@ GetAllTemplateBylangCodeAndTemplateTypeCode:
       outputTemplate: resident/error
       input: '{
 		"langcode": "hinn",
-		"templatetypecode": "tnc-update-demo"
+		"templatetypecode": "mosip.email.template.property"
 }'
       output: '{
         "errors": [

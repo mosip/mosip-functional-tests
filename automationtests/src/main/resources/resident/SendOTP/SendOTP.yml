@@ -16,6 +16,23 @@ SendOTP:
         "maskedEmail": "$IGNORE$"
     }'
     
+   Resident_SendOTP_Valid_UIN_Transactions_All_Smoke:
+      endPoint: /resident/v1/req/otp
+      role: resident
+      restMethod: post
+      inputTemplate: resident/SendOTP/createSendOTP
+      outputTemplate: resident/SendOTP/createSendOTPResult
+      input: '{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_To_Check_Ten_Transactions_smoke_Pos_UIN$",
+    "individualIdType": "UIN"
+}'
+      output: '{
+        "maskedMobile": "XXXXXX3210",
+        "maskedEmail": "$IGNORE$"
+    }'
+    
    Resident_SendOTP_Valid_VID_All_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident

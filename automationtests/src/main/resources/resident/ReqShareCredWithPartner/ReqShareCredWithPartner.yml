@@ -9,6 +9,7 @@ ReqShareCredWithPartner:
       input: '{
 	        "purpose": "string",
 	        "consent" : "Accepted",
+	        "partnerId": "$ID:GetPartnersByPartnerType_uin_all_Valid_Smoke_sid_partnerID$",
             "requesttime": "$TIMESTAMP$",
             "attributeName" : "dateOfBirth",
             "format" : "YYYY",
@@ -27,6 +28,7 @@ ReqShareCredWithPartner:
       input: '{
 	        "purpose": "string",
 	        "consent" : "Accepted",
+	        "partnerId": "$ID:GetPartnersByPartnerType_uin_all_Valid_Smoke_sid_partnerID$",
             "requesttime": "$TIMESTAMP$",
             "attributeName" : "dateOfBirth",
             "format" : "YYYY",
@@ -51,6 +53,7 @@ ReqShareCredWithPartner:
 	        "purpose": "",
 	        "consent" : "Accepted",
             "requesttime": "$TIMESTAMP$",
+            "partnerId": "$ID:GetPartnersByPartnerType_uin_all_Valid_Smoke_sid_partnerID$",
             "attributeName" : "dateOfBirth",
             "format" : "YYYY",
             "masked" : true
@@ -75,6 +78,7 @@ ReqShareCredWithPartner:
 	        "purpose": " string",
 	        "consent" : "Accepted",
             "requesttime": "$TIMESTAMP$",
+            "partnerId": "$ID:GetPartnersByPartnerType_uin_all_Valid_Smoke_sid_partnerID$",
                "attributeName" : "dateOfBirth",
                "format" : "YYYY",
                "masked" : true
@@ -93,6 +97,7 @@ ReqShareCredWithPartner:
 	        "purpose": "asgdf12j",
 	        "consent" : "Accepted",
             "requesttime": "$TIMESTAMP$",
+            "partnerId": "$ID:GetPartnersByPartnerType_uin_all_Valid_Smoke_sid_partnerID$",
                "attributeName" : "dateOfBirth",
                "format" : "YYYY",
                "masked" : true
@@ -110,6 +115,7 @@ ReqShareCredWithPartner:
 	        "purpose": "a12$%",
 	        "consent" : "Accepted",
             "requesttime": "$TIMESTAMP$",
+            "partnerId": "$ID:GetPartnersByPartnerType_uin_all_Valid_Smoke_sid_partnerID$",
                "attributeName" : "dateOfBirth",
                "format" : "YYYY",
                "masked" : true
@@ -133,6 +139,7 @@ ReqShareCredWithPartner:
 	        "purpose": "string",
 	        "consent" : "",
             "requesttime": "$TIMESTAMP$",
+            "partnerId": "$ID:GetPartnersByPartnerType_uin_all_Valid_Smoke_sid_partnerID$",
                "attributeName" : "dateOfBirth",
                "format" : "YYYY",
                "masked" : true
@@ -155,6 +162,7 @@ ReqShareCredWithPartner:
       input: '{
 	        "purpose": "string",
             "requesttime": "$TIMESTAMP$",
+            "partnerId": "$ID:GetPartnersByPartnerType_uin_all_Valid_Smoke_sid_partnerID$",
             "consent" : "$REMOVE$",
             "attributeName" : "dateOfBirth",
             "format" : "YYYY",
@@ -179,6 +187,7 @@ ReqShareCredWithPartner:
 	        "purpose": "string",
 	        "consent" : "Accepted",
             "requesttime": "$TIMESTAMP$",
+            "partnerId": "$ID:GetPartnersByPartnerType_vid_all_Valid_Smoke_sid_partnerID$",
             "attributeName" : "dateOfBirth",
             "format" : "YYYY",
             "masked" : true
@@ -197,6 +206,7 @@ ReqShareCredWithPartner:
 	        "purpose": "",
 	        "consent" : "Accepted",
             "requesttime": "$TIMESTAMP$",
+            "partnerId": "$ID:GetPartnersByPartnerType_vid_all_Valid_Smoke_sid_partnerID$",
             "attributeName" : "dateOfBirth",
             "format" : "YYYY",
             "masked" : true
@@ -220,6 +230,7 @@ ReqShareCredWithPartner:
       input: '{
 	        "purpose": " string",
 	        "consent" : "Accepted",
+	        "partnerId": "$ID:GetPartnersByPartnerType_vid_all_Valid_Smoke_sid_partnerID$",
             "requesttime": "$TIMESTAMP$",
                "attributeName" : "dateOfBirth",
                "format" : "YYYY",
@@ -238,6 +249,7 @@ ReqShareCredWithPartner:
       input: '{
 	        "purpose": "asgdf12j",
 	        "consent" : "Accepted",
+	        "partnerId": "$ID:GetPartnersByPartnerType_vid_all_Valid_Smoke_sid_partnerID$",
             "requesttime": "$TIMESTAMP$",
                "attributeName" : "dateOfBirth",
                "format" : "YYYY",
@@ -255,6 +267,7 @@ ReqShareCredWithPartner:
       input: '{
 	        "purpose": "a12$%",
 	        "consent" : "Accepted",
+	        "partnerId": "$ID:GetPartnersByPartnerType_vid_all_Valid_Smoke_sid_partnerID$",
             "requesttime": "$TIMESTAMP$",
                "attributeName" : "dateOfBirth",
                "format" : "YYYY",
@@ -279,6 +292,7 @@ ReqShareCredWithPartner:
 	        "purpose": "string",
 	        "consent" : "",
             "requesttime": "$TIMESTAMP$",
+            "partnerId": "$ID:GetPartnersByPartnerType_vid_all_Valid_Smoke_sid_partnerID$",
                "attributeName" : "dateOfBirth",
                "format" : "YYYY",
                "masked" : true
@@ -302,6 +316,7 @@ ReqShareCredWithPartner:
 	        "purpose": "string",
             "requesttime": "$TIMESTAMP$",
             "consent" : "$REMOVE$",
+            "partnerId": "$ID:GetPartnersByPartnerType_vid_all_Valid_Smoke_sid_partnerID$",
             "attributeName" : "dateOfBirth",
             "format" : "YYYY",
             "masked" : true

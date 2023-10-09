@@ -1,5 +1,5 @@
 GetPartnersByPartnerType:
-   Resident_GetPartnersByPartnerType_uin_all_Valid_Smoke:
+   Resident_GetPartnersByPartnerType_uin_all_Valid_Smoke_sid:
       endPoint: /resident/v1/auth-proxy/partners?partnerType={partnerType}
       role: residentNew
       checkErrorsOnlyInResponse: true
@@ -64,7 +64,7 @@ GetPartnersByPartnerType:
   ]
 }'
 
-   Resident_GetPartnersByPartnerType_vid_all_Valid_Smoke:
+   Resident_GetPartnersByPartnerType_vid_all_Valid_Smoke_sid:
       endPoint: /resident/v1/auth-proxy/partners?partnerType={partnerType}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
