@@ -10,8 +10,7 @@ ReqAidOtp:
       	"transactionId": "$TRANSACTIONID$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
-		"aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$"
+		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}]
 }'
       output: '{
 	    "maskedMobile": XXXXXX3210,
@@ -28,8 +27,7 @@ ReqAidOtp:
       	"transactionId": "$TRANSACTIONID$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "@$$#$#",
-		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
-		"aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$"
+		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}]
 }'
       output: '{
   "errors": [
@@ -50,8 +48,7 @@ ReqAidOtp:
       	"transactionId": "$TRANSACTIONID$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "",
-		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
-		"aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$"
+		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}]
 }'
       output: '{
   "errors": [
@@ -72,8 +69,7 @@ ReqAidOtp:
       	"transactionId": "@#$###$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
-		"aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$"
+		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}]
 }'
       output: '{
   "errors": [
@@ -94,8 +90,7 @@ ReqAidOtp:
       	"transactionId": "",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
-		"aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$"
+		"otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}]
 }'
       output: '{
   "errors": [
@@ -116,8 +111,7 @@ ReqAidOtp:
       	"transactionId": "$TRANSACTIONID$",
 		"requestTime": "$TIMESTAMP$",
 		"individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-		"otpChannel": [{channel: "@##$$#"}],
-		"aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$"
+		"otpChannel": [{channel: "@##$$#"}]
 }'
       output: '{
   "errors": [
