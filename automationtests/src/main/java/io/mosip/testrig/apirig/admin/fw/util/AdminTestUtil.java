@@ -3368,6 +3368,10 @@ public class AdminTestUtil extends BaseTestCase {
 				jwkHeader = RSAKey.parse(getJWKKey(oidcJWK2)).toPublicJWK();
 			else if (testCaseName.contains("_Invalid_Aud_"))
 				tempUrl = "sdfaf";
+			else if (testCaseName.contains("_Empty_Aud_"))
+				tempUrl = "";
+			else if (testCaseName.contains("_SpaceVal_Aud_"))
+				tempUrl = "  ";
 			else if (testCaseName.contains("_Invalid_Iss_"))
 				clientId = "sdfdsg";
 			else if (testCaseName.contains("_Invalid_Exp_"))
