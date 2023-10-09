@@ -95,7 +95,7 @@ definePolicy:
 }'
       output: ' {
     "policyGroupName": "mosip policy group",
-    "name": "mosip policy9",
+    "name": "mosip policy9"
 }'
 
    Partner_DefinePolicy_DEMOAUTH_with_SAME_POLICYNAME_NEG:
@@ -105,8 +105,8 @@ definePolicy:
       inputTemplate: partner/policy/DefinePolicy/definePolicy
       outputTemplate: partner/error
       input: '{
-	"desc": "desc mosip policy4",
-	"name": "mosip policy4",
+	"desc": "desc mosip policy",
+	"name": "mosip policy",
 	"authSubType": "FINGER",
 	"authType": "demo",
 	"mandatory": true,

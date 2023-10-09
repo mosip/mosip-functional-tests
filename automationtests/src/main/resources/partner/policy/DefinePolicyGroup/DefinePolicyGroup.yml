@@ -40,11 +40,11 @@ definePolicyGroup:
       outputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroupResult
       input: '{
     "desc": "desc mosip policy group 8888",
-    "name": "mosip policy status testing groupp with policyy",
+    "name": "mosip policy status testing groupp with policy",
     "requesttime": "$TIMESTAMP$"
   }'
       output: ' {
-        "name": "mosip policy status testing groupp with policyy",
+        "name": "mosip policy status testing groupp with policy",
         "desc": "desc mosip policy group 8888",
         "is_Active": true
     }'
