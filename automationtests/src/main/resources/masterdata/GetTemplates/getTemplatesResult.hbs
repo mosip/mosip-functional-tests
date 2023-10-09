@@ -1,8 +1,4 @@
 {
-  "id": null,
-  "version": null,
-  "responsetime": "$IGNORE$",
-  "metadata": null,
   "response": {
     "templates": [
     {{#each templates}}
@@ -16,12 +12,10 @@
         "moduleId": "{{moduleId}}",
         "moduleName": "ID Authentication",
         "templateTypeCode": "{{templateTypeCode}}",
-        "langCode": "{{langCode}}",
-        "isActive": {{isActive}}
+        "isActive": "{{isActive}}"
       }
       {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
-  },
-  "errors": null
+  }
 }

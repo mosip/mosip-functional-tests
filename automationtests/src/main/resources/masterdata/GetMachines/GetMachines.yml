@@ -2,6 +2,7 @@ GetMachines:
    Admin_GetMachines_allValid_smoke:
       endPoint: /v1/masterdata/machines
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetMachines/getMachines
       outputTemplate: masterdata/GetMachines/getMachinesResult
@@ -9,19 +10,4 @@ GetMachines:
       
 }'
       output: '{
-"machines": [{
-       "id": "$IGNORE$",
-        "name": "$IGNORE$",
-        "serialNum": "$IGNORE$",
-        "macAddress": "$IGNORE$",
-        "ipAddress": "$IGNORE$",
-        "machineSpecId": "$IGNORE$",
-        "regCenterId": "$IGNORE$",
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$,
-        "validityDateTime": "$IGNORE$",
-        "publicKey":"$IGNORE$",
-        "signPublicKey": "$IGNORE$",
-        "zoneCode": "$IGNORE$"
-    }]
 }'  

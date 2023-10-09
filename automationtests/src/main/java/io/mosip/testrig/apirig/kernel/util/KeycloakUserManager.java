@@ -33,22 +33,30 @@ public class KeycloakUserManager {
 	
 	private static final Logger logger = Logger.getLogger(KeycloakUserManager.class);
 
-	public static Properties propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/"+"config/Kernel.properties");
+	public static Properties propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/"+"config/Kernel.properties");
+	public static Keycloak key = null;
+	
+	public static void closeKeycloakInstance() {
+		if (key != null) {
+			key.close();
+			key = null;
+		}
+	}
 
 	private static Keycloak getKeycloakInstance() {
-		 Keycloak key=null;
-		try {
-			
-	key=KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl()).realm(ConfigManager.getIAMRealmId())
-				.grantType(OAuth2Constants.CLIENT_CREDENTIALS).clientId(ConfigManager.getAutomationClientId()).clientSecret(ConfigManager.getAutomationClientSecret())
-				.build();
-	logger.info(ConfigManager.getIAMUrl());
-	logger.info(key.toString() + key.realms());
-		}catch(Exception e)
-		{
-			throw e;
-			
-		}
+		if (key != null)
+			return key;
+			try {
+				String automationClientId = BaseTestCase.isTargetEnvLTS() ? ConfigManager.getAutomationClientId()
+						: ConfigManager.getPmsClientId();
+				key = KeycloakBuilder.builder().serverUrl(ConfigManager.getIAMUrl())
+						.realm(ConfigManager.getIAMRealmId()).grantType(OAuth2Constants.CLIENT_CREDENTIALS)
+						.clientId(automationClientId).clientSecret(ConfigManager.getAutomationClientSecret()).build();
+				logger.info(ConfigManager.getIAMUrl());
+				logger.info(key.toString() + key.realms());
+			} catch (Exception e) {
+				throw e;
+			}
 		return key;
 	}
 
@@ -151,7 +159,13 @@ public class KeycloakUserManager {
 			logger.info(response);
 			logger.info(String.format(GlobalConstants.REPSONSE, response.getStatus(), response.getStatusInfo()));
 			logger.info(response.getLocation());
-			String userId = CreatedResponseUtil.getCreatedId(response);
+			String userId = "";
+			if (!response.getStatusInfo().equals(Response.Status.CONFLICT)){
+				userId = CreatedResponseUtil.getCreatedId(response);
+			}
+			else {
+				userId = getKeycloakUserID(needsToBeCreatedUser);
+			}
 			logger.info(String.format(GlobalConstants.USERCREATEDWITHUSERID, userId));
 
 			CredentialRepresentation passwordCred = new CredentialRepresentation();
@@ -181,6 +195,20 @@ public class KeycloakUserManager {
 			userResource.roles().realmLevel() //
 					.add((availableRoles.isEmpty() ? allRoles : availableRoles));
 		}
+	}
+	
+	public static String getKeycloakUserID(String userName) {
+		Keycloak keycloakInstance = getKeycloakInstance();
+		RealmResource realmResource = keycloakInstance.realm(ConfigManager.getIAMRealmId());
+		UsersResource usersRessource = realmResource.users();
+
+		List<UserRepresentation> usersFromDB = usersRessource.search(userName);
+		if (!usersFromDB.isEmpty()) {
+			return usersFromDB.get(0).getId();
+		} else {
+			return "";
+		}
+
 	}
 	
 	public static void removeKeyCloakUser(String partnerId) {
@@ -296,7 +324,7 @@ public class KeycloakUserManager {
 
 			}
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 
 	}
@@ -417,7 +445,7 @@ try {
 }
 catch(Exception e)
 {
-	logger.error(e.getStackTrace());
+	logger.error(e.getMessage());
 	
 }
 			

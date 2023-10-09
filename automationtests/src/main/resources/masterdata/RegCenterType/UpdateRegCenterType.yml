@@ -15,8 +15,7 @@ UpdateRegCenterType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"code": "ALT-3",
-	"langCode": "eng"
+	"code": "ALT-3"
 }'
    
    MasterData_UpdateRegCenterType_InputParameter_Name_Missing:
@@ -118,7 +117,7 @@ UpdateRegCenterType:
       templateFields: ["name","descr"]
       restMethod: put
       inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/RegCenterType/regCenterTypeResult
       input: '{
     "code": "ALT-3",
     "langCode": "eng",
@@ -128,6 +127,5 @@ UpdateRegCenterType:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-    "code": "ALT-3",
-    "langCode": "eng"
+    "code": "ALT-3"
   }'

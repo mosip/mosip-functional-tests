@@ -2,6 +2,7 @@ DownloadCredential:
    MobileId_CredentialsStatus_All_Valid_Smoke_euin:
       endPoint: /residentmobileapp/credentialshare/download
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: mobileId/CredentialIssuance/DownloadWithReqid/downloadwithreqid
       outputTemplate: mobileId/CredentialIssuance/DownloadWithReqid/downloadwithreqidResult
@@ -10,8 +11,7 @@ DownloadCredential:
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$"
 }'
       output: ' {
-        "Content-Type": "application/pdf",
-        "filename": "$IGNORE$"
+        "Content-Type": "application/pdf"
 }'
    MobileId_CredentialsStatus_StatusCode_InValid_Smoke_euin:
       endPoint: /residentmobileapp/credentialshare/download

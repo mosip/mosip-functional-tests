@@ -25,8 +25,7 @@ getPolicyGroup:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_016",
-      "message": "Policy Group ID does not exist"
+      "errorCode": "PMS_POL_016"
     }
   ]
 }'

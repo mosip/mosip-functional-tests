@@ -2,6 +2,7 @@ FilterHolidays:
    MasterData_FilterHolidays_Valid_Smoke:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
@@ -16,12 +17,6 @@ FilterHolidays:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "$IGNORE$",
-        "fieldValue": "$IGNORE$"
-      }
-    ]
   }'
    
    MasterData_FilterHolidays_inValid_filterText:
@@ -29,18 +24,22 @@ FilterHolidays:
       role: admin
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
-      outputTemplate: masterdata/FilterHolidays/filterHolidaysResult
+      outputTemplate: masterdata/error
       input: '{
 	"filters": [{
 		"columnName": "isActive",
 		"type": "unique",
-		"text": "ashash"
+		"text": "ashashadf"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": []
+  "errors": [
+    {
+      "errorCode": "KER-MSD-324"
+    }
+  ]
   }'
    MasterData_FilterHolidays_inValid_filterType_blank:
       endPoint: /v1/masterdata/holidays/filtervalues
@@ -152,13 +151,12 @@ FilterHolidays:
 		"text": "AutoTest user"
 	}],
 	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP"
+	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-999",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-317"
     }
   ]
 }'  
@@ -192,7 +190,7 @@ FilterHolidays:
       templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
-      outputTemplate: masterdata/FilterHolidays/filterHolidaysResult
+      outputTemplate: masterdata/error
       input: '{
 	"filters": [{
 		"columnName": "holidayName",
@@ -200,8 +198,12 @@ FilterHolidays:
 		"text": "sdfgsds"
 	}],
 	"languageCode": "eng",
-	"requesttime": "$TIMESTAMP"
+	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": []
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999"
+    }
+  ]
   }'  

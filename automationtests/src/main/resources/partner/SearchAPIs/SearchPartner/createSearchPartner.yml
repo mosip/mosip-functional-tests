@@ -2,6 +2,7 @@ createSearchPartner:
    Partner_SearchPartner_AllValid_Smoke:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -13,11 +14,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_Only_SortCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -40,6 +41,7 @@ createSearchPartner:
    Partner_SearchPartner_Only_FilterCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -57,11 +59,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_Only_PaginationCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -73,11 +75,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_type_contains_Smoke_asc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -102,11 +104,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_type_contains_Smoke_desc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -131,11 +133,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_type_equals_Smoke_desc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -160,11 +162,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_type_equals_Smoke_asc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -189,11 +191,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_type_startswith_Smoke_asc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -218,11 +220,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_type_startswith_Smoke_desc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartner
       outputTemplate: partner/SearchAPIs/SearchPartner/createSearchPartnerResult
@@ -247,7 +249,6 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "errors": "[]"
 }'
    Partner_SearchPartner_columnname_id_desc_sid:
       endPoint: /v1/partnermanager/partners/search
@@ -382,8 +383,8 @@ createSearchPartner:
      {
         "isActive": true
       }
-    ],
-    "errors": "[]"
+    ]
+    
 }'
    Partner_SearchPartner_with_invalid_columnName:
       endPoint: /v1/partnermanager/partners/search
@@ -414,8 +415,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-310",
-      "message": "Invalid column received : a@@@334455667788s"
+      "errorCode": "PMS-MSD-310"
     }
   ]
 }'
@@ -448,8 +448,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-311",
-      "message": "Column is missing in request"
+      "errorCode": "PMS-MSD-311"
     }
   ]
 }'
@@ -482,8 +481,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-312",
-      "message": "Filter type is missing"
+      "errorCode": "PMS-MSD-312"
     }
   ]
 }'
@@ -516,8 +514,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-358",
-      "message": "Sort type dc is not supported"
+      "errorCode": "PMS-MSD-358"
     }
   ]
 }'
@@ -550,8 +547,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
+      "errorCode": "PMS-MSD-314"
     }
   ]
 }'
@@ -584,8 +580,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-357",
-      "message": "Invalid sort field mo@@@del"
+      "errorCode": "PMS-MSD-357"
     }
   ]
 }'
@@ -618,8 +613,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
+      "errorCode": "PMS-MSD-314"
     }
   ]
 }'

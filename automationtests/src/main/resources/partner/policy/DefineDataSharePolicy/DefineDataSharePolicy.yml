@@ -22,6 +22,30 @@ defineDataSharePolicy:
     "desc": "mosip data share policy",
     "is_Active": false      
     }'
+    
+   Partner_DefineDataSharePolicy_ToCheckStatus_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicyResult
+      input: '{
+		"desc": "mosip data share policy check status",
+		"name": "mosip data share policy to check status22",
+		"policyId": "MDSP8",
+		"policyGroupName": "mosip policy status testing groupp",
+		"policyType": "DataShare",
+		"format":"extraction",
+		"attributeName":"biometrics",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "mosip policy status testing groupp",
+    "name": "mosip data share policy to check status22",
+    "desc": "mosip data share policy check status",
+    "is_Active": false      
+    }'
    Partner_DefineDataSharePolicy_WithoutMandatoryFields_All_Valid_Smoke_sid:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -65,8 +89,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_009",
-      "message": "Auth policy exists with name : mosip data share policy"
+      "errorCode": "PMS_POL_009"
     }
   ]
 }'
@@ -90,8 +113,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-            "errorCode": "PMS_POL_053",
-            "message": "Policy group is not active."
+            "errorCode": "PMS_POL_053"
         }
   ]
 }'
@@ -115,8 +137,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_019",
-      "message": "Policy group name does not exist"
+      "errorCode": "PMS_POL_019"
     }
   ]
 }'
@@ -140,8 +161,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_023",
-      "message": "Given policy type is not allowed "
+      "errorCode": "PMS_POL_023"
     }
   ]
 }'
@@ -165,8 +185,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.name"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -190,8 +209,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.desc"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -215,8 +233,7 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.policyGroupName"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -240,8 +257,33 @@ defineDataSharePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null. Allowed values Auth/DataShare/CredentialIssuance :request.policyType"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
+
+   Partner_DefineDataSharePolicy_RemovedAttribute_Neg:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/error
+      input: '{
+		"desc": "mosip data share policy7",
+		"name": "mosip data share policy7",
+		"policyId": "MDSP",
+		"policyGroupName": "mosip policy group",
+		"policyType": "DataShare",
+		"format":"extraction",
+		"attributeName":"$REMOVE$",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+      "errors": [
+    {
+      "errorCode": "PMS_PV_006"
+    }
+  ]
+
+    }'

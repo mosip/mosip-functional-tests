@@ -25,6 +25,7 @@ import org.testng.internal.Utils;
 import org.testng.log4testng.Logger;
 import org.testng.xml.XmlSuite;
 
+import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.kernel.util.S3Adapter;
@@ -110,7 +111,7 @@ public class EmailableReport implements IReporter {
 						LOG.info("isStoreSuccess:: " + isStoreSuccess);
 					} catch (Exception e) {
 						LOG.info("error occured while pushing the object" + e.getLocalizedMessage());
-						LOG.error(e.getStackTrace());
+						LOG.error(e.getMessage());
 					}
 					if (isStoreSuccess) {
 						LOG.info("Pushed file to S3");
@@ -135,7 +136,7 @@ public class EmailableReport implements IReporter {
 					+ properties.getProperty("git.branch");
 
 		} catch (IOException e) {
-			LOG.error(e.getStackTrace());
+			LOG.error(e.getMessage());
 			return "";
 		}
 
@@ -205,22 +206,29 @@ public class EmailableReport implements IReporter {
 		totalDuration = 0;
 
 		writer.print("<table>");
-		writer.print("<tr>");
-		writer.print("<th>Test</th>");
-		writer.print("<th># Passed</th>");
-		writer.print("<th># Skipped</th>");
-		writer.print("<th># Failed</th>");
-		writer.print("<th>Time (ms)</th>");
-		writer.print("<th>Included Groups</th>");
-		writer.print("<th>Excluded Groups</th>");
-		writer.print(GlobalConstants.TR);
 
 		int testIndex = 0;
-		for (SuiteResult suiteResult : suiteResults) {
+		for (SuiteResult suiteResult : suiteResults) {			
 			writer.print("<tr><th colspan=\"7\">");
 			writer.print(Utils.escapeHtml(suiteResult.getSuiteName() + "-" + getCommitId()));
 			writer.print(GlobalConstants.TRTR);
-
+			
+			writer.print("<tr><th colspan=\"7\"><span class=\"not-bold\"><pre>");
+			writer.print(Utils.escapeHtml("Server Component Details " + AdminTestUtil.getServerComponentsDetails()));
+			writer.print("</pre></span>");
+			writer.print(GlobalConstants.TRTR);
+			
+			writer.print("<tr>");
+			writer.print("<th>Test</th>");
+			writer.print("<th># Total</th>");
+			writer.print("<th># Passed</th>");
+			writer.print("<th># Skipped</th>");
+			writer.print("<th># Failed</th>");
+			writer.print("<th>Time (ms)</th>");
+//			writer.print("<th>Included Groups</th>");
+//			writer.print("<th>Excluded Groups</th>");
+			writer.print(GlobalConstants.TR);
+			
 			for (TestResult testResult : suiteResult.getTestResults()) {
 				int passedTests = testResult.getPassedTestCount();
 				int skippedTests = testResult.getSkippedTestCount();
@@ -236,13 +244,14 @@ public class EmailableReport implements IReporter {
 				buffer.setLength(0);
 				writeTableData(buffer.append("<a href=\"#t").append(testIndex).append("\">")
 						.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString());
+				writeTableData(integerFormat.format(passedTests + skippedTests + failedTests), "num");
 				writeTableData(integerFormat.format(passedTests), "num");
 				writeTableData(integerFormat.format(skippedTests),
 						(skippedTests > 0 ? GlobalConstants.NUMATTN : "num"));
 				writeTableData(integerFormat.format(failedTests), (failedTests > 0 ? GlobalConstants.NUMATTN : "num"));
 				writeTableData(decimalFormat.format(duration), "num");
-				writeTableData(testResult.getIncludedGroups());
-				writeTableData(testResult.getExcludedGroups());
+//				writeTableData(testResult.getIncludedGroups());
+//				writeTableData(testResult.getExcludedGroups());
 
 				writer.print(GlobalConstants.TR);
 
@@ -258,6 +267,7 @@ public class EmailableReport implements IReporter {
 		if (testIndex > 1) {
 			writer.print("<tr>");
 			writer.print("<th>Total</th>");
+			writeTableHeader(integerFormat.format(totalPassedTests + totalSkippedTests + totalFailedTests), "num");
 			writeTableHeader(integerFormat.format(totalPassedTests), "num");
 			writeTableHeader(integerFormat.format(totalSkippedTests),
 					(totalSkippedTests > 0 ? GlobalConstants.NUMATTN : "num"));
@@ -413,14 +423,16 @@ public class EmailableReport implements IReporter {
 	 */
 	private int writeScenarioDetails(List<ClassResult> classResults, int startingScenarioIndex) {
 		int scenarioIndex = startingScenarioIndex;
+		String label = "";
 		for (ClassResult classResult : classResults) {
 			String className = classResult.getClassName();
 			for (MethodResult methodResult : classResult.getMethodResults()) {
 				List<ITestResult> results = methodResult.getResults();
 				assert !results.isEmpty();
-
-				String label = Utils
-						.escapeHtml(className + "#" + results.iterator().next().getMethod().getMethodName());
+				if (ConfigManager.IsDebugEnabled())
+					label = Utils.escapeHtml(className + "#" + results.iterator().next().getMethod().getMethodName());
+				else
+					label = Utils.escapeHtml(results.iterator().next().getMethod().getMethodName());
 				for (ITestResult result : results) {
 					writeScenario(scenarioIndex, label, result);
 					scenarioIndex++;
@@ -445,20 +457,22 @@ public class EmailableReport implements IReporter {
 
 		Object[] parameters = result.getParameters();
 		int parameterCount = (parameters == null ? 0 : parameters.length);
-		if (parameterCount > 0) {
-			writer.print("<tr class=\"param\">");
-			for (int i = 1; i <= parameterCount; i++) {
-				writer.print("<th>Parameter #");
-				writer.print(i);
-				writer.print("</th>");
+		if (ConfigManager.IsDebugEnabled()) {
+			if (parameterCount > 0) {
+				writer.print("<tr class=\"param\">");
+				for (int i = 1; i <= parameterCount; i++) {
+					writer.print("<th>Testcase Input");
+					writer.print("</th>");
+				}
+				writer.print("</tr><tr class=\"param stripe\">");
+				for (Object parameter : parameters) {
+					String testcaseDTO = Utils.toString(parameter).replace("TestCaseDTO(", "");
+					writer.print("<td>");
+					writer.print(Utils.escapeHtml(testcaseDTO.substring(0, testcaseDTO.length()-1)));
+					writer.print("</td>");
+				}
+				writer.print(GlobalConstants.TR);
 			}
-			writer.print("</tr><tr class=\"param stripe\">");
-			for (Object parameter : parameters) {
-				writer.print("<td>");
-				writer.print(Utils.escapeHtml(Utils.toString(parameter)));
-				writer.print("</td>");
-			}
-			writer.print(GlobalConstants.TR);
 		}
 
 		List<String> reporterMessages = Reporter.getOutput(result);
@@ -491,7 +505,7 @@ public class EmailableReport implements IReporter {
 				writer.print("\"");
 			}
 			writer.print(">");
-			writer.print((result.getStatus() == ITestResult.SUCCESS ? "Expected Exception" : "Exception"));
+			writer.print((result.getStatus() == ITestResult.SUCCESS ? "Expected Exception" : "Output Validation Exception"));
 			writer.print(GlobalConstants.TRTR);
 
 			writer.print("<tr><td");
@@ -510,7 +524,7 @@ public class EmailableReport implements IReporter {
 	}
 
 	protected void writeReporterMessages(List<String> reporterMessages) {
-		writer.print("<div class=\"messages\">");
+		writer.print("<div class=\"Request and Response messages including headers\">");
 		Iterator<String> iterator = reporterMessages.iterator();
 		assert iterator.hasNext();
 		if (Reporter.getEscapeHtml()) {

@@ -323,8 +323,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
     {
-            "errorCode": "$IGNORE$",
-            "message": "Invalid request parameter - must be a valid URL :request.logoUri"
+            "errorCode": "invalid_redirect_uri"
         }
   ]
 }'
@@ -347,8 +346,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
     {
-            "errorCode": "$IGNORE$",
-            "message": "invalid_client_auth --> request.clientAuthMethods[0]: invalid_client_auth"
+            "errorCode": "invalid_client_auth"
         }
   ]
 }'
@@ -371,8 +369,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
      {
-            "errorCode": "$IGNORE$",
-            "message": "invalid_grant_type --> request.grantTypes[0]: invalid_grant_type"
+            "errorCode": "invalid_grant_type"
         }
   ]
 }'
@@ -395,8 +392,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
      {
-            "errorCode": "$IGNORE$",
-            "message": "invalid_grant_type --> request.grantTypes[0]: invalid_grant_type"
+            "errorCode": "invalid_grant_type"
         }
   ]
 }'
@@ -419,8 +415,7 @@ CreateOIDCClient:
       output: '{
         "errors": [
      {
-            "errorCode": $IGNORE$,
-            "message": "invalid_grant_type --> request.grantTypes[0]: invalid_grant_type"
+            "errorCode": "invalid_grant_type"
         }
   ]
 }'

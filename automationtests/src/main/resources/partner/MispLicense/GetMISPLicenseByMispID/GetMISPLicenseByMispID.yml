@@ -11,8 +11,7 @@ GetMISPLicenseByMispID:
       output: '{
     "errors": [
     {
-      "errorCode": "PMS_MSP_413",
-      "message": "misp license all are inactive."
+      "errorCode": "PMS_MSP_413"
     }
   ]
     }'
@@ -40,8 +39,7 @@ GetMISPLicenseByMispID:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_MSP_005",
-      "message": "MISP Partner does not exist"
+      "errorCode": "PMS_MSP_005"
     }
   ]
 }'

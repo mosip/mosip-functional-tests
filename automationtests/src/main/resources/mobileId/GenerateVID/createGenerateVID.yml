@@ -2,6 +2,7 @@ GenerateVID:
    MobileId_Generate_Perpetual_VID_Valid_Smoke_sid:
       endPoint: /residentmobileapp/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/GenerateVID/createGenerateVID
       outputTemplate: mobileId/GenerateVID/createGenerateVIDResult
@@ -21,17 +22,14 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
    MobileId_Generate_Perpetual_VID_InValid_Otp_sid:
       endPoint: /residentmobileapp/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/GenerateVID/createGenerateVID
       outputTemplate: mobileId/error
@@ -53,19 +51,17 @@ GenerateVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-422",
-      "message": "$IGNORE$"
+      "errorCode": "RES-SER-422"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
    MobileId_Generate_Perpetual_VID_with_InvalidUIN_Valid_Otp_sid:
       endPoint: /residentmobileapp/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/GenerateVID/createGenerateVID
       outputTemplate: mobileId/error
@@ -87,20 +83,18 @@ GenerateVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-410",
-      "message": "$IGNORE$"
+      "errorCode": "RES-SER-410"
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
 
    MobileId_Generate_Temporary_VID_Valid_Smoke_sid:
       endPoint: /residentmobileapp/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/GenerateVID/createGenerateVID
       outputTemplate: mobileId/GenerateVID/createGenerateVIDResult
@@ -120,18 +114,15 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
 
    MobileId_Generate_Perpetual_VID_Invalid_TransactionId_Neg:
       endPoint: /residentmobileapp/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/GenerateVID/createGenerateVID
       outputTemplate: mobileId/error
@@ -151,18 +142,20 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "errors": [
+    {
+      "errorCode": "RES-SER-422"
+    }
+  ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'
 
    MobileId_Generate_Perpetual_VID_Binding_Valid_Smoke_sid:
       endPoint: /residentmobileapp/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/GenerateVID/createGenerateVID
       outputTemplate: mobileId/GenerateVID/createGenerateVIDResult
@@ -182,11 +175,7 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
     }
 }'

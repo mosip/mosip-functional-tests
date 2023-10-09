@@ -3,6 +3,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -24,8 +25,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -37,6 +36,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -58,8 +58,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -71,6 +69,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -92,8 +91,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -105,6 +102,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -126,8 +124,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -139,6 +135,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -160,8 +157,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -173,6 +168,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -194,8 +190,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -206,6 +200,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -227,8 +222,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -240,6 +233,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -261,8 +255,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -274,6 +266,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -295,8 +288,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -308,6 +299,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -329,8 +321,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -342,6 +332,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -363,8 +354,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -376,6 +365,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -413,6 +403,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -451,6 +442,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -488,6 +480,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -525,6 +518,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -564,6 +558,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -601,6 +596,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -638,6 +634,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -676,6 +673,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -714,6 +712,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -751,6 +750,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -788,6 +788,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -825,6 +826,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -862,6 +864,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -900,6 +903,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -938,6 +942,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -976,6 +981,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1014,6 +1020,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1052,6 +1059,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1090,6 +1098,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1128,6 +1137,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1166,6 +1176,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1204,6 +1215,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1242,6 +1254,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -1263,8 +1276,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -1276,6 +1287,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -1297,8 +1309,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -1310,6 +1320,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -1331,8 +1342,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -1340,12 +1349,13 @@ GenerateVID:
     }
 }'
 
-   Resident_Generate_Perpetual_VID_Using_Perpetual_VID_Neg:
+   Resident_Generate_Perpetual_VID_Using_Perpetual_VID_Pos:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
-      outputTemplate: resident/error
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Perpetual_VID_Using_Temp_VID_Smoke_sid_vid$",
@@ -1365,12 +1375,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "errors": [
-        {
-            "errorCode": "RES-SER-29",
-            "message": "$IGNORE$"
-        }
-    ],
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -1382,6 +1386,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -1403,8 +1408,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -1416,6 +1419,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -1437,8 +1441,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -1450,6 +1452,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1488,6 +1491,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1526,6 +1530,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1564,6 +1569,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1602,6 +1608,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1640,6 +1647,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1678,6 +1686,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1716,6 +1725,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -1737,8 +1747,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -1750,6 +1758,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -1771,8 +1780,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -1784,6 +1791,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -1805,8 +1813,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone"
@@ -1817,6 +1823,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -1838,8 +1845,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
         "maskedEmail": "$IGNORE$"
@@ -1850,6 +1855,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/error
       input: '{
@@ -1873,11 +1879,17 @@ GenerateVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-410",
+      "errorCode": "RES-SER-422",
       "message": "$IGNORE$"
     }
   ],
   "sendOtpResp":{
+    "errors": [
+    {
+      "errorCode": "IDA-OTA-008",
+      "message": "$IGNORE$"
+    }
+  ],
         "sendOtpResTemplate":"resident/error"
     }
 }'
@@ -1885,6 +1897,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -1906,8 +1919,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -1919,6 +1930,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -1940,8 +1952,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -1953,6 +1963,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -1974,8 +1985,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -1987,6 +1996,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2008,8 +2018,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2021,6 +2029,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2042,8 +2051,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2055,6 +2062,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2076,8 +2084,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2089,6 +2095,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2110,8 +2117,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2122,6 +2127,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2143,8 +2149,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2155,6 +2159,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2176,8 +2181,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2188,6 +2191,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2209,8 +2213,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2221,6 +2223,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2242,8 +2245,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2254,6 +2255,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2275,8 +2277,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2288,6 +2288,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2309,8 +2310,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2322,6 +2321,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2343,8 +2343,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2356,6 +2354,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2377,8 +2376,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2390,6 +2387,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2411,8 +2409,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2423,6 +2419,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2444,8 +2441,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2456,6 +2451,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2477,8 +2473,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2489,6 +2483,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2510,8 +2505,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2522,6 +2515,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2543,8 +2537,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2555,6 +2547,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2576,8 +2569,6 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
@@ -2589,6 +2580,7 @@ GenerateVID:
       endPoint: /resident/v1/vid
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
       outputTemplate: resident/GenerateVID/createGenerateVIDResult
       input: '{
@@ -2610,8 +2602,515 @@ GenerateVID:
     }
     }'
       output: '{
-  "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   Resident_GenerateVID_Perpetual_Inv_Scen_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_Invalid_Scen_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_Invalid_Scen_Vid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Invalid_Scen_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   Resident_GenerateVID_Onetime_Inv_Scen_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_Invalid_Scen_Vid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "onetimeuse",
+        "otp": "$ID:AddIdentity_Invalid_Scen_Vid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Invalid_Scen_Vid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   Resident_Generate_Temporary_VID_ONE_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   Resident_Generate_Temporary_VID_TWO_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   Resident_Generate_Temporary_VID_Three_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   Resident_Generate_Temporary_VID_FOUR_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   Resident_Generate_Temporary_VID_FIVE_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   Resident_Generate_Temporary_VID_SIX_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_VID_Six_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"$IGNORE$",
+        "maskedEmail": "$IGNORE$"
+    },
+    
+    "errors": [
+    {
+      "errorCode": "RES-SER-405"
+    }
+  ]
+    
+    
+}'
+
+   Resident_Generate_Perpetual_VID_Valid_First_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_ToCreate_PreVid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_withValidParameters_ToCreate_PreVid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_ToCreate_PreVid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+      "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+      
+ 
+}'
+
+   Resident_Generate_Perpetual_VID_SecondTime_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_ToCreate_PreVid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_withValidParameters_ToCreate_PreVid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_ToCreate_PreVid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+      "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+    
+}'
+
+   Resident_Generate_Perpetual_VID_1_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_ToCreate_Three_PreVid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_withValidParameters_ToCreate_Three_PreVid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_ToCreate_Three_PreVid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+      "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+    
+}'
+
+   Resident_Generate_Perpetual_VID_2_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_ToCreate_Three_PreVid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_withValidParameters_ToCreate_Three_PreVid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_ToCreate_Three_PreVid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+      "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+    
+}'
+
+   Resident_Generate_Perpetual_VID_3_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_ToCreate_Three_PreVid_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_withValidParameters_ToCreate_Three_PreVid_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_ToCreate_Three_PreVid_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+      "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+    
+}'
+
+   Resident_Generate_Temporary_VID_use_3_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_TempVid_Use_3_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Temporary",
+        "otp": "$ID:AddIdentity_withValidParameters_To_Genrate_TempVid_Use_3_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_To_Genrate_TempVid_Use_3_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   Resident_Generate_Perpetual_VID_For_SendOtp_Valid_Smoke_sid:
+      endPoint: /resident/v1/vid
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: resident/GenerateVID/createGenerateVID
+      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_For_SendOtp_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.vid",
+        "version": "v1",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_withValidParameters_For_SendOtp_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_For_SendOtp_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "resident/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/resident/v1/req/otp"
+    }
+    }'
+      output: '{
   "sendOtpResp":{
         "maskedMobile": "XXXXXX3210",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",

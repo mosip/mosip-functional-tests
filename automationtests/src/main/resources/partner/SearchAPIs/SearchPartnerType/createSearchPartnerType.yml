@@ -285,7 +285,7 @@ createSearchPartnerType:
       role: partner
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
-      outputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerTypeResult
+      outputTemplate:  partner/error
       input: '{
     "filters": [
       {
@@ -306,14 +306,18 @@ createSearchPartnerType:
   "version": "v1"
 }'
       output: '{
-   "errors": "$IGNORE$"
+      "errors": [
+    {
+      "errorCode": "PMS-MSD-314"
+    }
+  ]
 }'
    Partner_SearchPartnerType_with_invalid_value_startswith:
       endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
-      outputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerTypeResult
+      outputTemplate:  partner/error
       input: '{
     "filters": [
       {
@@ -334,7 +338,11 @@ createSearchPartnerType:
   "version": "v1"
 }'
       output: '{
-   "errors": "$IGNORE$"
+      "errors": [
+    {
+      "errorCode": "PMS-MSD-314"
+    }
+  ]
 }'
    Partner_SearchPartnerType_with_invalid_columnName:
       endPoint: /v1/partnermanager/partners/partnertype/search
@@ -364,8 +372,7 @@ createSearchPartnerType:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-310",
-      "message": "Invalid column received : co@@@@@343455666###4$$%%de"
+      "errorCode": "PMS-MSD-310"
     }
   ]
 }'
@@ -397,8 +404,7 @@ createSearchPartnerType:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-311",
-      "message": "Column is missing in request"
+      "errorCode": "PMS-MSD-311"
     }
   ]
 }'
@@ -430,8 +436,7 @@ createSearchPartnerType:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-312",
-      "message": "Filter type is missing"
+      "errorCode": "PMS-MSD-312"
     }
   ]
 }'
@@ -463,8 +468,7 @@ createSearchPartnerType:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-358",
-      "message": "Sort type dc is not supported"
+      "errorCode": "PMS-MSD-358"
     }
   ]
 }'
@@ -496,8 +500,7 @@ createSearchPartnerType:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
+      "errorCode": "PMS-MSD-314"
     }
   ]
 }'
@@ -529,8 +532,7 @@ createSearchPartnerType:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-358",
-      "message": "Sort type mo@@@del is not supported"
+      "errorCode": "PMS-MSD-358"
     }
   ]
 }'
@@ -562,8 +564,7 @@ createSearchPartnerType:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
+      "errorCode": "PMS-MSD-314"
     }
   ]
 }'

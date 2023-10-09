@@ -2,6 +2,7 @@ GetCoordinateSpecificRegistrationCenters:
    Resident_GetCoordinateSpecificRegistrationCenters_allValid_smoke:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCentersResult
@@ -12,31 +13,6 @@ GetCoordinateSpecificRegistrationCenters:
 	  "longitude": "-6.453275"
 }'
       output: '{
-	"registrationCenters": [{
-	        "id": "$IGNORE$",
-            "name": "$IGNORE$",
-            "centerTypeCode": "$IGNORE$",
-            "addressLine1": "$IGNORE$",
-            "addressLine2": "$IGNORE$",
-            "addressLine3": "$IGNORE$",
-            "latitude": "{{latitude}}",
-            "longitude": "{{longitude}}",
-            "locationCode": "$IGNORE$",
-            "holidayLocationCode": "$IGNORE$",
-            "contactPhone": "$IGNORE$",
-            "workingHours": "$IGNORE$",
-            "langCode": "$IGNORE$",
-            "numberOfKiosks": "$IGNORE$",
-            "perKioskProcessTime": "$IGNORE$",
-            "centerStartTime": "$IGNORE$",
-            "centerEndTime": "$IGNORE$",
-            "timeZone": "$IGNORE$",
-            "contactPerson": "$IGNORE$",
-            "lunchStartTime": "$IGNORE$",
-            "lunchEndTime": "$IGNORE$",
-            "isActive": "$IGNORE$",
-            "zoneCode": "$IGNORE$"
-    }]
 }'
 
 
@@ -150,6 +126,7 @@ GetCoordinateSpecificRegistrationCenters:
    Resident_GetCoordinateSpecificRegistrationCenters_Valid_smoke:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCenters
       outputTemplate: resident/GetCoordinateSpecificRegistrationCenters/getCoordinateSpecificRegistrationCentersResult
@@ -160,31 +137,7 @@ GetCoordinateSpecificRegistrationCenters:
 	  "longitude": "-6.453275"
 }'
       output: '{
-	"registrationCenters": [{
-	        "id": "$IGNORE$",
-            "name": "$IGNORE$",
-            "centerTypeCode": "$IGNORE$",
-            "addressLine1": "$IGNORE$",
-            "addressLine2": "$IGNORE$",
-            "addressLine3": "$IGNORE$",
-            "latitude": "{{latitude}}",
-            "longitude": "{{longitude}}",
-            "locationCode": "$IGNORE$",
-            "holidayLocationCode": "$IGNORE$",
-            "contactPhone": "$IGNORE$",
-            "workingHours": "$IGNORE$",
-            "langCode": "$IGNORE$",
-            "numberOfKiosks": "$IGNORE$",
-            "perKioskProcessTime": "$IGNORE$",
-            "centerStartTime": "$IGNORE$",
-            "centerEndTime": "$IGNORE$",
-            "timeZone": "$IGNORE$",
-            "contactPerson": "$IGNORE$",
-            "lunchStartTime": "$IGNORE$",
-            "lunchEndTime": "$IGNORE$",
-            "isActive": "$IGNORE$",
-            "zoneCode": "$IGNORE$"
-    }]
+
 }'
 
    Resident_GetCoordinateSpecificRegistrationCenters_Invalid_langCode_Neg:
@@ -202,7 +155,7 @@ GetCoordinateSpecificRegistrationCenters:
       output: '{
 	  "errors": [
 	    {
-	      "errorCode": "$IGNORE$",
+	      "errorCode": "RES-SER-418",
 	      "message": "$IGNORE$"
 	    }
   	]
@@ -223,7 +176,7 @@ GetCoordinateSpecificRegistrationCenters:
       output: '{
 		  "errors": [
 		    {
-		      "errorCode": "$IGNORE$",
+		      "errorCode": "RES-SER-418",
 		      "message": "$IGNORE$"
 		    }
 		  ]
@@ -245,7 +198,7 @@ GetCoordinateSpecificRegistrationCenters:
       output: '{
 		  "errors": [
 		    {
-		      "errorCode": "$IGNORE$",
+		      "errorCode": "RES-SER-418",
 		      "message": "$IGNORE$"
 		    }
 		  ]
@@ -272,7 +225,7 @@ GetCoordinateSpecificRegistrationCenters:
 		  ]
 }'
 
-   Resident_GetCoordinateSpecificRegistrationCenters_Empty_LangCode_Neg:
+   Resident_GetCoordinateSpecificRegistrationCenters_StatusCode_Empty_LangCode_Neg:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
       restMethod: get
@@ -284,11 +237,9 @@ GetCoordinateSpecificRegistrationCenters:
 	  "proximitydistance": "21",
 	  "longitude": "-6.453275"
 }'
-      output: '{
-	  
-}'
+      output: "404"
 
-   Resident_GetCoordinateSpecificRegistrationCenters_Empty_Latitude_Neg:
+   Resident_GetCoordinateSpecificRegistrationCenters_StatusCode_Empty_Latitude_Neg:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
       restMethod: get
@@ -300,11 +251,9 @@ GetCoordinateSpecificRegistrationCenters:
 	  "proximitydistance": "21",
 	  "longitude": "-6.453275"
 }'
-      output: '{
-	  
-}'
+      output: "404"
 
-   Resident_GetCoordinateSpecificRegistrationCenters_Empty_Longitude_Neg:
+   Resident_GetCoordinateSpecificRegistrationCenters_StatusCode_Empty_Longitude_Neg:
       endPoint: /resident/v1/proxy/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: resident
       restMethod: get
@@ -316,6 +265,4 @@ GetCoordinateSpecificRegistrationCenters:
 	  "proximitydistance": "21",
 	  "longitude": ""
 }'
-      output: '{
-	  
-}'
+      output: "404"

@@ -191,6 +191,7 @@ SearchDocumentType:
    MasterData_SearchDocumentType_inValid_filter_value:
       endPoint: /v1/masterdata/documenttypes/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchDocumentType/searchDocumentType

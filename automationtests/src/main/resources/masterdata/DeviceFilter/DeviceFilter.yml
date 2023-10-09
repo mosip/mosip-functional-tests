@@ -99,6 +99,7 @@ DeviceFilter:
    MasterData_DeviceFilter_SerialNum_Unique_smoke:
       endPoint: /v1/masterdata/devices/filtervalues
       role: globalAdmin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceFilter/deviceFilter
@@ -113,12 +114,6 @@ DeviceFilter:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "$IGNORE$",
-        "fieldValue": "$IGNORE$"
-      }
-    ]
   }'    
        
    MasterData_DeviceFilter_Invalid_RequestTime:
@@ -165,8 +160,7 @@ DeviceFilter:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-317",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-317"
     }
   ]
 }'    

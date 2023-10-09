@@ -2,6 +2,7 @@ GetSpecificDocumentforaPRID:
    Prereg_GetSpecificDocumentforaPRID_All_Valid_Smoke_sid:
       endPoint: /preregistration/v1/documents/{documentId}?preRegistrationId={preRegistrationId}
       role: batch
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: preReg/GetSpecificDocumentforaPRID/getSpecificDocumentforaPRID
       outputTemplate: preReg/GetSpecificDocumentforaPRID/getSpecificDocumentforaPRIDResult
@@ -10,7 +11,7 @@ GetSpecificDocumentforaPRID:
   "documentId": "$ID:UploadDocument_All_Valid_Smoke_sid_docId$"
 }'
       output: '{
-  "document": "$IGNORE$"
+      "document": "$IGNORE$"
 }'
    Prereg_GetSpecificDocumentforaPRID_inValid_preRegistrationId_sid:
       endPoint: /preregistration/v1/documents/{documentId}?preRegistrationId={preRegistrationId}
@@ -25,8 +26,7 @@ GetSpecificDocumentforaPRID:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_APP_005",
-      "message": "No data found for the requested pre-registration id"
+      "errorCode": "PRG_PAM_APP_005"
     }
   ]
 }'
@@ -43,8 +43,7 @@ GetSpecificDocumentforaPRID:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_DOC_005",
-      "message": "Documents is not found for the requested pre-registration id"
+      "errorCode": "PRG_PAM_DOC_005"
     }
   ]
 }'

@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -11,6 +12,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -23,6 +25,7 @@ import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestException;
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -32,6 +35,14 @@ public class GetWithParamForAutoGenIdForKeyCloak extends AdminTestUtil implement
 	public String idKeyName = null;
 	public String valueKeyName = null;
 	public Response response = null;
+	
+	@BeforeClass
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 
 	/**
 	 * get current testcaseName
@@ -79,7 +90,7 @@ public class GetWithParamForAutoGenIdForKeyCloak extends AdminTestUtil implement
 				getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");

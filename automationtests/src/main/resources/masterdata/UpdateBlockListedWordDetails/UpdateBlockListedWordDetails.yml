@@ -14,8 +14,7 @@ UpdateBlockListedWordDetails:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "dumbooo",
-	"langCode": "eng"
+	"word": "dumbooo"
 }'
    Masterdata_CreateBlockListedWords_Invalid_BlocklistedWordsLength129:
       endPoint: /v1/masterdata/blocklistedwords/details
@@ -54,8 +53,12 @@ UpdateBlockListedWordDetails:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "bullword",
-	"langCode": "eng"
+  "errors": [
+    {
+      "errorCode": "KER-MSD-008",
+      "message": "Blocklisted word not found"
+    }
+  ]
 }'
    Masterdata_CreateBlockListedWords_Invalid_DescriptionLength257:
       endPoint: /v1/masterdata/blocklistedwords/details

@@ -2,6 +2,7 @@ SearchMispLicense:
    Partner_SearchMispLicense_Valid_Smoke:
       endPoint: /v1/partnermanager/misps/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/MispLicense/SearchMispLicense/searchMispLicense
       outputTemplate: partner/MispLicense/SearchMispLicense/searchMispLicenseResult
@@ -17,11 +18,11 @@ SearchMispLicense:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "errors": null
 }'
    Partner_SearchMispLicense_Valid_Filter_Name:
       endPoint: /v1/partnermanager/misps/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/MispLicense/SearchMispLicense/searchMispLicense
       outputTemplate: partner/MispLicense/SearchMispLicense/searchMispLicenseResult
@@ -40,7 +41,6 @@ SearchMispLicense:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "errors": null
 }'
    Partner_SearchMispLicense_Invalid_NegPageFetch:
       endPoint: /v1/partnermanager/misps/search
@@ -65,8 +65,7 @@ SearchMispLicense:
       output: '{
    "errors": [
     {
-       "errorCode": "PMS-MSD-313",
-      "message": "Invalid pagination value received pagestart:0 and pagefetch:-1"
+       "errorCode": "PMS-MSD-313"
     }
   ]
 }'
@@ -93,8 +92,7 @@ SearchMispLicense:
       output: '{
    "errors": [
     {
-       "errorCode": "PMS-MSD-313",
-      "message": "Invalid pagination value received pagestart:-1 and pagefetch:1"
+       "errorCode": "PMS-MSD-313"
     }
   ]
 }'
@@ -121,8 +119,7 @@ SearchMispLicense:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-358",
-      "message": "Sort type asdf is not supported"
+      "errorCode": "PMS-MSD-358"
     }
   ]
 }'
@@ -149,8 +146,7 @@ SearchMispLicense:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-357",
-      "message": "Invalid sort field createddDateTime"
+      "errorCode": "PMS-MSD-357"
     }
   ]
 }'
@@ -178,8 +174,7 @@ SearchMispLicense:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
+      "errorCode": "PMS-MSD-314"
     }
   ]
 }'

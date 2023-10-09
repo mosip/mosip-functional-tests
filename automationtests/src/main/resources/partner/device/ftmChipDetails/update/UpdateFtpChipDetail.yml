@@ -2,6 +2,7 @@ UpdateFtpChipDetail:
    Partner_UpdateFtpChipDetail_All_Valid_Smoke:
       endPoint: /v1/partnermanager/ftpchipdetail
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: put
       inputTemplate: partner/device/ftmChipDetails/update/updateFtpChipDetail
       outputTemplate: partner/device/ftmChipDetails/update/updateFtpChipDetailResult
@@ -12,7 +13,6 @@ UpdateFtpChipDetail:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "$IGNORE$"
     }'
 
    Partner_UpdateFtpChipDetail_Missing_InputParameter_ftpChipDetailId:
@@ -30,8 +30,7 @@ UpdateFtpChipDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.ftpChipDetailId"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

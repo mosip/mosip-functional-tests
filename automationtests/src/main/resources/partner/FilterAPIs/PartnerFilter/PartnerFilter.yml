@@ -14,7 +14,7 @@ PartnerFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
+        "filters": [
       {
         "fieldID": "id",
         "fieldValue": "mpartner-default-abis",
@@ -37,7 +37,7 @@ PartnerFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
+       "filters": [
       {
         "fieldID": "id",
         "fieldValue": "mpartner-default-abis",
@@ -62,8 +62,7 @@ PartnerFilter:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-322",
-      "message": "Filter Type cannot be empty or null"
+      "errorCode": "PMS-MSD-322"
     }
   ]
 }'
@@ -84,8 +83,7 @@ PartnerFilter:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-317",
-      "message": "$IGNORE$"
+      "errorCode": "PMS-MSD-317"
     }
   ]
 }'
@@ -106,8 +104,7 @@ PartnerFilter:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-324",
-      "message": "Received Filter Type not supported"
+      "errorCode": "PMS-MSD-324"
     }
   ]
 }'
@@ -128,8 +125,7 @@ PartnerFilter:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

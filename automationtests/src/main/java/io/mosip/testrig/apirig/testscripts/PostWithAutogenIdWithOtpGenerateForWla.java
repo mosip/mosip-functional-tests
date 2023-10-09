@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.ITest;
@@ -13,6 +14,7 @@ import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -35,6 +37,14 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 	protected String testCaseName = "";
 	public String idKeyName = null;
 	public Response response = null;
+	
+	@BeforeClass
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 	
 	/**
 	 * get current testcaseName
@@ -108,7 +118,7 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
@@ -144,7 +154,7 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		}
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()));
+				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

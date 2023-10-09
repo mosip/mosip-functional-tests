@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.ITest;
@@ -40,8 +41,11 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 	public Response response = null;
 
 	@BeforeClass
-	public static void setPrerequiste() {
-		logger.info("Starting authpartner demo service...");
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
 	}
 
 	/**
@@ -63,7 +67,6 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -77,9 +80,23 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		
+
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
+
+		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
+				throw new SkipException("Idtype UIN is not supported. Hence skipping the testcase");
+			}
+		}
+
+		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
+			}
 		}
 
 		JSONObject input = new JSONObject(testCaseDTO.getInput());
@@ -100,44 +117,59 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		requestBody.put("partnerName", PartnerRegistration.partnerId);
 		requestBody.put("moduleName", BaseTestCase.certsForModule);
 		requestBody.put(GlobalConstants.TRANSACTIONID, "$TRANSACTIONID$");
-		
+
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
 
-		
-		Response sendOtpReqResp = postWithOnlyQueryParamAndCookie(url + "/v1/identity/createOtpReqest", requestBody.toString(), GlobalConstants.AUTHORIZATION, GlobalConstants.RESIDENT, testCaseName);
-		
-		
-		
-		String otpInput = sendOtpReqResp.getBody().asString();
-		logger.info(otpInput);
-		String signature = sendOtpReqResp.getHeader("signature");
-		Object sendOtpBody = otpInput;
-		logger.info(sendOtpBody);
+		if (input.has("otp") && !input.get("otp").toString().equalsIgnoreCase("otp")) {
 
-		HashMap<String, String> headers = new HashMap<>();
-		headers.put(AUTHORIZATHION_HEADERNAME, token);
-		headers.put(SIGNATURE_HEADERNAME, signature);
+			Response sendOtpReqResp = postWithOnlyQueryParamAndCookie(url + "/v1/identity/createOtpReqest",
+					requestBody.toString(), GlobalConstants.AUTHORIZATION, GlobalConstants.RESIDENT, testCaseName);
 
-		Response otpRespon = null;
-		
-		otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(ApplnURI + "/idauthentication/v1/otp/"+ PartnerRegistration.partnerKeyUrl, sendOtpBody.toString(),  GlobalConstants.AUTHORIZATION, token, headers, testCaseName);
-		
-		JSONObject res = new JSONObject(testCaseDTO.getOutput());
-		String sendOtpResp = null;
-		String sendOtpResTemplate = null;
-		if (res.has(GlobalConstants.SENDOTPRESP)) {
-			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
-			res.remove(GlobalConstants.SENDOTPRESP);
+			String otpInput = sendOtpReqResp.getBody().asString();
+			logger.info(otpInput);
+			String signature = sendOtpReqResp.getHeader("signature");
+			Object sendOtpBody = otpInput;
+			logger.info(sendOtpBody);
+
+			HashMap<String, String> headers = new HashMap<>();
+			headers.put(AUTHORIZATHION_HEADERNAME, token);
+			headers.put(SIGNATURE_HEADERNAME, signature);
+
+			Response otpRespon = null;
+
+			otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(
+					ApplnURI + "/idauthentication/v1/otp/" + PartnerRegistration.partnerKeyUrl, sendOtpBody.toString(),
+					GlobalConstants.AUTHORIZATION, token, headers, testCaseName);
+
+			JSONObject res = new JSONObject(testCaseDTO.getOutput());
+			String sendOtpResp = null;
+			String sendOtpResTemplate = null;
+			if (res.has(GlobalConstants.SENDOTPRESP)) {
+				sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
+				res.remove(GlobalConstants.SENDOTPRESP);
+			}
+			JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
+			sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
+			sendOtpRespJson.remove("sendOtpResTemplate");
+			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
+					otpRespon.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
+					testCaseDTO.isCheckErrorsOnlyInResponse());
+			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
+
+			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
+				throw new AdminTestException("Failed at Send OTP output validation");
+
+			if (testCaseDTO.getTestCaseName().contains("expiredOTP")) {
+				try {
+					Thread.sleep(Long.parseLong(properties.getProperty("expireOtpTime")));
+				} catch (NumberFormatException e) {
+					logger.error("Exception : " + e.getMessage());
+				} catch (InterruptedException e) {
+					logger.error("Exception : " + e.getMessage());
+				}
+			}
+
 		}
-		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
-		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
-		sendOtpRespJson.remove("sendOtpResTemplate");
-		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
-				otpRespon.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
-		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
-
-		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
-			throw new AdminTestException("Failed at Send OTP output validation");
 
 		String endPoint = testCaseDTO.getEndPoint();
 		endPoint = uriKeyWordHandelerUri(endPoint, testCaseName);
@@ -152,10 +184,10 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		String inputStr = buildIdentityRequest(input.toString());
 
 		String authRequest = getJsonFromTemplate(inputStr, testCaseDTO.getInputTemplate());
-		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");		
-		
+		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");
+
 		response = postWithBodyAndCookie(url + endPoint, authRequest, COOKIENAME, testCaseDTO.getRole(), testCaseName);
-		
+
 		logger.info(response);
 		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 
@@ -178,12 +210,11 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		}
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), ActualOPJson);
+				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-
 
 	}
 

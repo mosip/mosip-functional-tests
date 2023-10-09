@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.ITest;
@@ -14,6 +15,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -36,6 +38,15 @@ public class SimplePost extends AdminTestUtil implements ITest {
 	public Response response = null;
 	public boolean sendEsignetToken = false;
 	public boolean auditLogCheck = false;
+	
+	@BeforeClass
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
+	
 	/**
 	 * get current testcaseName
 	 */
@@ -96,7 +107,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		            	
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 								response.asString(),
-								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()));
+								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 						Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -130,14 +141,17 @@ public class SimplePost extends AdminTestUtil implements ITest {
 				ouputValid.put("expected vs actual", List.of(customResponse));
 			}else {
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(
-					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 			}
 			
-			logger.info(ouputValid);
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
-			if (!OutputValidationUtil.publishOutputResult(ouputValid))
-				throw new AdminTestException("Failed at output validation");
+			if (!OutputValidationUtil.publishOutputResult(ouputValid)) {
+				if (response.asString().contains("IDA-OTA-001"))
+					throw new AdminTestException("Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
+				else
+					throw new AdminTestException("Failed at otp output validation");
+			}
 		}
 
 	}

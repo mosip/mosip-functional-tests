@@ -23,6 +23,7 @@ GetAppointmentDetails:
       output: '{
   "registration_center_id": "10003"
 }'
+
    Prereg_GetAppointmentDetails_inValid_preRegistrationId:
       endPoint: /preregistration/v1/appointment/{preRegistrationId}
       role: batch
@@ -35,8 +36,7 @@ GetAppointmentDetails:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_APP_013",
-      "message": "No Records Found"
+      "errorCode": "PRG_APP_013"
     }
   ]
 }'

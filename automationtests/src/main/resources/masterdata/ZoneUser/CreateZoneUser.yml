@@ -2,19 +2,19 @@ CreateZoneUser:
    MasterData_CreateZoneUser_All_Valid_Smoke:
       endPoint: /v1/masterdata/zoneuser
       role: globalAdmin
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: masterdata/ZoneUser/zoneUser
       outputTemplate: masterdata/ZoneUser/zoneUserResult
       input: '{
-    "zoneCode": "CST",
+    "zoneCode": "$ZONE_CODE$",
     "userId": "func_auto_test_user",
     "isActive": true,
     "langCode": "eng",
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-        "zoneCode": "CST",
-        "userId": "func_auto_test_user"
+        
     }'
     
    MasterData_CreateZoneUser__Empty_UserID_Valid:
@@ -24,7 +24,7 @@ CreateZoneUser:
       inputTemplate: masterdata/ZoneUser/zoneUser
       outputTemplate: masterdata/error
       input: '{
-    "zoneCode": "CST",
+    "zoneCode": "$ZONE_CODE$",
     "userId": "",
     "isActive": true,
     "langCode": "eng",

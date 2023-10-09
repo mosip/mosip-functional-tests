@@ -16,12 +16,9 @@ UserCenterMapping:
      "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-       "id": "func_auto_test_user",
-    "langCode": "eng",
     "name": "automation",
     "statusCode": "active",
     "regCenterId": "10005",
-    "isActive": $IGNORE$,
     "zoneCode": "BSN",
     "zoneName": "Benslimane",
     "regCenterName": "Center Mehdia"

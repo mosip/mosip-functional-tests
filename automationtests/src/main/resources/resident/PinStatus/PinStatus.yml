@@ -9,8 +9,7 @@ PinStatus:
       	"eventId": "$ID:GetServiceHistory_uin_all_Valid_Smoke_sid_eventId$"
 }'
       output: '{
-      		"status": "200",
-        	"message": "SUCCESS"
+      		"status": "200"
 }'
 
    Resident_PinStatus_vid_all_Valid_Smoke:
@@ -23,8 +22,7 @@ PinStatus:
       	"eventId": "$ID:GetServiceHistory_vid_all_Valid_Smoke_sid_eventId$"
 }'
       output: '{
-      		"status": "200",
-        	"message": "SUCCESS"
+      		"status": "200"
 }'
 
    Resident_PinStatus_uin_Invalid_Input_Neg:

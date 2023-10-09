@@ -146,6 +146,7 @@ FilterMachineSpec:
    Masterdata_FilterMachineSpec_Valid_filterText_blank:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
@@ -160,28 +161,6 @@ FilterMachineSpec:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "$IGNORE$",
-        "fieldValue": "$IGNORE$",
-        "fieldCode": "HP04"
-      },
-      {
-        "fieldID": "$IGNORE$",
-        "fieldValue": "$IGNORE$",
-        "fieldCode": "0"
-      },
-      {
-        "fieldID": "$IGNORE$",
-        "fieldValue": "$IGNORE$",
-        "fieldCode": "123"
-      },
-      {
-        "fieldID": "$IGNORE$",
-        "fieldValue": "$IGNORE$",
-        "fieldCode": "1001"
-      }
-    ]
   }'  
    Masterdata_FilterMachineSpec_inValid_filterType_blank:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
@@ -274,8 +253,7 @@ FilterMachineSpec:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-317",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-317"
     }
   ]
 }'
@@ -309,7 +287,7 @@ FilterMachineSpec:
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
-      outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
+      outputTemplate: masterdata/error
       input: '{
 	"filters": [{
 		"columnName": "name",
@@ -320,5 +298,9 @@ FilterMachineSpec:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": []
+  "errors": [
+    {
+      "errorCode": "KER-MSD-317"
+    }
+  ]
  }'

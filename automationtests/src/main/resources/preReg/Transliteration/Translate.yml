@@ -38,8 +38,7 @@ Transliteration:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_TRL_APP_002",
-      "message": "Unsupported language"
+      "errorCode": "PRG_TRL_APP_002"
     }
   ]
 }'
@@ -61,8 +60,7 @@ Transliteration:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_TRL_APP_002",
-      "message": "Unsupported language"
+      "errorCode": "PRG_TRL_APP_002"
     }
   ]
 }'

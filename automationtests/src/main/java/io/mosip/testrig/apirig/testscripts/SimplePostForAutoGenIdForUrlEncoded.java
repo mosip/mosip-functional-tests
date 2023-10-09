@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.ITest;
@@ -14,6 +15,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -35,6 +37,14 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 	protected String testCaseName = "";
 	public String idKeyName = null;
 	public Response response = null;
+	
+	@BeforeClass
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 
 	/**
 	 * get current testcaseName
@@ -96,7 +106,7 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 
 					Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 							response.asString(),
-							getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()));
+							getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 					if (testCaseDTO.getTestCaseName().toLowerCase().contains("dynamic")) {
 						JSONObject json = new JSONObject(response.asString());
 						idField = json.getJSONObject("response").get("id").toString();
@@ -119,7 +129,7 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 			}
 
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-					.doJsonOutputValidation(response.asString(), outputJson);
+					.doJsonOutputValidation(response.asString(), outputJson, testCaseDTO.isCheckErrorsOnlyInResponse());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");

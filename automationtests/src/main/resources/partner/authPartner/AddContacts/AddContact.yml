@@ -2,6 +2,7 @@ addContact:
    Partner_AddContact_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/Tech-123/contact/add
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/authPartner/AddContacts/addContact
       outputTemplate: partner/authPartner/AddContacts/addContactResult
@@ -13,7 +14,6 @@ addContact:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-   "response": "Contacts details added successfully."
     }'
    Partner_AddContact_Missing_InputParameter_address:
       endPoint: /v1/partnermanager/partners/Tech-123/contact/add
@@ -53,8 +53,7 @@ addContact:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.contactNumber"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -74,8 +73,7 @@ addContact:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.emailId"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

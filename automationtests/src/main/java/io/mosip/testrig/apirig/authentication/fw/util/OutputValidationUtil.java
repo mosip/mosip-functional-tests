@@ -12,18 +12,24 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.SkipException;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
+import io.mosip.testrig.apirig.admin.fw.util.AdminTestException;
 import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.testrig.apirig.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 
 /**
  * Perform output validation between expected and actual json file or message
@@ -35,6 +41,13 @@ public class OutputValidationUtil extends AuthTestsUtil{
 
 	private static final Logger OUTPUTVALIDATION_LOGGER = Logger.getLogger(OutputValidationUtil.class);
 	
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			OUTPUTVALIDATION_LOGGER.setLevel(Level.ALL);
+		else
+			OUTPUTVALIDATION_LOGGER.setLevel(Level.ERROR);
+	}
+	
 	/**
 	 * The method will perform output validation by comparing expected and actual value
 	 * 
@@ -42,22 +55,22 @@ public class OutputValidationUtil extends AuthTestsUtil{
 	 * @param expOutputFile
 	 * @return map of ouptut validation report
 	 */
-	public static Map<String, List<OutputValidationDto>> doOutputValidation(String actualOutputFile,
-			String expOutputFile) {
-		try {
-			Map<String, String> actual = MessagePrecondtion.getPrecondtionObject(actualOutputFile)
-					.retrieveMappingAndItsValueToPerformOutputValidation(actualOutputFile);
-			Map<String, String> exp = MessagePrecondtion.getPrecondtionObject(expOutputFile)
-					.retrieveMappingAndItsValueToPerformOutputValidation(expOutputFile);
-			actualOutputFile = actualOutputFile.substring(actualOutputFile.lastIndexOf("/") + 1,
-					actualOutputFile.length());
-			expOutputFile = expOutputFile.substring(expOutputFile.lastIndexOf("/") + 1, expOutputFile.length());
-			return compareActuExpValue(actual, exp, actualOutputFile + " vs " + expOutputFile);
-		} catch (Exception e) {
-			OUTPUTVALIDATION_LOGGER.error("Exceptione occured " + e.getMessage());
-			return Collections.emptyMap();
-		}
-	}
+//	public static Map<String, List<OutputValidationDto>> doOutputValidation(String actualOutputFile,
+//			String expOutputFile) {
+//		try {
+//			Map<String, String> actual = MessagePrecondtion.getPrecondtionObject(actualOutputFile)
+//					.retrieveMappingAndItsValueToPerformOutputValidation(actualOutputFile);
+//			Map<String, String> exp = MessagePrecondtion.getPrecondtionObject(expOutputFile)
+//					.retrieveMappingAndItsValueToPerformOutputValidation(expOutputFile);
+//			actualOutputFile = actualOutputFile.substring(actualOutputFile.lastIndexOf("/") + 1,
+//					actualOutputFile.length());
+//			expOutputFile = expOutputFile.substring(expOutputFile.lastIndexOf("/") + 1, expOutputFile.length());
+//			return compareActuExpValue(actual, exp, actualOutputFile + " vs " + expOutputFile);
+//		} catch (Exception e) {
+//			OUTPUTVALIDATION_LOGGER.error("Exceptione occured " + e.getMessage());
+//			return Collections.emptyMap();
+//		}
+//	}
 	
 	/**
 	 * The method will compare expected and actual value
@@ -71,8 +84,12 @@ public class OutputValidationUtil extends AuthTestsUtil{
 	 */
 	public static Map<String, List<OutputValidationDto>> compareActuExpValue(Map<String, String> actual,
 			Map<String, String> exp, String actVsExp) {
+		if(actual == null || exp == null)
+			throw new SkipException("Marking testcase as Skipped, as no Output comparison done");
+		
 		Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
 		List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
+		boolean comparisonDone = false;
 		try {
 			for (Entry<String, String> actualEntry : actual.entrySet()) {
 				OutputValidationDto objOpDto = new OutputValidationDto();
@@ -95,6 +112,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 							objOpDto.setActualValue(actual.get(expEntry.getKey()));
 							objOpDto.setExpValue(expEntry.getValue());
 							objOpDto.setStatus("PASS");
+							comparisonDone = true;
 						} else if (expEntry.getValue().equals("$TIMESTAMP$")) {
 							if (validateTimestampZ(actual.get(expEntry.getKey()))) {
 								objOpDto.setFieldName(expEntry.getKey());
@@ -102,12 +120,14 @@ public class OutputValidationUtil extends AuthTestsUtil{
 								objOpDto.setActualValue(actual.get(expEntry.getKey()));
 								objOpDto.setExpValue(expEntry.getValue());
 								objOpDto.setStatus("PASS");
+								comparisonDone = true;
 							} else {
 								objOpDto.setFieldName(expEntry.getKey());
 								objOpDto.setFieldHierarchy(expEntry.getKey());
 								objOpDto.setActualValue(actual.get(expEntry.getKey()));
 								objOpDto.setExpValue(expEntry.getValue());
 								objOpDto.setStatus(GlobalConstants.FAIL_STRING);
+								comparisonDone = true;
 							}
 						} else if (expEntry.getValue().equals("$TIMESTAMPZ$")) {
 							if (validateTimestampZ(actual.get(expEntry.getKey()))) {
@@ -116,12 +136,14 @@ public class OutputValidationUtil extends AuthTestsUtil{
 								objOpDto.setActualValue(actual.get(expEntry.getKey()));
 								objOpDto.setExpValue(expEntry.getValue());
 								objOpDto.setStatus("PASS");
+								comparisonDone = true;
 							} else {
 								objOpDto.setFieldName(expEntry.getKey());
 								objOpDto.setFieldHierarchy(expEntry.getKey());
 								objOpDto.setActualValue(actual.get(expEntry.getKey()));
 								objOpDto.setExpValue(expEntry.getValue());
 								objOpDto.setStatus(GlobalConstants.FAIL_STRING);
+								comparisonDone = true;
 							}
 						} else if (expEntry.getValue().contains(GlobalConstants.TOKENID_STRING) && expEntry.getValue().contains(".")) {
 							String key = expEntry.getValue().replace(GlobalConstants.TOKENID_STRING, "");
@@ -134,12 +156,14 @@ public class OutputValidationUtil extends AuthTestsUtil{
 									objOpDto.setActualValue(actual.get(expEntry.getKey()));
 									objOpDto.setExpValue(expEntry.getValue());
 									objOpDto.setStatus("PASS");
+									comparisonDone = true;
 								} else {
 									objOpDto.setFieldName(expEntry.getKey());
 									objOpDto.setFieldHierarchy(expEntry.getKey());
 									objOpDto.setActualValue(actual.get(expEntry.getKey()));
 									objOpDto.setExpValue(expEntry.getValue());
 									objOpDto.setStatus(GlobalConstants.FAIL_STRING);
+									comparisonDone = true;
 								}
 							} else if (tokenid.contains("TOKENID")) {
 								tokenid = tokenid.replace(GlobalConstants.TOKENID_STRING, "");
@@ -152,6 +176,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 								objOpDto.setActualValue(actual.get(expEntry.getKey()));
 								objOpDto.setExpValue(expEntry.getValue());
 								objOpDto.setStatus("PASS");
+								comparisonDone = true;
 							}
 						} else if (expEntry.getValue().contains("$REGEXP")) {
 							String extractRegex = expEntry.getValue().replace("$", "");
@@ -163,12 +188,14 @@ public class OutputValidationUtil extends AuthTestsUtil{
 								objOpDto.setActualValue(actual.get(expEntry.getKey()));
 								objOpDto.setExpValue(expEntry.getValue());
 								objOpDto.setStatus("PASS");
+								comparisonDone = true;
 							} else {
 								objOpDto.setFieldName(expEntry.getKey());
 								objOpDto.setFieldHierarchy(expEntry.getKey());
 								objOpDto.setActualValue(actual.get(expEntry.getKey()));
 								objOpDto.setExpValue(expEntry.getValue());
 								objOpDto.setStatus(GlobalConstants.FAIL_STRING);
+								comparisonDone = true;
 							}
 						} else {
 							objOpDto.setFieldName(expEntry.getKey());
@@ -176,6 +203,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 							objOpDto.setActualValue(actual.get(expEntry.getKey()));
 							objOpDto.setExpValue(expEntry.getValue());
 							objOpDto.setStatus(GlobalConstants.FAIL_STRING);
+							comparisonDone = true;
 						}
 						objList.add(objOpDto);
 					} else if (expEntry.getValue().contains("$DECODE$")) {
@@ -198,6 +226,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 							objOpDto.setActualValue(actualMap.toString());
 							objOpDto.setExpValue(expMap.toString());
 							objOpDto.setStatus("PASS");
+							comparisonDone = true;
 						} else {
 							Reporter.log("Kyc verification failed");
 							OUTPUTVALIDATION_LOGGER.error("Kyc Verification failed \\n Expected Kyc: " + expMap + "\\n Actual Kyc: " + actualMap);
@@ -206,6 +235,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 							objOpDto.setActualValue(actualMap.toString());
 							objOpDto.setExpValue(expMap.toString());
 							objOpDto.setStatus(GlobalConstants.FAIL_STRING);
+							comparisonDone = true;
 						}
 					}
 				} else if (!expEntry.getValue().equals("$IGNORE$")) {
@@ -214,15 +244,19 @@ public class OutputValidationUtil extends AuthTestsUtil{
 					objOpDto.setActualValue("NOT AVAILABLE");
 					objOpDto.setExpValue(expEntry.getValue());
 					objOpDto.setStatus(GlobalConstants.FAIL_STRING);
+					comparisonDone = true;
 					objList.add(objOpDto);
 					OUTPUTVALIDATION_LOGGER
 							.error("The expected json path " + expEntry.getKey() + " is not available in actual json");
 				}
 			}
+
 			objMap.put(actVsExp, objList);
 		} catch (JSONException | IOException e) {
 			OUTPUTVALIDATION_LOGGER.error("Kyc Verification failed " + e.getMessage());
 		}
+		if(comparisonDone == false)
+			throw new SkipException("Marking testcase as Skipped, as no Output comparison done");
 		return objMap;
 	}
 	
@@ -416,23 +450,72 @@ public class OutputValidationUtil extends AuthTestsUtil{
 				}
 				}catch(Exception e)
 				{
-					OUTPUTVALIDATION_LOGGER.error(e.getStackTrace());
+					OUTPUTVALIDATION_LOGGER.error(e.getMessage());
 				}
 			}
 		}
 		return true;
 	}
+	
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
-			String expOutputJson) {
+			String expOutputJson, boolean checkErrorsOnlyInResponse) throws AdminTestException {
+		return doJsonOutputValidation(actualOutputJson,
+				expOutputJson, checkErrorsOnlyInResponse, "expected vs actual", doesResponseHasErrors(actualOutputJson));
+	}
+	
+	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
+			String expOutputJson, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors) throws AdminTestException {
+		if (doesResponseHasErrorCode(actualOutputJson, 500))
+			throw new AdminTestException("Internal Server Error. Hence marking the test case as failed");
+		if (doesResponseHasErrorCode(actualOutputJson, 404))
+			throw new AdminTestException("Page not found. Hence marking the test case as failed");
+		JsonPrecondtion jsonPrecondtion = new JsonPrecondtion();
+		Map<String, String> actual = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
+		Map<String, String> exp = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);
+		
+		return doJsonOutputValidation(actual, exp, checkErrorsOnlyInResponse, context, responseHasErrors);
+	}
+	
+	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(Map<String, String> actualOutput,
+			Map<String, String> expOutput, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors) throws AdminTestException {
 		try {
-			JsonPrecondtion jsonPrecondtion = new JsonPrecondtion();
-			Map<String, String> actual = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
-			Map<String, String> exp = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);
-			return compareActuExpValue(actual, exp, "expected vs actual");
-		} catch (Exception e) {
-			OUTPUTVALIDATION_LOGGER.error("Exceptione occured " + e.getMessage());
-			return Collections.emptyMap();
+			return compareActuExpValue(actualOutput, expOutput, context);
+		}catch (SkipException e) {
+			if (responseHasErrors) 
+				throw new AdminTestException("Response has errors");
+			else if(!checkErrorsOnlyInResponse)
+				throw new SkipException(e.getMessage());
+			else 
+				return Collections.emptyMap(); // No output validation required. Hence marking the test case as passed
 		}
+	}
+	
+	public static boolean doesResponseHasErrors(String responseString) {
+		JSONObject responseJson = new JSONObject(responseString);
+		boolean breturn = false;
+		JSONArray errors = null;
+		String error = null;
+		if (responseJson.has("errors")) {
+			errors = responseJson.optJSONArray("errors");
+		}
+		else if (responseJson.has("error")) {
+			error = responseJson.getString("error");
+		}
+		if (errors != null)
+			breturn = (errors.length() > 0);
+		else if (error != null)
+			breturn = true;
+			
+		return breturn;
+	}
+	
+	public static boolean doesResponseHasErrorCode(String responseString, int errorCode) {
+		JSONObject responseJson = new JSONObject(responseString);
+		if (responseJson.has("status")) {
+			return responseJson.getInt("status") == errorCode;
+		}
+			
+		return false;
 	}
 	
 }

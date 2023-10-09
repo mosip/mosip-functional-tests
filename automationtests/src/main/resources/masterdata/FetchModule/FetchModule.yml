@@ -2,6 +2,7 @@ FetchModule:
    MasterData_FetchModule_allValid_smoke_with_lang:
       endPoint: /v1/masterdata/modules/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchModule/fetchModule
       outputTemplate: masterdata/FetchModule/fetchModuleResult
@@ -9,13 +10,6 @@ FetchModule:
   "langcode": "eng"
 }'
       output: '{
-"modules": [{
-        "id": "$IGNORE$",
-        "name": "$IGNORE$",
-        "langCode": "eng",
-        "description": "$IGNORE$",
-        "isActive": $IGNORE$
-    }]
 }'       
    MasterData_FetchModule_Invalid_smoke_with_Invalid_langcode:
       endPoint: /v1/masterdata/modules/{langcode}

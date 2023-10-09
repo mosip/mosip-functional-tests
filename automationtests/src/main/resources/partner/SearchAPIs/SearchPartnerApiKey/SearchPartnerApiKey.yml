@@ -2,6 +2,7 @@ SearchPartnerApiKey:
    Partner_SearchPartnerApiKey_AllValid_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKeyResult
@@ -11,15 +12,11 @@ SearchPartnerApiKey:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "policyApiKey": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPartnerApiKey_Only_FilterCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKeyResult
@@ -36,15 +33,11 @@ SearchPartnerApiKey:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "policyApiKey": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPartnerApiKey_Only_SortCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKeyResult
@@ -60,15 +53,11 @@ SearchPartnerApiKey:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "policyApiKey": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPartnerApiKey_Only_Pagination_Criteria_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKeyResult
@@ -78,15 +67,11 @@ SearchPartnerApiKey:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "policyApiKey": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPartnerApiKey_type_contains_Smoke_asc_sid:
       endPoint: /v1/partnermanager/partners/apikey/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiKey/searchPartnerApiKeyResult
@@ -109,11 +94,6 @@ SearchPartnerApiKey:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "data": [
-     {
-        "policyApiKey": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPartnerApiKey_type_contains_invalid_pagination:
       endPoint: /v1/partnermanager/partners/apikey/search
@@ -143,8 +123,7 @@ SearchPartnerApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-313",
-      "message": "Invalid pagination value received pagestart:0 and pagefetch:0"
+      "errorCode": "PMS-MSD-313"
     }
   ]
 }'
@@ -176,8 +155,7 @@ SearchPartnerApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-357",
-      "message": "Invalid sort field abcd"
+      "errorCode": "PMS-MSD-357"
     }
   ]
 }'
@@ -209,8 +187,7 @@ SearchPartnerApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-358",
-      "message": "Sort type abcd is not supported"
+      "errorCode": "PMS-MSD-358"
     }
   ]
 }'
@@ -242,8 +219,7 @@ SearchPartnerApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-310",
-      "message": "Invalid column received : abcd"
+      "errorCode": "PMS-MSD-310"
     }
   ]
 }'

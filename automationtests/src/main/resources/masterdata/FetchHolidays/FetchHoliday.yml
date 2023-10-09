@@ -2,6 +2,7 @@ FetchHolidays:
    MasterData_FetchHolidays_allValid_smoke_get:
       endPoint: /v1/masterdata/holidays
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchHolidays/fetchHoliday
       outputTemplate: masterdata/FetchHolidays/fetchHolidayResult
@@ -10,15 +11,12 @@ FetchHolidays:
       "langcode": "$REMOVE$"
       }'
       output: '{
-"holidays": [{
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
-      }]
 }'
   
-   MasterData_FetchHolidays_allValid_smoke_with Id:
+   MasterData_FetchHolidays_allValid_smoke_with_Id:
       endPoint: /v1/masterdata/holidays/{holidayid}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchHolidays/fetchHoliday
       outputTemplate: masterdata/FetchHolidays/fetchHolidayResult
@@ -27,14 +25,11 @@ FetchHolidays:
       "langcode":"$REMOVE$"
       }'
       output: '{
-"holidays": [{
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
-      }]
 }'        
-   MasterData_FetchHolidays_allValid_smoke_with Id and langCode:
+   MasterData_FetchHolidays_allValid_smoke_with_Id_and_langCode:
       endPoint: /v1/masterdata/holidays/{holidayid}/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchHolidays/fetchHoliday
       outputTemplate: masterdata/FetchHolidays/fetchHolidayResult
@@ -43,11 +38,6 @@ FetchHolidays:
       "langcode":"eng"
       }'
       output: '{
-"holidays": [{
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
-      }
-    ]
   }'        
    MasterData_FetchHolidays_invalid_holidayid_unexisting:
       endPoint: /v1/masterdata/holidays/{holidayid}

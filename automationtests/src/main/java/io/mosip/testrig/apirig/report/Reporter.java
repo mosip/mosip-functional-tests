@@ -19,6 +19,9 @@ public class Reporter {
 
 	private static final Logger REPORTLOG = Logger.getLogger(Reporter.class);
 
+	
+	
+	
 	public static String getAppDepolymentVersion() {
 		MavenXpp3Reader reader = new MavenXpp3Reader();
 		Model model = null;

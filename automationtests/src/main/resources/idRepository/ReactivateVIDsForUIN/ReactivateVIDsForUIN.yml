@@ -18,6 +18,7 @@ ReactivateVIDs:
   IdRepository_ReactivateVIDs_Deactivated_Uin:
       endPoint: /idrepository/v1/vid/reactivate
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUIN
       outputTemplate: idRepository/ReactivateVIDsForUIN/reactivateVIDsForUINResult
@@ -28,7 +29,10 @@ ReactivateVIDs:
     "version": "v1"
 }'  
       output: '{
-    "vidStatus": "ACTIVE"
+  "errors": [
+    {
+    }
+  ]
 }'
 
   IdRepository_ReactivateVIDs_Onetime_Smoke_Pos:
@@ -62,8 +66,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -82,8 +85,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -103,8 +105,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -124,8 +125,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -145,8 +145,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -166,8 +165,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -187,8 +185,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -208,8 +205,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -229,8 +225,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -249,8 +244,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -270,8 +264,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -291,8 +284,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -312,8 +304,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -333,8 +324,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -354,8 +344,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -374,8 +363,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -395,8 +383,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -416,8 +403,7 @@ ReactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'

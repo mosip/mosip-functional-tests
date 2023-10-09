@@ -2,6 +2,7 @@ GetRemainingupdatecountbyIndividualIdRequest:
    Resident_GetRemainingupdatecountbyIndividualIdRequest_Valid_Smoke:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest
       outputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequestResult
@@ -17,6 +18,7 @@ GetRemainingupdatecountbyIndividualIdRequest:
    Resident_GetRemainingupdatecountby_Invalid_IndividualIdRequest_Negative:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest
       outputTemplate: resident/error
@@ -26,12 +28,18 @@ GetRemainingupdatecountbyIndividualIdRequest:
  		  "attribute_list": "fullName"
 }'
       output: '{
-   		
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-004",
+      "message": "Unknown error occurred"
+    }
+  ]
 }'
 
-   Resident_GetRemainingupdatecountby_empty_IndividualIdRequest_Negative:
+   Resident_GetRemainingupdatecountby_StatusCode_empty_IndividualIdRequest_Negative:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest
       outputTemplate: resident/error
@@ -40,13 +48,12 @@ GetRemainingupdatecountbyIndividualIdRequest:
 		  "idType": "UIN",
  		  "attribute_list": "fullName"
 }'
-      output: '{
-   		
-}'
+      output: "404"
 
    Resident_GetRemainingupdatecountbyIndividualIdRequest_Invalid_Token:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
-      role: invalid
+      role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRemainingupdatecountbyIndividualIdRequest/GetRemainingupdatecountbyIndividualIdRequest
       outputTemplate: resident/error
@@ -56,5 +63,9 @@ GetRemainingupdatecountbyIndividualIdRequest:
  		  "attribute_list": "fullName"
 }'
       output: '{
-   		
+  "errors": [
+    {
+      "errorCode": "KER-ATH-403"
+    }
+  ]
 }'

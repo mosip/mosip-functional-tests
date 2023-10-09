@@ -2,6 +2,7 @@ RetrieveIdentity:
   IdRepository_RetrieveIdentity_With_Valid_UIN_Smoke_Pos:
       endPoint: /idrepository/v1/identity/idvid/{id}
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: idRepository/RetrieveIdentityByUin/retrieveIdentityByUin
       outputTemplate: idRepository/error
@@ -15,6 +16,7 @@ RetrieveIdentity:
   IdRepository_RetrieveIdentity_With_Deactivated_UIN_Smoke_Pos:
       endPoint: /idrepository/v1/identity/idvid/{id}
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: idRepository/RetrieveIdentityByUin/retrieveIdentityByUin
       outputTemplate: idRepository/error
@@ -28,6 +30,7 @@ RetrieveIdentity:
   IdRepository_RetrieveIdentity_With_Valid_Vid_Smoke_Pos:
       endPoint: /idrepository/v1/identity/idvid/{id}
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: idRepository/RetrieveIdentityByUin/retrieveIdentityByUin
       outputTemplate: idRepository/error
@@ -50,8 +53,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-007",
-      "message": "No Record(s) found"
+      "errorCode": "IDR-IDC-007"
     }
   ]
 }'
@@ -78,8 +80,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-007",
-      "message": "No Record(s) found"
+      "errorCode": "IDR-IDC-007"
     }
   ]
 }'
@@ -106,8 +107,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-007",
-      "message": "No Record(s) found"
+      "errorCode": "IDR-IDC-007"
     }
   ]
 }'
@@ -124,8 +124,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-007",
-      "message": "No Record(s) found"
+      "errorCode": "IDR-IDC-007"
     }
   ]
 }'
@@ -142,8 +141,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-VID-001",
-      "message": "VID is DEACTIVATED"
+      "errorCode": "IDR-VID-001"
     }
   ]
 }'
@@ -159,8 +157,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-VID-001",
-      "message": "VID is DEACTIVATED"
+      "errorCode": "IDR-VID-001"
     }
   ]
 }'
@@ -176,8 +173,7 @@ RetrieveIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-VID-001",
-      "message": "VID is DEACTIVATED"
+      "errorCode": "IDR-VID-001"
     }
   ]
 }'

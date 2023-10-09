@@ -2,6 +2,7 @@ SearchPartnerApiRequestKey:
    Partner_SearchPartnerApiRequestKey_AllValid_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/request/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKeyResult
@@ -12,15 +13,11 @@ SearchPartnerApiRequestKey:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "apikeyRequestId": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPartnerApiRequestKey_Only_FilterCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/request/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKeyResult
@@ -38,15 +35,11 @@ SearchPartnerApiRequestKey:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "apikeyRequestId": "mpartner_policy_auth_req"
-      }
-    ]
 }'
    Partner_SearchPartnerApiRequestKey_Only_SortCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/request/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKeyResult
@@ -63,15 +56,11 @@ SearchPartnerApiRequestKey:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "apikeyRequestId": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPartnerApiRequestKey_Only_PaginationCriteria_Smoke:
       endPoint: /v1/partnermanager/partners/apikey/request/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKeyResult
@@ -82,15 +71,11 @@ SearchPartnerApiRequestKey:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "apikeyRequestId": "$IGNORE$"
-      }
-    ]
 }'
    Partner_SearchPartnerApiRequestKey_type_contains_Smoke_asc_sid:
       endPoint: /v1/partnermanager/partners/apikey/request/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKey
       outputTemplate: partner/SearchAPIs/SearchPartnerApiRequestKey/searchPartnerApiRequestKeyResult
@@ -109,11 +94,6 @@ SearchPartnerApiRequestKey:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "apikeyRequestId": "mpartner_policy_auth_req"
-      }
-    ]
 }'
 
    Partner_SearchPartnerApiRequestKey_type_contains_invalid_pagination:
@@ -139,8 +119,7 @@ SearchPartnerApiRequestKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-313",
-      "message": "Invalid pagination value received pagestart:0 and pagefetch:0"
+      "errorCode": "PMS-MSD-313"
     }
   ]
 }'

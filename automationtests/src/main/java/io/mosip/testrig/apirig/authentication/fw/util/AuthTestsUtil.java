@@ -147,12 +147,12 @@ public class AuthTestsUtil extends BaseTestCase {
 					responseJson = response.asString();
 					responseJsonToVerifyDigtalSignature = responseJson;
 					responseDigitalSignatureValue = response.getHeader(responseDigitalSignatureKey);
-					GlobalMethods.reportResponse(urlPath, response);
+					GlobalMethods.reportResponse(response.getHeaders().asList().toString(), urlPath, response);
 					responseJson = JsonPrecondtion.toPrettyFormat(responseJson);
 					outputStream.write(responseJson.getBytes());
 				} catch (Exception e) {
 					bReturn = false;
-					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getStackTrace());
+					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 					break;
 				}
 			}
@@ -187,11 +187,11 @@ public class AuthTestsUtil extends BaseTestCase {
 								cookieName, cookieValue, AUTHORIZATHION_COOKIENAME, authHeaderValue);
 					responseJsonToVerifyDigtalSignature = response.asString();
 					responseDigitalSignatureValue = response.getHeader(responseDigitalSignatureKey);
-					GlobalMethods.reportResponse(urlPath, response);
+					GlobalMethods.reportResponse(response.getHeaders().asList().toString(), urlPath, response);
 					outputStream.write(response.asString().getBytes());
 				} catch (Exception e) {
 					bReturn = false;
-					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getStackTrace());
+					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 					break;
 				}
 			}
@@ -224,7 +224,7 @@ public class AuthTestsUtil extends BaseTestCase {
 					else
 						responseJson = postRequestWithCookie(listOfFiles[j].getAbsolutePath(), urlPath, code,
 								cookieName, cookieValue);
-					GlobalMethods.reportResponse(urlPath, responseJson);
+					GlobalMethods.reportResponse(responseJson.getHeaders().asList().toString(), urlPath, responseJson);
 					outputStream.write(responseJson.asString().getBytes());
 					return responseJson.asString();
 				}
@@ -307,7 +307,7 @@ public class AuthTestsUtil extends BaseTestCase {
 					if (responseJson.asString().contains("Invalid UIN")) {
 						return false;
 					} else {
-						GlobalMethods.reportResponse(urlPath, responseJson);
+						GlobalMethods.reportResponse(responseJson.getHeaders().asList().toString(), urlPath, responseJson);
 						outputStream.write(responseJson.asString().getBytes());
 						return true;
 					}
@@ -584,7 +584,7 @@ public class AuthTestsUtil extends BaseTestCase {
 			for (int j = 0; j < listOfFiles.length; j++) {
 				if (listOfFiles[j].getName().contains(keywordToFind)) {
 					String responseJson = getContentFromFile(listOfFiles[j]);
-					GlobalMethods.reportRequest(responseJson);
+					GlobalMethods.reportRequest(null, responseJson);
 				}
 			}
 		} catch (Exception e) {
@@ -731,19 +731,7 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @param otpMappingFieldName
 	 * @return String , OTP Value
 	 */
-	public String getOtpValue(String inputFilePath, String mappingFileName, String otpMappingFieldName) {
-		String value = JsonPrecondtion.getValueFromJson(inputFilePath, mappingFileName, otpMappingFieldName);
-		if (value.contains(":")) {
-			if (proxy)
-				return "111111";
-			String[] otpKeyword = value.split(":");
-			String otpQuery = otpKeyword[0];
-			String waitTime = otpKeyword[1];
-			wait(Integer.parseInt(waitTime) * 1000);
-			return DbConnection.getDataForQuery(otpQuery, "KERNEL").get("otp");
-		} else
-			return value;
-	}
+	
 
 	/**
 	 * The method retrieve value from json
@@ -1088,24 +1076,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		return null;
 	}
 
-	/**
-	 * The method will get otp value
-	 * 
-	 * @param value
-	 * @return OTP value
-	 */
-	public String getOtpValue(String value) {
-		if (value.contains(":")) {
-			if (proxy)
-				return "111111";
-			String[] otpKeyword = value.split(":");
-			String otpQuery = otpKeyword[0];
-			String waitTime = otpKeyword[1];
-			wait(Integer.parseInt(waitTime) * 1000);
-			return DbConnection.getDataForQuery(otpQuery, "KERNEL").get("otp");
-		} else
-			return value;
-	}
+
 
 	/**
 	 * The method returns run config path
@@ -1333,7 +1304,7 @@ public class AuthTestsUtil extends BaseTestCase {
 		try {
 			outputStream = new FileOutputStream(parentFile + "/" + generateOutputFileKeyword + ".json");
 			String responseJson = getResponseWithCookie(urlPath, cookieName, cookieValue);
-			GlobalMethods.reportResponse(urlPath, responseJson, true);
+			GlobalMethods.reportResponse(null, urlPath, responseJson, true);
 			outputStream.write(responseJson.getBytes());
 			return responseJson;
 		} catch (Exception e) {
@@ -1422,11 +1393,11 @@ public class AuthTestsUtil extends BaseTestCase {
 								cookieValue);
 					responseJsonToVerifyDigtalSignature = response.asString();
 					responseDigitalSignatureValue = response.getHeader(responseDigitalSignatureKey);
-					GlobalMethods.reportResponse(urlPath, response);
+					GlobalMethods.reportResponse(response.getHeaders().asList().toString(), urlPath, response);
 					outputStream.write(response.asString().getBytes());
 				} catch (Exception e) {
 					bReturn = false;
-					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getStackTrace());
+					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 					break;
 				}
 			}
@@ -1450,7 +1421,7 @@ public class AuthTestsUtil extends BaseTestCase {
 								cookieValue);
 					responseJsonToVerifyDigtalSignature = response.asString();
 					responseDigitalSignatureValue = response.getHeader(responseDigitalSignatureKey);
-					GlobalMethods.reportResponse(urlPath, response);
+					GlobalMethods.reportResponse(response.getHeaders().asList().toString(), urlPath, response);
 					outputStream.write(response.asString().getBytes());
 				} catch (Exception e) {
 					IDASCRIPT_LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e);

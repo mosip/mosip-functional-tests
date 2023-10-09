@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
@@ -19,11 +20,20 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 	private static final Logger lOGGER = Logger.getLogger(CertificateGenerationUtil.class);
 
 	static {
+		if (ConfigManager.IsDebugEnabled())
+			lOGGER.setLevel(Level.ALL);
+		else
+			lOGGER.setLevel(Level.ERROR);
 		lOGGER.info("EncryptUtilBaseUrl " + ConfigManager.getAuthDemoServiceUrl());
 		getThumbprints();
 	}
 
 	public static void getThumbprints() {
+		if (!BaseTestCase.isTargetEnvLTS()) {
+			// In case of 1.1.5 we don't have auto sync of certificates between Keymanager cert store and IDA cert store
+			// So use the predefined certificate folder and partnerkey
+			return ;
+		}
 		String appId = properties.getProperty("appIdForCertificate");
 		getAndUploadIdaCertificate(appId, properties.getProperty("partnerrefId"), properties.getProperty("uploadPartnerurl"));
 		getAndUploadIdaCertificate(appId, properties.getProperty("internalrefId"), properties.getProperty("uploadInternalurl"));
@@ -41,9 +51,7 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		JSONObject responseJson = new JSONObject(response.asString());
 		JSONObject responseValue = (JSONObject) responseJson.get("response");
-		lOGGER.info(responseValue);
 		String idaCertValue = responseValue.getString("certificate");
-		lOGGER.info(idaCertValue);
 
 		JSONObject request = new JSONObject();
 		request.put("certData", idaCertValue);
@@ -59,8 +67,6 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 
 		Response reponse = RestClient.postRequest(ConfigManager.getAuthDemoServiceUrl() + "/" + endPoint,
 				request.toMap(), MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
-		lOGGER.info(reponse);
-
 	}
 
 }

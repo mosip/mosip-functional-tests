@@ -15,8 +15,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -36,8 +35,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -57,8 +55,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -78,8 +75,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -99,8 +95,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -120,8 +115,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -141,8 +135,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -162,17 +155,16 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
-  IdRepository_UpdateVidStatus_withVidStatus_USED_For Vid Type_Perpetual:
+  IdRepository_UpdateVidStatus_withVidStatus_USED_For_Vid Type_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
       restMethod: PATCH
       inputTemplate: idRepository/UpdateVIDStatus/updateVidStatus
-      outputTemplate: idRepository/error
+      outputTemplate: idRepository/UpdateVIDStatus/UpdateVidStatusResult
       input: '{
     "vidStatus": "USED",
     "id": "mosip.vid.update",
@@ -181,7 +173,7 @@ UpdateVidStatus:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "vidStatus": "USED"
+    "vidStatus": "ACTIVE"
 }'
   IdRepository_UpdateVidStatus_withInvalidversion_ForVidType_Perpetual:
       endPoint: /idrepository/v1/vid/{VID}
@@ -199,8 +191,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -220,8 +211,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -241,8 +231,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -262,8 +251,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -283,8 +271,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -304,8 +291,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -325,8 +311,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -346,8 +331,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -367,8 +351,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -388,8 +371,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -409,8 +391,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -430,8 +411,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -451,8 +431,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -472,8 +451,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -493,8 +471,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -514,8 +491,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -535,8 +511,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -556,8 +531,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -577,8 +551,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -598,8 +571,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -619,8 +591,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -640,8 +611,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -661,8 +631,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -682,8 +651,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -704,8 +672,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -726,8 +693,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -748,8 +714,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -770,8 +735,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -792,8 +756,7 @@ UpdateVidStatus:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'

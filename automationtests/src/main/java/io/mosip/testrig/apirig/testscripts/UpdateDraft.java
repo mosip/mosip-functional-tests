@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -12,6 +13,7 @@ import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -24,6 +26,7 @@ import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestException;
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -33,6 +36,14 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	String pathParams = null;
 	public Response response = null;
+	
+	@BeforeClass
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 
 	/**
 	 * get current testcaseName
@@ -76,7 +87,7 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 		if (BaseTestCase.languageList.size() == 2) {
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"FR\" }", "");
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Female\" }", "");
-			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Madhu.GN\" }", "");
+			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Lisa.GN\" }", "");
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }", "");
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line2\" }", "");
 			jsonInput = jsonInput.replace(", { \"language\": \"$3RDLANG$\", \"value\": \"Line3\" }", "");
@@ -88,7 +99,7 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 					", { \"language\": \"$2NDLANG$\", \"value\": \"Female\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Female\" }",
 					"");
 			jsonInput = jsonInput.replace(
-					", { \"language\": \"$2NDLANG$\", \"value\": \"Mrs Madhu.GN\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Madhu.GN\" }",
+					", { \"language\": \"$2NDLANG$\", \"value\": \"Mrs Lisa.GN\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Mrs Lisa.GN\" }",
 					"");
 			jsonInput = jsonInput.replace(
 					", { \"language\": \"$2NDLANG$\", \"value\": \"Line1\" }, { \"language\": \"$3RDLANG$\", \"value\": \"Line1\" }",
@@ -114,7 +125,7 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

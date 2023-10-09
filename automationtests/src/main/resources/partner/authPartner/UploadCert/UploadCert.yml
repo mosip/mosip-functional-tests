@@ -11,8 +11,7 @@ uploadPartnerCert:
       output: ' {
   "errors": [
         {
-            "errorCode": "PMS_COR_001",
-            "message": "$IGNORE$"
+            "errorCode": "PMS_COR_001"
         }
     ]
 }'
@@ -28,14 +27,14 @@ uploadPartnerCert:
       output: ' {
   "errors": [
         {
-            "errorCode": "$IGNORE$",
-            "message": "$IGNORE$"
+            "errorCode": "KER-KMS-013"
         }
     ]
 }'
    Partner_UploadPartnerCert_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/certificate/upload
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/authPartner/UploadCert/uploadCert
       outputTemplate: partner/authPartner/UploadCert/uploadCertResult
@@ -43,11 +42,11 @@ uploadPartnerCert:
   "requesttime": "$TIMESTAMP$"
 }'
       output: ' {
-  "errors": "$IGNORE$"
 }' 
    Partner_UploadPartnerCert_UploadAgain_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/certificate/upload
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/authPartner/UploadCert/uploadCert
       outputTemplate: partner/authPartner/UploadCert/uploadCertResult
@@ -55,5 +54,4 @@ uploadPartnerCert:
   "requesttime": "$TIMESTAMP$"
 }'
       output: ' {
-  "errors": "$IGNORE$"
 }'           

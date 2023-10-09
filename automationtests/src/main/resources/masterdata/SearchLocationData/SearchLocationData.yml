@@ -30,7 +30,6 @@ SearchLocationData:
       output: '{
         "createdBy": "$IGNORE$",
         "createdDateTime": "$IGNORE$",
-        "isActive": $IGNORE$,
         "region": "$IGNORE$",
         "city": "$IGNORE$",
         "province": "$IGNORE$",

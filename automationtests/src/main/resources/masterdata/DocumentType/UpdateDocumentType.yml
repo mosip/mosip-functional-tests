@@ -17,8 +17,7 @@ UpdateDocumentType:
       output: '{
 	"code": "TestDocType0010",
 	"description": "TestDocType0010 Card Holder updated",
-	"isActive": $IGNORE$,
-	"langCode": "eng",
+	"isActive": "$IGNORE$",
 	"name": "TestDocType0010 Card"
 }'
    

@@ -36,8 +36,7 @@ SearchMachineSpec:
 	"machineTypeCode": "$IGNORE$",
 	"minDriverversion": "3.2",
 	"description": "HP brand",
-	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
 	}]
 }'
    Masterdata_SearchMachineSpec_Valid_sortType_DESC:
@@ -75,8 +74,7 @@ SearchMachineSpec:
 	"machineTypeCode": "$IGNORE$",
 	"minDriverversion": "3.2",
 	"description": "HP brand",
-	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
 	}]
 }'
    Masterdata_SearchMachineSpec_Valid_col_as_Model:
@@ -114,8 +112,7 @@ SearchMachineSpec:
 	"machineTypeCode": "$IGNORE$",
 	"minDriverversion": "3.2",
 	"description": "HP brand",
-	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
 	}]
 }'
    Masterdata_SearchMachineSpec_Valid_col_as_Brand:
@@ -153,13 +150,13 @@ SearchMachineSpec:
 	"machineTypeCode": "$IGNORE$",
 	"minDriverversion": "3.2",
 	"description": "HP brand",
-	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
 	}]
 }'
    Masterdata_SearchMachineSpec_Valid_col_as_isActive:
       endPoint: /v1/masterdata/machinespecifications/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchMachineSpec/searchMachineSpec
@@ -184,17 +181,6 @@ SearchMachineSpec:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "HP",
-	"brand": "HP",
-	"model": "1234",
-	"machineTypeCode": "$IGNORE$",
-	"minDriverversion": "3.2",
-	"description": "HP brand",
-	"langCode": "eng",
-	"isActive": $IGNORE$
-	}]
 }'
    Masterdata_SearchMachineSpec_Valid_col_as_Name_FltrTyp_startsWith:
       endPoint: /v1/masterdata/machinespecifications/search
@@ -231,8 +217,7 @@ SearchMachineSpec:
 	"machineTypeCode": "$IGNORE$",
 	"minDriverversion": "3.2",
 	"description": "HP brand",
-	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
 	}]
 }'
    Masterdata_SearchMachineSpec_Valid_col_as_Name_FltrTyp_contains:
@@ -270,8 +255,7 @@ SearchMachineSpec:
 	"machineTypeCode": "$IGNORE$",
 	"minDriverversion": "3.2",
 	"description": "HP brand",
-	"langCode": "eng",
-	"isActive": $IGNORE$
+	"isActive": "$IGNORE$"
 	}]
 }'
    Masterdata_SearchMachineSpec_inValid_columnName_blank:
@@ -575,7 +559,7 @@ SearchMachineSpec:
       output: '{
    "errors": [
     {
-      "errorCode": "$IGNORE$",
+      "errorCode": "KER-MSD-313",
       "message": "$IGNORE$"
     }
   ]

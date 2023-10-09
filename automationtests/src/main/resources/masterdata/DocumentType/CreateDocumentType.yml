@@ -17,8 +17,7 @@ CreateDocumentType:
       output: '{
 	"code": "TestDocType0010",
 	"description": "TestDocType0010 Card Holder",
-	"isActive": $IGNORE$,
-	"langCode": "eng",
+	"isActive": "$IGNORE$",
 	"name": "TestDocType0010 Card"
 }'
    MasterData_CreateDocumentType_All_Valid_Mandatory_Fields_Eng:
@@ -39,8 +38,7 @@ CreateDocumentType:
       output: '{
 	"code": "TestDocType0020",
 	"description": "$IGNORE$",
-	"isActive": $IGNORE$,
-	"langCode": "eng",
+	"isActive": "$IGNORE$",
 	"name": "TestDocType0020 Card"
 }'
    
@@ -180,6 +178,29 @@ CreateDocumentType:
     {
       "errorCode": "KER-MSD-999",
       "message": "request.isActive: must not be null"
+    }
+  ]
+}'
+
+   MasterData_CreateDocumentType_Spacial_Character_Neg:
+      endPoint: /v1/masterdata/documenttypes
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DocumentType/documentType
+      outputTemplate: masterdata/error
+      input: '{
+	"code": "TestDoc@Type0010",
+	"description": "TestDocType0010 Card Holder",
+	"isActive": true,
+	"langCode": "eng",
+	"name": "TestDoc$Type@0010 Card",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"errors": [
+    {
+      "errorCode": "KER-MSD-999"
     }
   ]
 }'

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.ITest;
@@ -39,9 +40,11 @@ public class KycAuth extends AdminTestUtil implements ITest {
 	public boolean isInternal = false;
 
 	@BeforeClass
-	public static void setPrerequiste() {
-		return;
-		
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
 	}
 
 	/**
@@ -118,7 +121,7 @@ public class KycAuth extends AdminTestUtil implements ITest {
 		HashMap<String, String> headers = new HashMap<>();
 		headers.put(SIGNATURE_HEADERNAME, signature);
 		String token = kernelAuthLib.getTokenByRole(testCaseDTO.getRole());
-		
+		headers.put(COOKIENAME, token);
 		
 		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");
 		
@@ -126,7 +129,7 @@ public class KycAuth extends AdminTestUtil implements ITest {
 				COOKIENAME, token, headers, testCaseDTO.getTestCaseName());
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

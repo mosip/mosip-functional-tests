@@ -18,8 +18,10 @@ public class ConfigManager {
 	private static final Logger LOGGER = Logger.getLogger(ConfigManager.class);
 
 	private static String MOSIP_PMS_CLIENT_SECRET = "mosip_pms_client_secret";
+	private static String MOSIP_PARTNER_CLIENT_SECRET = "mosip_partner_client_secret";
 	private static String MOSIP_PMS_CLIENT_ID = "mosip_pms_client_id";
 	private static String MOSIP_PMS_APP_ID = "mosip_pms_app_id";
+	private static String MOSIP_PARTNER_CLIENT_ID = "mosip_partner_client_id";
 
 	private static String MOSIP_RESIDENT_CLIENT_SECRET = "mosip_resident_client_secret";
 	private static String MOSIP_RESIDENT_CLIENT_ID = "mosip_resident_client_id";
@@ -62,6 +64,7 @@ public class ConfigManager {
 	private static String THREAD_COUNT = "threadCount";
 	private static String LANG_SELECT = "langselect";
 
+	
 	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
 
@@ -113,11 +116,22 @@ public class ConfigManager {
 	private static String REPORT_EXPIRATION_IN_DAYS = "reportExpirationInDays";
 
 	private static String SCENARIOS_TO_BE_SKIPPED = "scenariosToSkip";
+    private static String ADMIN_USER_NAME = "admin_userName";
+	
+	private static String PARTNER_URL_SUFFIX = "partnerUrlSuffix";
+	
+	private static String partnerUrlSuffix;
+	
 	private static String toSkippedList;
+	private static String userAdminName;
 
 	private static String pms_client_secret;
+	private static String partner_client_secret;
 	private static String pms_client_id;
 	private static String pms_app_id;
+	private static String partner_client_id;
+
+
 
 	private static String resident_client_secret;
 	private static String resident_client_id;
@@ -220,10 +234,13 @@ public class ConfigManager {
 	}
 
 	public static void init() {
-		propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
+		propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
 
 		pms_client_secret = getValueForKey(MOSIP_PMS_CLIENT_SECRET);
+		partner_client_secret = getValueForKey(MOSIP_PARTNER_CLIENT_SECRET);
 		pms_client_id = getValueForKey(MOSIP_PMS_CLIENT_ID);
+		partner_client_id = getValueForKey(MOSIP_PARTNER_CLIENT_ID);
+		
 		pms_app_id = getValueForKey(MOSIP_PMS_APP_ID);
 		resident_client_secret = getValueForKey(MOSIP_RESIDENT_CLIENT_SECRET);
 		resident_client_id = getValueForKey(MOSIP_RESIDENT_CLIENT_ID);
@@ -359,12 +376,22 @@ public class ConfigManager {
 				? propsKernel.getProperty(SCENARIOS_TO_BE_SKIPPED)
 				: System.getenv(SCENARIOS_TO_BE_SKIPPED);
 		propsKernel.setProperty(SCENARIOS_TO_BE_SKIPPED, toSkippedList);
-
+		
+		partnerUrlSuffix = System.getenv(PARTNER_URL_SUFFIX) == null ? propsKernel.getProperty(PARTNER_URL_SUFFIX)
+				: System.getenv(PARTNER_URL_SUFFIX);
+		propsKernel.setProperty(PARTNER_URL_SUFFIX, partnerUrlSuffix);
+		
+		userAdminName = System.getenv(ADMIN_USER_NAME) == null
+				? propsKernel.getProperty(ADMIN_USER_NAME)
+				: System.getenv(ADMIN_USER_NAME);
+		propsKernel.setProperty(ADMIN_USER_NAME, userAdminName);
 	}
 
 	public static boolean isInTobeSkippedList(String stringToFind) {
 		synchronized (toSkippedList) {
 			List<String> toBeSkippedLsit = Arrays.asList(toSkippedList.split(","));
+			if (ConfigManager.IsDebugEnabled())
+				LOGGER.info("toSkippedList:  " + toSkippedList + ", toBeSkippedLsit : "+ toBeSkippedLsit + ", stringToFind : "+ stringToFind );
 			for (String string : toBeSkippedLsit) {
 				if (string.equalsIgnoreCase(stringToFind))
 					return true;
@@ -372,9 +399,22 @@ public class ConfigManager {
 		}
 		return false;
 	}
+	
+	public static String getUserAdminName() {
+		return userAdminName;
+
+	}
+	
+	public static String getPartnerUrlSuffix() {
+		return partnerUrlSuffix;
+	}
 
 	public static Boolean IseSignetDeployed() {
 		return esignet_deployed.equalsIgnoreCase("yes");
+	}
+	
+	public static Boolean IsDebugEnabled() {
+		return enableDebug.equalsIgnoreCase("yes");
 	}
 
 	public static String getAuthDemoServicePort() {
@@ -390,8 +430,8 @@ public class ConfigManager {
 
 	}
 
-	public static String getLangselect() {
-		return langselect;
+	public static int getLangselect() {
+		return Integer.parseInt(langselect);
 
 	}
 	
@@ -436,7 +476,7 @@ public class ConfigManager {
 	}
 
 	public static Properties init(String abc) {
-		propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
+		propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
 
 		return propsKernel;
 	}
@@ -444,9 +484,19 @@ public class ConfigManager {
 	public static String getPmsClientSecret() {
 		return pms_client_secret;
 	}
+	
+	
+	public static String getPartnerClientSecret() {
+		return partner_client_secret;
+	}
 
 	public static String getPmsClientId() {
 		return pms_client_id;
+	}
+	
+	
+	public static String getPartnerClientId() {
+		return partner_client_id;
 	}
 
 	public static String getPmsAppId() {
@@ -691,7 +741,7 @@ public class ConfigManager {
 	}
 
 	public static String getRolesForUser(String userId) {
-		propsKernel = getproperty(MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
+		propsKernel = getproperty(MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
 		return propsKernel.getProperty("roles." + userId);
 	}
 

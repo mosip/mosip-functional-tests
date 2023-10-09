@@ -2,6 +2,7 @@ GetInputAttributeValues:
    Resident_GetInputAttributeValues1_UIN_all_Valid_Smoke:
       endPoint: /resident/v1/identity/info/type/{schemaType}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       auditLogCheck: true
       inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
@@ -15,6 +16,7 @@ GetInputAttributeValues:
    Resident_GetInputAttributeValues2_UIN_all_Valid_Smoke:
       endPoint: /resident/v1/identity/info/type/{schemaType}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
       outputTemplate: resident/GetInputAttributeValues/getInputAttributeValuesResult
@@ -27,6 +29,7 @@ GetInputAttributeValues:
    Resident_GetInputAttributeValues3_UIN_all_Valid_Smoke:
       endPoint: /resident/v1/identity/info/type/{schemaType}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
       outputTemplate: resident/GetInputAttributeValues/getInputAttributeValuesResult
@@ -39,6 +42,7 @@ GetInputAttributeValues:
    Resident_GetInputAttributeValues_UIN_Invalid_SchemaType_Neg:
       endPoint: /resident/v1/identity/info/type/{schemaType}
       role: residentNew
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
       outputTemplate: resident/error
@@ -57,6 +61,7 @@ GetInputAttributeValues:
    Resident_GetInputAttributeValues1_Vid_all_Valid_Smoke:
       endPoint: /resident/v1/identity/info/type/{schemaType}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
       outputTemplate: resident/GetInputAttributeValues/getInputAttributeValuesResult
@@ -69,6 +74,7 @@ GetInputAttributeValues:
    Resident_GetInputAttributeValues2_Vid_all_Valid_Smoke:
       endPoint: /resident/v1/identity/info/type/{schemaType}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
       outputTemplate: resident/GetInputAttributeValues/getInputAttributeValuesResult
@@ -81,6 +87,7 @@ GetInputAttributeValues:
    Resident_GetInputAttributeValues3_Vid_all_Valid_Smoke:
       endPoint: /resident/v1/identity/info/type/{schemaType}
       role: residentNewVid
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetInputAttributeValues/getInputAttributeValues
       outputTemplate: resident/GetInputAttributeValues/getInputAttributeValuesResult

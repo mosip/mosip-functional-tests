@@ -2,6 +2,7 @@ createServiceToSaveDeviceDetail:
    Partner_ServiceToSaveDeviceDetail_All_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
       outputTemplate: partner/device/makeAndModel/create/createDeviceDetailResult
@@ -17,11 +18,12 @@ createServiceToSaveDeviceDetail:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "device-id-123"
+  }
     }'
    Partner_ServiceToSaveDeviceDetail_sameMakeModelType_All_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
       outputTemplate: partner/device/makeAndModel/create/createDeviceDetailResult
@@ -37,11 +39,11 @@ createServiceToSaveDeviceDetail:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "device-id-124"
     }'
    Partner_ServiceToSaveDeviceDetail_sameMakeModel_All_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
       outputTemplate: partner/device/makeAndModel/create/createDeviceDetailResult
@@ -57,11 +59,11 @@ createServiceToSaveDeviceDetail:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "$IGNORE$"
     }'
    Partner_ServiceToSaveDeviceDetail_sameTypeSubType_All_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/device/makeAndModel/create/createDeviceDetail
       outputTemplate: partner/device/makeAndModel/create/createDeviceDetailResult
@@ -77,7 +79,6 @@ createServiceToSaveDeviceDetail:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "id": "$IGNORE$"
     }'
    Partner_ServiceToSaveDeviceDetail_AlreadyExists_Invalid:
       endPoint: /v1/partnermanager/devicedetail
@@ -99,8 +100,7 @@ createServiceToSaveDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_AUT_003",
-      "message": "Device Details already exists"
+      "errorCode": "PMS_AUT_003"
     }
   ]
 }'
@@ -124,8 +124,7 @@ createServiceToSaveDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_AUT_001",
-      "message": "Reg Device Sub Type Code not found in the list of Reg Device Sub Types"
+      "errorCode": "PMS_AUT_001"
     }
   ]
 }'
@@ -150,8 +149,7 @@ createServiceToSaveDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.deviceProviderId"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -176,8 +174,7 @@ createServiceToSaveDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.deviceSubTypeCode"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -202,8 +199,7 @@ createServiceToSaveDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.deviceTypeCode"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

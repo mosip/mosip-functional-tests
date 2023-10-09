@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.ITest;
@@ -15,6 +16,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -39,6 +41,14 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 	public Response response = null;
 	public boolean sendEsignetToken = false;
 	public boolean auditLogCheck = false;
+	
+	@BeforeClass
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 
 	/**
 	 * get current testcaseName
@@ -80,6 +90,9 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
+		if (BaseTestCase.isTargetEnvLTS() && BaseTestCase.currentModule.equals("auth") && testCaseName.startsWith("auth_GenerateVID_")) {
+			throw new SkipException("Generating VID using resident API on LTS. Hence skipping this test case");
+		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		String inputJson = "";
@@ -105,7 +118,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 
 					Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 							response.asString(),
-							getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()));
+							getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 					if (testCaseDTO.getTestCaseName().toLowerCase().contains("dynamic")) {
 						JSONObject json = new JSONObject(response.asString());
 						idField = json.getJSONObject("response").get("id").toString();
@@ -144,7 +157,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 				ouputValid.put("expected vs actual", List.of(customResponse));
 			}else {
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(
-					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 			}
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

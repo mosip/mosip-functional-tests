@@ -1,9 +1,11 @@
 package io.mosip.testrig.apirig.testscripts;
 
 import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -11,6 +13,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -34,6 +37,14 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 	String queryParams = null;
 	public String idKeyName = null;
 	public Response response = null;
+	
+	@BeforeClass
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 	
 	@Override
 	public String getTestName() {
@@ -71,9 +82,18 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 			logger.info("Not Getting"+GlobalConstants.POST_REQ_URL + testCaseDTO.getTestCaseName() + " *******");
 		}
 		
+		Map<String, List<OutputValidationDto>> ouputValid = null;
+		if(testCaseName.contains("_StatusCode")) {
+			
+			OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput());
+			
+			ouputValid = new HashMap<>();
+			ouputValid.put("expected vs actual", List.of(customResponse));
+		}else {
 		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+		 ouputValid = OutputValidationUtil
+				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+		}
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

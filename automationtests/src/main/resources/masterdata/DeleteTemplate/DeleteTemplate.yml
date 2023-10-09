@@ -2,6 +2,7 @@ DeleteTemplate:
    MasterData_DeleteTemplate_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/templates/{id}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: []
       restMethod: delete
       inputTemplate: masterdata/DeleteTemplate/deleteTemplate
@@ -10,7 +11,6 @@ DeleteTemplate:
     "id": "$ID:CreateTemplate_All_Valid_Smoke_sid_id$"
 	}'
       output: '{
-    "id": "$IGNORE$"
 }'
    MasterData_DeleteTemplate_Invalid_ID: 
       endPoint: /v1/masterdata/templates/{id}

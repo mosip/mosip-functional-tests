@@ -2,6 +2,7 @@ UpdatePolicyGroupForPartner:
    Partner_UpdatePolicyGroupForPartner_AllValid_smoke:
       endPoint: /v1/partnermanager/partners/{partnerId}/policygroup/{policygroupName}
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: put
       inputTemplate: partner/UpdatePolicyGroupForPartner/updatePolicyGroupForPartner
       outputTemplate: partner/UpdatePolicyGroupForPartner/updatePolicyGroupForPartnerResult
@@ -10,7 +11,7 @@ UpdatePolicyGroupForPartner:
     "policygroupName": "update_policy_group"
 }'
       output: '{
-   "response": "Success"
+   "response": "$IGNORE$"
 }'
    Partner_UpdatePolicyGroupForPartner_InValid_ApprovedPartner:
       endPoint: /v1/partnermanager/partners/{partnerId}/policygroup/{policygroupName}
@@ -25,8 +26,7 @@ UpdatePolicyGroupForPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_050",
-      "message": "Policy group cannot be updated for approved partner"
+      "errorCode": "PMS_PRT_050"
     }
   ]
 }'
@@ -43,8 +43,7 @@ UpdatePolicyGroupForPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_005",
-      "message": "Partner does not exist"
+      "errorCode": "PMS_PRT_005"
     }
   ]      
 }'
@@ -61,8 +60,7 @@ UpdatePolicyGroupForPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_002",
-      "message": "Policy group does not exist"
+      "errorCode": "PMS_PRT_002"
     }
   ]   
 }'

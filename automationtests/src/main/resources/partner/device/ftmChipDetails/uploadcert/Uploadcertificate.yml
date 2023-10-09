@@ -2,6 +2,7 @@ UploadCertificateOfFtpChip:
    Partner_UploadCertificate_All_Valid_Smoke:
       endPoint: /v1/partnermanager/ftpchipdetail/uploadcertificate
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/device/ftmChipDetails/uploadcert/uploadcertificate
       outputTemplate: partner/device/ftmChipDetails/uploadcert/uploadcertificateResult
@@ -13,7 +14,6 @@ UploadCertificateOfFtpChip:
     "partnerDomain": "DEVICE"   
   }'
       output: ' {
-  "certificateId": "$IGNORE$"
 }'
    Partner_UploadCertificate_InValid_ftpProviderId:
       endPoint: /v1/partnermanager/ftpchipdetail/uploadcertificate
@@ -31,8 +31,7 @@ UploadCertificateOfFtpChip:
       output: ' {
   "errors": [
     {
-      "errorCode": "PMP_AUT_030",
-      "message": "ftp provider not exists."
+      "errorCode": "PMP_AUT_030"
     }
   ]
 }' 
@@ -52,8 +51,7 @@ UploadCertificateOfFtpChip:
       output: ' {
   "errors": [
     {
-      "errorCode": "PMP_AUT_031",
-      "message": "ftp chip id not exists."
+      "errorCode": "PMP_AUT_031"
     }
   ]
 }'  

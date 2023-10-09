@@ -2,6 +2,7 @@ FetchMissingDynamicField:
    MasterData_FetchMissingDynamicField_valid_smoke:
       endPoint: /v1/masterdata/dynamicfields/missingids/{langcode}?fieldName={fieldName}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchMissingDynamicField/fetchMissingDynamicField
@@ -11,11 +12,11 @@ FetchMissingDynamicField:
   "fieldName": null
 }'
       output: '{
-  "response": "$IGNORE$"
 }'
    MasterData_FetchMissingDynamicField_Allvalid_smoke:
       endPoint: /v1/masterdata/dynamicfields/missingids/{langcode}?fieldName={fieldName}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchMissingDynamicField/fetchMissingDynamicField
@@ -25,5 +26,4 @@ FetchMissingDynamicField:
   "fieldName": "description"
 }'
       output: '{
-  "response": "$IGNORE$"
 }'

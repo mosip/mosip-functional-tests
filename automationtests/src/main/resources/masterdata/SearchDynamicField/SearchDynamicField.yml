@@ -2,6 +2,7 @@ SearchDynamicField:
    MasterData_SearchDynamicField_Valid_Smoke:
       endPoint: /v1/masterdata/dynamicfields/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchDynamicField/searchDynamicField
@@ -23,6 +24,7 @@ SearchDynamicField:
    MasterData_SearchDynamicField_Valid_Filter_Name:
       endPoint: /v1/masterdata/dynamicfields/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/SearchDynamicField/searchDynamicField

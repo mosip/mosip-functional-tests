@@ -27,6 +27,62 @@ EkycBio:
       output: '{
         "kycStatus": "true"
 }'
+  auth_EkycBio_Face_With_Valid_Infant_uin_Smoke_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_Infant_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycBio/EkycBio
+      outputTemplate: ida/EkycBio/EkycBioResult
+      input: '{
+          "bioSubType": "",
+          "bioType": "FACE",
+          "bioValue": "$FACE$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "1873299273",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Single",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467171",
+          "type": "Face",
+        "transactionId": "$TRANSACTIONID$",
+        "timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+        "kycStatus": "false"
+}'
+  auth_EkycBio_Face_With_draft_uin_Smoke_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GetDraft_all_valid_smoke_sid_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycBio/EkycBio
+      outputTemplate: ida/EkycBio/EkycBioResult
+      input: '{
+          "bioSubType": "",
+          "bioType": "FACE",
+          "bioValue": "$FACEDRAFTVALUE$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "1873299273",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Single",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467171",
+          "type": "Face",
+        "transactionId": "$TRANSACTIONID$",
+        "timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+        "kycStatus": "true"
+}'
   auth_EkycBio_RingFinger_With_Valid_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -865,13 +921,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-018",
-          "errorMessage": "VID not available in database"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_invalid_uin_bioSubType:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -899,13 +949,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - request/biometrics/0/data/bioSubType - L@@@$%4556eft"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_invalid_bioSubType_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -933,13 +977,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - request/biometrics/0/data/bioSubType - L@@@$%4556eft"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_blank_uin_bioSubType:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -967,13 +1005,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-006",
-          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioSubType"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_blank_bioSubType_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1001,13 +1033,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-006",
-          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioSubType"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Blank_uin_bioType:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1035,13 +1061,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-006",
-          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioType"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Blank_bioType_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1069,13 +1089,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-006",
-          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioType"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Invalid_uin_bioType:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1103,14 +1117,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-011",
-          "errorMessage": "Unsupported Authentication Type - bio-ddff3355",
-          "actionMessage": "Please use other Authentication Types in the request"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Invalid_bioType_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1138,14 +1145,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-011",
-          "errorMessage": "Unsupported Authentication Type - bio-ddff3355",
-          "actionMessage": "Please use other Authentication Types in the request"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Iris_With_FaceBio_uin_Invalid:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1173,14 +1173,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-BIA-001",
-          "errorMessage": "Biometric data - Iris did not match",
-          "actionMessage": "Please give your biometrics again"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Iris_With_FaceBio_Invalid_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1208,14 +1201,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-BIA-001",
-          "errorMessage": "Biometric data - Iris did not match",
-          "actionMessage": "Please give your biometrics again"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Finger_With_FaceBio_uin_Invalid:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1243,14 +1229,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-BIA-001",
-          "errorMessage": "Biometric data - Finger did not match",
-          "actionMessage": "Please give your biometrics again"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Finger_With_FaceBio_Invalid_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1278,14 +1257,7 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-BIA-001",
-          "errorMessage": "Biometric data - Finger did not match",
-          "actionMessage": "Please give your biometrics again"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
 }'
   auth_EkycBio_Finger_With_dummy_partnerkey_Pos_vid:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&isKyc=true&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1313,15 +1285,61 @@ EkycBio:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-     "errors": [
-        {
-          "errorCode": "IDA-MLC-007",
-          "errorMessage": "Request could not be processed. Please try again"
-        },
-        {
-          "errorCode": "IDA-MPA-009",
-          "errorMessage": "Partner is not registered"
-        }
-      ],
-        "kycStatus": false
+     "kycStatus": "false"
+}'
+  auth_EkycBio_Face_With_Deactivated_uin:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$id=$ID:AddIdentity_deactivate_UIN_smoke_sid_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycBio/EkycBio
+      outputTemplate: ida/EkycBio/EkycBioResult
+      input: '{
+          "bioSubType": "",
+          "bioType": "FACE",
+          "bioValue": "$FACE$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "1873299273",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Single",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467171",
+          "type": "Face",
+        "transactionId": "$TRANSACTIONID$",
+        "timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+        "kycStatus": "true"
+}'
+  auth_EkycBio_Face_With_Valid_uin_NOAUTH_Smoke_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_EKYC_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycBio/EkycBio
+      outputTemplate: ida/EkycBio/error
+      input: '{
+          "bioSubType": "",
+          "bioType": "FACE",
+          "bioValue": "$FACE$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "1873299273",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Single",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467171",
+          "type": "Face",
+        "transactionId": "$TRANSACTIONID$",
+        "timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+        "kycStatus": "false"
 }'

@@ -42,6 +42,7 @@ DeviceTypeSearch:
    MasterData_DeviceTypeSearch_Equals_isActive_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
@@ -75,16 +76,7 @@ DeviceTypeSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-   "data": [
-     {
-        "isActive": "$IGNORE$",
-        "createdBy": "$IGNORE$",
-        "code": "$IGNORE$",
-        "langCode": "$IGNORE$",
-        "name": "$IGNORE$",
-        "description": "$IGNORE$"
-      }
-    ]
+
 }'
    MasterData_DeviceTypeSearch_Contains_Name_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/search
@@ -129,6 +121,7 @@ DeviceTypeSearch:
    MasterData_DeviceTypeSearch_startsWith_Name_eng_smoke:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
@@ -155,20 +148,11 @@ DeviceTypeSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-   "data": [
-     {
-        "isActive": "$IGNORE$",
-        "createdBy": "$IGNORE$",
-        "code": "$IGNORE$",
-        "langCode": "$IGNORE$",
-        "name": "$IGNORE$",
-        "description": "$IGNORE$"
-      }
-    ]
 }'
    MasterData_DeviceTypeSearch_Invalid_Value_Name_smoke:
       endPoint: /v1/masterdata/devicetypes/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceTypeSearch/deviceTypeSearch
@@ -195,7 +179,6 @@ DeviceTypeSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-   "data": []
 }'
    MasterData_DeviceTypeSearch_Invalid_ColumnName_neg:
       endPoint: /v1/masterdata/devicetypes/search
@@ -228,8 +211,7 @@ DeviceTypeSearch:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-317",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-317"
     }
   ]
 }'

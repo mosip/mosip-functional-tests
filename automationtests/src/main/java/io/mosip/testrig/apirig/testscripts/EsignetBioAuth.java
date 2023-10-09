@@ -5,6 +5,7 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -41,9 +42,11 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 	public boolean isInternal = false;
 
 	@BeforeClass
-	public static void setPrerequiste() {
-		logger.info("Starting authpartner demo service...");
-
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
 	}
 
 	/**
@@ -84,6 +87,21 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
+		
+		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
+				throw new SkipException("Idtype UIN is not supported. Hence skipping the testcase");
+			}
+		}
+		
+		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
+			}
+		}
+		
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null;
 		String identityRequestTemplate = null;
@@ -162,13 +180,16 @@ public class EsignetBioAuth extends AdminTestUtil implements ITest {
 			}
 
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-					.doJsonOutputValidation(response.asString(), ActualOPJson);
+					.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
-		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+		} catch (SkipException e) {
+			throw new SkipException(e.getMessage());
+		}
+		catch (Exception e) {
+			logger.error(e.getMessage());
 		}
 
 	}

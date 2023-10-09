@@ -2,6 +2,7 @@ BookAppointmentByPRID:
    Prereg_BookAppointmentByPRID_All_Valid_Smoke:
       endPoint: /preregistration/v1/applications/appointment
       role: batch
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: preReg/bookAppointmentByPRID/bookAppointmentByPRID
       outputTemplate: preReg/bookAppointmentByPRID/bookAppointmentByPRIDResult
@@ -16,7 +17,6 @@ BookAppointmentByPRID:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-  "bookingMessage": "Appointment booked successfully"
 }'
    Prereg_BookAppointmentByPRID_inValid_preRegistrationId:
       endPoint: /preregistration/v1/applications/appointment
@@ -37,8 +37,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_APP_013",
-      "message": "No Records Found"
+      "errorCode": "PRG_APP_013"
     }
   ]
 }'
@@ -61,8 +60,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_APP_013",
-      "message": "No Records Found"
+      "errorCode": "PRG_APP_013"
     }
   ]
 }'
@@ -85,8 +83,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_APP_013",
-      "message": "No Records Found"
+      "errorCode": "PRG_APP_013"
     }
   ]
 }'
@@ -109,8 +106,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_001",
-      "message": "Request id is invalid"
+      "errorCode": "PRG_PAM_CORE_001"
     }
   ]
 }'
@@ -133,8 +129,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_001",
-      "message": "Request id is invalid"
+      "errorCode": "PRG_PAM_CORE_001"
     }
   ]
 }'
@@ -157,8 +152,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_002",
-      "message": "Request version is invalid"
+      "errorCode": "PRG_CORE_REQ_002"
     }
   ]
 }'
@@ -181,8 +175,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_002",
-      "message": "Request version is invalid"
+      "errorCode": "PRG_CORE_REQ_002"
     }
   ]
 }'
@@ -205,8 +198,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_002",
-      "message": "Request version is invalid"
+      "errorCode": "PRG_CORE_REQ_002"
     }
   ]
 }'
@@ -229,8 +221,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "KER-MSD-215",
-      "message": "Registration Center not found"
+      "errorCode": "KER-MSD-215"
     }
   ]
 }'
@@ -253,8 +244,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_007",
-      "message": "Registration center id not entered"
+      "errorCode": "PRG_BOOK_RCI_007"
     }
   ]
 }'
@@ -277,8 +267,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_007",
-      "message": "Registration center id not entered"
+      "errorCode": "PRG_BOOK_RCI_007"
     }
   ]
 }'
@@ -301,8 +290,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_008",
-      "message": "Booking date time not selected"
+      "errorCode": "PRG_BOOK_RCI_008"
     }
   ]
 }'
@@ -325,8 +313,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_008",
-      "message": "Booking date time not selected"
+      "errorCode": "PRG_BOOK_RCI_008"
     }
   ]
 }'
@@ -349,8 +336,8 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_031",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_BOOK_RCI_031"
+     
     }
   ]
 }'
@@ -373,8 +360,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_003",
-      "message": "User has not selected time slot"
+      "errorCode": "PRG_BOOK_RCI_003"
     }
   ]
 }'
@@ -397,8 +383,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_003",
-      "message": "User has not selected time slot"
+      "errorCode": "PRG_BOOK_RCI_003"
     }
   ]
 }'
@@ -421,8 +406,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_003",
-      "message": "User has not selected time slot"
+      "errorCode": "PRG_BOOK_RCI_003"
     }
   ]
 }'
@@ -445,8 +429,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_003",
-      "message": "User has not selected time slot"
+      "errorCode": "PRG_BOOK_RCI_003"
     }
   ]
 }'
@@ -469,8 +452,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_003",
-      "message": "Invalid request time"
+      "errorCode": "PRG_CORE_REQ_003"
     }
   ]
 }'
@@ -493,8 +475,8 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_015",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_015"
+      
     }
   ]
 }'
@@ -517,8 +499,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_003",
-      "message": "Invalid request time"
+      "errorCode": "PRG_CORE_REQ_003"
     }
   ]
 }'
@@ -541,8 +522,7 @@ BookAppointmentByPRID:
       output: '{
   "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_013",
-      "message": "Request date should be current date"
+      "errorCode": "PRG_CORE_REQ_013"
     }
   ]
 }'

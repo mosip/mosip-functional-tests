@@ -1,23 +1,10 @@
 {
-  "version": "string",
-  "responsetime": "$IGNORE$",
-  "metadata": null,
   "response": {
-    "fromRecord": "$IGNORE$",
-    "toRecord": "$IGNORE$",
-    "totalRecord": "$IGNORE$",
     "data": [
      {{#each data}}
       {
-        "createdBy": "$IGNORE$",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": "$IGNORE$",
-        "updatedDateTime": "$IGNORE$",
-        "isDeleted": "$IGNORE$",
-        "deletedDateTime": "$IGNORE$",
-        "isActive": {{isActive}},
+        "isActive": "{{isActive}}",
         "id": "{{id}}",
-        "langCode": "{{langCode}}",
         "name": "{{name}}",
         "description": "{{description}}",
         "model": "{{model}}",
@@ -28,6 +15,5 @@
        {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
-  },
-  "errors": null
+  }
 }

@@ -2,6 +2,7 @@ GetPartnersPolicy:
    partner_GetPartnersPolicy_allValid_smoke:
       endPoint: /v1/policymanager/policies/{policyId}/partner/{partnerId}
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: partner/GetPartnersPolicy/getPartnersPolicy
       outputTemplate: partner/GetPartnersPolicy/getPartnersPolicyResult
@@ -11,12 +12,11 @@ GetPartnersPolicy:
     "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "policyGroupId": "mpolicygroup-default-auth",
-    "policyGroupName": "mpolicygroup-default-auth",
-    "policyId": "mpolicy-default-auth",
-    "policyName": "mpolicy-default-auth",
-    "status": "PUBLISHED",
-    "policies": "$IGNORE$"
+    "policyGroupId": "521893",
+    "policyGroupName": "auth_module",
+    "policyId": "$IGNORE$",
+    "policyName": "$IGNORE$",
+    "status": "PUBLISHED"
 }'
 
    partner_GetPartnersPolicy_invalid_partnerId:
@@ -33,8 +33,7 @@ GetPartnersPolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_POL_017",
-      "message": "No policy available for given partner"
+      "errorCode": "PMS_POL_017"
     }
   ]
 }'

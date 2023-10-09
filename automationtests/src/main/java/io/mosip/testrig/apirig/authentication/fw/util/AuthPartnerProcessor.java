@@ -44,7 +44,7 @@ public class AuthPartnerProcessor extends AdminTestUtil{
 					while ((line = bis.readLine()) != null)
 						DEMOAPP_LOGGER.info(line);
 				} catch (IOException e) {
-					DEMOAPP_LOGGER.error(e.getStackTrace());
+					DEMOAPP_LOGGER.error(e.getMessage());
 				}
 			};
 			new Thread(startDemoAppTask).start();

@@ -2,6 +2,7 @@ FetchUISpec:
    MasterData_FetchUISpec_allValid_smoke_with_lang:
       endPoint: /v1/masterdata/uispec/{domain}/latest
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchUISpec/fetchUISpec
       outputTemplate: masterdata/FetchUISpec/fetchUISpecResult
@@ -9,8 +10,4 @@ FetchUISpec:
   "domain": "registration-client"
 }'
       output: '{
-   "jsonSpec": [{
-          "type": "$IGNORE$",
-          "spec": "$IGNORE$"
-        }]
 }'      

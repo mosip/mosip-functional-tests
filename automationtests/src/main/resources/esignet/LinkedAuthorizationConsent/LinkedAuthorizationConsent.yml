@@ -2,14 +2,39 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Consent_uin_SameClaim_Invalid_Neg:
       endPoint: /v1/esignet/linked-authorization/v2/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      inputTemplate: esignet/LinkedConsent/LinkAuthorizationConsent/LinkAuthorizationConsent
       outputTemplate: esignet/error
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"linkedTransactionId": "$ID:LinkTransaction_Consent_uin_SameClaim_all_Valid_Smoke_sid_linkTransactionId$",
-      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+      	"acceptedClaims": [{claim: "name"},{claim: "email"}],
+      	"signature": "$CONSENTDETACHEDSIGNATURESAMECLAIM$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   ESignet_LinkedAuthorizationConsent_Consent_Vid_SameClaim_Invalid_Neg:
+      endPoint: /v1/esignet/linked-authorization/v2/consent
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/LinkedConsent/LinkAuthorizationConsent/LinkAuthorizationConsent
+      outputTemplate: esignet/error
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"linkedTransactionId": "$ID:LinkTransaction_Consent_Vid_SameClaim_all_Valid_Smoke_sid_linkTransactionId$",
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
+      	"signature": "$CONSENTDETACHEDSIGNATUREVIDSAMECLAIM$"
 }'
       output: '{
   "errors": [
@@ -23,6 +48,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
@@ -38,6 +64,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_vid_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
@@ -53,6 +80,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Invalid_RequestTime_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error
@@ -72,6 +100,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Past_Val_RequestTime_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error
@@ -91,6 +120,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Future_Val_RequestTime_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error
@@ -110,6 +140,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Space_Val_RequestTime_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error
@@ -129,6 +160,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Empty_Val_RequestTime_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error
@@ -148,6 +180,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Invalid_TransactionId_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error
@@ -167,6 +200,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Missing_TransactionId_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error
@@ -186,6 +220,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Empty_TransactionId_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error
@@ -205,6 +240,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Space_Val_TransactionId_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error
@@ -224,6 +260,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Invalid_AcceptedClaims_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error
@@ -244,6 +281,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Null_AcceptedClaims_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error
@@ -264,6 +302,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Invalid_permittedAuthorizeScopes_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error
@@ -285,6 +324,7 @@ LinkedAuthorizationConsent:
    ESignet_LinkedAuthorizationConsent_Null_permittedAuthorizeScopes_Neg:
       endPoint: /v1/esignet/linked-authorization/consent
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
       outputTemplate: esignet/error

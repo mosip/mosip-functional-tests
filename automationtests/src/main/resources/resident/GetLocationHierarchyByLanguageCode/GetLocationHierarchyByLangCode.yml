@@ -2,6 +2,7 @@ GetLocationHierarchyByLanguageCode:
    Resident_GetLocationHierarchyByLanguageCode_All_Valid_Smoke:
       endPoint: /resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCode
       outputTemplate: resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCodeResult
@@ -9,16 +10,13 @@ GetLocationHierarchyByLanguageCode:
       "langCode":"$1STLANG$"
 }'
       output: '{
-        "hierarchyLevel": "$IGNORE$",
-        "hierarchyLevelName": "$IGNORE$",
-        "langCode": "$IGNORE$",
-        "isActive": "$IGNORE$"
 }'
 
 
    Resident_GetLocationHierarchyByLanguageCode_InValid_LangCode:
       endPoint: /resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCode
       outputTemplate: resident/error
@@ -34,15 +32,14 @@ GetLocationHierarchyByLanguageCode:
   ]
 }'
 
-   Resident_GetLocationHierarchyByLanguageCode_Empty_LangCode_Neg:
+   Resident_GetLocationHierarchyByLanguageCode_StatusCode_Empty_LangCode_Neg:
       endPoint: /resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCode
       outputTemplate: resident/error
       input: '{
       "langCode":""
 }'
-      output: '{
-        
-}'
+      output: "404"

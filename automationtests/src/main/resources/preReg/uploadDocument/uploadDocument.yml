@@ -662,8 +662,7 @@ UploadDocument:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_017",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_017"
     }
   ]
 }'
@@ -686,9 +685,8 @@ UploadDocument:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_017",
-      "message": "$IGNORE$"
-    }
+      "errorCode": "PRG_CORE_REQ_017"
+    
   ]
 }'
    Prereg_UploadDocument_missing_docTypCode_sid:
@@ -710,8 +708,7 @@ UploadDocument:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_017",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_017"
     }
   ]
 }'
@@ -734,8 +731,7 @@ UploadDocument:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_018",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_018"
     }
   ]
 }'
@@ -758,8 +754,7 @@ UploadDocument:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_018",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_018"
     }
   ]
 }'
@@ -782,8 +777,7 @@ UploadDocument:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_018",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_018"
     }
   ]
 }'

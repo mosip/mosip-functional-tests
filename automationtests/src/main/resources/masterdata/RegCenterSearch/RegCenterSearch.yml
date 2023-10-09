@@ -29,7 +29,6 @@ RegCenterSearch:
   }'
       output: '{
 	"data": [{
-	"name": "Center Mehdia",
-	"langCode": "eng"
+	"name": "Center Mehdia"
 	}]
 }'

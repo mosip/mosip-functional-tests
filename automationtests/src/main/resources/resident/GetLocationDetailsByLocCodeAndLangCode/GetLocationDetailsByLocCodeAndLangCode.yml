@@ -2,6 +2,7 @@ GetLocationDetailsByLocCodeAndLangCode:
    Resident_GetLocationDetailsByLocCodeAndLangCode_allValid_smoke:
       endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
       outputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCodeResult
@@ -10,31 +11,13 @@ GetLocationDetailsByLocCodeAndLangCode:
    	  "loccode": "14022"
 }'
       output: '{
-		    "id": null,
-		    "version": null,
-		    "responsetime": "$IGNORE$",
-		    "metadata": null,
-		    "response": {
-		        "isActive": "$IGNORE$",
-		        "createdBy": "$IGNORE$",
-		        "createdDateTime": "$IGNORE$",
-		        "updatedBy": "$IGNORE$",
-		        "updatedDateTime": "$IGNORE$",
-		        "isDeleted": "$IGNORE$",
-		        "deletedDateTime": "$IGNORE$",
-		        "code": "$IGNORE$",
-		        "name": "$IGNORE$",
-		        "hierarchyLevel": "$IGNORE$",
-		        "hierarchyName": "$IGNORE$",
-		        "parentLocCode": "$IGNORE$",
-		        "langCode": "$IGNORE$"
-		    },
-		    "errors": null
+
 		}'
 
    Resident_GetLocationDetailsByLocCodeAndLangCode_Invalid_LangCode:
       endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
       outputTemplate: resident/error
@@ -54,6 +37,7 @@ GetLocationDetailsByLocCodeAndLangCode:
    Resident_GetLocationDetailsByLocCodeAndLangCode_Invalid_LocationCode:
       endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
       outputTemplate: resident/error
@@ -70,9 +54,10 @@ GetLocationDetailsByLocCodeAndLangCode:
 		  ]
 }'
 
-   Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LangCode_Neg:
+   Resident_GetLocationDetailsByLocCodeAndLangCode_StatusCode_Empty_LangCode_Neg:
       endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
       outputTemplate: resident/error
@@ -80,12 +65,12 @@ GetLocationDetailsByLocCodeAndLangCode:
       "langCode": "",
    	  "loccode": "14022"
 }'
-      output: '{
-}'
+      output: "404"
 
-   Resident_GetLocationDetailsByLocCodeAndLangCode_Empty_LocationCode_Neg:
+   Resident_GetLocationDetailsByLocCodeAndLangCode_StatusCode_Empty_LocationCode_Neg:
       endPoint: /resident/v1/proxy/masterdata/locations/info/{loccode}/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetLocationDetailsByLocCodeAndLangCode/getLocationDetailsByLocCodeAndLangCode
       outputTemplate: resident/error
@@ -93,5 +78,4 @@ GetLocationDetailsByLocCodeAndLangCode:
       "langCode": "$1STLANG$",
    	  "loccode": ""
 }'
-      output: '{
-}'
+      output: "404"

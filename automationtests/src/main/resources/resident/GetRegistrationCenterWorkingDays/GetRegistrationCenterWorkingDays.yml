@@ -2,6 +2,7 @@ GetRegistrationCenterWorkingDays:
    Resident_GetRegistrationCenterWorkingDays_allValid_smoke:
       endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
       outputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDaysResult
@@ -10,12 +11,12 @@ GetRegistrationCenterWorkingDays:
   "registrationCenterID": "10011"
 }'
       output: '{
-   "errors": null
 }'
 
    Resident_GetRegistrationCenterWorkingDays_Invalid_langCode:
       endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
       outputTemplate: resident/error
@@ -35,6 +36,7 @@ GetRegistrationCenterWorkingDays:
    Resident_GetRegistrationCenterWorkingDays_Invalid_registrationCenterID:
       endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
       outputTemplate: resident/error
@@ -54,6 +56,7 @@ GetRegistrationCenterWorkingDays:
    Resident_GetRegistrationCenterWorkingDays_Invalid_langCode_registrationCenterID:
       endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
       outputTemplate: resident/error
@@ -70,23 +73,23 @@ GetRegistrationCenterWorkingDays:
 	  ]
 }'
 
-   Resident_GetRegistrationCenterWorkingDays_Empty_registrationCenterID_Neg:
+   Resident_GetRegistrationCenterWorkingDays_StatusCode_Empty_registrationCenterID_Neg:
       endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: resident
-      templateFields: ["langCode"]
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
       outputTemplate: resident/error
       input: '{
-  "langCode": "eng",
-  "registrationCenterID": ""
+		  "langCode": "$1STLANG$",
+		  "registrationCenterID": ""
 }'
-      output: '{
-}'
+      output: "404"
 
-   Resident_GetRegistrationCenterWorkingDays_Empty_langCode_Neg:
+   Resident_GetRegistrationCenterWorkingDays_StatusCode_Empty_langCode_Neg:
       endPoint: /resident/v1/proxy/masterdata/workingdays/{registrationCenterID}/{langCode}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetRegistrationCenterWorkingDays/getRegistrationCenterWorkingDays
       outputTemplate: resident/error
@@ -94,5 +97,4 @@ GetRegistrationCenterWorkingDays:
 		  "langCode": "",
 		  "registrationCenterID": "10011"
 		}'
-      output: '{
-}'
+      output: "404"

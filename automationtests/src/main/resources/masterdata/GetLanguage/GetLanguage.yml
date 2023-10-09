@@ -2,6 +2,7 @@ GetLanguage:
    Admin_GetLanguage_allValid_smoke:
       endPoint: /v1/masterdata/languages
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetLanguage/getLanguage
       outputTemplate: masterdata/GetLanguage/getLanguageResult
@@ -12,8 +13,8 @@ GetLanguage:
 "languages": [{
        "code": "$IGNORE$",
         "name": "$IGNORE$",
-        "family": "$IGNORE",
+        "family": "$IGNORE$",
         "nativeName": "$IGNORE$",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
     }]
 }'  

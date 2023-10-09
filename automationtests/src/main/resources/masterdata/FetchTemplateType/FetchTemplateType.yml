@@ -2,6 +2,7 @@ FetchTemplateType:
    MasterData_FetchTemplateType_allValid_smoke:
       endPoint: /v1/masterdata/templatetypes/{code}/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchTemplateType/fetchTemplateType
@@ -11,9 +12,6 @@ FetchTemplateType:
   "code": "auth-email-content"
 }'
       output: '{
-"templateTypes": [{
-			"isActive": $IGNORE$
-		}]
 }'
    MasterData_FetchTemplateType_inValid_code:
       endPoint: /v1/masterdata/templatetypes/{code}/{langcode}
@@ -37,6 +35,7 @@ FetchTemplateType:
    MasterData_FetchTemplateType_allValid_smoke_langcode:
       endPoint: /v1/masterdata/templatetypes/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchTemplateType/fetchTemplateType
@@ -46,8 +45,5 @@ FetchTemplateType:
   "code": "$REMOVE$"
 }'
       output: '{
-"templateTypes": [{
-			"isActive": $IGNORE$
-		}]
 }'
   

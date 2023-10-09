@@ -1,25 +1,13 @@
 {
-  "id":"$IGNORE$",
-  "version":"$IGNORE$",
-  "responsetime":"$IGNORE$",
-  "metadata":"$IGNORE$",
   "response":{
-    "appTypeCode":"$IGNORE$",
-    "langCode":"{{langCode}}",
     "isActive":{{isActive}},
     "documentCategories":[
 {{#each documentCategories}}
       {
-        "code":"$IGNORE$",
-        "name":"$IGNORE$",
-        "description":"$IGNORE$",
-        "langCode":"{{langCode}}",
-        "isActive":{{isActive}},
-        "documentTypes":"$IGNORE$"
+        "isActive":{{isActive}}
       }
       {{#unless @last}},{{/unless}}
       	{{/each}}
       ]
-  },
-  "errors":"$IGNORE$"
+  }
 }

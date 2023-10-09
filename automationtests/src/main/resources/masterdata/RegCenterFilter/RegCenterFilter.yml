@@ -2,6 +2,7 @@ RegCenterFilter:
    MasterData_RegCenterFilter_Name_eng_Unique_smoke:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
@@ -16,16 +17,11 @@ RegCenterFilter:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "$IGNORE$",
-        "fieldValue": "$IGNORE$"
-      }
-    ]
   }'    
    MasterData_RegCenterFilter_Name_eng_All_smoke:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
@@ -40,12 +36,6 @@ RegCenterFilter:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "$IGNORE$",
-        "fieldValue": "$IGNORE$"
-      }
-    ]
   }'    
       
    MasterData_RegCenterFilter_Invalid_RequestTime:

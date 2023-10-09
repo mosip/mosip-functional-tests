@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.ITest;
@@ -12,6 +13,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -35,6 +37,15 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 	public Response response = null;
 	public boolean sendEsignetToken = false;
 	public boolean auditLogCheck = false;
+	
+	@BeforeClass
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
+	
 	/**
 	 * get current testcaseName
 	 */
@@ -112,11 +123,15 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 		
-		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
-			throw new AdminTestException("Failed at otp output validation");
+		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
+			if (otpResponse.asString().contains("IDA-OTA-001"))
+				throw new AdminTestException("Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
+			else
+				throw new AdminTestException("Failed at otp output validation");
+		}
 		
 		if(testCaseName.contains("_eotp")) {
 			try {
@@ -124,7 +139,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 				+ " mili secs to test expire otp case in RESIDENT Service");
 				Thread.sleep(Long.parseLong(properties.getProperty("expireOtpTime")));
 			} catch (NumberFormatException | InterruptedException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 				Thread.currentThread().interrupt();
 			}
 		}
@@ -135,7 +150,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 			response = postRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
 		}
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()));
+				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

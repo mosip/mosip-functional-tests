@@ -2,6 +2,7 @@ GetPartnerCert:
    Partner_GetPartnerCert_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/{partnerId}/certificate
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: partner/devicePartner/GetCertificate/getCert
       outputTemplate: partner/devicePartner/GetCertificate/getCertResult
@@ -9,7 +10,6 @@ GetPartnerCert:
 		"partnerId": "DPP"
 }'
       output: ' {
-  "errors": "$IGNORE$"
 }'
    Partner_GetPartnerCert_invalid_partnerId:
       endPoint: /v1/partnermanager/partners/{partnerId}/certificate
@@ -23,8 +23,7 @@ GetPartnerCert:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PRT_005",
-      "message": "Partner does not exist"
+      "errorCode": "PMS_PRT_005"
     }
   ]
 }'

@@ -2,6 +2,7 @@ GenerateMispLK:
    Esignet_GenerateMispLK_All_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/misps
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/PmsIntegration/GenerateMispLK/GenerateMispLK
       outputTemplate: esignet/PmsIntegration/GenerateMispLK/GenerateMispLKResult
@@ -16,6 +17,7 @@ GenerateMispLK:
    Esignet_GenerateMispLK_Misp_False_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/misps
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/PmsIntegration/GenerateMispLK/GenerateMispLK
       outputTemplate: esignet/PmsIntegration/GenerateMispLK/GenerateMispLKResult
@@ -30,6 +32,7 @@ GenerateMispLK:
    Esignet_GenerateMispLK_Misp_S2_Valid_Smoke_sid:
       endPoint: /v1/partnermanager/misps
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/PmsIntegration/GenerateMispLK/GenerateMispLK
       outputTemplate: esignet/PmsIntegration/GenerateMispLK/GenerateMispLKResult

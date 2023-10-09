@@ -2,6 +2,7 @@ GetValidDocument:
    MasterData_GetValidDocument_allValid_smoke:
       endPoint: /v1/masterdata/validdocuments/{docCategoryCode}/{langCode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetValidDocument/getValidDocument
       outputTemplate: masterdata/GetValidDocument/getValidDocumentResult
@@ -14,7 +15,6 @@ GetValidDocument:
       "docTypeCode": "$IGNORE$",
       "docCategoryCode": "$IGNORE$",
       "docTypeName": "$IGNORE$",
-      "langCode": "eng",
-      "isActive": $IGNORE$
+      "isActive": "$IGNORE$"
       }]
 }'

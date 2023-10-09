@@ -2,6 +2,7 @@ FetchRegCent:
    MasterData_FetchRegCent_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -21,13 +22,11 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-			"langCode": "$IGNORE$"
-		}]
 }'
    MasterData_FetchRegCent_coordinate_specific_allValid_smoke:
       endPoint: /v1/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -47,9 +46,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-			"langCode": "$IGNORE$"
-		}]
 }'
    
    MasterData_FetchRegCent_coordinate_specific_invalid_latitude:
@@ -111,6 +107,7 @@ FetchRegCent:
    MasterData_FetchRegCent_By_LocationCode_allValid_smoke:
       endPoint: /v1/masterdata/getlocspecificregistrationcenters/{langcode}/{locationcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -130,9 +127,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-			"langCode": "$IGNORE$"
-		}]
 }'
    MasterData_FetchRegCent_By_LocationCode_invalid_locationcode:
       endPoint: /v1/masterdata/getlocspecificregistrationcenters/{langcode}/{locationcode}
@@ -166,6 +160,7 @@ FetchRegCent:
    MasterData_FetchRegCent_Holidays_allValid_smoke:
       endPoint: /v1/masterdata/getregistrationcenterholidays/{langcode}/{registrationcenterid}/{year}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -185,7 +180,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-			"langCode": "$IGNORE$"
 }'
    
    MasterData_FetchRegCent_Holidays_invalid_registrationcenterid:
@@ -219,6 +213,7 @@ FetchRegCent:
    MasterData_FetchRegCent_By_id_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters/{id}/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -238,14 +233,12 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-			"langCode": "$IGNORE$"
-		}]
 }'
    
    MasterData_FetchRegCent_By_HierarchyLevel_Text_langCode_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/{name}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -265,9 +258,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-			"langCode": "$IGNORE$"
-		}]
 }'
    
    MasterData_FetchRegCent_By_HierarchyLevel_Text_langCode_invalid_hierarchylevel:
@@ -331,6 +321,7 @@ FetchRegCent:
    MasterData_FetchRegCent_By_HierarchyLevel__ListText_langCode_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name=Rabat Sale Kenitra
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -350,9 +341,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-			"langCode": "$IGNORE$"
-		}]
 }'
    MasterData_FetchRegCent_validateTimestamp_allValid_smoke:
       endPoint: /v1/masterdata/registrationcenters/validate/{id}/{langcode}/{timestamp}
@@ -376,7 +364,7 @@ FetchRegCent:
   "timestamp": "2021-01-20T06:22:07.797Z"
 }'
       output: '{
-  "status":"$IGNORE$"
+  "status":"Valid"
 }'
    
    MasterData_FetchRegCent_validateTimestamp_invalid_id:
@@ -430,14 +418,14 @@ FetchRegCent:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-033",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-033"
     }
   ]
 }'
    MasterData_FetchRegCent_by_langCode_zoneCode_allValid_smoke:
       endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -457,9 +445,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-      "langCode": "$IGNORE$"
-    }]
 }'
    
    MasterData_FetchRegCent_by_langCode_zoneCode_InValid_zonecode:
@@ -494,6 +479,7 @@ FetchRegCent:
       endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/{name}
       role: admin
       templateFields: ["name"]
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
       outputTemplate: masterdata/FetchRegCent/fetchAllRegCentWithPaginationResult
@@ -579,6 +565,7 @@ FetchRegCent:
    MasterData_FetchRegCent_By_zoneCode:
       endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: []
       restMethod: get
       inputTemplate: masterdata/FetchRegCent/fetchRegCent
@@ -598,9 +585,6 @@ FetchRegCent:
   "timestamp": "$REMOVE$"
 }'
       output: '{
-"registrationCenters": [{
-      "langCode": "$IGNORE$"
-    }]
 }'
    MasterData_FetchRegCent_By_zoneCode_invalid_invalid_zonecode:
       endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}

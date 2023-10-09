@@ -1,59 +1,64 @@
 package io.mosip.testrig.apirig.admin.fw.util;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.security.SecureRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
+import org.json.JSONArray;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.opencsv.CSVWriter;
+
+import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 
 public class TestJava {
 	private static final Logger lOGGER = Logger.getLogger(TestJava.class);
-	private static final SecureRandom secureRandom = new SecureRandom();
-	public static void main(String[] args) {
-		int num = 1011111;
-		
-		String transactionID = (num + AdminTestUtil.generateRandomNumberString(8)).substring(0, 10);
-		lOGGER.info(transactionID);
 
-		Pattern mPattern = Pattern.compile("(|^)\\s\\d{6}\\s");
+	public static void main(String[] args) {
+		String spec = "{\r\n" + "			\"post\": {\r\n" + "				\"tags\": [\r\n"
+				+ "					\"resident-otp-controller\"\r\n" + "				],\r\n"
+				+ "				\"summary\": \"reqOtp\",\r\n" + "				\"description\": \"reqOtp\",\r\n"
+				+ "				\"operationId\": \"reqOtp\",\r\n" + "				\"requestBody\": {\r\n"
+				+ "					\"content\": {\r\n" + "						\"application/json\": {\r\n"
+				+ "							\"schema\": {\r\n"
+				+ "								\"$ref\": \"#/components/schemas/OtpRequestDTO\"\r\n"
+				+ "							}\r\n" + "						}\r\n" + "					},\r\n"
+				+ "					\"required\": true\r\n" + "				},\r\n"
+				+ "				\"responses\": {\r\n" + "					\"201\": {\r\n"
+				+ "						\"description\": \"Created\"\r\n" + "					},\r\n"
+				+ "					\"401\": {\r\n" + "						\"description\": \"Unauthorized\"\r\n"
+				+ "					},\r\n" + "					\"403\": {\r\n"
+				+ "						\"description\": \"Forbidden\"\r\n" + "					},\r\n"
+				+ "					\"200\": {\r\n" + "						\"description\": \"OK\",\r\n"
+				+ "						\"content\": {\r\n" + "							\"*/*\": {\r\n"
+				+ "								\"schema\": {\r\n"
+				+ "									\"$ref\": \"#/components/schemas/OtpResponseDTO\"\r\n"
+				+ "								}\r\n" + "							}\r\n"
+				+ "						}\r\n" + "					},\r\n" + "					\"404\": {\r\n"
+				+ "						\"description\": \"Not Found\"\r\n" + "					}\r\n"
+				+ "				}\r\n" + "			}\r\n" + "		}";
+
+		String response = "{\r\n" + "  \"responseTime\": \"2023-08-16T00:19:16.779Z\",\r\n" + "  \"errors\": [\r\n"
+				+ "    {\r\n" + "      \"errorCode\": \"IDA-MLC-018\",\r\n"
+				+ "      \"errorMessage\": \"VID not available in database\"\r\n" + "    }\r\n" + "  ]\r\n" + "}";
 		
-		String message = "Dear FR OTP for VID XXXXXXXX65185914 is 333333 and is valid for 3 minutes. (Generated on 21-03-2023 at 16:03:54 Hrs)\r\n"
-				+ "عزيزي $ name OTP لـ $ idvidType $ idvid هو $ otp وهو صالح لـ $ validTime دقيقة. (تم إنشاؤه في $ date في $ time Hrs)\r\n"
-				+ "Cher $name_fra, OTP pour VID XXXXXXXX65185914 est 111111 et est valide pour 3 minutes. (Généré le 21-03-2023 à 16:03:54 Hrs)";
-		
-		message = "Dear TEST_FULLNAMEeng OTP for UIN XXXXXXXX98 is 523478 and is valid for 3 minutes. (Generated on 22-05-2023 at 11:40:11 Hrs) عزيزي $ name OTP لـ $ idvidType $ idvid هو $ otp وهو صالح لـ $ validTime دقيقة. (تم إنشاؤه في $ date في $ time Hrs) UIN XXXXXXXX98 ಗಾಗಿ ಆತ್ಮೀಯ TEST_FULLNAMEkan OTP 523478 ಆಗಿದೆ ಮತ್ತು ಇದು 3 ನಿಮಿಷಗಳವರೆಗೆ ಮಾನ್ಯವಾಗಿರುತ್ತದೆ. (22-05-2023 ದಂದು 11:40:11 ಗಂಟೆಗೆ ರಚಿಸಲಾಗಿದೆ)";
-		
-		if(message!=null) {
-		    Matcher mMatcher = mPattern.matcher(message);
-		    if(mMatcher.find()) {
-		        String otp = mMatcher.group(0);
-		        otp = otp.trim();
-		        lOGGER.info("Final OTP: "+ otp);
-		    }else {
-		    	lOGGER.info("Failed to extract the OTP!! ");
-		    }
-		}
+//		OpenApiValidator validator = new OpenApiValidator(); 
+//		 
+//		 // Set the OpenAPI specification to the OpenApiValidator object
+//		 validator.setOpenApiSpecification(openapiSpecification); 
+//		 
+//		 // Set the JSON object to the OpenApiValidator object
+//		 validator.setJson(jsonObject); 
+		 
+		 // Call the validate() method of the OpenApiValidator object
+//		 validator.validate();
+
 	}
-	public static String generateRandomAlphanumericString(int length)  {
-        byte[] bytes = new byte[length];
-        secureRandom.nextBytes(bytes);
-        String randomString = new String(bytes);
-        return randomString.replaceAll("[^0-9a-zA-Z]", "");
-    }
-	
-	 public static String generateRandomString(int length) {
-	        byte[] bytes = new byte[length];
-	        secureRandom.nextBytes(bytes);
-	        String randomString = new String(bytes);
-	        return randomString;
-	    }
-	 
-	 public static String generateRandomNumericString(int length) {
-	        byte[] bytes = new byte[length];
-	        secureRandom.nextBytes(bytes);
-	        String randomString = new String(bytes);
-	        return randomString.replaceAll("[^0-9]", "");
-	    }
 
 }

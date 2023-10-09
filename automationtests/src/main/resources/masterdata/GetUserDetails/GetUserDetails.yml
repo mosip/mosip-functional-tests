@@ -9,12 +9,10 @@ GetUserDetails:
   "id":"$REMOVE$"
 }'
       output: '{
-      "id": "auto_test_user",
-      "langCode": "eng",
       "name": "$IGNORE$",
       "statusCode": "$IGNORE$",
       "regCenterId": "10005",
-      "isActive": $IGNORE$,
+      "isActive": "$IGNORE$",
       "zoneCode": "$IGNORE$"
 }'
    MasterData_GetUserDetails_ByUserId_allValid_smoke:
@@ -27,12 +25,10 @@ GetUserDetails:
   "id":"func_auto_test_user"
 }'
       output: '{
-      "id": "func_auto_test_user",
-      "langCode": "eng",
       "name": "$IGNORE$",
       "statusCode": "$IGNORE$",
       "regCenterId": "10005",
-      "isActive": $IGNORE$,
+      "isActive": "$IGNORE$",
       "zoneCode": "$IGNORE$"
 }'
    MasterData_GetUserDetails_InValid_InvalidUserID:

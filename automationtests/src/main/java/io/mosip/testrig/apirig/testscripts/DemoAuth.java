@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.ITest;
@@ -31,6 +32,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.ida.certificate.PartnerRegistration;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -41,8 +43,11 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 	public boolean isInternal = false;
 
 	@BeforeClass
-	public static void setPrerequiste() {
-		logger.info("Starting authpartner demo service...");
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
 	}
 
 	/**
@@ -82,6 +87,21 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
+		
+		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
+				throw new SkipException("Idtype UIN is not supported. Hence skipping the testcase");
+			}
+		}
+		
+		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
+			}
+		}
+		
 		if (testCaseDTO.getEndPoint().contains("$partnerKeyURL$")) {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl));
@@ -141,7 +161,7 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 		}
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), ActualOPJson);
+				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

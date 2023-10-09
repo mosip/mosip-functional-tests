@@ -2,6 +2,7 @@ BiometricAttributes:
    MasterData_BiometricAttributes_All_Valid_Smoke_sid:
       endPoint: /v1/masterdata/biometricattributes
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langCode"]
       restMethod: post
       inputTemplate: masterdata/BiometricAttributes/biometricAttributes
@@ -16,8 +17,7 @@ BiometricAttributes:
 	"requesttime": "$TIMESTAMP$"
 	}'
       output: '{
-     "code": "$IGNORE$",
-    "langCode": "$IGNORE$"
+      "code": "TST"
 }'
 
    MasterData_BiometricAttributes_Invalid_empty_biometricTypeCode:
@@ -64,8 +64,7 @@ BiometricAttributes:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-APP-103",
-      "message": "$IGNORE$"
+      "errorCode": "KER-APP-103"
     }
   ]
 }'

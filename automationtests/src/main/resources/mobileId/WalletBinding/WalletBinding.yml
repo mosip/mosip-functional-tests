@@ -4,6 +4,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/WalletBinding/WalletBindingResult
       input: '{
@@ -17,8 +18,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -26,8 +27,8 @@ WalletBinding:
       output: '{
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -36,6 +37,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/WalletBinding/WalletBindingResult
       input: '{
@@ -49,8 +51,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -58,8 +60,8 @@ WalletBinding:
       output: '{
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -68,6 +70,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -81,8 +84,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -90,14 +93,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -106,6 +108,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -119,8 +122,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -128,14 +131,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -144,6 +146,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -157,8 +160,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -166,14 +169,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -182,6 +184,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -195,8 +198,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -204,14 +207,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -220,6 +222,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -233,8 +236,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -242,14 +245,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -258,6 +260,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -271,8 +274,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -280,14 +283,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "binding_auth_failed",
-      "message": "$IGNORE$"
+      "errorCode": "binding_auth_failed"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -296,6 +298,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -309,8 +312,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -318,14 +321,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_individual_id",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_individual_id"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -334,6 +336,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -347,8 +350,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -356,14 +359,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "binding_auth_failed",
-      "message": "$IGNORE$"
+      "errorCode": "binding_auth_failed"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -372,6 +374,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -385,8 +388,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -394,14 +397,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_individual_id",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_individual_id"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -410,6 +412,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -423,8 +426,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -432,14 +435,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_individual_id",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_individual_id"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -448,6 +450,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -461,8 +464,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -470,14 +473,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "key_binding_failed",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],        
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -486,6 +488,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -499,8 +502,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -508,14 +511,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],        
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -524,6 +526,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -537,8 +540,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -546,14 +549,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],        
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -562,6 +564,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -575,8 +578,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -584,14 +587,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],        
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -600,6 +602,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -613,8 +616,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -622,14 +625,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "key_binding_failed",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],        
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -638,6 +640,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -651,8 +654,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -660,14 +663,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "binding_auth_failed",
-      "message": "$IGNORE$"
+      "errorCode": "binding_auth_failed"
     }
   ],       
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -676,6 +678,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -689,8 +692,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -698,14 +701,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge"
     }
   ],       
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -714,6 +716,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -727,8 +730,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -736,14 +739,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge"
     }
   ],       
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -752,6 +754,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -765,8 +768,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -774,14 +777,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge"
     }
   ],       
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -790,6 +792,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -803,8 +806,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -812,14 +815,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "binding_auth_failed",
-      "message": "$IGNORE$"
+      "errorCode": "binding_auth_failed"
     }
   ],       
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -828,6 +830,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -841,8 +844,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -850,14 +853,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -866,6 +868,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -879,8 +882,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -888,14 +891,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge_format"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -904,6 +906,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -917,8 +920,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -926,14 +929,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge_format"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -942,6 +944,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -955,8 +958,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -964,14 +967,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge_format"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -980,6 +982,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -993,8 +996,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1002,14 +1005,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1018,6 +1020,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1031,8 +1034,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1040,14 +1043,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1056,6 +1058,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1069,8 +1072,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1078,14 +1081,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1094,6 +1096,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1107,8 +1110,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1116,14 +1119,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1132,6 +1134,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1145,8 +1148,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1154,14 +1157,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1170,6 +1172,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1183,8 +1186,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1192,14 +1195,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1208,6 +1210,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1221,8 +1224,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1230,14 +1233,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1246,6 +1248,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1259,8 +1262,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1268,14 +1271,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1284,6 +1286,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1297,8 +1300,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1306,14 +1309,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1322,6 +1324,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1335,8 +1338,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1344,14 +1347,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1360,6 +1362,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1373,8 +1376,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1382,14 +1385,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1398,6 +1400,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1411,8 +1414,8 @@ WalletBinding:
         "publicKey": "ghj$4",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1420,14 +1423,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-028",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-028"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1436,6 +1438,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1449,8 +1452,8 @@ WalletBinding:
         "publicKey": "null",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1458,14 +1461,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-028",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-028"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1474,6 +1476,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1487,8 +1490,8 @@ WalletBinding:
         "publicKey": "$REMOVE$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1496,14 +1499,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-028",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-028"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1512,6 +1514,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1525,8 +1528,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1534,14 +1537,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1550,6 +1552,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1563,8 +1566,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1572,14 +1575,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1588,6 +1590,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1601,8 +1604,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1610,14 +1613,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1626,6 +1628,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1639,8 +1642,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1648,14 +1651,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1664,6 +1666,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1677,8 +1680,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1686,14 +1689,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_request"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1702,6 +1704,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1715,8 +1718,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1724,14 +1727,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "binding_auth_failed",
-      "message": "$IGNORE$"
+      "errorCode": "binding_auth_failed"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1740,6 +1742,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1753,8 +1756,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1762,14 +1765,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_individual_id",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_individual_id"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1778,6 +1780,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1791,8 +1794,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1800,14 +1803,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "binding_auth_failed",
-      "message": "$IGNORE$"
+      "errorCode": "binding_auth_failed"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1816,6 +1818,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1829,8 +1832,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1838,14 +1841,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_individual_id",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_individual_id"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1854,6 +1856,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1867,8 +1870,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1876,14 +1879,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_individual_id",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_individual_id"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1892,6 +1894,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1905,8 +1908,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1914,14 +1917,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "key_binding_failed",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],        
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1930,6 +1932,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1943,8 +1946,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1952,14 +1955,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],        
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -1968,6 +1970,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -1981,8 +1984,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -1990,14 +1993,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],        
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2006,6 +2008,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2019,8 +2022,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2028,14 +2031,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],        
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2044,6 +2046,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2057,8 +2060,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2066,14 +2069,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "key_binding_failed",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],        
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2082,6 +2084,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2095,8 +2098,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2104,14 +2107,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "binding_auth_failed",
-      "message": "$IGNORE$"
+      "errorCode": "binding_auth_failed"
     }
   ],       
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2120,6 +2122,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2133,8 +2136,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2142,14 +2145,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge"
     }
   ],       
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2158,6 +2160,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2171,8 +2174,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2180,14 +2183,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge"
     }
   ],       
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2196,6 +2198,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2209,8 +2212,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2218,14 +2221,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge"
     }
   ],       
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2234,6 +2236,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2247,8 +2250,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2256,14 +2259,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "binding_auth_failed",
-      "message": "$IGNORE$"
+      "errorCode": "binding_auth_failed"
     }
   ],       
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2272,6 +2274,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2285,8 +2288,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2294,14 +2297,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2310,6 +2312,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2323,8 +2326,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2332,14 +2335,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge_format"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2348,6 +2350,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2361,8 +2364,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2370,14 +2373,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge_format"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2386,6 +2388,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2399,8 +2402,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2408,14 +2411,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge_format"
     }
   ],      
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2424,6 +2426,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2437,8 +2440,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2446,14 +2449,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "IDA",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2462,6 +2464,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2475,8 +2478,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2484,14 +2487,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2500,6 +2502,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2513,8 +2516,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2522,14 +2525,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2538,6 +2540,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2551,8 +2554,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2560,14 +2563,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2576,6 +2578,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2589,8 +2592,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2598,14 +2601,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2614,6 +2616,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2627,8 +2630,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2636,14 +2639,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2652,6 +2654,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2665,8 +2668,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2674,14 +2677,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2690,6 +2692,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2703,8 +2706,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2712,14 +2715,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2728,6 +2730,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2741,8 +2744,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2750,14 +2753,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2766,6 +2768,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2779,8 +2782,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2788,14 +2791,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2804,6 +2806,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2817,8 +2820,8 @@ WalletBinding:
         "publicKey": "$PUBLICKEYFORBINDING$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2826,14 +2829,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge_format",
-      "message": "$IGNORE$"
+      "errorCode": "invalid_auth_factor_type_or_challenge_format"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2842,6 +2844,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2855,8 +2858,8 @@ WalletBinding:
         "publicKey": "ghj$4",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2864,14 +2867,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-028",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-028"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2880,6 +2882,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2893,8 +2896,8 @@ WalletBinding:
         "publicKey": "null",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2902,14 +2905,13 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-028",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-028"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
+           
        }
 }'
 
@@ -2918,6 +2920,7 @@ WalletBinding:
       role: resident
       validityCheckRequired: true
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/WalletBinding/WalletBinding
       outputTemplate: mobileId/error
       input: '{
@@ -2931,8 +2934,8 @@ WalletBinding:
         "publicKey": "$REMOVE$",        
         "sendOtp":{
            "requestTime": "$TIMESTAMP$",
-   	       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
-           "otpChannels": [{channel: "email"},{channel: "phone"}],
+            "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+           "otpChannels": [{channel: "EMAIL"},{channel: "PHONE"}],
            "sendOtpReqTemplate": "mobileId/BindingOtp/BindingOtp",
            "sendOtpEndPoint": "/residentmobileapp/binding-otp"
     }
@@ -2940,13 +2943,11 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "RESIDENT-APP-028",
-      "message": "$IGNORE$"
+      "errorCode": "RESIDENT-APP-028"
     }
   ],
         "sendOtpResp": {
            "maskedMobile": "$IGNORE$",
-           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult",
-           "maskedEmail": "$IGNORE$"
+           "sendOtpResTemplate":"mobileId/BindingOtp/BindingOtpResult"
        }
 }'

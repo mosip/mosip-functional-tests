@@ -89,3 +89,18 @@ HotlistAPI:
       output: '{
         "status": "UNBLOCKED"
     }'
+   auth_HotlistAPI_All_Valid_Smoke_deviceProviderId:
+      endPoint: /v1/hotlist/unblock
+      role: hotlist
+      restMethod: post
+      inputTemplate: ida/UnBlockHotlistAPI/UnblockHotlistAPI
+      outputTemplate: ida/UnBlockHotlistAPI/UnblockHotlistAPIResult
+      input: '{
+    "id": "571203",
+    "idType": "DEVICE",
+    "requestTime": "$TIMESTAMP$",
+    "expiryTimestamp": "120"
+  }'
+      output: '{
+        "status": "UNBLOCKED"
+    }'

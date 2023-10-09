@@ -16,7 +16,7 @@ getregistrationmachineusermappinghistory:
         "cntrId": "10001",
         "machineId": "10001",
         "usrId": "110001",
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "langCode": "$IGNORE$",
         "effectivetimes": "$IGNORE$"
     }]

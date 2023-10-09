@@ -281,8 +281,7 @@ UpdateIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - registrationId"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'

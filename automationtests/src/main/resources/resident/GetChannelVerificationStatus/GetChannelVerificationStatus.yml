@@ -2,6 +2,7 @@ GetChannelVerificationStatus:
    Resident_GetChannelVerificationStatus_For_Email_Valid_Smoke:
       endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
@@ -153,7 +154,7 @@ GetChannelVerificationStatus:
       output: '{
       "errors": [
     {
-      "errorCode": "RES-SER-522",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ],
@@ -243,7 +244,7 @@ GetChannelVerificationStatus:
       output: '{
       "errors": [
     {
-      "errorCode": "RES-SER-522",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ],
@@ -262,6 +263,7 @@ GetChannelVerificationStatus:
    Resident_GetChannelVerificationStatus_Email_Valid_Smoke:
       endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
@@ -382,6 +384,7 @@ GetChannelVerificationStatus:
    Resident_GetChannelVerificationStatus_Phone_Invalid:
       endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult

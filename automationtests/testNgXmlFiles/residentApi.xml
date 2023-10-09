@@ -113,6 +113,13 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="ValidateExpiredOTP">
+		<parameter name="ymlFile"
+			value="resident/ValidateExpiredOTP/ValidateExpiredOTP.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
 	
 	<test name="AuthLock">
 		<parameter name="ymlFile"
@@ -263,20 +270,6 @@
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParamWithOtpGenerate" />
 		</classes>
 	</test>
-	<test name="GetIdentityMapping">
-		<parameter name="ymlFile"
-			value="resident/GetIdentityMapping/GetIdentityMapping.yml" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="ValidateExpiredOTP">
-		<parameter name="ymlFile"
-			value="resident/ValidateExpiredOTP/ValidateExpiredOTP.yml" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
-		</classes>
-	</test>
 	<test name="OAuthDetailsRequest">
 		<parameter name="ymlFile"
 			value="resident/OAuthDetailsRequest/OAuthDetailsRequest.yml" />
@@ -339,6 +332,13 @@
 			<parameter name="sendEsignetToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="GetIdentityMapping">
+		<parameter name="ymlFile"
+			value="resident/GetIdentityMapping/GetIdentityMapping.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="GetSupportingDoc">

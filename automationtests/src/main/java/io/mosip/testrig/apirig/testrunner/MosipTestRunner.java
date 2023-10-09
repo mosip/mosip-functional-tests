@@ -14,7 +14,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.testng.TestNG;
 
@@ -23,9 +25,12 @@ import com.nimbusds.jose.jwk.RSAKey;
 
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.admin.fw.util.EncryptionDecrptionUtil;
+import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.ida.certificate.CertificateGenerationUtil;
+import io.mosip.testrig.apirig.ida.certificate.KeyCloakUserAndAPIKeyGeneration;
+import io.mosip.testrig.apirig.ida.certificate.MispPartnerAndLicenseKeyGeneration;
 import io.mosip.testrig.apirig.ida.certificate.PartnerRegistration;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.kernel.util.KeycloakUserManager;
@@ -39,8 +44,7 @@ import io.mosip.testrig.apirig.service.BaseTestCase;
  */
 public class MosipTestRunner {
 	private static final Logger LOGGER = Logger.getLogger(MosipTestRunner.class);
-	
-
+	private static String cachedPath = null;
 
 	public static String jarUrl = MosipTestRunner.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 	public static List<String> languageList = new ArrayList<>();
@@ -59,22 +63,33 @@ public class MosipTestRunner {
 			for (String envName : envMap.keySet()) {
 				LOGGER.info(String.format("ENV %s = %s%n", envName, envMap.get(envName)));
 			}
-
+			ExtractResource.removeOldMosipTestTestResource();
 			if (checkRunType().equalsIgnoreCase("JAR")) {
-				ExtractResource.removeOldMosipTestTestResource();
-				ExtractResource.extractResourceFromJar();
+				ExtractResource.extractCommonResourceFromJar();
+			} else {
+				ExtractResource.copyCommonResources();
 			}
-			ConfigManager.init(); 
+			ConfigManager.init();
 			BaseTestCase.suiteSetup();
+			setLogLevels();
 			AdminTestUtil.encryptDecryptUtil = new EncryptionDecrptionUtil();
-			HealthChecker healthcheck = new HealthChecker();
-			healthcheck.setCurrentRunningModule(BaseTestCase.currentModule);
-			Thread trigger = new Thread(healthcheck);
-			trigger.start();
 
-			KeycloakUserManager.createUsers(); 
+			// For now we are not doing health check for qa-115.
+			if (BaseTestCase.isTargetEnvLTS()) {
+				HealthChecker healthcheck = new HealthChecker();
+				healthcheck.setCurrentRunningModule(BaseTestCase.currentModule);
+				Thread trigger = new Thread(healthcheck);
+				trigger.start();
+			}
+			KeycloakUserManager.removeUser();
+			KeycloakUserManager.createUsers();
+			KeycloakUserManager.closeKeycloakInstance();
+
+			List<String> localLanguageList = new ArrayList<>(BaseTestCase.getLanguageList());
+			AdminTestUtil.getLocationData();
 
 			String partnerKeyURL = "";
+			String ekycPartnerKeyURL = "";
 
 			if (BaseTestCase.listOfModules.contains("auth")
 					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
@@ -82,15 +97,20 @@ public class MosipTestRunner {
 				CertificateGenerationUtil.getThumbprints();
 				AdminTestUtil.createAndPublishPolicy();
 				partnerKeyURL = PartnerRegistration.generateAndGetPartnerKeyUrl();
+				
+				
+				AdminTestUtil.createAndPublishPolicyForKyc();
+				ekycPartnerKeyURL = PartnerRegistration.generateAndGetEkycPartnerKeyUrl();
 
 			}
-
-			List<String> localLanguageList = new ArrayList<>(BaseTestCase.getLanguageList());
-
 
 			if (BaseTestCase.listOfModules.contains(GlobalConstants.MASTERDATA)) {
 				BaseTestCase.mapUserToZone();
 				BaseTestCase.mapZone();
+				AdminTestUtil.getLocationLevelData();
+				AdminTestUtil.getLocationData();
+				AdminTestUtil.getZoneName();
+				
 
 				for (int i = 0; i < localLanguageList.size(); i++) {
 					BaseTestCase.languageList.clear();
@@ -106,6 +126,7 @@ public class MosipTestRunner {
 			} else if (BaseTestCase.listOfModules.contains("auth")
 					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
 				if (partnerKeyURL.isEmpty())
+				//	if (partnerKeyURL.isEmpty() || ekycPartnerKeyURL.isEmpty())
 					LOGGER.error("partnerKeyURL is null");
 				else
 					startTestRunner();
@@ -118,10 +139,19 @@ public class MosipTestRunner {
 
 		MockSMTPListener.bTerminate = true;
 
-		HealthChecker.bTerminate = true;
+		if (BaseTestCase.isTargetEnvLTS())
+			HealthChecker.bTerminate = true;
 
 		System.exit(0);
 
+	}
+
+	private static void setLogLevels() {
+		AdminTestUtil.setLogLevel();
+		OutputValidationUtil.setLogLevel();
+		PartnerRegistration.setLogLevel();
+		KeyCloakUserAndAPIKeyGeneration.setLogLevel();
+		MispPartnerAndLicenseKeyGeneration.setLogLevel();
 	}
 
 	/**
@@ -139,8 +169,7 @@ public class MosipTestRunner {
 		if (checkRunType().contains("IDE") || os.toLowerCase().contains("windows")) {
 			homeDir = new File(System.getProperty("user.dir") + "/testNgXmlFiles");
 			LOGGER.info("IDE :" + homeDir);
-		}
-		else {
+		} else {
 			File dir = new File(System.getProperty("user.dir"));
 			homeDir = new File(dir.getParent() + "/mosip/testNgXmlFiles");
 			LOGGER.info("ELSE :" + homeDir);
@@ -166,30 +195,55 @@ public class MosipTestRunner {
 	 * @return String
 	 * @throws IOException
 	 */
+	/*
+	 * public static String getGlobalResourcePath() { if
+	 * (checkRunType().equalsIgnoreCase("JAR")) { return new
+	 * File(jarUrl).getParentFile().getAbsolutePath() +
+	 * "/MosipTestResource/MosipTemporaryTestResource"; } else if
+	 * (checkRunType().equalsIgnoreCase("IDE")) { String path = new
+	 * File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).
+	 * getAbsolutePath() + "/MosipTestResource/MosipTemporaryTestResource"; if
+	 * (path.contains(GlobalConstants.TESTCLASSES)) path =
+	 * path.replace(GlobalConstants.TESTCLASSES, "classes"); return path; } return
+	 * "Global Resource File Path Not Found"; }
+	 */
+
 	public static String getGlobalResourcePath() {
+		if (cachedPath != null) {
+			return cachedPath;
+		}
+
+		String path = null;
 		if (checkRunType().equalsIgnoreCase("JAR")) {
-			return new File(jarUrl).getParentFile().getAbsolutePath() + "/MosipTestResource";
+			path = new File(jarUrl).getParentFile().getAbsolutePath() + "/MosipTestResource/MosipTemporaryTestResource";
 		} else if (checkRunType().equalsIgnoreCase("IDE")) {
-			String path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath();
+			path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath()
+					+ "/MosipTestResource/MosipTemporaryTestResource";
 			if (path.contains(GlobalConstants.TESTCLASSES))
 				path = path.replace(GlobalConstants.TESTCLASSES, "classes");
-			return path;
 		}
-		return "Global Resource File Path Not Found";
+
+		if (path != null) {
+			cachedPath = path;
+			return path;
+		} else {
+			return "Global Resource File Path Not Found";
+		}
 	}
 
 	public static String getResourcePath() {
-		if (checkRunType().equalsIgnoreCase("JAR")) {
-			return new File(jarUrl).getParentFile().getAbsolutePath();
-		} else if (checkRunType().equalsIgnoreCase("IDE")) {
-			String path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath();
-			if (path.contains(GlobalConstants.TESTCLASSES))
-				path = path.replace(GlobalConstants.TESTCLASSES, "classes");
-			return path;
-		}
-		return "Global Resource File Path Not Found";
+		return getGlobalResourcePath();
+//		if (checkRunType().equalsIgnoreCase("JAR")) {
+//			return new File(jarUrl).getParentFile().getAbsolutePath();
+//		} else if (checkRunType().equalsIgnoreCase("IDE")) {
+//			String path = new File(MosipTestRunner.class.getClassLoader().getResource("").getPath()).getAbsolutePath();
+//			if (path.contains(GlobalConstants.TESTCLASSES))
+//				path = path.replace(GlobalConstants.TESTCLASSES, "classes");
+//			return path;
+//		}
+//		return "Global Resource File Path Not Found";
 	}
-	
+
 	public static String generatePulicKey() {
 		String publicKey = null;
 		try {
@@ -198,36 +252,51 @@ public class MosipTestRunner {
 			final KeyPair keypair = keyGenerator.generateKeyPair();
 			publicKey = java.util.Base64.getEncoder().encodeToString(keypair.getPublic().getEncoded());
 		} catch (NoSuchAlgorithmException e) {
-			LOGGER.error(e.getStackTrace());
+			LOGGER.error(e.getMessage());
 		}
 		return publicKey;
 	}
-	
+
+	public static KeyPairGenerator keyPairGen = null;
+
+	public static KeyPairGenerator getKeyPairGeneratorInstance() {
+		if (keyPairGen != null)
+			return keyPairGen;
+		try {
+			keyPairGen = KeyPairGenerator.getInstance("RSA");
+			keyPairGen.initialize(2048);
+
+		} catch (NoSuchAlgorithmException e) {
+			LOGGER.error(e.getMessage());
+		}
+
+		return keyPairGen;
+	}
+
 	public static String generatePublicKeyForMimoto() {
-        KeyPairGenerator keyPairGen;
-        String vcString = "";
-        try {
-            keyPairGen = KeyPairGenerator.getInstance("RSA");
-            keyPairGen.initialize(2048);
-            KeyPair keyPair = keyPairGen.generateKeyPair();
-            PublicKey publicKey = keyPair.getPublic();
-            StringWriter stringWriter = new StringWriter();
-            try (JcaPEMWriter pemWriter = new JcaPEMWriter(stringWriter)) {
-                pemWriter.writeObject(publicKey);
-                pemWriter.flush();
-                vcString = stringWriter.toString();
-        		if (System.getProperty("os.name").toLowerCase().contains("windows")) {
-        			vcString = vcString.replaceAll("\r\n", "\\\\n");
-        		} else {
-        			vcString = vcString.replaceAll("\n", "\\\\n");
-        		}
-            } catch (Exception e) {
-                throw e;
-            }
-        } catch (Exception e) {
-        	LOGGER.error(e.getStackTrace());
-        }
-        return vcString;
+
+		String vcString = "";
+		try {
+			KeyPairGenerator keyPairGenerator = getKeyPairGeneratorInstance();
+			KeyPair keyPair = keyPairGenerator.generateKeyPair();
+			PublicKey publicKey = keyPair.getPublic();
+			StringWriter stringWriter = new StringWriter();
+			try (JcaPEMWriter pemWriter = new JcaPEMWriter(stringWriter)) {
+				pemWriter.writeObject(publicKey);
+				pemWriter.flush();
+				vcString = stringWriter.toString();
+				if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+					vcString = vcString.replaceAll("\r\n", "\\\\n");
+				} else {
+					vcString = vcString.replaceAll("\n", "\\\\n");
+				}
+			} catch (Exception e) {
+				throw e;
+			}
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage());
+		}
+		return vcString;
 	}
 
 	public static String generateJWKPublicKey() {
@@ -235,17 +304,16 @@ public class MosipTestRunner {
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
 			keyGenerator.initialize(2048, BaseTestCase.secureRandom);
 			final KeyPair keypair = keyGenerator.generateKeyPair();
-			RSAKey jwk = new RSAKey.Builder((RSAPublicKey) keypair.getPublic()).keyID("RSAKeyID").keyUse(KeyUse.SIGNATURE)
-				    .privateKey(keypair.getPrivate())
-				    .build();
-			
+			RSAKey jwk = new RSAKey.Builder((RSAPublicKey) keypair.getPublic()).keyID("RSAKeyID")
+					.keyUse(KeyUse.SIGNATURE).privateKey(keypair.getPrivate()).build();
+
 			return jwk.toJSONString();
 		} catch (NoSuchAlgorithmException e) {
-			LOGGER.error(e.getStackTrace());
+			LOGGER.error(e.getMessage());
 			return null;
 		}
 	}
-	
+
 	public static Properties getproperty(String path) {
 		Properties prop = new Properties();
 		FileInputStream inputStream = null;
@@ -255,7 +323,7 @@ public class MosipTestRunner {
 			prop.load(inputStream);
 		} catch (Exception e) {
 			LOGGER.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
-		}finally {
+		} finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}
 		return prop;

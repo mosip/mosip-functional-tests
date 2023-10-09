@@ -30,10 +30,9 @@ SearchBlockListedWords:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "word": "dumbo7",
-        "langCode": "eng"
+        "word": "dumbo7"
       }
     ]
 }'
@@ -68,10 +67,9 @@ SearchBlockListedWords:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "word": "dumbo7",
-        "langCode": "eng"
+        "word": "dumbo7"
       }
     ]
 }'
@@ -106,10 +104,9 @@ SearchBlockListedWords:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "word": "dumbo7",
-        "langCode": "eng"
+        "word": "dumbo7"
       }
     ]
 }'
@@ -180,10 +177,9 @@ SearchBlockListedWords:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "word": "dumb7",
-        "langCode": "eng"
+        "word": "dumb7"
       }
     ]
 }'

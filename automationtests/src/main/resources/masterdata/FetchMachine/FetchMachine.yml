@@ -43,8 +43,8 @@ FetchMachine:
   "regCenterId": "10011"
 }'
       output: '{
-"machines": [{
-			"isActive": true
+"data": [{
+			"isActive": "true"
 		}]
 }'
    Masterdata_FetchMachine_inValid_regCenterId:

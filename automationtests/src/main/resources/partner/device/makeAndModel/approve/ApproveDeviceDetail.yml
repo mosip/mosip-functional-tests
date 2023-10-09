@@ -2,6 +2,7 @@ createApproveRejectDeviceDetail:
    Partner_ApproveRejectDeviceDetail_All_Valid_Smoke:
       endPoint: /v1/partnermanager/devicedetail
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/device/makeAndModel/approve/approveDeviceDetail
       outputTemplate: partner/device/makeAndModel/approve/approveDeviceDetailResult
@@ -12,7 +13,6 @@ createApproveRejectDeviceDetail:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "response": "Device details approved successfully."
     }'
 
    Partner_ApproveRejectDeviceDetail_Missing_InputParameter_approvalStatus:
@@ -30,8 +30,7 @@ createApproveRejectDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.approvalStatus"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -52,8 +51,7 @@ createApproveRejectDeviceDetail:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.id"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

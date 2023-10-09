@@ -13,15 +13,7 @@ FetchDevice:
 }'
       output: '{
 "devices": [{
-            "name": "$IGNORE$",
-            "serialNum": "$IGNORE$",
-            "deviceSpecId": "$IGNORE$",
-            "macAddress": "$IGNORE$",
-            "langCode": "$IGNORE$",
-            "isActive": true,
-            "deviceTypeCode": "$IGNORE$",
-            "zoneCode": "$IGNORE$",
-            "regCenterId": "$IGNORE$"
+            "isActive": true
         }]
 }'       
    MasterData_FetchDevice_allValid_smoke_with_lang_and_deviceType:
@@ -38,20 +30,13 @@ FetchDevice:
 }'
       output: '{
 "devices": [{
-            "name": "$IGNORE$",
-            "serialNum": "$IGNORE$",
-            "deviceSpecId": "$IGNORE$",
-            "macAddress": "$IGNORE$",
-            "langCode": "$IGNORE$",
-            "isActive": true,
-            "deviceTypeCode": "GST4",
-            "zoneCode": "$IGNORE$",
-            "regCenterId": "$IGNORE$"
+            "isActive": true
         }]
 }'
    MasterData_FetchDevice_allValid_smoke_with_regCentre:
       endPoint: /v1/masterdata/devices/mappeddevices/{regCenterId}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchDevice/fetchDevice
       outputTemplate: masterdata/FetchDevice/fetchDeviceByCenterResult

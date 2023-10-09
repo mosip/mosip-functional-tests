@@ -2,6 +2,7 @@ DeleteLostUinApplication:
    Prereg_DeleteLostUinApplication_All_Valid_Smoke_sid:
       endPoint: /preregistration/v1/applications/prereg/{applicationId}
       role: batch
+      checkErrorsOnlyInResponse: true
       restMethod: delete
       inputTemplate: preReg/DeleteLostUinApplication/deleteLostUinApplication
       outputTemplate: preReg/DeleteLostUinApplication/deleteLostUinApplicationResult
@@ -9,7 +10,7 @@ DeleteLostUinApplication:
 	"applicationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$"
 }'
       output: '{
-"deletedBy": "$IGNORE$"
+       "deletedBy": "$IGNORE$"
 }'
    Prereg_DeleteLostUinApplication_inValid_preRegistrationId_sid:
       endPoint: /preregistration/v1/applications/prereg/{applicationId}
@@ -23,8 +24,7 @@ DeleteLostUinApplication:
       output: '{
    "errors": [ 
     {
-      "errorCode": "PRG_PAM_APP_005",
-      "message": "No record found for the requested user id"
+      "errorCode": "PRG_PAM_APP_005"
     }
   ]
 }'

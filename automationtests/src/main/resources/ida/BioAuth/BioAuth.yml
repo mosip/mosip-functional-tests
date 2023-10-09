@@ -27,6 +27,62 @@ BioAuth:
       output: '{
     "authStatus": "true"
 }'
+  auth_BioAuth_Biometric_Face_With_Infant_uin_Smoke_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_Infant_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/BioAuth/BioAuth
+      outputTemplate: ida/BioAuth/BioAuthResult
+      input: '{
+          "bioSubType": "",
+          "bioType": "FACE",
+          "bioValue": "$FACE$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "1873299273",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Single",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467171",
+          "type": "Face",
+          "transactionId": "$TRANSACTIONID$",
+          "timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+    "authStatus": "false"
+}'
+  auth_BioAuth_Biometric_Face_With_Infant_locked_uin_Smoke_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_withValidParameters_with_Infant_which_locked_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/BioAuth/BioAuth
+      outputTemplate: ida/BioAuth/BioAuthResult
+      input: '{
+          "bioSubType": "",
+          "bioType": "FACE",
+          "bioValue": "$FACE$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "1873299273",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Single",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467171",
+          "type": "Face",
+          "transactionId": "$TRANSACTIONID$",
+          "timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+    "authStatus": "false"
+}'
   auth_BioAuth_Biometric_RingFinger_With_Valid_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_ValidParam_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -419,8 +475,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-018",
-          "errorMessage": "VID not available in database"
+          "errorCode": "IDA-MLC-018"
         }
       ],
         "authStatus": false
@@ -789,8 +844,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - request/biometrics/0/data/bioSubType - dh363737dbsb"
+          "errorCode": "IDA-MLC-009"
         }
       ],
         "authStatus": false
@@ -823,8 +877,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-006",
-          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioSubType"
+          "errorCode": "IDA-MLC-006"
         }
       ],
         "authStatus": false
@@ -857,8 +910,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-006",
-          "errorMessage": "Missing Input Parameter - request/biometrics/0/data/bioType"
+          "errorCode": "IDA-MLC-006"
         }
       ],
         "authStatus": false
@@ -891,9 +943,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-011",
-          "errorMessage": "Unsupported Authentication Type - bio-@363GDG",
-          "actionMessage": "Please use other Authentication Types in the request"
+          "errorCode": "IDA-MLC-011"
         }
       ],
         "authStatus": false
@@ -926,12 +976,10 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-007",
-          "errorMessage": "Request could not be processed. Please try again"
+          "errorCode": "IDA-MLC-007"
         },
         {
-          "errorCode": "IDA-DPM-004",
-          "errorMessage": "Device Type and Biometric Type do not match"
+          "errorCode": "IDA-DPM-004"
         }
       ],
         "authStatus": false
@@ -964,9 +1012,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-BIA-001",
-          "errorMessage": "Biometric data - FACE did not match",
-          "actionMessage": "Please give your biometrics again"
+          "errorCode": "IDA-BIA-001"
         }
       ],
         "authStatus": false
@@ -999,9 +1045,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-BIA-001",
-          "errorMessage": "Biometric data - FACE did not match",
-          "actionMessage": "Please give your biometrics again"
+          "errorCode": "IDA-BIA-001"
         }
       ],
         "authStatus": false
@@ -1034,9 +1078,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-BIA-001",
-          "errorMessage": "Biometric data - Iris did not match",
-          "actionMessage": "Please give your biometrics again"
+          "errorCode": "IDA-BIA-001"
         }
       ],
         "authStatus": false
@@ -1069,9 +1111,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-BIA-001",
-          "errorMessage": "Biometric data - Finger did not match",
-          "actionMessage": "Please give your biometrics again"
+          "errorCode": "IDA-BIA-001"
         }
       ],
         "authStatus": false
@@ -1104,9 +1144,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-011",
-          "errorMessage": "Unsupported Authentication Type - bio-FIR",
-          "actionMessage": "Please use other Authentication Types in the request"
+          "errorCode": "IDA-MLC-011"
         }
       ],
         "authStatus": false
@@ -1139,9 +1177,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-011",
-          "errorMessage": "Unsupported Authentication Type - bio-IR",
-          "actionMessage": "Please use other Authentication Types in the request"
+          "errorCode": "IDA-MLC-011"
         }
       ],
         "authStatus": false
@@ -1174,9 +1210,7 @@ BioAuth:
       output: '{
     "errors": [
         {
-          "errorCode": "IDA-MLC-011",
-          "errorMessage": "Unsupported Authentication Type - bio-FIR",
-          "actionMessage": "Please use other Authentication Types in the request"
+          "errorCode": "IDA-MLC-011"
         }
       ],
         "authStatus": false
@@ -1209,9 +1243,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-011",
-          "errorMessage": "Unsupported Authentication Type - bio-IR",
-          "actionMessage": "Please use other Authentication Types in the request"
+          "errorCode": "IDA-MLC-011"
         }
       ],
         "authStatus": false
@@ -1244,9 +1276,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-011",
-          "errorMessage": "Unsupported Authentication Type - bio-FC",
-          "actionMessage": "Please use other Authentication Types in the request"
+          "errorCode": "IDA-MLC-011"
         }
       ],
         "authStatus": false
@@ -1279,9 +1309,7 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-011",
-          "errorMessage": "Unsupported Authentication Type - bio-FC",
-          "actionMessage": "Please use other Authentication Types in the request"
+          "errorCode": "IDA-MLC-011"
         }
       ],
         "authStatus": false
@@ -1342,8 +1370,7 @@ BioAuth:
       output: '{
     "errors": [
         {
-          "errorCode": "IDA-MLC-019",
-          "errorMessage": "bio-Iris Auth Type is Locked for the UIN"
+          "errorCode": "IDA-MLC-019"
         }
       ],
         "authStatus": false
@@ -1404,12 +1431,10 @@ BioAuth:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-007",
-          "errorMessage": "Request could not be processed. Please try again"
+          "errorCode": "IDA-MLC-007"
         },
         {
-          "errorCode": "IDA-MPA-009",
-          "errorMessage": "Partner is not registered"
+          "errorCode": "IDA-MPA-009"
         }
       ],
         "authStatus": false
@@ -1471,9 +1496,102 @@ BioAuth:
       output: '{
     "errors": [
         {
-          "errorCode": "IDA-MLC-019",
-          "errorMessage": "bio-Iris Auth Type is Locked for the UIN"
+          "errorCode": "IDA-MLC-019"
         }
       ],
         "authStatus": false
+}'
+  auth_BioAuth_With_Deactivated_UIN:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_deactivate_UIN_smoke_sid_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/BioAuth/BioAuth
+      outputTemplate: ida/BioAuth/error
+      input: '{
+          "bioSubType": "",
+          "bioType": "FACE",
+          "bioValue": "$FACE$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "1873299273",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Single",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467171",
+          "type": "Face",
+          "transactionId": "$TRANSACTIONID$",
+          "timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+    "errors": [
+        {
+          "errorCode": "IDA-MLC-019"
+        }
+      ],
+        "authStatus": false
+}'
+  auth_BioAuth_Biometric_Face_With_Valid_uin_NOAUTH_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/BioAuth/BioAuth
+      outputTemplate: ida/BioAuth/BioAuthResult
+      input: '{
+          "bioSubType": "",
+          "bioType": "FACE",
+          "bioValue": "$FACE$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "1873299273",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Single",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467171",
+          "type": "Face",
+          "transactionId": "$TRANSACTIONID$",
+          "timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+    "errors": [
+        {
+          "errorCode": "IDA-MLC-019"
+        }
+      ],
+        "authStatus": false
+}'
+  auth_BioAuth_Biometric_Face_With_Draft_uin_Smoke_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GetDraft_all_valid_smoke_sid_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/BioAuth/BioAuth
+      outputTemplate: ida/BioAuth/BioAuthResult
+      input: '{
+          "bioSubType": "",
+          "bioType": "FACE",
+          "bioValue": "$FACEDRAFTVALUE$",
+          "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
+          "dateTime": "$DATETIME$",
+          "deviceProviderID": "1873299273",
+          "deviceServiceID": "",
+          "deviceServiceVersion": "SB.WIN.001",
+          "deviceProvider": "SYNCBYTE",
+          "deviceProviderId": "SYNCBYTE.LTC165",
+          "deviceSubType": "Single",
+          "make": "Logitech",
+          "model": "4d36e96c-e325-11ce-bfc1-08002be10318",
+          "serialNo": "78467171",
+          "type": "Face",
+          "transactionId": "$TRANSACTIONID$",
+          "timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+    "authStatus": "true"
 }'

@@ -2,6 +2,7 @@ GetUpdateCount:
    IdRepository_GetUpdateCount_Uin_Valid_Smoke:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/GetUpdateCount/GetUpdateCountResult
@@ -28,8 +29,7 @@ GetUpdateCount:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'
@@ -61,8 +61,7 @@ GetUpdateCount:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'
@@ -83,6 +82,7 @@ GetUpdateCount:
    IdRepository_GetUpdateCount_Vid_Valid_Smoke:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/GetUpdateCount/GetUpdateCountResult
@@ -109,8 +109,7 @@ GetUpdateCount:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -142,8 +141,7 @@ GetUpdateCount:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-003",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-003"
     }
   ]
 }'
@@ -175,8 +173,7 @@ GetUpdateCount:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - idType"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -195,8 +192,7 @@ GetUpdateCount:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - idType"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -215,8 +211,7 @@ GetUpdateCount:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - idType"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -235,8 +230,7 @@ GetUpdateCount:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - idType"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -275,8 +269,7 @@ GetUpdateCount:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - idType"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'

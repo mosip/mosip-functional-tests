@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,6 +32,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.FileUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -41,9 +43,11 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 	public boolean isInternal = false;
 	
 	@BeforeClass
-	public static void setPrerequiste() {
-		logger.info("Starting authpartner demo service...");
-		AuthPartnerProcessor.startProcess();
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
 	}
 	
 	/**
@@ -127,7 +131,7 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
@@ -153,7 +157,7 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -165,7 +169,7 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 			try {
 				resp = resJsonObject.get("response").toString();
 			} catch (JSONException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 			}
 			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
 			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+properties.getProperty("decryptkycdataurl"), 

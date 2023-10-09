@@ -11,6 +11,7 @@ import java.util.Map;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -19,6 +20,7 @@ import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -33,6 +35,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestExceptio
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.kernel.util.KernelAuthentication;
 import io.mosip.testrig.apirig.kernel.util.KeycloakUserManager;
 import io.mosip.testrig.apirig.service.BaseTestCase;
@@ -51,6 +54,14 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	public String getTestName() {
 		return testCaseName;
 		
+	}
+	
+	@BeforeClass
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
 	}
 
 	/**
@@ -127,7 +138,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

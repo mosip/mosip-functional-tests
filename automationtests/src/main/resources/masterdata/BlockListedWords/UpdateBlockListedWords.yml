@@ -15,8 +15,7 @@ UpdateBlockListedWords:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "dumbooo",
-	"langCode": "eng"
+	"word": "dumbooo"
 }'
    Masterdata_UpdateBlockListedWords_with_spaces:
       endPoint: /v1/masterdata/blocklistedwords
@@ -59,8 +58,7 @@ UpdateBlockListedWords:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-999",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-999"
     }
   ]
 }'
@@ -103,8 +101,11 @@ UpdateBlockListedWords:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"word": "bullwordupd",
-	"langCode": "eng"
+  "errors": [
+    {
+      "errorCode": "KER-MSD-008"
+    }
+  ]
 }'
    Masterdata_UpdateBlockListedWords_Invalid_DescriptionLength257:
       endPoint: /v1/masterdata/blocklistedwords

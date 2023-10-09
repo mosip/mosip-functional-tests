@@ -9,6 +9,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -18,6 +19,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -40,6 +42,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "$UIN$",
@@ -49,6 +52,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -71,6 +75,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -80,6 +85,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -102,6 +108,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
 
@@ -112,6 +119,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -134,6 +142,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
 
@@ -144,6 +153,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -166,6 +176,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -175,6 +186,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -197,6 +209,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
 
@@ -207,6 +220,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -229,6 +243,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "$UIN$",
@@ -238,6 +253,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -260,6 +276,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "@@GGHHDR",
@@ -269,6 +286,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -296,6 +314,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -305,6 +324,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "awge",
   
@@ -333,6 +353,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -342,6 +363,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "",
   
@@ -354,8 +376,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -370,6 +391,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -379,6 +401,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": " ",
   
@@ -391,8 +414,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -407,6 +429,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -416,6 +439,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -444,6 +468,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -453,6 +478,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -465,8 +491,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -481,6 +506,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -490,6 +516,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -502,8 +529,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -518,6 +544,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -527,6 +554,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -539,8 +567,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -555,6 +582,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -564,6 +592,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -591,6 +620,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "$UIN$",
@@ -600,6 +630,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "$REMOVE$",
   
@@ -627,6 +658,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "$UIN$",
@@ -635,7 +667,8 @@ AddIdentity:
    
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
-  "phone": "82@@^%#850",
+  "phone": "473g2b2333##$%^",
+  "mobileno": "473g2b2333##$%^",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -648,8 +681,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -663,6 +695,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -672,6 +705,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "$REMOVE$",
+  "mobileno": "$REMOVE$",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -695,6 +729,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -704,6 +739,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "",
+  "mobileno": "",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -716,8 +752,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -732,6 +767,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -741,6 +777,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": " ",
+  "mobileno": "",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -753,8 +790,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -769,6 +805,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
   
    "UIN": "$UIN$",
@@ -778,6 +815,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "sdafa%%$#$%%",
   "phone": "9876543210",
+  "mobileno": "9876543210",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
   
@@ -790,8 +828,44 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
+    }
+  ]
+}'
+   IdRepository_AddIdentity_with_morethen_10_digit_numbers:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/AddIdentity/addIdentity_$LANGNUMBER$
+      outputTemplate: idRepository/error
+      input: '{
+  "value": "$BIOVALUE$",
+  "id": "mosip.id.create",
+  "registrationId": "$RID$",
+  "addressCopy": "Y",
+  "biometricReferenceId": "23452353",
+  
+   "UIN": "$UIN$",
+    
+  "dateOfBirth": "1992/04/15",
+   
+  "postalCode": "14022",
+  "email": "mosipuser123@mailinator.com",
+  "phone": "9876543210111222",
+  "mobileno": "9876543210111222",
+  "referenceIdentityNumber": "6789545678878",
+  "version": "v1",
+  
+   "introducerRID": "212124324784879",
+   "introducerUIN": "212124324784879",
+  
+   "category": "individualBiometrics",
+   "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -805,6 +879,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -814,6 +889,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "$REMOVE$",
   "phone": "9876543210",
+  "mobileno": "9876543210",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -837,6 +913,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -846,6 +923,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "",
   "phone": "9876543210",
+  "mobileno": "9876543210",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -858,8 +936,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -874,6 +951,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -883,6 +961,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": " ",
   "phone": "9876543210",
+  "mobileno": "9876543210",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -895,8 +974,7 @@ AddIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -911,6 +989,7 @@ AddIdentity:
   "value": "dbfkxjf",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -920,6 +999,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -932,8 +1012,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -941,6 +1020,7 @@ AddIdentity:
    IdRepository_AddIdentity_with_Invalid_Past_Timestamp_Neg:
       endPoint: /idrepository/v1/identity/
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: idRepository/AddIdentity/addIdentity_$LANGNUMBER$
       outputTemplate: idRepository/error
@@ -948,6 +1028,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -957,6 +1038,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -969,8 +1051,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -985,6 +1066,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -994,6 +1076,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1006,8 +1089,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -1022,6 +1104,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1031,6 +1114,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1043,8 +1127,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -1059,6 +1142,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1068,6 +1152,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1080,8 +1165,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'
@@ -1096,6 +1180,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1105,6 +1190,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1117,8 +1203,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -1133,6 +1218,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1142,6 +1228,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1154,8 +1241,7 @@ AddIdentity:
       output: '{
   "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "$IGNORE$"
+      "errorCode": "IDR-IDC-004"
     }
   ]
 }'
@@ -1170,6 +1256,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1179,6 +1266,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1202,6 +1290,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1211,6 +1300,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1234,6 +1324,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1243,6 +1334,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1266,6 +1358,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1275,6 +1368,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1298,6 +1392,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1307,6 +1402,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1330,6 +1426,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1339,6 +1436,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1362,6 +1460,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1371,6 +1470,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1394,6 +1494,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1403,6 +1504,7 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  
@@ -1426,6 +1528,7 @@ AddIdentity:
   "value": "$BIOVALUE$",
   "id": "mosip.id.create",
   "registrationId": "$RID$",
+  "addressCopy": "Y",
   "biometricReferenceId": "23452353",
  
    "UIN": "$UIN$",
@@ -1435,6 +1538,40 @@ AddIdentity:
   "postalCode": "14022",
   "email": "mosipuser123@mailinator.com",
   "phone": "8249742850",
+  "mobileno": "8249742850",
+  "referenceIdentityNumber": "6789545678878",
+  "version": "v1",
+ 
+   "introducerRID": "212124324784879",
+   "introducerUIN": "212124324784879",
+   
+   "category": "individualBiometrics",
+   "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+  "status":"ACTIVATED"
+}'
+   IdRepository_AddIdentity_WITH_biometricReferenceId_smoke_Pos:
+      endPoint: /idrepository/v1/identity/
+      role: idrepo
+      restMethod: post
+      inputTemplate: idRepository/AddIdentity/addIdentity_$LANGNUMBER$
+      outputTemplate: idRepository/AddIdentity/addIdentityResult
+      input: '{
+  "value": "$BIOVALUE$",
+  "id": "mosip.id.create",
+  "registrationId": "$RID$",
+  "addressCopy": "Y",
+  "biometricReferenceId": "23452353",
+ 
+   "UIN": "$UIN$",
+   
+  "dateOfBirth": "1992/04/15",
+   
+  "postalCode": "14022",
+  "email": "mosipuser123@mailinator.com",
+  "phone": "8249742850",
+  "mobileno": "8249742850",
   "referenceIdentityNumber": "6789545678878",
   "version": "v1",
  

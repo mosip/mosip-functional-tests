@@ -39,7 +39,7 @@ public class Translator {
 			}
 			csv.close();
 		} catch (IOException e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 		return v;
 	}

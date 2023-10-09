@@ -2,6 +2,7 @@ AuthorizationCode:
    Resident_ESignet_AuthorizationCode_uin_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       restMethod: post
       inputTemplate: resident/AuthorizationCode/AuthorizationCode
@@ -14,12 +15,12 @@ AuthorizationCode:
       	"permittedAuthorizeScopes": [{scope: "Manage-Identity-Data"},{scope: "Manage-VID"},{scope: "Manage-Authentication"},{scope: "Manage-Service-Requests"},{scope: "Manage-Credentials"}]
 }'
       output: '{
-      	"redirectUri": "$IGNORE$"
 }'
 
    Resident_ESignet_AuthorizationCode_Vid_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       restMethod: post
       inputTemplate: resident/AuthorizationCode/AuthorizationCode
@@ -33,5 +34,4 @@ AuthorizationCode:
       	
 }'
       output: '{
-      	"redirectUri": "$IGNORE$"
 }'

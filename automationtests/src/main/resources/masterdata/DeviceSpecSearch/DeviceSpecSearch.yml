@@ -174,7 +174,7 @@ DeviceSpecSearch:
       templateFields: []
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
-      outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
+      outputTemplate: masterdata/error
       input: '{
     "filters": [
       {
@@ -197,7 +197,11 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-  "data": []
+  "errors": [
+    {
+      "errorCode": "KER-MSD-317"
+    }
+  ]
 }'
    MasterData_DeviceSpecSearch_InvalidPageFetch:
       endPoint: /v1/masterdata/devicespecifications/search
@@ -205,7 +209,7 @@ DeviceSpecSearch:
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
-      outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
+      outputTemplate: masterdata/error
       input: '{
     "filters": [
       {
@@ -228,7 +232,11 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-  "data": []
+  "errors": [
+    {
+      "errorCode": "KER-MSD-313"
+    }
+  ]
 }'
    MasterData_DeviceSpecSearch_InvalidPageStart:
       endPoint: /v1/masterdata/devicespecifications/search
@@ -261,8 +269,7 @@ DeviceSpecSearch:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-313",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-313"
     }
   ]
 }'
@@ -381,8 +388,7 @@ DeviceSpecSearch:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-318",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-318"
     }
   ]
 }'
@@ -417,8 +423,7 @@ DeviceSpecSearch:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-318",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-318"
     }
   ]
 }'
@@ -453,8 +458,7 @@ DeviceSpecSearch:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-317",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-317"
     }
   ]
 }'
@@ -539,6 +543,7 @@ DeviceSpecSearch:
    MasterData_DeviceSpecSearch_TwoValueSearch_pos:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
@@ -572,18 +577,7 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-  "data": [{
-  "id": "$IGNORE$",
-  "name": "$IGNORE$",
-  "brand": "$IGNORE$",
-  "model": "$IGNORE$",
-  "deviceTypeCode": "$IGNORE$",
-  "minDriverversion": "$IGNORE$",
-  "description": "$IGNORE$",
-  "langCode": "$IGNORE$",
-  "isActive": "$IGNORE$",
-  "deviceTypeName": "$IGNORE$"
-  }]
+
 }'
    MasterData_DeviceSpecSearch_StartsWith_Name_eng:
       endPoint: /v1/masterdata/devicespecifications/search

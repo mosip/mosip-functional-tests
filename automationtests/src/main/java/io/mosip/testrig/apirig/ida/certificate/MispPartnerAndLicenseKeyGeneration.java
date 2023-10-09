@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
@@ -26,6 +27,13 @@ public class MispPartnerAndLicenseKeyGeneration extends AdminTestUtil{
 	public static String mispPartnerId = mispOrganizationName;
 	public static String mispPartnerType = "Misp_Partner";
 	static String getPartnerType = "MISP";
+	
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			lOGGER.setLevel(Level.ALL);
+		else
+			lOGGER.setLevel(Level.ERROR);
+	}
 	
 	public static String getAndUploadCertificatesAndGenerateMispLicKey() {
 		if (localHostUrl == null) {

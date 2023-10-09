@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,11 +41,13 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean isInternal = false;
-
+	
 	@BeforeClass
-	public static void setPrerequiste() {
-		logger.info("Starting authpartner demo service...");
-
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
 	}
 
 	/**
@@ -84,12 +87,36 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
+		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
+				throw new SkipException("Idtype UIN is not supported. Hence skipping the testcase");
+			}
+		}
+		
+		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
+			}
+		}
+			
 		if (testCaseDTO.getEndPoint().contains("$PartnerKeyURL$")) {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
+		
+		if (testCaseDTO.getEndPoint().contains("$KycPartnerKeyURL$")) {
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$KycPartnerKeyURL$", PartnerRegistration.ekycPartnerKeyUrl));
+		}
+		
 		if (testCaseDTO.getEndPoint().contains("$PartnerName$")) {
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerName$", PartnerRegistration.partnerId));
+		}
+		
+		if (testCaseDTO.getEndPoint().contains("$KycPartnerName$")) {
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$KycPartnerName$", PartnerRegistration.ekycPartnerId));
 		}
 		String request = testCaseDTO.getInput();
 		request = buildIdentityRequest(request);
@@ -132,7 +159,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		}
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), ActualOPJson);
+				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -144,7 +171,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			try {
 				res = resJsonObject.get("response").toString();
 			} catch (JSONException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 			}
 		}
 

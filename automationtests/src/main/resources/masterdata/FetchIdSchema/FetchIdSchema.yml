@@ -2,6 +2,7 @@ FetchIdSchema:
    MasterData_FetchIdSchema_allValid_smoke_with_lang:
       endPoint: /v1/masterdata/idschema/latest
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchIdSchema/fetchIdSchema
       outputTemplate: masterdata/FetchIdSchema/fetchIdSchemaResult
@@ -9,5 +10,4 @@ FetchIdSchema:
   
 }'
       output: '{
-   "response": "$IGNORE$"
 }'      

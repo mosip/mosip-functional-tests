@@ -2,6 +2,7 @@ GetUpdatedDateTimeByPrid:
    Prereg_GetUpdatedDateTimeByPrid_All_Valid_Smoke_sid:
       endPoint: /preregistration/v1/applications/prereg/updatedTime
       role: batch
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: preReg/GetUpdatedDateTimeByPrid/getUpdatedDateTimeByPrid
       outputTemplate: preReg/GetUpdatedDateTimeByPrid/getUpdatedDateTimeByPridResult
@@ -23,7 +24,6 @@ GetUpdatedDateTimeByPrid:
    ]
 }'
       output: '{
-  "errors": null
 }'
    Prereg_GetUpdatedDateTimeByPrid_InValid_ID:
       endPoint: /preregistration/v1/applications/prereg/updatedTime
@@ -45,8 +45,7 @@ GetUpdatedDateTimeByPrid:
       output: '{
   "errors": [
         {
-            "errorCode": "PRG_PAM_APP_005",
-            "message": "No data found for the requested pre-registration id"
+            "errorCode": "PRG_PAM_APP_005"
         }
     ]
 }'

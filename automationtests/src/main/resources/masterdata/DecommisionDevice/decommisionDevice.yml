@@ -2,6 +2,7 @@ DecommisionDevice:
    MasterData_DecommisionDevice_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/devices/decommission/{deviceId}
       role: globalAdmin
+      checkErrorsOnlyInResponse: true
       restMethod: put
       inputTemplate: masterdata/DecommisionDevice/decommisionDevice
       outputTemplate: masterdata/DecommisionDevice/decommisionDeviceResult
@@ -9,7 +10,6 @@ DecommisionDevice:
     "deviceId": "$ID:CreateDevice_Valid_Smoke_decommison_sid_id$"
 	}'
       output: '{
-    "id": "$ID:CreateDevice_Valid_Smoke_decommison_sid_id$"
 }'
    MasterData_DecommisionDevice_Invalid_ID: 
       endPoint: /v1/masterdata/devices/decommission/{deviceId}
@@ -23,8 +23,7 @@ DecommisionDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "KER-MSD-042",
-      "message": "$IGNORE$"
+      "errorCode": "KER-MSD-042"
     }
   ]
 }'

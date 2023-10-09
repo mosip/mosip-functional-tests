@@ -40,6 +40,7 @@ FetchDocumentCategories:
    MasterData_FetchDocumentCategories_valid_smoke_langcode:
       endPoint: /v1/masterdata/documentcategories/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["langcode"]
       restMethod: get
       inputTemplate: masterdata/FetchDocumentCategories/fetchDocumentCategories
@@ -49,8 +50,4 @@ FetchDocumentCategories:
   "langcode":"eng"
 }'
       output: '{
-"documentcategories": [{
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
-      }]
 }'

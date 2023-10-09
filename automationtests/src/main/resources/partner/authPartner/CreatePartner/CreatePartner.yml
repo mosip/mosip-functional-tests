@@ -19,6 +19,102 @@ createPartnerSelfRegistration:
         "partnerId": "Tech-123",
         "status": "InProgress"
     }'
+    
+   Partner_PartnerSelfRegistration_AlreadyExisting_Policy_Name:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "mosippp@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "Tech-123",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "errors": [
+    {
+      "errorCode": "PMS_PRT_051"
+    }
+  ]
+    }'
+    
+   Partner_PartnerSelfRegistration_SpaceVAl_PartnerId_Neg:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "moosip@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "Tech -123",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "errors": [
+    {
+      "errorCode": "PMS_PRT_066"
+    }
+  ]
+    }'
+    
+   Partner_PartnerSelfRegistration_InActive_policyGroup:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "mmo@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "Tech-3241",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group2",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "errors": [
+    {
+      "errorCode": "PMS_PMP_023"
+    }
+  ]
+    }'
+    
+   Partner_PartnerSelfRegistration_With_Existing_Email_Neg:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "mosip@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "Tech-123",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+         "errors": [
+    {
+      "errorCode": "PMS_PRT_011"
+    }
+  ]
+    }'
    Partner_PartnerSelfRegistration_AlreadyExists_invalid:
       endPoint: /v1/partnermanager/partners
       role: partner
@@ -38,8 +134,7 @@ createPartnerSelfRegistration:
       output: ' {
    "errors": [
     {
-      "errorCode": "PMS_PRT_051",
-      "message": "A Partner is already registered with the same Id"
+      "errorCode": "PMS_PRT_051"
     }
   ]
     }'
@@ -82,8 +177,7 @@ createPartnerSelfRegistration:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.partnerId"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -108,8 +202,7 @@ createPartnerSelfRegistration:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "$IGNORE$"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -134,8 +227,7 @@ createPartnerSelfRegistration:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.contactNumber"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -159,8 +251,7 @@ createPartnerSelfRegistration:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "$IGNORE$"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -184,8 +275,7 @@ createPartnerSelfRegistration:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.partnerType"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

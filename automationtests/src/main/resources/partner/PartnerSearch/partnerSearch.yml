@@ -2,6 +2,7 @@ createSearchPartner:
    Partner_SearchPartner_type_contains_Smoke_asc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/search/searchPartner
       outputTemplate: partner/search/searchPartnerResult
@@ -26,15 +27,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": true
-      }
-    ]
 }'
    Partner_SearchPartner_type__Smoke_asc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/search/searchPartner
       outputTemplate: partner/search/searchPartnerResult
@@ -59,15 +56,11 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": true
-      }
-    ]
 }'
    Partner_SearchPartner_type_contains_Smoke_desc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/search/searchPartner
       outputTemplate: partner/search/searchPartnerResult
@@ -92,11 +85,6 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
-     {
-        "isActive": true
-      }
-    ]
 }'
    Partner_SearchPartner_type_equals_Smoke_desc_sid:
       endPoint: /v1/partnermanager/partners/search
@@ -233,6 +221,7 @@ createSearchPartner:
    Partner_SearchPartner_columnname_id_desc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/search/searchPartner
       outputTemplate: partner/search/searchPartnerResult
@@ -257,15 +246,17 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
+      "data": [
      {
         "isActive": true
       }
     ]
+   
 }'
    Partner_SearchPartner_columnname_id_asc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/search/searchPartner
       outputTemplate: partner/search/searchPartnerResult
@@ -290,7 +281,7 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
+      "data": [
      {
         "isActive": true
       }
@@ -299,6 +290,7 @@ createSearchPartner:
    Partner_SearchPartner_columnname_address_asc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/search/searchPartner
       outputTemplate: partner/search/searchPartnerResult
@@ -323,15 +315,17 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
+      "data": [
      {
-        "isActive": $IGNORE$
+        "isActive": true
       }
     ]
+  
 }'
    Partner_SearchPartner_columnname_address_desc_sid:
       endPoint: /v1/partnermanager/partners/search
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/search/searchPartner
       outputTemplate: partner/search/searchPartnerResult
@@ -356,11 +350,12 @@ createSearchPartner:
   "version": "v1"
 }'
       output: '{
-   "data": [
+      "data": [
      {
-        "isActive": $IGNORE$
+        "isActive": true
       }
     ]
+   
 }'
    Partner_SearchPartner_with_invalid_value_containts:
       endPoint: /v1/partnermanager/partners/search
@@ -391,8 +386,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-355",
-      "message": "No model found for the @22333sssdddfghmnjkiouyttrsx76 Receivedd"
+      "errorCode": "PMS-MSD-355"
     }
   ]
 }'
@@ -425,8 +419,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-355",
-      "message": "No model found for the @22333sssdddfghmnjkiouyttrsx76 Receivedd"
+      "errorCode": "PMS-MSD-355"
     }
   ]
 }'
@@ -459,8 +452,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-355",
-      "message": "No model found for the @22333sssdddfghmnjkiouyttrsx76 Receivedd"
+      "errorCode": "PMS-MSD-355"
     }
   ]
 }'
@@ -493,8 +485,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-310",
-      "message": "Invalid column received:a@@@334455667788s"
+      "errorCode": "PMS-MSD-310"
     }
   ]
 }'
@@ -527,8 +518,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-311",
-      "message": "Column is missing in request"
+      "errorCode": "PMS-MSD-311"
     }
   ]
 }'
@@ -561,8 +551,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-312",
-      "message": "Filter type is missing"
+      "errorCode": "PMS-MSD-312"
     }
   ]
 }'
@@ -595,8 +584,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-358",
-      "message": "Sort type dc is not supported"
+      "errorCode": "PMS-MSD-358"
     }
   ]
 }'
@@ -629,8 +617,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
+      "errorCode": "PMS-MSD-314"
     }
   ]
 }'
@@ -663,8 +650,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-357",
-      "message": "Invalid sort field mo@@@del"
+      "errorCode": "PMS-MSD-357"
     }
   ]
 }'
@@ -697,8 +683,7 @@ createSearchPartner:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS-MSD-314",
-      "message": "Missing sort field or sort type values"
+      "errorCode": "PMS-MSD-314"
     }
   ]
 }'

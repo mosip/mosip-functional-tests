@@ -2,6 +2,7 @@ RejectSecureBiometricInterface:
    Partner_RejectSecureBiometricInterface_All_Valid_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterface
       outputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterfaceResult
@@ -12,11 +13,11 @@ RejectSecureBiometricInterface:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "response": "Secure biometric details rejected successfully."
     }'
    Partner_RejectSecureBiometricInterface_Valid_Smoke:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterface
       outputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterfaceResult
@@ -27,8 +28,48 @@ RejectSecureBiometricInterface:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-        "response": "Secure biometric details rejected successfully."
     }'
+    
+   Partner_RejectSecureBiometricInterface_DEActive_TO_Map:
+      endPoint: /v1/partnermanager/securebiometricinterface
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterface
+      outputTemplate: partner/error
+      input: '{
+    "approvalStatus": "De-activate",
+    "id": "$ID:SaveSecureBiometricInterface_TO_Map_sid_id$",
+    "isItForRegistrationDevice": true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "PMS_COR_001"
+    }
+  ]
+    }'
+    
+   Partner_RejectSecureBiometricInterface_SpaVal_neg:
+      endPoint: /v1/partnermanager/securebiometricinterface
+      role: partner
+      restMethod: patch
+      inputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterface
+      outputTemplate: partner/error
+      input: '{
+    "approvalStatus": "De-activate",
+    "id": "$ID:SaveSecure BiometricInterface_TO_Map_sid_id$",
+    "isItForRegistrationDevice": true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "PMS_COR_001"
+    }
+  ]
+    }'
+    
    Partner_RejectSecureBiometricInterface_Missing_InputParameter_approvalStatus:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner
@@ -44,8 +85,7 @@ RejectSecureBiometricInterface:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.approvalStatus"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

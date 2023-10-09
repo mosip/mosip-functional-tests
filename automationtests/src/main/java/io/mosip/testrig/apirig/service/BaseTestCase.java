@@ -15,6 +15,7 @@ import java.util.Properties;
 import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
@@ -34,6 +35,7 @@ import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.kernel.util.CommonLibrary;
+import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.kernel.util.KernelAuthentication;
 import io.mosip.testrig.apirig.testrunner.MockSMTPListener;
 import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
@@ -66,6 +68,7 @@ public class BaseTestCase {
 	public String idaCookie = null;
 	public String idrepoCookie = null;
 	public String regProcCookie = null;
+	public String regProCookie = null;
 	public String regAdminCookie = null;
 	public String registrationOfficerCookie = null;
 	public String regSupervisorCookie = null;
@@ -74,6 +77,7 @@ public class BaseTestCase {
 	public String adminCookie = null;
 	public String partnerCookie = null;
 	public String partnerNewCookie = null;
+	public String partnerNewKycCookie = null;
 	public String esignetPartnerCookie = null;
 	public String policytestCookie = null;
 	public String residentCookie = null;
@@ -123,7 +127,15 @@ public class BaseTestCase {
 	private static final char[] nNumericAllowed = "0123456789".toCharArray();
 	public static SecureRandom secureRandom = new SecureRandom();
 	
-	public static String currentRunningLanguage = "";
+	public static String hierarchyName = "";
+	public static int hierarchyLevel = 0;
+	public static String parentLocCode = "";
+	
+	public static String locationCode = "";
+	public static String ZonelocationCode = "";
+	
+	
+	
 	public static String genRid = "27847" + generateRandomNumberString(10);
 
 	public static String genPolicyNumber = "9" + generateRandomNumberString(5);
@@ -159,9 +171,11 @@ public class BaseTestCase {
 	public static String clientAssertionToken;
 	private static String zoneMappingRequest = "config/Authorization/zoneMappingRequest.json";
 	public static Properties props = getproperty(
-			MosipTestRunner.getResourcePath() + "/" + "config/application.properties");
+			MosipTestRunner.getGlobalResourcePath() + "/" + "config/application.properties");
 	public static Properties propsKernel = getproperty(
-			MosipTestRunner.getResourcePath() + "/" + "config/Kernel.properties");
+			MosipTestRunner.getGlobalResourcePath() + "/" + "config/Kernel.properties");
+	
+	public static String currentRunningLanguage = "";
 
 	public static String getOSType() {
 		String type = System.getProperty("os.name");
@@ -203,9 +217,15 @@ public class BaseTestCase {
 		logger.info("Configs from properties file are set.");
 
 	}
+	
+	
 
 
 	public static void suiteSetup() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
 		File logFile = new File("./src/logs/mosip-api-test.log");
 		if (logFile.exists())
 			try {
@@ -220,7 +240,9 @@ public class BaseTestCase {
 
 		String[] modulesSpecified = System.getProperty("modules").split(",");
 		listOfModules = new ArrayList<String>(Arrays.asList(modulesSpecified));
-		AuthTestsUtil.removeOldMosipTempTestResource();
+		if (!MosipTestRunner.checkRunType().equalsIgnoreCase("JAR")) {
+			AuthTestsUtil.removeOldMosipTempTestResource();
+		}
 		if (listOfModules.contains("auth")) {
 			setReportName("auth");
 			BaseTestCase.currentModule = "auth";
@@ -369,14 +391,14 @@ public class BaseTestCase {
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
 		request.put("zoneCode", props.get("zoneCode_to_beMapped"));
-		request.put("userId", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		request.put("userId", BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName());
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
 		actualrequest.put(GlobalConstants.REQUEST, request);
 		logger.info(actualrequest);
 		Response response = RestClient.postRequestWithCookie(url, actualrequest, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
-		logger.info(propsKernel.get("admin_userName") + "Mapped to" + props.get("zoneCode_to_beMapped") + "Zone");
+		logger.info(ConfigManager.getUserAdminName() + "Mapped to" + props.get("zoneCode_to_beMapped") + "Zone");
 		logger.info(response);
 
 	}
@@ -407,7 +429,7 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingActivateUrl");
 		HashMap<String, String> map = new HashMap<>();
 		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
-		map.put("userId", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		map.put("userId", BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName());
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(response);
@@ -432,7 +454,7 @@ public class BaseTestCase {
 
 		HashMap<String, String> map = new HashMap<>();
 
-		map.put("userID", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		map.put("userID", BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName());
 		map.put("langCode", BaseTestCase.getLanguageList().get(0));
 
 		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
@@ -454,7 +476,7 @@ public class BaseTestCase {
 
 		HashMap<String, String> requestMap = new HashMap<>();
 
-		requestMap.put("id", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		requestMap.put("id", BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName());
 		requestMap.put("name", "automation");
 		requestMap.put("statusCode", "active");
 		// TODO remove hardcoding
@@ -483,31 +505,107 @@ public class BaseTestCase {
 		HashMap<String, String> map = new HashMap<>();
 
 		map.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
-		map.put("id", BaseTestCase.currentModule + "-" + propsKernel.get("admin_userName"));
+		map.put("id", BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName());
 
 		Response response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		logger.info(response);
+	}
+	
+	public static JSONArray idaActuatorResponseArray = null;
+	
+	public static String getValueFromActuators(String endPoint, String section, String key) {
+
+		String url = ApplnURI + endPoint;
+		String value = null;
+		try {
+			if (idaActuatorResponseArray == null) {
+				Response response = null;
+				org.json.JSONObject responseJson = null;
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+
+				responseJson = new org.json.JSONObject(response.getBody().asString());
+				idaActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
+			logger.info("idaActuatorResponseArray="+idaActuatorResponseArray);
+
+			for (int i = 0, size = idaActuatorResponseArray.length(); i < size; i++) {
+				org.json.JSONObject eachJson = idaActuatorResponseArray.getJSONObject(i);
+				if (eachJson.get("name").toString().contains(section)) {
+					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
+							.get(GlobalConstants.VALUE).toString();
+					logger.info("value="+value);
+					break;
+				}
+			}
+
+			return value;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			return value;
+		}
+
 	}
 
 	public static List<String> getLanguageList() {
 		if (!languageList.isEmpty()) {
 			return languageList;
 		}
-		String url = ApplnURI + props.getProperty("preregLoginConfigUrl");
-		Response response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
-		org.json.JSONObject responseValue = (org.json.JSONObject) responseJson.get("response");
-		
-		String mandatoryLanguages = (String) responseValue.get("mosip.mandatory-languages");
+		String section = "";
+		String optionalLanguages=null;
+		String mandatoryLanguages=null;
+		if (isTargetEnvLTS()) 
+			section = "/mosip-config/application-default.properties";
+		else 
+			section = "/mosip-config/sandbox/admin-mz.properties";
+		try {
+	
+			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
+				section, "mosip.optional-languages");
+			
+			logger.info("optionalLanguages from env:" + optionalLanguages);
+			
+			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
+				section, "mosip.mandatory-languages");
+			
+			logger.info("mandatoryLanguages from env:" + mandatoryLanguages);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		if (mandatoryLanguages != null && !mandatoryLanguages.isBlank())
 			languageList.addAll(Arrays.asList(mandatoryLanguages.split(",")));
 		
-		String optionalLanguages = (String) responseValue.get("mosip.optional-languages");
 		if (optionalLanguages != null && !optionalLanguages.isBlank())
 			languageList.addAll(Arrays.asList(optionalLanguages.split(",")));
-
+		logger.info("languageList from env:" + languageList);
 		return languageList;
+	}
+	
+	private static String targetEnvVersion = "";
+	
+	public static boolean isTargetEnvLTS() {
+
+		if (targetEnvVersion.isEmpty()) {
+
+			Response response = null;
+			org.json.JSONObject responseJson = null;
+			String url = ApplnURI + propsKernel.getProperty("auditActuatorEndpoint");
+			try {
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+
+				responseJson = new org.json.JSONObject(response.getBody().asString());
+
+				targetEnvVersion = responseJson.getJSONObject("build").getString("version");
+
+			} catch (Exception e) {
+				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			}
+		}
+		return targetEnvVersion.contains("1.2");
 	}
 
 	public static List<String> getSupportedIdTypesValueFromActuator() {
@@ -515,6 +613,11 @@ public class BaseTestCase {
 		if (!supportedIdType.isEmpty()) {
 			return supportedIdType;
 		}
+		
+		String section = "/mosip-config/id-authentication-default.properties";
+		if (!BaseTestCase.isTargetEnvLTS())
+			section = "/mosip-config/sandbox/id-authentication-lts.properties";
+		
 		Response response = null;
 
 		org.json.JSONObject responseJson = null;
@@ -522,7 +625,7 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
 		try {
 			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-			GlobalMethods.reportResponse(url, response);
+			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			responseJson = new org.json.JSONObject(response.getBody().asString());
 			responseArray = responseJson.getJSONArray("propertySources");
@@ -530,8 +633,7 @@ public class BaseTestCase {
 			for (int i = 0, size = responseArray.length(); i < size; i++) {
 				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
 				logger.info("eachJson is :" + eachJson.toString());
-				if (eachJson.get("name").toString().contains(
-						"configService:https://github.com/mosip/mosip-config/id-authentication-default.properties")) {
+				if (eachJson.get("name").toString().contains(section)) {
 					org.json.JSONObject idTypes = (org.json.JSONObject) eachJson.getJSONObject("properties")
 							.get("request.idtypes.allowed");
 					String newIdTypes = idTypes.getString(GlobalConstants.VALUE);

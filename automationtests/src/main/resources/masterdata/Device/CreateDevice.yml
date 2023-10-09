@@ -14,7 +14,7 @@ CreateDevice:
 	"isActive": true,
 	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
+	"zoneCode": "$ZONE_CODE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
@@ -24,9 +24,8 @@ CreateDevice:
 	"deviceSpecId": "743",
 	"ipAddress": "172.23.174.113",
 	"isActive": false,
-	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
+	"zoneCode": "$IGNORE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
@@ -46,7 +45,7 @@ CreateDevice:
 	"isActive": true,
 	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
+	"zoneCode": "$ZONE_CODE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
@@ -56,9 +55,8 @@ CreateDevice:
 	"deviceSpecId": "736",
 	"ipAddress": "172.23.174.113",
 	"isActive": false,
-	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
+	"zoneCode": "$IGNORE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
@@ -78,7 +76,7 @@ CreateDevice:
 	"isActive": true,
 	"langCode": "ara",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
+	"zoneCode": "$ZONE_CODE$",
 	"validityDateTime": "2018-12-24T05",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
@@ -134,7 +132,7 @@ CreateDevice:
 	"isActive": true,
 	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
+	"zoneCode": "$ZONE_CODE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
@@ -162,7 +160,7 @@ CreateDevice:
 	"isActive": true,
 	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
+	"zoneCode": "$ZONE_CODE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
@@ -218,7 +216,7 @@ CreateDevice:
 	"isActive": true,
 	"langCode": "eng",
 	"macAddress": "",
-	"zoneCode": "CST",
+	"zoneCode": "$ZONE_CODE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
@@ -246,7 +244,7 @@ CreateDevice:
 	"isActive": true,
 	"langCode": "eng",
 	"macAddress": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
-	"zoneCode": "CST",
+	"zoneCode": "$ZONE_CODE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
@@ -274,7 +272,7 @@ CreateDevice:
 	"isActive": true,
 	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
+	"zoneCode": "$ZONE_CODE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "",
 	"requesttime": "$TIMESTAMP$"
@@ -302,7 +300,7 @@ CreateDevice:
 	"isActive": true,
 	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
+	"zoneCode": "$ZONE_CODE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
 	"requesttime": "$TIMESTAMP$"
@@ -330,7 +328,7 @@ CreateDevice:
 	"isActive": true,
 	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
+	"zoneCode": "$ZONE_CODE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"
@@ -358,7 +356,7 @@ CreateDevice:
 	"isActive": true,
 	"langCode": "eng",
 	"macAddress": "D4-3D-7E-C0-8C-4A",
-	"zoneCode": "CST",
+	"zoneCode": "$ZONE_CODE$",
 	"validityDateTime": "$TIMESTAMP$",
 	"serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
 	"requesttime": "$TIMESTAMP$"

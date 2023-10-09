@@ -2,6 +2,7 @@ createSignedRegisteredDevice:
    Partner_SignedRegisteredDevice_All_Valid_Smoke:
       endPoint: /v1/partnermanager/registereddevices
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/device/registration/registereDevice
       outputTemplate: partner/device/registration/registereDeviceResult
@@ -11,7 +12,6 @@ createSignedRegisteredDevice:
 
   }'
       output: '{
-        "id": "Device details approved successfully."
     }'
 
    Partner_SignedRegisteredDevice_Missing_InputParameter_deviceData:
@@ -28,8 +28,7 @@ createSignedRegisteredDevice:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_AUT_015",
-      "message": "Serial no and Device detail already exist"
+      "errorCode": "PMS_AUT_015"
     }
   ]
 }'

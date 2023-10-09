@@ -33,8 +33,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_001",
-      "message": "Request id is invalid"
+      "errorCode": "PRG_PAM_CORE_001"
     }
   ]
 }'
@@ -55,8 +54,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_001",
-      "message": "Request id is invalid"
+      "errorCode": "PRG_PAM_CORE_001"
     }
   ]
 }'
@@ -77,8 +75,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_001",
-      "message": "Request id is invalid"
+      "errorCode": "PRG_PAM_CORE_001"
     }
   ]
 }'
@@ -99,8 +96,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_002",
-      "message": "Request version is invalid"
+      "errorCode": "PRG_PAM_CORE_002"
     }
   ]
 }'
@@ -121,8 +117,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_002",
-      "message": "Request version is invalid"
+      "errorCode": "PRG_PAM_CORE_002"
     }
   ]
 }'
@@ -143,8 +138,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_002",
-      "message": "Request version is invalid"
+      "errorCode": "PRG_PAM_CORE_002"
     }
   ]
 }'
@@ -165,8 +159,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_003",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_PAM_CORE_003"
     }
   ]
 }'
@@ -187,8 +180,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_PAM_CORE_003",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_PAM_CORE_003"
     }
   ]
 }'
@@ -209,8 +201,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_015",
-      "message": "$IGNORE$"
+      "errorCode": "PRG_CORE_REQ_015"
     }
   ]
 }'
@@ -231,8 +222,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_032",
-      "message": "Record not found for date range and reg center id"
+      "errorCode": "PRG_BOOK_RCI_032"
     }
   ]
 }'
@@ -253,8 +243,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_DATA_SYNC_009",
-      "message": "registration center id is invalid"
+      "errorCode": "PRG_DATA_SYNC_009"
     }
   ]
 }'
@@ -275,8 +264,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_DATA_SYNC_009",
-      "message": "registration center id is invalid"
+      "errorCode": "PRG_DATA_SYNC_009"
     }
   ]
 }'
@@ -297,8 +285,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_019",
-      "message": "Invalid date time format"
+      "errorCode": "PRG_CORE_REQ_019"
     }
   ]
 }'
@@ -319,8 +306,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_019",
-      "message": "Invalid date time format"
+      "errorCode": "PRG_CORE_REQ_019"
     }
   ]
 }'
@@ -341,8 +327,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_019",
-      "message": "Invalid date time format"
+      "errorCode": "PRG_CORE_REQ_019"
     }
   ]
 }'
@@ -363,8 +348,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_032",
-      "message": "Record not found for date range and reg center id"
+      "errorCode": "PRG_BOOK_RCI_032"
     }
   ]
 }'
@@ -385,8 +369,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_BOOK_RCI_032",
-      "message": "Record not found for date range and reg center id"
+      "errorCode": "PRG_BOOK_RCI_032"
     }
   ]
 }'
@@ -407,8 +390,7 @@ GetPRIDByDateRange:
       output: '{
    "errors": [
     {
-      "errorCode": "PRG_CORE_REQ_019",
-      "message": "Invalid date time format"
+      "errorCode": "PRG_CORE_REQ_019"
     }
   ]
 }'

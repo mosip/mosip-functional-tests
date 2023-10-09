@@ -2,6 +2,7 @@ AidGetIndividualId:
    MobileId_AidGetIndividualId_Getting_With_Valid_UIN_All:
       endPoint: /residentmobileapp/aid/get-individual-id
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
       outputTemplate: mobileId/AidGetIndividualId/aidGetIndividualIdResult
@@ -19,15 +20,14 @@ AidGetIndividualId:
       output: '{
        "aidStatus": "PROCESSED",
         "sendOtpResp":{
-	        "maskedMobile": "XXXXXX3210",
-	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
-	        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult"
 	 }
 }'
 
    MobileId_AidGetIndividualId_Getting_With_Invalid_AID_Neg:
       endPoint: /residentmobileapp/aid/get-individual-id
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
       outputTemplate: mobileId/error
@@ -43,17 +43,21 @@ AidGetIndividualId:
 	 }
 }'
       output: '{
-       "transactionID": "$TRANSACTIONID$",
+  "errors": [
+    {
+      "errorCode": "RES-SER-457",
+      "errorMessage": "AID not found"
+    }
+  ],
         "sendOtpResp":{
-	        "maskedMobile": "XXXXXX3210",
-	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
-	        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult"
 	 }
 }'
 
    MobileId_AidGetIndividualId_Getting_With_Invalid_Otp_Neg:
       endPoint: /residentmobileapp/aid/get-individual-id
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
       outputTemplate: mobileId/error
@@ -69,17 +73,20 @@ AidGetIndividualId:
 	 }
 }'
       output: '{
-       "transactionID": "$TRANSACTIONID$",
+  "errors": [
+    {
+      "errorCode": "RES-SER-422"
+    }
+  ],
         "sendOtpResp":{
-	        "maskedMobile": "XXXXXX3210",
-	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
-	        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult"
 	 }
 }'
 
    MobileId_AidGetIndividualId_Getting_With_Valid_Otp_All:
       endPoint: /residentmobileapp/aid/get-individual-id
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
       outputTemplate: mobileId/AidGetIndividualId/aidGetIndividualIdResult
@@ -97,15 +104,14 @@ AidGetIndividualId:
       output: '{
        "aidStatus": "PROCESSED",
         "sendOtpResp":{
-	        "maskedMobile": "XXXXXX3210",
-	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
-	        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult"
 	 }
 }'
 
    MobileId_AidGetIndividualId_Getting_With_Invalid_lenght_Of_AID_Neg:
       endPoint: /residentmobileapp/aid/get-individual-id
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
       outputTemplate: mobileId/error
@@ -123,13 +129,10 @@ AidGetIndividualId:
       output: '{
       "errors": [
     {
-      "errorCode": "RES-SER-457",
-      "errorMessage": "Invalid Input Parameter- individualId"
+      "errorCode": "RES-SER-457"
     }
   ],
           "sendOtpResp":{
-	        "maskedMobile": "XXXXXX3210",
-	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult",
-	        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult"
 	 }
 }'

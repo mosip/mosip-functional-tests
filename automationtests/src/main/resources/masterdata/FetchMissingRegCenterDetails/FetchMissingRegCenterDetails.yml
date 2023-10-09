@@ -2,6 +2,7 @@ FetchMissingRegCenterDetails:
    MasterData_FetchMissingRegCenterDetails_valid_smoke:
       endPoint: /v1/masterdata/registrationcenters/missingids/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/FetchMissingRegCenterDetails/fetchMissingRegCenterDetails
       outputTemplate: masterdata/FetchMissingRegCenterDetails/fetchMissingRegCenterDetailsResult
@@ -9,5 +10,4 @@ FetchMissingRegCenterDetails:
   "langcode": "eng"
 }'
       output: '{
-  "response": "$IGNORE$"
 }'

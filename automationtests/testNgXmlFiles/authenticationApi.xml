@@ -19,7 +19,52 @@
 			<class name="io.mosip.testrig.apirig.testscripts.AddIdentity" />
 		</classes>
 	</test>
+	<test name="CreateVID">
+		<parameter name="ymlFile"	value="ida/CreateVID/CreateVid.yml" />
+	    <parameter name="idKeyName" value="VID" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
 
+
+<test name="CreateDraft">
+		<parameter name="ymlFile"	value="ida/CreateDraft/CreateDraft.yml" />
+	<classes>
+		<class name="io.mosip.testrig.apirig.testscripts.PostWithOnlyPathParam" />
+	</classes>
+	</test> 
+	
+	<test name="GetDraft">
+		<parameter name="ymlFile"	value="ida/GetDraft/GetDraft.yml" />
+		<parameter name="idKeyName" value="UIN" />
+	<classes>
+		<class name="io.mosip.testrig.apirig.testscripts.GetWithParamForAutoGenId" />
+	</classes>
+	</test>
+	
+	<test name="CreateDraftVID">
+		<parameter name="ymlFile"	value="ida/CreateDraftVID/CreateDraftVID.yml" />
+	<classes>
+		<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+	</classes>
+	</test>
+	
+	
+	 <test name="UpdateDraft">
+		<parameter name="ymlFile"	value="ida/UpdateDraft/UpdateDraft.yml" />
+		<parameter name="pathParams"	value="registrationId" />
+	<classes>
+		<class name="io.mosip.testrig.apirig.testscripts.UpdateDraft" />
+	</classes>
+	</test> 
+	
+	<test name="PublishDraft">
+		<parameter name="ymlFile"	value="ida/PublishDraft/PublishDraft.yml" />
+	<classes>
+		<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+	</classes>
+	</test>
 	<test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="ida/GenerateVID/createGenerateVID.yml" />
@@ -28,6 +73,13 @@
 			<class
 				name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
+	</test>
+	
+	<test name="DeactivateVIDs">
+		<parameter name="ymlFile"	value="ida/DeactivateUin/DeactivateUin.yml" />
+	<classes>
+		<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+	</classes>
 	</test>
 
 	<test name="RevokeVID">
@@ -120,7 +172,7 @@
 
 
 
-	<test name="HotlistTestcasesAuth">
+	<test name="LockUINVIDTestcasesDEMOAuth">
 		<parameter name="ymlFile"
 			value="ida/HotlistTestcases/HotlistTestcases.yml" />
 		<classes>
@@ -128,12 +180,23 @@
 		</classes>
 	</test>
 
-	<test name="HotlistTestcasesKyc">
+	<test name="LockUINVIDTestcasesEKYCDEMO">
 		<parameter name="ymlFile"
 			value="ida/HotlistTestcases/HotlistTestcasesKyc.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.DemoAuth" />
+		</classes>
+	</test>
+	
+	
+	
+	<test name="LockUINVIDTestcasesAUTHEKYCBIO">
+		<parameter name="ymlFile"
+			value="ida/BioAuthHotListLock/BioAuth.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.BioAuth" />
 		</classes>
 	</test>
 
@@ -183,6 +246,13 @@
 			<class name="io.mosip.testrig.apirig.testscripts.DemoAuth" />
 		</classes>
 	</test>
+	<test name="HotlistTestcasesBioAuthPartnerId">
+		<parameter name="ymlFile"
+			value="ida/HotlistTestcases/HotlistTestcasesPartnerId.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.BioAuth" />
+		</classes>
+	</test>
 	
 	<test name="HotlistTestcasesPartnerIdKyc">
 		<parameter name="ymlFile"
@@ -193,12 +263,35 @@
 		</classes>
 	</test>
 
+<test name="HotlistTestcasesOtpAuth">
+		<parameter name="ymlFile" value="ida/OtpAuth/OtpAuthHotlisted.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.OtpAuthNew" />
+		</classes>
+	</test>
 
 	<test name="UnBlockPartnerId">
 		<parameter name="ymlFile"
 			value="ida/UnBlockHotlistAPI/UnBlockHotlistAPIForPartnerId.yml" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	
+	<test name="HotlistTestcasesOtpAuthWithUnblockedPartner">
+		<parameter name="ymlFile" value="ida/OtpAuth/OtpAuthHotlistedUnblocked.yml" />
+		<parameter name="isInternal" value="false" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.OtpAuthNew" />
+		</classes>
+	</test>
+	
+	<test name="BioAuthWithUnblockedPartnerId">
+		<parameter name="ymlFile"
+			value="ida/HotlistTestcases/BioAuthWithUnblockedPartners.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.BioAuth" />
 		</classes>
 	</test>
 </suite>

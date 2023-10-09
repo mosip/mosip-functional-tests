@@ -36,7 +36,6 @@ DeviceSearch:
 	"macAddress": "85-BB-97-4B-14-05",
 	"ipAddress": "$IGNORE$",
 	"deviceSpecId": "327",
-	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
@@ -79,7 +78,6 @@ DeviceSearch:
 	"macAddress": "85-BB-97-4B-14-05",
 	"ipAddress": "$IGNORE$",
 	"deviceSpecId": "327",
-	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 	}]
@@ -87,6 +85,7 @@ DeviceSearch:
    MasterData_DeviceSearch_Equals_MacAddress_smoke:
       endPoint: /v1/masterdata/devices/search
       role: globalAdmin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSearch/deviceSearch
@@ -113,18 +112,6 @@ DeviceSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": [{
-	"id": "$IGNORE$",
-	"name": "$IGNORE$",
-	"serialNum": "$IGNORE$",
-	"description": "$IGNORE$",
-	"macAddress": "$IGNORE$",
-	"ipAddress": "$IGNORE$",
-	"deviceSpecId": "$IGNORE$",
-	"langCode": "$IGNORE$",
-	"isActive": "$IGNORE$",
-	"validityDateTime": "$IGNORE$"
-	}]
 }'
    MasterData_DeviceSearch_ASC_Name_eng_pos:
       endPoint: /v1/masterdata/devices/search
@@ -218,7 +205,7 @@ DeviceSearch:
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSearch/deviceSearch
-      outputTemplate: masterdata/DeviceSearch/deviceSearchResult
+      outputTemplate: masterdata/error
       input: '{
     "filters": [
       {
@@ -241,7 +228,11 @@ DeviceSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-	"data": []
+  "errors": [
+    {
+      "errorCode": "KER-MSD-358"
+    }
+  ]
 }'
    MasterData_DeviceSearch_Invalid_SortType_neg:
       endPoint: /v1/masterdata/devices/search

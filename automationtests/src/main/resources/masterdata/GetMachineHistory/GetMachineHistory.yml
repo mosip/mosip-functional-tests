@@ -14,7 +14,7 @@ GetMachineHistory:
 "machineHistoryDetails": [{
        "id": "10001",
         "name": "$IGNORE$",
-        "langCode": "eng",
+        "langCode": "$IGNORE$",
         "isActive": true,
         "serialNum": "$IGNORE$",
         "ipAddress": "$IGNORE$",

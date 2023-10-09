@@ -10,31 +10,51 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
+import io.mosip.testrig.apirig.authentication.fw.util.RunConfigUtil;
+
 public class ExtractResource {
 	
 	private static final Logger LOGGER = Logger.getLogger(ExtractResource.class);
-	public static void extractResourceFromJar() {
-		getListOfFilesFromJarAndCopyToExternalResource("preReg/");
+	public static void extractCommonResourceFromJar() {
 		getListOfFilesFromJarAndCopyToExternalResource("config/");
-		getListOfFilesFromJarAndCopyToExternalResource("masterdata/");
-		getListOfFilesFromJarAndCopyToExternalResource("syncdata/");
-		getListOfFilesFromJarAndCopyToExternalResource("ida/");
-		getListOfFilesFromJarAndCopyToExternalResource("kernel/");
-		getListOfFilesFromJarAndCopyToExternalResource("regProc/");
-    	getListOfFilesFromJarAndCopyToExternalResource("idRepository/");
-		getListOfFilesFromJarAndCopyToExternalResource("resident/");
-		getListOfFilesFromJarAndCopyToExternalResource("partner/");
 		getListOfFilesFromJarAndCopyToExternalResource("customize-emailable-report-template.html");
-		getListOfFilesFromJarAndCopyToExternalResource("testngapi.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("metadata.xml");
 		getListOfFilesFromJarAndCopyToExternalResource("log4j.properties");
-		getListOfFilesFromJarAndCopyToExternalResource("healthCheck/");
 		getListOfFilesFromJarAndCopyToExternalResource("spring.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("validations.properties");
 		getListOfFilesFromJarAndCopyToExternalResource("dbFiles/");
-		getListOfFilesFromJarAndCopyToExternalResource("mobileId/");
-		getListOfFilesFromJarAndCopyToExternalResource("esignet/");
 	}
+	
+	public static void copyCommonResources(){
+		copyCommonResources("config/");
+		copyCommonResources("customize-emailable-report-template.html");
+		copyCommonResources("metadata.xml");
+		copyCommonResources("log4j.properties");
+		copyCommonResources("spring.properties");
+		copyCommonResources("validations.properties");
+		copyCommonResources("dbFiles/");
+	}
+	
+	public static void copyCommonResources(String moduleName){
+			try {
+				File destination = new File(
+						MosipTestRunner.getGlobalResourcePath());
+				File source = new File(MosipTestRunner.getGlobalResourcePath().replace("MosipTestResource/MosipTemporaryTestResource", "") + moduleName);
+				if (source.isDirectory())
+					FileUtils.copyDirectoryToDirectory(source, destination);
+				else {
+					destination = new File(
+							MosipTestRunner.getGlobalResourcePath()+ "/" + moduleName);
+					FileUtils.copyFile(source, destination);
+				}
+					
+
+				LOGGER.info("Copied the test resource successfully for " + moduleName);
+			} catch (Exception e) {
+				LOGGER.error(
+						"Exception occured while copying the file for : " + moduleName + " Error : " + e.getMessage());
+			}
+		}
 	
 	public static void getListOfFilesFromJarAndCopyToExternalResource(String key) {
 		ZipInputStream zipInputStream = null;
@@ -43,13 +63,15 @@ public class ExtractResource {
 			if (src != null) {
 				URL jar = src.getLocation();
 				zipInputStream = new ZipInputStream(jar.openStream());
+				File resourceFile = new File(MosipTestRunner.jarUrl).getParentFile();
+				String resourceFileParentPath = resourceFile.getAbsolutePath() + "/MosipTestResource/";
 				while (true) {
 					ZipEntry e = zipInputStream.getNextEntry();
 					if (e == null)
 						break;
 					String name = e.getName();
 					if (name.startsWith(key) && name.contains(".")) {
-						if (copyFilesFromJarToOutsideResource(name))
+						if (copyFilesFromJarToOutsideResource(resourceFileParentPath, name))
 							LOGGER.info("Copied the file: " + name + " to external resource successfully..!");
 						else
 							LOGGER.error("Fail to copy file: " + name + " to external resource");
@@ -80,14 +102,12 @@ public class ExtractResource {
 	 * @param path
 	 * @return
 	 */
-	private static boolean copyFilesFromJarToOutsideResource(String path) {
+	private static boolean copyFilesFromJarToOutsideResource(String resourceFileParentPath, String resourceFileName) {
 		try {
-			File resourceFile = new File(MosipTestRunner.jarUrl).getParentFile();
-			File destinationFile = new File(resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
-			LOGGER.info("resourceFile " + MosipTestRunner.jarUrl);
-			LOGGER.info("destinationFile " + resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
-			org.apache.commons.io.FileUtils.copyInputStreamToFile(MosipTestRunner.class.getResourceAsStream("/" + path),
-					destinationFile);
+			String resourceFileAbsolutePath =  resourceFileParentPath + "MosipTemporaryTestResource/" + resourceFileName;
+			File destinationFile = new File(resourceFileAbsolutePath);
+			LOGGER.info("resourceFile : " + MosipTestRunner.jarUrl + "destinationFile : " + resourceFileAbsolutePath);
+			org.apache.commons.io.FileUtils.copyInputStreamToFile(MosipTestRunner.class.getResourceAsStream("/" + resourceFileName), destinationFile);
 			return true;
 		} catch (Exception e) {
 			LOGGER.error(
@@ -95,7 +115,27 @@ public class ExtractResource {
 							+ e.getMessage());
 			return false;
 		}
-	}	
+	}
+	
+	
+	
+	
+//	private static boolean copyFilesFromJarToOutsideResource(String path) {
+//		try {
+//			File resourceFile = new File(MosipTestRunner.jarUrl).getParentFile();
+//			File destinationFile = new File(resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
+//			LOGGER.info("resourceFile " + MosipTestRunner.jarUrl);
+//			LOGGER.info("destinationFile " + resourceFile.getAbsolutePath() + "/MosipTestResource/" + path);
+//			org.apache.commons.io.FileUtils.copyInputStreamToFile(MosipTestRunner.class.getResourceAsStream("/" + path),
+//					destinationFile);
+//			return true;
+//		} catch (Exception e) {
+//			LOGGER.error(
+//					"Exception Occured in copying the resource from jar. Kindly build new jar to perform smooth test execution: "
+//							+ e.getMessage());
+//			return false;
+//		}
+//	}	
 	
 	/**
 	 * The method to remove old generated mosip test resource

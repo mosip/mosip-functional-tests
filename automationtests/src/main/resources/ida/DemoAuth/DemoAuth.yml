@@ -12,13 +12,37 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-        "errors": [
-        {
-          "errorCode": "IDA-MLC-019",
-          "errorMessage": "demo Auth Type is Locked for the UIN"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
+}'
+  auth_DemoAuth_DOB_InValid_UIN_Neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$IDlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+        "authStatus": "false"
+}'
+  auth_DemoAuth_DOB_Missing_UIN_Neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=  &partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+        "authStatus": "false"
 }'
   auth_DemoAuth_DOB_Valid_Smoke_VID_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -35,6 +59,52 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
+  auth_DemoAuth_DOB_Valid_Smoke_VID_invalid_transaction_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "1254@#45gg",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
+  auth_DemoAuth_DOB_Valid_Smoke_Infant_Uin_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_Infant_smoke_Pos_UIN$&idType=UIN&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "2023/09/28",
+        "key": "dob"
+    }'
+      output: '{
+  "authStatus": "true"
+}'
+
+  auth_DemoAuth_DOB_Valid_Smoke_Infant_Uin_which_locked_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_with_Infant_which_locked_smoke_Pos_UIN$&idType=UIN&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "2023/09/28",
+        "key": "dob"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
 
   auth_DemoAuth_DOB_Invalid_Past_Timestamp_VID_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&requestTime=2022-05-19T06:29:44.809Z&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -49,13 +119,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-        "errors": [
-        {
-          "errorCode": "IDA-MLC-001",
-          "errorMessage": "$IGNORE$"
-        }
-      ],
-  		"authStatus": "false"
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_DOB_Invalid_Future_Timestamp_VID_Neg:
@@ -71,13 +135,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-        "errors": [
-        {
-          "errorCode": "IDA-MLC-001",
-          "errorMessage": "$IGNORE$"
-        }
-      ],
-  		"authStatus": "false"
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_DOB_Empty_Timestamp_VID_Neg:
@@ -93,13 +151,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-        "errors": [
-        {
-          "errorCode": "IDA-MLC-001",
-          "errorMessage": "$IGNORE$"
-        }
-      ],
-  		"authStatus": "false"
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_DOB_InValid_uin_Dateofbirth:
@@ -115,13 +167,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - request/demographics/dob"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_DOB_InValid_Dateofbirth_with_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -136,13 +182,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - request/demographics/dob"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_Email_Valid_Smoke_Pos_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -153,7 +193,7 @@ DemoAuthNew:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+      "value": "auth_AddIdentity_ValidParam_smoke_Pos@mosip.net",
         "key": "emailId"
     }'
       output: '{
@@ -173,13 +213,7 @@ DemoAuthNew:
         "key": "emailId"
     }'
       output: '{
-        "errors": [
-        {
-          "errorCode": "IDA-MLC-001",
-          "errorMessage": "$IGNORE$"
-        }
-      ],
-  		"authStatus": "false"
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_Email_Invalid_Future_Timestamp_VID_Neg_VID:
@@ -195,13 +229,7 @@ DemoAuthNew:
         "key": "emailId"
     }'
       output: '{
-        "errors": [
-        {
-          "errorCode": "IDA-MLC-001",
-          "errorMessage": "$IGNORE$"
-        }
-      ],
-  		"authStatus": "false"
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_Email_Valid_Smoke_Poss_VID:
@@ -213,7 +241,7 @@ DemoAuthNew:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$,
         "key": "emailId"
     }'
       output: '{
@@ -232,13 +260,7 @@ DemoAuthNew:
         "key": "emailId"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data emailId did not match"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_Email_InValid_Email_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -253,13 +275,7 @@ DemoAuthNew:
         "key": "emailId"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data emailId did not match"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_gender_Valid_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -280,6 +296,169 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
+  auth_DemoAuth_gender_InValid_LangCode:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$123LANG$",
+      "value": "MLE"
+    }
+  ],
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
+  auth_DemoAuth_gender_InValid_Gender_Invalid_RS:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGenderRS
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "M@@33E"
+    }
+  ],
+   "residenceStatus": [
+                {
+                    "language": "$PRIMARYLANG$",
+                    "value": "Ner"
+                }
+            ]
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
+  auth_DemoAuth_gender_Valid_Gender_Invalid_RS:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGenderRS
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "MLE"
+    }
+  ],
+   "residenceStatus": [
+                {
+                    "language": "$PRIMARYLANG$",
+                    "value": "Ner"
+                }
+            ]
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
+  auth_DemoAuth_gender_InValid_Gender_valid_RS:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGenderRS
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "ML@@#E"
+    }
+  ],
+   "residenceStatus": [
+                {
+                    "language": "$PRIMARYLANG$",
+                    "value": "Non-Foreigner"
+                }
+            ]
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
+  auth_DemoAuth_gender_InValid_Gender_valid_RS_with_VID:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGenderRS
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "ML@@#E"
+    }
+  ],
+   "residenceStatus": [
+                {
+                    "language": "$PRIMARYLANG$",
+                    "value": "Non-Foreigner"
+                }
+            ]
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
+  auth_DemoAuth_gender_Valid_Gender_valid_RS_with_VID:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGenderRS
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "MLE"
+    }
+  ],
+   "residenceStatus": [
+                {
+                    "language": "$PRIMARYLANG$",
+                    "value": "Non-Foreigner"
+                }
+            ]
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
+  auth_DemoAuth_gender_InValid_Lang_Valid_Gender:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+    "gender": [
+    {
+      "language": "$363gsbsn$",
+      "value": "MLE"
+    }
+  ],
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
   auth_DemoAuth_gender_Valid_Smoke_Pos_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -299,6 +478,55 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
+  auth_DemoAuth_gender_Valid_Smoke_Pos_VID_with_RS_DOB:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+    "value": "1970/07/08",
+  "key": "dob",
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "true"
+}'
+  auth_DemoAuth_gender_Valid_Smoke_Pos_Temp_VID_with_RS_DOB:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+    "value": "1970/07/08",
+  "key": "dob",
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "true"
+}'
+  auth_DemoAuth_gender_InValid_LangCode_with_VID:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+    "gender": [
+    {
+      "language": "$dhdg212$",
+      "value": "MLE"
+    }
+  ],
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
   auth_DemoAuth_InValid_gender_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -316,14 +544,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data gender in eng did not match",
-          "actionMessage": "Please re-enter your gender in eng"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_InValid_uin_gender:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -342,14 +563,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data gender in eng did not match",
-          "actionMessage": "Please re-enter your gender in eng"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_Name_Valid_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -361,7 +575,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "FR"
+      "value": "TEST_FIRSTNAMEeng"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -380,7 +594,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Madhu.GN"
+      "value": "Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -389,7 +603,7 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
-  auth_DemoAuth_same_Name2_Valid_uin_Smoke_Pos:
+  auth_DemoAuth_same_Name2_Valid_titleFromAdmin_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -398,8 +612,8 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Miss Madhu.GN"
+      "language": "eng",
+      "value": "Miss-TitleFromServer Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -408,7 +622,7 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
-  auth_DemoAuth_same_Name3_Valid_uin_Smoke_Pos:
+  auth_DemoAuth_same_Name3_Valid_titleFromAdmin_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -417,8 +631,8 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Mr Madhu.GN"
+      "language": "eng",
+      "value": "Mr-TitleFromServer Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -437,7 +651,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Madhu.GN"
+      "value": "Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -446,7 +660,7 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
-  auth_DemoAuth_same_Name5_Valid_uin_Smoke_Pos:
+  auth_DemoAuth_same_Name5_Valid_titleFromAdmin_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -455,8 +669,8 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Miss. Madhu.GN"
+      "language": "eng",
+      "value": "Miss-TitleFromServer. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -465,7 +679,7 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
-  auth_DemoAuth_same_Name6_Valid_uin_Smoke_Pos:
+  auth_DemoAuth_same_Name6_Valid_titleFromAdmin_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -474,8 +688,8 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "MISS. Madhu.GN"
+      "language": "eng",
+      "value": "Miss-TitleFromServer. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -484,7 +698,7 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
-  auth_DemoAuth_same_Name7_Valid_uin_Smoke_Pos:
+  auth_DemoAuth_same_Name7_Valid_titleFromAdmin_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -493,8 +707,8 @@ DemoAuthNew:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Miss Madhu GN"
+      "language": "eng",
+      "value": "Miss-TitleFromServer. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -513,7 +727,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "FR"
+      "value": "TEST_FIRSTNAMEeng"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -539,14 +753,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data name in eng did not match",
-          "actionMessage": "Please re-enter your name in eng"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_InValid_Name_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -565,14 +772,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data name in eng did not match",
-          "actionMessage": "Please re-enter your name in eng"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_age_Valid_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -596,7 +796,7 @@ DemoAuthNew:
       inputTemplate: ida/DemoAuth/DemoAuth
       outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
-    "value": "51",
+    "value": "41",
   "key": "age",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
@@ -617,13 +817,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data age did not match"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_age_InValid_uin:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -638,13 +832,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-    "authStatus": false,
-   "errors": [
-    {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data age did not match"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_PhoneNumber_Valid_VID_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -674,14 +862,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data phoneNumber did not match",
-          "actionMessage": "Please re-enter your phoneNumber"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_PhoneNumber_InValid_PhoneNumber_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -696,14 +877,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data phoneNumber did not match",
-          "actionMessage": "Please re-enter your phoneNumber"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_PhoneNumber__with_Valid_TVID_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -733,13 +907,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - individualId"
-        }
-      ],
-      "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_DOB_Missing_individualId:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -754,13 +922,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - individualId"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_DOB_Blank_individualId:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -775,13 +937,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - individualId"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_DOB_Invalid_transactionId_uin_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=123453636372829267890&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -826,13 +982,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-MLC-019",
-          "errorMessage": "demo Auth Type is Locked for the UIN"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_DOB_Lock_Permanent_Valid_UIN_Neg:
@@ -848,13 +998,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-    "errors": [
-            {
-              "errorCode": "IDA-MLC-019",
-              "errorMessage": "demo Auth Type is Locked for the UIN"
-            }
-          ],
-            "authStatus": false
+        "authStatus": "false"
 }'
   auth_DemoAuth_revoke_vid_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_to_revoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -869,13 +1013,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-  "authStatus": "false",
-  "errors": [
-    {
-      "errorCode": "IDA-MLC-018",
-      "errorMessage": "VID not available in database"
-    }
-  ]
+        "authStatus": "false"
 }'
   auth_DemoAuth_dummy_partnerkey_uin_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -890,17 +1028,7 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-MLC-007",
-          "errorMessage": "Request could not be processed. Please try again"
-        },
-        {
-          "errorCode": "IDA-MPA-009",
-          "errorMessage": "Partner is not registered"
-        }
-      ],
-        "authStatus": false
+        "authStatus": "false"
 }'
 
   auth_DemoAuth_DOB_Unlock_AllValid_UIN_Neg:
@@ -916,15 +1044,8 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-            {
-              "errorCode": "IDA-MLC-019",
-              "errorMessage": "demo Auth Type is Locked for the UIN"
-            }
-          ],
-            "authStatus": false
+        "authStatus": "false"
 }'
-
   auth_DemoAuth_DOB_Lock_Permanent_AllValid_UIN_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParams_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -938,11 +1059,114 @@ DemoAuthNew:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-            {
-              "errorCode": "IDA-MLC-019",
-              "errorMessage": "demo Auth Type is Locked for the UIN"
-            }
-          ],
-            "authStatus": false
+        "authStatus": "false"
+}'
+  auth_DemoAuth_with_Deactivated_UIN:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_deactivate_UIN_smoke_sid_Pos_UIN$&idType=UIN&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/error
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+        "authStatus": "false"
+}'
+  auth_DemoAuth_DOB_Valid_Smoke_UIN_NOAUTH_Neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+        "authStatus": "false"
+}'
+  auth_DemoAuth_DOB_Valid_Smoke_with_Draft_UIN_Neg:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GetDraft_all_valid_smoke_sid_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1992/04/15",
+        "key": "dob"
+    }'
+      output: '{
+        "authStatus": "true"
+}'
+  auth_DemoAuthValid_Smoke_with_addressCopy:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "Y",
+        "key": "addressCopy"
+    }'
+      output: '{
+        "authStatus": "true"
+}'
+  auth_DemoAuthValid_Smoke_with_mobileno:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "7019858531",
+        "key": "mobileno"
+    }'
+      output: '{
+        "authStatus": "true"
+}'
+  auth_DemoAuthValid_with_phone:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "7019858531",
+        "key": "phone"
+    }'
+      output: '{
+        "authStatus": "true"
+}'
+  auth_DemoAuthValid_with_firstName:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "name": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "TEST_FIRSTNAMEeng"
+    }
+  ],
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "true"
 }'

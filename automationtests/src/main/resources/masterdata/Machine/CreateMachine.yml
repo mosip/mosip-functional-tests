@@ -18,7 +18,7 @@ CreateMachine:
     "validityDateTime":"2021-12-24T05:52:46.758Z",
     "publicKey":"$PUBLICKEY$",
     "signPublicKey":"$PUBLICKEY$",
-    "zoneCode":"CST",
+    "zoneCode":"$ZONE_CODE$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
@@ -28,9 +28,8 @@ CreateMachine:
 	"serialNum": "FB5962911687",
 	"ipAddress": "192.168.0.424",
 	"isActive": "$IGNORE$",
-	"langCode": "eng",
 	"macAddress": "61-D3-FD-12-C9-ED",
-	"zoneCode": "CST",
+	"zoneCode": "$IGNORE$",
 	"validityDateTime": "$IGNORE$"
 }'
    Masterdata_CreateMachine_Invalid_publicKey:
@@ -52,7 +51,7 @@ CreateMachine:
     "validityDateTime":"2021-12-24T05:52:46.758Z",
     "publicKey":"anyRandomString",
     "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
-    "zoneCode":"CST",
+    "zoneCode":"$ZONE_CODE$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
@@ -82,7 +81,7 @@ CreateMachine:
     "validityDateTime":"2018-12-24T05",
     "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
     "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
-    "zoneCode":"CST",
+    "zoneCode":"$ZONE_CODE$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
@@ -142,7 +141,7 @@ CreateMachine:
     "validityDateTime":"2021-12-24T05:52:46.758Z",
     "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
     "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
-    "zoneCode":"CST",
+    "zoneCode":"$ZONE_CODE$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
@@ -232,20 +231,16 @@ CreateMachine:
     "validityDateTime":"2021-12-24T05:52:46.758Z",
     "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
     "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
-    "zoneCode":"CST",
+    "zoneCode":"$ZONE_CODE$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-    "id":"$IGNORE$", 
-    "name": "HMT",
-	"machineSpecId": "1001",
-	"serialNum":"FB5962911687",
-	"ipAddress": "192.168.0.424",
-	"isActive": "$IGNORE$",
-	"langCode": "eng",
-	"macAddress": "$IGNORE$",
-	"zoneCode": "CST",
-	"validityDateTime": "$IGNORE$"
+  "errors": [
+    {
+      "errorCode": "KER-MSD-255",
+      "message": "Admin not authorized to access this Machine for this Zone"
+    }
+  ]
 }'
    Masterdata_CreateMachine_inValid_MachineName_AboveMaxLen64:
       endPoint: /v1/masterdata/machines
@@ -266,7 +261,7 @@ CreateMachine:
     "validityDateTime":"2021-12-24T05:52:46.758Z",
     "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
     "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
-    "zoneCode":"CST",
+    "zoneCode":"$ZONE_CODE$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
@@ -296,7 +291,7 @@ CreateMachine:
     "validityDateTime":"2021-12-24T05:52:46.758Z",
     "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
     "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
-    "zoneCode":"CST",
+    "zoneCode":"$ZONE_CODE$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
@@ -326,7 +321,7 @@ CreateMachine:
     "validityDateTime":"2021-12-24T05:52:46.758Z",
     "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
     "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
-    "zoneCode":"CST",
+    "zoneCode":"$ZONE_CODE$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
@@ -356,7 +351,7 @@ CreateMachine:
     "validityDateTime":"2021-12-24T05:52:46.758Z",
     "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
     "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
-    "zoneCode":"CST",
+    "zoneCode":"$ZONE_CODE$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
@@ -386,7 +381,7 @@ CreateMachine:
     "validityDateTime":"2021-12-24T05:52:46.758Z",
     "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
     "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
-    "zoneCode":"CST",
+    "zoneCode":"$ZONE_CODE$",
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{

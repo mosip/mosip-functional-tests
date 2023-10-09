@@ -74,6 +74,84 @@ definePolicy:
     "desc": "desc mosip policy3",
     "is_Active": false
 }'
+   Partner_DefinePolicy_demo_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/policy/DefinePolicy/definePolicyResult
+      input: '{
+	"desc": "desc mosip policy9",
+	"name": "mosip policy9",
+	"authSubType": "FINGER",
+	"authType": "demo",
+	"mandatory": true,
+	"attributeName": "string",
+	"authTokenType": "partner",
+	"policyGroupName": "mosip policy group",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "mosip policy group",
+    "name": "mosip policy9",
+}'
+
+   Partner_DefinePolicy_DEMOAUTH_with_SAME_POLICYNAME_NEG:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+	"desc": "desc mosip policy4",
+	"name": "mosip policy4",
+	"authSubType": "FINGER",
+	"authType": "demo",
+	"mandatory": true,
+	"attributeName": "string",
+	"authTokenType": "partner",
+	"policyGroupName": "mosip policy group",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "errors": [
+    {
+      "errorCode": "PMS_POL_009",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   Partner_DefinePolicy_REMOVE_demo_Neg:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+	"desc": "desc mosip policy5",
+	"name": "mosip policy5",
+	"authSubType": "FINGER",
+	"authType": "$REMOVE$",
+	"mandatory": true,
+	"attributeName": "string",
+	"authTokenType": "partner",
+	"policyGroupName": "mosip policy group",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+     "errors": [
+    {
+      "errorCode": "PMS_PV_006"
+    }
+  ]
+}'
    Partner_DefinePolicy_AlreadyExists_InValid:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -96,8 +174,7 @@ definePolicy:
       output: ' {
     "errors": [
     {
-         "errorCode": "PMS_POL_009",
-         "message": "Auth policy exists with name : mosip policy"
+         "errorCode": "PMS_POL_009"
      }
   ]
 }'
@@ -123,8 +200,7 @@ definePolicy:
       output: ' {
     "errors": [
     {
-         "errorCode": "PMS_POL_019",
-         "message": "Policy group name does not exist"
+         "errorCode": "PMS_POL_019"
     }
   ]
 }'
@@ -150,8 +226,7 @@ definePolicy:
       output: ' {
     "errors": [
     {
-            "errorCode": "PMS_POL_053",
-            "message": "Policy group is not active."
+            "errorCode": "PMS_POL_053"
         }
   ]
 }'
@@ -177,8 +252,7 @@ definePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.name"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -204,8 +278,7 @@ definePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.desc"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -231,8 +304,7 @@ definePolicy:
       output: '{
    "errors": [
     {
-            "errorCode": "PMS_PV_006",
-            "message": "Missing input parameter - allowedAuthTypes/0/mandatory"
+            "errorCode": "PMS_PV_006"
         }
   ]
 }'
@@ -258,8 +330,7 @@ definePolicy:
       output: '{
    "errors": [
     {
-            "errorCode": "PMS_PV_006",
-            "message": "Missing input parameter - allowedAuthTypes/0/authType"
+            "errorCode": "PMS_PV_006"
         }
   ]
 }'
@@ -285,8 +356,7 @@ definePolicy:
       output: '{
    "errors": [
     {
-            "errorCode": "PMS_PV_006",
-            "message": "Missing input parameter - authTokenType"
+            "errorCode": "PMS_PV_006"
         }
   ]
 }'
@@ -312,8 +382,7 @@ definePolicy:
       output: '{
    "errors": [
     {
-            "errorCode": "PMS_PV_006",
-            "message": "Missing input parameter - allowedKycAttributes/0/attributeName"
+            "errorCode": "PMS_PV_006"
         }
   ]
 }'
@@ -339,8 +408,7 @@ definePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null :request.policyGroupName"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -366,8 +434,7 @@ definePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - value is empty or null. Allowed values Auth/DataShare/CredentialIssuance :request.policyType"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

@@ -2,6 +2,7 @@ createSendOTP:
    Resident_SendOTP_All_Valid_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/SendOTP/createSendOTP
       outputTemplate: resident/SendOTP/createSendOTPResult

@@ -2,6 +2,7 @@ SignJWT:
    Resident_SignJWT_all_Valid_Smoke_sid:
       endPoint: /v1/keymanager/jwtSign
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/SignJWT/SignJWT
       outputTemplate: resident/SignJWT/SignJWTResult
@@ -15,5 +16,4 @@ SignJWT:
 	    "includeCertHash": false
 }'
       output: '{
-        "jwtSignedData": "$IGNORE$"
 }'

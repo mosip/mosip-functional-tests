@@ -20,7 +20,7 @@ DeactivateVIDs:
       role: resident
       restMethod: post
       inputTemplate: idRepository/DeactivateVid/deactivateVid
-      outputTemplate: idRepository/DeactivateVid/deactivateVidResult
+      outputTemplate: idRepository/error
       input: '{
     "UIN": "$ID:AddIdentity_For_DeactivateScen_smoke_Pos_UIN$",
     "requesttime": "$TIMESTAMP$",
@@ -28,7 +28,11 @@ DeactivateVIDs:
     "version": "v1"
 }'  
       output: '{
-    "vidStatus": "DEACTIVATED"
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-007"
+    }
+  ]
 }'
 
   IdRepository_DeactivateVIDs_Onetime_Smoke_Pos:
@@ -62,8 +66,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - id"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -82,8 +85,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - id"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -103,8 +105,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Missing Input Parameter - id"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -124,8 +125,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Missing Input Parameter - id"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -146,8 +146,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - UIN"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -167,8 +166,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Missing Input Parameter - UIN"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -188,8 +186,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Missing Input Parameter - UIN"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -209,8 +206,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Missing Input Parameter - UIN"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -230,8 +226,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -250,8 +245,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -271,8 +265,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -292,8 +285,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -313,8 +305,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Missing Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -334,8 +325,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Missing Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -355,8 +345,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Invalid Input Parameter - version"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -375,8 +364,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-001",
-      "message": "Missing Input Parameter - version"
+      "errorCode": "IDR-IDC-001"
     }
   ]
 }'
@@ -396,8 +384,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Missing Input Parameter - version"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -417,8 +404,7 @@ DeactivateVIDs:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-002",
-      "message": "Missing Input Parameter - version"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'

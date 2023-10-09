@@ -2,6 +2,7 @@ DecommissionRegCenter:
    MasterData_DecommissionRegCenter_All_Valid_Smoke_sid:  
       endPoint: /v1/masterdata/registrationcenters/decommission/{regCenterID}
       role: globalAdmin
+      checkErrorsOnlyInResponse: true
       restMethod: put
       inputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenter
       outputTemplate: masterdata/DecommissionRegCenter/decommissionRegCenterResult
@@ -9,5 +10,4 @@ DecommissionRegCenter:
     "regCenterID": "$ID:CreateRegCenter_allValid_smoke_sid_id$"
 	}'
       output: '{
-    "id": "$IGNORE$"
 }'

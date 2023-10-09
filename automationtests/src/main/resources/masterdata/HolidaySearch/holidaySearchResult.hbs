@@ -1,22 +1,9 @@
 {
-  "id": "string",
-  "version": "string",
-  "responsetime": "$IGNORE$",
-  "metadata": null,
   "response": {
-    "fromRecord": "$IGNORE$",
-    "toRecord": "$IGNORE$",
-    "totalRecord": "$IGNORE$",
     "data": [
      {{#each data}}
       {
-        "isActive": {{isActive}},
-        "createdBy": "$IGNORE$",
-        "createdDateTime": "$IGNORE$",
-        "updatedBy": "$IGNORE$",
-        "updatedDateTime": "$IGNORE$",
-        "isDeleted": "$IGNORE$",
-        "deletedDateTime": "$IGNORE$",
+        "isActive": "{{isActive}}",
         "holidayId": "{{holidayId}}",
         "name": "{{name}}",
         "holidayDate": "{{holidayDate}}",
@@ -27,6 +14,5 @@
        {{#unless @last}},{{/unless}}
       	{{/each}}
     ]
-  },
-  "errors": null
+  }
 }

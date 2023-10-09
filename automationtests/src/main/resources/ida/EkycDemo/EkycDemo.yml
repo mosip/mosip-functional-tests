@@ -14,6 +14,21 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
+  auth_EkycDemo_Auth_With_draft_uin_Smoke:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GetDraft_all_valid_smoke_sid_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1992/04/15",
+        "key": "dob"
+    }'
+      output: '{
+  "kycStatus": "true"
+}'
   auth_EkycDemo_Auth_With_Valid_VID_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -142,8 +157,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - request/demographics/dob"
+      "errorCode": "IDA-MLC-009"
     }
   ]
 }'
@@ -163,8 +177,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - request/demographics/dob"
+      "errorCode": "IDA-MLC-009"
     }
   ]
 }'
@@ -192,7 +205,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
+      "value": "auth_AddIdentity_ValidParam_smoke_Pos@mosip.net",
         "key": "emailId"
     }'
       output: '{
@@ -214,8 +227,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data emailId did not match"
+      "errorCode": "IDA-DEA-001"
     }
   ]
 }'
@@ -235,8 +247,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data emailId did not match"
+      "errorCode": "IDA-DEA-001"
     }
   ]
 }'
@@ -256,8 +267,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-018",
-      "errorMessage": "VID not available in database"
+      "errorCode": "IDA-MLC-018"
     }
   ]
 }'
@@ -319,8 +329,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-DEA-001"
     }
   ]
 }'
@@ -344,8 +353,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-DEA-001"
     }
   ]
 }'
@@ -359,7 +367,26 @@ EkycDemo:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Mrs Madhu.GN"
+      "value": "Mrs Lisa.GN"
+    }
+  ],
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "kycStatus": "true"
+}'
+  auth_EkycDemo_Auth_With_Infant_Valid_UIN_Smoke:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_Infant_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
+      input: '{
+    "name": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "TEST_FIRSTNAMEeng"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -378,7 +405,7 @@ EkycDemo:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "FR"
+      "value": "$NAMEPRIMARYLANG$"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -407,8 +434,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-DEA-001"
     }
   ]
 }'
@@ -432,8 +458,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "$IGNORE$"
+      "errorCode": "IDA-DEA-001"
     }
   ]
 }'
@@ -447,7 +472,7 @@ EkycDemo:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Madhu.GN"
+      "value": "Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -456,7 +481,45 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycDemo_Auth_With_name2_Valid_UIN_Smoke:
+  auth_EkycDemo_Auth_With_name2_Valid_titleFromAdmin_UIN_Smoke:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
+      input: '{
+    "name": [
+    {
+      "language": "eng",
+      "value": "Miss-TitleFromServer Lisa.GN"
+    }
+  ],
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "kycStatus": "true"
+}'
+  auth_EkycDemo_Auth_With_name3_Valid_titleFromAdmin_UIN_Smoke:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
+      outputTemplate: ida/EkycDemo/EkycDemoResult
+      input: '{
+    "name": [
+    {
+      "language": "eng",
+      "value": "Mr-TitleFromServer Lisa.GN"
+    }
+  ],
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "kycStatus": "true"
+}'
+  auth_EkycDemo_Auth_With_name4_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -466,7 +529,7 @@ EkycDemo:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Miss Madhu.GN"
+      "value": "Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -475,7 +538,7 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycDemo_Auth_With_name3_Valid_UIN_Smoke:
+  auth_EkycDemo_Auth_With_name5_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -484,8 +547,8 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Mr Madhu.GN"
+      "language": "eng",
+      "value": "Miss-TitleFromServer. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -494,7 +557,7 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycDemo_Auth_With_name4_Valid_UIN_Smoke:
+  auth_EkycDemo_Auth_With_name6_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -503,8 +566,8 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Mrs Madhu.GN"
+      "language": "eng",
+      "value": "Miss-TitleFromServer. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -513,7 +576,7 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycDemo_Auth_With_name5_Valid_UIN_Smoke:
+  auth_EkycDemo_Auth_With_name7_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -522,46 +585,8 @@ EkycDemo:
       input: '{
     "name": [
     {
-      "language": "$PRIMARYLANG$",
-      "value": "Miss. Madhu.GN"
-    }
-  ],
-        "timestamp": "$TIMESTAMP$",
-        "transactionId": "$TRANSACTIONID$"
-    }'
-      output: '{
-  "kycStatus": "true"
-}'
-  auth_EkycDemo_Auth_With_name6_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
-      outputTemplate: ida/EkycDemo/EkycDemoResult
-      input: '{
-    "name": [
-    {
-      "language": "$PRIMARYLANG$",
-      "value": "MISS. Madhu.GN"
-    }
-  ],
-        "timestamp": "$TIMESTAMP$",
-        "transactionId": "$TRANSACTIONID$"
-    }'
-      output: '{
-  "kycStatus": "true"
-}'
-  auth_EkycDemo_Auth_With_name7_Valid_UIN_Smoke:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
-      outputTemplate: ida/EkycDemo/EkycDemoResult
-      input: '{
-    "name": [
-    {
-      "language": "$PRIMARYLANG$",
-      "value": "Miss Madhu GN"
+      "language": "eng",
+      "value": "Miss-TitleFromServer. Lisa.GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -580,7 +605,7 @@ EkycDemo:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "Miss Madhu GN"
+      "value": "Miss Lisa GN"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -593,8 +618,7 @@ EkycDemo:
           "errorMessage": "Request could not be processed. Please try again"
         },
         {
-          "errorCode": "IDA-MPA-009",
-          "errorMessage": "Partner is not registered"
+          "errorCode": "IDA-MPA-009"
         }
       ],
         "kycStatus": false
@@ -621,7 +645,7 @@ EkycDemo:
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-      "value": "51",
+      "value": "41",
     "key": "age",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
@@ -645,8 +669,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - age"
+      "errorCode": "IDA-MLC-009"
     }
   ]
 }'
@@ -666,8 +689,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "Invalid Input Parameter - age"
+      "errorCode": "IDA-MLC-009"
     }
   ]
 }'
@@ -676,7 +698,7 @@ EkycDemo:
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
-      outputTemplate: ida/EkycDemo/error
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
       "value": "7019858531",
     "key": "phoneNumber",
@@ -684,14 +706,7 @@ EkycDemo:
         "transactionId": "$TRANSACTIONID$"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-DEA-001",
-          "errorMessage": "Demographic data phoneNumber did not match",
-          "actionMessage": "Please re-enter your phoneNumber"
-        }
-      ],
-        "kycStatus": false
+  "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_With_phone_Valid_VID_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -724,8 +739,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data phoneNumber did not match"
+      "errorCode": "IDA-DEA-001"
     }
   ]
 }'
@@ -745,8 +759,7 @@ EkycDemo:
     "kycStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-DEA-001",
-      "errorMessage": "Demographic data phoneNumber did not match"
+      "errorCode": "IDA-DEA-001"
     }
   ]
 }'
@@ -789,7 +802,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "1970/07/08",
+      "value": "1980/08/10",
         "key": "dob"
     }'
       output: '{
@@ -810,8 +823,7 @@ EkycDemo:
       output: '{
    "errors": [
         {
-          "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - individualId"
+          "errorCode": "IDA-MLC-009"
         }
       ],
         "kycStatus": false
@@ -831,8 +843,7 @@ EkycDemo:
       output: '{
     "errors": [
         {
-          "errorCode": "IDA-MLC-009",
-          "errorMessage": "Invalid Input Parameter - individualId"
+          "errorCode": "IDA-MLC-009"
         }
       ],
         "kycStatus": false
@@ -852,14 +863,48 @@ EkycDemo:
       output: '{
     "errors": [
         {
-          "errorCode": "IDA-MLC-019",
-          "errorMessage": "demo Auth Type is Locked for the UIN"
+          "errorCode": "IDA-MLC-019"
         }
       ],
         "kycStatus": false
 }'
   auth_EkycDemo_DOB_Lock_Permanent_Valid_Smoke_UIN_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/error
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+      "errors": [
+        {
+          "errorCode": "IDA-MLC-019"
+        }
+      ],
+        "kycStatus": false
+}'
+  auth_EkycDemo_Auth_With_Deactivated_UIN:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_deactivate_UIN_smoke_sid_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/error
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+  "kycStatus": "true"
+}'
+  auth_EkycDemo_Auth_With_Valid_NOAUTH_UIN_Smoke:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
@@ -873,8 +918,7 @@ EkycDemo:
       output: '{
       "errors": [
         {
-          "errorCode": "IDA-MLC-019",
-          "errorMessage": "demo Auth Type is Locked for the UIN"
+          "errorCode": "IDA-MLC-019"
         }
       ],
         "kycStatus": false

@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
@@ -22,9 +23,17 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class HealthChecker implements Runnable {
+	
+	public HealthChecker() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
+	
 	private static final Logger logger = Logger.getLogger(HealthChecker.class);
 	public static boolean bTerminate = false;
-	public static String propsHealthCheckURL = MosipTestRunner.getResourcePath() + "/"
+	public static String propsHealthCheckURL = MosipTestRunner.getGlobalResourcePath() + "/"
 			+ "config/healthCheckEndpoint.properties";
 	public static boolean signalTerminateExecution = false;
 	public static Map<Object, Object> healthCheckFailureMapS = Collections
@@ -62,7 +71,7 @@ public class HealthChecker implements Runnable {
 				}
 			}
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		} finally {
 			AdminTestUtil.closeBufferedReader(bufferedReader);
 			AdminTestUtil.closeFileReader(fileReader);
@@ -84,9 +93,9 @@ public class HealthChecker implements Runnable {
 				signalTerminateExecution = true;
 			}
 			try {
-				Thread.sleep(60000);
+				Thread.sleep(120000);
 			} catch (InterruptedException e) {
-				logger.error(e.getStackTrace());
+				logger.error(e.getMessage());
 				Thread.currentThread().interrupt();
 			}
 		}

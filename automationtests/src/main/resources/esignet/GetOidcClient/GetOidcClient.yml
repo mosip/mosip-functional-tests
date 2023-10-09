@@ -2,6 +2,7 @@ GetOidcClient:
    Esignet_GetOidcClient_all_Valid_Smoke:
       endPoint: /v1/partnermanager/oidc/client/{client_id}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: esignet/GetOidcClient/GetOidcClient
       outputTemplate: esignet/GetOidcClient/GetOidcClientResult

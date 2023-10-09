@@ -25,8 +25,7 @@ GetPolicyForApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PMP_009",
-      "message": "For given partner and apikey mapping not exists."
+      "errorCode": "PMS_PMP_009"
     }
   ]   
 }'
@@ -43,8 +42,7 @@ GetPolicyForApiKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_PMP_009",
-      "message": "For given partner and apikey mapping not exists."
+      "errorCode": "PMS_PMP_009"
     }
   ]   
 }'

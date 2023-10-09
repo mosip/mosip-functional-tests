@@ -2,6 +2,7 @@ GetimmediateChildrenByLocationCode:
    Admin_GetimmediateChildrenByLocationCode_allValid_smoke:
       endPoint: /v1/masterdata/locations/immediatechildren/{locationcode}/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetimmediateChildrenByLocationCode/getimmediateChildrenByLocationCode
       outputTemplate: masterdata/GetimmediateChildrenByLocationCode/getimmediateChildrenByLocationCodeResult
@@ -16,8 +17,7 @@ GetimmediateChildrenByLocationCode:
         "hierarchyLevel": "$IGNORE$",
         "hierarchyName": "$IGNORE$",
         "parentLocCode": "$IGNORE$",
-        "langCode": "eng",
-        "isActive": $IGNORE$
+        "isActive": "$IGNORE$"
     }]
 }'
 

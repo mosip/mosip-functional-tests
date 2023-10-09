@@ -30,10 +30,9 @@ MachineTypeSearch:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
         "code": "Laptop-2",
-        "langCode": "eng",
         "name": "$IGNORE$",
         "description": "$IGNORE$"
       }
@@ -42,6 +41,7 @@ MachineTypeSearch:
    Masterdata_MachineTypeSearch_withoutfilterValue_eng:
       endPoint: /v1/masterdata/machinetypes/search
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/MachineTypeSearch/machineTypeSearch
@@ -62,7 +62,7 @@ MachineTypeSearch:
       output: '{
    "data": [
      {
-        "isActive": $IGNORE$,
+        "isActive": "$IGNORE$",
         "createdBy": "$IGNORE$",
         "code": "$IGNORE$",
         "langCode": "$IGNORE$",

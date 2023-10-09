@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,8 @@ public class AuditDBManager extends AdminTestUtil {
 	private static Map<String, Object> records;
 	private static List<Map<String, Object>> allRecords;
 	public static String env = System.getProperty("env.user");
+	public static Map<String, SessionFactory> sessionFactoryMapS = Collections
+			.synchronizedMap(new HashMap<String, SessionFactory>());
 
 	/**
 	 * Execute query to get generated otp value
@@ -69,13 +72,6 @@ public class AuditDBManager extends AdminTestUtil {
 		return record;
 
 	}
-	
-	public static void closeDataBaseConnection(Session session) {
-		if (session != null) {
-			DBCONNECTION_LOGGER.info("==========session  closed=============");
-			session.close();
-		}
-	}
 
 	public static void executeQueryAndDeleteRecord(String moduleName, String deleteQuery) {
 		Session session = null;
@@ -105,12 +101,33 @@ public class AuditDBManager extends AdminTestUtil {
 	}
 
 	private static Session getDataBaseConnection(String dbName) {
-		SessionFactory factory = null;
 		Session session = null;
-		String dbConfigXml = MosipTestRunner.getGlobalResourcePath() + "/dbFiles/dbConfig.xml";
-		String dbschema=ConfigManager.getValueForKey("audit_db_schema");
+		SessionFactory sessionFactory = sessionFactoryMapS.get(dbName);
+		if (sessionFactory == null) {
+		try {
+				sessionFactory = getDataBaseConnectionSessionFactory(dbName);
+				sessionFactoryMapS.put(dbName, sessionFactory);
+			} catch (HibernateException e) {
+				DBCONNECTION_LOGGER.error("Exception in Database Connection with following message: " + e.getMessage());
+			} catch (NullPointerException e) {
+				Assert.assertTrue(false, "Exception in getting the SessionFactory for DB Schema : " + dbName );
+			}
+		}
+		if (sessionFactory != null) {
+			session = sessionFactory.getCurrentSession();
+			session.beginTransaction();
+			DBCONNECTION_LOGGER.info("Session begined with Schema : " + dbName);
+		}
+		return session;	
+	}
+	
+	private static SessionFactory getDataBaseConnectionSessionFactory(String dbName) {
+		SessionFactory factory = null;
+		String dbschema = ConfigManager.getValueForKey("audit_db_schema");
+
 		if(dbName.equalsIgnoreCase("partner"))
 			dbschema=ConfigManager.getValueForKey("ida_db_schema");
+
 		try {
 			Configuration config = new Configuration();
 			config.setProperty("hibernate.connection.driver_class", propsKernel.getProperty("driver_class"));
@@ -126,16 +143,22 @@ public class AuditDBManager extends AdminTestUtil {
 			config.setProperty("hibernate.show_sql", propsKernel.getProperty("show_sql"));
 			config.setProperty("hibernate.current_session_context_class",
 					propsKernel.getProperty("current_session_context_class"));
-			config.addFile(new File(dbConfigXml));
-			factory = config.buildSessionFactory();
-			session = factory.getCurrentSession();
-			session.beginTransaction();
-			DBCONNECTION_LOGGER.info("==========session  begins=============");
+			config.addFile(new File(MosipTestRunner.getGlobalResourcePath() + "/dbFiles/dbConfig.xml"));
+			factory = config.buildSessionFactory();		
 		} catch (HibernateException e) {
 			DBCONNECTION_LOGGER.error("Exception in Database Connection with following message: " + e.getMessage());
 		} catch (NullPointerException e) {
-			Assert.assertTrue(false, "Exception in getting the session");
+			Assert.assertTrue(false, "Exception in getting the SessionFactory for DB Schema : " + dbschema );
 		}
-		return session;
+		return factory;
 	}
+
+
+	public static void closeDataBaseConnection(Session session) {
+		if (session != null) {
+			DBCONNECTION_LOGGER.info("Session closed");
+			session.close();
+		}
+	}
+	
 }

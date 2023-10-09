@@ -2,6 +2,7 @@ SendBindingOtp:
    ESignet_SendBindingOtp_uin_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       restMethod: post
       inputTemplate: esignet/SendBindingOtp/SendBindingOtp
@@ -14,13 +15,14 @@ SendBindingOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-        "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "$IGNORE$"
+    "maskedEmail": "$IGNORE$",
+    "maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendBindingOtp_Vid_Valid_Smoke_sid:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       restMethod: post
       inputTemplate: esignet/SendBindingOtp/SendBindingOtp
@@ -33,13 +35,14 @@ SendBindingOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-        "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "$IGNORE$"
+    "maskedEmail": "$IGNORE$",
+    "maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendBindingOtp_uin_Email_Valid_Smoke_sid:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       restMethod: post
       inputTemplate: esignet/SendBindingOtp/SendBindingOtp
@@ -52,13 +55,14 @@ SendBindingOtp:
 	    "otpChannels": [{channel: "email"}]
 }'
       output: '{
-        "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "$IGNORE$"
+    "maskedEmail": "$IGNORE$",
+    "maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendBindingOtp_uin_Phone_Valid_Smoke_sid:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       restMethod: post
       inputTemplate: esignet/SendBindingOtp/SendBindingOtp
@@ -71,8 +75,8 @@ SendBindingOtp:
 	    "otpChannels": [{channel: "phone"}]
 }'
       output: '{
-        "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "$IGNORE$"
+    "maskedEmail": "$IGNORE$",
+    "maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendBindingOtp_uin_Invalid_RequestTime_Neg:
@@ -240,9 +244,10 @@ SendBindingOtp:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/SendBindingOtp/SendBindingOtp
-      outputTemplate: esignet/error
+      outputTemplate: esignet/SendBindingOtp/SendBindingOtpResult
       input: '{
         "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
   		"partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
@@ -251,21 +256,18 @@ SendBindingOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-        "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+    "maskedEmail": "$IGNORE$",
+    "maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendBindingOtp_uin_NR_Phone_IndividualId_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/SendBindingOtp/SendBindingOtp
-      outputTemplate: esignet/error
+      outputTemplate: esignet/SendBindingOtp/SendBindingOtpResult
       input: '{
         "apiKey": "$ID:GenerateApiKey_Valid_Smoke_sid_apiKey$",
   		"partnerId": "$ID:PartnerSelfRegistration_All_Valid_Smoke_sid_partnerId$",
@@ -274,12 +276,8 @@ SendBindingOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-        "errors": [
-    {
-      "errorCode": "IDA-MLC-009",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+    "maskedEmail": "$IGNORE$",
+    "maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendBindingOtp_uin_Missing_IndividualId_Neg:

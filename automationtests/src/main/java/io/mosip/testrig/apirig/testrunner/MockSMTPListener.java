@@ -13,6 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 
@@ -31,6 +32,13 @@ public class MockSMTPListener {
 			.synchronizedMap(new HashMap<Object, Object>());
 
 	public static Boolean bTerminate = false;
+	
+	public MockSMTPListener() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 
 	public void run() {
 		try {
@@ -43,7 +51,7 @@ public class MockSMTPListener {
 			WebSocket ws = HttpClient.newHttpClient().newWebSocketBuilder()
 					.buildAsync(URI.create(a1 + a2 + a3), new WebSocketClient()).join();
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error(e.getMessage());
 		}
 
 	}

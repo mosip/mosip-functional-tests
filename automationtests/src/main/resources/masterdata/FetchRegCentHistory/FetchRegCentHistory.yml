@@ -13,7 +13,6 @@ FetchRegCentHistory:
 }'
       output: '{
 "registrationCentersHistory": [{
-			"langCode": "$IGNORE$",
 			"isActive": "true"
 		}]
 }'

@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.testng.ITest;
@@ -13,6 +14,7 @@ import org.testng.Reporter;
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
@@ -27,6 +29,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -36,6 +39,14 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	public String idKeyName = null;
 	public Response response = null;
 	public boolean auditLogCheck = false;
+	
+	@BeforeClass
+	public static void setLogLevel() {
+		if (ConfigManager.IsDebugEnabled())
+			logger.setLevel(Level.ALL);
+		else
+			logger.setLevel(Level.ERROR);
+	}
 
 	/**
 	 * get current testcaseName
@@ -77,6 +88,9 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
+		if ((!BaseTestCase.isTargetEnvLTS()) && BaseTestCase.currentModule.equals("auth") && testCaseName.startsWith("auth_GenerateVID_")) {
+			throw new SkipException("Generating VID using IdRepo API on Pre-LTS. Hence skipping this test case");
+		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		auditLogCheck = testCaseDTO.isAuditLogCheck();
@@ -117,7 +131,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 				try {
 					Thread.sleep(Long.parseLong(properties.getProperty("uinGenDelayTime")));
 				} catch (NumberFormatException | InterruptedException e) {
-					logger.error(e.getStackTrace());
+					logger.error(e.getMessage());
 					Thread.currentThread().interrupt();
 				} 
 			} else {
@@ -139,11 +153,16 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		if (otpResponse != null) {
 			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
-					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate));
+					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 			
-			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
-				throw new AdminTestException("Failed at otp output validation");
+			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
+				if (otpResponse.asString().contains("IDA-OTA-001"))
+					throw new AdminTestException("Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
+				else
+					throw new AdminTestException("Failed at otp output validation");
+			}
+				
 		}
 		else {
 			throw new AdminTestException("Invalid otp response");
@@ -168,7 +187,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()));
+				response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -200,9 +219,12 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	public void waittime() {
 		try {
 			if ((!testCaseName.contains(GlobalConstants.ESIGNET_)) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
-				logger.info("waiting for" + properties.getProperty("Delaytime")
+				long delayTime = Long.parseLong(properties.getProperty("Delaytime"));
+				if (!BaseTestCase.isTargetEnvLTS())
+					delayTime = Long.parseLong(properties.getProperty("uinGenDelayTime")) * Long.parseLong(properties.getProperty("uinGenMaxLoopCount"));
+				logger.info("waiting for " + delayTime
 						+ " mili secs after VID Generation In RESIDENT SERVICES");
-				Thread.sleep(Long.parseLong(properties.getProperty("Delaytime")));
+				Thread.sleep(delayTime);
 			}
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());

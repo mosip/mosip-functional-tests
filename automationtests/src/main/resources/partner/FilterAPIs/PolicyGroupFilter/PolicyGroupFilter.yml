@@ -14,7 +14,7 @@ PolicyGroupFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
+       "filters": [
       {
         "fieldID": "name",
         "fieldValue": "update_policy_group",
@@ -37,7 +37,7 @@ PolicyGroupFilter:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
+       "filters": [
       {
         "fieldID": "name",
         "fieldValue": "mpolicygroup-default-auth",
@@ -107,8 +107,7 @@ PolicyGroupFilter:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001",
-      "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'
@@ -129,8 +128,7 @@ PolicyGroupFilter:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_003",
-      "message": "Could not process the request"
+      "errorCode": "PMS_COR_003"
     }
   ]
 }'

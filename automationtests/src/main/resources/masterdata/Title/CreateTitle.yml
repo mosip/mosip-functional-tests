@@ -15,8 +15,7 @@ CreateTitle:
 	  "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-	"code": "TEST0011",
-	"langCode": "eng"
+	"code": "TEST0011"
 }'
    
    

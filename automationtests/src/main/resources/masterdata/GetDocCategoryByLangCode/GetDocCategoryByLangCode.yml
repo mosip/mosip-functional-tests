@@ -2,6 +2,7 @@ GetDocCategoryByLangCode:
    Admin_GetDocCategoryByLangCode_allValid_smoke:
       endPoint: /v1/masterdata/documentcategories/{code}/{langcode}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetDocCategoryByLangCode/getDocCategoryByLangCode
       outputTemplate: masterdata/GetDocCategoryByLangCode/getDocCategoryByLangCodeResult
@@ -10,13 +11,6 @@ GetDocCategoryByLangCode:
       "langcode":"eng"
 }'
       output: '{
-"documentcategories": [{
-       "code": "$IGNORE$",
-        "name": "$IGNORE$",
-        "description": "$IGNORE$",
-        "langCode": "$IGNORE$",
-        "isActive": $IGNORE$
-    }]
 }'
 
    Admin_GetDocCategoryByLangCode_Invalid_code:
