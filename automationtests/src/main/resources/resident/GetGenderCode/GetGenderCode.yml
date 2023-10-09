@@ -35,7 +35,7 @@ GetGenderCode:
       inputTemplate: resident/GetGenderCode/GetGenderCode
       outputTemplate: resident/GetGenderCode/GetGenderCodeResult
       input: '{
-      "gendertype": "other",
+      "gendertype": "others",
       "langcode":"$1STLANG$"
 }'
       output: '{
@@ -53,6 +53,12 @@ GetGenderCode:
       "langcode":"$1STLANG$"
 }'
       output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410",
+      "message": "$IGNORE$"
+    }
+  ]
       
 }'
 

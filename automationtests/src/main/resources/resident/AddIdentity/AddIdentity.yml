@@ -826,7 +826,7 @@ AddIdentity:
    "UIN": "$UIN$",
   "dateOfBirth": "1992/04/15",
   "postalCode": "14022",
-  "email": "Resident_AddIdentity_withValidParameters_For_SendOtp_smoke_Pos@mosip.net",
+  "email": "Resident_AddIdentity_withValidParameters_To_Check_Ten_Transactions_smoke_Pos@mosip.net",
   "phone": "9876543210",
   "mobileno": "9876543210",
   "referenceIdentityNumber": "6789545678878",

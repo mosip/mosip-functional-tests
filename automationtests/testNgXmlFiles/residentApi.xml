@@ -327,6 +327,15 @@
 			<class name="io.mosip.testrig.apirig.testscripts.PostWithBodyWithPdfDownload" />
 		</classes>
 	</test>
+	<test name="GetPartnersByPartnerType">
+		<parameter name="ymlFile"
+			value="resident/GetPartnersByPartnerType/GetPartnersByPartnerType.yml" />
+			<parameter name="idKeyName"	value="partnerID" />
+			<parameter name="sendEsignetToken"	value="true" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParamForAutoGenId" />
+		</classes>
+	</test>
 	<test name="ReqShareCredWithPartner">
 		<parameter name="ymlFile"
 			value="resident/ReqShareCredWithPartner/ReqShareCredWithPartner.yml" />
@@ -468,14 +477,6 @@
 	<test name="GetRetrieveVidPolicy">
 		<parameter name="ymlFile"
 			value="resident/GetRetrieveVidPolicy/GetRetrieveVidPolicy.yml" />
-			<parameter name="sendEsignetToken"	value="true" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
-		</classes>
-	</test>
-	<test name="GetPartnersByPartnerType">
-		<parameter name="ymlFile"
-			value="resident/GetPartnersByPartnerType/GetPartnersByPartnerType.yml" />
 			<parameter name="sendEsignetToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
