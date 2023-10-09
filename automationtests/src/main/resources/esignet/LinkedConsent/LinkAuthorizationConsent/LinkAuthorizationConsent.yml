@@ -5,12 +5,13 @@ LinkAuthorizationConsent:
       checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      inputTemplate: esignet/LinkedConsent/LinkAuthorizationConsent/LinkAuthorizationConsent
       outputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"linkedTransactionId": "$ID:LinkTransaction_Consent_uin_all_Valid_Smoke_sid_linkTransactionId$",
-      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
+      	"signature": "$CONSENTDETACHEDSIGNATURE$"
 }'
       output: '{
     
@@ -22,12 +23,13 @@ LinkAuthorizationConsent:
       checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsent
+      inputTemplate: esignet/LinkedConsent/LinkAuthorizationConsent/LinkAuthorizationConsent
       outputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"linkedTransactionId": "$ID:LinkTransaction_Consent_Vid_all_Valid_Smoke_sid_linkTransactionId$",
-      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}]
+      	"acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}],
+      	"signature": "$CONSENTDETACHEDSIGNATUREVID$"
 }'
       output: '{
     

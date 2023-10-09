@@ -105,8 +105,18 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
+		
+		if (testCaseDTO.getEndPoint().contains("$KycPartnerKeyURL$")) {
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$KycPartnerKeyURL$", PartnerRegistration.ekycPartnerKeyUrl));
+		}
+		
 		if (testCaseDTO.getEndPoint().contains("$PartnerName$")) {
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerName$", PartnerRegistration.partnerId));
+		}
+		
+		if (testCaseDTO.getEndPoint().contains("$KycPartnerName$")) {
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$KycPartnerName$", PartnerRegistration.ekycPartnerId));
 		}
 		String request = testCaseDTO.getInput();
 		request = buildIdentityRequest(request);

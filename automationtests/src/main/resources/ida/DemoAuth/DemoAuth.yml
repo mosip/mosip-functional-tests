@@ -241,7 +241,7 @@ DemoAuthNew:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "auth_AddIdentity_ValidParam_smoke_Pos@mosip.net,
+      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$,
         "key": "emailId"
     }'
       output: '{
@@ -319,7 +319,7 @@ DemoAuthNew:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGenderRS
       outputTemplate: ida/DemoAuth/error
       input: '{
     "gender": [
@@ -344,7 +344,7 @@ DemoAuthNew:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGenderRS
       outputTemplate: ida/DemoAuth/error
       input: '{
     "gender": [
@@ -369,7 +369,7 @@ DemoAuthNew:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGenderRS
       outputTemplate: ida/DemoAuth/error
       input: '{
     "gender": [
@@ -394,7 +394,7 @@ DemoAuthNew:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGenderRS
       outputTemplate: ida/DemoAuth/error
       input: '{
     "gender": [
@@ -419,7 +419,7 @@ DemoAuthNew:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGenderRS
       outputTemplate: ida/DemoAuth/error
       input: '{
     "gender": [
@@ -482,17 +482,11 @@ DemoAuthNew:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      inputTemplate: ida/DemoAuth/DemoAuth
       outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
     "value": "1970/07/08",
   "key": "dob",
-   "residenceStatus": [
-                {
-                    "language": "$PRIMARYLANG$",
-                    "value": "Non-Foreigner"
-                }
-            ]
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
     }'
@@ -503,17 +497,11 @@ DemoAuthNew:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
-      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      inputTemplate: ida/DemoAuth/DemoAuth
       outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
     "value": "1970/07/08",
   "key": "dob",
-   "residenceStatus": [
-                {
-                    "language": "$PRIMARYLANG$",
-                    "value": "Non-Foreigner"
-                }
-            ]
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
     }'
@@ -587,7 +575,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "$NAMEPRIMARYLANG$"
+      "value": "TEST_FIRSTNAMEeng"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -739,7 +727,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "$NAMEPRIMARYLANG$"
+      "value": "TEST_FIRSTNAMEeng"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -1117,4 +1105,68 @@ DemoAuthNew:
     }'
       output: '{
         "authStatus": "true"
+}'
+  auth_DemoAuthValid_Smoke_with_addressCopy:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "Y",
+        "key": "addressCopy"
+    }'
+      output: '{
+        "authStatus": "true"
+}'
+  auth_DemoAuthValid_Smoke_with_mobileno:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "7019858531",
+        "key": "mobileno"
+    }'
+      output: '{
+        "authStatus": "true"
+}'
+  auth_DemoAuthValid_with_phone:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "7019858531",
+        "key": "phone"
+    }'
+      output: '{
+        "authStatus": "true"
+}'
+  auth_DemoAuthValid_with_firstName:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptName
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "name": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "TEST_FIRSTNAMEeng"
+    }
+  ],
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "true"
 }'
