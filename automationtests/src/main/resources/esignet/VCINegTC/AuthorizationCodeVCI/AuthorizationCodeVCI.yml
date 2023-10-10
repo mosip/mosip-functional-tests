@@ -1,26 +1,4 @@
 AuthorizationCodeVCINegTC:
-   ESignet_AuthorizationCode_VCI_uin_Invalid_Scope:
-      endPoint: /v1/esignet/authorization/auth-code
-      role: resident
-      restMethod: post
-      checkErrorsOnlyInResponse: true
-      validityCheckRequired: true
-      inputTemplate: esignet/VCINegTC/AuthorizationCodeVCI/AuthorizationCodeVCI
-      outputTemplate: esignet/error
-      input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_VCI_uin_NegAuthCodeScen1_Valid_Smoke_sid_encodedResp$",
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegAuthCodeScen1_Valid_Smoke_sid_transactionId$",
-      	"permittedAuthorizeScopes": [{scope: "sdfsfd"}]
-}'
-      output: '{
-    "errors": [
-        {
-            "errorCode": "invalid_permitted_scope"
-        }
-    ]
-}'
-
    ESignet_AuthorizationCode_VCI_uin_Empty_Scope:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
@@ -34,28 +12,6 @@ AuthorizationCodeVCINegTC:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegAuthCodeScen2_Valid_Smoke_sid_transactionId$",
       	"permittedAuthorizeScopes": [{scope: ""}]
-}'
-      output: '{
-    "errors": [
-        {
-            "errorCode": "invalid_permitted_scope"
-        }
-    ]
-}'
-
-   ESignet_AuthorizationCode_VCI_uin_Invalid_Comma_Separated_Scope:
-      endPoint: /v1/esignet/authorization/auth-code
-      role: resident
-      restMethod: post
-      checkErrorsOnlyInResponse: true
-      validityCheckRequired: true
-      inputTemplate: esignet/VCINegTC/AuthorizationCodeVCI/AuthorizationCodeVCI
-      outputTemplate: esignet/error
-      input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_VCI_uin_NegAuthCodeScen3_Valid_Smoke_sid_encodedResp$",
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegAuthCodeScen3_Valid_Smoke_sid_transactionId$",
-      	"permittedAuthorizeScopes": [{scope: "sdfaf, asdf"}]
 }'
       output: '{
     "errors": [

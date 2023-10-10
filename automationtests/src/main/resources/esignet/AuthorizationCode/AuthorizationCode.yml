@@ -234,7 +234,7 @@ AuthorizationCode:
       checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
-      outputTemplate: esignet/AuthorizationCode/AuthorizationCodeResult
+      outputTemplate: esignet/error
       input: '{
         "encodedHash": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
@@ -242,7 +242,11 @@ AuthorizationCode:
       	"acceptedClaims": [{claim: "$REMOVE$"}]
 }'
       output: '{
-      	"redirectUri": "$IGNORE$"
+  "errors": [
+    {
+      "errorCode": "invalid_transaction"
+    }
+  ]
 }'
 
    ESignet_AuthorizationCode_uin_Empty_acceptedClaims_Neg:
@@ -603,7 +607,11 @@ AuthorizationCode:
       	"acceptedClaims": [{claim: "$REMOVE$"}]
 }'
       output: '{
-      	"redirectUri": "$IGNORE$"
+  "errors": [
+    {
+      "errorCode": "invalid_transaction"
+    }
+  ]
 }'
 
    ESignet_AuthorizationCode_vid_Empty_acceptedClaims_Neg:
