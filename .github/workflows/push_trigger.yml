@@ -61,7 +61,7 @@ jobs:
        - name: Push image
          run: |
            IMAGE_ID=$NAMESPACE/$SERVICE_NAME
-           Change all uppercase to lowercase
+           # Change all uppercase to lowercase
            IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
            echo "push version ${{steps.getPomVersion.outputs.info}}"
            if [[ $BRANCH_NAME == master ]]; then
