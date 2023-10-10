@@ -592,14 +592,14 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Missing_Claims_Pos:
+   ESignet_AuthorizationCode_vid_Missing_Claims_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
       checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthorizationCode/AuthorizationCode
-      outputTemplate: esignet/AuthorizationCode/AuthorizationCodeResult
+      outputTemplate: esignet/error
       input: '{
         "encodedHash": "$ID:OAuthDetailsRequest_2_all_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
