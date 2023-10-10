@@ -17,6 +17,42 @@ AuthLockNew:
   		"status": "Success"
 }'
 
+   Resident_AuthLockNew_Otp_Phone_Valid_UIN_All:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthLockNew/CreateAuthLockNew
+      outputTemplate: resident/AuthLockNew/CreateAuthLockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "otp-phone",
+        "locked": "true",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthLockNew_Otp_Email_Valid_UIN_All:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthLockNew/CreateAuthLockNew
+      outputTemplate: resident/AuthLockNew/CreateAuthLockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "otp-email",
+        "locked": "true",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
    Resident_AuthLockNew_Face_Valid_UIN_All:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew

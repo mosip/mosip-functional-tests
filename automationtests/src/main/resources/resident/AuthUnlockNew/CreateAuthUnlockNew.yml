@@ -17,6 +17,96 @@ AuthUnlockNew:
   		"status": "Success"
 }'
 
+   Resident_AuthUnlockNew_otp_Email_Valid_UIN_All:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "otp-email",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_otp_Email_Valid_UIN_Unlocke_Specified_Time:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "otp-email",
+        "locked": "false",
+        "unlockForSeconds": "600"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_OTPphone_Valid_UIN_All:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "otp-phone",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_OTPphone_Valid_UIN_UnLocke_Spacified_Time:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "otp-phone",
+        "locked": "false",
+        "unlockForSeconds": "60"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_Demo_Valid_UIN_Unlock_120_Sec:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "demo",
+        "locked": "false",
+        "unlockForSeconds": "120"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
    Resident_AuthUnlockNew_Face_Valid_UIN_All:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
@@ -30,6 +120,23 @@ AuthUnlockNew:
         "authType": "bio-FACE",
         "locked": "false",
         "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+   Resident_AuthUnlockNew_Face_Valid_UIN_UnLocke_For Specified_Time:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FACE",
+        "locked": "false",
+        "unlockForSeconds": "120"
     }'
       output: '{
   		"status": "Success"
@@ -53,6 +160,24 @@ AuthUnlockNew:
   		"status": "Success"
 }'
 
+   Resident_AuthUnlockNew_Iris_Valid_UIN_Unlocke_For_Specified_Time:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-IRIS",
+        "locked": "false",
+        "unlockForSeconds": "120"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
    Resident_AuthUnlockNew_Finger_Valid_UIN_All:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNew
@@ -66,6 +191,24 @@ AuthUnlockNew:
         "authType": "bio-FINGER",
         "locked": "false",
         "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_Finger_Valid_UIN_Unlocke_For_Specificed_Time:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNew
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "120"
     }'
       output: '{
   		"status": "Success"
@@ -506,6 +649,60 @@ AuthUnlockNew:
   		"status": "Success"
 }'
 
+   Resident_AuthUnlockNew_otp_Phone_Valid_Vid_All:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "otp-phone",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_otp_Email_Valid_Vid_All:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "otp-email",
+        "locked": "false",
+        "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_Demo_Valid_Vid_Unlock_For_Specified_Time:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "demo",
+        "locked": "false",
+        "unlockForSeconds": "120"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
    Resident_AuthUnlockNew_Face_Valid_Vid_All:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNewVid
@@ -519,6 +716,24 @@ AuthUnlockNew:
         "authType": "bio-FACE",
         "locked": "false",
         "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_Face_Valid_Vid_Unlocke_Specified_Time:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FACE",
+        "locked": "false",
+        "unlockForSeconds": "120"
     }'
       output: '{
   		"status": "Success"
@@ -542,6 +757,24 @@ AuthUnlockNew:
   		"status": "Success"
 }'
 
+   Resident_AuthUnlockNew_Iris_Valid_Vid_Unlocke_Specified_Time:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-IRIS",
+        "locked": "false",
+        "unlockForSeconds": "120"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
    Resident_AuthUnlockNew_Finger_Valid_Vid_All:
       endPoint: /resident/v1/auth-lock-unlock
       role: residentNewVid
@@ -555,6 +788,24 @@ AuthUnlockNew:
         "authType": "bio-FINGER",
         "locked": "false",
         "unlockForSeconds": "null"
+    }'
+      output: '{
+  		"status": "Success"
+}'
+
+   Resident_AuthUnlockNew_Finger_Valid_Vid_UnLocke_Specified_Time:
+      endPoint: /resident/v1/auth-lock-unlock
+      role: residentNewVid
+      restMethod: post
+      inputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNew
+      outputTemplate: resident/AuthUnlockNew/CreateAuthUnlockNewResult
+      input: '{
+        "requesttime": "$TIMESTAMP$",
+        "id": "mosip.resident.auth.lock.unlock",
+        "version": "1.0",
+        "authType": "bio-FINGER",
+        "locked": "false",
+        "unlockForSeconds": "120"
     }'
       output: '{
   		"status": "Success"
