@@ -23,7 +23,7 @@ public class GlobalMethods {
 		
 		String formattedHeader = ReportUtil.getTextAreaForHeaders(requestHeader);
 
-		if (request != null)
+		if (request != null && !request.isEmpty())
 			Reporter.log(GlobalConstants.REPORT_REQUEST_PREFIX + formattedHeader + ReportUtil.getTextAreaJsonMsgHtml(request)
 					+ GlobalConstants.REPORT_REQUEST_SUFFIX);
 		else
