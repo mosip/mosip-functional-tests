@@ -95,7 +95,9 @@ definePolicy:
 }'
       output: ' {
     "policyGroupName": "mosip policy group",
-    "name": "mosip policy9"
+    "name": "mosip policy9",
+    "desc": "desc mosip policy9",
+    "is_Active": false
 }'
 
    Partner_DefinePolicy_DEMOAUTH_with_SAME_POLICYNAME_NEG:
