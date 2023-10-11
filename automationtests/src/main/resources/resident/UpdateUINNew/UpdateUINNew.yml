@@ -9,6 +9,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -25,10 +27,57 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567789",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
         "status": "Success"
+}'
+
+   Resident_UpdateUINNew_Invalid_Language_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNew
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567889",
+        "consent" : "Accepted",
+        "language": "duh",
+		"value": "Sohan",
+        "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
+}'
+      output: '{
+        "errors": [
+    {
+      "errorCode": "RES-SER-410"
+    }
+  ]
+}'
+
+   Resident_UpdateUINNew_vid_Invalid_Language_Neg:
+      endPoint: /resident/v1/update-uin
+      role: residentNewVid
+      restMethod: patch
+      inputTemplate: resident/UpdateUINNew/UpdateUINNew
+      outputTemplate: resident/error
+      input: '{
+		"requesttime": "$TIMESTAMP$",
+		"transactionID": "1234567789",
+        "consent" : "Accepted",
+        "language": "cdf2",
+		"value": "Sohan",
+        "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "RES-SER-410"
+    }
+  ]
+        
 }'
 
    Resident_UpdateUINNew_Invalid_User_Neg:
@@ -41,6 +90,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -62,6 +113,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "15sdsf#$%",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -78,15 +131,21 @@ UpdateUINNew:
       role: residentNew
       restMethod: patch
       inputTemplate: resident/UpdateUINNew/UpdateUINNew
-      outputTemplate: resident/UpdateUINNew/UpdateUINNewResult
+      outputTemplate: resident/error
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "$REMOVE$",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
-        "status": "Success"
+        "errors": [
+    {
+      "errorCode": "RES-SER-410"
+    }
+  ]
 }'
 
    Resident_UpdateUINNew_Empty_TransactionID_Neg:
@@ -99,12 +158,14 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-435",
+      "errorCode": "RES-SER-410",
       "message": "$REMOVE$"
     }
   ]
@@ -120,6 +181,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "shbj$%^u",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -141,6 +204,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "$REMOVE$",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -162,6 +227,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -183,6 +250,8 @@ UpdateUINNew:
 		"requesttime": "dsg#$$",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -204,6 +273,8 @@ UpdateUINNew:
 		"requesttime": "$REMOVE$",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -225,6 +296,8 @@ UpdateUINNew:
 		"requesttime": "",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -246,6 +319,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "15sdsf#$%",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -262,15 +337,21 @@ UpdateUINNew:
       role: residentNewVid
       restMethod: patch
       inputTemplate: resident/UpdateUINNew/UpdateUINNew
-      outputTemplate: resident/UpdateUINNew/UpdateUINNewResult
+      outputTemplate: resident/error
       input: '{
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "$REMOVE$",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
-        "status": "Success"
+        "errors": [
+    {
+      "errorCode": "RES-SER-410"
+    }
+  ]
 }'
 
    Resident_UpdateUINNew_vid_Empty_TransactionID_Neg:
@@ -283,12 +364,14 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-435",
+      "errorCode": "RES-SER-410",
       "message": "$REMOVE$"
     }
   ]
@@ -304,6 +387,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567789",
         "consent" : "shbj$%^u",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -325,6 +410,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567789",
         "consent" : "$REMOVE$",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -346,6 +433,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567789",
         "consent" : "",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -367,6 +456,8 @@ UpdateUINNew:
 		"requesttime": "dsg#$$",
 		"transactionID": "1234567789",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -388,6 +479,8 @@ UpdateUINNew:
 		"requesttime": "$REMOVE$",
 		"transactionID": "1234567789",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -409,6 +502,8 @@ UpdateUINNew:
 		"requesttime": "",
 		"transactionID": "1234567789",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "email": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -430,6 +525,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "jndffk": "$ID:AddIdentity_Esignet_Integ_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -451,6 +548,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "jndffk": "$ID:AddIdentity_Esignet_Integ_Vid_smoke_Pos_EMAIL$"
 }'
       output: '{
@@ -472,6 +571,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "jndffk": "$REMOVE$"
 }'
       output: '{
@@ -493,6 +594,8 @@ UpdateUINNew:
 		"requesttime": "$TIMESTAMP$",
 		"transactionID": "1234567889",
         "consent" : "Accepted",
+        "language": "eng",
+		"value": "Sohan",
         "jndffk": "$REMOVE$"
 }'
       output: '{
