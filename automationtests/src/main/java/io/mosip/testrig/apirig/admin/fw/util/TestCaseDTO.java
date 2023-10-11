@@ -17,4 +17,5 @@ public class TestCaseDTO {
 	private boolean validityCheckRequired;
 	private boolean auditLogCheck;
 	private boolean checkErrorsOnlyInResponse;
+	private String allowedErrorCodes;
 }

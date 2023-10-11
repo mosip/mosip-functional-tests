@@ -112,7 +112,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 		            	
 		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 								response.asString(),
-								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse(), testCaseDTO.getAllowedErrorCodes());
 						Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 						
 						if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -141,7 +141,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 				ouputValid.put("expected vs actual", List.of(customResponse));
 			}else {
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(
-					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse(), testCaseDTO.getAllowedErrorCodes());
 			}
 			
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
