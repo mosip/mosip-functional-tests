@@ -458,26 +458,35 @@ public class OutputValidationUtil extends AuthTestsUtil{
 	}
 	
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
-			String expOutputJson, boolean checkErrorsOnlyInResponse) throws AdminTestException {
+			String expOutputJson, boolean checkErrorsOnlyInResponse, String allowedErrorCode) throws AdminTestException {
 		return doJsonOutputValidation(actualOutputJson,
-				expOutputJson, checkErrorsOnlyInResponse, "expected vs actual", doesResponseHasErrors(actualOutputJson));
+				expOutputJson, checkErrorsOnlyInResponse, "expected vs actual", doesResponseHasErrors(actualOutputJson), allowedErrorCode);
 	}
 	
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
-			String expOutputJson, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors) throws AdminTestException {
+			String expOutputJson, boolean checkErrorsOnlyInResponse) throws AdminTestException {
+		return doJsonOutputValidation(actualOutputJson,
+				expOutputJson, checkErrorsOnlyInResponse, "expected vs actual", doesResponseHasErrors(actualOutputJson), null);
+	}
+	
+	
+	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
+			String expOutputJson, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors, String allowedErrorCode) throws AdminTestException {
 		if (doesResponseHasErrorCode(actualOutputJson, 500))
 			throw new AdminTestException("Internal Server Error. Hence marking the test case as failed");
-		if (doesResponseHasErrorCode(actualOutputJson, 404))
+		else if (doesResponseHasErrorCode(actualOutputJson, 404))
 			throw new AdminTestException("Page not found. Hence marking the test case as failed");
+		else if (doesResponseHasErrorCode(actualOutputJson, allowedErrorCode))
+			return Collections.emptyMap();
 		JsonPrecondtion jsonPrecondtion = new JsonPrecondtion();
 		Map<String, String> actual = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
 		Map<String, String> exp = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);
 		
-		return doJsonOutputValidation(actual, exp, checkErrorsOnlyInResponse, context, responseHasErrors);
+		return doJsonOutputValidation(actual, exp, checkErrorsOnlyInResponse, context, responseHasErrors, allowedErrorCode);
 	}
 	
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(Map<String, String> actualOutput,
-			Map<String, String> expOutput, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors) throws AdminTestException {
+			Map<String, String> expOutput, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors, String allowedErrorCode ) throws AdminTestException {
 		try {
 			return compareActuExpValue(actualOutput, expOutput, context);
 		}catch (SkipException e) {
@@ -516,6 +525,20 @@ public class OutputValidationUtil extends AuthTestsUtil{
 		}
 			
 		return false;
+	}
+	
+	public static boolean doesResponseHasErrorCode(String responseString, String allowedErrorCode) {
+		boolean responseHasAllowedErrorCode = false;
+		if (allowedErrorCode != null) {
+			String[] allowedErrorCodeList = allowedErrorCode.split(",");
+			for (int i = 0; i < allowedErrorCodeList.length; i++) {
+				if (responseString.contains(allowedErrorCodeList[i])) {
+					responseHasAllowedErrorCode = true;
+					break;
+				}
+			}
+		}
+		return responseHasAllowedErrorCode;
 	}
 	
 }

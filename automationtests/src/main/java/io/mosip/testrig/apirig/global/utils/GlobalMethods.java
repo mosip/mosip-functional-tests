@@ -4,7 +4,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import org.apache.log4j.Logger;
+import org.json.simple.JSONObject;
 import org.testng.Reporter;
+
+import com.google.gson.JsonObject;
 
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
@@ -23,7 +26,7 @@ public class GlobalMethods {
 		
 		String formattedHeader = ReportUtil.getTextAreaForHeaders(requestHeader);
 
-		if (request != null)
+		if (request != null && !request.equals("{}"))
 			Reporter.log(GlobalConstants.REPORT_REQUEST_PREFIX + formattedHeader + ReportUtil.getTextAreaJsonMsgHtml(request)
 					+ GlobalConstants.REPORT_REQUEST_SUFFIX);
 		else
