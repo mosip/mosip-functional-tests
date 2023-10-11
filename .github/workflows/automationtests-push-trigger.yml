@@ -20,7 +20,7 @@ on:
       - develop
       - MOSIP*
       - release*
-    paths:
+  paths:
       - automationtests/**
 jobs:
   build-maven-automationtests:
