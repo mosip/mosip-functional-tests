@@ -10,6 +10,17 @@ PutBellUpdatedTime:
 }'
       output: "200"
       
+   Resident_PutBellUpdatedTime_vid_StatusCode_all_Valid_Smoke:
+      endPoint: /resident/v1/bell/updatedttime
+      role: residentNewVid
+      checkErrorsOnlyInResponse: true
+      restMethod: put
+      inputTemplate: resident/PutBellUpdatedTime/PutBellUpdatedTime
+      outputTemplate: resident/PutBellUpdatedTime/PutBellUpdatedTimeResult
+      input: '{
+}'
+      output: "200"
+      
    Resident_PutBellUpdatedTime_Invalid_Token:
       endPoint: /resident/v1/bell/updatedttime
       role: resident

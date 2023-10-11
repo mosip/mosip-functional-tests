@@ -515,6 +515,14 @@
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name="GetNotificationsCount">
+		<parameter name="ymlFile"
+			value="resident/GetNotificationsCount/GetNotificationsCount.yml" />
+			<parameter name="sendEsignetToken"	value="true" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="GrievanceTicket">
 		<parameter name="ymlFile"
 			value="resident/GrievanceTicket/GrievanceTicket.yml" />
