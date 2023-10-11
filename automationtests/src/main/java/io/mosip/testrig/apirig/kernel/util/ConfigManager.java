@@ -41,7 +41,11 @@ public class ConfigManager {
 	private static String MOSIP_REG_CLIENT_SECRET = "mosip_reg_client_secret";
 	private static String MOSIP_REG_CLIENT_ID = "mosip_reg_client_id";
 	private static String MOSIP_REGCLIENT_APP_ID = "mosip_regclient_app_id";
-
+	
+	private static String MOSIP_REGPROC_CLIENT_SECRET = "mosip_regproc_client_secret";
+	private static String MOSIP_REGPROC_CLIENT_ID = "mosip_regproc_client_id";
+	private static String MOSIP_REGPROC_APP_ID = "mosip_regprocclient_app_id";
+	
 	private static String MOSIP_IDA_CLIENT_SECRET = "mosip_ida_client_secret";
 	private static String MOSIP_IDA_CLIENT_ID = "mosip_ida_client_id";
 	private static String MOSIP_IDA_APP_ID = "mosip_ida_app_id";
@@ -64,7 +68,6 @@ public class ConfigManager {
 	private static String THREAD_COUNT = "threadCount";
 	private static String LANG_SELECT = "langselect";
 
-	
 	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
 
@@ -151,6 +154,10 @@ public class ConfigManager {
 	private static String regproc_client_secret;
 	private static String regproc_client_id;
 	private static String regproc_app_id;
+	
+	private static String regprocessor_client_secret;
+	private static String regprocessor_client_id;
+	private static String regprocessor_app_id;
 
 	private static String ida_client_secret;
 	private static String ida_client_id;
@@ -253,9 +260,15 @@ public class ConfigManager {
 		admin_client_secret = getValueForKey(MOSIP_ADMIN_CLIENT_SECRET);
 		admin_client_id = getValueForKey(MOSIP_ADMIN_CLIENT_ID);
 		admin_app_id = getValueForKey(MOSIP_ADMIN_APP_ID);
+		
 		regproc_client_secret = getValueForKey(MOSIP_REG_CLIENT_SECRET);
 		regproc_client_id = getValueForKey(MOSIP_REG_CLIENT_ID);
 		regproc_app_id = getValueForKey(MOSIP_REGCLIENT_APP_ID);
+		
+		regprocessor_client_secret = getValueForKey(MOSIP_REGPROC_CLIENT_SECRET);
+		regprocessor_client_id = getValueForKey(MOSIP_REGPROC_CLIENT_ID);
+		regprocessor_app_id = getValueForKey(MOSIP_REGPROC_APP_ID);
+		
 		ida_client_secret = getValueForKey(MOSIP_IDA_CLIENT_SECRET);
 		ida_client_id = getValueForKey(MOSIP_IDA_CLIENT_ID);
 		ida_app_id = getValueForKey(MOSIP_IDA_APP_ID);
@@ -557,6 +570,18 @@ public class ConfigManager {
 
 	public static String getRegprocAppId() {
 		return regproc_app_id;
+	}
+	
+	public static String getRegprocessorClientSecret() {
+		return  regprocessor_client_secret;
+	}
+
+	public static String getRegprocessorClientId() {
+		return regprocessor_client_id;
+	}
+
+	public static String getRegprocessorAppId() {
+		return regprocessor_app_id;
 	}
 
 	public static String getIdaClientSecret() {
