@@ -32,7 +32,7 @@ WORKDIR /home/${container_user}
 
 ENV work_dir=/home/${container_user}
 
-ADD ./target/ $work_dir
+ADD ./target/automationtests-*.jar $work_dir/automationtests.jar
 
 ADD entrypoint.sh $work_dir/entrypoint.sh
 
