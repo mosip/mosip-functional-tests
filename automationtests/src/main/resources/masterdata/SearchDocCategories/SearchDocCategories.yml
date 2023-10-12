@@ -80,6 +80,7 @@ SearchDocCategories:
       role: admin
       templateFields: ["languageCode"]
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: masterdata/SearchDocCategories/searchDocCategories
       outputTemplate: masterdata/SearchDocCategories/searchDocCategoriesResult
       input: '{
@@ -108,7 +109,7 @@ SearchDocCategories:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "code": "POA",
+        "code": "$IGNORE$",
         "langCode": "$IGNORE$",
         "name": "$IGNORE$"
       }
