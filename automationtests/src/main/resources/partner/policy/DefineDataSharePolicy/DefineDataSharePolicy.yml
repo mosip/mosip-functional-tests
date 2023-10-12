@@ -23,6 +23,54 @@ defineDataSharePolicy:
     "is_Active": false      
     }'
     
+   Partner_DefineDataSharePolicy_All_for_req_ApiKey_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicyResult
+      input: '{
+		"desc": "mosip data share policy ApiKey",
+		"name": "mosip data share policy ApiKey",
+		"policyId": "MDSPFA",
+		"policyGroupName": "mosip policy group for req key For_Req_Key_deactivaed_Policy",
+		"policyType": "DataShare",
+		"format":"extraction",
+		"attributeName":"biometrics",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "mosip policy group for req key For_Req_Key_deactivaed_Policy",
+    "name": "mosip data share policy",
+    "desc": "mosip data share policy",
+    "is_Active": false      
+    }'
+    
+   Partner_DefineDataSharePolicy_All_for_Update_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicyResult
+      input: '{
+		"desc": "desc mosip policy group for req key For Update",
+		"name": "mosip policy group for req key For Update",
+		"policyId": "MDSPFU",
+		"policyGroupName": "mosip policy group for req key For Update",
+		"policyType": "DataShare",
+		"format":"extraction",
+		"attributeName":"biometrics",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "mosip policy group for req key For Update",
+    "name": "mosip data share policy",
+    "desc": "mosip data share policy",
+    "is_Active": false      
+    }'
+    
    Partner_DefineDataSharePolicy_ToCheckStatus_Smoke_sid:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -33,7 +81,7 @@ defineDataSharePolicy:
 		"desc": "mosip data share policy check status",
 		"name": "mosip data share policy to check status22",
 		"policyId": "MDSP8",
-		"policyGroupName": "mosip policy status testing groupp",
+		"policyGroupName": "mosip policy group",
 		"policyType": "DataShare",
 		"format":"extraction",
 		"attributeName":"biometrics",
@@ -41,9 +89,9 @@ defineDataSharePolicy:
 		"requesttime": "$TIMESTAMP$"
 }'
       output: ' {
-    "policyGroupName": "mosip policy status testing groupp",
+    "policyGroupName": "mosip policy group",
     "name": "mosip data share policy to check status22",
-    "desc": "mosip data share policy check status",
+    "desc": "mosip policy group",
     "is_Active": false      
     }'
    Partner_DefineDataSharePolicy_WithoutMandatoryFields_All_Valid_Smoke_sid:
@@ -69,6 +117,7 @@ defineDataSharePolicy:
     "desc": "mosip data share policy2",
     "is_Active": false      
     }'
+    
    Partner_DefineDataSharePolicy_duplicate_policy_name:
       endPoint: /v1/policymanager/policies
       role: partner

@@ -15,6 +15,29 @@ ActivateDeactivatePartnerApiKey:
 }'
       output: '{
 }'
+
+   Partner_ActivateDeactivatePartnerApiKey_deactivate_InValid_APIKey_Neg:
+      endPoint: /v1/partnermanager/partners/{partnerId}/policy/{policyId}/apiKey/status
+      role: partner
+      checkErrorsOnlyInResponse: true
+      restMethod: patch
+      inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
+      outputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKeyResult
+      input: '{
+   "partnerId": "Tech-1233",
+   "policyId": "policyid",
+   "label": "string",
+   "requesttime": "$TIMESTAMP$",
+   "status": "De-Active"
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "PMS_PRT_111"
+    }
+  ]
+      
+}'
    Partner_ActivateDeactivatePartnerApiKey_activate_allValid_smoke:
       endPoint: /v1/partnermanager/partners/{partnerId}/policy/{policyId}/apiKey/status
       role: partner
