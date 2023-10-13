@@ -53,6 +53,8 @@ SendOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
+        "maskedEmail": "$IGNORE$",
+    	"maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendOtp_Vid_all_Valid_Smoke:
