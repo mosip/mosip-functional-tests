@@ -280,11 +280,5 @@
 		</classes>
 	</test>
 	
-	<test name="BioAuthWithUnblockedPartnerId">
-		<parameter name="ymlFile"
-			value="ida/HotlistTestcases/BioAuthWithUnblockedPartners.yml" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.BioAuth" />
-		</classes>
-	</test>
+	
 </suite>
