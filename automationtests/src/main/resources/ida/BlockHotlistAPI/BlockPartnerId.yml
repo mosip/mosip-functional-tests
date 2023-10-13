@@ -6,7 +6,7 @@ HotlistAPI:
       inputTemplate: ida/BlockHotlistAPI/blockHotlistAPI
       outputTemplate: ida/BlockHotlistAPI/blockHotlistAPIResult
       input: '{
-    "id": "$PARTNERID$",
+    "id": "$BLOCKEDPARTNERID$",
     "idType": "PARTNER_ID",
     "requestTime": "$TIMESTAMP$",
     "expiryTimestamp": ""

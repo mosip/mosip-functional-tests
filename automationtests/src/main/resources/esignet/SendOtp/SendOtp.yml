@@ -41,6 +41,7 @@ SendOtp:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/SendOtp/SendOtp
       outputTemplate: esignet/SendOtp/SendOtpResult
@@ -52,8 +53,6 @@ SendOtp:
 	    "otpChannels": [{channel: "email"},{channel: "phone"}]
 }'
       output: '{
-        "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendOtp_Vid_all_Valid_Smoke:

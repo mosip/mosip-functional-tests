@@ -209,7 +209,7 @@ OAuthDetailsRequestVCINegTC:
       endPoint: /v1/esignet/authorization/v2/oauth-details
       role: resident
       restMethod: post
-	  allowedErrorCodes: unsupported_pkce_challenge_method,invalid_pkce_challenge
+      allowedErrorCodes: unsupported_pkce_challenge_method,invalid_pkce_challenge
       checkErrorsOnlyInResponse: true
       inputTemplate: esignet/VCINegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
       outputTemplate: esignet/error
@@ -232,7 +232,7 @@ OAuthDetailsRequestVCINegTC:
     "errors": [
         {
             "errorCode": "invalid_pkce_challenge"
-        },
+        }
         
     ]
 }'
@@ -241,7 +241,7 @@ OAuthDetailsRequestVCINegTC:
       endPoint: /v1/esignet/authorization/v2/oauth-details
       role: resident
       restMethod: post
-	  allowedErrorCodes: unsupported_pkce_challenge_method,invalid_pkce_challenge
+      allowedErrorCodes: unsupported_pkce_challenge_method,invalid_pkce_challenge
       checkErrorsOnlyInResponse: true
       inputTemplate: esignet/VCINegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
       outputTemplate: esignet/error
