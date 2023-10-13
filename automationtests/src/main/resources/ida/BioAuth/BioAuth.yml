@@ -1576,7 +1576,7 @@ BioAuth:
       input: '{
           "bioSubType": "",
           "bioType": "FACE",
-          "bioValue": "$FACEDRAFTVALUE$",
+          "bioValue": "$FACE$",
           "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823",
           "dateTime": "$DATETIME$",
           "deviceProviderID": "1873299273",

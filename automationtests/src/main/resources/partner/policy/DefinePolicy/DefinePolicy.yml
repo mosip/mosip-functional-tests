@@ -24,6 +24,32 @@ definePolicy:
     "desc": "desc mosip policy",
     "is_Active": false
 }'
+
+   Partner_DefinePolicy_All_Valid_For_Get_ApiKey_with_deactivated_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/policy/DefinePolicy/definePolicyResult
+      input: '{
+	"desc": "desc mosip policy",
+	"name": "mosip policy",
+	"authSubType": "FINGER",
+	"authType": "bio",
+	"mandatory": true,
+	"attributeName": "string",
+	"authTokenType": "partner",
+	"policyGroupName": "mosip policy group for req key For_Req_Key_deactivaed_Policy",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "mosip policy group for req key For_Req_Key_deactivaed_Policy",
+    "name": "mosip policy",
+    "desc": "desc mosip policy",
+    "is_Active": false
+}' 
    Partner_DefinePolicy_RandomTokenType_All_Valid_Smoke_sid:
       endPoint: /v1/policymanager/policies
       role: partner

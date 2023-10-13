@@ -246,22 +246,15 @@
 			<class name="io.mosip.testrig.apirig.testscripts.DemoAuth" />
 		</classes>
 	</test>
-	<test name="HotlistTestcasesBioAuthPartnerId">
+	<test name="BioAuthHotListPartner">
 		<parameter name="ymlFile"
-			value="ida/HotlistTestcases/HotlistTestcasesPartnerId.yml" />
+			value="ida/BioAuthHotListPartner/BioAuth.yml" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.BioAuth" />
 		</classes>
 	</test>
 	
-	<test name="HotlistTestcasesPartnerIdKyc">
-		<parameter name="ymlFile"
-			value="ida/HotlistTestcases/HotlistTestcasesPartnerIdKyc.yml" />
-		<parameter name="isInternal" value="false" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.DemoAuth" />
-		</classes>
-	</test>
+	
 
 <test name="HotlistTestcasesOtpAuth">
 		<parameter name="ymlFile" value="ida/OtpAuth/OtpAuthHotlisted.yml" />
