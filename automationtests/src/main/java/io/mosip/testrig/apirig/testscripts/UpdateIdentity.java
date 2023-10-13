@@ -104,6 +104,9 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		}
 
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
+		
+		
+		
 		JSONObject otpReqJson = null;
 		String otpRequest = null; 
 		String sendOtpReqTemplate = null; 
@@ -141,7 +144,19 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		generatedRid = genRid;
 
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+		
+		
 
+		String phone = getValueFromAuthActuator("json-property", "phone_number");
+		String result = phone.replaceAll("\\[\"|\"\\]", "");
+		
+		String email = getValueFromAuthActuator("json-property", "emailId");
+		String emailResult = email.replaceAll("\\[\"|\"\\]", "");
+		
+		
+		inputJson = inputJson.replace("\"phone\":", "\"" + result + "\":");
+		inputJson = inputJson.replace("\"email\":", "\"" + emailResult + "\":");
+		
 		inputJson = inputJson.replace("$RID$", genRid);
 
 		if (inputJson.contains("$PRIMARYLANG$"))
