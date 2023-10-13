@@ -22,7 +22,7 @@ ActivateDeactivatePartnerApiKey:
       checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKey
-      outputTemplate: partner/ActivateDeactivatePartnerApiKey/activateDeactivatePartnerApiKeyResult
+      outputTemplate: partner/error
       input: '{
    "partnerId": "Tech-1233",
    "policyId": "policyid",
