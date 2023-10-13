@@ -51,18 +51,22 @@ AuthTransaction:
       output: '{
         "referenceIdType": "VID"
 }'
-   auth_AuthTransaction_allValid_smoke_VID2:
+   auth_AuthTransaction_WITH_deactivated_VID2:
       endPoint: /idauthentication/v1/internal/authTransactions/individualId/{individualId}
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: ida/AuthTransaction/authTransaction
-      outputTemplate: ida/AuthTransaction/authTransactionResult
+      outputTemplate: ida/AuthTransaction/authTransactionError
       input: '{
       "individualId":"$ID:GenerateVID_All_Valid_Smoke_deactivate_Perpetual_sid_vid$"
 }'
       output: '{
-        "referenceIdType": "VID"
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-023"
+    }
+  ]
 }'
    auth_AuthTransaction_allValid_smoke_VID3:
       endPoint: /idauthentication/v1/internal/authTransactions/individualId/{individualId}
