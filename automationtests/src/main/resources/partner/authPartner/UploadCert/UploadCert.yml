@@ -44,7 +44,7 @@ uploadPartnerCert:
       output: ' {
   "errors": [
         {
-            "errorCode": "KER-KMS-013"
+            "errorCode": "KER-PCM-011"
         }
     ]
 }' 

@@ -12,10 +12,10 @@ createPublishPolicy:
 }'
       output: '{
         "policyGroupName": "mosip policy group",
-        "policyGroupDesc": "desc mosip policy",
+        "policyGroupDesc": "desc mosip policy group updated",
         "policyGroupStatus": true,
         "policyName": "mosip policy",
-        "policyDesc": "desc mosip policy group updated",
+        "policyDesc": "desc mosip policy updated",
         "policyType": "Auth",
         "status": "PUBLISHED",
         "is_Active": true,
@@ -29,6 +29,7 @@ createPublishPolicy:
    Partner_PublishPolicy_All_Publish_Policy:
       endPoint: /v1/policymanager/policies/{policyId}/group/{policygroupId}/publish
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/policy/PublishPolicy/publishPolicy
       outputTemplate: partner/policy/PublishPolicy/publishPolicyResult
@@ -74,6 +75,7 @@ createPublishPolicy:
    Partner_PublishPolicy_Datashare_Smoke:
       endPoint: /v1/policymanager/policies/{policyId}/group/{policygroupId}/publish
       role: partner
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: partner/policy/PublishPolicy/publishPolicy
       outputTemplate: partner/policy/PublishPolicy/publishPolicyResult

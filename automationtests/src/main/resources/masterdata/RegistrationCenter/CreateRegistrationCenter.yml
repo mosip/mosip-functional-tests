@@ -200,12 +200,13 @@ CreateRegistrationCenter:
    "zoneCode":"$ZONE_CODE$",
    "id":"",
    "isActive":"false",
-   "numberOfKiosks":,
+   "numberOfKiosks":null,
    "exceptionHolidayDate":"2021-11-12",
    "exceptionHolidayName":"",
    "exceptionHolidayReson":"",
    "version":"1.0",
    "requesttime":"$TIMESTAMP$"
+   
 }'
       output: '{
   "errors": [
