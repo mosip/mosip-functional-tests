@@ -1,12 +1,12 @@
 LinkedAuthorizationConsent:
-   ESignet_LinkedAuthorizationConsent_Consent_uin_SameClaim_Invalid_Neg:
+   ESignet_LinkedAuthorizationConsent_Consent_uin_SameClaim_Pos:
       endPoint: /v1/esignet/linked-authorization/v2/consent
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/LinkedConsent/LinkAuthorizationConsent/LinkAuthorizationConsent
-      outputTemplate: esignet/error
+      outputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"linkedTransactionId": "$ID:LinkTransaction_Consent_uin_SameClaim_all_Valid_Smoke_sid_linkTransactionId$",
@@ -14,22 +14,17 @@ LinkedAuthorizationConsent:
       	"signature": "$CONSENTDETACHEDSIGNATURESAMECLAIM$"
 }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "invalid_transaction",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+
 }'
 
-   ESignet_LinkedAuthorizationConsent_Consent_Vid_SameClaim_Invalid_Neg:
+   ESignet_LinkedAuthorizationConsent_Consent_Vid_SameClaim_Pos:
       endPoint: /v1/esignet/linked-authorization/v2/consent
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/LinkedConsent/LinkAuthorizationConsent/LinkAuthorizationConsent
-      outputTemplate: esignet/error
+      outputTemplate: esignet/LinkedAuthorizationConsent/LinkedAuthorizationConsentResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"linkedTransactionId": "$ID:LinkTransaction_Consent_Vid_SameClaim_all_Valid_Smoke_sid_linkTransactionId$",
@@ -37,12 +32,7 @@ LinkedAuthorizationConsent:
       	"signature": "$CONSENTDETACHEDSIGNATUREVIDSAMECLAIM$"
 }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "invalid_transaction",
-      "errorMessage": "$IGNORE$"
-    }
-  ]
+
 }'
 
    ESignet_LinkedAuthorizationConsent_All_Valid_Smoke_sid:
