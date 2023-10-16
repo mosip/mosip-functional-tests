@@ -15,6 +15,41 @@ definePolicyGroup:
         "desc": "desc mosip policy group",
         "is_Active": true
     }'
+    
+   Partner_DefinePolicyGroup_All_Valid_Smoke_For_Req_Key_deactivaed_Policy_sid:
+      endPoint: /v1/policymanager/policies/group/new
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroup
+      outputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroupResult
+      input: '{
+    "desc": "desc mosip policy group for req key For_Req_Key_deactivaed_Policy",
+    "name": "mosip policy group for req key For_Req_Key_deactivaed_Policy",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "name": "mosip policy group for req key For_Req_Key_deactivaed_Policy",
+        "desc": "desc mosip policy group for req key For_Req_Key_deactivaed_Policy",
+        "is_Active": true
+    }'    
+
+   Partner_DefinePolicyGroup_All_Valid_Smoke_For_updatePolicy_sid:
+      endPoint: /v1/policymanager/policies/group/new
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroup
+      outputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroupResult
+      input: '{
+    "desc": "desc mosip policy group for req key For Update",
+    "name": "mosip policy group for req key For Update",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "name": "mosip policy group for req key For Update",
+        "desc": "desc mosip policy group for req key For Update",
+        "is_Active": true
+    }'    
+    
    Partner_DefinePolicyGroup_with_policy_manager_role_Smoke_sid:
       endPoint: /v1/policymanager/policies/group/new
       role: policytest
@@ -40,11 +75,11 @@ definePolicyGroup:
       outputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroupResult
       input: '{
     "desc": "desc mosip policy group 8888",
-    "name": "mosip policy status testing groupp with policyy",
+    "name": "mosip policy status testing groupp with policy",
     "requesttime": "$TIMESTAMP$"
   }'
       output: ' {
-        "name": "mosip policy status testing groupp with policyy",
+        "name": "mosip policy status testing groupp with policy",
         "desc": "desc mosip policy group 8888",
         "is_Active": true
     }'

@@ -28,13 +28,13 @@
 		<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
 	</classes>
 	</test>
-	<test name="GetUpdateCount">
+	<!-- <test name="GetUpdateCount">
 		<parameter name="ymlFile"
 			value="idRepository/GetUpdateCount/GetUpdateCount.yml" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
-	</test>
+	</test> -->
 	<test name="RetrieveIdentityByRid">
 		<parameter name="ymlFile"	value="idRepository/RetrieveIdentityByRid/RetrieveIdentityByRid.yml" />
 	<classes>

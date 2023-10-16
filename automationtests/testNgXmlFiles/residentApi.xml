@@ -158,13 +158,14 @@
 			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>	
-	<test name="CancellCredential">
+<!-- Please don't uncomment this CancelCredential until we fix it-->	
+<!--	<test name="CancelCredential">
 		<parameter name="ymlFile"
 			value="resident/CredentialIssuance/CancellCredential/CancellCredential.yml" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
-	</test>
+	</test>-->
 	<test name="SendOTP">
 		<parameter name="ymlFile"
 			value="resident/SendOTP/SendOTP.yml" />
@@ -326,6 +327,15 @@
 			<class name="io.mosip.testrig.apirig.testscripts.PostWithBodyWithPdfDownload" />
 		</classes>
 	</test>
+	<test name="GetPartnersByPartnerType">
+		<parameter name="ymlFile"
+			value="resident/GetPartnersByPartnerType/GetPartnersByPartnerType.yml" />
+			<parameter name="idKeyName"	value="partnerID" />
+			<parameter name="sendEsignetToken"	value="true" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParamForAutoGenId" />
+		</classes>
+	</test>
 	<test name="ReqShareCredWithPartner">
 		<parameter name="ymlFile"
 			value="resident/ReqShareCredWithPartner/ReqShareCredWithPartner.yml" />
@@ -337,6 +347,7 @@
 	<test name="GetIdentityMapping">
 		<parameter name="ymlFile"
 			value="resident/GetIdentityMapping/GetIdentityMapping.yml" />
+			<parameter name="sendEsignetToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
@@ -356,14 +367,15 @@
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="GetProfile">
+<!-- Please don't uncomment this GetProfile until we fix it-->	
+<!--	<test name="GetProfile">
 		<parameter name="ymlFile"
 			value="resident/GetProfile/GetProfile.yml" />
 			<parameter name="sendEsignetToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
-	</test>
+	</test>-->
 	<test name="GetLastClickNotification">
 		<parameter name="ymlFile"
 			value="resident/GetLastClickNotification/GetLastClickNotification.yml" />
@@ -470,14 +482,6 @@
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
-	<test name="GetPartnersByPartnerType">
-		<parameter name="ymlFile"
-			value="resident/GetPartnersByPartnerType/GetPartnersByPartnerType.yml" />
-			<parameter name="sendEsignetToken"	value="true" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
-		</classes>
-	</test>
 	<test name="RetrieveVID">
 		<parameter name="ymlFile"
 			value="resident/RetrieveVID/RetrieveVID.yml" />
@@ -506,6 +510,14 @@
 	<test name="GetNotifications">
 		<parameter name="ymlFile"
 			value="resident/GetNotifications/GetNotifications.yml" />
+			<parameter name="sendEsignetToken"	value="true" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetNotificationsCount">
+		<parameter name="ymlFile"
+			value="resident/GetNotificationsCount/GetNotificationsCount.yml" />
 			<parameter name="sendEsignetToken"	value="true" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />

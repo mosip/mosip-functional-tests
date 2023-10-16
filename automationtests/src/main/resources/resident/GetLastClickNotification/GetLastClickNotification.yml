@@ -25,6 +25,25 @@ GetLastClickNotification:
       
 }'
 
+   Resident_GetLastClickNotification_uin_InValid_Token:
+      endPoint: /resident/v1/bell/notification-click
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: resident/GetLastClickNotification/GetLastClickNotification
+      outputTemplate: resident/error
+      input: '{
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "KER-ATH-401",
+      "message": "$IGNORE$"
+    }
+  ]
+      
+}'
+
    Resident_GetLastClickNotification_Invalid_Token:
       endPoint: /resident/v1/bell/notification-click
       role: resident

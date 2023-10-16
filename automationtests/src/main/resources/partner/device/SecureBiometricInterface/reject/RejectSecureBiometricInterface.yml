@@ -58,7 +58,7 @@ RejectSecureBiometricInterface:
       outputTemplate: partner/error
       input: '{
     "approvalStatus": "De-activate",
-    "id": "$ID:SaveSecure BiometricInterface_TO_Map_sid_id$",
+    "id": "a0f2b0ca-92 66-4cf4-832c-7741d5b6a174",
     "isItForRegistrationDevice": true,
     "requesttime": "$TIMESTAMP$"
   }'

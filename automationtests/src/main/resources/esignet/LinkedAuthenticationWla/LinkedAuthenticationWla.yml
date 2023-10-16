@@ -39,7 +39,7 @@ LinkedAuthenticationWla:
       }
 }'
       output: '{
-         "consentAction": "NOCAPTURE",
+         "consentAction": "CAPTURE",
          "sendOtpResp":{
           "maskedMobile": "$IGNORE$",
           "sendOtpResTemplate":"esignet/SendBindingOtp/SendBindingOtpResult",
@@ -90,7 +90,7 @@ LinkedAuthenticationWla:
       }
 }'
       output: '{
-         "consentAction": "NOCAPTURE",
+         "consentAction": "CAPTURE",
          "sendOtpResp":{
           "maskedMobile": "$IGNORE$",
           "sendOtpResTemplate":"esignet/SendBindingOtp/SendBindingOtpResult",
