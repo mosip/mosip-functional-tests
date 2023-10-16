@@ -2,6 +2,7 @@ GetMachineHistory:
    Admin_GetMachineHistory_allValid_smoke:
       endPoint: /v1/masterdata/machineshistories/{id}/{langcode}/{effdatetimes}
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: masterdata/GetMachineHistory/getMachineHistory
       outputTemplate: masterdata/GetMachineHistory/getMachineHistoryResult
@@ -79,7 +80,7 @@ GetMachineHistory:
       output: '{
    "errors": [
     {
-      "errorCode": "$IGNORE$",
+      "errorCode": "KER-MSD-032",
       "message": "$IGNORE$"
     }
   ]

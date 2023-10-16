@@ -20,6 +20,48 @@ createPartnerSelfRegistration:
         "status": "InProgress"
     }'
     
+   Partner_PartnerSelfRegistration_Deactive_Partner_sid:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/authPartner/CreatePartner/createPartnerResult
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "mosipgh@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "Tech-321",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group for req key For_Req_Key_deactivaed_Policy",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "partnerId": "Tech-321",
+        "status": "InProgress"
+    }'
+    
+   Partner_PartnerSelfRegistration_All_for_Get_ApiKey_With_Deactive_Partner_sid:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/authPartner/CreatePartner/createPartnerResult
+      input: '{
+    "address": "Bangalore",
+    "contactNumber": "8553967572",
+    "emailId": "mosipsfgh@gmail.com",
+    "organizationName": "Techno",
+    "partnerId": "Tech-1233",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group for req key For_Req_Key_deactivaed_Policy",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "partnerId": "Tech-1233",
+        "status": "InProgress"
+    }'
+    
    Partner_PartnerSelfRegistration_AlreadyExisting_Policy_Name:
       endPoint: /v1/partnermanager/partners
       role: partner

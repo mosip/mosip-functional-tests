@@ -60,7 +60,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
   auth_DemoAuth_DOB_Valid_Smoke_VID_invalid_transaction_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=1254@#45gg&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -241,7 +241,7 @@ DemoAuthNew:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$,
+      "value": "auth_AddIdentity_ValidParam_smoke_Pos@mosip.net",
         "key": "emailId"
     }'
       output: '{
@@ -333,7 +333,7 @@ DemoAuthNew:
                     "language": "$PRIMARYLANG$",
                     "value": "Ner"
                 }
-            ]
+            ],
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
     }'
@@ -358,7 +358,7 @@ DemoAuthNew:
                     "language": "$PRIMARYLANG$",
                     "value": "Ner"
                 }
-            ]
+            ],
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
     }'
@@ -383,7 +383,7 @@ DemoAuthNew:
                     "language": "$PRIMARYLANG$",
                     "value": "Non-Foreigner"
                 }
-            ]
+            ],
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
     }'
@@ -408,7 +408,7 @@ DemoAuthNew:
                     "language": "$PRIMARYLANG$",
                     "value": "Non-Foreigner"
                 }
-            ]
+            ],
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
     }'
@@ -433,7 +433,7 @@ DemoAuthNew:
                     "language": "$PRIMARYLANG$",
                     "value": "Non-Foreigner"
                 }
-            ]
+            ],
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
     }'

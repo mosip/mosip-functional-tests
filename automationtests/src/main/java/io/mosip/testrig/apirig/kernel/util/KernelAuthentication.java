@@ -485,9 +485,9 @@ public class KernelAuthentication extends BaseTestCase {
 
 		JSONObject actualrequest = getRequestJson(authRequest);
 		JSONObject request = new JSONObject();
-		request.put(GlobalConstants.APPID, "regproc");
-		request.put(GlobalConstants.CLIENTID, "mosip-regproc-client");
-		request.put(GlobalConstants.SECRETKEY, "abc123");
+		request.put(GlobalConstants.APPID, ConfigManager.getRegprocessorAppId());
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getRegprocessorClientId());
+		request.put(GlobalConstants.SECRETKEY, ConfigManager.getRegprocessorClientSecret());
 		actualrequest.put(GlobalConstants.REQUEST, request);
 
 		Response reponse = appl.postWithJson(props.get(GlobalConstants.AUTH_CLIENT_IDSECRET_KEYURL), actualrequest);

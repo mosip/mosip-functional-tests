@@ -13,7 +13,7 @@ OtpAuth:
       "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-  "authStatus": "false",
+  "authStatus": "true",
  "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
@@ -32,7 +32,7 @@ OtpAuth:
       "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-  "authStatus": "false",
+  "authStatus": "true",
  "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }

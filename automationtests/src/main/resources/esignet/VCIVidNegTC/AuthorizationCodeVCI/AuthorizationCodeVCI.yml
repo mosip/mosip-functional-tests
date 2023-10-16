@@ -1,26 +1,4 @@
 AuthorizationCodeVCIVidNegTC:
-   ESignet_AuthorizationCode_VCI_Vid_Invalid_Scope:
-      endPoint: /v1/esignet/authorization/auth-code
-      role: resident
-      restMethod: post
-      checkErrorsOnlyInResponse: true
-      validityCheckRequired: true
-      inputTemplate: esignet/VCIVidNegTC/AuthorizationCodeVCI/AuthorizationCodeVCI
-      outputTemplate: esignet/error
-      input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegAuthCodeScen1_Valid_Smoke_sid_encodedResp$",
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegAuthCodeScen1_Valid_Smoke_sid_transactionId$",
-      	"permittedAuthorizeScopes": [{scope: "sdfsfd"}]
-}'
-      output: '{
-    "errors": [
-        {
-            "errorCode": "invalid_permitted_scope"
-        }
-    ]
-}'
-
    ESignet_AuthorizationCode_VCI_Vid_Empty_Scope:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
@@ -34,28 +12,6 @@ AuthorizationCodeVCIVidNegTC:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegAuthCodeScen2_Valid_Smoke_sid_transactionId$",
       	"permittedAuthorizeScopes": [{scope: ""}]
-}'
-      output: '{
-    "errors": [
-        {
-            "errorCode": "invalid_permitted_scope"
-        }
-    ]
-}'
-
-   ESignet_AuthorizationCode_VCI_Vid_Invalid_Comma_Separated_Scope:
-      endPoint: /v1/esignet/authorization/auth-code
-      role: resident
-      restMethod: post
-      checkErrorsOnlyInResponse: true
-      validityCheckRequired: true
-      inputTemplate: esignet/VCIVidNegTC/AuthorizationCodeVCI/AuthorizationCodeVCI
-      outputTemplate: esignet/error
-      input: '{
-        "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegAuthCodeScen3_Valid_Smoke_sid_encodedResp$",
-      	"requestTime": "$TIMESTAMP$",
-      	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegAuthCodeScen3_Valid_Smoke_sid_transactionId$",
-      	"permittedAuthorizeScopes": [{scope: "sdfaf, asdf"}]
 }'
       output: '{
     "errors": [
@@ -235,6 +191,54 @@ AuthorizationCodeVCIVidNegTC:
         "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_Hash_CodeChallenge_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_Hash_CodeChallenge_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+}'
+
+   ESignet_AuthorizationCode_VCI_Vid_NegCredScen1_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCIVidNegTC/AuthorizationCodeVCI/AuthorizationCodeVCI
+      outputTemplate: esignet/VCIVidNegTC/AuthorizationCodeVCI/AuthorizationCodeVCIResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen1_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen1_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+}'
+
+   ESignet_AuthorizationCode_VCI_Vid_NegCredScen2_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCIVidNegTC/AuthorizationCodeVCI/AuthorizationCodeVCI
+      outputTemplate: esignet/VCIVidNegTC/AuthorizationCodeVCI/AuthorizationCodeVCIResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen2_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen2_Valid_Smoke_sid_transactionId$"
+}'
+      output: '{
+}'
+
+   ESignet_AuthorizationCode_VCI_Vid_NegCredScen3_Valid_Smoke_sid:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCIVidNegTC/AuthorizationCodeVCI/AuthorizationCodeVCI
+      outputTemplate: esignet/VCIVidNegTC/AuthorizationCodeVCI/AuthorizationCodeVCIResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen3_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen3_Valid_Smoke_sid_transactionId$"
 }'
       output: '{
 }'

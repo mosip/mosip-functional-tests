@@ -9,7 +9,7 @@ CreateLocationData:
       input: '{
     "code": "TST12",
     "name": "Test_Loc_A_",
-    "hierarchyLevel": "0",
+    "hierarchyLevel": "$HIERARCHYLEVEL$",
     "hierarchyName": "$HIERARCHYNAME$",
     "parentLocCode": "$PARENTLOCCODE$",
     "langCode": "eng",
@@ -35,7 +35,7 @@ CreateLocationData:
       input: '{
     "code": "",
     "name": "Test_Loc_1_A",
-    "hierarchyLevel":"4",
+    "hierarchyLevel":"$HIERARCHYLEVEL$",
     "hierarchyName":"$HIERARCHYNAME$",
     "parentLocCode":"$PARENTLOCCODE$",    
     "langCode": "eng",
@@ -60,7 +60,7 @@ CreateLocationData:
       input: '{
     "code": "NST",
     "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
-    "hierarchyLevel":"4",
+    "hierarchyLevel":"$HIERARCHYLEVEL$",
     "hierarchyName":"$HIERARCHYNAME$",
     "parentLocCode":"$PARENTLOCCODE$",    
     "langCode": "eng",
@@ -85,7 +85,7 @@ CreateLocationData:
       input: '{
     "code": "NST",
     "name": "",
-    "hierarchyLevel":"4",
+    "hierarchyLevel":"$HIERARCHYLEVEL$",
     "hierarchyName":"$HIERARCHYNAME$",
     "parentLocCode":"$PARENTLOCCODE$",    
     "langCode": "eng",
@@ -135,7 +135,7 @@ CreateLocationData:
       input: '{
     "code": "NST",
     "name": "NDATA",
-    "hierarchyLevel":"11",
+    "hierarchyLevel":"$HIERARCHYLEVEL$",
     "hierarchyName":"$HIERARCHYNAME$",
     "parentLocCode":"$PARENTLOCCODE$",    
     "langCode": "eng",
@@ -160,7 +160,7 @@ CreateLocationData:
       input: '{
     "code": "NST",
     "name": "NDATA",
-    "hierarchyLevel":"3",
+    "hierarchyLevel":"$HIERARCHYLEVEL$",
     "hierarchyName":"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
     "parentLocCode":"$PARENTLOCCODE$",    
     "langCode": "eng",
@@ -185,7 +185,7 @@ CreateLocationData:
       input: '{
     "code": "NST",
     "name": "NDATA",
-    "hierarchyLevel":"3",
+    "hierarchyLevel":"$HIERARCHYLEVEL$",
     "hierarchyName":"",
     "parentLocCode":"$PARENTLOCCODE$",    
     "langCode": "eng",
@@ -210,7 +210,7 @@ CreateLocationData:
       input: '{
     "code": "NST",
     "name": "NDATA",
-    "hierarchyLevel":"4",
+    "hierarchyLevel":"$HIERARCHYLEVEL$",
     "hierarchyName":"$HIERARCHYNAME$",
     "parentLocCode":"fbheafg",    
     "langCode": "eng",
@@ -237,7 +237,7 @@ CreateLocationData:
       input: '{
     "code": "NST",
     "name": "NDATA",
-    "hierarchyLevel":"3",
+    "hierarchyLevel":"$HIERARCHYLEVEL$",
     "hierarchyName":"$HIERARCHYNAME$",
     "parentLocCode":"$PARENTLOCCODE$",    
     "langCode": "eng",
