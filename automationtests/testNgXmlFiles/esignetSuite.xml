@@ -578,6 +578,13 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
 		</classes>
 	</test>
+	<test name="GetCredentialVidNegTC">
+		<parameter name="ymlFile"
+			value="esignet/VCIVidNegTC/GetCredential/GetCredential.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="WellKnownVCI">
 		<parameter name="ymlFile"
 			value="esignet/VCI/WellKnownVCI/WellKnownVCI.yml" />
@@ -609,13 +616,6 @@
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.KycAuth" />
-		</classes>
-	</test>
-	<test name="GetCredentialVidNegTC">
-		<parameter name="ymlFile"
-			value="esignet/VCIVidNegTC/GetCredential/GetCredential.yml" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="LinkedSendOtp">
