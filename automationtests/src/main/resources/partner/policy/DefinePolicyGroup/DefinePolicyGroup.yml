@@ -31,6 +31,23 @@ definePolicyGroup:
         "name": "mosip policy group for req key For_Req_Key_deactivaed_Policy",
         "desc": "desc mosip policy group for req key For_Req_Key_deactivaed_Policy",
         "is_Active": true
+    }'
+    
+   Partner_DefinePolicyGroup_All_Valid_Smoke_For_Test_AuthTypeToken_sid:
+      endPoint: /v1/policymanager/policies/group/new
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroup
+      outputTemplate: partner/policy/DefinePolicyGroup/definePolicyGroupResult
+      input: '{
+    "desc": "desc mosip policy group AuthTypeToken",
+    "name": "mosip policy group for AuthTypeToken",
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "name": "mosip policy group for AuthTypeToken",
+        "desc": "desc mosip policy group AuthTypeToken",
+        "is_Active": true
     }'    
 
    Partner_DefinePolicyGroup_All_Valid_Smoke_For_updatePolicy_sid:
