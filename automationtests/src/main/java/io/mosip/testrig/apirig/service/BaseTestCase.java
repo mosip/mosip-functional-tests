@@ -390,7 +390,7 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
-		request.put("zoneCode", props.get("zoneCode_to_beMapped"));
+		request.put("zoneCode", ZonelocationCode);
 		request.put("userId", BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName());
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
