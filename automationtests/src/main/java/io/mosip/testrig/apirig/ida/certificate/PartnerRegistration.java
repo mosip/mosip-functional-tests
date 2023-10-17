@@ -372,6 +372,9 @@ public class PartnerRegistration extends AdminTestUtil {
 		if (partnerType.equals("RELYING_PARTY")) {
 			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
 		}
+		if (partnerType.equals("EKYC")) {
+			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
+		}
 
 		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap,
 				MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
