@@ -133,6 +133,7 @@ public class BaseTestCase {
 	
 	public static String locationCode = "";
 	public static String ZonelocationCode = "";
+	public static String hierarchyZoneCode = "";
 	
 	
 	
@@ -390,7 +391,7 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
-		request.put("zoneCode", ZonelocationCode);
+		request.put("zoneCode", hierarchyZoneCode);
 		request.put("userId", BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName());
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
