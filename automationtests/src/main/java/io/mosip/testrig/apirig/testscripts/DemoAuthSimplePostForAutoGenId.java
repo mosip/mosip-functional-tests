@@ -137,6 +137,14 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
 		String inputJson = getJsonFromTemplate(input, testCaseDTO.getInputTemplate());
+		
+		String phone = getValueFromAuthActuator("json-property", "phone_number");
+		String result = phone.replaceAll("\\[\"|\"\\]", "");
+		String email = getValueFromAuthActuator("json-property", "emailId");
+		String emailResult = email.replaceAll("\\[\"|\"\\]", "");
+		inputJson = inputJson.replace("\"phone\":", "\"" + result + "\":");
+		inputJson = inputJson.replace("\"email\":", "\"" + emailResult + "\":");
+		
 		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
