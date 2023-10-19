@@ -222,6 +222,26 @@ public class KeyMgrUtil {
         return new PrivateKeyEntry(keyPair.getPrivate(), chain);
     }
 
+    public void savePrivateKey(PrivateKey privateKey,PublicKey publicKey, String signCertType, String certType, String p12FilePath, KeyUsage keyUsage,
+                                         LocalDateTime dateTime, LocalDateTime dateTimeExp, String organization) throws KeyStoreException, CertificateException, IOException, NoSuchAlgorithmException, OperatorCreationException {
+
+        X509Certificate signCert = generateX509Certificate(privateKey, publicKey, signCertType, certType, keyUsage, dateTime, dateTimeExp, organization);
+        X509Certificate[] chain = new X509Certificate[]{signCert};
+        PrivateKeyEntry privateKeyEntry = new PrivateKeyEntry(privateKey, chain);
+        KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
+        keyStore.load(null, getP12Pass());
+        keyStore.setEntry("privatekey", privateKeyEntry, new PasswordProtection (getP12Pass()));
+        Path parentPath = Paths.get(p12FilePath).getParent();
+        if (parentPath != null && !Files.exists(parentPath)) {
+            Files.createDirectories(parentPath);
+        }
+
+        OutputStream outputStream = new FileOutputStream(p12FilePath);
+        keyStore.store(outputStream, getP12Pass());
+        outputStream.flush();
+        outputStream.close();
+    }
+
     private X509Certificate generateX509Certificate(PrivateKey signPrivateKey, PublicKey publicKey, String signCertType, 
             String certType, KeyUsage keyUsage, LocalDateTime dateTime, LocalDateTime dateTimeExp, String organization) throws 
             OperatorCreationException, NoSuchAlgorithmException, CertIOException, CertificateException {

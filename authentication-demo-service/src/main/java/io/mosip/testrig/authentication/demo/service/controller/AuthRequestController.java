@@ -5,30 +5,21 @@ package io.mosip.testrig.authentication.demo.service.controller;
 
 import static io.mosip.authentication.core.constant.IdAuthCommonConstants.UTF_8;
 
-import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableEntryException;
+import java.security.*;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
@@ -47,12 +38,16 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.xml.bind.DatatypeConverter;
 
+import io.mosip.kernel.core.util.StringUtils;
 import io.mosip.testrig.authentication.demo.service.dto.*;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
+import org.bouncycastle.asn1.x509.KeyUsage;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.jose4j.lang.JoseException;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
@@ -99,6 +94,7 @@ import io.swagger.annotations.Api;
  */
 @RestController
 @Api(tags = { "Authentication Request Creation" })
+@Slf4j
 public class AuthRequestController {
 
 	private static final String PHONE = "PHONE";
@@ -254,7 +250,7 @@ public class AuthRequestController {
 			@RequestParam(name = "moduleName", required = false) String moduleName) throws Exception {
 		String authRequestTemplate = environment.getProperty(IDA_AUTH_REQUEST_TEMPLATE);
 		Map<String, Object> reqValues = new HashMap<>();
-		
+
 		if(isPreLTS) {
 			reqValues.put(OTP, false);
 			reqValues.put(DEMO, false);
@@ -357,6 +353,177 @@ public class AuthRequestController {
 				throw new IdAuthenticationBusinessException(
 						IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(), String.format(
 								IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), TEMPLATE));
+			}
+
+		} else {
+			throw new IdAuthenticationBusinessException(
+					IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(),
+					String.format(IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), IDENTITY));
+		}
+	}
+
+	@PostMapping(path = "/create-identity-key-binding", consumes = MediaType.APPLICATION_JSON_VALUE, produces = {
+			MediaType.TEXT_PLAIN_VALUE })
+	public ResponseEntity<String> createIdentityKeyBinding(@RequestParam(name = ID, required = true) @Nullable String id,
+													@RequestParam(name = ID_TYPE, required = false) @Nullable String idType,
+													@RequestParam(name = "isKyc", required = false) @Nullable boolean isKyc,
+													@RequestParam(name = "isInternal", required = false) @Nullable boolean isInternal,
+													@RequestParam(name = "Authtype", required = false) @Nullable String reqAuth,
+													@RequestParam(name = TRANSACTION_ID, required = false) @Nullable String transactionId,
+													@RequestParam(name = "requestTime", required = false) @Nullable String requestTime,
+													@RequestParam(name = "isNewInternalAuth", required = false) @Nullable boolean isNewInternalAuth,
+													@RequestParam(name = "isPreLTS", required = false) @Nullable boolean isPreLTS,
+													@RequestParam(name = "signWithMisp", required = false) @Nullable boolean signWithMisp,
+													@RequestParam(name = "partnerName", required = true) String partnerName,
+												    @RequestParam(name = "authFactorType", required = false) String authFactorType,
+													@RequestParam(name = "keyFileNameByPartnerName", required = false) boolean keyFileNameByPartnerName,
+													@RequestBody Map<String, Object> request,
+													@RequestParam(name = "certsDir", required = false) String certsDir,
+													@RequestParam(name = "moduleName", required = false) String moduleName) throws Exception {
+		String authRequestTemplate = environment.getProperty(IDA_AUTH_REQUEST_TEMPLATE);
+		Map<String, Object> reqValues = new HashMap<>();
+		KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("RSA");
+		keyPairGen.initialize(2048);
+		KeyPair pair = keyPairGen.generateKeyPair();
+		PublicKey publicKey = pair.getPublic();
+		PrivateKey privateKey = pair.getPrivate();
+
+		RSAPublicKey rsaPublicKey = (RSAPublicKey) publicKey;
+		// Extract key components
+		byte[] modulusBytes = rsaPublicKey.getModulus().toByteArray();
+		byte[] exponentBytes = rsaPublicKey.getPublicExponent().toByteArray();
+		// Encode key components as Base64 strings
+		String modulusBase64 = Base64.getEncoder().encodeToString(modulusBytes);
+		String exponentBase64 = Base64.getEncoder().encodeToString(exponentBytes);
+		// Create JSON object for the public key
+		JSONObject publicKeyJson = new JSONObject();
+		publicKeyJson.put("alg", "RSA256");
+		publicKeyJson.put("n", modulusBase64);
+		publicKeyJson.put("e", exponentBase64);
+		publicKeyJson.put("kty","RSA");
+
+
+		// Create a JSON string with the public key
+		String json = "{\"identityKeyBinding\": {\"publicKeyJWK\": {\"additionalProp1\": {},\"additionalProp2\": {},\"additionalProp3\": {}},\"authFactorType\": \"string\"}}";
+
+		ObjectMapper mapper = new ObjectMapper();
+		reqValues= mapper.readValue(json, Map.class);
+
+		Map<String, Object> identityKeyBinding = (Map<String, Object>) reqValues.get("identityKeyBinding");
+		identityKeyBinding.put("publicKeyJWK",publicKeyJson);
+		identityKeyBinding.put("authFactorType", StringUtils.isEmpty(authFactorType)?"WLA":authFactorType);
+
+
+		//storing the private kye to p12 file
+		String dirPath=keyMgrUtil.getKeysDirPath(certsDir,moduleName);
+		String caFilePath = dirPath + '/' + id+"private.p12";
+		KeyUsage keyUsage = new KeyUsage(KeyUsage.digitalSignature | KeyUsage.keyCertSign);
+        keyMgrUtil.savePrivateKey(privateKey,publicKey, "CA-", "CA-", caFilePath, keyUsage, LocalDateTime.now(), LocalDateTime.now().plus(30,ChronoUnit.DAYS), partnerName);
+
+		if(isPreLTS) {
+			reqValues.put(OTP, false);
+			reqValues.put(DEMO, false);
+			reqValues.put(BIO, false);
+			reqValues.put(PIN, false);
+		}
+
+		if(isNewInternalAuth) {
+			isInternal  = true;
+		}
+
+		boolean needsEncryption = !isInternal || !isNewInternalAuth;
+		String keysDirPath = keyMgrUtil.getKeysDirPath(certsDir, moduleName);
+
+		if(needsEncryption) {
+			reqValues.put("thumbprint",
+					digest(getCertificateThumbprint(encrypt.getCertificate(isInternal, keysDirPath))));
+		}
+
+		if (requestTime == null) {
+			requestTime = DateUtils.getUTCCurrentDateTimeString(environment.getProperty("datetime.pattern"));
+
+		}
+
+		if(!request.containsKey(TIMESTAMP)) {
+			request.put(TIMESTAMP, "");//Initializing. Setting value is done in further steps.
+		}
+
+		idValuesMap(id, isKyc, isInternal, reqValues, transactionId, requestTime);
+		getAuthTypeMap(reqAuth, reqValues, request);
+		applyRecursively(request, TIMESTAMP, requestTime);
+		applyRecursively(request, DATE_TIME, requestTime);
+		applyRecursively(request, TRANSACTION_ID, transactionId);
+
+		if(isKyc && signWithMisp) {
+			reqValues.put(AUTH_TYPE, "kycauth");
+		}
+
+		if(needsEncryption) {
+			if (reqValues.get(BIO) != null && Boolean.valueOf(reqValues.get(BIO).toString())) {
+				Object bioObj = request.get(BIOMETRICS);
+				if (bioObj instanceof List) {
+					List<Map<String, Object>> encipheredBiometrics = encipherBiometrics(isInternal, requestTime,
+							transactionId, partnerName, keyFileNameByPartnerName, (List<Map<String, Object>>) bioObj, certsDir, moduleName);
+					request.put(BIOMETRICS, encipheredBiometrics);
+				}
+			}
+			log.info("reqMap is {}",request);
+			encryptValuesMap(request, reqValues, isInternal, certsDir, moduleName);
+		}
+
+		StringWriter writer = new StringWriter();
+		InputStream templateValue;
+		if (request != null && request.size() > 0) {
+			templateValue = templateManager
+					.merge(new ByteArrayInputStream(authRequestTemplate.getBytes(StandardCharsets.UTF_8)), reqValues);
+
+			log.info("reqValue is {}",reqValues);
+			if (templateValue != null) {
+				IOUtils.copy(templateValue, writer, StandardCharsets.UTF_8);
+				String requestString = writer.toString();
+				if(!needsEncryption) {
+					Map<String, Object> resMap = mapper.readValue(requestString.getBytes(StandardCharsets.UTF_8), Map.class);
+					resMap.put("request", request);
+					resMap.put("requestHMAC", null);
+					resMap.put("requestSessionKey", null);
+					resMap.put("thumbprint", null);
+
+					requestString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
+				}
+				if (reqValues.containsKey(SECONDARY_LANG_CODE)) {
+					Map<String, Object> resMap = mapper.readValue(requestString.getBytes(StandardCharsets.UTF_8), Map.class);
+					resMap.put(SECONDARY_LANG_CODE, reqValues.get(SECONDARY_LANG_CODE));
+					requestString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resMap);
+				}
+				if(isPreLTS) {
+					Map<String, Object> requestMap = mapper.readValue(requestString.getBytes(StandardCharsets.UTF_8), Map.class);
+					Map<String, Object> requestedAuth = new HashMap<>();
+					requestMap.put("individualIdType", idType == null || idType.trim().length() == 0 ? IdType.UIN.toString() : idType);
+					requestMap.put("requestedAuth", requestedAuth);
+					if(Boolean.valueOf(String.valueOf(reqValues.get(OTP)))) {
+						requestedAuth.put("otp", true);
+					}
+					if(Boolean.valueOf(String.valueOf(reqValues.get(DEMO)))) {
+						requestedAuth.put("demo", true);
+					}
+					if(Boolean.valueOf(String.valueOf(reqValues.get(BIO)))) {
+						requestedAuth.put("bio", true);
+					}
+					if(Boolean.valueOf(String.valueOf(reqValues.get(PIN)))) {
+						requestedAuth.put("pin", true);
+					}
+					requestString = mapper.writeValueAsString(requestMap);
+				}
+				HttpHeaders httpHeaders = new HttpHeaders();
+				PartnerTypes partnerTypes = isKyc ? PartnerTypes.EKYC : PartnerTypes.RELYING_PARTY;
+
+				String rpSignature = signRequest(signWithMisp ? PartnerTypes.MISP : partnerTypes, partnerName, keyFileNameByPartnerName, requestString, certsDir, moduleName);
+				httpHeaders.add("signature", rpSignature);
+				return new ResponseEntity<>(requestString, httpHeaders, HttpStatus.OK);
+			} else {
+				throw new IdAuthenticationBusinessException(
+						IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorCode(), String.format(
+						IdAuthenticationErrorConstants.MISSING_INPUT_PARAMETER.getErrorMessage(), TEMPLATE));
 			}
 
 		} else {
@@ -954,7 +1121,7 @@ public class AuthRequestController {
 					Map<String, Object> digitalIdMap = (Map<String, Object>) digitalId;
 					String digitalIdStr = mapper.writeValueAsString(digitalIdMap);
 					String signedDititalId;
-					if(!isInternal) {
+ 					if(!isInternal) {
 						//String signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true);
 						signedDititalId = jWSSignAndVerifyController.sign(digitalIdStr, true, true, 
 								false, null, keysDirPath, PartnerTypes.FTM, partnerName, keyFileNameByPartnerName);
