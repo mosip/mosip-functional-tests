@@ -31,6 +31,41 @@ DownloadUinCard:
     }
 }'
 
+   Resident_DownloadUinCard_With_Invalid_OTP_Neg:
+      endPoint: /resident/v1/download-card
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: resident/DownloadUinCard/DownloadUinCard
+      outputTemplate: resident/DownloadUinCard/DownloadUinCardResult
+      input: '{
+      	 "transactionId": "$TRANSACTIONID$",
+          "otp": "198365@@eeG",
+          "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+          "requesttime": "$TIMESTAMP$",
+	      "sendOtp":{
+		    "transactionId": "$TRANSACTIONID$",
+		    "requestTime": "$TIMESTAMP$",
+		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
+	    }
+}'
+
+      output: '{
+	           "errors": [{
+				"errorCode": "RES-SER-457",
+		        "message": "$IGNORE$"
+			}],
+                "sendOtpResp":{
+			        "maskedMobile": "XXXXXX3210",
+			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+			        "maskedEmail": "$IGNORE$"
+    }
+}'
+
    Resident_DownloadUinCard_Invalid_TransactionID_Neg:
       endPoint: /resident/v1/download-card
       role: resident
