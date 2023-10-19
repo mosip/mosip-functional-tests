@@ -76,6 +76,7 @@ import org.testng.SkipException;
 import org.yaml.snakeyaml.Yaml;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
@@ -5743,6 +5744,31 @@ public class AdminTestUtil extends BaseTestCase {
             }
         }
 		return false;
+	}
+	
+	public static String ekycDataDecryption(String url, JSONObject kycDataForDecryption, String partnerName,
+			Boolean keyFileNameByPartnerName) {
+		 url = url + properties.getProperty("decryptKycUrl");
+		 
+		 ObjectMapper mapper = new ObjectMapper();
+			Map<String, String> map = null;
+			try {
+				map = mapper.readValue(kycDataForDecryption.toString(), Map.class);
+			} catch (JsonProcessingException e) {
+				logger.error(e.getMessage());
+			}
+		 
+		HashMap<String, Object> queryParamMap = new HashMap<>();
+		queryParamMap.put("partnerName", partnerName);
+		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
+
+			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
+
+		Response response = RestClient.postRequestWithQueryParamsAndBody(url, map, queryParamMap,
+				MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
+		GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+
+		return response.toString();
 	}
 
 }

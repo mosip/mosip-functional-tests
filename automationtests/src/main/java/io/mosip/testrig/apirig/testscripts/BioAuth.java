@@ -30,6 +30,7 @@ import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestException;
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
+import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.ida.certificate.PartnerRegistration;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.service.BaseTestCase;
@@ -169,7 +170,13 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			JSONObject resJsonObject = new JSONObject(response.asString());
 			String res = "";
 			try {
-				res = resJsonObject.get("response").toString();
+				//res = resJsonObject.get("response").toString();
+				resJsonObject = new JSONObject(response.getBody().asString()).getJSONObject("authResponse")
+						.getJSONObject("body").getJSONObject("response");
+				
+				res= AdminTestUtil.ekycDataDecryption( url, resJsonObject, PartnerRegistration.ekycPartnerId,
+						true);
+				
 			} catch (JSONException e) {
 				logger.error(e.getMessage());
 			}
