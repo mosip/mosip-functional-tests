@@ -11,7 +11,7 @@ SearchBlockListedWords:
       {
         "columnName": "word",
         "type": "equals",
-        "value": "dumbo7",
+        "value": "dumbooo",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -48,7 +48,7 @@ SearchBlockListedWords:
       {
         "columnName": "word",
         "type": "contains",
-        "value": "dumbo7",
+        "value": "dumbooo",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -85,7 +85,7 @@ SearchBlockListedWords:
       {
         "columnName": "word",
         "type": "startsWith",
-        "value": "dumbo7",
+        "value": "dumbooo",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -158,7 +158,7 @@ SearchBlockListedWords:
       {
         "columnName": "word",
         "type": "equals",
-        "value": "dumb7",
+        "value": "dumbooo",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
