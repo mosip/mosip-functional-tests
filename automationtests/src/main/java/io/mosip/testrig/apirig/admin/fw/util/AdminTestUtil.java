@@ -5652,6 +5652,34 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 	}
+	
+	public static void getHierarchyZoneCode() {
+
+		Response response = null;
+		JSONObject responseJson = null;
+		String url = ApplnURI + props.getProperty("fetchZoneCode") + "/" + BaseTestCase.getLanguageList().get(0);
+		String token = kernelAuthLib.getTokenByRole("globalAdmin");
+
+		try {
+
+			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+
+			responseJson = new JSONObject(response.getBody().asString());
+
+			try {
+				JSONObject responseObject = responseJson.getJSONArray("response").getJSONObject(0);
+
+				hierarchyZoneCode = responseObject.getString("code");
+
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+		}
+	}
 
 	public static void getZoneName() {
 
