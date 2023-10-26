@@ -22,7 +22,7 @@ GetUserDetails:
       inputTemplate: masterdata/GetUserDetails/getUserDetails
       outputTemplate: masterdata/GetUserDetails/getUserDetailsByIDResult
       input: '{
-  "id":"masterdata-220005"
+  "id":"$USERID$"
 }'
       output: '{
       "name": "$IGNORE$",

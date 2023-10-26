@@ -2895,6 +2895,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$ZONE_CODE$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$ZONE_CODE$", ZonelocationCode);
+		if (jsonString.contains("$USERID$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$USERID$",
+					BaseTestCase.currentModule + propsKernel.getProperty("admin_userName"));
 
 		if (jsonString.contains("$LOCATIONCODE$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONCODE$", locationCode);
