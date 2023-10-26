@@ -77,7 +77,7 @@ DeviceSpecFilter:
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter
-      outputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilterResult
+      outputTemplate: masterdata/NilFilterResult
       input: '{
 	"filters": [{
 		"columnName": "brand",
@@ -88,13 +88,8 @@ DeviceSpecFilter:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "filters": [
-      {
-        "fieldID": "brand",
-        "fieldValue": "hogwarts"
-      }
-    ]
-  }'
+    "totalCount": 0
+}'
    MasterData_DeviceSpecFilter_Unique_Model_smoke:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin

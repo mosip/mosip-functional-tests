@@ -12,7 +12,7 @@ GetLocationHierarchyLevelByLastUpdatedDate:
       output: '{
 }'
 
-   Admin_GetLocationHierarchyLevelByLastUpdatedDate_Invalid_Invalid_lD:
+   Admin_GetLocationHierarchyLevelByLastUpdatedDate_with_Invalid_lD:
       endPoint: /v1/masterdata/locationHierarchyLevels?lastUpdated=abc
       role: admin
       restMethod: get
