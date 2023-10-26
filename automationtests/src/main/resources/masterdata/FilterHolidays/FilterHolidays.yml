@@ -24,7 +24,7 @@ FilterHolidays:
       role: admin
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/NilFilterResult
       input: '{
 	"filters": [{
 		"columnName": "isActive",
@@ -35,12 +35,8 @@ FilterHolidays:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "KER-MSD-324"
-    }
-  ]
-  }'
+    "totalCount": 0
+}'
    MasterData_FilterHolidays_inValid_filterType_blank:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin

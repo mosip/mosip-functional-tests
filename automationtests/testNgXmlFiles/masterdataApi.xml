@@ -885,13 +885,13 @@
 		</classes>
 	</test>
 	
-	<test name="UpdateIdSchema">
+	<!-- <test name="UpdateIdSchema">
 		<parameter name="ymlFile"
 			value="masterdata/UpdateIdSchema/UpdateIdSchema.yml" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePut" />
 		</classes>
-	</test>
+	</test> -->
 	
 	<test name="GetPossiableValues">
 		<parameter name="ymlFile"

@@ -509,7 +509,7 @@ CreateMachineSpecification:
   ]
 }'
 
-   Masterdata_CreateMachineSpecification_Dublicate_Neg:
+   Masterdata_CreateMachineSpecification_Duplicate_Neg:
       endPoint: /v1/masterdata/machinespecifications
       role: admin
       templateFields: ["description"]

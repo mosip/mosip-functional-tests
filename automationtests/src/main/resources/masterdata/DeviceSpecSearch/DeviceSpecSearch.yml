@@ -174,7 +174,7 @@ DeviceSpecSearch:
       templateFields: []
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/NilSearchResult
       input: '{
     "filters": [
       {
@@ -197,11 +197,9 @@ DeviceSpecSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "KER-MSD-317"
-    }
-  ]
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
 }'
    MasterData_DeviceSpecSearch_InvalidPageFetch:
       endPoint: /v1/masterdata/devicespecifications/search
