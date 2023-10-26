@@ -114,7 +114,7 @@ FilterRegCenterType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "totalCount": 0
+    "totalCount": "0"
 }'
    MasterData_FilterRegCenterType_inValid_filterType_blank:
       endPoint: /v1/masterdata/registrationcentertypes/filtervalues
