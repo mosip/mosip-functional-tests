@@ -963,3 +963,107 @@ OAuthDetailsRequestVCIVidNegTC:
       output: '{
        
 }'
+
+   ESignet_OAuthDetailsRequest_VCI_Vid_Missing_ClaimsLocales_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCIVidNegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCIVidNegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "$REMOVE$",
+	    "codeChallenge": "$CODECHALLENGE$",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_Vid_Empty_ClaimsLocales_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCIVidNegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCIVidNegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "",
+	    "codeChallenge": "$CODECHALLENGE$",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_Vid_SpaceVal_ClaimsLocales_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCIVidNegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCIVidNegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": " ",
+	    "codeChallenge": "$CODECHALLENGE$",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
+
+   ESignet_OAuthDetailsRequest_VCI_Vid_Invalid_ClaimsLocales_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/v2/oauth-details
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      inputTemplate: esignet/VCIVidNegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
+      outputTemplate: esignet/VCIVidNegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+      	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
+      	"scope": "mosip_identity_vc_ldp",
+      	"responseType": "code",
+      	"redirectUri": "$IDPREDIRECTURI$",
+      	"display": "popup",
+	    "prompt": "login",
+	    "acrValues": "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+	    "nonce": "973eieljzng",
+	    "state": "eree2311",
+	    "claimsLocales": "sdfsd",
+	    "codeChallenge": "$CODECHALLENGE$",
+        "codeChallengeMethod": "S256"
+}'
+      output: '{
+       
+}'
