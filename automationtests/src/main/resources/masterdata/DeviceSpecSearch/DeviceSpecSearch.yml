@@ -32,9 +32,9 @@ DeviceSpecSearch:
 	"id": "$IGNORE$",
 	"name": "Webcam",
 	"brand": "Logitech",
-	"model": "C270",
+	"model": "$IGNORE$",
 	"deviceTypeCode": "CMR",
-	"minDriverversion": "2.086",
+	"minDriverversion": "$IGNORE$",
 	"description": "$IGNORE$",
 	"langCode": "$IGNORE$",
 	"isActive": "$IGNORE$",
@@ -88,6 +88,7 @@ DeviceSpecSearch:
       endPoint: /v1/masterdata/devicespecifications/search
       role: admin
       templateFields: ["languageCode"]
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearch
       outputTemplate: masterdata/DeviceSpecSearch/deviceSpecSearchResult
@@ -117,7 +118,7 @@ DeviceSpecSearch:
   "id": "$IGNORE$",
   "name": "$IGNORE$",
   "brand": "$IGNORE$",
-  "model": "C270",
+  "model": "$IGNORE$",
   "deviceTypeCode": "$IGNORE$",
   "minDriverversion": "$IGNORE$",
   "description": "$IGNORE$",
@@ -529,9 +530,9 @@ DeviceSpecSearch:
   "id": "$IGNORE$",
   "name": "Webcam",
   "brand": "Logitech",
-  "model": "C270",
+  "model": "$IGNORE$",
   "deviceTypeCode": "CMR",
-  "minDriverversion": "2.086",
+  "minDriverversion": "$IGNORE$",
   "description": "$IGNORE$",
   "langCode": "$IGNORE$",
   "isActive": "$IGNORE$",
