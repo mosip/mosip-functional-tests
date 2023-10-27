@@ -112,7 +112,7 @@ DeviceTypeFilter:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "totalCount": 0
+    "totalCount": "0"
 }'
    MasterData_DeviceTypeFilter_Invalid_FilterType_neg:
       endPoint: /v1/masterdata/devicetypes/filtervalues
