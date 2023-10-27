@@ -186,7 +186,7 @@ FilterHolidays:
       templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/NilFilterResult
       input: '{
 	"filters": [{
 		"columnName": "holidayName",
@@ -197,9 +197,5 @@ FilterHolidays:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "KER-MSD-999"
-    }
-  ]
-  }'  
+    "totalCount": 0
+}'

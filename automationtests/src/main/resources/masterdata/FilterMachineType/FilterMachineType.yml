@@ -163,7 +163,7 @@ FilterMachineType:
       templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineType/filterMachineType
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/NilFilterResult
       input: '{
 	"filters": [{
 		"columnName": "name",
@@ -174,10 +174,5 @@ FilterMachineType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "KER-MSD-317",
-      "message": "$IGNORE$"
-    }
-  ]
-  }'
+    "totalCount": "0"
+}'
