@@ -102,6 +102,8 @@ public class BaseTestCase {
 	public static HashMap<String, String> regCenterId = new HashMap<>();
 	public static String expiredPreId = null;
 	public String batchJobToken = null;
+	public String invalidBatchJobToken = null;
+	
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
 	public static Map<?, ?> residentQueries;
@@ -133,6 +135,7 @@ public class BaseTestCase {
 	
 	public static String locationCode = "";
 	public static String ZonelocationCode = "";
+	public static String hierarchyZoneCode = "";
 	
 	
 	
@@ -390,7 +393,7 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
-		request.put("zoneCode", props.get("zoneCode_to_beMapped"));
+		request.put("zoneCode", hierarchyZoneCode);
 		request.put("userId", BaseTestCase.currentModule + "-" + ConfigManager.getUserAdminName());
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
@@ -410,7 +413,7 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
-		request.put("zoneCode", zone);
+		request.put("zoneCode", ZonelocationCode);
 		request.put("userId", user);
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);

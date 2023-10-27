@@ -11,7 +11,7 @@ SearchBlockListedWords:
       {
         "columnName": "word",
         "type": "equals",
-        "value": "dumbo7",
+        "value": "dumbooo",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -32,7 +32,7 @@ SearchBlockListedWords:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "word": "dumbo7"
+        "word": "dumbooo"
       }
     ]
 }'
@@ -48,7 +48,7 @@ SearchBlockListedWords:
       {
         "columnName": "word",
         "type": "contains",
-        "value": "dumbo7",
+        "value": "dumbooo",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -69,7 +69,7 @@ SearchBlockListedWords:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "word": "dumbo7"
+        "word": "dumbooo"
       }
     ]
 }'
@@ -85,7 +85,7 @@ SearchBlockListedWords:
       {
         "columnName": "word",
         "type": "startsWith",
-        "value": "dumbo7",
+        "value": "dumbooo",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -106,7 +106,7 @@ SearchBlockListedWords:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "word": "dumbo7"
+        "word": "dumbooo"
       }
     ]
 }'
@@ -158,7 +158,7 @@ SearchBlockListedWords:
       {
         "columnName": "word",
         "type": "equals",
-        "value": "dumb7",
+        "value": "dumbooo",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
@@ -179,7 +179,7 @@ SearchBlockListedWords:
      {
         "isActive": "$IGNORE$",
         "description": "$IGNORE$",
-        "word": "dumb7"
+        "word": "dumbooo"
       }
     ]
 }'

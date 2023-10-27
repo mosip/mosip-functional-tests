@@ -76,6 +76,7 @@ import org.testng.SkipException;
 import org.yaml.snakeyaml.Yaml;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
@@ -2894,6 +2895,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$ZONE_CODE$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$ZONE_CODE$", ZonelocationCode);
+		if (jsonString.contains("$USERID$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$USERID$",
+					BaseTestCase.currentModule + propsKernel.getProperty("admin_userName"));
 
 		if (jsonString.contains("$LOCATIONCODE$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONCODE$", locationCode);
@@ -5651,6 +5655,34 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 		}
 	}
+	
+	public static void getHierarchyZoneCode() {
+
+		Response response = null;
+		JSONObject responseJson = null;
+		String url = ApplnURI + props.getProperty("fetchZoneCode") + "/" + BaseTestCase.getLanguageList().get(0);
+		String token = kernelAuthLib.getTokenByRole("globalAdmin");
+
+		try {
+
+			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+
+			responseJson = new JSONObject(response.getBody().asString());
+
+			try {
+				JSONObject responseObject = responseJson.getJSONArray("response").getJSONObject(0);
+
+				hierarchyZoneCode = responseObject.getString("code");
+
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+		}
+	}
 
 	public static void getZoneName() {
 
@@ -5743,6 +5775,31 @@ public class AdminTestUtil extends BaseTestCase {
             }
         }
 		return false;
+	}
+	
+	public static String ekycDataDecryption(String url, JSONObject kycDataForDecryption, String partnerName,
+			Boolean keyFileNameByPartnerName) {
+		 url = url + properties.getProperty("decryptKycUrl");
+		 
+		 ObjectMapper mapper = new ObjectMapper();
+			Map<String, String> map = null;
+			try {
+				map = mapper.readValue(kycDataForDecryption.toString(), Map.class);
+			} catch (JsonProcessingException e) {
+				logger.error(e.getMessage());
+			}
+		 
+		HashMap<String, Object> queryParamMap = new HashMap<>();
+		queryParamMap.put("partnerName", partnerName);
+		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
+
+			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
+
+		Response response = RestClient.postRequestWithQueryParamsAndBody(url, map, queryParamMap,
+				MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
+		GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+
+		return response.toString();
 	}
 
 }

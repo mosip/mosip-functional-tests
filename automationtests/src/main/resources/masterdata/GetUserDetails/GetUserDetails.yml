@@ -22,7 +22,7 @@ GetUserDetails:
       inputTemplate: masterdata/GetUserDetails/getUserDetails
       outputTemplate: masterdata/GetUserDetails/getUserDetailsByIDResult
       input: '{
-  "id":"func_auto_test_user"
+  "id":"$USERID$"
 }'
       output: '{
       "name": "$IGNORE$",

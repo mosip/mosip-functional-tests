@@ -45,7 +45,7 @@ BiometricAttributes:
   ]
 }'
 
-   MasterData_BiometricAttributes_Invalid_invalid_biometricTypeCode:
+   MasterData_BiometricAttributes_Invalid_biometricTypeCode:
       endPoint: /v1/masterdata/biometricattributes
       role: admin
       templateFields: ["langCode"]
@@ -69,7 +69,7 @@ BiometricAttributes:
   ]
 }'
 
-   MasterData_BiometricAttributes_Invalid_empty_langCode:
+   MasterData_BiometricAttributes_empty_langCode:
       endPoint: /v1/masterdata/biometricattributes
       role: admin
       restMethod: post
@@ -93,7 +93,7 @@ BiometricAttributes:
   ]
 }'
 
-   MasterData_BiometricAttributes_Invalid_Invalid_langCode:
+   MasterData_BiometricAttributes_Invalid_langCode:
       endPoint: /v1/masterdata/biometricattributes
       role: admin
       restMethod: post
@@ -117,7 +117,7 @@ BiometricAttributes:
   ]
 }'
 
-   MasterData_BiometricAttributes_Invalid_empty_code:
+   MasterData_BiometricAttributes_empty_code:
       endPoint: /v1/masterdata/biometricattributes
       role: admin
       templateFields: ["langCode"]

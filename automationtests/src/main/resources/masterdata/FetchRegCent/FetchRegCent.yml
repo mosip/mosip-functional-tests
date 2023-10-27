@@ -253,7 +253,7 @@ FetchRegCent:
   "year": "$REMOVE$",
   "id": "$REMOVE$",
   "hierarchylevel": "1",
-  "name": "केंद्र एक बेन मंसूर",
+  "name": "Rabat Sale Kenitra",
   "zonecode": "$REMOVE$",
   "timestamp": "$REMOVE$"
 }'
@@ -441,7 +441,7 @@ FetchRegCent:
   "id": "$REMOVE$",
   "hierarchylevel": "$REMOVE$",
   "name": "$REMOVE$",
-  "zonecode": "KTA",
+  "zonecode": "$ZONE_CODE$",
   "timestamp": "$REMOVE$"
 }'
       output: '{
@@ -581,7 +581,7 @@ FetchRegCent:
   "id": "$REMOVE$",
   "hierarchylevel": "$REMOVE$",
   "name": "$REMOVE$",
-  "zonecode": "RBT",
+  "zonecode": "$ZONE_CODE$",
   "timestamp": "$REMOVE$"
 }'
       output: '{
