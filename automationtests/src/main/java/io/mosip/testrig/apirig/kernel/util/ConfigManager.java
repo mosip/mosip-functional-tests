@@ -108,6 +108,9 @@ public class ConfigManager {
 	private static String ESIGNET_DEPLOYED = "eSignetDeployed";
 	private static String esignet_deployed;
 
+	private static String USE_EXTERNAL_SCENARIO_SHEET = "useExternalScenarioSheet";
+	private static String useExternalScenario_sheet;
+
 	private static String AUTH_DEMO_SERVICE_PORT = "authDemoServicePort";
 	private static String AUTH_DEMO_SERVICE_BASE_URL = "authDemoServiceBaseURL";
 	private static String MOUNT_PATH = "mountPath";
@@ -375,6 +378,11 @@ public class ConfigManager {
 				: System.getenv(PRECONFIGOTP);
 		propsKernel.setProperty(PRECONFIGOTP, preconfiguredOtp);
 
+		useExternalScenario_sheet = System.getenv(USE_EXTERNAL_SCENARIO_SHEET) == null
+				? propsKernel.getProperty(USE_EXTERNAL_SCENARIO_SHEET)
+				: System.getenv(USE_EXTERNAL_SCENARIO_SHEET);
+		propsKernel.setProperty(USE_EXTERNAL_SCENARIO_SHEET, useExternalScenario_sheet);
+
 		esignet_deployed = System.getenv(ESIGNET_DEPLOYED) == null ? propsKernel.getProperty(ESIGNET_DEPLOYED)
 				: System.getenv(ESIGNET_DEPLOYED);
 		propsKernel.setProperty(ESIGNET_DEPLOYED, esignet_deployed);
@@ -448,6 +456,10 @@ public class ConfigManager {
 
 	public static Boolean IseSignetDeployed() {
 		return esignet_deployed.equalsIgnoreCase("yes");
+	}
+
+	public static Boolean useExternalScenarioSheet() {
+		return useExternalScenario_sheet.equalsIgnoreCase("yes");
 	}
 
 	public static Boolean IsDebugEnabled() {
