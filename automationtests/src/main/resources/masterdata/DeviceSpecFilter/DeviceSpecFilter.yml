@@ -88,7 +88,7 @@ DeviceSpecFilter:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "totalCount": 0
+    "totalCount": "0"
 }'
    MasterData_DeviceSpecFilter_Unique_Model_smoke:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
