@@ -41,11 +41,11 @@ public class ConfigManager {
 	private static String MOSIP_REG_CLIENT_SECRET = "mosip_reg_client_secret";
 	private static String MOSIP_REG_CLIENT_ID = "mosip_reg_client_id";
 	private static String MOSIP_REGCLIENT_APP_ID = "mosip_regclient_app_id";
-	
+
 	private static String MOSIP_REGPROC_CLIENT_SECRET = "mosip_regproc_client_secret";
 	private static String MOSIP_REGPROC_CLIENT_ID = "mosip_regproc_client_id";
 	private static String MOSIP_REGPROC_APP_ID = "mosip_regprocclient_app_id";
-	
+
 	private static String MOSIP_IDA_CLIENT_SECRET = "mosip_ida_client_secret";
 	private static String MOSIP_IDA_CLIENT_ID = "mosip_ida_client_id";
 	private static String MOSIP_IDA_APP_ID = "mosip_ida_app_id";
@@ -108,6 +108,9 @@ public class ConfigManager {
 	private static String ESIGNET_DEPLOYED = "eSignetDeployed";
 	private static String esignet_deployed;
 
+	private static String USE_EXTERNAL_SCENARIO_SHEET = "useExternalScenarioSheet";
+	private static String useExternalScenario_sheet;
+
 	private static String AUTH_DEMO_SERVICE_PORT = "authDemoServicePort";
 	private static String AUTH_DEMO_SERVICE_BASE_URL = "authDemoServiceBaseURL";
 	private static String MOUNT_PATH = "mountPath";
@@ -119,13 +122,16 @@ public class ConfigManager {
 	private static String REPORT_EXPIRATION_IN_DAYS = "reportExpirationInDays";
 
 	private static String SCENARIOS_TO_BE_SKIPPED = "scenariosToSkip";
-    private static String ADMIN_USER_NAME = "admin_userName";
-	
+	private static String SCENARIOS_TO_BE_EXECUTED = "scenariosToExecute";
+
+	private static String ADMIN_USER_NAME = "admin_userName";
+
 	private static String PARTNER_URL_SUFFIX = "partnerUrlSuffix";
-	
+
 	private static String partnerUrlSuffix;
-	
+
 	private static String toSkippedList;
+	private static String toExecuteList;
 	private static String userAdminName;
 
 	private static String pms_client_secret;
@@ -133,8 +139,6 @@ public class ConfigManager {
 	private static String pms_client_id;
 	private static String pms_app_id;
 	private static String partner_client_id;
-
-
 
 	private static String resident_client_secret;
 	private static String resident_client_id;
@@ -154,7 +158,7 @@ public class ConfigManager {
 	private static String regproc_client_secret;
 	private static String regproc_client_id;
 	private static String regproc_app_id;
-	
+
 	private static String regprocessor_client_secret;
 	private static String regprocessor_client_id;
 	private static String regprocessor_app_id;
@@ -183,7 +187,7 @@ public class ConfigManager {
 	private static String usePreConfiguredOtp;
 	private static String preconfiguredOtp;
 	private static String eSignetbaseurl;
-	
+
 	private static String dbPort;
 	private static String dbDomain;
 	private static String hibernateConnectionDriverClass;
@@ -247,7 +251,7 @@ public class ConfigManager {
 		partner_client_secret = getValueForKey(MOSIP_PARTNER_CLIENT_SECRET);
 		pms_client_id = getValueForKey(MOSIP_PMS_CLIENT_ID);
 		partner_client_id = getValueForKey(MOSIP_PARTNER_CLIENT_ID);
-		
+
 		pms_app_id = getValueForKey(MOSIP_PMS_APP_ID);
 		resident_client_secret = getValueForKey(MOSIP_RESIDENT_CLIENT_SECRET);
 		resident_client_id = getValueForKey(MOSIP_RESIDENT_CLIENT_ID);
@@ -260,15 +264,15 @@ public class ConfigManager {
 		admin_client_secret = getValueForKey(MOSIP_ADMIN_CLIENT_SECRET);
 		admin_client_id = getValueForKey(MOSIP_ADMIN_CLIENT_ID);
 		admin_app_id = getValueForKey(MOSIP_ADMIN_APP_ID);
-		
+
 		regproc_client_secret = getValueForKey(MOSIP_REG_CLIENT_SECRET);
 		regproc_client_id = getValueForKey(MOSIP_REG_CLIENT_ID);
 		regproc_app_id = getValueForKey(MOSIP_REGCLIENT_APP_ID);
-		
+
 		regprocessor_client_secret = getValueForKey(MOSIP_REGPROC_CLIENT_SECRET);
 		regprocessor_client_id = getValueForKey(MOSIP_REGPROC_CLIENT_ID);
 		regprocessor_app_id = getValueForKey(MOSIP_REGPROC_APP_ID);
-		
+
 		ida_client_secret = getValueForKey(MOSIP_IDA_CLIENT_SECRET);
 		ida_client_id = getValueForKey(MOSIP_IDA_CLIENT_ID);
 		ida_app_id = getValueForKey(MOSIP_IDA_APP_ID);
@@ -374,12 +378,17 @@ public class ConfigManager {
 				: System.getenv(PRECONFIGOTP);
 		propsKernel.setProperty(PRECONFIGOTP, preconfiguredOtp);
 
+		useExternalScenario_sheet = System.getenv(USE_EXTERNAL_SCENARIO_SHEET) == null
+				? propsKernel.getProperty(USE_EXTERNAL_SCENARIO_SHEET)
+				: System.getenv(USE_EXTERNAL_SCENARIO_SHEET);
+		propsKernel.setProperty(USE_EXTERNAL_SCENARIO_SHEET, useExternalScenario_sheet);
+
 		esignet_deployed = System.getenv(ESIGNET_DEPLOYED) == null ? propsKernel.getProperty(ESIGNET_DEPLOYED)
 				: System.getenv(ESIGNET_DEPLOYED);
 		propsKernel.setProperty(ESIGNET_DEPLOYED, esignet_deployed);
-		
+
 		if (System.getenv(ESIGNET_BASE_URL) != null) {
-			eSignetbaseurl =System.getenv(ESIGNET_BASE_URL);
+			eSignetbaseurl = System.getenv(ESIGNET_BASE_URL);
 		} else {
 			eSignetbaseurl = System.getProperty("env.endpoint").replace("-internal", "");
 		}
@@ -389,13 +398,17 @@ public class ConfigManager {
 				? propsKernel.getProperty(SCENARIOS_TO_BE_SKIPPED)
 				: System.getenv(SCENARIOS_TO_BE_SKIPPED);
 		propsKernel.setProperty(SCENARIOS_TO_BE_SKIPPED, toSkippedList);
-		
+
+		toExecuteList = System.getenv(SCENARIOS_TO_BE_EXECUTED) == null
+				? propsKernel.getProperty(SCENARIOS_TO_BE_EXECUTED)
+				: System.getenv(SCENARIOS_TO_BE_EXECUTED);
+		propsKernel.setProperty(SCENARIOS_TO_BE_EXECUTED, toExecuteList);
+
 		partnerUrlSuffix = System.getenv(PARTNER_URL_SUFFIX) == null ? propsKernel.getProperty(PARTNER_URL_SUFFIX)
 				: System.getenv(PARTNER_URL_SUFFIX);
 		propsKernel.setProperty(PARTNER_URL_SUFFIX, partnerUrlSuffix);
-		
-		userAdminName = System.getenv(ADMIN_USER_NAME) == null
-				? propsKernel.getProperty(ADMIN_USER_NAME)
+
+		userAdminName = System.getenv(ADMIN_USER_NAME) == null ? propsKernel.getProperty(ADMIN_USER_NAME)
 				: System.getenv(ADMIN_USER_NAME);
 		propsKernel.setProperty(ADMIN_USER_NAME, userAdminName);
 	}
@@ -404,7 +417,8 @@ public class ConfigManager {
 		synchronized (toSkippedList) {
 			List<String> toBeSkippedLsit = Arrays.asList(toSkippedList.split(","));
 			if (ConfigManager.IsDebugEnabled())
-				LOGGER.info("toSkippedList:  " + toSkippedList + ", toBeSkippedLsit : "+ toBeSkippedLsit + ", stringToFind : "+ stringToFind );
+				LOGGER.info("toSkippedList:  " + toSkippedList + ", toBeSkippedLsit : " + toBeSkippedLsit
+						+ ", stringToFind : " + stringToFind);
 			for (String string : toBeSkippedLsit) {
 				if (string.equalsIgnoreCase(stringToFind))
 					return true;
@@ -412,12 +426,30 @@ public class ConfigManager {
 		}
 		return false;
 	}
-	
+
+	public static boolean isInTobeExecuteList(String stringToFind) {
+		synchronized (toExecuteList) {
+			// If there are no specific execution list is provided , execute all scenarios
+			if (toExecuteList != null && toExecuteList.isEmpty())
+				return true;
+
+			List<String> toBeExecuteList = Arrays.asList(toExecuteList.split(","));
+			if (ConfigManager.IsDebugEnabled())
+				LOGGER.info("toExecuteList:  " + toExecuteList + ", toBeExecuteList : " + toBeExecuteList
+						+ ", stringToFind : " + stringToFind);
+			for (String string : toBeExecuteList) {
+				if (string.trim().equalsIgnoreCase(stringToFind))
+					return true;
+			}
+		}
+		return false;
+	}
+
 	public static String getUserAdminName() {
 		return userAdminName;
 
 	}
-	
+
 	public static String getPartnerUrlSuffix() {
 		return partnerUrlSuffix;
 	}
@@ -425,7 +457,11 @@ public class ConfigManager {
 	public static Boolean IseSignetDeployed() {
 		return esignet_deployed.equalsIgnoreCase("yes");
 	}
-	
+
+	public static Boolean useExternalScenarioSheet() {
+		return useExternalScenario_sheet.equalsIgnoreCase("yes");
+	}
+
 	public static Boolean IsDebugEnabled() {
 		return enableDebug.equalsIgnoreCase("yes");
 	}
@@ -447,11 +483,12 @@ public class ConfigManager {
 		return Integer.parseInt(langselect);
 
 	}
-	
+
 	public static String getEsignetBaseUrl() {
 		return eSignetbaseurl;
 
 	}
+
 	public static String getUsePreConfiguredOtp() {
 		return usePreConfiguredOtp;
 
@@ -497,8 +534,7 @@ public class ConfigManager {
 	public static String getPmsClientSecret() {
 		return pms_client_secret;
 	}
-	
-	
+
 	public static String getPartnerClientSecret() {
 		return partner_client_secret;
 	}
@@ -506,8 +542,7 @@ public class ConfigManager {
 	public static String getPmsClientId() {
 		return pms_client_id;
 	}
-	
-	
+
 	public static String getPartnerClientId() {
 		return partner_client_id;
 	}
@@ -571,9 +606,9 @@ public class ConfigManager {
 	public static String getRegprocAppId() {
 		return regproc_app_id;
 	}
-	
+
 	public static String getRegprocessorClientSecret() {
-		return  regprocessor_client_secret;
+		return regprocessor_client_secret;
 	}
 
 	public static String getRegprocessorClientId() {
