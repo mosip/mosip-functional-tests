@@ -105,11 +105,13 @@ public class MosipTestRunner {
 			}
 
 			if (BaseTestCase.listOfModules.contains(GlobalConstants.MASTERDATA)) {
+				AdminTestUtil.getHierarchyZoneCode();
 				BaseTestCase.mapUserToZone();
 				BaseTestCase.mapZone();
 				AdminTestUtil.getLocationLevelData();
 				AdminTestUtil.getLocationData();
 				AdminTestUtil.getZoneName();
+				
 				
 
 				for (int i = 0; i < localLanguageList.size(); i++) {
