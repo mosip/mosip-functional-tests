@@ -578,3 +578,81 @@ definePolicy:
     }
   ]
 }'
+   Partner_DefinePolicy_when_authTokenType_null:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+	"desc": "desc mosip policy9",
+	"name": "mosip policy9",
+	"authSubType": "FINGER",
+	"authType": "bio",
+	"mandatory": true,
+	"attributeName": "string",
+	"authTokenType": "",
+	"policyGroupName": "mosip policy group",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001"
+    }
+  ]
+}'
+   Partner_DefinePolicy_when_authTokenType_invalid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+	"desc": "desc mosip policy9",
+	"name": "mosip policy9",
+	"authSubType": "FINGER",
+	"authType": "bio",
+	"mandatory": true,
+	"attributeName": "string",
+	"authTokenType": "162g@fsgs",
+	"policyGroupName": "mosip policy group",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001"
+    }
+  ]
+}'
+   Partner_DefinePolicy_when_authTokenType_missing:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+	"desc": "desc mosip policy9",
+	"name": "mosip policy9",
+	"authSubType": "FINGER",
+	"authType": "bio",
+	"mandatory": true,
+	"attributeName": "string",
+	"authTokenType": "$REMOVE$",
+	"policyGroupName": "mosip policy group",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PMS_COR_001"
+    }
+  ]
+}'
