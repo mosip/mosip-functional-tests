@@ -198,7 +198,7 @@ SearchRegCenterType:
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/SearchRegCenterType/searchRegCenterType
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/NilSearchResult
       input: '{
     "filters": [{
         "columnName": "name",
@@ -219,12 +219,9 @@ SearchRegCenterType:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "KER-MSD-390",
-      "message": "$IGNORE$"
-    }
-  ]
+    "fromRecord": "0",
+    "toRecord": "0",
+    "totalRecord": "0"
 }'
    MasterData_SearchRegCenterType_inValid_filter_value_blank:
       endPoint: /v1/masterdata/registrationcentertypes/search

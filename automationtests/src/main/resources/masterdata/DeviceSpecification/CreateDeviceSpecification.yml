@@ -23,7 +23,7 @@ CreateDeviceSpecification:
       "id": "$IGNORE$"
       }'
       
-   MasterData_CreateDeviceSpecification_Dublicate_DeviceSpecification_Neg:
+   MasterData_CreateDeviceSpecification_Duplicate_DeviceSpecification_Neg:
       endPoint: /v1/masterdata/devicespecifications
       role: admin
       templateFields: ["name","description"]
