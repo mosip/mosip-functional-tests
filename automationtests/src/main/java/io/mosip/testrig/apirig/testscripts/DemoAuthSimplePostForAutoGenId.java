@@ -42,6 +42,7 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 	protected String testCaseName = "";
 	public String idKeyName = null;
 	public Response response = null;
+	String url="";
 	
 	@BeforeClass
 	public static void setLogLevel() {
@@ -169,7 +170,14 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 						throw new AdminTestException("Failed at output validation");
 			}
 		} else {
-			String url = ConfigManager.getAuthDemoServiceUrl();
+			if(testCaseName.contains("partnerDemoDown")){
+				
+				 url = ConfigManager.getAuthDemoServiceUrl()+"local";
+			}
+			else {
+				 url = ConfigManager.getAuthDemoServiceUrl();
+			}
+			
 			response = postWithBodyAndCookie(url + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,
 					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 			String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());

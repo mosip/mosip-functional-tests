@@ -3,8 +3,16 @@ package io.mosip.testrig.apirig.testscripts;
 import static io.mosip.testrig.apirig.service.BaseTestCase.getRequestJson;
 
 import java.lang.reflect.Field;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
+import org.testng.Assert;
+
+import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -23,6 +31,9 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestException;
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.admin.fw.util.TestCaseDTO;
@@ -30,6 +41,7 @@ import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestException;
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
+import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
 import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.ida.certificate.PartnerRegistration;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
@@ -41,8 +53,9 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(BioAuth.class);
 	protected String testCaseName = "";
 	public Response response = null;
+	public Response newResponse = null;
 	public boolean isInternal = false;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -71,7 +84,6 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -85,6 +97,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
+		String[] kycFields = testCaseDTO.getKycFields();
+
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
@@ -94,35 +108,41 @@ public class BioAuth extends AdminTestUtil implements ITest {
 				throw new SkipException("Idtype UIN is not supported. Hence skipping the testcase");
 			}
 		}
-		
+
 		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
 			}
 		}
-			
+
 		if (testCaseDTO.getEndPoint().contains("$PartnerKeyURL$")) {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
-		
+
 		if (testCaseDTO.getEndPoint().contains("$KycPartnerKeyURL$")) {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$KycPartnerKeyURL$", PartnerRegistration.ekycPartnerKeyUrl));
 		}
-		
+
 		if (testCaseDTO.getEndPoint().contains("$PartnerName$")) {
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerName$", PartnerRegistration.partnerId));
 		}
-		
+
 		if (testCaseDTO.getEndPoint().contains("$KycPartnerName$")) {
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$KycPartnerName$", PartnerRegistration.ekycPartnerId));
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$KycPartnerName$", PartnerRegistration.ekycPartnerId));
 		}
 		String request = testCaseDTO.getInput();
 		request = buildIdentityRequest(request);
 
 		String inputJSON = getJsonFromTemplate(request, testCaseDTO.getInputTemplate());
+		String resolvedUri = null;
+		String individualId = null;
+		resolvedUri = uriKeyWordHandelerUri(testCaseDTO.getEndPoint(), testCaseName);
+
+		individualId = AdminTestUtil.getValueFromUrl(resolvedUri, "id");
 
 		String url = ConfigManager.getAuthDemoServiceUrl();
 
@@ -170,19 +190,75 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			JSONObject resJsonObject = new JSONObject(response.asString());
 			String res = "";
 			try {
-				//res = resJsonObject.get("response").toString();
+				// res = resJsonObject.get("response").toString();
 				resJsonObject = new JSONObject(response.getBody().asString()).getJSONObject("authResponse")
 						.getJSONObject("body").getJSONObject("response");
+
+				res = AdminTestUtil.ekycDataDecryption(url, resJsonObject, PartnerRegistration.ekycPartnerId, true);
+
+				JSONObject jsonObjectkycRes = new JSONObject(res);
+				JSONObject jsonObjectFromKycData = new JSONObject();
+				JSONObject jsonObjectFromIdentityData = new JSONObject();
+				//List<String> myList =new ArrayList<>();
 				
-				res= AdminTestUtil.ekycDataDecryption( url, resJsonObject, PartnerRegistration.ekycPartnerId,
-						true);
+				ArrayList<String> names = new ArrayList<>();
+				ArrayList<String> names2 = new ArrayList<>();
 				
+				for (int i = 0; i < kycFields.length; i++) {
+					for (String key : jsonObjectkycRes.keySet()) {
+			            if (key.contains(kycFields[i])) {
+			            	names.add(key);//dob gender_eng
+			            	names2.add(kycFields[i]);//dob gender
+			            	jsonObjectFromKycData.append(key, jsonObjectkycRes.getString(key));
+			            	break;
+			            }
+				}
+					
+				}
+
+				newResponse = RestClient.getRequestWithCookie(
+						ApplnURI + props.getProperty("retrieveIdByUin") + individualId, MediaType.APPLICATION_JSON,
+						MediaType.APPLICATION_JSON, COOKIENAME, kernelAuthLib.getTokenByRole("idrepo"),
+						IDTOKENCOOKIENAME, null);
+
+				GlobalMethods.reportResponse(newResponse.getHeaders().asList().toString(), url, newResponse);
+
+				JSONObject responseBody = new JSONObject(newResponse.getBody().asString()).getJSONObject("response")
+						.getJSONObject("identity");
+
+				
+				/*
+				 * for (int i = 0; i < kycFields.length; i++) { String mappingField =
+				 * getValueFromAuthActuator("json-property", kycFields[i]); mappingField =
+				 * mappingField.replaceAll("\\[\"|\"\\]", "");
+				 * jsonObjectFromIdentityData.append(kycFields[i],
+				 * responseBody.getString(mappingField)); }
+				 */
+				 
+				
+				//ListIterator<String> listIterator = myList.listIterator();
+				//while (listIterator.hasNext()) {
+				
+				
+				for(int j=0;j<names2.size();j++) {
+					
+				    String mappingField = getValueFromAuthActuator("json-property",names2.get(j));
+					mappingField = mappingField.replaceAll("\\[\"|\"\\]", "");
+					jsonObjectFromIdentityData.append(names.get(j), responseBody.getString(mappingField));
+				}
+
+				ouputValid = OutputValidationUtil.doJsonOutputValidation(jsonObjectFromIdentityData.toString(),
+						jsonObjectFromKycData.toString(), testCaseDTO.isCheckErrorsOnlyInResponse());
+				Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
+
+				if (!OutputValidationUtil.publishOutputResult(ouputValid))
+					throw new AdminTestException("Failed at output validation");
+
 			} catch (JSONException e) {
 				logger.error(e.getMessage());
 			}
+
 		}
-
-
 	}
 
 	/**

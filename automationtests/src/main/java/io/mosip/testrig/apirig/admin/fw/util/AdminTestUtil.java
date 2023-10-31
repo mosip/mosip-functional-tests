@@ -17,6 +17,8 @@ import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.math.BigInteger;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -5799,7 +5801,40 @@ public class AdminTestUtil extends BaseTestCase {
 				MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
 		GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
-		return response.toString();
+		return response.getBody().asString();
 	}
+	
+	public static String getValueFromUrl(String url,String dataToFetch) {
+		String idValue="";
+		try {
+			URI uri = new URI(url);
+			Map<String, String> queryParams = new HashMap<>();
+	        String query = uri.getQuery();
+	        if (query != null) {
+	        	String[] pairs = query.split("&");
+	        	for (String pair : pairs) {
+	        		String[] param = pair.split("=");
+	                String key = param[0];
+	                String value = param.length > 1 ? param[1] : "";
+	                queryParams.put(key, value);
+	        	}
+	                
+	        }
+	         idValue = queryParams.get("id");
+	        if (idValue != null) {
+	            System.out.println("Value of 'id' parameter: " + idValue);
+	        } else {
+	            System.out.println("'id' parameter not found in the URL.");
+	        }   
+	            
+		} catch (URISyntaxException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return idValue;
+		
+	}
+	
+	
 
 }
