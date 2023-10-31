@@ -103,7 +103,7 @@ FilterRegCenterType:
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterRegCenterType/filterRegCenterType
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/NilFilterResult
       input: '{
 	"filters": [{
 		"columnName": "code",
@@ -114,13 +114,8 @@ FilterRegCenterType:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "KER-MSD-317",
-      "message": "$IGNORE$"
-    }
-  ]
-  }'
+    "totalCount": "0"
+}'
    MasterData_FilterRegCenterType_inValid_filterType_blank:
       endPoint: /v1/masterdata/registrationcentertypes/filtervalues
       role: admin

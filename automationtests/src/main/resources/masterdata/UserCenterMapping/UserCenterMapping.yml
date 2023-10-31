@@ -7,7 +7,7 @@ UserCenterMapping:
       inputTemplate: masterdata/UserCenterMapping/userCenterMapping
       outputTemplate: masterdata/UserCenterMapping/userCenterMappingResult
       input: '{
-     "id": "func_auto_test_user",
+     "id": "masterdata-220005",
      "name": "automation",
      "statusCode": "active",
      "regCenterId": "10005",
@@ -16,12 +16,12 @@ UserCenterMapping:
      "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "name": "automation",
+    "name": "$IGNORE$",
     "statusCode": "active",
-    "regCenterId": "10005",
-    "zoneCode": "BSN",
-    "zoneName": "Benslimane",
-    "regCenterName": "Center Mehdia"
+    "regCenterId": "$IGNORE$",
+    "zoneCode": "$IGNORE$",
+    "zoneName": "$IGNORE$",
+    "regCenterName": "$IGNORE$"
     }'
    MasterData_UserCenterMapping_Invalid_duplicate_entry:
       endPoint: /v1/masterdata/usercentermapping

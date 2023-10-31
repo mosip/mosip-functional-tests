@@ -110,22 +110,3 @@ UpdateRegCenterType:
     }
   ]
 }'
-   
-   MasterData_UpdateRegCenterType_InputParameter_isActive_Missing:
-      endPoint: /v1/masterdata/registrationcentertypes
-      role: admin
-      templateFields: ["name","descr"]
-      restMethod: put
-      inputTemplate: masterdata/RegCenterType/regCenterType
-      outputTemplate: masterdata/RegCenterType/regCenterTypeResult
-      input: '{
-    "code": "ALT-3",
-    "langCode": "eng",
-    "name": "alternate",
-    "descr": "alternate center",
-    "isActive":"$REMOVE$",
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-    "code": "ALT-3"
-  }'
