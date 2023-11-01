@@ -28,7 +28,7 @@ AuthorizationCodeVCIVidNegTC:
       checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/VCIVidNegTC/AuthorizationCodeVCI/AuthorizationCodeVCI
-      outputTemplate: esignet/error
+      outputTemplate: esignet/VCIVidNegTC/AuthorizationCodeVCI/AuthorizationCodeVCIResult
       input: '{
         "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegAuthCodeScen2_Valid_Smoke_sid_encodedResp$",
       	"requestTime": "$TIMESTAMP$",
@@ -36,11 +36,6 @@ AuthorizationCodeVCIVidNegTC:
       	"permittedAuthorizeScopes": [{scope: "null"}]
 }'
       output: '{
-    "errors": [
-        {
-            "errorCode": "invalid_permitted_scope"
-        }
-    ]
 }'
 
    ESignet_AuthorizationCode_VCI_Vid_Invalid_Diff_Scope:

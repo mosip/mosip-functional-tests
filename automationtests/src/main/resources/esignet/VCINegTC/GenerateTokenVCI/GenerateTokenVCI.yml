@@ -76,7 +76,7 @@ GenerateTokenVCINegTC:
   		  "code_verifier": "null"
 }'
       output: '{
-           "error": "invalid_pkce_code_verifier"
+           "error": "pkce_failed"
 }'
 
    ESignet_GenerateTokenVCI_uin_NegTokenScen3_NoHash_code_verifier:
