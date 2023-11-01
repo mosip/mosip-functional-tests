@@ -211,7 +211,7 @@ OAuthDetailsRequestVCINegTC:
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: esignet/VCINegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCI
-      outputTemplate: esignet/error
+      outputTemplate: esignet/VCINegTC/OAuthDetailsRequestVCI/OAuthDetailsRequestVCIResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"clientId": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
@@ -228,11 +228,6 @@ OAuthDetailsRequestVCINegTC:
         "codeChallengeMethod": "S256"
 }'
       output: '{
-    "errors": [
-        {
-            "errorCode": "invalid_pkce_challenge"
-        }
-    ]
 }'
 
    ESignet_OAuthDetailsRequest_VCI_uin_SpaceVal_Code_Challenge_Neg:
