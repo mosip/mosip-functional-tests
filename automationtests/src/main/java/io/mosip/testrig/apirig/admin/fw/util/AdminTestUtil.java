@@ -5632,26 +5632,48 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response response = null;
 		JSONObject responseJson = null;
-		String url = ApplnURI + props.getProperty("fetchLocationLevel") + BaseTestCase.getLanguageList().get(0);
+		String url = ApplnURI + props.getProperty("fetchLocationHierarchyLevels") + BaseTestCase.getLanguageList().get(0);
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+		String topLevelName = null;
+		String url2 = "";
+		
+		Response responseLocationHierarchy = null;
+		JSONObject responseJsonLocationHierarchy = null;
 
 		try {
 
 			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 					GlobalConstants.AUTHORIZATION, token);
 
-			responseJson = new JSONObject(response.getBody().asString());
+			JSONObject jsonObject = new JSONObject(response.getBody().asString());
+			JSONArray locationHierarchyLevels = jsonObject.getJSONObject("response")
+					.getJSONArray("locationHierarchyLevels");
 
-			try {
-				JSONObject responseObject = responseJson.getJSONObject("response");
-				JSONArray data = responseObject.getJSONArray("locations");
+			int topLevel = -1;
 
-				JSONObject entry = data.getJSONObject(0);
-				locationCode = entry.getString("code");
-
-			} catch (Exception e) {
-				logger.error(e.getMessage());
+			for (int i = 0; i < locationHierarchyLevels.length(); i++) {
+				JSONObject hierarchy = locationHierarchyLevels.getJSONObject(i);
+				int hierarchyLevel = hierarchy.getInt("hierarchyLevel");
+				if (hierarchyLevel > topLevel) {
+					topLevel = hierarchyLevel;
+					topLevelName = hierarchy.getString("hierarchyLevelName");
+				}
 			}
+
+			url2 = ApplnURI + props.getProperty("fetchLocationHierarchy") + topLevelName;
+			responseLocationHierarchy = RestClient.getRequestWithCookie(url2, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+			
+			JSONObject locationJsonObject = new JSONObject(responseLocationHierarchy.getBody().asString());
+            JSONArray locations = locationJsonObject.getJSONObject("response").getJSONArray("locations");
+
+            if (locations.length() > 0) {
+                JSONObject firstLocation = locations.getJSONObject(0);
+                locationCode = firstLocation.getString("code");
+                System.out.println("First Location Code: " + locationCode);
+            } else {
+                System.out.println("No locations found in the response.");
+            }
 
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
