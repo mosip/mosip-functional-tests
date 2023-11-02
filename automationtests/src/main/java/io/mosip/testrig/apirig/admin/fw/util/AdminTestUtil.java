@@ -234,6 +234,8 @@ public class AdminTestUtil extends BaseTestCase {
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
 	public static final int OTP_CHECK_INTERVAL = 10000;
+	
+	private static final Map<String, String> actuatorValueCache = new HashMap<>();
 
 	protected static boolean triggerESignetKeyGen1 = true;
 
@@ -5270,7 +5272,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String getValueFromActuator(String section, String key) {
 		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
-		String value = null;
+		String actuatorCacheKey = url + section + key;
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null && !value.isEmpty())
+			return value;
+		
 		try {
 			if (residentActuatorResponseArray == null) {
 				Response response = null;
@@ -5290,6 +5296,7 @@ public class AdminTestUtil extends BaseTestCase {
 					break;
 				}
 			}
+			actuatorValueCache.put(actuatorCacheKey, value);
 
 			return value;
 		} catch (Exception e) {
@@ -5302,8 +5309,12 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray esignetActuatorResponseArray = null;
 
 	public static String getValueFromEsignetActuator(String section, String key) {
-		String value = null;
 		String url = ConfigManager.getEsignetBaseUrl() + propsKernel.getProperty("actuatorEsignetEndpoint");
+		String actuatorCacheKey = url + section + key;
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null && !value.isEmpty())
+			return value;
+		
 		try {
 			if (esignetActuatorResponseArray == null) {
 				Response response = null;
@@ -5323,7 +5334,8 @@ public class AdminTestUtil extends BaseTestCase {
 					break;
 				}
 			}
-
+			actuatorValueCache.put(actuatorCacheKey, value);
+			
 			return value;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
@@ -5336,7 +5348,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String getValueFromAuthActuator(String section, String key) {
 		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
-		String value = null;
+		String actuatorCacheKey = url + section + key;
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null && !value.isEmpty())
+			return value;
 		try {
 			if (authActuatorResponseArray == null) {
 				Response response = null;
@@ -5357,6 +5372,7 @@ public class AdminTestUtil extends BaseTestCase {
 					break;
 				}
 			}
+			actuatorValueCache.put(actuatorCacheKey, value);
 
 			return value;
 		} catch (Exception e) {
@@ -5371,7 +5387,14 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String getValueFromConfigActuator() {
 
 		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
-		String claims = null;
+
+		String actuatorCacheKey = url + "mosip.iam.module.login_flow.claims";
+
+		String claims = actuatorValueCache.get(actuatorCacheKey);
+
+		if (claims != null && !claims.isEmpty())
+			return claims;
+
 		try {
 			if (configActuatorResponseArray == null) {
 				Response response = null;
@@ -5394,6 +5417,8 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 
+			actuatorValueCache.put(actuatorCacheKey, claims);
+
 			return claims;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
@@ -5406,7 +5431,12 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String getRegprocWaitFromActuator() {
 		String url = ApplnURI + propsKernel.getProperty("actuatorRegprocEndpoint");
-		String waitInterval = null;
+		
+		String actuatorCacheKey = url + "registration.processor.reprocess.minutes";
+		String waitInterval = actuatorValueCache.get(actuatorCacheKey);
+		if (waitInterval != null && !waitInterval.isEmpty())
+			return waitInterval;
+		
 		try {
 			if (regProcActuatorResponseArray == null) {
 				Response response = null;
@@ -5427,6 +5457,8 @@ public class AdminTestUtil extends BaseTestCase {
 					break;
 				}
 			}
+			
+			actuatorValueCache.put(actuatorCacheKey, waitInterval);
 
 			return waitInterval;
 		} catch (Exception e) {
