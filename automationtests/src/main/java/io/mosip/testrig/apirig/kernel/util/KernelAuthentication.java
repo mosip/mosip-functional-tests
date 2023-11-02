@@ -12,6 +12,7 @@ import org.json.simple.JSONObject;
 import com.nimbusds.jose.util.StandardCharset;
 
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
+import io.mosip.testrig.apirig.admin.fw.util.CertsUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.ida.certificate.PartnerRegistration;
 import io.mosip.testrig.apirig.kernel.service.ApplicationLibrary;
@@ -64,10 +65,14 @@ public class KernelAuthentication extends BaseTestCase {
 	private String authInternalRequest = "config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp = props.get("preregSendOtp");
 	private String preregValidateOtp = props.get("preregValidateOtp");
-	private static File ESignetUINCookiesFile = new File(
-			AdminTestUtil.getResourcePath() + "ESignetUINCookiesResponse.txt");
-	private static File ESignetVIDCookiesFile = new File(
-			AdminTestUtil.getResourcePath() + "ESignetVIDCookiesResponse.txt");
+	
+	protected static final String ESIGNETUINCOOKIESRESPONSE = "ESignetUINCookiesResponse";
+	protected static final String ESIGNETVIDCOOKIESRESPONSE = "ESignetVIDCookiesResponse";
+	
+//	private static File ESignetUINCookiesFile = new File(
+//			AdminTestUtil.getResourcePath() + "ESignetUINCookiesResponse.txt");
+//	private static File ESignetVIDCookiesFile = new File(
+//			AdminTestUtil.getResourcePath() + "ESignetVIDCookiesResponse.txt");
 
 	public String getTokenByRole(String role) {
 		return getTokenByRole(role, null);
@@ -159,11 +164,11 @@ public class KernelAuthentication extends BaseTestCase {
 			return residentCookie;
 		case "residentnew":
 			if (!kernelCmnLib.isValidToken(residentNewCookie.get(tokenType)))
-				residentNewCookie = getAuthFromEsignet(ESignetUINCookiesFile);
+				residentNewCookie = getAuthFromEsignet(ESIGNETUINCOOKIESRESPONSE);
 			return residentNewCookie.get(tokenType);
 		case "residentnewvid":
 			if (!kernelCmnLib.isValidToken(residentNewVidCookie.get(tokenType)))
-				residentNewVidCookie = getAuthFromEsignet(ESignetVIDCookiesFile);
+				residentNewVidCookie = getAuthFromEsignet(ESIGNETVIDCOOKIESRESPONSE);
 			return residentNewVidCookie.get(tokenType);
 		case "residentnewKc":
 			if (!kernelCmnLib.isValidToken(residentNewCookieKc))
@@ -201,21 +206,13 @@ public class KernelAuthentication extends BaseTestCase {
 	}
 
 	@SuppressWarnings("unchecked")
-	public HashMap<String, String> getAuthFromEsignet(File fileName) {
+	public HashMap<String, String> getAuthFromEsignet(String keyName) {
 		HashMap<String, String> tokens = new HashMap<>();
-		if (fileName.exists()) {
-			String ESignetCookiesFileString = null;
-			try {
-				ESignetCookiesFileString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
-			} catch (IOException e) {
-				logger.error(e.getMessage());
-			}
-			org.json.JSONObject jsonCookies = new org.json.JSONObject(ESignetCookiesFileString);
-			tokens.put(GlobalConstants.ACCESSTOKEN, jsonCookies.get(GlobalConstants.ACCESSTOKEN).toString());
-			tokens.put("id_token", jsonCookies.get("id_token").toString());
-		} else {
-			logger.error("ESignetCookiesFile File not Found in location:" + fileName.getAbsolutePath());
-		}
+		
+		org.json.JSONObject jsonCookies = new org.json.JSONObject(CertsUtil.getCertificate(keyName));
+		tokens.put(GlobalConstants.ACCESSTOKEN, jsonCookies.get(GlobalConstants.ACCESSTOKEN).toString());
+		tokens.put("id_token", jsonCookies.get("id_token").toString());
+		
 		return tokens;
 	}
 

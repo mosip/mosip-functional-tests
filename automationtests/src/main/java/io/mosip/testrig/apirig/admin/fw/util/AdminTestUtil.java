@@ -200,33 +200,34 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static Map<String, String> keycloakRolesMap = new HashMap<>();
 	protected static Map<String, String> keycloakUsersMap = new HashMap<>();
 	protected static RSAKey oidcJWKKey1 = null;
-	protected static File oidcJWK1 = new File(getResourcePath() + "oidcJWK1.txt");
-	protected static File oidcJWK2 = new File(getResourcePath() + "oidcJWK2.txt");
-	protected static File bindingJWK1 = new File(getResourcePath() + "bindingJWK1.txt");
-	protected static File bindingJWKVid = new File(getResourcePath() + "bindingJWKVid.txt");
-	protected static File bindingConsentJWK = new File(getResourcePath() + "bindingConsentJWK.txt");
-	protected static File bindingConsentJWKVid = new File(getResourcePath() + "bindingConsentJWKVid.txt");
-	protected static File bindingConsentSameClaimJWK = new File(getResourcePath() + "bindingConsentSameClaimJWK.txt");
-	protected static File bindingConsentVidSameClaimJWK = new File(
-			getResourcePath() + "bindingConsentVidSameClaimJWK.txt");
-	protected static File bindingConsentEmptyClaimJWK = new File(getResourcePath() + "bindingConsentEmptyClaimJWK.txt");
-	protected static File clientPrivateKey = new File(getResourcePath() + "clientPrivateKey.txt");
+	
+	protected static final String OIDCJWK1 = "oidcJWK1";
+	protected static final String OIDCJWK2 = "oidcJWK2";
+	protected static final String BINDINGJWK1 = "bindingJWK1";
+	protected static final String BINDINGJWKVID = "bindingJWKVid";
+	protected static final String BINDINGCONSENTJWK = "bindingConsentJWK";
+	protected static final String BINDINGCONSENTJWKVID = "bindingConsentJWKVid";
+	protected static final String BINDINGCONSENTSAMECLAIMJWK = "bindingConsentSameClaimJWK";
+	protected static final String BINDINGCONSENTVIDSAMECLAIMJWK = "bindingConsentVidSameClaimJWK";
+	protected static final String BINDINGCONSENTEMPTYCLAIMJWK = "bindingConsentEmptyClaimJWK";
 	public static final String XSRF_HEADERNAME = "X-XSRF-TOKEN";
 	public static final String OAUTH_HASH_HEADERNAME = "oauth-details-hash";
 	public static final String OAUTH_TRANSID_HEADERNAME = "oauth-details-key";
 	protected static String encryptedSessionKeyString;
-	private static File eSignetUINCookiesFile = new File(getResourcePath() + "ESignetUINCookiesResponse.txt");
-	private static File eSignetVIDCookiesFile = new File(getResourcePath() + "ESignetVIDCookiesResponse.txt");
-	private static File bindingCertFile = new File(getResourcePath() + "BINDINGCERTFile.txt");
-	private static File bindingCertFileVid = new File(getResourcePath() + "BINDINGCERTFileVid.txt");
-	private static File bindingCertConsentFile = new File(getResourcePath() + "BINDINGCERTCONSENTFile.txt");
-	private static File bindingCertConsentVidFile = new File(getResourcePath() + "BINDINGCERTCONSENTVidFile.txt");
-	private static File bindingCertConsentSameClaimFile = new File(
-			getResourcePath() + "BINDINGCERTCONSENTSAMECLAIMFile.txt");
-	private static File bindingCertConsentVidSameClaimFile = new File(
-			getResourcePath() + "BINDINGCERTCONSENTVIDSAMECLAIMFile.txt");
-	private static File bindingCertConsentEmptyClaimFile = new File(
-			getResourcePath() + "BINDINGCERTCONSENTEMPTYCLAIMFile.txt");
+	
+	protected static final String ESIGNETUINCOOKIESRESPONSE = "ESignetUINCookiesResponse";
+	protected static final String ESIGNETVIDCOOKIESRESPONSE = "ESignetVIDCookiesResponse";
+	
+//	private static File eSignetUINCookiesFile = new File(getResourcePath() + "ESignetUINCookiesResponse.txt");
+//	private static File eSignetVIDCookiesFile = new File(getResourcePath() + "ESignetVIDCookiesResponse.txt");
+	
+	public static final String BINDINGCERTFILE = "BINDINGCERTFile";
+	public static final String BINDINGCERTFILEVID = "BINDINGCERTFileVid";
+	public static final String BINDINGCERTCONSENTFILE = "BINDINGCERTCONSENTFile";
+	public static final String BINDINGCERTCONSENTVIDFILE = "BINDINGCERTCONSENTVidFile";
+	public static final String BINDINGCERTCONSENTSAMECLAIMFILE = "BINDINGCERTCONSENTSAMECLAIMFile";
+	public static final String BINDINGCERTCONSENTVIDSAMECLAIMFILE = "BINDINGCERTCONSENTVIDSAMECLAIMFile";
+	public static final String BINDINGCERTCONSENTEMPTYCLAIMFILE = "BINDINGCERTCONSENTEMPTYCLAIMFile";
 
 	private static final String UIN_CODE_VERIFIER_POS_1 = generateRandomAlphaNumericString(GlobalConstants.INTEGER_36);
 
@@ -622,7 +623,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 			if (testCaseName.toLowerCase().contains("_scert")) {
-				getFileNameToWrite(response, testCaseName);
+				cacheCertificate(response, testCaseName);
 			}
 			return response;
 		} catch (Exception e) {
@@ -631,32 +632,28 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 	}
 
-	public static void getFileNameToWrite(Response response, String testCaseName) {
-		File fileName = null;
+	public static void cacheCertificate(Response response, String testCaseName) {
+		String certsKey = null;
 		if (testCaseName.contains("Wla_uin_")) {
-			fileName = bindingCertFile;
+			certsKey = BINDINGCERTFILE;
 		} else if (testCaseName.contains("Wla_vid_")) {
-			fileName = bindingCertFileVid;
+			certsKey = BINDINGCERTFILEVID;
 		} else if (testCaseName.contains("_Consentuin_")) {
-			fileName = bindingCertConsentFile;
+			certsKey = BINDINGCERTCONSENTFILE;
 		} else if (testCaseName.contains("_ConsentVid_")) {
-			fileName = bindingCertConsentVidFile;
+			certsKey = BINDINGCERTCONSENTVIDFILE;
 		} else if (testCaseName.contains("_Consent_SameClaim_uin_")) {
-			fileName = bindingCertConsentSameClaimFile;
+			certsKey = BINDINGCERTCONSENTSAMECLAIMFILE;
 		} else if (testCaseName.contains("_Consent_SameClaim_Vid_")) {
-			fileName = bindingCertConsentVidSameClaimFile;
+			certsKey = BINDINGCERTCONSENTVIDSAMECLAIMFILE;
 		} else if (testCaseName.contains("_Consent_EmptyClaim_uin_")) {
-			fileName = bindingCertConsentEmptyClaimFile;
+			certsKey = BINDINGCERTCONSENTEMPTYCLAIMFILE;
 		}
 
 		String certificateData = new JSONObject(response.getBody().asString()).getJSONObject(GlobalConstants.RESPONSE)
 				.get("certificate").toString();
-		try {
-			FileUtils.touch(fileName);
-			FileUtils.writeStringToFile(fileName, certificateData, StandardCharset.UTF_8.name());
-		} catch (Exception e) {
-			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-		}
+		
+		CertsUtil.addCertificateToCache(certsKey, certificateData);
 	}
 
 	protected Response postRequestWithCookieAuthHeader(String url, String jsonInput, String cookieName, String role,
@@ -1067,30 +1064,24 @@ public class AdminTestUtil extends BaseTestCase {
 		Map<String, String> map = null;
 		try {
 			map = mapper.readValue(inputJson, Map.class);
-		} catch (JsonProcessingException e) {
-			logger.error(e.getMessage());
-		}
-		logger.info(GlobalConstants.POST_REQ_URL + url);
-		logger.info(inputJson);
-		GlobalMethods.reportRequest(null, inputJson);
-		try {
+			logger.info(GlobalConstants.POST_REQ_URL + url);
+			logger.info(inputJson);
+			GlobalMethods.reportRequest(null, inputJson);
 			response = RestAssured.given().contentType("application/x-www-form-urlencoded; charset=utf-8")
 					.formParams(map).when().post(url);
-			logger.info(response.getStatusCode());
-			logger.info(response.asString());
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 			if (testCaseName.contains("UIN_Cookie") || testCaseName.contains("Vid_Cookie")) {
-				File fileName = null;
+				String keyName = null;
 				if (testCaseName.contains("UIN_Cookie"))
-					fileName = eSignetUINCookiesFile;
+					keyName = ESIGNETUINCOOKIESRESPONSE;
 				else
-					fileName = eSignetVIDCookiesFile;
-				FileUtils.touch(fileName);
-				FileUtils.writeStringToFile(fileName, response.getBody().asString(), StandardCharset.UTF_8.name());
+					keyName = ESIGNETVIDCOOKIESRESPONSE;
+
+				CertsUtil.addCertificateToCache(keyName, response.getBody().asString());
 			}
 
 			return response;
@@ -3091,10 +3082,14 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGJWKKEY$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen3()) {
-				jwkKey = generateAndWriteJWKKey(bindingJWK1);
+//				jwkKey = generateAndWriteJWKKey(bindingJWK1);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGJWK1);
+				
 				settriggerESignetKeyGen3(false);
 			} else {
-				jwkKey = getJWKKey(bindingJWK1);
+//				jwkKey = getJWKKey(BINDINGJWK1);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGJWK1);
+				
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGJWKKEY$", jwkKey);
 		}
@@ -3102,10 +3097,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGJWKKEYVID$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen4()) {
-				jwkKey = generateAndWriteJWKKey(bindingJWKVid);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGJWKVID);
 				settriggerESignetKeyGen4(false);
 			} else {
-				jwkKey = getJWKKey(bindingJWKVid);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGJWKVID);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGJWKKEYVID$", jwkKey);
 		}
@@ -3113,10 +3108,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGCONSENTJWKKEY$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen5()) {
-				jwkKey = generateAndWriteJWKKey(bindingConsentJWK);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTJWK);
 				settriggerESignetKeyGen5(false);
 			} else {
-				jwkKey = getJWKKey(bindingConsentJWK);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTJWK);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTJWKKEY$", jwkKey);
 		}
@@ -3124,10 +3119,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGCONSENTJWKKEYVID$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen6()) {
-				jwkKey = generateAndWriteJWKKey(bindingConsentJWKVid);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTJWKVID);
 				settriggerESignetKeyGen6(false);
 			} else {
-				jwkKey = getJWKKey(bindingConsentJWKVid);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTJWKVID);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTJWKKEYVID$", jwkKey);
 		}
@@ -3135,10 +3130,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGCONSENTSAMECLAIMJWKKEY$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen7()) {
-				jwkKey = generateAndWriteJWKKey(bindingConsentSameClaimJWK);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTSAMECLAIMJWK);
 				settriggerESignetKeyGen7(false);
 			} else {
-				jwkKey = getJWKKey(bindingConsentSameClaimJWK);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTSAMECLAIMJWK);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTSAMECLAIMJWKKEY$", jwkKey);
 		}
@@ -3146,10 +3141,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGCONSENTSAMECLAIMVIDJWKKEY$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen8()) {
-				jwkKey = generateAndWriteJWKKey(bindingConsentVidSameClaimJWK);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTVIDSAMECLAIMJWK);
 				settriggerESignetKeyGen8(false);
 			} else {
-				jwkKey = getJWKKey(bindingConsentVidSameClaimJWK);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTVIDSAMECLAIMJWK);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTSAMECLAIMVIDJWKKEY$", jwkKey);
 		}
@@ -3157,10 +3152,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGCONSENTEMPTYCLAIMJWKKEY$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen9()) {
-				jwkKey = generateAndWriteJWKKey(bindingConsentEmptyClaimJWK);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTEMPTYCLAIMJWK);
 				settriggerESignetKeyGen9(false);
 			} else {
-				jwkKey = getJWKKey(bindingConsentEmptyClaimJWK);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTEMPTYCLAIMJWK);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTEMPTYCLAIMJWKKEY$", jwkKey);
 		}
@@ -3168,10 +3163,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$OIDCJWKKEY$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen1()) {
-				jwkKey = generateAndWriteJWKKey(oidcJWK1);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(OIDCJWK1);
 				settriggerESignetKeyGen1(false);
 			} else {
-				jwkKey = getJWKKey(oidcJWK1);
+				jwkKey = JWKKeyUtil.getJWKKey(OIDCJWK1);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$OIDCJWKKEY$", jwkKey);
 		}
@@ -3179,16 +3174,16 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$OIDCJWKKEY2$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen2()) {
-				jwkKey = generateAndWriteJWKKey(oidcJWK2);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(OIDCJWK2);
 				settriggerESignetKeyGen2(false);
 			} else {
-				jwkKey = getJWKKey(oidcJWK2);
+				jwkKey = JWKKeyUtil.getJWKKey(OIDCJWK2);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$OIDCJWKKEY2$", jwkKey);
 		}
 
 		if (jsonString.contains("$CLIENT_ASSERTION_JWK$")) {
-			String oidcJWKKeyString = getJWKKey(oidcJWK1);
+			String oidcJWKKeyString = JWKKeyUtil.getJWKKey(OIDCJWK1);
 			logger.info("oidcJWKKeyString =" + oidcJWKKeyString);
 			try {
 				oidcJWKKey1 = RSAKey.parse(oidcJWKKeyString);
@@ -3231,57 +3226,57 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$WLATOKEN$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKEN$",
-					generateWLAToken(jsonString, bindingJWK1, bindingCertFile));
+					generateWLAToken(jsonString, BINDINGJWK1, BINDINGCERTFILE));
 		}
 
 		if (jsonString.contains("$WLATOKENVID$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENVID$",
-					generateWLAToken(jsonString, bindingJWKVid, bindingCertFileVid));
+					generateWLAToken(jsonString, BINDINGJWKVID, BINDINGCERTFILEVID));
 		}
 
 		if (jsonString.contains("$WLATOKENCONSENT$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENT$",
-					generateWLAToken(jsonString, bindingConsentJWK, bindingCertConsentFile));
+					generateWLAToken(jsonString, BINDINGCONSENTJWK, BINDINGCERTCONSENTFILE));
 		}
 		
 		if (jsonString.contains("$CONSENTDETACHEDSIGNATURE$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATURE$",
-					generateDetachedSignature(jsonString, bindingConsentJWK, bindingCertConsentFile));
+					generateDetachedSignature(jsonString, BINDINGCONSENTJWK, BINDINGCERTCONSENTFILE));
 		}
 
 		if (jsonString.contains("$WLATOKENCONSENTVID$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTVID$",
-					generateWLAToken(jsonString, bindingConsentJWKVid, bindingCertConsentVidFile));
+					generateWLAToken(jsonString, BINDINGCONSENTJWKVID, BINDINGCERTCONSENTVIDFILE));
 		}
 		
 		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREVID$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATUREVID$",
-					generateDetachedSignature(jsonString, bindingConsentJWKVid, bindingCertConsentVidFile));
+					generateDetachedSignature(jsonString, BINDINGCONSENTJWKVID, BINDINGCERTCONSENTVIDFILE));
 		}
 
 		if (jsonString.contains("$WLATOKENCONSENTSAMECLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTSAMECLAIM$",
-					generateWLAToken(jsonString, bindingConsentSameClaimJWK, bindingCertConsentSameClaimFile));
+					generateWLAToken(jsonString, BINDINGCONSENTSAMECLAIMJWK, BINDINGCERTCONSENTSAMECLAIMFILE));
 		}
 		
 		if (jsonString.contains("$CONSENTDETACHEDSIGNATURESAMECLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATURESAMECLAIM$",
-					generateDetachedSignature(jsonString, bindingConsentSameClaimJWK, bindingCertConsentSameClaimFile));
+					generateDetachedSignature(jsonString, BINDINGCONSENTSAMECLAIMJWK, BINDINGCERTCONSENTSAMECLAIMFILE));
 		}
 
 		if (jsonString.contains("$WLATOKENCONSENTVIDSAMECLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTVIDSAMECLAIM$",
-					generateWLAToken(jsonString, bindingConsentVidSameClaimJWK, bindingCertConsentVidSameClaimFile));
+					generateWLAToken(jsonString, BINDINGCONSENTVIDSAMECLAIMJWK, BINDINGCERTCONSENTVIDSAMECLAIMFILE));
 		}
 		
 		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREVIDSAMECLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATUREVIDSAMECLAIM$",
-					generateDetachedSignature(jsonString, bindingConsentVidSameClaimJWK, bindingCertConsentVidSameClaimFile));
+					generateDetachedSignature(jsonString, BINDINGCONSENTVIDSAMECLAIMJWK, BINDINGCERTCONSENTVIDSAMECLAIMFILE));
 		}
 		
 		if (jsonString.contains("$WLATOKENCONSENTEMPTYCLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTEMPTYCLAIM$",
-					generateWLAToken(jsonString, bindingConsentEmptyClaimJWK, bindingCertConsentEmptyClaimFile));
+					generateWLAToken(jsonString, BINDINGCONSENTEMPTYCLAIMJWK, BINDINGCERTCONSENTEMPTYCLAIMFILE));
 		}
 
 		if (jsonString.contains("$UINCODECHALLENGEPOS1$")) {
@@ -3309,7 +3304,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$PROOFJWT$")) {
 
-			String oidcJWKKeyString = getJWKKey(oidcJWK1);
+			String oidcJWKKeyString = JWKKeyUtil.getJWKKey(OIDCJWK1);
 			logger.info("oidcJWKKeyString =" + oidcJWKKeyString);
 			try {
 				oidcJWKKey1 = RSAKey.parse(oidcJWKKeyString);
@@ -3371,7 +3366,7 @@ public class AdminTestUtil extends BaseTestCase {
 			else if (testCaseName.contains("_Invalid_Typ_"))
 				typ = "openid4vci-123@proof+jwt";
 			else if (testCaseName.contains("_Invalid_JwkHeader_"))
-				jwkHeader = RSAKey.parse(getJWKKey(oidcJWK2)).toPublicJWK();
+				jwkHeader = RSAKey.parse(JWKKeyUtil.getJWKKey(OIDCJWK2)).toPublicJWK();
 			else if (testCaseName.contains("_Invalid_Aud_"))
 				tempUrl = "sdfaf";
 			else if (testCaseName.contains("_Empty_Aud_"))
@@ -3405,14 +3400,14 @@ public class AdminTestUtil extends BaseTestCase {
 		return proofJWT;
 	}
 
-	public static String generateWLAToken(String jsonString, File jwkfileName, File certFileName) {
+	public static String generateWLAToken(String jsonString, String jwkKeyName, String certKeyName) {
 		RSAKey jwkKey = null;
-		String jwkKeyString = getJWKKey(jwkfileName);
+		String jwkKeyString = JWKKeyUtil.getJWKKey(jwkKeyName);
 		logger.info("jwkKeyString =" + jwkKeyString);
 
 		String individualId = "";
 		String wlaToken = "";
-		String certificate = getJWKKey(certFileName);
+		String certificate = CertsUtil.getCertificate(certKeyName);
 		JSONObject request = new JSONObject(jsonString);
 		individualId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.INDIVIDUALID).toString();
 
@@ -3427,9 +3422,9 @@ public class AdminTestUtil extends BaseTestCase {
 		return wlaToken;
 	}
 	
-	public static String generateDetachedSignature(String jsonString, File jwkfileName, File certFileName) {
+	public static String generateDetachedSignature(String jsonString, String jwkKeyName, String certKeyName) {
 		RSAKey jwkKey = null;
-		String jwkKeyString = getJWKKey(jwkfileName);
+		String jwkKeyString = JWKKeyUtil.getJWKKey(jwkKeyName);
 		logger.info("jwkKeyString =" + jwkKeyString);
 
 		String[] acceptedClaims = null;
@@ -3437,7 +3432,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String[] permittedScope = null;
 		JSONArray permittedScopeArray = null;
 		String detachedSignature = "";
-		String certificate = getJWKKey(certFileName);
+		String certificate = CertsUtil.getCertificate(certKeyName);
 		JSONObject request = new JSONObject(jsonString);
 		claimJsonArray = getArrayFromJson(request, "acceptedClaims");
 		permittedScopeArray = getArrayFromJson(request, "permittedAuthorizeScopes");
@@ -3509,11 +3504,11 @@ public class AdminTestUtil extends BaseTestCase {
 		return null;
 	}
 
-	public static String generateAndWriteJWKKey(File fileName) {
-		String jwkKey = MosipTestRunner.generateJWKPublicKey();
-		writeFileAsString(fileName, jwkKey);
-		return jwkKey;
-	}
+//	public static String generateAndWriteJWKKey(File fileName) {
+//		String jwkKey = MosipTestRunner.generateJWKPublicKey();
+//		writeFileAsString(fileName, jwkKey);
+//		return jwkKey;
+//	}
 
 	public String getPartnerId() {
 		String[] uriParts = PartnerRegistration.partnerKeyUrl.split("/");
@@ -5143,18 +5138,18 @@ public class AdminTestUtil extends BaseTestCase {
 
 	}
 
-	public static String getJWKKey(File fileName) {
-		String keyString = null;
-		try {
-			if (fileName.exists()) {
-				keyString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
-			}
-			return keyString;
-		} catch (IOException e1) {
-			logger.error("Exception while getting oidcJWKKey for client assertion: " + e1.getMessage());
-			return null;
-		}
-	}
+//	public static String getJWKKey(File fileName) {
+//		String keyString = null;
+//		try {
+//			if (fileName.exists()) {
+//				keyString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
+//			}
+//			return keyString;
+//		} catch (IOException e1) {
+//			logger.error("Exception while getting oidcJWKKey for client assertion: " + e1.getMessage());
+//			return null;
+//		}
+//	}
 
 	public static String signJWKKey(String clientId, RSAKey jwkKey) {
 		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.token_endpoint");
