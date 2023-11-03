@@ -21,6 +21,23 @@ AuthorizationCodeVCINegTC:
     ]
 }'
 
+   ESignet_AuthorizationCode_VCI_uin_Null_Scope:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCINegTC/AuthorizationCodeVCI/AuthorizationCodeVCI
+      outputTemplate: esignet/VCINegTC/AuthorizationCodeVCI/AuthorizationCodeVCIResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_uin_NegAuthCodeScen2_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegAuthCodeScen2_Valid_Smoke_sid_transactionId$",
+      	"permittedAuthorizeScopes": [{scope: "null"}]
+}'
+      output: '{
+}'
+
    ESignet_AuthorizationCode_VCI_uin_Invalid_Diff_Scope:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
@@ -308,6 +325,28 @@ AuthorizationCodeVCINegTC:
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegAuthCodeScen6_Valid_Smoke_sid_transactionId$",
       	"acceptedClaims": [{claim: ""}]
+}'
+      output: '{
+    "errors": [
+        {
+            "errorCode": "invalid_accepted_claim"
+        }
+    ]
+}'
+
+   ESignet_AuthorizationCode_VCI_uin_Null_Claim_Neg:
+      endPoint: /v1/esignet/authorization/auth-code
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCINegTC/AuthorizationCodeVCI/AuthorizationCodeVCI
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_uin_NegAuthCodeScen6_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_uin_NegAuthCodeScen6_Valid_Smoke_sid_transactionId$",
+      	"acceptedClaims": [{claim: "null"}]
 }'
       output: '{
     "errors": [

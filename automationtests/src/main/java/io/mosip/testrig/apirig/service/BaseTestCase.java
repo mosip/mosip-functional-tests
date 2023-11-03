@@ -159,12 +159,12 @@ public class BaseTestCase {
 			+ generateRandomNumberString(3);
 	public static String genPartnerName = "partnernameforautomationesi-" + generateRandomNumberString(6);
 	public static String genPartnerNameNonAuth = "partnernameforesignet-" + generateRandomNumberString(6);
-	public String genPartnerNameForDsl = "partnernameforautomationesi-" + generateRandomNumberString(6);
+	public String genPartnerNameForDsl = "partnernameforautomationdsl-" + generateRandomNumberString(6);
 	public static String genMispPartnerName = "esignet_" + generateRandomNumberString(6)
 			+ generateRandomNumberString(3);
 	public static String genPartnerEmail = "automationpartneresi" + generateRandomNumberString(7)
 			+ "@automationMosip.com";
-	public String genPartnerEmailForDsl = "automationpartneresi" + generateRandomNumberString(10)
+	public String genPartnerEmailForDsl = "automationpartnerdsl" + generateRandomNumberString(10)
 	+ "@automationMosip.com";
 	public String genPartnerEmailNonAuth = "automationesignet" + generateRandomNumberString(10)
 	+ "@automationMosip.com";
