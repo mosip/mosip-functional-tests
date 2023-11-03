@@ -124,6 +124,10 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!kernelCmnLib.isValidToken(partnerNewCookie))
 				partnerNewCookie = kernelAuthLib.getAuthForNewPartner();
 			return partnerNewCookie;
+		case "withoutpartner": 
+			if (!kernelCmnLib.isValidToken(withoutpartnerCookie))
+				withoutpartnerCookie = kernelAuthLib.getAuthForNewPartner();
+			return withoutpartnerCookie;
 		case "partnernewkyc": 
 		if (!kernelCmnLib.isValidToken(partnerNewKycCookie))
 			partnerNewKycCookie = kernelAuthLib.getAuthForNewKycPartner();
@@ -283,6 +287,21 @@ public class KernelAuthentication extends BaseTestCase {
 
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForNewPartner() {
+
+		JSONObject request = new JSONObject();
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME, PartnerRegistration.partnerId);
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+		actualInternalrequest.put(GlobalConstants.REQUEST, request);
+		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+	}
+	
+	public String getAuthForPartnerWithoutPAdminRole() {
 
 		JSONObject request = new JSONObject();
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
