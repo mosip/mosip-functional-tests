@@ -19,6 +19,29 @@ createPartnerSelfRegistration:
         "partnerId": "Tech-123",
         "status": "InProgress"
     }'
+   Partner_PartnerSelfRegistration_Login_as_user_without_Partner_admin_role:
+      endPoint: /v1/partnermanager/partners
+      role: partner
+      restMethod: post
+      inputTemplate: partner/authPartner/CreatePartner/createPartner
+      outputTemplate: partner/error
+      input: '{
+    "address": "Bangaloree",
+    "contactNumber": "8553967532",
+    "emailId": "mosip@gmail.com",
+    "organizationName": "Techno@98",
+    "partnerId": "Tech-1234",
+    "partnerType": "Auth_Partner",
+    "policyGroup": "mosip policy group",
+	"requesttime": "$TIMESTAMP$"
+  }'
+      output: ' {
+        "errors": [
+    {
+      "errorCode": "PMS_PRT_051"
+    }
+  ]
+    }'
     
    Partner_PartnerSelfRegistration_Deactive_Partner_sid:
       endPoint: /v1/partnermanager/partners
