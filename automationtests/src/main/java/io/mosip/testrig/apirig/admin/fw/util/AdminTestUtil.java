@@ -169,6 +169,8 @@ public class AdminTestUtil extends BaseTestCase {
 			+ Calendar.getInstance().getTimeInMillis();
 	public static final String RANDOM_ID_2 = "mosip" + generateRandomNumberString(2)
 			+ Calendar.getInstance().getTimeInMillis();
+	public static final String RANDOM_ID_V2 = "mosip" + generateRandomNumberString(2)
+	+ Calendar.getInstance().getTimeInMillis();
 	public static final String TRANSACTION_ID = generateRandomNumberString(10);
 	public static final String AUTHORIZATHION_HEADERNAME = GlobalConstants.AUTHORIZATION;
 	public static final String AUTH_HEADER_VALUE = "Some String";
@@ -3052,6 +3054,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$IDENTITYJSON$", generateIdentityJson(testCaseName));
 		}
 		if (jsonString.contains("$RANDOMID$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$V2", RANDOM_ID_V2);
 			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$2", RANDOM_ID_2);
 			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$", RANDOM_ID);
 		}

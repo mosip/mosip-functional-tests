@@ -127,6 +127,9 @@ public class AuditDBManager extends AdminTestUtil {
 
 		if(dbName.equalsIgnoreCase("partner"))
 			dbschema=ConfigManager.getValueForKey("ida_db_schema");
+		
+		if(dbName.equalsIgnoreCase("master"))
+			dbschema=ConfigManager.getValueForKey("master_db_schema");
 
 		try {
 			Configuration config = new Configuration();
