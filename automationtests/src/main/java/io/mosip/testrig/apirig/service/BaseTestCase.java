@@ -407,6 +407,7 @@ public class BaseTestCase {
 
 	}
 
+	//below method is used by dsl.
 	@SuppressWarnings("unchecked")
 	public static void mapUserToZone(String user, String zone) {
 
@@ -414,7 +415,7 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
-		request.put("zoneCode", ZonelocationCode);
+		request.put("zoneCode", zone); 
 		request.put("userId", user);
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
