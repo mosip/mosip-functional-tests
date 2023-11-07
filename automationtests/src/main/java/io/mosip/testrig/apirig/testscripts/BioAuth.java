@@ -228,18 +228,6 @@ public class BioAuth extends AdminTestUtil implements ITest {
 						.getJSONObject("identity");
 
 				
-				/*
-				 * for (int i = 0; i < kycFields.length; i++) { String mappingField =
-				 * getValueFromAuthActuator("json-property", kycFields[i]); mappingField =
-				 * mappingField.replaceAll("\\[\"|\"\\]", "");
-				 * jsonObjectFromIdentityData.append(kycFields[i],
-				 * responseBody.getString(mappingField)); }
-				 */
-				 
-				
-				//ListIterator<String> listIterator = myList.listIterator();
-				//while (listIterator.hasNext()) {
-				
 				
 				for(int j=0;j<names2.size();j++) {
 					

@@ -309,6 +309,26 @@ public class RestClient {
 
 		return postResponse;
 	}
+	
+	public static Response postRequestWithQueryParamsAndBodyForDecryption(String url, Object body,
+			Map<String, Object> queryParams, String contentHeader) {
+		Response postResponse;
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request with query param " + url);
+
+			postResponse = given().config(config).relaxedHTTPSValidation().body(body).queryParams(queryParams)
+					.contentType(contentHeader).log().all().when().post(url).then().log().all()
+					.extract().response();
+
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
+		} else {
+			postResponse = given().config(config).relaxedHTTPSValidation().body(body).queryParams(queryParams)
+					.contentType(contentHeader).when().post(url).then().extract().response();
+		}
+
+		return postResponse;
+	}
 
 	public static Response putRequestWithQueryParamAndBody(String url, Object body, Map<String, String> queryParams,
 			String contentHeader, String acceptHeader) {
