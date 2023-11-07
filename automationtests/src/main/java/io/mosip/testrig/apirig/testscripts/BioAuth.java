@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.ITest;
@@ -244,7 +245,16 @@ public class BioAuth extends AdminTestUtil implements ITest {
 					
 				    String mappingField = getValueFromAuthActuator("json-property",names2.get(j));
 					mappingField = mappingField.replaceAll("\\[\"|\"\\]", "");
-					jsonObjectFromIdentityData.append(names.get(j), responseBody.getString(mappingField));
+				 JSONArray valueOfJsonArray=responseBody.optJSONArray(mappingField);
+					if(valueOfJsonArray!=null) {
+						jsonObjectFromIdentityData.append(names.get(j), valueOfJsonArray.getJSONObject(0).get("value"));
+						
+						valueOfJsonArray=null;
+					}
+					else {
+						jsonObjectFromIdentityData.append(names.get(j), responseBody.getString(mappingField));
+					}
+					
 				}
 
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(jsonObjectFromIdentityData.toString(),
