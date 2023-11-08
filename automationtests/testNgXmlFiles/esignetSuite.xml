@@ -608,6 +608,30 @@
 			<class name="io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody" />
 		</classes>
 	</test>
+	<test name="CreateOIDCClientV2">
+		<parameter name="ymlFile"
+			value="esignet/CreateOIDCClientV2/CreateOIDCClient.yml" />
+			<parameter name="idKeyName"	value="clientId" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test> 
+	<test name="UpdateOIDCClientV2">
+		<parameter name="ymlFile"
+			value="esignet/UpdateOIDCClientV2/UpdateOIDCClient.yml" />
+		<parameter name="pathParams" value="clientId" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="OAuthDetailsRequestV2">
+		<parameter name="ymlFile"
+			value="esignet/OAuthDetailsRequestV2/OAuthDetailsRequest.yml" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
 
 
 <!-- Removed kyc delegated demo auth as it is not supported 
