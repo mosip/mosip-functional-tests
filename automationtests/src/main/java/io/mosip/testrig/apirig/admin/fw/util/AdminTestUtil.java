@@ -212,6 +212,8 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static final String BINDINGCONSENTSAMECLAIMJWK = "bindingConsentSameClaimJWK";
 	protected static final String BINDINGCONSENTVIDSAMECLAIMJWK = "bindingConsentVidSameClaimJWK";
 	protected static final String BINDINGCONSENTEMPTYCLAIMJWK = "bindingConsentEmptyClaimJWK";
+	protected static final String BINDINGCONSENTUSER2JWK = "bindingConsentUser2JWK";
+	protected static final String BINDINGCONSENTVIDUSER2JWK = "bindingConsentVidUser2JWK";
 	public static final String XSRF_HEADERNAME = "X-XSRF-TOKEN";
 	public static final String OAUTH_HASH_HEADERNAME = "oauth-details-hash";
 	public static final String OAUTH_TRANSID_HEADERNAME = "oauth-details-key";
@@ -230,6 +232,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String BINDINGCERTCONSENTSAMECLAIMFILE = "BINDINGCERTCONSENTSAMECLAIMFile";
 	public static final String BINDINGCERTCONSENTVIDSAMECLAIMFILE = "BINDINGCERTCONSENTVIDSAMECLAIMFile";
 	public static final String BINDINGCERTCONSENTEMPTYCLAIMFILE = "BINDINGCERTCONSENTEMPTYCLAIMFile";
+	public static final String BINDINGCERTCONSENTUSER2FILE = "BINDINGCERTCONSENTUSER2File";
+	public static final String BINDINGCERTVIDCONSENTUSER2FILE = "BINDINGCERTCONSENTVIDUSER2File";
 
 	private static final String UIN_CODE_VERIFIER_POS_1 = generateRandomAlphaNumericString(GlobalConstants.INTEGER_36);
 
@@ -327,6 +331,26 @@ public class AdminTestUtil extends BaseTestCase {
 
 	private static boolean gettriggerESignetKeyGen9() {
 		return triggerESignetKeyGen9;
+	}
+	
+	protected static boolean triggerESignetKeyGen10 = true;
+
+	private static void settriggerESignetKeyGen10(boolean value) {
+		triggerESignetKeyGen10 = value;
+	}
+
+	private static boolean gettriggerESignetKeyGen10() {
+		return triggerESignetKeyGen10;
+	}
+	
+	protected static boolean triggerESignetKeyGen11 = true;
+
+	private static void settriggerESignetKeyGen11(boolean value) {
+		triggerESignetKeyGen11 = value;
+	}
+
+	private static boolean gettriggerESignetKeyGen11() {
+		return triggerESignetKeyGen11;
 	}
 
 	public static void setLogLevel() {
@@ -652,6 +676,10 @@ public class AdminTestUtil extends BaseTestCase {
 			certsKey = BINDINGCERTCONSENTVIDSAMECLAIMFILE;
 		} else if (testCaseName.contains("_Consent_EmptyClaim_uin_")) {
 			certsKey = BINDINGCERTCONSENTEMPTYCLAIMFILE;
+		} else if (testCaseName.contains("_Consent_User2_uin_SCert_")) {
+			certsKey = BINDINGCERTCONSENTUSER2FILE;
+		} else if (testCaseName.contains("_Consent_User2_Vid_SCert_")) {
+			certsKey = BINDINGCERTVIDCONSENTUSER2FILE;
 		}
 
 		String certificateData = new JSONObject(response.getBody().asString()).getJSONObject(GlobalConstants.RESPONSE)
@@ -2759,8 +2787,11 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.info(" Request Json String is :" + jsonString);
 			return jsonString;
 		}
-		if (testCaseName.contains("ESignet_GenerateApiKey"))
+		if (testCaseName.contains("ESignet_GenerateApiKey_"))
 			KeycloakUserManager.createKeyCloakUsers(genPartnerName, genPartnerEmail, "AUTH_PARTNER");
+		
+		if (testCaseName.contains("ESignet_GenerateApiKeyKyc_"))
+			KeycloakUserManager.createKeyCloakUsers(genPartnerName + "2n", "12d" + genPartnerEmail, "AUTH_PARTNER");
 		if (jsonString.contains("$THUMBPRINT$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$THUMBPRINT$", EncryptionDecrptionUtil.idaFirThumbPrint);
 		}
@@ -3164,6 +3195,28 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTEMPTYCLAIMJWKKEY$", jwkKey);
 		}
+		
+		if (jsonString.contains("$BINDINGCONSENTUSER2JWKKEY$")) {
+			String jwkKey = "";
+			if (gettriggerESignetKeyGen10()) {
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTUSER2JWK);
+				settriggerESignetKeyGen10(false);
+			} else {
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTUSER2JWK);
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTUSER2JWKKEY$", jwkKey);
+		}
+		
+		if (jsonString.contains("$BINDINGCONSENTVIDUSER2JWKKEY$")) {
+			String jwkKey = "";
+			if (gettriggerESignetKeyGen11()) {
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTVIDUSER2JWK);
+				settriggerESignetKeyGen11(false);
+			} else {
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTVIDUSER2JWK);
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTVIDUSER2JWKKEY$", jwkKey);
+		}
 
 		if (jsonString.contains("$OIDCJWKKEY$")) {
 			String jwkKey = "";
@@ -3282,6 +3335,26 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$WLATOKENCONSENTEMPTYCLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTEMPTYCLAIM$",
 					generateWLAToken(jsonString, BINDINGCONSENTEMPTYCLAIMJWK, BINDINGCERTCONSENTEMPTYCLAIMFILE));
+		}
+		
+		if (jsonString.contains("$WLATOKENCONSENTUSER2$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTUSER2$",
+					generateWLAToken(jsonString, BINDINGCONSENTUSER2JWK, BINDINGCERTCONSENTSAMECLAIMFILE));
+		}
+		
+		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREUSER2$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATUREUSER2$",
+					generateDetachedSignature(jsonString, BINDINGCONSENTUSER2JWK, BINDINGCERTCONSENTUSER2FILE));
+		}
+		
+		if (jsonString.contains("$WLATOKENCONSENTVIDUSER2$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTVIDUSER2$",
+					generateWLAToken(jsonString, BINDINGCONSENTVIDUSER2JWK, BINDINGCERTCONSENTSAMECLAIMFILE));
+		}
+		
+		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREVIDUSER2$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATURESAMECLAIM$",
+					generateDetachedSignature(jsonString, BINDINGCONSENTVIDUSER2JWK, BINDINGCERTCONSENTSAMECLAIMFILE));
 		}
 
 		if (jsonString.contains("$UINCODECHALLENGEPOS1$")) {

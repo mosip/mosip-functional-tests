@@ -141,6 +141,10 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!kernelCmnLib.isValidToken(esignetPartnerCookie))
 				esignetPartnerCookie = kernelAuthLib.getAuthForNewPartnerEsignet();
 			return esignetPartnerCookie;
+		case "esignetpartnerkyc":
+			if (!kernelCmnLib.isValidToken(esignetPartnerKycCookie))
+				esignetPartnerKycCookie = kernelAuthLib.getAuthForNewPartnerEsignetKyc();
+			return esignetPartnerKycCookie;
 		case "policytest":
 			if (!kernelCmnLib.isValidToken(policytestCookie))
 				policytestCookie = kernelAuthLib.getAuthForPolicytest();
@@ -336,6 +340,22 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
 		request.put(GlobalConstants.USER_NAME, AdminTestUtil.genPartnerName);
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+		actualInternalrequest.put(GlobalConstants.REQUEST, request);
+		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+	}
+	
+	@SuppressWarnings({ "unchecked" })
+	public String getAuthForNewPartnerEsignetKyc() {
+
+		JSONObject request = new JSONObject();
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME, AdminTestUtil.genPartnerName + "2n");
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
