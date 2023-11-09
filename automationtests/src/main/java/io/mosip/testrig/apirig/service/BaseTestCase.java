@@ -80,6 +80,7 @@ public class BaseTestCase {
 	public String withoutpartnerCookie = null;
 	public String partnerNewKycCookie = null;
 	public String esignetPartnerCookie = null;
+	public String esignetPartnerKycCookie = null;
 	public String policytestCookie = null;
 	public String residentCookie = null;
 	public HashMap<String, String> residentNewCookie = new HashMap<>();
