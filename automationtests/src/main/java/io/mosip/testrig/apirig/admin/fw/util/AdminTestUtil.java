@@ -202,9 +202,11 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static Map<String, String> keycloakRolesMap = new HashMap<>();
 	protected static Map<String, String> keycloakUsersMap = new HashMap<>();
 	protected static RSAKey oidcJWKKey1 = null;
+	protected static RSAKey oidcJWKKey3 = null;
 	
 	protected static final String OIDCJWK1 = "oidcJWK1";
 	protected static final String OIDCJWK2 = "oidcJWK2";
+	protected static final String OIDCJWK3 = "oidcJWK3";
 	protected static final String BINDINGJWK1 = "bindingJWK1";
 	protected static final String BINDINGJWKVID = "bindingJWKVid";
 	protected static final String BINDINGCONSENTJWK = "bindingConsentJWK";
@@ -350,6 +352,16 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	private static boolean gettriggerESignetKeyGen11() {
+		return triggerESignetKeyGen11;
+	}
+	
+	protected static boolean triggerESignetKeyGen12 = true;
+
+	private static void settriggerESignetKeyGen12(boolean value) {
+		triggerESignetKeyGen12 = value;
+	}
+
+	private static boolean gettriggerESignetKeyGen12() {
 		return triggerESignetKeyGen11;
 	}
 
@@ -499,23 +511,27 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject request = new JSONObject(inputJson);
 		String encodedResp = null;
 		String transactionId = null;
-		if (request.has(GlobalConstants.ENCODEDHASH)) {
-			encodedResp = request.get(GlobalConstants.ENCODEDHASH).toString();
-			request.remove(GlobalConstants.ENCODEDHASH);
-		}
+
 		if (request.has(GlobalConstants.REQUEST)
 				&& request.getJSONObject(GlobalConstants.REQUEST).has(GlobalConstants.TRANSACTIONID)) {
 			transactionId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.TRANSACTIONID)
 					.toString();
 		}
+		
+		if (request.has(GlobalConstants.ENCODEDHASH)) {
+			encodedResp = request.get(GlobalConstants.ENCODEDHASH).toString();
+			logger.info("encodedhash = " + encodedResp);
+			headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
+			headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
+			request.remove(GlobalConstants.ENCODEDHASH);
+		}
 		inputJson = request.toString();
 		if (BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
-		logger.info("encodedhash = " + encodedResp);
+
 		headers.put(XSRF_HEADERNAME, properties.getProperty(GlobalConstants.XSRFTOKEN));
-		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
-		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
+		
 		if (testCaseName.contains("_IdpAccessToken_")) {
 			JSONObject requestInput = new JSONObject(inputJson);
 			headers.put(cookieName, "Bearer " + requestInput.get(GlobalConstants.IDP_ACCESS_TOKEN).toString());
@@ -3239,6 +3255,17 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$OIDCJWKKEY2$", jwkKey);
 		}
+		
+		if (jsonString.contains("$OIDCJWKKEY3$")) {
+			String jwkKey = "";
+			if (gettriggerESignetKeyGen12()) {
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(OIDCJWK3);
+				settriggerESignetKeyGen12(false);
+			} else {
+				jwkKey = JWKKeyUtil.getJWKKey(OIDCJWK3);
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$OIDCJWKKEY3$", jwkKey);
+		}
 
 		if (jsonString.contains("$CLIENT_ASSERTION_JWK$")) {
 			String oidcJWKKeyString = JWKKeyUtil.getJWKKey(OIDCJWK1);
@@ -3256,6 +3283,24 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$CLIENT_ASSERTION_JWK$",
 					signJWKKey(clientId, oidcJWKKey1));
+		}
+		
+		if (jsonString.contains("$CLIENT_ASSERTION_USER3_JWK$")) {
+			String oidcJWKKeyString = JWKKeyUtil.getJWKKey(OIDCJWK3);
+			logger.info("oidcJWKKeyString =" + oidcJWKKeyString);
+			try {
+				oidcJWKKey3 = RSAKey.parse(oidcJWKKeyString);
+				logger.info("oidcJWKKey3 =" + oidcJWKKey3);
+			} catch (java.text.ParseException e) {
+				logger.error(e.getMessage());
+			}
+			JSONObject request = new JSONObject(jsonString);
+			String clientId = null;
+			if (request.has("client_id")) {
+				clientId = request.get("client_id").toString();
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$CLIENT_ASSERTION_USER3_JWK$",
+					signJWKKey(clientId, oidcJWKKey3));
 		}
 		if (jsonString.contains("$IDPCLIENTPAYLOAD$")) {
 			String clientId = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES,
@@ -3353,7 +3398,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		
 		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREVIDUSER2$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATURESAMECLAIM$",
+			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATUREVIDUSER2$",
 					generateDetachedSignature(jsonString, BINDINGCONSENTVIDUSER2JWK, BINDINGCERTCONSENTSAMECLAIMFILE));
 		}
 
@@ -6024,7 +6069,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		objList.add(objOpDto);
-		objMap.put("expected vs actual", objList);
+		objMap.put(GlobalConstants.EXPECTED_VS_ACTUAL, objList);
 
 		if (!OutputValidationUtil.publishOutputResult(objMap))
 			throw new AdminTestException("Failed at output validation");
