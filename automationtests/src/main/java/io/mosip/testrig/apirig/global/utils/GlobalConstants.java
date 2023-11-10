@@ -55,7 +55,7 @@ public class GlobalConstants {
 	public static final String APIKEY = "apiKey";
 	public static final String PARTNER_APIKEY = "partnerApiKey";
 	public static final String PARTNERID = "partnerId";
-	public static final String REPORT_RESPONSE_PREFIX = "<b><u>Actual Response Content: </u></b>(EndPointUrl: ";
+	public static final String REPORT_RESPONSE_PREFIX = "<b><u>Response: </u></b>(End Point URL: ";
 	public static final String REPORT_RESPONSE_SUFFIX = "</pre>";
 	public static final String REPORT_RESPONSE_BODY = ") <pre>";
 	public static final String REPORT_REQUEST_PREFIX = "<pre>";
@@ -201,6 +201,6 @@ public class GlobalConstants {
 	public static final String USERNOTFOUNDWITHNAME = "User not found with name: %s%n";
 	public static final String ACTU_AUTH_REQUESTFOR_RESIDENT  = "Actual Auth Request for Resident: ";
 	public static final String AUTH_CLIENT_IDSECRET_KEYURL = "authclientidsecretkeyURL";
-	
+	public static final String EXPECTED_VS_ACTUAL = "EXPECTED vs ACTUAL";
 	
 }

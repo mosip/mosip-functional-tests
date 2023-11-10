@@ -460,13 +460,13 @@ public class OutputValidationUtil extends AuthTestsUtil{
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
 			String expOutputJson, boolean checkErrorsOnlyInResponse, String allowedErrorCode) throws AdminTestException {
 		return doJsonOutputValidation(actualOutputJson,
-				expOutputJson, checkErrorsOnlyInResponse, "expected vs actual", doesResponseHasErrors(actualOutputJson), allowedErrorCode);
+				expOutputJson, checkErrorsOnlyInResponse, GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson), allowedErrorCode);
 	}
 	
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
 			String expOutputJson, boolean checkErrorsOnlyInResponse) throws AdminTestException {
 		return doJsonOutputValidation(actualOutputJson,
-				expOutputJson, checkErrorsOnlyInResponse, "expected vs actual", doesResponseHasErrors(actualOutputJson), null);
+				expOutputJson, checkErrorsOnlyInResponse, GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson), null);
 	}
 	
 	

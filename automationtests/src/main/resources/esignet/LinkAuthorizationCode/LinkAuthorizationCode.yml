@@ -49,7 +49,7 @@ LinkAuthorizationCode:
         
 }'
 
-   ESignet_LinkAuthorizationCode_Consent_uin_User2_all_Valid_Smoke_sid:
+   ESignet_LinkAuthorizationCode_Consent_Vid_User2_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/link-auth-code
       role: resident
       checkErrorsOnlyInResponse: true

@@ -48,7 +48,7 @@ public class ReportUtil {
 		String temp = "";
 
 		for (Entry<String, List<OutputValidationDto>> entry : outputresult.entrySet()) {
-			temp = "<b> Output validation for: </b>" + entry.getKey()+ "\r\n";
+			temp = "<b> Output validation: </b>" + entry.getKey()+ "\r\n";
 			for (OutputValidationDto dto : entry.getValue()) {
 				if (dto.getStatus().equals("PASS")) {
 					htmlforReport = htmlforReport + "  <tr>\r\n" + "    <td>" + dto.getFieldName() + "</td>\r\n"

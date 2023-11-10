@@ -96,7 +96,7 @@ public class AuditValidator extends AdminTestUtil implements ITest {
 		}
 		
 		objList.add(objOpDto);
-		objMap.put("expected vs actual", objList);
+		objMap.put(GlobalConstants.EXPECTED_VS_ACTUAL, objList);
 
 		if (!OutputValidationUtil.publishOutputResult(objMap))
 			throw new AdminTestException("Failed at output validation");
