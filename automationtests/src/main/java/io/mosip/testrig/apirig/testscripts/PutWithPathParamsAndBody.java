@@ -119,7 +119,7 @@ public class PutWithPathParamsAndBody extends AdminTestUtil implements ITest {
 				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput());
 				
 				ouputValid = new HashMap<>();
-				ouputValid.put("expected vs actual", List.of(customResponse));
+				ouputValid.put(GlobalConstants.EXPECTED_VS_ACTUAL, List.of(customResponse));
 			}else {
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(
 					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
