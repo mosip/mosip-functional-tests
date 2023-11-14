@@ -139,7 +139,7 @@ public class AuditDBManager extends AdminTestUtil {
 							+ ConfigManager.getValueForKey("db-server") + ":" + ConfigManager.getValueForKey("db-port")
 							+ "/mosip_" + dbschema);
 			config.setProperty("hibernate.connection.username", ConfigManager.getAuditDbUser());
-			config.setProperty("hibernate.connection.password", ConfigManager.getValueForKey("postgresql-password"));
+			config.setProperty("hibernate.connection.password", ConfigManager.getValueForKey(ConfigManager.DB_PASSWORD_KEY));
 			config.setProperty("hibernate.default_schema", propsKernel.getProperty(dbName + "_default_schema"));
 			config.setProperty("hibernate.connection.pool_size", propsKernel.getProperty("pool_size"));
 			config.setProperty("hibernate.dialect", propsKernel.getProperty("dialect"));
