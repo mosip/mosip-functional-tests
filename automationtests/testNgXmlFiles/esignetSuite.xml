@@ -283,6 +283,13 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="LinkedAuthenticationWlaNoBinding">
+		<parameter name="ymlFile"
+			value="esignet/LinkedAuthenticationWlaNoBinding/LinkedAuthenticationWla.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="LinkedAuthenticationWla">
 		<parameter name="ymlFile"
 			value="esignet/LinkedAuthenticationWla/LinkedAuthenticationWla.yml" />
@@ -606,6 +613,30 @@
 		<parameter name="pathParams" value="clientId" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="CreateOIDCClientV2">
+		<parameter name="ymlFile"
+			value="esignet/CreateOIDCClientV2/CreateOIDCClient.yml" />
+			<parameter name="idKeyName"	value="clientId" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test> 
+	<test name="UpdateOIDCClientV2">
+		<parameter name="ymlFile"
+			value="esignet/UpdateOIDCClientV2/UpdateOIDCClient.yml" />
+		<parameter name="pathParams" value="clientId" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody" />
+		</classes>
+	</test>
+	<test name="OAuthDetailsRequestV2">
+		<parameter name="ymlFile"
+			value="esignet/OAuthDetailsRequestV2/OAuthDetailsRequest.yml" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
 

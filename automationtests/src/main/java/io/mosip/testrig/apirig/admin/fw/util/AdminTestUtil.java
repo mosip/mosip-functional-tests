@@ -204,9 +204,11 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static Map<String, String> keycloakRolesMap = new HashMap<>();
 	protected static Map<String, String> keycloakUsersMap = new HashMap<>();
 	protected static RSAKey oidcJWKKey1 = null;
+	protected static RSAKey oidcJWKKey3 = null;
 	
 	protected static final String OIDCJWK1 = "oidcJWK1";
 	protected static final String OIDCJWK2 = "oidcJWK2";
+	protected static final String OIDCJWK3 = "oidcJWK3";
 	protected static final String BINDINGJWK1 = "bindingJWK1";
 	protected static final String BINDINGJWKVID = "bindingJWKVid";
 	protected static final String BINDINGCONSENTJWK = "bindingConsentJWK";
@@ -214,6 +216,8 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static final String BINDINGCONSENTSAMECLAIMJWK = "bindingConsentSameClaimJWK";
 	protected static final String BINDINGCONSENTVIDSAMECLAIMJWK = "bindingConsentVidSameClaimJWK";
 	protected static final String BINDINGCONSENTEMPTYCLAIMJWK = "bindingConsentEmptyClaimJWK";
+	protected static final String BINDINGCONSENTUSER2JWK = "bindingConsentUser2JWK";
+	protected static final String BINDINGCONSENTVIDUSER2JWK = "bindingConsentVidUser2JWK";
 	public static final String XSRF_HEADERNAME = "X-XSRF-TOKEN";
 	public static final String OAUTH_HASH_HEADERNAME = "oauth-details-hash";
 	public static final String OAUTH_TRANSID_HEADERNAME = "oauth-details-key";
@@ -232,6 +236,8 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String BINDINGCERTCONSENTSAMECLAIMFILE = "BINDINGCERTCONSENTSAMECLAIMFile";
 	public static final String BINDINGCERTCONSENTVIDSAMECLAIMFILE = "BINDINGCERTCONSENTVIDSAMECLAIMFile";
 	public static final String BINDINGCERTCONSENTEMPTYCLAIMFILE = "BINDINGCERTCONSENTEMPTYCLAIMFile";
+	public static final String BINDINGCERTCONSENTUSER2FILE = "BINDINGCERTCONSENTUSER2File";
+	public static final String BINDINGCERTVIDCONSENTUSER2FILE = "BINDINGCERTCONSENTVIDUSER2File";
 
 	private static final String UIN_CODE_VERIFIER_POS_1 = generateRandomAlphaNumericString(GlobalConstants.INTEGER_36);
 
@@ -329,6 +335,36 @@ public class AdminTestUtil extends BaseTestCase {
 
 	private static boolean gettriggerESignetKeyGen9() {
 		return triggerESignetKeyGen9;
+	}
+	
+	protected static boolean triggerESignetKeyGen10 = true;
+
+	private static void settriggerESignetKeyGen10(boolean value) {
+		triggerESignetKeyGen10 = value;
+	}
+
+	private static boolean gettriggerESignetKeyGen10() {
+		return triggerESignetKeyGen10;
+	}
+	
+	protected static boolean triggerESignetKeyGen11 = true;
+
+	private static void settriggerESignetKeyGen11(boolean value) {
+		triggerESignetKeyGen11 = value;
+	}
+
+	private static boolean gettriggerESignetKeyGen11() {
+		return triggerESignetKeyGen11;
+	}
+	
+	protected static boolean triggerESignetKeyGen12 = true;
+
+	private static void settriggerESignetKeyGen12(boolean value) {
+		triggerESignetKeyGen12 = value;
+	}
+
+	private static boolean gettriggerESignetKeyGen12() {
+		return triggerESignetKeyGen11;
 	}
 
 	public static void setLogLevel() {
@@ -477,23 +513,27 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject request = new JSONObject(inputJson);
 		String encodedResp = null;
 		String transactionId = null;
-		if (request.has(GlobalConstants.ENCODEDHASH)) {
-			encodedResp = request.get(GlobalConstants.ENCODEDHASH).toString();
-			request.remove(GlobalConstants.ENCODEDHASH);
-		}
+
 		if (request.has(GlobalConstants.REQUEST)
 				&& request.getJSONObject(GlobalConstants.REQUEST).has(GlobalConstants.TRANSACTIONID)) {
 			transactionId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.TRANSACTIONID)
 					.toString();
 		}
+		
+		if (request.has(GlobalConstants.ENCODEDHASH)) {
+			encodedResp = request.get(GlobalConstants.ENCODEDHASH).toString();
+			logger.info("encodedhash = " + encodedResp);
+			headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
+			headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
+			request.remove(GlobalConstants.ENCODEDHASH);
+		}
 		inputJson = request.toString();
 		if (BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
-		logger.info("encodedhash = " + encodedResp);
+
 		headers.put(XSRF_HEADERNAME, properties.getProperty(GlobalConstants.XSRFTOKEN));
-		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
-		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
+		
 		if (testCaseName.contains("_IdpAccessToken_")) {
 			JSONObject requestInput = new JSONObject(inputJson);
 			headers.put(cookieName, "Bearer " + requestInput.get(GlobalConstants.IDP_ACCESS_TOKEN).toString());
@@ -654,6 +694,10 @@ public class AdminTestUtil extends BaseTestCase {
 			certsKey = BINDINGCERTCONSENTVIDSAMECLAIMFILE;
 		} else if (testCaseName.contains("_Consent_EmptyClaim_uin_")) {
 			certsKey = BINDINGCERTCONSENTEMPTYCLAIMFILE;
+		} else if (testCaseName.contains("_Consent_User2_uin_SCert_")) {
+			certsKey = BINDINGCERTCONSENTUSER2FILE;
+		} else if (testCaseName.contains("_Consent_User2_Vid_SCert_")) {
+			certsKey = BINDINGCERTVIDCONSENTUSER2FILE;
 		}
 
 		String certificateData = new JSONObject(response.getBody().asString()).getJSONObject(GlobalConstants.RESPONSE)
@@ -2761,8 +2805,11 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.info(" Request Json String is :" + jsonString);
 			return jsonString;
 		}
-		if (testCaseName.contains("ESignet_GenerateApiKey"))
+		if (testCaseName.contains("ESignet_GenerateApiKey_"))
 			KeycloakUserManager.createKeyCloakUsers(genPartnerName, genPartnerEmail, "AUTH_PARTNER");
+		
+		if (testCaseName.contains("ESignet_GenerateApiKeyKyc_"))
+			KeycloakUserManager.createKeyCloakUsers(genPartnerName + "2n", "12d" + genPartnerEmail, "AUTH_PARTNER");
 		if (jsonString.contains("$THUMBPRINT$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$THUMBPRINT$", EncryptionDecrptionUtil.idaFirThumbPrint);
 		}
@@ -3166,6 +3213,28 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTEMPTYCLAIMJWKKEY$", jwkKey);
 		}
+		
+		if (jsonString.contains("$BINDINGCONSENTUSER2JWKKEY$")) {
+			String jwkKey = "";
+			if (gettriggerESignetKeyGen10()) {
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTUSER2JWK);
+				settriggerESignetKeyGen10(false);
+			} else {
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTUSER2JWK);
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTUSER2JWKKEY$", jwkKey);
+		}
+		
+		if (jsonString.contains("$BINDINGCONSENTVIDUSER2JWKKEY$")) {
+			String jwkKey = "";
+			if (gettriggerESignetKeyGen11()) {
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTVIDUSER2JWK);
+				settriggerESignetKeyGen11(false);
+			} else {
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTVIDUSER2JWK);
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTVIDUSER2JWKKEY$", jwkKey);
+		}
 
 		if (jsonString.contains("$OIDCJWKKEY$")) {
 			String jwkKey = "";
@@ -3188,6 +3257,17 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$OIDCJWKKEY2$", jwkKey);
 		}
+		
+		if (jsonString.contains("$OIDCJWKKEY3$")) {
+			String jwkKey = "";
+			if (gettriggerESignetKeyGen12()) {
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(OIDCJWK3);
+				settriggerESignetKeyGen12(false);
+			} else {
+				jwkKey = JWKKeyUtil.getJWKKey(OIDCJWK3);
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$OIDCJWKKEY3$", jwkKey);
+		}
 
 		if (jsonString.contains("$CLIENT_ASSERTION_JWK$")) {
 			String oidcJWKKeyString = JWKKeyUtil.getJWKKey(OIDCJWK1);
@@ -3205,6 +3285,24 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$CLIENT_ASSERTION_JWK$",
 					signJWKKey(clientId, oidcJWKKey1));
+		}
+		
+		if (jsonString.contains("$CLIENT_ASSERTION_USER3_JWK$")) {
+			String oidcJWKKeyString = JWKKeyUtil.getJWKKey(OIDCJWK3);
+			logger.info("oidcJWKKeyString =" + oidcJWKKeyString);
+			try {
+				oidcJWKKey3 = RSAKey.parse(oidcJWKKeyString);
+				logger.info("oidcJWKKey3 =" + oidcJWKKey3);
+			} catch (java.text.ParseException e) {
+				logger.error(e.getMessage());
+			}
+			JSONObject request = new JSONObject(jsonString);
+			String clientId = null;
+			if (request.has("client_id")) {
+				clientId = request.get("client_id").toString();
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$CLIENT_ASSERTION_USER3_JWK$",
+					signJWKKey(clientId, oidcJWKKey3));
 		}
 		if (jsonString.contains("$IDPCLIENTPAYLOAD$")) {
 			String clientId = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES,
@@ -3284,6 +3382,26 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$WLATOKENCONSENTEMPTYCLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTEMPTYCLAIM$",
 					generateWLAToken(jsonString, BINDINGCONSENTEMPTYCLAIMJWK, BINDINGCERTCONSENTEMPTYCLAIMFILE));
+		}
+		
+		if (jsonString.contains("$WLATOKENCONSENTUSER2$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTUSER2$",
+					generateWLAToken(jsonString, BINDINGCONSENTUSER2JWK, BINDINGCERTCONSENTSAMECLAIMFILE));
+		}
+		
+		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREUSER2$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATUREUSER2$",
+					generateDetachedSignature(jsonString, BINDINGCONSENTUSER2JWK, BINDINGCERTCONSENTUSER2FILE));
+		}
+		
+		if (jsonString.contains("$WLATOKENCONSENTVIDUSER2$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTVIDUSER2$",
+					generateWLAToken(jsonString, BINDINGCONSENTVIDUSER2JWK, BINDINGCERTCONSENTSAMECLAIMFILE));
+		}
+		
+		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREVIDUSER2$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATUREVIDUSER2$",
+					generateDetachedSignature(jsonString, BINDINGCONSENTVIDUSER2JWK, BINDINGCERTCONSENTSAMECLAIMFILE));
 		}
 
 		if (jsonString.contains("$UINCODECHALLENGEPOS1$")) {
@@ -6014,7 +6132,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		objList.add(objOpDto);
-		objMap.put("expected vs actual", objList);
+		objMap.put(GlobalConstants.EXPECTED_VS_ACTUAL, objList);
 
 		if (!OutputValidationUtil.publishOutputResult(objMap))
 			throw new AdminTestException("Failed at output validation");
@@ -6173,7 +6291,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response response = null;
 		JSONObject responseJson = null;
-		String url = ApplnURI + props.getProperty("fetchZoneCode") + "/" + BaseTestCase.getLanguageList().get(0);
+		String url = ApplnURI + props.getProperty("fetchZoneCode") + BaseTestCase.getLanguageList().get(0);
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
 
 		try {
