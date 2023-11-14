@@ -693,3 +693,63 @@ defineDataSharePolicy:
     "desc": "mosip data share policy",
     "is_Active": false      
     }'
+   Partner_DefineDataSharePolicy_Cancelling_the_create_dataSharePolicy:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/error
+      input: '{
+		"desc": "mosip data share policy",
+		"name": "mosip data share policy",
+		"policyId": "MDSP239fhfdndn",
+		"policyGroupName": "mosip policy group",
+		"policyType": "DataShare",
+		"format":"extraction",
+		"typeOfShare": "Data Share",
+		"validForInMinutes": "30",
+		"transactionsAllowed": "2",
+		"encryptionType": "Partner Based",
+		"shareDomain": "datashare-service",
+		"source": "Packet Manager",
+		"attributeName":"biometrics",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "errors": [
+    {
+      "errorCode": "PMS_PV_005"
+    }
+  ]     
+    }'
+   Partner_DefineDataSharePolicy_without_policyId:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
+      outputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicyResult
+      input: '{
+		"desc": "mosip data share policy",
+		"name": "mosip data share policy",
+		"policyId": "$REMOVE$",
+		"policyGroupName": "mosip policy group",
+		"policyType": "DataShare",
+		"format":"extraction",
+		"typeOfShare": "Data Share",
+		"validForInMinutes": "30",
+		"transactionsAllowed": "2",
+		"encryptionType": "Partner Based",
+		"shareDomain": "datashare-service",
+		"source": "Packet Manager",
+		"attributeName":"biometrics",
+		"version": "1.0",
+		"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "errors": [
+    {
+      "errorCode": "PMS_PV_005"
+    }
+  ]     
+    }'

@@ -249,7 +249,7 @@ ReactivateVIDs:
   ]
 }'
 
-  IdRepository_ReactivateVIDs_Past_Timestamp_Neg:
+  IdRepository_ReactivateVIDs_with_Past_Timestamp_Neg:
       endPoint: /idrepository/v1/vid/reactivate
       role: resident
       restMethod: post

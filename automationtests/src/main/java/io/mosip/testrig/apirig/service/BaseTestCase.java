@@ -78,6 +78,7 @@ public class BaseTestCase {
 	public String partnerCookie = null;
 	public String partnerNewCookie = null;
 	public String withoutpartnerCookie = null;
+	public String withoutpolicyCookie = null;
 	public String partnerNewKycCookie = null;
 	public String esignetPartnerCookie = null;
 	public String policytestCookie = null;
