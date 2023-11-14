@@ -98,6 +98,7 @@ public class MosipTestRunner {
 				PartnerRegistration.deleteCertificates();
 				CertificateGenerationUtil.getThumbprints();
 				AdminTestUtil.createAndPublishPolicy();
+				//AdminTestUtil.createEditAndPublishPolicy();
 				partnerKeyURL = PartnerRegistration.generateAndGetPartnerKeyUrl();
 				
 				

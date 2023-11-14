@@ -59,6 +59,21 @@ DemoAuthNew:
       output: '{
   "authStatus": "true"
 }'
+  auth_DemoAuth_DOB_Valid_Smoke_with_updated_edited_policy_VID_Pos:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoAuth
+      outputTemplate: ida/DemoAuth/DemoAuthResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+  "authStatus": "true"
+}'
   auth_DemoAuth_DOB_Valid_Smoke_VID_invalid_transaction_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=1254@#45gg&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident

@@ -14,6 +14,21 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
+  auth_EkycDemo_Auth_With_edited_updated_policy_UIN_Smoke:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+  "kycStatus": "true"
+}'
   auth_EkycDemo_Auth_With_draft_uin_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GetDraft_all_valid_smoke_sid_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
