@@ -6228,7 +6228,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response response = null;
 		JSONObject responseJson = null;
-		String url = ApplnURI + props.getProperty("fetchZoneCode") + "/" + BaseTestCase.getLanguageList().get(0);
+		String url = ApplnURI + props.getProperty("fetchZoneCode") + BaseTestCase.getLanguageList().get(0);
 		String token = kernelAuthLib.getTokenByRole("globalAdmin");
 
 		try {
