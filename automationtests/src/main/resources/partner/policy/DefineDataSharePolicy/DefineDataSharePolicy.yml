@@ -701,7 +701,7 @@ defineDataSharePolicy:
       outputTemplate: partner/error
       input: '{
 		"desc": "mosip data share policy",
-		"name": "mosip data share policy",
+		"name": "mosip data share policy name",
 		"policyId": "MDSP239fhfdndn",
 		"policyGroupName": "mosip policy group",
 		"policyType": "DataShare",

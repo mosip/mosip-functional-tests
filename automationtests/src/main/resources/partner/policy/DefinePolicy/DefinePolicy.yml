@@ -212,32 +212,6 @@ definePolicy:
     "is_Active": false
 }'
 
-   Partner_DefinePolicy_demo_All_Valid_Smoke_sid:
-      endPoint: /v1/policymanager/policies
-      role: partner
-      restMethod: post
-      inputTemplate: partner/policy/DefinePolicy/definePolicy
-      outputTemplate: partner/policy/DefinePolicy/definePolicyResult
-      input: '{
-	"desc": "desc mosip policy9",
-	"name": "mosip policy9",
-	"authSubType": "FINGER",
-	"authType": "demo",
-	"mandatory": true,
-	"attributeName": "string",
-	"authTokenType": "partner",
-	"policyGroupName": "mosip policy group",
-	"policyType": "Auth",
-	"version": "1.0",
-	"requesttime": "$TIMESTAMP$"
-}'
-      output: ' {
-    "policyGroupName": "mosip policy group",
-    "name": "mosip policy9",
-    "desc": "desc mosip policy9",
-    "is_Active": false
-}'
-
    Partner_DefinePolicy_DEMOAUTH_with_SAME_POLICYNAME_NEG:
       endPoint: /v1/policymanager/policies
       role: partner
@@ -655,4 +629,30 @@ definePolicy:
       "errorCode": "PMS_COR_001"
     }
   ]
+}'
+
+   Partner_DefinePolicy_demo_All_Valid_Smoke_sid:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/policy/DefinePolicy/definePolicyResult
+      input: '{
+	"desc": "desc mosip policy9",
+	"name": "mosip policy9",
+	"authSubType": "FINGER",
+	"authType": "demo",
+	"mandatory": true,
+	"attributeName": "string",
+	"authTokenType": "partner",
+	"policyGroupName": "mosip policy group",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+    "policyGroupName": "mosip policy group",
+    "name": "mosip policy9",
+    "desc": "desc mosip policy9",
+    "is_Active": false
 }'

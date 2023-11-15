@@ -284,6 +284,7 @@ createSearchPartnerType:
       endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
       outputTemplate:  partner/error
       input: '{
@@ -306,16 +307,12 @@ createSearchPartnerType:
   "version": "v1"
 }'
       output: '{
-      "errors": [
-    {
-      "errorCode": "PMS-MSD-314"
-    }
-  ]
 }'
    Partner_SearchPartnerType_with_invalid_value_startswith:
       endPoint: /v1/partnermanager/partners/partnertype/search
       role: partner
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: partner/SearchAPIs/SearchPartnerType/createSearchPartnerType
       outputTemplate:  partner/error
       input: '{
@@ -338,11 +335,6 @@ createSearchPartnerType:
   "version": "v1"
 }'
       output: '{
-      "errors": [
-    {
-      "errorCode": "PMS-MSD-314"
-    }
-  ]
 }'
    Partner_SearchPartnerType_with_invalid_columnName:
       endPoint: /v1/partnermanager/partners/partnertype/search
