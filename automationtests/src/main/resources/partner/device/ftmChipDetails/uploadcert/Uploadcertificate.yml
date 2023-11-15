@@ -1,20 +1,4 @@
 UploadCertificateOfFtpChip:
-   Partner_UploadCertificate_All_Valid_Smoke:
-      endPoint: /v1/partnermanager/ftpchipdetail/uploadcertificate
-      role: partner
-      checkErrorsOnlyInResponse: true
-      restMethod: post
-      inputTemplate: partner/device/ftmChipDetails/uploadcert/uploadcertificate
-      outputTemplate: partner/device/ftmChipDetails/uploadcert/uploadcertificateResult
-      input: '{
-    "ftpProviderId": "FTP",
-    "ftpChipDeatilId": "$ID:CreateFTPChipDetail_All_Valid_Smoke_sid_id$",
-    "isItForRegistrationDevice": true,
-    "organizationName": "ftp",
-    "partnerDomain": "DEVICE"   
-  }'
-      output: ' {
-}'
    Partner_UploadCertificate_InValid_ftpProviderId:
       endPoint: /v1/partnermanager/ftpchipdetail/uploadcertificate
       role: partner

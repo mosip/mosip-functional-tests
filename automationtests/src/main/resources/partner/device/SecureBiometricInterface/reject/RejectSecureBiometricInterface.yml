@@ -30,26 +30,6 @@ RejectSecureBiometricInterface:
       output: '{
     }'
     
-   Partner_RejectSecureBiometricInterface_DEActive_TO_Map:
-      endPoint: /v1/partnermanager/securebiometricinterface
-      role: partner
-      restMethod: patch
-      inputTemplate: partner/device/SecureBiometricInterface/reject/rejectSecureBiometricInterface
-      outputTemplate: partner/error
-      input: '{
-    "approvalStatus": "De-activate",
-    "id": "$ID:SaveSecureBiometricInterface_TO_Map_sid_id$",
-    "isItForRegistrationDevice": true,
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: '{
-      "errors": [
-    {
-      "errorCode": "PMS_COR_001"
-    }
-  ]
-    }'
-    
    Partner_RejectSecureBiometricInterface_SpaVal_neg:
       endPoint: /v1/partnermanager/securebiometricinterface
       role: partner

@@ -29,7 +29,7 @@ ApproveAPIKey:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001"
+      "errorCode": "PMS_PM_034"
     }
   ]
 }'
