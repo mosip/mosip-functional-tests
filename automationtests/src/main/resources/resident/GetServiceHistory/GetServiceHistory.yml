@@ -9,8 +9,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -31,8 +31,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "hinn",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -58,8 +58,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$REMOVE$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -78,8 +78,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -100,8 +100,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -122,8 +122,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -144,8 +144,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -166,8 +166,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -188,8 +188,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "2022-12-07",
 	    "toDate": "$DATESTAMP$",
 	    "sortType": "$REMOVE$",
@@ -210,8 +210,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "2035-12-07",
 	    "toDate": "$DATESTAMP$",
 	    "sortType": "$REMOVE$",
@@ -237,8 +237,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "2035-12-07",
 	    "toDate": "2022-12-06",
 	    "sortType": "$REMOVE$",
@@ -264,8 +264,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "",
 	    "toDate": "$DATESTAMP$",
 	    "sortType": "$REMOVE$",
@@ -291,8 +291,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "2022-12-07",
 	    "toDate": "",
 	    "sortType": "$REMOVE$",
@@ -309,8 +309,8 @@ GetServiceHistory:
   ]
 }'
 
-   Resident_GetServiceHistory_uin_Invalid_PageStart_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?pageStart={pageStart}
+   Resident_GetServiceHistory_uin_Invalid_pageIndex_Neg:
+      endPoint: /resident/v1/service-history/{langcode}?pageIndex={pageIndex}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -318,8 +318,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "sdjv$#",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "sdjv$#",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -336,8 +336,8 @@ GetServiceHistory:
   ]
 }'
 
-   Resident_GetServiceHistory_uin_Valid_PageStart_Smoke:
-      endPoint: /resident/v1/service-history/{langcode}?pageStart={pageStart}
+   Resident_GetServiceHistory_uin_Valid_pageIndex_Smoke:
+      endPoint: /resident/v1/service-history/{langcode}?pageIndex={pageIndex}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -345,8 +345,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "0",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "0",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -364,7 +364,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_uin_Negative_PageFetch_Value_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?pageFetch={pageFetch}
+      endPoint: /resident/v1/service-history/{langcode}?pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -372,8 +372,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "-1",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "-1",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -391,7 +391,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_uin_Invalid_Random_PageFetch_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?pageFetch={pageFetch}
+      endPoint: /resident/v1/service-history/{langcode}?pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -399,8 +399,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "sdsd#$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "sdsd#$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -418,7 +418,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_uin_Invalid_PageFetch_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?pageFetch={pageFetch}
+      endPoint: /resident/v1/service-history/{langcode}?pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -426,8 +426,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "0",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "0",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -453,8 +453,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -480,8 +480,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "ASC",
@@ -502,8 +502,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "DESC",
@@ -524,8 +524,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "",
@@ -551,8 +551,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "ssd$#$#",
@@ -578,8 +578,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -600,8 +600,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -622,8 +622,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -644,8 +644,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -666,8 +666,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -693,8 +693,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -720,8 +720,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -742,8 +742,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "hinn",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -769,8 +769,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$REMOVE$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -789,8 +789,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -811,8 +811,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -833,8 +833,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -855,8 +855,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -877,8 +877,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -899,8 +899,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "2022-12-07",
 	    "toDate": "$DATESTAMP$",
 	    "sortType": "$REMOVE$",
@@ -921,8 +921,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "2035-12-07",
 	    "toDate": "$DATESTAMP$",
 	    "sortType": "$REMOVE$",
@@ -948,8 +948,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "2035-12-07",
 	    "toDate": "2022-12-06",
 	    "sortType": "$REMOVE$",
@@ -975,8 +975,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "",
 	    "toDate": "$DATESTAMP$",
 	    "sortType": "$REMOVE$",
@@ -1002,8 +1002,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "2022-12-07",
 	    "toDate": "",
 	    "sortType": "$REMOVE$",
@@ -1020,8 +1020,8 @@ GetServiceHistory:
   ]
 }'
 
-   Resident_GetServiceHistory_uin_Invalid_PageStart_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?pageStart={pageStart}
+   Resident_GetServiceHistory_uin_Invalid_pageIndex_Neg:
+      endPoint: /resident/v1/service-history/{langcode}?pageIndex={pageIndex}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -1029,8 +1029,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "sdjv$#",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "sdjv$#",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1047,8 +1047,8 @@ GetServiceHistory:
   ]
 }'
 
-   Resident_GetServiceHistory_uin_Valid_PageStart_Smoke:
-      endPoint: /resident/v1/service-history/{langcode}?pageStart={pageStart}
+   Resident_GetServiceHistory_uin_Valid_pageIndex_Smoke:
+      endPoint: /resident/v1/service-history/{langcode}?pageIndex={pageIndex}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -1056,8 +1056,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "0",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "0",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1075,7 +1075,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_uin_Negative_PageFetch_Value_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?pageFetch={pageFetch}
+      endPoint: /resident/v1/service-history/{langcode}?pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -1083,8 +1083,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "-1",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "-1",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1102,7 +1102,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_uin_Invalid_Random_PageFetch_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?pageFetch={pageFetch}
+      endPoint: /resident/v1/service-history/{langcode}?pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -1110,8 +1110,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "sdsd#$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "sdsd#$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1129,7 +1129,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_uin_Invalid_PageFetch_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?pageFetch={pageFetch}
+      endPoint: /resident/v1/service-history/{langcode}?pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -1137,8 +1137,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "0",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "0",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1164,8 +1164,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1191,8 +1191,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "ASC",
@@ -1213,8 +1213,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "DESC",
@@ -1235,8 +1235,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "",
@@ -1262,8 +1262,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "ssd$#$#",
@@ -1289,8 +1289,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1311,8 +1311,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1333,8 +1333,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1355,8 +1355,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1377,8 +1377,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1403,8 +1403,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1425,8 +1425,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "hinn",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1452,8 +1452,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$REMOVE$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1472,8 +1472,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1494,8 +1494,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1516,8 +1516,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1538,8 +1538,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1560,8 +1560,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1582,8 +1582,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "2022-12-07",
 	    "toDate": "$DATESTAMP$",
 	    "sortType": "$REMOVE$",
@@ -1604,8 +1604,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "2035-12-07",
 	    "toDate": "$DATESTAMP$",
 	    "sortType": "$REMOVE$",
@@ -1631,8 +1631,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "2035-12-07",
 	    "toDate": "2022-12-06",
 	    "sortType": "$REMOVE$",
@@ -1658,8 +1658,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "",
 	    "toDate": "$DATESTAMP$",
 	    "sortType": "$REMOVE$",
@@ -1685,8 +1685,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "2022-12-07",
 	    "toDate": "",
 	    "sortType": "$REMOVE$",
@@ -1703,8 +1703,8 @@ GetServiceHistory:
   ]
 }'
 
-   Resident_GetServiceHistory_vid_Invalid_PageStart_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?pageStart={pageStart}
+   Resident_GetServiceHistory_vid_Invalid_pageIndex_Neg:
+      endPoint: /resident/v1/service-history/{langcode}?pageIndex={pageIndex}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -1712,8 +1712,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "sdjv$#",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "sdjv$#",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1730,8 +1730,8 @@ GetServiceHistory:
   ]
 }'
 
-   Resident_GetServiceHistory_vid_Valid_PageStart_Smoke:
-      endPoint: /resident/v1/service-history/{langcode}?pageStart={pageStart}
+   Resident_GetServiceHistory_vid_Valid_pageIndex_Smoke:
+      endPoint: /resident/v1/service-history/{langcode}?pageIndex={pageIndex}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -1739,8 +1739,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "0",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "0",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1758,7 +1758,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_vid_Negative_PageFetch_Value_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?pageFetch={pageFetch}
+      endPoint: /resident/v1/service-history/{langcode}?pageSize={pageSize}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -1766,8 +1766,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "-1",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "-1",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1785,7 +1785,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_vid_Invalid_Random_PageFetch_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?pageFetch={pageFetch}
+      endPoint: /resident/v1/service-history/{langcode}?pageSize={pageSize}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -1793,8 +1793,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "sdsd#$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "sdsd#$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1812,7 +1812,7 @@ GetServiceHistory:
 }'
 
    Resident_GetServiceHistory_vid_Invalid_PageFetch_Neg:
-      endPoint: /resident/v1/service-history/{langcode}?pageFetch={pageFetch}
+      endPoint: /resident/v1/service-history/{langcode}?pageSize={pageSize}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -1820,8 +1820,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "0",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "0",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1847,8 +1847,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1874,8 +1874,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "ASC",
@@ -1896,8 +1896,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "DESC",
@@ -1918,8 +1918,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "",
@@ -1945,8 +1945,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "ssd$#$#",
@@ -1972,8 +1972,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -1994,8 +1994,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -2018,8 +2018,8 @@ GetServiceHistory:
       outputTemplate: resident/GetServiceHistory/GetServiceHistoryResult
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -2040,8 +2040,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",
@@ -2066,8 +2066,8 @@ GetServiceHistory:
       outputTemplate: resident/error
       input: '{
       	"langcode": "$1STLANG$",
-      	"pageStart": "$REMOVE$",
-	    "pageFetch": "$REMOVE$",
+      	"pageIndex": "$REMOVE$",
+	    "pageSize": "$REMOVE$",
 	    "fromDate": "$REMOVE$",
 	    "toDate": "$REMOVE$",
 	    "sortType": "$REMOVE$",

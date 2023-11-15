@@ -8,15 +8,15 @@ GetNotifications:
       outputTemplate: resident/GetNotifications/GetNotificationsResult
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"$REMOVE$",
-	    "pageFetch":"$REMOVE$"
+		"pageIndex":"$REMOVE$",
+	    "pageSize":"$REMOVE$"
 }'
       output: '{
         
 }'
 
-   Resident_GetNotifications_vid_pageFetch_all_Valid_Smoke:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+   Resident_GetNotifications_vid_pageSize_all_Valid_Smoke:
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -24,15 +24,15 @@ GetNotifications:
       outputTemplate: resident/GetNotifications/GetNotificationsResult
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"2",
-	    "pageFetch":"2"
+		"pageIndex":"2",
+	    "pageSize":"2"
 }'
       output: '{
         
 }'
 
-   Resident_GetNotifications_vid_pageStart_all_Valid_Smoke:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}
+   Resident_GetNotifications_vid_pageIndex_all_Valid_Smoke:
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -40,15 +40,15 @@ GetNotifications:
       outputTemplate: resident/GetNotifications/GetNotificationsResult
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"2",
-	    "pageFetch":"$REMOVE$"
+		"pageIndex":"2",
+	    "pageSize":"$REMOVE$"
 }'
       output: '{
         
 }'
 
-   Resident_GetNotifications_Invalid_pageStart_Neg:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}
+   Resident_GetNotifications_Invalid_pageIndex_Neg:
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -56,8 +56,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"dw",
-	    "pageFetch":"$REMOVE$"
+		"pageIndex":"dw",
+	    "pageSize":"$REMOVE$"
 }'
       output: '{    
          "errors": [
@@ -77,8 +77,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"$REMOVE$",
-	    "pageFetch":"$REMOVE$"
+		"pageIndex":"$REMOVE$",
+	    "pageSize":"$REMOVE$"
 }'
       output: '{
          "errors": [
@@ -90,7 +90,7 @@ GetNotifications:
 }'
 
    Resident_GetNotifications_vid_1_Invalid_PageNo_Pos:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -98,8 +98,8 @@ GetNotifications:
       outputTemplate: resident/GetNotifications/GetNotificationsResult
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"11",
-	    "pageFetch":"2"
+		"pageIndex":"11",
+	    "pageSize":"2"
 }'
       output: '{
         
@@ -114,8 +114,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "34Fg",
-		"pageStart":"$REMOVE$",
-	    "pageFetch":"$REMOVE$"
+		"pageIndex":"$REMOVE$",
+	    "pageSize":"$REMOVE$"
 }'
       output: '{
          "errors": [
@@ -135,8 +135,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": " ",
-		"pageStart":"$REMOVE$",
-	    "pageFetch":"$REMOVE$"
+		"pageIndex":"$REMOVE$",
+	    "pageSize":"$REMOVE$"
 }'
       output: '{
          "errors": [
@@ -148,7 +148,7 @@ GetNotifications:
 }'
 
    Resident_GetNotifications_vid_Neg_Value_PageStart_Neg:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -156,8 +156,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"-2",
-	    "pageFetch":"2"
+		"pageIndex":"-2",
+	    "pageSize":"2"
 }'
       output: '{
         "errors": [
@@ -168,8 +168,8 @@ GetNotifications:
   ]
 }'
 
-   Resident_GetNotifications_vid_Neg_Value_pageFetch_Neg:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+   Resident_GetNotifications_vid_Neg_Value_pageSize_Neg:
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -177,8 +177,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"2",
-	    "pageFetch":"-2"
+		"pageIndex":"2",
+	    "pageSize":"-2"
 }'
       output: '{
       "errors": [
@@ -190,8 +190,8 @@ GetNotifications:
         
 }'
 
-   Resident_GetNotifications_vid_StringVal_Invalid_pageFetch_Neg:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+   Resident_GetNotifications_vid_StringVal_Invalid_pageSize_Neg:
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -199,8 +199,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"2",
-	    "pageFetch":"gh"
+		"pageIndex":"2",
+	    "pageSize":"gh"
 }'
       output: '{
         "errors": [
@@ -211,8 +211,8 @@ GetNotifications:
   ]     
 }'
 
-   Resident_GetNotifications_vid_StringVal_Invalid_pageStart_Neg:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}
+   Resident_GetNotifications_vid_StringVal_Invalid_pageIndex_Neg:
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}
       role: residentNewVid
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -220,8 +220,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"fh",
-	    "pageFetch":"$REMOVE$"
+		"pageIndex":"fh",
+	    "pageSize":"$REMOVE$"
 }'
       output: '{
       "errors": [
@@ -241,15 +241,15 @@ GetNotifications:
       outputTemplate: resident/GetNotifications/GetNotificationsResult
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"$REMOVE$",
-	    "pageFetch":"$REMOVE$"
+		"pageIndex":"$REMOVE$",
+	    "pageSize":"$REMOVE$"
 }'
       output: '{
         
 }'
 
-   Resident_GetNotifications_uin_pageFetch_all_Valid_Smoke:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+   Resident_GetNotifications_uin_pageSize_all_Valid_Smoke:
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -257,15 +257,15 @@ GetNotifications:
       outputTemplate: resident/GetNotifications/GetNotificationsResult
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"2",
-	    "pageFetch":"2"
+		"pageIndex":"2",
+	    "pageSize":"2"
 }'
       output: '{
         
 }'
 
-   Resident_GetNotifications_uin_pageStart_all_Valid_Smoke:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+   Resident_GetNotifications_uin_pageIndex_all_Valid_Smoke:
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -273,15 +273,15 @@ GetNotifications:
       outputTemplate: resident/GetNotifications/GetNotificationsResult
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"2",
-	    "pageFetch":"2"
+		"pageIndex":"2",
+	    "pageSize":"2"
 }'
       output: '{
         
 }'
 
    Resident_GetNotifications_uin_1_Invalid_PageNo_Pos:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -289,14 +289,14 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"52",
-	    "pageFetch":"2"
+		"pageIndex":"52",
+	    "pageSize":"2"
 }'
       output: '{        
 }'
 
    Resident_GetNotifications_uin_all_InValid_langcode_Neg:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -304,8 +304,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "34Fg",
-		"pageStart":"2",
-	    "pageFetch":"2"
+		"pageIndex":"2",
+	    "pageSize":"2"
 }'
       output: '{
          "errors": [
@@ -317,7 +317,7 @@ GetNotifications:
 }'
 
    Resident_GetNotifications_uin_StatusCode_empty_langcode_Neg:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -325,13 +325,13 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "",
-		"pageStart":"2",
-	    "pageFetch":"2"
+		"pageIndex":"2",
+	    "pageSize":"2"
 }'
       output: "404"
 
    Resident_GetNotifications_uin_SpaceVal_langcode_Neg:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -339,8 +339,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": " ",
-		"pageStart":"2",
-	    "pageFetch":"2"
+		"pageIndex":"2",
+	    "pageSize":"2"
 }'
       output: '{
          "errors": [
@@ -352,7 +352,7 @@ GetNotifications:
 }'
 
    Resident_GetNotifications_uin_Neg_Value_PageStart_Neg:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -360,8 +360,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"-2",
-	    "pageFetch":"2"
+		"pageIndex":"-2",
+	    "pageSize":"2"
 }'
       output: '{
   "errors": [
@@ -372,8 +372,8 @@ GetNotifications:
   ]
 }'
 
-   Resident_GetNotifications_uin_Neg_Value_pageFetch_Neg:
-      endPoint: /resident/v1/notifications/{langCode}?pageStart={pageStart}&pageFetch={pageFetch}
+   Resident_GetNotifications_uin_Neg_Value_pageSize_Neg:
+      endPoint: /resident/v1/notifications/{langCode}?pageIndex={pageIndex}&pageSize={pageSize}
       role: residentNew
       checkErrorsOnlyInResponse: true
       restMethod: get
@@ -381,8 +381,8 @@ GetNotifications:
       outputTemplate: resident/error
       input: '{
 		"langCode": "$1STLANG$",
-		"pageStart":"2",
-	    "pageFetch":"-2"
+		"pageIndex":"2",
+	    "pageSize":"-2"
 }'
       output: '{
   "errors": [
