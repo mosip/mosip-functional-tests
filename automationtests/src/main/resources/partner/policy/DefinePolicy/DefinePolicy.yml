@@ -574,7 +574,7 @@ definePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001"
+      "errorCode": "PMS_PV_005"
     }
   ]
 }'
@@ -600,7 +600,7 @@ definePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001"
+      "errorCode": "PMS_PV_005"
     }
   ]
 }'
@@ -626,7 +626,7 @@ definePolicy:
       output: '{
    "errors": [
     {
-      "errorCode": "PMS_COR_001"
+      "errorCode": "PMS_PV_006"
     }
   ]
 }'
