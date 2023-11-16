@@ -4520,8 +4520,8 @@ public class AdminTestUtil extends BaseTestCase {
 
 			requestJson.getJSONObject("request").put("documents", requestDocArray);
 			requestJson.getJSONObject("request").put("identity", identityJson);
-			requestJson.put("requesttime", generateCurrentUTCTimeStamp());
-			requestJson.put("version", "v1");
+			requestJson.put("requesttime", "{{requesttime}}");
+			requestJson.put("version", "{{version}}");
 
 			System.out.println(requestJson);
 
