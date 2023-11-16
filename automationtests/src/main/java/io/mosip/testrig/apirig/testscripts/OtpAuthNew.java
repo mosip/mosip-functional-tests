@@ -104,6 +104,25 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
 			}
 		}
+		
+		if (testCaseDTO.getEndPoint().contains("$PartnerKeyURL$")) {
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
+		}
+
+		if (testCaseDTO.getEndPoint().contains("$KycPartnerKeyURL$")) {
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$KycPartnerKeyURL$", PartnerRegistration.ekycPartnerKeyUrl));
+		}
+
+		if (testCaseDTO.getEndPoint().contains("$PartnerName$")) {
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerName$", PartnerRegistration.partnerId));
+		}
+
+		if (testCaseDTO.getEndPoint().contains("$KycPartnerName$")) {
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$KycPartnerName$", PartnerRegistration.ekycPartnerId));
+		}
 
 		JSONObject input = new JSONObject(testCaseDTO.getInput());
 		String individualId = null;
