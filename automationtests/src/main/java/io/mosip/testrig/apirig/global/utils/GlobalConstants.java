@@ -55,10 +55,11 @@ public class GlobalConstants {
 	public static final String APIKEY = "apiKey";
 	public static final String PARTNER_APIKEY = "partnerApiKey";
 	public static final String PARTNERID = "partnerId";
-	public static final String REPORT_RESPONSE_PREFIX = "<b><u>Response: </u></b>(End Point URL: ";
+	public static final String REPORT_RESPONSE_PREFIX = "<b><u>Response: </u></b>";
 	public static final String REPORT_RESPONSE_SUFFIX = "</pre>";
-	public static final String REPORT_RESPONSE_BODY = ") <pre>";
-	public static final String REPORT_REQUEST_PREFIX = "<pre>";
+	public static final String REPORT_RESPONSE_BODY = "<pre>";
+	public static final String REPORT_REQUEST_PREFIX = "<b><u>Request: </u></b>(End Point URL: ";
+	public static final String REPORT_REQUEST_BODY = ") <pre>";
 	public static final String REPORT_REQUEST_SUFFIX = "</pre>";
 	public static final String EXCEPTION_STRING_1 = " Exception: ";
 	public static final String EXCEPTION_STRING_2 = "Exception ";

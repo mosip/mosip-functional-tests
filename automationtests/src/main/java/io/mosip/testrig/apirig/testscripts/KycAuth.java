@@ -67,8 +67,6 @@ public class KycAuth extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -92,52 +90,51 @@ public class KycAuth extends AdminTestUtil implements ITest {
 			kycAuthEndPoint = request.get(GlobalConstants.KYCAUTHENDPOINT).toString();
 			request.remove(GlobalConstants.KYCAUTHENDPOINT);
 		}
-		
+
 		String requestString = buildIdentityRequest(request.toString());
-		
+
 		String input = getJsonFromTemplate(requestString, testCaseDTO.getInputTemplate());
-		
+
 		String url = ConfigManager.getAuthDemoServiceUrl();
-		
+
 		logger.info("******Post request Json to EndPointUrl: " + url + testCaseDTO.getEndPoint() + " *******");
-		
+
 		Response authResponse = null;
-		
-		authResponse = postWithBodyAndCookieWithText(url + testCaseDTO.getEndPoint(), input,
-				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
+
+		authResponse = postWithBodyAndCookieWithText(url + testCaseDTO.getEndPoint(), input, COOKIENAME,
+				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
 		String signature = authResponse.getHeader("signature");
-		
+
 		logger.info(signature);
-		
+
 		String authResBody = authResponse.getBody().asString();
-		
+
 		logger.info(authResBody);
-		
+
 		JSONObject responseBody = new JSONObject(authResponse.getBody().asString());
-		
+
 		String requestJson = null;
 
 		HashMap<String, String> headers = new HashMap<>();
 		headers.put(SIGNATURE_HEADERNAME, signature);
 		String token = kernelAuthLib.getTokenByRole(testCaseDTO.getRole());
 		headers.put(COOKIENAME, token);
-		
+
 		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");
-		
-		response = postRequestWithAuthHeaderAndSignatureForOtp(ApplnURI + kycAuthEndPoint, authResBody,
-				COOKIENAME, token, headers, testCaseDTO.getTestCaseName());
+
+		response = postRequestWithAuthHeaderAndSignatureForOtp(ApplnURI + kycAuthEndPoint, authResBody, COOKIENAME,
+				token, headers, testCaseDTO.getTestCaseName());
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
 	}
-
-	
 
 	/**
 	 * The method ser current test name to result
@@ -157,8 +154,7 @@ public class KycAuth extends AdminTestUtil implements ITest {
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-		
-		
+
 	}
 
 	@AfterClass

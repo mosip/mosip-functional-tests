@@ -153,7 +153,7 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 			sendOtpRespJson.remove("sendOtpResTemplate");
 			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
 					otpRespon.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
-					testCaseDTO.isCheckErrorsOnlyInResponse());
+					testCaseDTO.isCheckErrorsOnlyInResponse(), otpRespon.getStatusCode());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
@@ -209,8 +209,8 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 			}
 		}
 
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse());
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
