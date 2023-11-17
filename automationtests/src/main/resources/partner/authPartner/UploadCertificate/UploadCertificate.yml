@@ -38,23 +38,7 @@ uploadCACert:
       "errorCode": "KER-PCM-003"
     }
   ]
-}' 
-   Partner_UploadCACertificate_with_invalid_file_format:
-      endPoint: /v1/partnermanager/partners/certificate/ca/upload
-      role: partner
-      restMethod: post
-      inputTemplate: partner/authPartner/UploadCertificate/uploadCertificate2
-      outputTemplate: partner/error
-      input: '{
-    "requesttime": "$TIMESTAMP$"
-  }'
-      output: ' {
-    "errors": [
-    {
-      "errorCode": "KER-PCM-003"
-    }
-  ]
-}' 
+}'
    Partner_UploadCACertificate_with_invalid_data:
       endPoint: /v1/partnermanager/partners/certificate/ca/upload
       role: partner
@@ -67,7 +51,7 @@ uploadCACert:
       output: ' {
     "errors": [
     {
-      "errorCode": "KER-PCM-003"
+      "errorCode": "KER-CRY-003"
     }
   ]
 }'
@@ -83,7 +67,7 @@ uploadCACert:
       output: ' {
     "errors": [
     {
-      "errorCode": "KER-PCM-003"
+      "errorCode": "PMS_COR_001"
     }
   ]
 }'

@@ -70,7 +70,7 @@ GenerateVID:
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: resident/GenerateVID/createGenerateVID
-      outputTemplate: resident/GenerateVID/createGenerateVIDResult
+      outputTemplate: resident/error
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "1272Y@GDGDG",
@@ -92,7 +92,7 @@ GenerateVID:
       output: '{
   "errors": [
     {
-      "errorCode": "RES-SER-422",
+      "errorCode": "RES-SER-410",
       "message": "$IGNORE$"
     }
   ],

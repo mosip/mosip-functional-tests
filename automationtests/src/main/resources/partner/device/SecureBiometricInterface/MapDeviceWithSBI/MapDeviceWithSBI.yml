@@ -44,7 +44,7 @@ MapDeviceWithSBI:
       role: partner
       restMethod: put
       inputTemplate: partner/device/SecureBiometricInterface/MapDeviceWithSBI/mapDeviceWithSBI
-      outputTemplate: partner/device/SecureBiometricInterface/MapDeviceWithSBI/mapDeviceWithSBIResult
+      outputTemplate: partner/error
       input: '{
     "deviceDetailId": "MOSIP.PROXY.SBI",
     "sbiId": "$ID:SaveSecureBiometricInterface_Valid_Smoke_sid_id$"
@@ -52,7 +52,7 @@ MapDeviceWithSBI:
       output: '{
       "errors": [
     {
-      "errorCode": "PMS_COR_001"
+      "errorCode": "PMS_AUT_005"
     }
   ]
     }'

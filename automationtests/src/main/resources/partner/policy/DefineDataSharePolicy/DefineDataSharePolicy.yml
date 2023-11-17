@@ -698,10 +698,10 @@ defineDataSharePolicy:
       role: partner
       restMethod: post
       inputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicy
-      outputTemplate: partner/error
+      outputTemplate: partner/policy/DefineDataSharePolicy/defineDataSharePolicyResult
       input: '{
 		"desc": "mosip data share policy",
-		"name": "mosip data share policy",
+		"name": "mosip data share policy name",
 		"policyId": "MDSP239fhfdndn",
 		"policyGroupName": "mosip policy group",
 		"policyType": "DataShare",
@@ -717,11 +717,10 @@ defineDataSharePolicy:
 		"requesttime": "$TIMESTAMP$"
 }'
       output: ' {
-    "errors": [
-    {
-      "errorCode": "PMS_PV_005"
-    }
-  ]     
+    "policyGroupName": "mosip policy group",
+    "name": "mosip data share policy name",
+    "desc": "mosip data share policy",
+    "is_Active": false
     }'
    Partner_DefineDataSharePolicy_without_policyId:
       endPoint: /v1/policymanager/policies

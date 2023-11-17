@@ -2,6 +2,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_Valid_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["gender"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -17,6 +18,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_edited_updated_policy_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["gender"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -32,6 +34,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_draft_uin_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GetDraft_all_valid_smoke_sid_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["name"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -47,6 +50,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_Valid_VID_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["name"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -199,6 +203,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_email_Valid_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["name"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -214,6 +219,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_Email_Valid_VID_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["dob"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -289,6 +295,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_gender_Valid_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["email"]
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptGender
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -308,6 +315,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_gender_Valid_VID_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["email"]
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptGender
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -375,6 +383,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_name_Valid_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["dob"]
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -394,6 +403,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_Infant_Valid_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_Infant_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["dob"]
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -413,6 +423,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_name_Valid_VID_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["dob"]
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -480,6 +491,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_name1_Valid_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["gender"]
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -499,6 +511,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_name2_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["gender"]
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -518,6 +531,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_name3_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["dob"]
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -537,6 +551,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_name4_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["dob"]
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -556,6 +571,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_name5_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["dob"]
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -575,6 +591,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_name6_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["fullName"]
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -594,6 +611,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_name7_Valid_titleFromAdmin_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["fullName"]
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -641,6 +659,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_age_Valid_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["fullName"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -656,6 +675,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_age_Valid_VID_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["email"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -711,6 +731,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_phone_Valid_UIN_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["email"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -726,6 +747,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_phone_Valid_VID_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["email"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -906,6 +928,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_Deactivated_UIN:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_deactivate_UIN_smoke_sid_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
+      kycFields: ["gender"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/error

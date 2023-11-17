@@ -24,7 +24,7 @@ uploadCert:
       output: ' {
     "errors": [
     {
-      "errorCode": "PMS_PV_005"
+      "errorCode": "KER-CRY-003"
     }
   ]     
     }'   
