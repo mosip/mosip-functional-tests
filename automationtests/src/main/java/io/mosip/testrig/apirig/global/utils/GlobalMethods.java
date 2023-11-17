@@ -17,27 +17,30 @@ public class GlobalMethods {
 
 	private static final Logger logger = Logger.getLogger(GlobalMethods.class);
 	public static void ReportRequestAndResponse(String reqHeader,String resHeader,String url, String requestBody, String response) {
-	reportRequest(reqHeader,requestBody);
+	reportRequest(reqHeader,requestBody, url);
 	reportResponse(resHeader,url, response);				
 	}	
 	
-	
 	public static void reportRequest(String requestHeader, String request) {
+		reportRequest(requestHeader, request, "");
+	}
+	
+	public static void reportRequest(String requestHeader, String request, String url) {
 		
 		String formattedHeader = ReportUtil.getTextAreaForHeaders(requestHeader);
 
 		if (request != null && !request.equals("{}"))
-			Reporter.log(GlobalConstants.REPORT_REQUEST_PREFIX + formattedHeader + ReportUtil.getTextAreaJsonMsgHtml(request)
+			Reporter.log(GlobalConstants.REPORT_REQUEST_PREFIX + url + GlobalConstants.REPORT_REQUEST_BODY + formattedHeader + ReportUtil.getTextAreaJsonMsgHtml(request)
 					+ GlobalConstants.REPORT_REQUEST_SUFFIX);
 		else
 			Reporter.log(
-					GlobalConstants.REPORT_REQUEST_PREFIX + formattedHeader + "No request body" + GlobalConstants.REPORT_REQUEST_SUFFIX);
+					GlobalConstants.REPORT_REQUEST_PREFIX + url + GlobalConstants.REPORT_REQUEST_BODY + formattedHeader + "No request body" + GlobalConstants.REPORT_REQUEST_SUFFIX);
 	}
 
 	public static void reportResponse(String responseHeader, String url, Response response) {
 		String formattedHeader = ReportUtil.getTextAreaForHeaders(responseHeader);
 
-		Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + url + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
+		Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
 				+ ReportUtil.getTextAreaJsonMsgHtml(response.asString()) + GlobalConstants.REPORT_RESPONSE_SUFFIX);
 	}
 
@@ -49,10 +52,10 @@ public class GlobalMethods {
 		String formattedHeader = ReportUtil.getTextAreaForHeaders(responseHeader);
 
 		if (formatResponse)
-			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + url + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
+			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
 					+ ReportUtil.getTextAreaJsonMsgHtml(response) + GlobalConstants.REPORT_RESPONSE_SUFFIX);
 		else
-			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + url + GlobalConstants.REPORT_RESPONSE_BODY + responseHeader + response
+			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + responseHeader + response
 					+ GlobalConstants.REPORT_RESPONSE_SUFFIX);
 	}
 	

@@ -41,7 +41,7 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(UpdateIdentity.class);
 	protected String testCaseName = "";
 	private static String identity;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -77,7 +77,6 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -94,7 +93,6 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		updateIdentity(testCaseDTO);
 
 	}
-	
 
 	public void updateIdentity(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 
@@ -104,12 +102,10 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		}
 
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
-		
-		
-		
+
 		JSONObject otpReqJson = null;
-		String otpRequest = null; 
-		String sendOtpReqTemplate = null; 
+		String otpRequest = null;
+		String sendOtpReqTemplate = null;
 		String sendOtpEndPoint = null;
 		if (req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
@@ -124,8 +120,7 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 			if (sendOtpEndPoint.contains("$partnerKeyURL$")) {
 				sendOtpEndPoint = sendOtpEndPoint.replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl);
 			}
-			if(sendOtpEndPoint.contains("$PartnerName$"))
-			{
+			if (sendOtpEndPoint.contains("$PartnerName$")) {
 				sendOtpEndPoint = sendOtpEndPoint.replace("$PartnerName$", PartnerRegistration.partnerId);
 			}
 		}
@@ -144,19 +139,16 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		generatedRid = genRid;
 
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
-		
-		
 
 		String phone = getValueFromAuthActuator("json-property", "phone_number");
 		String result = phone.replaceAll("\\[\"|\"\\]", "");
-		
+
 		String email = getValueFromAuthActuator("json-property", "emailId");
 		String emailResult = email.replaceAll("\\[\"|\"\\]", "");
-		
-		
+
 		inputJson = inputJson.replace("\"phone\":", "\"" + result + "\":");
 		inputJson = inputJson.replace("\"email\":", "\"" + emailResult + "\":");
-		
+
 		inputJson = inputJson.replace("$RID$", genRid);
 
 		if (inputJson.contains("$PRIMARYLANG$"))
@@ -166,7 +158,8 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		Assert.assertEquals(OutputValidationUtil.publishOutputResult(ouputValid), true);
 
@@ -179,7 +172,8 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 			sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 			sendOtpRespJson.remove("sendOtpResTemplate");
 			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
-					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
+					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
+					testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
