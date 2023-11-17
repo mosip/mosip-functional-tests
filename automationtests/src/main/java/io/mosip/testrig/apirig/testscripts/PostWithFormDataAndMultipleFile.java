@@ -34,7 +34,7 @@ public class PostWithFormDataAndMultipleFile extends AdminTestUtil implements IT
 	protected String testCaseName = "";
 	String idKeyName = null;
 	public Response response = null;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -42,7 +42,7 @@ public class PostWithFormDataAndMultipleFile extends AdminTestUtil implements IT
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -60,10 +60,9 @@ public class PostWithFormDataAndMultipleFile extends AdminTestUtil implements IT
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		idKeyName = context.getCurrentXmlTest().getLocalParameters().get("idKeyName");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -75,17 +74,20 @@ public class PostWithFormDataAndMultipleFile extends AdminTestUtil implements IT
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		response = postWithFormDataAndMultipleFile(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), testCaseDTO.getRole(), testCaseDTO.getTestCaseName(),idKeyName);
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+		response = postWithFormDataAndMultipleFile(ApplnURI + testCaseDTO.getEndPoint(),
+				getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), testCaseDTO.getRole(),
+				testCaseDTO.getTestCaseName(), idKeyName);
+
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
@@ -109,5 +111,5 @@ public class PostWithFormDataAndMultipleFile extends AdminTestUtil implements IT
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}	
+	}
 }

@@ -41,9 +41,9 @@ import net.minidev.json.JSONArray;
 public class SimplePostForRegisteredDevice extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePostForRegisteredDevice.class);
 	protected String testCaseName = "";
-	
+
 	Encoder encoder = Base64.getEncoder();
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -51,7 +51,7 @@ public class SimplePostForRegisteredDevice extends AdminTestUtil implements ITes
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -68,10 +68,9 @@ public class SimplePostForRegisteredDevice extends AdminTestUtil implements ITes
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -83,30 +82,32 @@ public class SimplePostForRegisteredDevice extends AdminTestUtil implements ITes
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
-		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+		testCaseName = testCaseDTO.getTestCaseName();
+		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		inputJson = inputJson.replace("$DEVICEDATA$", encoder.encodeToString(creatingDeviceDataForDeviceData().getBytes()));
-		Response response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
-		ReadContext ctx = JsonPath.parse(response.getBody().asString());	
+		inputJson = inputJson.replace("$DEVICEDATA$",
+				encoder.encodeToString(creatingDeviceDataForDeviceData().getBytes()));
+		Response response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,
+				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
+		ReadContext ctx = JsonPath.parse(response.getBody().asString());
 		JSONArray arrayOfErrors = ctx.read("$.errors");
 		if (arrayOfErrors.isEmpty())
 			regDeviceResponse = (String) ctx.read("$.response");
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
 	}
-	
-	
+
 	public String creatingDeviceDataForDigitalId() {
 		JSONObject digitalId = new JSONObject();
 		digitalId.put("serialNo", "TR001234567");
@@ -119,12 +120,11 @@ public class SimplePostForRegisteredDevice extends AdminTestUtil implements ITes
 		digitalId.put("deviceSubType", "Slap");
 		return digitalId.toString();
 	}
-	
-	
+
 	public String creatingDeviceDataForDeviceInfo() {
 		String digitalId = creatingDeviceDataForDigitalId();
 		JSONObject deviceInfo = new JSONObject();
-		String[] deviceSubId = {"1","2"}; 
+		String[] deviceSubId = { "1", "2" };
 		deviceInfo.put("deviceSubId", deviceSubId);
 		deviceInfo.put("certification", "L0");
 		deviceInfo.put("digitalId", encoder.encodeToString(digitalId.getBytes()));
@@ -142,12 +142,10 @@ public class SimplePostForRegisteredDevice extends AdminTestUtil implements ITes
 		diviceData.put("deviceInfo", encoder.encodeToString(deviceInfo.getBytes()));
 		return diviceData.toString();
 	}
-    
+
 	public static String getCurrentDateAndTimeForAPI() {
-        return    javax.xml.bind.DatatypeConverter.printDateTime(
-                Calendar.getInstance(TimeZone.getTimeZone("UTC"))
-            );
-    }
+		return javax.xml.bind.DatatypeConverter.printDateTime(Calendar.getInstance(TimeZone.getTimeZone("UTC")));
+	}
 
 	/**
 	 * The method ser current test name to result
@@ -167,5 +165,5 @@ public class SimplePostForRegisteredDevice extends AdminTestUtil implements ITes
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}	
+	}
 }
