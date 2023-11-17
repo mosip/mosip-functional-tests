@@ -133,6 +133,11 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$KycPartnerName$", PartnerRegistration.ekycPartnerId));
 		}
+		
+		if (testCaseDTO.getEndPoint().contains("$UpdatedPartnerKeyURL$")) {
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$UpdatedPartnerKeyURL$", PartnerRegistration.updatedpartnerKeyUrl));
+		}
 
 		String input = testCaseDTO.getInput();
 

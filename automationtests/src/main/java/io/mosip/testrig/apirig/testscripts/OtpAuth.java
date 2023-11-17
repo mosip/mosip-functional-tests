@@ -32,6 +32,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.FileUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
+import io.mosip.testrig.apirig.ida.certificate.PartnerRegistration;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -91,6 +92,11 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		{
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace(GlobalConstants.$PARTNERKEYURL$, properties.getProperty("partnerKeyURL")));
 		}
+		
+		if (testCaseDTO.getEndPoint().contains("$UpdatedPartnerKeyURL$")) {
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$UpdatedPartnerKeyURL$", PartnerRegistration.updatedpartnerKeyUrl));
+		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null;
 		String sendOtpReqTemplate = null;
@@ -114,6 +120,12 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		{
 			sendOtpEndPoint= sendOtpEndPoint.replace(GlobalConstants.$PARTNERKEYURL$, properties.getProperty("partnerKeyURL"));
 		}
+		
+		if(sendOtpEndPoint.contains("$UpdatedPartnerKeyURL$"))
+		{
+			sendOtpEndPoint= sendOtpEndPoint.replace("$UpdatedPartnerKeyURL$", PartnerRegistration.updatedpartnerKeyUrl);
+		}
+		
 		
 		Response otpResponse = null;
 		if(isInternal)
