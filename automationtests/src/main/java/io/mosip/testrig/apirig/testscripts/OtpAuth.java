@@ -41,7 +41,7 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean isInternal = false;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -49,7 +49,7 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -67,10 +67,9 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		isInternal = Boolean.parseBoolean(context.getCurrentXmlTest().getLocalParameters().get("isInternal"));
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -82,21 +81,21 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
+	public void test(TestCaseDTO testCaseDTO) throws AdminTestException {
+		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		if(testCaseDTO.getEndPoint().contains(GlobalConstants.$PARTNERKEYURL$))
-		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace(GlobalConstants.$PARTNERKEYURL$, properties.getProperty("partnerKeyURL")));
+		if (testCaseDTO.getEndPoint().contains(GlobalConstants.$PARTNERKEYURL$)) {
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace(GlobalConstants.$PARTNERKEYURL$,
+					properties.getProperty("partnerKeyURL")));
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null;
 		String sendOtpReqTemplate = null;
 		String sendOtpEndPoint = null;
 		String otpIdentyEnryptRequestPath = null;
-		if(req.has(GlobalConstants.SENDOTP)) {
+		if (req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
 		}
@@ -104,78 +103,85 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 		sendOtpReqTemplate = otpReqJson.getString("sendOtpReqTemplate");
 		otpReqJson.remove("sendOtpReqTemplate");
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
-		
-		
+
 		otpReqJson.remove("sendOtpEndPoint");
 		otpIdentyEnryptRequestPath = otpReqJson.getString("otpIdentyEnryptRequestPath");
 		otpReqJson.remove("otpIdentyEnryptRequestPath");
-		
-		if(sendOtpEndPoint.contains(GlobalConstants.$PARTNERKEYURL$))
-		{
-			sendOtpEndPoint= sendOtpEndPoint.replace(GlobalConstants.$PARTNERKEYURL$, properties.getProperty("partnerKeyURL"));
+
+		if (sendOtpEndPoint.contains(GlobalConstants.$PARTNERKEYURL$)) {
+			sendOtpEndPoint = sendOtpEndPoint.replace(GlobalConstants.$PARTNERKEYURL$,
+					properties.getProperty("partnerKeyURL"));
 		}
-		
+
 		Response otpResponse = null;
-		if(isInternal)
-			otpResponse = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
+		if (isInternal)
+			otpResponse = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint,
+					getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,
+					GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
 		else
-			otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), testCaseDTO.getTestCaseName());
-		
+			otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint,
+					getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), testCaseDTO.getTestCaseName());
+
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if(res.has(GlobalConstants.SENDOTPRESP)) {
+		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
 		}
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
-		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
+		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
+				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at Send OTP output validation");
-		
-		
-		String otpIdentyEnryptRequest = FileUtil.readInput(getResourcePath()+otpIdentyEnryptRequestPath);
+
+		String otpIdentyEnryptRequest = FileUtil.readInput(getResourcePath() + otpIdentyEnryptRequestPath);
 		otpIdentyEnryptRequest = updateTimestampOtp(otpIdentyEnryptRequest);
-		
-		Map<String, String> bioAuthTempMap = (isInternal)? encryptDecryptUtil.getInternalEncryptSessionKeyValue(otpIdentyEnryptRequest) : encryptDecryptUtil.getEncryptSessionKeyValue(otpIdentyEnryptRequest);
+
+		Map<String, String> bioAuthTempMap = (isInternal)
+				? encryptDecryptUtil.getInternalEncryptSessionKeyValue(otpIdentyEnryptRequest)
+				: encryptDecryptUtil.getEncryptSessionKeyValue(otpIdentyEnryptRequest);
 		String authRequest = getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate());
 		logger.info("************* Modification of OTP auth request ******************");
 		Reporter.log("<b><u>Modification of otp auth request</u></b>");
-		authRequest = modifyRequest(authRequest, bioAuthTempMap, getResourcePath()+properties.getProperty("idaMappingPath"));
+		authRequest = modifyRequest(authRequest, bioAuthTempMap,
+				getResourcePath() + properties.getProperty("idaMappingPath"));
 		JSONObject authRequestTemp = new JSONObject(authRequest);
 		authRequestTemp.remove("env");
 		authRequestTemp.put("env", "Staging");
 		authRequest = authRequestTemp.toString();
 		testCaseDTO.setInput(authRequest);
-				
-		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");		
-		
-		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+
+		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");
+
+		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest,
+				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-		
-		if(testCaseName.toLowerCase().contains("kyc")) {
+
+		if (testCaseName.toLowerCase().contains("kyc")) {
 			JSONObject resJsonObject = new JSONObject(response.asString());
-			String resp="";
+			String resp = "";
 			try {
 				resp = resJsonObject.get("response").toString();
 			} catch (JSONException e) {
 				logger.error(e.getMessage());
 			}
 			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
-			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+properties.getProperty("decryptkycdataurl"), 
-						resp, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
+			response = postWithBodyAcceptTextPlainAndCookie(
+					EncryptionDecrptionUtil.getEncryptUtilBaseUrl() + properties.getProperty("decryptkycdataurl"), resp,
+					COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
-		
 
 	}
 
@@ -198,7 +204,7 @@ public class OtpAuth extends AdminTestUtil implements ITest {
 			Reporter.log("Exception : " + e.getMessage());
 		}
 	}
-	
+
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");

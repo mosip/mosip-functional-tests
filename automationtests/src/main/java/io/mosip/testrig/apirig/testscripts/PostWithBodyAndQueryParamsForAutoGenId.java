@@ -37,7 +37,7 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 	String queryParams = null;
 	public String idKeyName = null;
 	public Response response = null;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -45,66 +45,62 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	@Override
 	public String getTestName() {
 		return testCaseName;
 	}
 
-	
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		idKeyName = context.getCurrentXmlTest().getLocalParameters().get("idKeyName");
 		queryParams = context.getCurrentXmlTest().getLocalParameters().get("queryParams");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
-	
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		
+
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		
-		if(testCaseName.contains("_AuthDemoUrl_")) {
+
+		if (testCaseName.contains("_AuthDemoUrl_")) {
 			String url = ConfigManager.getAuthDemoServiceUrl();
-			
+
 			logger.info("******Post request Json to EndPointUrl: " + url + testCaseDTO.getEndPoint() + " *******");
-			
-			response = postWithQueryParamsBodyAndCookie(url + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), queryParams, idKeyName);
+
+			response = postWithQueryParamsBodyAndCookie(url + testCaseDTO.getEndPoint(),
+					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
+					testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), queryParams, idKeyName);
+		} else {
+			logger.info("Not Getting" + GlobalConstants.POST_REQ_URL + testCaseDTO.getTestCaseName() + " *******");
 		}
-		else {
-			logger.info("Not Getting"+GlobalConstants.POST_REQ_URL + testCaseDTO.getTestCaseName() + " *******");
-		}
-		
+
 		Map<String, List<OutputValidationDto>> ouputValid = null;
-		if(testCaseName.contains("_StatusCode")) {
-			
-			OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput());
-			
+		if (testCaseName.contains("_StatusCode")) {
+
+			OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()),
+					testCaseDTO.getOutput());
+
 			ouputValid = new HashMap<>();
 			ouputValid.put(GlobalConstants.EXPECTED_VS_ACTUAL, List.of(customResponse));
-		}else {
-		
-		 ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+		} else {
+
+			ouputValid = OutputValidationUtil.doJsonOutputValidation(response.asString(),
+					getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+					testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		}
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
 	}
-	
 
-	
-
-	
 	@AfterMethod(alwaysRun = true)
 	public void setResultTestName(ITestResult result) {
 		try {
@@ -118,5 +114,5 @@ public class PostWithBodyAndQueryParamsForAutoGenId extends AdminTestUtil implem
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}	
+	}
 }

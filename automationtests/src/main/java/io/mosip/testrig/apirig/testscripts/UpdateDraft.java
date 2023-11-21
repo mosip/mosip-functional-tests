@@ -36,7 +36,7 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	String pathParams = null;
 	public Response response = null;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -65,7 +65,6 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * 
@@ -125,7 +124,8 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -157,7 +157,8 @@ public class UpdateDraft extends AdminTestUtil implements ITest {
 	public void waittime() {
 
 		try {
-			logger.info("waiting for" + properties.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO");
+			logger.info(
+					"waiting for" + properties.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO");
 			Thread.sleep(Long.parseLong(properties.getProperty("Delaytime")));
 		} catch (Exception e) {
 			logger.error("Exception : " + e.getMessage());

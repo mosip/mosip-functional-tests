@@ -38,7 +38,7 @@ public class GetWithQueryParam extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(GetWithQueryParam.class);
 	protected String testCaseName = "";
 	public Response response = null;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -66,8 +66,6 @@ public class GetWithQueryParam extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -81,7 +79,7 @@ public class GetWithQueryParam extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		
+
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
@@ -90,45 +88,47 @@ public class GetWithQueryParam extends AdminTestUtil implements ITest {
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			 for (int i=0; i<languageList.size(); i++) {
-		            	response = getWithQueryParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
-		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		            	
-		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-								response.asString(),
-								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
-						Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-						
-						if (!OutputValidationUtil.publishOutputResult(ouputValid))
-							throw new AdminTestException("Failed at output validation");
-		        }
-		}  
-		
+			for (int i = 0; i < languageList.size(); i++) {
+				response = getWithQueryParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
+						getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()),
+						COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
+				Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+						response.asString(),
+						getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()),
+						testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+				Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
+
+				if (!OutputValidationUtil.publishOutputResult(ouputValid))
+					throw new AdminTestException("Failed at output validation");
+			}
+		}
+
 		else {
-			if(testCaseName.contains("ESignet_")) {
+			if (testCaseName.contains("ESignet_")) {
 				String tempUrl = ConfigManager.getEsignetBaseUrl();
 				response = getWithQueryParamAndCookie(tempUrl + testCaseDTO.getEndPoint(),
 						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
 						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-			}
-			else {
+			} else {
 				response = getWithQueryParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
 						testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 			}
 			Map<String, List<OutputValidationDto>> ouputValid = null;
-			if(testCaseName.contains("_StatusCode")) {
-				
-				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput());
-				
+			if (testCaseName.contains("_StatusCode")) {
+
+				OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()),
+						testCaseDTO.getOutput());
+
 				ouputValid = new HashMap<>();
 				ouputValid.put(GlobalConstants.EXPECTED_VS_ACTUAL, List.of(customResponse));
-			}else {
-				ouputValid = OutputValidationUtil.doJsonOutputValidation(
-					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+			} else {
+				ouputValid = OutputValidationUtil.doJsonOutputValidation(response.asString(),
+						getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+						testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 			}
-			
+
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
