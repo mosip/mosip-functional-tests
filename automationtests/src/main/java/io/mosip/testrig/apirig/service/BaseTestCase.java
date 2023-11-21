@@ -77,8 +77,11 @@ public class BaseTestCase {
 	public String adminCookie = null;
 	public String partnerCookie = null;
 	public String partnerNewCookie = null;
+	public String withoutpartnerCookie = null;
+	public String withoutpolicyCookie = null;
 	public String partnerNewKycCookie = null;
 	public String esignetPartnerCookie = null;
+	public String esignetPartnerKycCookie = null;
 	public String policytestCookie = null;
 	public String residentCookie = null;
 	public HashMap<String, String> residentNewCookie = new HashMap<>();
@@ -102,6 +105,8 @@ public class BaseTestCase {
 	public static HashMap<String, String> regCenterId = new HashMap<>();
 	public static String expiredPreId = null;
 	public String batchJobToken = null;
+	public String invalidBatchJobToken = null;
+	
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
 	public static Map<?, ?> residentQueries;
@@ -156,12 +161,12 @@ public class BaseTestCase {
 			+ generateRandomNumberString(3);
 	public static String genPartnerName = "partnernameforautomationesi-" + generateRandomNumberString(6);
 	public static String genPartnerNameNonAuth = "partnernameforesignet-" + generateRandomNumberString(6);
-	public String genPartnerNameForDsl = "partnernameforautomationesi-" + generateRandomNumberString(6);
+	public String genPartnerNameForDsl = "partnernameforautomationdsl-" + generateRandomNumberString(6);
 	public static String genMispPartnerName = "esignet_" + generateRandomNumberString(6)
 			+ generateRandomNumberString(3);
 	public static String genPartnerEmail = "automationpartneresi" + generateRandomNumberString(7)
 			+ "@automationMosip.com";
-	public String genPartnerEmailForDsl = "automationpartneresi" + generateRandomNumberString(10)
+	public String genPartnerEmailForDsl = "automationpartnerdsl" + generateRandomNumberString(10)
 	+ "@automationMosip.com";
 	public String genPartnerEmailNonAuth = "automationesignet" + generateRandomNumberString(10)
 	+ "@automationMosip.com";
@@ -404,6 +409,7 @@ public class BaseTestCase {
 
 	}
 
+	//below method is used by dsl.
 	@SuppressWarnings("unchecked")
 	public static void mapUserToZone(String user, String zone) {
 
@@ -411,7 +417,7 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
-		request.put("zoneCode", zone);
+		request.put("zoneCode", zone); 
 		request.put("userId", user);
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);

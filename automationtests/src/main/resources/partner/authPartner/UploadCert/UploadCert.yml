@@ -47,7 +47,7 @@ uploadPartnerCert:
             "errorCode": "KER-PCM-011"
         }
     ]
-}' 
+}'
    Partner_UploadPartnerCert_All_Valid_Smoke:
       endPoint: /v1/partnermanager/partners/certificate/upload
       role: partner

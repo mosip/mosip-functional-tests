@@ -39,7 +39,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	public String idKeyName = null;
 	public Response response = null;
 	public boolean auditLogCheck = false;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -68,7 +68,6 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -80,7 +79,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	 * @throws AdminTestException
 	 * @throws InterruptedException
 	 * @throws NumberFormatException
-	 */	
+	 */
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO)
 			throws AuthenticationTestException, AdminTestException, NumberFormatException, InterruptedException {
@@ -88,7 +87,8 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		if ((!BaseTestCase.isTargetEnvLTS()) && BaseTestCase.currentModule.equals("auth") && testCaseName.startsWith("auth_GenerateVID_")) {
+		if ((!BaseTestCase.isTargetEnvLTS()) && BaseTestCase.currentModule.equals("auth")
+				&& testCaseName.startsWith("auth_GenerateVID_")) {
 			throw new SkipException("Generating VID using IdRepo API on Pre-LTS. Hence skipping this test case");
 		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
@@ -121,19 +121,19 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 						testCaseDTO.getTestCaseName());
 			} else {
 				otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint,
-						getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, GlobalConstants.RESIDENT,
-						testCaseDTO.getTestCaseName());
+						getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,
+						GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
 			}
 
 			if (otpResponse != null && otpResponse.asString().contains("IDA-MLC-018")) {
-				logger.info(
-						"waiting for: " + properties.getProperty("uinGenDelayTime") + " as UIN not available in database");
+				logger.info("waiting for: " + properties.getProperty("uinGenDelayTime")
+						+ " as UIN not available in database");
 				try {
 					Thread.sleep(Long.parseLong(properties.getProperty("uinGenDelayTime")));
 				} catch (NumberFormatException | InterruptedException e) {
 					logger.error(e.getMessage());
 					Thread.currentThread().interrupt();
-				} 
+				}
 			} else {
 				break;
 			}
@@ -142,8 +142,8 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		}
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
-		String sendOtpResp = null; 
-		String	sendOtpResTemplate = null;
+		String sendOtpResp = null;
+		String sendOtpResTemplate = null;
 		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
@@ -153,23 +153,21 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		if (otpResponse != null) {
 			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
-					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
+					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
+					testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
-			
+
 			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
 				if (otpResponse.asString().contains("IDA-OTA-001"))
-					throw new AdminTestException("Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
+					throw new AdminTestException(
+							"Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
 				else
 					throw new AdminTestException("Failed at otp output validation");
 			}
-				
-		}
-		else {
+
+		} else {
 			throw new AdminTestException("Invalid otp response");
 		}
-		
-
-
 
 		if (testCaseName.contains(GlobalConstants.ESIGNET_)) {
 			if (!ConfigManager.IseSignetDeployed()) {
@@ -185,9 +183,9 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 					COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 		}
 
-
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+				response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -218,12 +216,13 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
 		try {
-			if ((!testCaseName.contains(GlobalConstants.ESIGNET_)) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
+			if ((!testCaseName.contains(GlobalConstants.ESIGNET_))
+					&& (!testCaseName.contains("Resident_CheckAidStatus"))) {
 				long delayTime = Long.parseLong(properties.getProperty("Delaytime"));
 				if (!BaseTestCase.isTargetEnvLTS())
-					delayTime = Long.parseLong(properties.getProperty("uinGenDelayTime")) * Long.parseLong(properties.getProperty("uinGenMaxLoopCount"));
-				logger.info("waiting for " + delayTime
-						+ " mili secs after VID Generation In RESIDENT SERVICES");
+					delayTime = Long.parseLong(properties.getProperty("uinGenDelayTime"))
+							* Long.parseLong(properties.getProperty("uinGenMaxLoopCount"));
+				logger.info("waiting for " + delayTime + " mili secs after VID Generation In RESIDENT SERVICES");
 				Thread.sleep(delayTime);
 			}
 		} catch (Exception e) {

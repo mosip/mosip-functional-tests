@@ -162,7 +162,7 @@ CheckAidStatus:
       output: '{
 		 "errors": [
 	    {
-	      "errorCode": "RES-SER-457",
+	      "errorCode": "RES-SER-410",
 	      "message": "$IGNORE$"
 	    }
   ],
@@ -234,7 +234,7 @@ CheckAidStatus:
       output: '{
 		 "errors": [
 	    {
-	      "errorCode": "RES-SER-422",
+	      "errorCode": "RES-SER-410",
 	      "message": "$IGNORE$"
 	    }
   ],

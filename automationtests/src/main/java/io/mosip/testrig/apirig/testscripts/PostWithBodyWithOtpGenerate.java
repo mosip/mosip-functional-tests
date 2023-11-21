@@ -37,7 +37,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 	public Response response = null;
 	public boolean sendEsignetToken = false;
 	public boolean auditLogCheck = false;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -45,7 +45,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -63,10 +63,9 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		sendEsignetToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendEsignetToken");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -90,7 +89,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		String otpRequest = null;
 		String sendOtpReqTemplate = null;
 		String sendOtpEndPoint = null;
-		if(req.has(GlobalConstants.SENDOTP)) {
+		if (req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
 		}
@@ -99,60 +98,71 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		otpReqJson.remove("sendOtpReqTemplate");
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		otpReqJson.remove("sendOtpEndPoint");
-		Response otpResponse =null;
-        if(testCaseDTO.getRole().equalsIgnoreCase(GlobalConstants.RESIDENTNEW)) {
-        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), auditLogCheck, COOKIENAME,GlobalConstants.RESIDENTNEW, testCaseDTO.getTestCaseName(), sendEsignetToken);
-        }
-        else if(testCaseDTO.getRole().equalsIgnoreCase("residentNewVid")) {
-       	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), auditLogCheck, COOKIENAME,"residentNewVid", testCaseDTO.getTestCaseName(), sendEsignetToken);
-       }
-        else if(testCaseName.contains("ESignet_WalletBinding")) {
-        	otpResponse = postRequestWithCookieAuthHeader(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-        }
-        else {
-        	 otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
-        }
-		
+		Response otpResponse = null;
+		if (testCaseDTO.getRole().equalsIgnoreCase(GlobalConstants.RESIDENTNEW)) {
+			otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint,
+					getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), auditLogCheck, COOKIENAME,
+					GlobalConstants.RESIDENTNEW, testCaseDTO.getTestCaseName(), sendEsignetToken);
+		} else if (testCaseDTO.getRole().equalsIgnoreCase("residentNewVid")) {
+			otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint,
+					getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), auditLogCheck, COOKIENAME,
+					"residentNewVid", testCaseDTO.getTestCaseName(), sendEsignetToken);
+		} else if (testCaseName.contains("ESignet_WalletBinding")) {
+			otpResponse = postRequestWithCookieAuthHeader(tempUrl + sendOtpEndPoint,
+					getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, testCaseDTO.getRole(),
+					testCaseDTO.getTestCaseName());
+		} else {
+			otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint,
+					getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,
+					GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
+		}
+
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if(res.has(GlobalConstants.SENDOTPRESP)) {
+		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
 		}
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
-		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
+		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
+				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
 			if (otpResponse.asString().contains("IDA-OTA-001"))
-				throw new AdminTestException("Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
+				throw new AdminTestException(
+						"Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
 			else
 				throw new AdminTestException("Failed at otp output validation");
 		}
-		
-		if(testCaseName.contains("_eotp")) {
+
+		if (testCaseName.contains("_eotp")) {
 			try {
 				logger.info("waiting for " + properties.getProperty("expireOtpTime")
-				+ " mili secs to test expire otp case in RESIDENT Service");
+						+ " mili secs to test expire otp case in RESIDENT Service");
 				Thread.sleep(Long.parseLong(properties.getProperty("expireOtpTime")));
 			} catch (NumberFormatException | InterruptedException e) {
 				logger.error(e.getMessage());
 				Thread.currentThread().interrupt();
 			}
 		}
-		if(testCaseName.contains("ESignet_WalletBinding")) {
-			response = postRequestWithCookieAuthHeader(tempUrl + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		if (testCaseName.contains("ESignet_WalletBinding")) {
+			response = postRequestWithCookieAuthHeader(tempUrl + testCaseDTO.getEndPoint(),
+					getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
+					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		} else {
+			response = postRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(),
+					getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
+					testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
 		}
-		else {
-			response = postRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
-		}
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
@@ -176,5 +186,5 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}	
+	}
 }

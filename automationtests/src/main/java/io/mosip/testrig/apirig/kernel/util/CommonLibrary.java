@@ -144,12 +144,8 @@ public class CommonLibrary extends BaseTestCase {
 			logger.info("fileToRead : " + fileToRead);
 			inputStream = new FileInputStream(fileToRead);
 			jsonData = (JSONObject) new JSONParser().parse(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
-		} catch (FileNotFoundException e) {
-			logger.info("error while reading the file : " + e.getLocalizedMessage());
-			logger.error(e.getMessage());
-			logger.info("File Not Found at the given path");
 		} catch (IOException | ParseException | NullPointerException e) {
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 		} finally {
 			AdminTestUtil.closeInputStream(inputStream);
 		}
@@ -246,24 +242,22 @@ public class CommonLibrary extends BaseTestCase {
 	public boolean isValidTokenOnline(String cookie) {
 
 		logger.info("========= Revalidating the token =========");
-		
+
 		Response response = applicationLibrary.getWithoutParams("/v1/authmanager/authorize/admin/validateToken",
 				cookie);
 		JSONObject responseJson = null;
 		try {
 			responseJson = (JSONObject) ((JSONObject) new JSONParser().parse(response.asString())).get("response");
+
+			if (responseJson != null && responseJson.get("errors") == null) {
+				logger.info("========= Valid Token =========");
+				return true;
+			}
 		} catch (ParseException | NullPointerException e) {
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 		}
-
-		if (responseJson != null && responseJson.get("errors") == null) {
-			logger.info("========= Valid Token =========");
-			return true;
-		} else {
-
-			logger.info("========= InValid Token =========");
-			return false;
-		}
+		logger.info("========= InValid Token =========");
+		return false;
 
 	}
 

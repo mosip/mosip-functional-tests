@@ -50,7 +50,7 @@ CreateOIDCClient:
       input: '{
         "name": "$RANDOMID$",
         "policyId": "$ID:DefinePolicy_Auth_Valid_Smoke_sid_id$",
-        "publicKey": "$JWKKEY$",
+        "publicKey": "$OIDCJWKKEY3$",
         "authPartnerId": "$ID:PartnerSelfRegistration_Kyc_Valid_Smoke_sid_partnerId$",
         "logoUri": "https://health-services.com/logo.png",
         "redirectUris": "$IDPREDIRECTURI$",

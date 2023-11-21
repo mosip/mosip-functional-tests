@@ -17,6 +17,8 @@ import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.math.BigInteger;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -76,6 +78,7 @@ import org.testng.SkipException;
 import org.yaml.snakeyaml.Yaml;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jknack.handlebars.Context;
 import com.github.jknack.handlebars.Handlebars;
@@ -166,6 +169,10 @@ public class AdminTestUtil extends BaseTestCase {
 			+ Calendar.getInstance().getTimeInMillis();
 	public static final String RANDOM_ID_2 = "mosip" + generateRandomNumberString(2)
 			+ Calendar.getInstance().getTimeInMillis();
+	public static final String RANDOM_ID_V2 = "mosip" + generateRandomNumberString(2)
+	+ Calendar.getInstance().getTimeInMillis();
+	public static final String RANDOM_ID_V2_S2 = "mosip" + generateRandomNumberString(2)
+	+ Calendar.getInstance().getTimeInMillis();
 	public static final String TRANSACTION_ID = generateRandomNumberString(10);
 	public static final String AUTHORIZATHION_HEADERNAME = GlobalConstants.AUTHORIZATION;
 	public static final String AUTH_HEADER_VALUE = "Some String";
@@ -184,9 +191,11 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static String preregHbsForUpdate = null;
 	protected static String timeStamp = String.valueOf(Calendar.getInstance().getTimeInMillis());
 	protected static String policyGroup = "mosip auth policy group " + timeStamp;
+	protected static String policyGroupForUpdate = "mosip auth policy group update " + timeStamp;
 	protected static String policyGroup2 = "mosip auth policy group2 " + timeStamp;
 	protected static String policyName = "mosip auth policy " + timeStamp;
 	protected static String policyName2 = "mosip auth policy2 " + timeStamp;
+	protected static String policyNameForUpdate = "mosip auth policy for update " + timeStamp;
 	protected static final String UPDATE_UIN_REQUEST = "config/Authorization/requestIdentity.json";
 	protected static final String AUTH_INTERNAL_REQUEST = "config/Authorization/internalAuthRequest.json";
 	protected static final String AUTH_POLICY_BODY = "config/AuthPolicy.json";
@@ -197,39 +206,48 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static Map<String, String> keycloakRolesMap = new HashMap<>();
 	protected static Map<String, String> keycloakUsersMap = new HashMap<>();
 	protected static RSAKey oidcJWKKey1 = null;
-	protected static File oidcJWK1 = new File(getResourcePath() + "oidcJWK1.txt");
-	protected static File oidcJWK2 = new File(getResourcePath() + "oidcJWK2.txt");
-	protected static File bindingJWK1 = new File(getResourcePath() + "bindingJWK1.txt");
-	protected static File bindingJWKVid = new File(getResourcePath() + "bindingJWKVid.txt");
-	protected static File bindingConsentJWK = new File(getResourcePath() + "bindingConsentJWK.txt");
-	protected static File bindingConsentJWKVid = new File(getResourcePath() + "bindingConsentJWKVid.txt");
-	protected static File bindingConsentSameClaimJWK = new File(getResourcePath() + "bindingConsentSameClaimJWK.txt");
-	protected static File bindingConsentVidSameClaimJWK = new File(
-			getResourcePath() + "bindingConsentVidSameClaimJWK.txt");
-	protected static File bindingConsentEmptyClaimJWK = new File(getResourcePath() + "bindingConsentEmptyClaimJWK.txt");
-	protected static File clientPrivateKey = new File(getResourcePath() + "clientPrivateKey.txt");
+	protected static RSAKey oidcJWKKey3 = null;
+	
+	protected static final String OIDCJWK1 = "oidcJWK1";
+	protected static final String OIDCJWK2 = "oidcJWK2";
+	protected static final String OIDCJWK3 = "oidcJWK3";
+	protected static final String BINDINGJWK1 = "bindingJWK1";
+	protected static final String BINDINGJWKVID = "bindingJWKVid";
+	protected static final String BINDINGCONSENTJWK = "bindingConsentJWK";
+	protected static final String BINDINGCONSENTJWKVID = "bindingConsentJWKVid";
+	protected static final String BINDINGCONSENTSAMECLAIMJWK = "bindingConsentSameClaimJWK";
+	protected static final String BINDINGCONSENTVIDSAMECLAIMJWK = "bindingConsentVidSameClaimJWK";
+	protected static final String BINDINGCONSENTEMPTYCLAIMJWK = "bindingConsentEmptyClaimJWK";
+	protected static final String BINDINGCONSENTUSER2JWK = "bindingConsentUser2JWK";
+	protected static final String BINDINGCONSENTVIDUSER2JWK = "bindingConsentVidUser2JWK";
 	public static final String XSRF_HEADERNAME = "X-XSRF-TOKEN";
 	public static final String OAUTH_HASH_HEADERNAME = "oauth-details-hash";
 	public static final String OAUTH_TRANSID_HEADERNAME = "oauth-details-key";
 	protected static String encryptedSessionKeyString;
-	private static File eSignetUINCookiesFile = new File(getResourcePath() + "ESignetUINCookiesResponse.txt");
-	private static File eSignetVIDCookiesFile = new File(getResourcePath() + "ESignetVIDCookiesResponse.txt");
-	private static File bindingCertFile = new File(getResourcePath() + "BINDINGCERTFile.txt");
-	private static File bindingCertFileVid = new File(getResourcePath() + "BINDINGCERTFileVid.txt");
-	private static File bindingCertConsentFile = new File(getResourcePath() + "BINDINGCERTCONSENTFile.txt");
-	private static File bindingCertConsentVidFile = new File(getResourcePath() + "BINDINGCERTCONSENTVidFile.txt");
-	private static File bindingCertConsentSameClaimFile = new File(
-			getResourcePath() + "BINDINGCERTCONSENTSAMECLAIMFile.txt");
-	private static File bindingCertConsentVidSameClaimFile = new File(
-			getResourcePath() + "BINDINGCERTCONSENTVIDSAMECLAIMFile.txt");
-	private static File bindingCertConsentEmptyClaimFile = new File(
-			getResourcePath() + "BINDINGCERTCONSENTEMPTYCLAIMFile.txt");
+	
+	protected static final String ESIGNETUINCOOKIESRESPONSE = "ESignetUINCookiesResponse";
+	protected static final String ESIGNETVIDCOOKIESRESPONSE = "ESignetVIDCookiesResponse";
+	
+//	private static File eSignetUINCookiesFile = new File(getResourcePath() + "ESignetUINCookiesResponse.txt");
+//	private static File eSignetVIDCookiesFile = new File(getResourcePath() + "ESignetVIDCookiesResponse.txt");
+	
+	public static final String BINDINGCERTFILE = "BINDINGCERTFile";
+	public static final String BINDINGCERTFILEVID = "BINDINGCERTFileVid";
+	public static final String BINDINGCERTCONSENTFILE = "BINDINGCERTCONSENTFile";
+	public static final String BINDINGCERTCONSENTVIDFILE = "BINDINGCERTCONSENTVidFile";
+	public static final String BINDINGCERTCONSENTSAMECLAIMFILE = "BINDINGCERTCONSENTSAMECLAIMFile";
+	public static final String BINDINGCERTCONSENTVIDSAMECLAIMFILE = "BINDINGCERTCONSENTVIDSAMECLAIMFile";
+	public static final String BINDINGCERTCONSENTEMPTYCLAIMFILE = "BINDINGCERTCONSENTEMPTYCLAIMFile";
+	public static final String BINDINGCERTCONSENTUSER2FILE = "BINDINGCERTCONSENTUSER2File";
+	public static final String BINDINGCERTVIDCONSENTUSER2FILE = "BINDINGCERTCONSENTVIDUSER2File";
 
 	private static final String UIN_CODE_VERIFIER_POS_1 = generateRandomAlphaNumericString(GlobalConstants.INTEGER_36);
 
 	/** The Constant SIGN_ALGO. */
 	private static final String SIGN_ALGO = "RS256";
 	public static final int OTP_CHECK_INTERVAL = 10000;
+	
+	private static final Map<String, String> actuatorValueCache = new HashMap<>();
 
 	protected static boolean triggerESignetKeyGen1 = true;
 
@@ -320,6 +338,36 @@ public class AdminTestUtil extends BaseTestCase {
 	private static boolean gettriggerESignetKeyGen9() {
 		return triggerESignetKeyGen9;
 	}
+	
+	protected static boolean triggerESignetKeyGen10 = true;
+
+	private static void settriggerESignetKeyGen10(boolean value) {
+		triggerESignetKeyGen10 = value;
+	}
+
+	private static boolean gettriggerESignetKeyGen10() {
+		return triggerESignetKeyGen10;
+	}
+	
+	protected static boolean triggerESignetKeyGen11 = true;
+
+	private static void settriggerESignetKeyGen11(boolean value) {
+		triggerESignetKeyGen11 = value;
+	}
+
+	private static boolean gettriggerESignetKeyGen11() {
+		return triggerESignetKeyGen11;
+	}
+	
+	protected static boolean triggerESignetKeyGen12 = true;
+
+	private static void settriggerESignetKeyGen12(boolean value) {
+		triggerESignetKeyGen12 = value;
+	}
+
+	private static boolean gettriggerESignetKeyGen12() {
+		return triggerESignetKeyGen11;
+	}
 
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -377,7 +425,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
@@ -409,7 +457,7 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.deleteRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -427,7 +475,7 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, "*/*", cookieName,
 					token);
@@ -447,7 +495,7 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, "*/*", cookieName,
 					token);
@@ -467,23 +515,27 @@ public class AdminTestUtil extends BaseTestCase {
 		JSONObject request = new JSONObject(inputJson);
 		String encodedResp = null;
 		String transactionId = null;
-		if (request.has(GlobalConstants.ENCODEDHASH)) {
-			encodedResp = request.get(GlobalConstants.ENCODEDHASH).toString();
-			request.remove(GlobalConstants.ENCODEDHASH);
-		}
+
 		if (request.has(GlobalConstants.REQUEST)
 				&& request.getJSONObject(GlobalConstants.REQUEST).has(GlobalConstants.TRANSACTIONID)) {
 			transactionId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.TRANSACTIONID)
 					.toString();
 		}
+		
+		if (request.has(GlobalConstants.ENCODEDHASH)) {
+			encodedResp = request.get(GlobalConstants.ENCODEDHASH).toString();
+			logger.info("encodedhash = " + encodedResp);
+			headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
+			headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
+			request.remove(GlobalConstants.ENCODEDHASH);
+		}
 		inputJson = request.toString();
 		if (BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
-		logger.info("encodedhash = " + encodedResp);
+
 		headers.put(XSRF_HEADERNAME, properties.getProperty(GlobalConstants.XSRFTOKEN));
-		headers.put(OAUTH_HASH_HEADERNAME, encodedResp);
-		headers.put(OAUTH_TRANSID_HEADERNAME, transactionId);
+		
 		if (testCaseName.contains("_IdpAccessToken_")) {
 			JSONObject requestInput = new JSONObject(inputJson);
 			headers.put(cookieName, "Bearer " + requestInput.get(GlobalConstants.IDP_ACCESS_TOKEN).toString());
@@ -494,7 +546,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = properties.getProperty(GlobalConstants.XSRFTOKEN);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
@@ -524,7 +576,7 @@ public class AdminTestUtil extends BaseTestCase {
 		token = properties.getProperty(GlobalConstants.XSRFTOKEN);
 
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
@@ -572,7 +624,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = properties.getProperty(GlobalConstants.XSRFTOKEN);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
@@ -609,7 +661,7 @@ public class AdminTestUtil extends BaseTestCase {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
@@ -619,7 +671,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 			if (testCaseName.toLowerCase().contains("_scert")) {
-				getFileNameToWrite(response, testCaseName);
+				cacheCertificate(response, testCaseName);
 			}
 			return response;
 		} catch (Exception e) {
@@ -628,32 +680,32 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 	}
 
-	public static void getFileNameToWrite(Response response, String testCaseName) {
-		File fileName = null;
+	public static void cacheCertificate(Response response, String testCaseName) {
+		String certsKey = null;
 		if (testCaseName.contains("Wla_uin_")) {
-			fileName = bindingCertFile;
+			certsKey = BINDINGCERTFILE;
 		} else if (testCaseName.contains("Wla_vid_")) {
-			fileName = bindingCertFileVid;
+			certsKey = BINDINGCERTFILEVID;
 		} else if (testCaseName.contains("_Consentuin_")) {
-			fileName = bindingCertConsentFile;
+			certsKey = BINDINGCERTCONSENTFILE;
 		} else if (testCaseName.contains("_ConsentVid_")) {
-			fileName = bindingCertConsentVidFile;
+			certsKey = BINDINGCERTCONSENTVIDFILE;
 		} else if (testCaseName.contains("_Consent_SameClaim_uin_")) {
-			fileName = bindingCertConsentSameClaimFile;
+			certsKey = BINDINGCERTCONSENTSAMECLAIMFILE;
 		} else if (testCaseName.contains("_Consent_SameClaim_Vid_")) {
-			fileName = bindingCertConsentVidSameClaimFile;
+			certsKey = BINDINGCERTCONSENTVIDSAMECLAIMFILE;
 		} else if (testCaseName.contains("_Consent_EmptyClaim_uin_")) {
-			fileName = bindingCertConsentEmptyClaimFile;
+			certsKey = BINDINGCERTCONSENTEMPTYCLAIMFILE;
+		} else if (testCaseName.contains("_Consent_User2_uin_SCert_")) {
+			certsKey = BINDINGCERTCONSENTUSER2FILE;
+		} else if (testCaseName.contains("_Consent_User2_Vid_SCert_")) {
+			certsKey = BINDINGCERTVIDCONSENTUSER2FILE;
 		}
 
 		String certificateData = new JSONObject(response.getBody().asString()).getJSONObject(GlobalConstants.RESPONSE)
 				.get("certificate").toString();
-		try {
-			FileUtils.touch(fileName);
-			FileUtils.writeStringToFile(fileName, certificateData, StandardCharset.UTF_8.name());
-		} catch (Exception e) {
-			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-		}
+		
+		CertsUtil.addCertificateToCache(certsKey, certificateData);
 	}
 
 	protected Response postRequestWithCookieAuthHeader(String url, String jsonInput, String cookieName, String role,
@@ -679,7 +731,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
@@ -698,7 +750,7 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postRequestWithBearerToken(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -716,7 +768,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.TEXT_PLAIN, cookieName, token);
@@ -743,7 +795,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
@@ -761,7 +813,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		
 		try {
 			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
@@ -783,7 +835,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		
 		try {
 			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
@@ -809,7 +861,7 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null));
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Patch request Json to EndPointUrl: " + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.patchRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
@@ -836,7 +888,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
@@ -855,7 +907,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		headers.put(SIGNATURE_HEADERNAME, signature);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
@@ -889,7 +941,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookieAndHeader(url, inputJson, MediaType.APPLICATION_JSON,
@@ -918,7 +970,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.patchRequestWithCookieAndHeader(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, AUTHORIZATHION_HEADERNAME, AUTH_HEADER_VALUE);
@@ -949,7 +1001,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
@@ -1003,7 +1055,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
@@ -1039,7 +1091,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postRequestWithBearerToken(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -1064,30 +1116,24 @@ public class AdminTestUtil extends BaseTestCase {
 		Map<String, String> map = null;
 		try {
 			map = mapper.readValue(inputJson, Map.class);
-		} catch (JsonProcessingException e) {
-			logger.error(e.getMessage());
-		}
-		logger.info(GlobalConstants.POST_REQ_URL + url);
-		logger.info(inputJson);
-		GlobalMethods.reportRequest(null, inputJson);
-		try {
+			logger.info(GlobalConstants.POST_REQ_URL + url);
+			logger.info(inputJson);
+			GlobalMethods.reportRequest(null, inputJson, url);
 			response = RestAssured.given().contentType("application/x-www-form-urlencoded; charset=utf-8")
 					.formParams(map).when().post(url);
-			logger.info(response.getStatusCode());
-			logger.info(response.asString());
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
 
 			if (testCaseName.toLowerCase().contains("_sid")) {
 				writeAutoGeneratedId(response, idKeyName, testCaseName);
 			}
 			if (testCaseName.contains("UIN_Cookie") || testCaseName.contains("Vid_Cookie")) {
-				File fileName = null;
+				String keyName = null;
 				if (testCaseName.contains("UIN_Cookie"))
-					fileName = eSignetUINCookiesFile;
+					keyName = ESIGNETUINCOOKIESRESPONSE;
 				else
-					fileName = eSignetVIDCookiesFile;
-				FileUtils.touch(fileName);
-				FileUtils.writeStringToFile(fileName, response.getBody().asString(), StandardCharset.UTF_8.name());
+					keyName = ESIGNETVIDCOOKIESRESPONSE;
+
+				CertsUtil.addCertificateToCache(keyName, response.getBody().asString());
 			}
 
 			return response;
@@ -1106,7 +1152,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -1127,7 +1173,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -1186,7 +1232,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (url.contains("{") || url.contains("?")) {
 				if (bothAccessAndIdToken) {
@@ -1242,7 +1288,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (url.contains("{") || url.contains("?")) {
 				response = RestClient.getRequestWithCookieAndPathParmForKeyCloak(url, map, MediaType.APPLICATION_JSON,
@@ -1312,7 +1358,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postWithFormPathParamAndFile(url, formParams, pathParams, filetoUpload, fileKeyName,
 					MediaType.MULTIPART_FORM_DATA, token);
@@ -1365,7 +1411,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, req.toString());
+		GlobalMethods.reportRequest(null, req.toString(), url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postWithParamsAndFile(url, map, filetoUpload, fileKeyName,
@@ -1405,7 +1451,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postWithFormDataAndFile(url, formParams, absolueFilePath,
 					MediaType.MULTIPART_FORM_DATA, token);
@@ -1442,7 +1488,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 
 		try {
 			response = RestClient.postWithMultipartFormDataAndFile(url, formParams, MediaType.MULTIPART_FORM_DATA,
@@ -1499,7 +1545,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postWithFormDataAndMultipleFile(url, formParams, listFiles,
 					MediaType.MULTIPART_FORM_DATA, token);
@@ -1593,7 +1639,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.putRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
@@ -1624,7 +1670,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.putRequestWithParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 					cookieName, token);
@@ -1650,7 +1696,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.patchRequestWithParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 					cookieName, token);
@@ -1683,7 +1729,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, req.toString());
+		GlobalMethods.reportRequest(null, req.toString(), url);
 		try {
 			if (testCaseName.toLowerCase().contains("dynamic"))
 				pathParamsMap.put("id", idField);
@@ -1721,7 +1767,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, req.toString());
+		GlobalMethods.reportRequest(null, req.toString(), url);
 		try {
 			if (testCaseName.toLowerCase().contains("dynamic"))
 				pathParamsMap.put("id", idField);
@@ -1753,7 +1799,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
@@ -1803,7 +1849,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), req.toString());
+		GlobalMethods.reportRequest(headers.toString(), req.toString(), url);
 		try {
 			response = RestClient.postWithPathParamsBodyHeadersAndCookie(url, pathParamsMap, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
@@ -1833,7 +1879,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postWithQueryParamsBodyAndCookie(url, queryParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, "*/*", cookieName, token);
@@ -1865,7 +1911,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, req.toString());
+		GlobalMethods.reportRequest(null, req.toString(), url);
 		try {
 			response = RestClient.patchWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
@@ -1922,7 +1968,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (url.contains("{") || url.contains("?")) {
 				if (bothAccessAndIdToken) {
@@ -1990,7 +2036,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.deleteRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
@@ -2024,7 +2070,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 
 			response = RestClient.deleteRequestWithCookieAndPathParmForKeyCloak(url, map, MediaType.APPLICATION_JSON,
@@ -2074,7 +2120,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 
 		try {
 			if (bothAccessAndIdToken) {
@@ -2117,7 +2163,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******post request to EndPointUrl: " + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (bothAccessAndIdToken) {
 				pdf = RestClient.postWithBodyForPdf(url, jsonInput, MediaType.APPLICATION_JSON,
@@ -2158,7 +2204,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (bothAccessAndIdToken) {
 				pdf = RestClient.getPdfWithQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
@@ -2190,7 +2236,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -2217,7 +2263,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -2761,8 +2807,11 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.info(" Request Json String is :" + jsonString);
 			return jsonString;
 		}
-		if (testCaseName.contains("ESignet_GenerateApiKey"))
+		if (testCaseName.contains("ESignet_GenerateApiKey_"))
 			KeycloakUserManager.createKeyCloakUsers(genPartnerName, genPartnerEmail, "AUTH_PARTNER");
+		
+		if (testCaseName.contains("ESignet_GenerateApiKeyKyc_"))
+			KeycloakUserManager.createKeyCloakUsers(genPartnerName + "2n", "12d" + genPartnerEmail, "AUTH_PARTNER");
 		if (jsonString.contains("$THUMBPRINT$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$THUMBPRINT$", EncryptionDecrptionUtil.idaFirThumbPrint);
 		}
@@ -2894,6 +2943,9 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$ZONE_CODE$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$ZONE_CODE$", ZonelocationCode);
+		if (jsonString.contains("$USERID$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$USERID$",
+					BaseTestCase.currentModule + propsKernel.getProperty("admin_userName"));
 
 		if (jsonString.contains("$LOCATIONCODE$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$LOCATIONCODE$", locationCode);
@@ -3053,6 +3105,8 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$IDENTITYJSON$", generateIdentityJson(testCaseName));
 		}
 		if (jsonString.contains("$RANDOMID$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$V2S2", RANDOM_ID_V2_S2);
+			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$V2", RANDOM_ID_V2);
 			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$2", RANDOM_ID_2);
 			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$", RANDOM_ID);
 		}
@@ -3085,10 +3139,14 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGJWKKEY$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen3()) {
-				jwkKey = generateAndWriteJWKKey(bindingJWK1);
+//				jwkKey = generateAndWriteJWKKey(bindingJWK1);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGJWK1);
+				
 				settriggerESignetKeyGen3(false);
 			} else {
-				jwkKey = getJWKKey(bindingJWK1);
+//				jwkKey = getJWKKey(BINDINGJWK1);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGJWK1);
+				
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGJWKKEY$", jwkKey);
 		}
@@ -3096,10 +3154,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGJWKKEYVID$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen4()) {
-				jwkKey = generateAndWriteJWKKey(bindingJWKVid);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGJWKVID);
 				settriggerESignetKeyGen4(false);
 			} else {
-				jwkKey = getJWKKey(bindingJWKVid);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGJWKVID);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGJWKKEYVID$", jwkKey);
 		}
@@ -3107,10 +3165,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGCONSENTJWKKEY$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen5()) {
-				jwkKey = generateAndWriteJWKKey(bindingConsentJWK);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTJWK);
 				settriggerESignetKeyGen5(false);
 			} else {
-				jwkKey = getJWKKey(bindingConsentJWK);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTJWK);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTJWKKEY$", jwkKey);
 		}
@@ -3118,10 +3176,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGCONSENTJWKKEYVID$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen6()) {
-				jwkKey = generateAndWriteJWKKey(bindingConsentJWKVid);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTJWKVID);
 				settriggerESignetKeyGen6(false);
 			} else {
-				jwkKey = getJWKKey(bindingConsentJWKVid);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTJWKVID);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTJWKKEYVID$", jwkKey);
 		}
@@ -3129,10 +3187,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGCONSENTSAMECLAIMJWKKEY$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen7()) {
-				jwkKey = generateAndWriteJWKKey(bindingConsentSameClaimJWK);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTSAMECLAIMJWK);
 				settriggerESignetKeyGen7(false);
 			} else {
-				jwkKey = getJWKKey(bindingConsentSameClaimJWK);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTSAMECLAIMJWK);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTSAMECLAIMJWKKEY$", jwkKey);
 		}
@@ -3140,10 +3198,10 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGCONSENTSAMECLAIMVIDJWKKEY$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen8()) {
-				jwkKey = generateAndWriteJWKKey(bindingConsentVidSameClaimJWK);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTVIDSAMECLAIMJWK);
 				settriggerESignetKeyGen8(false);
 			} else {
-				jwkKey = getJWKKey(bindingConsentVidSameClaimJWK);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTVIDSAMECLAIMJWK);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTSAMECLAIMVIDJWKKEY$", jwkKey);
 		}
@@ -3151,21 +3209,43 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$BINDINGCONSENTEMPTYCLAIMJWKKEY$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen9()) {
-				jwkKey = generateAndWriteJWKKey(bindingConsentEmptyClaimJWK);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTEMPTYCLAIMJWK);
 				settriggerESignetKeyGen9(false);
 			} else {
-				jwkKey = getJWKKey(bindingConsentEmptyClaimJWK);
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTEMPTYCLAIMJWK);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTEMPTYCLAIMJWKKEY$", jwkKey);
+		}
+		
+		if (jsonString.contains("$BINDINGCONSENTUSER2JWKKEY$")) {
+			String jwkKey = "";
+			if (gettriggerESignetKeyGen10()) {
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTUSER2JWK);
+				settriggerESignetKeyGen10(false);
+			} else {
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTUSER2JWK);
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTUSER2JWKKEY$", jwkKey);
+		}
+		
+		if (jsonString.contains("$BINDINGCONSENTVIDUSER2JWKKEY$")) {
+			String jwkKey = "";
+			if (gettriggerESignetKeyGen11()) {
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(BINDINGCONSENTVIDUSER2JWK);
+				settriggerESignetKeyGen11(false);
+			} else {
+				jwkKey = JWKKeyUtil.getJWKKey(BINDINGCONSENTVIDUSER2JWK);
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$BINDINGCONSENTVIDUSER2JWKKEY$", jwkKey);
 		}
 
 		if (jsonString.contains("$OIDCJWKKEY$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen1()) {
-				jwkKey = generateAndWriteJWKKey(oidcJWK1);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(OIDCJWK1);
 				settriggerESignetKeyGen1(false);
 			} else {
-				jwkKey = getJWKKey(oidcJWK1);
+				jwkKey = JWKKeyUtil.getJWKKey(OIDCJWK1);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$OIDCJWKKEY$", jwkKey);
 		}
@@ -3173,16 +3253,27 @@ public class AdminTestUtil extends BaseTestCase {
 		if (jsonString.contains("$OIDCJWKKEY2$")) {
 			String jwkKey = "";
 			if (gettriggerESignetKeyGen2()) {
-				jwkKey = generateAndWriteJWKKey(oidcJWK2);
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(OIDCJWK2);
 				settriggerESignetKeyGen2(false);
 			} else {
-				jwkKey = getJWKKey(oidcJWK2);
+				jwkKey = JWKKeyUtil.getJWKKey(OIDCJWK2);
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$OIDCJWKKEY2$", jwkKey);
 		}
+		
+		if (jsonString.contains("$OIDCJWKKEY3$")) {
+			String jwkKey = "";
+			if (gettriggerESignetKeyGen12()) {
+				jwkKey = JWKKeyUtil.generateAndCacheJWKKey(OIDCJWK3);
+				settriggerESignetKeyGen12(false);
+			} else {
+				jwkKey = JWKKeyUtil.getJWKKey(OIDCJWK3);
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$OIDCJWKKEY3$", jwkKey);
+		}
 
 		if (jsonString.contains("$CLIENT_ASSERTION_JWK$")) {
-			String oidcJWKKeyString = getJWKKey(oidcJWK1);
+			String oidcJWKKeyString = JWKKeyUtil.getJWKKey(OIDCJWK1);
 			logger.info("oidcJWKKeyString =" + oidcJWKKeyString);
 			try {
 				oidcJWKKey1 = RSAKey.parse(oidcJWKKeyString);
@@ -3197,6 +3288,24 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			jsonString = replaceKeywordWithValue(jsonString, "$CLIENT_ASSERTION_JWK$",
 					signJWKKey(clientId, oidcJWKKey1));
+		}
+		
+		if (jsonString.contains("$CLIENT_ASSERTION_USER3_JWK$")) {
+			String oidcJWKKeyString = JWKKeyUtil.getJWKKey(OIDCJWK3);
+			logger.info("oidcJWKKeyString =" + oidcJWKKeyString);
+			try {
+				oidcJWKKey3 = RSAKey.parse(oidcJWKKeyString);
+				logger.info("oidcJWKKey3 =" + oidcJWKKey3);
+			} catch (java.text.ParseException e) {
+				logger.error(e.getMessage());
+			}
+			JSONObject request = new JSONObject(jsonString);
+			String clientId = null;
+			if (request.has("client_id")) {
+				clientId = request.get("client_id").toString();
+			}
+			jsonString = replaceKeywordWithValue(jsonString, "$CLIENT_ASSERTION_USER3_JWK$",
+					signJWKKey(clientId, oidcJWKKey3));
 		}
 		if (jsonString.contains("$IDPCLIENTPAYLOAD$")) {
 			String clientId = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES,
@@ -3225,57 +3334,77 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$WLATOKEN$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKEN$",
-					generateWLAToken(jsonString, bindingJWK1, bindingCertFile));
+					generateWLAToken(jsonString, BINDINGJWK1, BINDINGCERTFILE));
 		}
 
 		if (jsonString.contains("$WLATOKENVID$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENVID$",
-					generateWLAToken(jsonString, bindingJWKVid, bindingCertFileVid));
+					generateWLAToken(jsonString, BINDINGJWKVID, BINDINGCERTFILEVID));
 		}
 
 		if (jsonString.contains("$WLATOKENCONSENT$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENT$",
-					generateWLAToken(jsonString, bindingConsentJWK, bindingCertConsentFile));
+					generateWLAToken(jsonString, BINDINGCONSENTJWK, BINDINGCERTCONSENTFILE));
 		}
 		
 		if (jsonString.contains("$CONSENTDETACHEDSIGNATURE$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATURE$",
-					generateDetachedSignature(jsonString, bindingConsentJWK, bindingCertConsentFile));
+					generateDetachedSignature(jsonString, BINDINGCONSENTJWK, BINDINGCERTCONSENTFILE));
 		}
 
 		if (jsonString.contains("$WLATOKENCONSENTVID$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTVID$",
-					generateWLAToken(jsonString, bindingConsentJWKVid, bindingCertConsentVidFile));
+					generateWLAToken(jsonString, BINDINGCONSENTJWKVID, BINDINGCERTCONSENTVIDFILE));
 		}
 		
 		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREVID$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATUREVID$",
-					generateDetachedSignature(jsonString, bindingConsentJWKVid, bindingCertConsentVidFile));
+					generateDetachedSignature(jsonString, BINDINGCONSENTJWKVID, BINDINGCERTCONSENTVIDFILE));
 		}
 
 		if (jsonString.contains("$WLATOKENCONSENTSAMECLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTSAMECLAIM$",
-					generateWLAToken(jsonString, bindingConsentSameClaimJWK, bindingCertConsentSameClaimFile));
+					generateWLAToken(jsonString, BINDINGCONSENTSAMECLAIMJWK, BINDINGCERTCONSENTSAMECLAIMFILE));
 		}
 		
 		if (jsonString.contains("$CONSENTDETACHEDSIGNATURESAMECLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATURESAMECLAIM$",
-					generateDetachedSignature(jsonString, bindingConsentSameClaimJWK, bindingCertConsentSameClaimFile));
+					generateDetachedSignature(jsonString, BINDINGCONSENTSAMECLAIMJWK, BINDINGCERTCONSENTSAMECLAIMFILE));
 		}
 
 		if (jsonString.contains("$WLATOKENCONSENTVIDSAMECLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTVIDSAMECLAIM$",
-					generateWLAToken(jsonString, bindingConsentVidSameClaimJWK, bindingCertConsentVidSameClaimFile));
+					generateWLAToken(jsonString, BINDINGCONSENTVIDSAMECLAIMJWK, BINDINGCERTCONSENTVIDSAMECLAIMFILE));
 		}
 		
 		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREVIDSAMECLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATUREVIDSAMECLAIM$",
-					generateDetachedSignature(jsonString, bindingConsentVidSameClaimJWK, bindingCertConsentVidSameClaimFile));
+					generateDetachedSignature(jsonString, BINDINGCONSENTVIDSAMECLAIMJWK, BINDINGCERTCONSENTVIDSAMECLAIMFILE));
 		}
 		
 		if (jsonString.contains("$WLATOKENCONSENTEMPTYCLAIM$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTEMPTYCLAIM$",
-					generateWLAToken(jsonString, bindingConsentEmptyClaimJWK, bindingCertConsentEmptyClaimFile));
+					generateWLAToken(jsonString, BINDINGCONSENTEMPTYCLAIMJWK, BINDINGCERTCONSENTEMPTYCLAIMFILE));
+		}
+		
+		if (jsonString.contains("$WLATOKENCONSENTUSER2$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTUSER2$",
+					generateWLAToken(jsonString, BINDINGCONSENTUSER2JWK, BINDINGCERTCONSENTSAMECLAIMFILE));
+		}
+		
+		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREUSER2$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATUREUSER2$",
+					generateDetachedSignature(jsonString, BINDINGCONSENTUSER2JWK, BINDINGCERTCONSENTUSER2FILE));
+		}
+		
+		if (jsonString.contains("$WLATOKENCONSENTVIDUSER2$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$WLATOKENCONSENTVIDUSER2$",
+					generateWLAToken(jsonString, BINDINGCONSENTVIDUSER2JWK, BINDINGCERTCONSENTSAMECLAIMFILE));
+		}
+		
+		if (jsonString.contains("$CONSENTDETACHEDSIGNATUREVIDUSER2$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$CONSENTDETACHEDSIGNATUREVIDUSER2$",
+					generateDetachedSignature(jsonString, BINDINGCONSENTVIDUSER2JWK, BINDINGCERTCONSENTSAMECLAIMFILE));
 		}
 
 		if (jsonString.contains("$UINCODECHALLENGEPOS1$")) {
@@ -3303,7 +3432,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$PROOFJWT$")) {
 
-			String oidcJWKKeyString = getJWKKey(oidcJWK1);
+			String oidcJWKKeyString = JWKKeyUtil.getJWKKey(OIDCJWK1);
 			logger.info("oidcJWKKeyString =" + oidcJWKKeyString);
 			try {
 				oidcJWKKey1 = RSAKey.parse(oidcJWKKeyString);
@@ -3365,7 +3494,7 @@ public class AdminTestUtil extends BaseTestCase {
 			else if (testCaseName.contains("_Invalid_Typ_"))
 				typ = "openid4vci-123@proof+jwt";
 			else if (testCaseName.contains("_Invalid_JwkHeader_"))
-				jwkHeader = RSAKey.parse(getJWKKey(oidcJWK2)).toPublicJWK();
+				jwkHeader = RSAKey.parse(JWKKeyUtil.getJWKKey(OIDCJWK2)).toPublicJWK();
 			else if (testCaseName.contains("_Invalid_Aud_"))
 				tempUrl = "sdfaf";
 			else if (testCaseName.contains("_Empty_Aud_"))
@@ -3399,14 +3528,14 @@ public class AdminTestUtil extends BaseTestCase {
 		return proofJWT;
 	}
 
-	public static String generateWLAToken(String jsonString, File jwkfileName, File certFileName) {
+	public static String generateWLAToken(String jsonString, String jwkKeyName, String certKeyName) {
 		RSAKey jwkKey = null;
-		String jwkKeyString = getJWKKey(jwkfileName);
+		String jwkKeyString = JWKKeyUtil.getJWKKey(jwkKeyName);
 		logger.info("jwkKeyString =" + jwkKeyString);
 
 		String individualId = "";
 		String wlaToken = "";
-		String certificate = getJWKKey(certFileName);
+		String certificate = CertsUtil.getCertificate(certKeyName);
 		JSONObject request = new JSONObject(jsonString);
 		individualId = request.getJSONObject(GlobalConstants.REQUEST).get(GlobalConstants.INDIVIDUALID).toString();
 
@@ -3421,9 +3550,9 @@ public class AdminTestUtil extends BaseTestCase {
 		return wlaToken;
 	}
 	
-	public static String generateDetachedSignature(String jsonString, File jwkfileName, File certFileName) {
+	public static String generateDetachedSignature(String jsonString, String jwkKeyName, String certKeyName) {
 		RSAKey jwkKey = null;
-		String jwkKeyString = getJWKKey(jwkfileName);
+		String jwkKeyString = JWKKeyUtil.getJWKKey(jwkKeyName);
 		logger.info("jwkKeyString =" + jwkKeyString);
 
 		String[] acceptedClaims = null;
@@ -3431,7 +3560,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String[] permittedScope = null;
 		JSONArray permittedScopeArray = null;
 		String detachedSignature = "";
-		String certificate = getJWKKey(certFileName);
+		String certificate = CertsUtil.getCertificate(certKeyName);
 		JSONObject request = new JSONObject(jsonString);
 		claimJsonArray = getArrayFromJson(request, "acceptedClaims");
 		permittedScopeArray = getArrayFromJson(request, "permittedAuthorizeScopes");
@@ -3503,11 +3632,11 @@ public class AdminTestUtil extends BaseTestCase {
 		return null;
 	}
 
-	public static String generateAndWriteJWKKey(File fileName) {
-		String jwkKey = MosipTestRunner.generateJWKPublicKey();
-		writeFileAsString(fileName, jwkKey);
-		return jwkKey;
-	}
+//	public static String generateAndWriteJWKKey(File fileName) {
+//		String jwkKey = MosipTestRunner.generateJWKPublicKey();
+//		writeFileAsString(fileName, jwkKey);
+//		return jwkKey;
+//	}
 
 	public String getPartnerId() {
 		String[] uriParts = PartnerRegistration.partnerKeyUrl.split("/");
@@ -3525,33 +3654,38 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public String getAutoGenIdFileName(String testCaseName) {
+		String autoGenFileName = null;
 		if (testCaseName == null)
-			return null;
+			return autoGenFileName;
 		if (testCaseName.toLowerCase().startsWith(GlobalConstants.ADMIN))
-			return adminAutoGeneratedIdPropFileName;
+			autoGenFileName = adminAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith("master"))
-			return masterDataAutoGeneratedIdPropFileName;
+			autoGenFileName =  masterDataAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith("sync"))
-			return syncDataAutoGeneratedIdPropFileName;
+			autoGenFileName =  syncDataAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith(GlobalConstants.PREREG))
-			return preregAutoGeneratedIdPropFileName;
+			autoGenFileName =  preregAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith(GlobalConstants.PARTNER))
-			return partnerAutoGeneratedIdPropFileName;
+			autoGenFileName =  partnerAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith("idrepo"))
-			return idrepoAutoGeneratedIdPropFileName;
+			autoGenFileName =  idrepoAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith(GlobalConstants.RESIDENT))
-			return residentAutoGeneratedIdPropFileName;
+			autoGenFileName =  residentAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith("regproc"))
-			return regProcAutoGeneratedIdPropFileName;
+			autoGenFileName =  regProcAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith("auth"))
-			return authAutoGeneratedIdPropFileName;
+			autoGenFileName =  authAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith("prerequisite"))
-			return prerequisiteAutoGeneratedIdPropFileName;
+			autoGenFileName =  prerequisiteAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith(GlobalConstants.MOBILEID))
-			return mobileIdAutoGeneratedIdPropFileName;
+			autoGenFileName =  mobileIdAutoGeneratedIdPropFileName;
 		else if (testCaseName.toLowerCase().startsWith(GlobalConstants.ESIGNET))
-			return esignetAutoGeneratedIdPropFileName;
-		return null;
+			autoGenFileName = esignetAutoGeneratedIdPropFileName;
+		else {
+			autoGenFileName = "default";
+			logger.info("testCaseName: " + testCaseName);
+		}
+		return autoGenFileName;
 	}
 
 	public String getAutoGeneratedFieldValue(String inputFromYml, String testCaseName) {
@@ -3587,9 +3721,11 @@ public class AdminTestUtil extends BaseTestCase {
 		customResponse.setFieldName("status");
 		if (customResponse.getActualValue().equals(customResponse.getExpValue())) {
 			customResponse.setStatus("PASS");
-		} else {
-			customResponse.setStatus(GlobalConstants.FAIL_STRING);
 		}
+		else if (Integer.parseInt(responseStatusCode) >= 200 && Integer.parseInt(responseStatusCode) < 300)
+				customResponse.setStatus(GlobalConstants.FAIL_STRING);
+		else
+			throw new SkipException("API endpoint is not valid. Response code: " + responseStatusCode);
 
 		return customResponse;
 	}
@@ -3802,7 +3938,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookieAndOnlyPathParm(url, map, MediaType.APPLICATION_JSON,
@@ -3834,7 +3970,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			response = RestClient.postRequestWithQueryParm(url, map, "*/*", "*/*", cookieName, token);
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
@@ -4246,17 +4382,15 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String modifySchemaGenerateHbs() {
 		return modifySchemaGenerateHbs(false);
 	}
-
+	
 	public static String modifySchemaGenerateHbs(boolean regenerateHbs) {
-		String ja3 = "";
 		if (identityHbs != null && !regenerateHbs) {
 			return identityHbs;
 		}
-		StringBuffer everything = new StringBuffer("");
+		JSONObject requestJson = new JSONObject();
 		kernelAuthLib = new KernelAuthentication();
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
 		String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
-		
 
 		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 				GlobalConstants.AUTHORIZATION, token);
@@ -4265,201 +4399,358 @@ public class AdminTestUtil extends BaseTestCase {
 		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 
 		Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
-		logger.info(schemaVersion);
 		String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
 
 		String schemaFile = schemaJsonData;
-		FileWriter fileWriter1 = null;
-		FileWriter fileWriter2 = null;
-		FileWriter fileWriter3 = null;
-		FileReader fileReader = null;
-		BufferedReader bufferedReader = null;
 
-		boolean emailFieldAdditionallyAdded=false;
-		boolean phoneFieldAdditionallyAdded=false;
+		boolean emailFieldAdditionallyAdded = false;
+		boolean phoneFieldAdditionallyAdded = false;
 		try {
-			JSONObject jObj = new JSONObject(schemaFile);
-			JSONObject objIDJson4 = jObj.getJSONObject(GlobalConstants.PROPERTIES);
-			JSONObject objIDJson = objIDJson4.getJSONObject(GlobalConstants.IDENTITY);
-			JSONObject objIDJson2 = objIDJson.getJSONObject(GlobalConstants.PROPERTIES);
-			JSONArray objIDJson1 = objIDJson.getJSONArray(GlobalConstants.REQUIRED);
+
+			JSONObject schemaFileJson = new JSONObject(schemaFile); // jObj
+			JSONObject schemaPropsJson = schemaFileJson.getJSONObject("properties"); // objIDJson4
+			JSONObject schemaIdentityJson = schemaPropsJson.getJSONObject("identity"); // objIDJson
+			JSONObject identityPropsJson = schemaIdentityJson.getJSONObject("properties"); // objIDJson2
+			JSONArray requiredPropsArray = schemaIdentityJson.getJSONArray("required"); // objIDJson1
 
 			String phone = getValueFromAuthActuator("json-property", "phone_number");
 			String result = phone.replaceAll("\\[\"|\"\\]", "");
 
-			if (!isElementPresent(objIDJson1, result)) {
-				objIDJson1.put(result);
-				phoneFieldAdditionallyAdded=true;
+			if (!isElementPresent(requiredPropsArray, result)) {
+				requiredPropsArray.put(result);
+				phoneFieldAdditionallyAdded = true;
 			}
 
-			//System.out.println("result is:" + result);
 			String email = getValueFromAuthActuator("json-property", "emailId");
 			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
-			if (!isElementPresent(objIDJson1, emailResult)) {
-				objIDJson1.put(emailResult);
-				emailFieldAdditionallyAdded=true;
+
+			if (!isElementPresent(requiredPropsArray, emailResult)) {
+				requiredPropsArray.put(emailResult);
+				emailFieldAdditionallyAdded = true;
 			}
-			
 
-			fileWriter1 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS);
-			fileWriter1.write("{\n");
-			fileWriter1.write("  \"id\": \"{{id}}\",\n");
-			fileWriter1.write("  \"request\": {\n");
-			fileWriter1.write("\t  \"registrationId\": \"{{registrationId}}\",\n");
+			requestJson.put("id", "{{id}}");
+			requestJson.put("request", new HashMap<>());
+			requestJson.getJSONObject("request").put("registrationId", "{{registrationId}}");
+			JSONObject identityJson = new JSONObject();
+			identityJson.put("UIN", "{{UIN}}");
 
-			fileWriter1.write("    \"identity\": {\n");
-			fileWriter1.write("\t  \"UIN\": \"{{UIN}}\",\n");
-			fileWriter1.close();
+			for (int i = 0, size = requiredPropsArray.length(); i < size; i++) {
+				String eachRequiredProp = requiredPropsArray.getString(i); // objIDJson3
 
-			boolean flag = true;
-			for (int i = 0, size = objIDJson1.length(); i < size; i++) {
-				String objIDJson3 = objIDJson1.getString(i); // fullName
+				JSONObject eachPropDataJson = (JSONObject) identityPropsJson.get(eachRequiredProp); // rc1
 
-				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
+				if (eachPropDataJson.has("$ref") && eachPropDataJson.get("$ref").toString().contains("simpleType")) {
 
-				if (rc1.has("$ref") && rc1.get("$ref").toString().contains(GlobalConstants.SIMPLETYPE)) {
+					JSONArray eachPropDataArray = new JSONArray(); // jArray
 
-					JSONArray jArray = new JSONArray();
-
-					ja3 = "{\n\t\t  \"language\":";
 					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
-
-					if(BaseTestCase.getLanguageList().get(j)!=null && !BaseTestCase.getLanguageList().get(j).isEmpty())	{
-							JSONObject studentJSON = new JSONObject();
-							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
-							if (objIDJson3.contains(GlobalConstants.FULLNAME) && regenerateHbs == true) {
-								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3 + "1")); // fullName1
-							} else if (objIDJson3.contains(GlobalConstants.FIRST_NAME) && regenerateHbs == true) {
-								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3 + 1)); // fullName1
-							} else if (objIDJson3.contains(GlobalConstants.GENDER)) {
-								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3));
+						if (BaseTestCase.getLanguageList().get(j) != null
+								&& !BaseTestCase.getLanguageList().get(j).isEmpty()) {
+							JSONObject eachValueJson = new JSONObject(); // studentJSON
+							eachValueJson.put("language", BaseTestCase.getLanguageList().get(j));
+							if (eachRequiredProp.contains(GlobalConstants.FULLNAME) && regenerateHbs == true) {
+								eachValueJson.put(GlobalConstants.VALUE, propsMap.getProperty(eachRequiredProp + "1")); // fullName1
+							} else if (eachRequiredProp.contains(GlobalConstants.FIRST_NAME) && regenerateHbs == true) {
+								eachValueJson.put(GlobalConstants.VALUE, propsMap.getProperty(eachRequiredProp + 1)); // fullName1
+							} else if (eachRequiredProp.contains(GlobalConstants.GENDER)) {
+								eachValueJson.put(GlobalConstants.VALUE, propsMap.getProperty(eachRequiredProp));
 							} else {
-								studentJSON.put(GlobalConstants.VALUE, (propsMap.getProperty(objIDJson3) == null)
-										? "TEST_" + objIDJson3
-										: propsMap.getProperty(objIDJson3) + BaseTestCase.getLanguageList().get(j));
+								eachValueJson.put(GlobalConstants.VALUE,
+										(propsMap.getProperty(eachRequiredProp) == null) ? "TEST_" + eachRequiredProp
+												: propsMap.getProperty(eachRequiredProp)
+														+ BaseTestCase.getLanguageList().get(j));
 							}
-							jArray.put(studentJSON);
+
+							eachPropDataArray.put(eachValueJson);
 						}
-
 					}
-
-					JSONObject mainObj = new JSONObject();
-					mainObj.put(GlobalConstants.FULLNAME, jArray);
-
-					logger.info(mainObj);
-
-					fileWriter2 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS, flag);
-					flag = true;
-					fileWriter2.write("\t  \"" + objIDJson3 + "\": \n\t   ");
-
-					fileWriter2.write(jArray.toString());
-					fileWriter2.write("\n\t,\n");
-					fileWriter2.close();
-
+					identityJson.put(eachRequiredProp, eachPropDataArray);
 				} else {
+					if (eachRequiredProp.equals("proofOfIdentity")) {
+						identityJson.put(eachRequiredProp, new HashMap<>());
+						identityJson.getJSONObject(eachRequiredProp).put("format", "txt");
+						identityJson.getJSONObject(eachRequiredProp).put("type", "DOC001");
+						identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
+					}
+					
+					else if (eachRequiredProp.equals("proofOfAddress")) {
+						identityJson.put(eachRequiredProp, new HashMap<>());
+						identityJson.getJSONObject(eachRequiredProp).put("format", "txt");
+						identityJson.getJSONObject(eachRequiredProp).put("type", "DOC001");
+						identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
+					}
+//					else if (eachRequiredProp.equals(result)) {
+//						
+//						if(phoneFieldAdditionallyAdded) {
+//							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
+//						}
+//						else {
+//							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
+//						}
+//					}
+//
+//					else if (eachRequiredProp.equals(emailResult)) {
+//						if(emailFieldAdditionallyAdded) {
+//							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
+//						}
+//						else {
+//							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
+//						}
+//						
+//					}
 
-					fileWriter2 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS, flag);
-					flag = true;
-
-					if (objIDJson3.equals(GlobalConstants.PROOFOFIDENTITY)) {
-						fileWriter2.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
-								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
+					else if (eachRequiredProp.equals("individualBiometrics")) {
+						identityJson.put(eachRequiredProp, new HashMap<>());
+						identityJson.getJSONObject(eachRequiredProp).put("format", "cbeff");
+						identityJson.getJSONObject(eachRequiredProp).put("version", 1);
+						identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
 					}
 
-					else if (objIDJson3.equals(result)) {
-						
-						if(phoneFieldAdditionallyAdded) {
-							fileWriter2
-							.write(",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
-						}
-						else {
-							fileWriter2
-							.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
-						}
-						
-						/*
-						 * fileWriter2 .write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" +
-						 * objIDJson3 + "}}\"" + ",\n");
-						 */
-					}
-
-					else if (objIDJson3.equals(emailResult)) {
-						if(emailFieldAdditionallyAdded) {
-							fileWriter2
-							.write(",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
-						}
-						else {
-							fileWriter2
-							.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
-						}
-						
-					}
-
-					else if (objIDJson3.equals(GlobalConstants.INDIVIDUALBIOMETRICS)) {
-						fileWriter2.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
-								+ "\t\t\"version\": 1,\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  }\n");
-					} else if (objIDJson3.equals(GlobalConstants.PROOF_OF_ADDRESS)) {
-						fileWriter2.write("\t  \"proofOfAddress\": {\n" + "\t\t\"format\": \"txt\",\n"
-								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
-					}
-
-					else if (objIDJson3.equals(GlobalConstants.IDSCHEMAVERSION)) {
-						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
+					else if (eachRequiredProp.equals("IDSchemaVersion")) {
+						identityJson.put(eachRequiredProp, schemaVersion);
 					}
 
 					else {
-						fileWriter2
-								.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
-
+						identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 					}
-					fileWriter2.close();
-
 				}
-
-			}
-			fileWriter3 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS, true);
-
-			fileWriter3.write("\t},\n");
-			fileWriter3.write("\t\"documents\": [\n" + "\t  {\n" + "\t\t\"value\": \"{{value}}\",\n"
-					+ "\t\t\"category\": \"{{category}}\"\n" + "\t  }\n" + "\t]\n");
-			fileWriter3.write("},\n");
-
-			fileWriter3.write("\t\"requesttime\": \"{{requesttime}}\",\n");
-			fileWriter3.write("\t\"version\": \"{{version}}\"\n");
-			fileWriter3.write("}\n");
-			fileWriter3.close();
-
-			fileReader = new FileReader(GlobalConstants.ADDIDENTITY_HBS);
-			bufferedReader = new BufferedReader(fileReader);
-			try {
-				StringBuilder sb = new StringBuilder();
-				String line = bufferedReader.readLine();
-
-				while (line != null) {
-					sb.append(line);
-					sb.append(System.lineSeparator());
-					line = bufferedReader.readLine();
-
-					StringBuffer everythingtrue = new StringBuffer(sb.toString());
-					everything = everythingtrue;
-				}
-
-			} finally {
-				bufferedReader.close();
 			}
 
-		} catch (NullPointerException | IOException e) {
+			JSONArray requestDocArray = new JSONArray();
+			JSONObject docJson = new JSONObject();
+			docJson.put("value", "{{value}}");
+			docJson.put("category", "{{category}}");
+			requestDocArray.put(docJson);
+
+			requestJson.getJSONObject("request").put("documents", requestDocArray);
+			requestJson.getJSONObject("request").put("identity", identityJson);
+			requestJson.put("requesttime", "{{requesttime}}");
+			requestJson.put("version", "{{version}}");
+
+			System.out.println(requestJson);
+
+		} catch (NullPointerException e) {
 			logger.error(e.getMessage());
-		} finally {
-			closeFileWriter(fileWriter1);
-			closeFileWriter(fileWriter2);
-			closeFileWriter(fileWriter3);
-			closeFileReader(fileReader);
-			closeBufferedReader(bufferedReader);
 		}
-		identityHbs = everything.toString();
+
+		identityHbs = requestJson.toString();
 		return identityHbs;
 	}
+
+//	public static String modifySchemaGenerateHbs(boolean regenerateHbs) {
+//		String ja3 = "";
+//		if (identityHbs != null && !regenerateHbs) {
+//			return identityHbs;
+//		}
+//		StringBuffer everything = new StringBuffer("");
+//		kernelAuthLib = new KernelAuthentication();
+//		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+//		String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+//		
+//
+//		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+//				GlobalConstants.AUTHORIZATION, token);
+//
+//		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
+//		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
+//
+//		Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
+//		logger.info(schemaVersion);
+//		String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
+//
+//		String schemaFile = schemaJsonData;
+//		FileWriter fileWriter1 = null;
+//		FileWriter fileWriter2 = null;
+//		FileWriter fileWriter3 = null;
+//		FileReader fileReader = null;
+//		BufferedReader bufferedReader = null;
+//
+//		boolean emailFieldAdditionallyAdded=false;
+//		boolean phoneFieldAdditionallyAdded=false;
+//		try {
+//			JSONObject jObj = new JSONObject(schemaFile);
+//			JSONObject objIDJson4 = jObj.getJSONObject(GlobalConstants.PROPERTIES);
+//			JSONObject objIDJson = objIDJson4.getJSONObject(GlobalConstants.IDENTITY);
+//			JSONObject objIDJson2 = objIDJson.getJSONObject(GlobalConstants.PROPERTIES);
+//			JSONArray objIDJson1 = objIDJson.getJSONArray(GlobalConstants.REQUIRED);
+//
+//			String phone = getValueFromAuthActuator("json-property", "phone_number");
+//			String result = phone.replaceAll("\\[\"|\"\\]", "");
+//
+//			if (!isElementPresent(objIDJson1, result)) {
+//				objIDJson1.put(result);
+//				phoneFieldAdditionallyAdded=true;
+//			}
+//
+//			//System.out.println("result is:" + result);
+//			String email = getValueFromAuthActuator("json-property", "emailId");
+//			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
+//			if (!isElementPresent(objIDJson1, emailResult)) {
+//				objIDJson1.put(emailResult);
+//				emailFieldAdditionallyAdded=true;
+//			}
+//			
+//
+//			fileWriter1 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS);
+//			fileWriter1.write("{\n");
+//			fileWriter1.write("  \"id\": \"{{id}}\",\n");
+//			fileWriter1.write("  \"request\": {\n");
+//			fileWriter1.write("\t  \"registrationId\": \"{{registrationId}}\",\n");
+//
+//			fileWriter1.write("    \"identity\": {\n");
+//			fileWriter1.write("\t  \"UIN\": \"{{UIN}}\",\n");
+//			fileWriter1.close();
+//
+//			boolean flag = true;
+//			for (int i = 0, size = objIDJson1.length(); i < size; i++) {
+//				String objIDJson3 = objIDJson1.getString(i); // fullName
+//
+//				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
+//
+//				if (rc1.has("$ref") && rc1.get("$ref").toString().contains(GlobalConstants.SIMPLETYPE)) {
+//
+//					JSONArray jArray = new JSONArray();
+//
+//					ja3 = "{\n\t\t  \"language\":";
+//					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
+//
+//					if(BaseTestCase.getLanguageList().get(j)!=null && !BaseTestCase.getLanguageList().get(j).isEmpty())	{
+//							JSONObject studentJSON = new JSONObject();
+//							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
+//							if (objIDJson3.contains(GlobalConstants.FULLNAME) && regenerateHbs == true) {
+//								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3 + "1")); // fullName1
+//							} else if (objIDJson3.contains(GlobalConstants.FIRST_NAME) && regenerateHbs == true) {
+//								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3 + 1)); // fullName1
+//							} else if (objIDJson3.contains(GlobalConstants.GENDER)) {
+//								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3));
+//							} else {
+//								studentJSON.put(GlobalConstants.VALUE, (propsMap.getProperty(objIDJson3) == null)
+//										? "TEST_" + objIDJson3
+//										: propsMap.getProperty(objIDJson3) + BaseTestCase.getLanguageList().get(j));
+//							}
+//							jArray.put(studentJSON);
+//						}
+//
+//					}
+//
+//					JSONObject mainObj = new JSONObject();
+//					mainObj.put(GlobalConstants.FULLNAME, jArray);
+//
+//					logger.info(mainObj);
+//
+//					fileWriter2 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS, flag);
+//					flag = true;
+//					fileWriter2.write("\t  \"" + objIDJson3 + "\": \n\t   ");
+//
+//					fileWriter2.write(jArray.toString());
+//					fileWriter2.write("\n\t,\n");
+//					fileWriter2.close();
+//
+//				} else {
+//
+//					fileWriter2 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS, flag);
+//					flag = true;
+//
+//					if (objIDJson3.equals(GlobalConstants.PROOFOFIDENTITY)) {
+//						fileWriter2.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
+//								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
+//					}
+//
+//					else if (objIDJson3.equals(result)) {
+//						
+//						if(phoneFieldAdditionallyAdded) {
+//							fileWriter2
+//							.write(",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
+//						}
+//						else {
+//							fileWriter2
+//							.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+//						}
+//						
+//						/*
+//						 * fileWriter2 .write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" +
+//						 * objIDJson3 + "}}\"" + ",\n");
+//						 */
+//					}
+//
+//					else if (objIDJson3.equals(emailResult)) {
+//						if(emailFieldAdditionallyAdded) {
+//							fileWriter2
+//							.write(",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
+//						}
+//						else {
+//							fileWriter2
+//							.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+//						}
+//						
+//					}
+//
+//					else if (objIDJson3.equals(GlobalConstants.INDIVIDUALBIOMETRICS)) {
+//						fileWriter2.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
+//								+ "\t\t\"version\": 1,\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  }\n");
+//					} else if (objIDJson3.equals(GlobalConstants.PROOF_OF_ADDRESS)) {
+//						fileWriter2.write("\t  \"proofOfAddress\": {\n" + "\t\t\"format\": \"txt\",\n"
+//								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
+//					}
+//
+//					else if (objIDJson3.equals(GlobalConstants.IDSCHEMAVERSION)) {
+//						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
+//					}
+//
+//					else {
+//						fileWriter2
+//								.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+//
+//					}
+//					fileWriter2.close();
+//
+//				}
+//
+//			}
+//			fileWriter3 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS, true);
+//
+//			fileWriter3.write("\t},\n");
+//			fileWriter3.write("\t\"documents\": [\n" + "\t  {\n" + "\t\t\"value\": \"{{value}}\",\n"
+//					+ "\t\t\"category\": \"{{category}}\"\n" + "\t  }\n" + "\t]\n");
+//			fileWriter3.write("},\n");
+//
+//			fileWriter3.write("\t\"requesttime\": \"{{requesttime}}\",\n");
+//			fileWriter3.write("\t\"version\": \"{{version}}\"\n");
+//			fileWriter3.write("}\n");
+//			fileWriter3.close();
+//
+//			fileReader = new FileReader(GlobalConstants.ADDIDENTITY_HBS);
+//			bufferedReader = new BufferedReader(fileReader);
+//			try {
+//				StringBuilder sb = new StringBuilder();
+//				String line = bufferedReader.readLine();
+//
+//				while (line != null) {
+//					sb.append(line);
+//					sb.append(System.lineSeparator());
+//					line = bufferedReader.readLine();
+//
+//					StringBuffer everythingtrue = new StringBuffer(sb.toString());
+//					everything = everythingtrue;
+//				}
+//
+//			} finally {
+//				bufferedReader.close();
+//			}
+//
+//		} catch (NullPointerException | IOException e) {
+//			logger.error(e.getMessage());
+//		} finally {
+//			closeFileWriter(fileWriter1);
+//			closeFileWriter(fileWriter2);
+//			closeFileWriter(fileWriter3);
+//			closeFileReader(fileReader);
+//			closeBufferedReader(bufferedReader);
+//		}
+//		identityHbs = everything.toString();
+//		return identityHbs;
+//	}
 
 	public static String generateLatestSchemaVersion() {
 
@@ -4479,12 +4770,13 @@ public class AdminTestUtil extends BaseTestCase {
 		return latestSchemaVersion;
 
 	}
-
+	
 	public static String generateHbsForUpdateDraft() {
 		if (draftHbs != null) {
 			return draftHbs;
 		}
-		StringBuffer everything = new StringBuffer("");
+
+		JSONObject requestJson = new JSONObject();
 		kernelAuthLib = new KernelAuthentication();
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
 		String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
@@ -4501,141 +4793,243 @@ public class AdminTestUtil extends BaseTestCase {
 
 		String schemaFile = schemaJsonData;
 
-		FileWriter fileWriter1 = null;
-		FileWriter fileWriter2 = null;
-		FileWriter fileWriter3 = null;
-		FileReader fileReader = null;
-		BufferedReader bufferedReader = null;
-
 		try {
-			JSONObject jObj = new JSONObject(schemaFile);
-			JSONObject objIDJson4 = jObj.getJSONObject(GlobalConstants.PROPERTIES);
-			JSONObject objIDJson = objIDJson4.getJSONObject(GlobalConstants.IDENTITY);
-			JSONObject objIDJson2 = objIDJson.getJSONObject(GlobalConstants.PROPERTIES);
-			JSONArray objIDJson1 = objIDJson.getJSONArray(GlobalConstants.REQUIRED);
+			JSONObject schemaFileJson = new JSONObject(schemaFile); // jObj
+			JSONObject schemaPropsJson = schemaFileJson.getJSONObject("properties"); // objIDJson4
+			JSONObject schemaIdentityJson = schemaPropsJson.getJSONObject("identity"); // objIDJson
+			JSONObject identityPropsJson = schemaIdentityJson.getJSONObject("properties"); // objIDJson2
+			JSONArray requiredPropsArray = schemaIdentityJson.getJSONArray("required"); // objIDJson1
 
-			fileWriter1 = new FileWriter(GlobalConstants.UPDATEDRAFT_HBS);
-			fileWriter1.write("{\n");
-			fileWriter1.write("  \"id\": \"{{id}}\",\n");
-			fileWriter1.write("  \"requesttime\": \"{{requesttime}}\",\n");
-			fileWriter1.write("  \"version\": \"{{version}}\",\n");
-			fileWriter1.write("  \"registrationId\": \"{{registrationId}}\",\n");
-			fileWriter1.write("  \"request\": {\n");
+			requestJson.put("id", "{{id}}");
+			requestJson.put("requesttime", "{{requesttime}}");
+			requestJson.put("version", "{{version}}");
+			requestJson.put("request", new HashMap<>());
+			requestJson.put("registrationId", "{{registrationId}}");
+			JSONObject identityJson = new JSONObject();
 
-			fileWriter1.write("    \"identity\": {\n");
-			fileWriter1.close();
+			for (int i = 0, size = requiredPropsArray.length(); i < size; i++) {
+				String eachRequiredProp = requiredPropsArray.getString(i); // objIDJson3
 
-			boolean flag = true;
-			for (int i = 0, size = objIDJson1.length(); i < size; i++) {
-				String objIDJson3 = objIDJson1.getString(i);
+				JSONObject eachPropDataJson = (JSONObject) identityPropsJson.get(eachRequiredProp); // rc1
 
-				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
+				if (eachPropDataJson.has("$ref") && eachPropDataJson.get("$ref").toString().contains("simpleType")) {
 
-				if (rc1.has("$ref") && rc1.get("$ref").toString().contains(GlobalConstants.SIMPLETYPE)) {
+					JSONArray eachPropDataArray = new JSONArray(); // jArray
 
-					JSONArray jArray = new JSONArray();
 					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
-
-						{
-							JSONObject studentJSON = new JSONObject();
-							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
-							studentJSON.put(GlobalConstants.VALUE,
-									(propsMap.getProperty(objIDJson3) == null) ? "TEST_" + objIDJson3
-											: propsMap.getProperty(objIDJson3));
-
-							jArray.put(studentJSON);
-						}
+						JSONObject eachValueJson = new JSONObject(); // studentJSON
+						eachValueJson.put("language", BaseTestCase.getLanguageList().get(j));
+						eachValueJson.put("value",
+								(propsMap.getProperty(eachRequiredProp) == null) ? "TEST_" + eachRequiredProp
+										: propsMap.getProperty(eachRequiredProp));
+						eachPropDataArray.put(eachValueJson);
 					}
-
-					JSONObject mainObj = new JSONObject();
-					mainObj.put(GlobalConstants.FULLNAME, jArray);
-
-					logger.info(mainObj);
-
-					fileWriter2 = new FileWriter(GlobalConstants.UPDATEDRAFT_HBS, flag);
-					flag = true;
-					fileWriter2.write("\t  \"" + objIDJson3 + "\": \n\t   ");
-
-					fileWriter2.write(jArray.toString());
-					fileWriter2.write("\n\t  ,\n");
-					fileWriter2.close();
-
+					identityJson.put(eachRequiredProp, eachPropDataArray);
 				} else {
-
-					fileWriter2 = new FileWriter(GlobalConstants.UPDATEDRAFT_HBS, flag);
-					flag = true;
-
-					if (objIDJson3.equals(GlobalConstants.PROOFOFIDENTITY)) {
-						fileWriter2.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
-								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
+					if (eachRequiredProp.equals("proofOfIdentity")) {
+						identityJson.put(eachRequiredProp, new HashMap<>());
+						identityJson.getJSONObject(eachRequiredProp).put("format", "txt");
+						identityJson.getJSONObject(eachRequiredProp).put("type", "DOC001");
+						identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
+					}
+					
+					else if (eachRequiredProp.equals("individualBiometrics")) {
+						identityJson.put(eachRequiredProp, new HashMap<>());
+						identityJson.getJSONObject(eachRequiredProp).put("format", "cbeff");
+						identityJson.getJSONObject(eachRequiredProp).put("version", 1);
+						identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
 					}
 
-					else if (objIDJson3.equals(GlobalConstants.INDIVIDUALBIOMETRICS)) {
-						fileWriter2.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
-								+ "\t\t\"version\": 1,\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  }\n");
+					else if (eachRequiredProp.equals("IDSchemaVersion")) {
+						identityJson.put(eachRequiredProp, schemaVersion);
 					}
 
-					else if (objIDJson3.equals(GlobalConstants.IDSCHEMAVERSION)) {
-						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
-					}
-					else if (objIDJson3.equals(GlobalConstants.PROOF_OF_ADDRESS)) {
-						fileWriter2.write("\t  \"proofOfAddress\": {\n" + "\t\t\"format\": \"txt\",\n"
-								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
+					else if (eachRequiredProp.equals("proofOfAddress")) {
+						identityJson.put(eachRequiredProp, new HashMap<>());
+						identityJson.getJSONObject(eachRequiredProp).put("format", "txt");
+						identityJson.getJSONObject(eachRequiredProp).put("type", "DOC001");
+						identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
 					}
 
 					else {
-						fileWriter2
-								.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
-
+						identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 					}
-					fileWriter2.close();
-
 				}
-
-			}
-			fileWriter3 = new FileWriter(GlobalConstants.UPDATEDRAFT_HBS, true);
-
-			fileWriter3.write("\t},\n");
-			fileWriter3.write("\t\"documents\": [\n" + "\t  {\n" + "\t\t\"value\": \"{{value}}\",\n"
-					+ "\t\t\"category\": \"{{category}}\"\n" + "\t  }\n" + "\t]\n");
-			fileWriter3.write("},\n");
-
-			fileWriter3.write("}\n");
-			fileWriter3.close();
-
-			fileReader = new FileReader(GlobalConstants.UPDATEDRAFT_HBS);
-			bufferedReader = new BufferedReader(fileReader);
-			try {
-				StringBuilder sb = new StringBuilder();
-				String line = bufferedReader.readLine();
-
-				while (line != null) {
-					sb.append(line);
-					sb.append(System.lineSeparator());
-					line = bufferedReader.readLine();
-
-					StringBuffer everythingtrue = new StringBuffer(sb.toString());
-					everything = everythingtrue;
-
-				}
-
-			} finally {
-				bufferedReader.close();
 			}
 
-		} catch (NullPointerException | IOException e) {
+			JSONArray requestDocArray = new JSONArray();
+			JSONObject docJson = new JSONObject();
+			docJson.put("value", "{{value}}");
+			docJson.put("category", "individualBiometrics");
+			requestDocArray.put(docJson);
+
+			requestJson.getJSONObject("request").put("documents", requestDocArray);
+			requestJson.getJSONObject("request").put("identity", identityJson);
+
+		} catch (NullPointerException e) {
 			logger.error(e.getMessage());
-		} finally {
-			closeFileWriter(fileWriter1);
-			closeFileWriter(fileWriter2);
-			closeFileWriter(fileWriter3);
-			closeFileReader(fileReader);
-			closeBufferedReader(bufferedReader);
 		}
-		draftHbs = everything.toString();
+
+		draftHbs = requestJson.toString();
 		return draftHbs;
 	}
 
+//	public static String generateHbsForUpdateDraft() {
+//		if (draftHbs != null) {
+//			return draftHbs;
+//		}
+//		StringBuffer everything = new StringBuffer("");
+//		kernelAuthLib = new KernelAuthentication();
+//		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+//		String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+//
+//		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+//				GlobalConstants.AUTHORIZATION, token);
+//
+//		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
+//		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
+//
+//		Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
+//		logger.info(schemaVersion);
+//		String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
+//
+//		String schemaFile = schemaJsonData;
+//
+//		FileWriter fileWriter1 = null;
+//		FileWriter fileWriter2 = null;
+//		FileWriter fileWriter3 = null;
+//		FileReader fileReader = null;
+//		BufferedReader bufferedReader = null;
+//
+//		try {
+//			JSONObject jObj = new JSONObject(schemaFile);
+//			JSONObject objIDJson4 = jObj.getJSONObject(GlobalConstants.PROPERTIES);
+//			JSONObject objIDJson = objIDJson4.getJSONObject(GlobalConstants.IDENTITY);
+//			JSONObject objIDJson2 = objIDJson.getJSONObject(GlobalConstants.PROPERTIES);
+//			JSONArray objIDJson1 = objIDJson.getJSONArray(GlobalConstants.REQUIRED);
+//
+//			fileWriter1 = new FileWriter(GlobalConstants.UPDATEDRAFT_HBS);
+//			fileWriter1.write("{\n");
+//			fileWriter1.write("  \"id\": \"{{id}}\",\n");
+//			fileWriter1.write("  \"requesttime\": \"{{requesttime}}\",\n");
+//			fileWriter1.write("  \"version\": \"{{version}}\",\n");
+//			fileWriter1.write("  \"registrationId\": \"{{registrationId}}\",\n");
+//			fileWriter1.write("  \"request\": {\n");
+//
+//			fileWriter1.write("    \"identity\": {\n");
+//			fileWriter1.close();
+//
+//			boolean flag = true;
+//			for (int i = 0, size = objIDJson1.length(); i < size; i++) {
+//				String objIDJson3 = objIDJson1.getString(i);
+//
+//				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
+//
+//				if (rc1.has("$ref") && rc1.get("$ref").toString().contains(GlobalConstants.SIMPLETYPE)) {
+//
+//					JSONArray jArray = new JSONArray();
+//					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
+//
+//						{
+//							JSONObject studentJSON = new JSONObject();
+//							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
+//							studentJSON.put(GlobalConstants.VALUE,
+//									(propsMap.getProperty(objIDJson3) == null) ? "TEST_" + objIDJson3
+//											: propsMap.getProperty(objIDJson3));
+//
+//							jArray.put(studentJSON);
+//						}
+//					}
+//
+//					JSONObject mainObj = new JSONObject();
+//					mainObj.put(GlobalConstants.FULLNAME, jArray);
+//
+//					logger.info(mainObj);
+//
+//					fileWriter2 = new FileWriter(GlobalConstants.UPDATEDRAFT_HBS, flag);
+//					flag = true;
+//					fileWriter2.write("\t  \"" + objIDJson3 + "\": \n\t   ");
+//
+//					fileWriter2.write(jArray.toString());
+//					fileWriter2.write("\n\t  ,\n");
+//					fileWriter2.close();
+//
+//				} else {
+//
+//					fileWriter2 = new FileWriter(GlobalConstants.UPDATEDRAFT_HBS, flag);
+//					flag = true;
+//
+//					if (objIDJson3.equals(GlobalConstants.PROOFOFIDENTITY)) {
+//						fileWriter2.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
+//								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
+//					}
+//
+//					else if (objIDJson3.equals(GlobalConstants.INDIVIDUALBIOMETRICS)) {
+//						fileWriter2.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
+//								+ "\t\t\"version\": 1,\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  }\n");
+//					}
+//
+//					else if (objIDJson3.equals(GlobalConstants.IDSCHEMAVERSION)) {
+//						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
+//					}
+//					else if (objIDJson3.equals(GlobalConstants.PROOF_OF_ADDRESS)) {
+//						fileWriter2.write("\t  \"proofOfAddress\": {\n" + "\t\t\"format\": \"txt\",\n"
+//								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
+//					}
+//
+//					else {
+//						fileWriter2
+//								.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+//
+//					}
+//					fileWriter2.close();
+//
+//				}
+//
+//			}
+//			fileWriter3 = new FileWriter(GlobalConstants.UPDATEDRAFT_HBS, true);
+//
+//			fileWriter3.write("\t},\n");
+//			fileWriter3.write("\t\"documents\": [\n" + "\t  {\n" + "\t\t\"value\": \"{{value}}\",\n"
+//					+ "\t\t\"category\": \"{{category}}\"\n" + "\t  }\n" + "\t]\n");
+//			fileWriter3.write("},\n");
+//
+//			fileWriter3.write("}\n");
+//			fileWriter3.close();
+//
+//			fileReader = new FileReader(GlobalConstants.UPDATEDRAFT_HBS);
+//			bufferedReader = new BufferedReader(fileReader);
+//			try {
+//				StringBuilder sb = new StringBuilder();
+//				String line = bufferedReader.readLine();
+//
+//				while (line != null) {
+//					sb.append(line);
+//					sb.append(System.lineSeparator());
+//					line = bufferedReader.readLine();
+//
+//					StringBuffer everythingtrue = new StringBuffer(sb.toString());
+//					everything = everythingtrue;
+//
+//				}
+//
+//			} finally {
+//				bufferedReader.close();
+//			}
+//
+//		} catch (NullPointerException | IOException e) {
+//			logger.error(e.getMessage());
+//		} finally {
+//			closeFileWriter(fileWriter1);
+//			closeFileWriter(fileWriter2);
+//			closeFileWriter(fileWriter3);
+//			closeFileReader(fileReader);
+//			closeBufferedReader(bufferedReader);
+//		}
+//		draftHbs = everything.toString();
+//		return draftHbs;
+//	}
+	
 	public static String generateHbsForPrereg(boolean isItUpdate) {
 		if (isItUpdate && preregHbsForUpdate != null) {
 			return preregHbsForUpdate;
@@ -4644,7 +5038,7 @@ public class AdminTestUtil extends BaseTestCase {
 		if (!isItUpdate && preregHbsForCreate != null) {
 			return preregHbsForCreate;
 		}
-		StringBuffer everything = new StringBuffer("");
+		JSONObject requestJson = new JSONObject();
 		kernelAuthLib = new KernelAuthentication();
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
 		String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
@@ -4661,46 +5055,38 @@ public class AdminTestUtil extends BaseTestCase {
 
 		String schemaFile = schemaJsonData;
 
-		FileWriter fileWriter1 = null;
-		FileWriter fileWriter2 = null;
-		FileWriter fileWriter3 = null;
-		FileReader fileReader = null;
-		BufferedReader bufferedReader = null;
-
 		try {
-			JSONObject jObj = new JSONObject(schemaFile);
-			JSONObject objIDJson4 = jObj.getJSONObject(GlobalConstants.PROPERTIES);
-			logger.info(objIDJson4);
-			JSONObject objIDJson = objIDJson4.getJSONObject(GlobalConstants.IDENTITY);
-			logger.info(objIDJson);
-			JSONObject objIDJson2 = objIDJson.getJSONObject(GlobalConstants.PROPERTIES);
-			logger.info(objIDJson2);
-			JSONArray objIDJson1 = objIDJson.getJSONArray(GlobalConstants.REQUIRED);
-			logger.info(objIDJson1);
+			
+			JSONObject schemaFileJson = new JSONObject(schemaFile); // jObj
+			JSONObject schemaPropsJson = schemaFileJson.getJSONObject("properties"); // objIDJson4
+			JSONObject schemaIdentityJson = schemaPropsJson.getJSONObject("identity"); // objIDJson
+			JSONObject identityPropsJson = schemaIdentityJson.getJSONObject("properties"); // objIDJson2
+			JSONArray requiredPropsArray = schemaIdentityJson.getJSONArray("required"); // objIDJson1			
+			
 			boolean emailFieldAdditionallyAdded=false;
 			boolean phoneFieldAdditionallyAdded=false;
 			String phone = getValueFromAuthActuator("json-property", "phone_number");
 			String result = phone.replaceAll("\\[\"|\"\\]", "");
 
-			if (!isElementPresent(objIDJson1, result)) {
-				objIDJson1.put(result);
+			if (!isElementPresent(requiredPropsArray, result)) {
+				requiredPropsArray.put(result);
 				phoneFieldAdditionallyAdded=true;
 			}
 
 			//System.out.println("result is:" + result);
 			String email = getValueFromAuthActuator("json-property", "emailId");
 			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
-			if (!isElementPresent(objIDJson1, emailResult)) {
-				objIDJson1.put(emailResult);
+			if (!isElementPresent(requiredPropsArray, emailResult)) {
+				requiredPropsArray.put(emailResult);
 				emailFieldAdditionallyAdded=true;
 			}
 
 			ArrayList<String> list = new ArrayList<>();
 
-			if (objIDJson1 != null) {
-				int len = objIDJson1.length();
+			if (requiredPropsArray != null) {
+				int len = requiredPropsArray.length();
 				for (int i = 0; i < len; i++) {
-					list.add(objIDJson1.get(i).toString());
+					list.add(requiredPropsArray.get(i).toString());
 				}
 			}
 			list.remove(GlobalConstants.RESIDENCESTATUS);
@@ -4717,163 +5103,304 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 			JSONArray newIdJson = new JSONArray(list);
-
-			fileWriter1 = new FileWriter(GlobalConstants.CREATEPREREG_HBS);
-			fileWriter1.write("{\n");
-			fileWriter1.write("  \"id\": \"{{id}}\",\n");
+			
+			
+			requestJson.put("id", "{{id}}");
 			if (isItUpdate) {
-				fileWriter1.write("  \"preRegistrationId\": \"{{preRegistrationId}}\",\n");
+				requestJson.put("preRegistrationId", "{{preRegistrationId}}");
 			}
+			
+			requestJson.put("requesttime", "{{requesttime}}");
+			requestJson.put("version", "{{version}}");
+			requestJson.put("request", new HashMap<>());
+			requestJson.getJSONObject("request").put("langCode", "{{langCode}}");
+			requestJson.getJSONObject("request").put("requiredFields", newIdJson);
+			requestJson.getJSONObject("request").put("demographicDetails", new HashMap<>());
 
-			fileWriter1.write("  \"requesttime\": \"{{requesttime}}\",\n");
-			fileWriter1.write("  \"version\": \"{{version}}\",\n");
-			fileWriter1.write("  \"request\": {\n");
-			fileWriter1.write("    \"langCode\": \"{{langCode}}\",\n");
-			fileWriter1.write("    \"requiredFields\": " + newIdJson + ",\n");
-			fileWriter1.write("    \"demographicDetails\": {\n");
-
-			fileWriter1.write("      \"identity\": {\n");
-
-			fileWriter1.close();
-
-			boolean flag = true;
+			JSONObject identityJson = new JSONObject();
+			
+			
 			for (int i = 0, size = newIdJson.length(); i < size; i++) {
-				String objIDJson3 = newIdJson.getString(i);
+				String eachRequiredProp = newIdJson.getString(i); // objIDJson3
 
-				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
+				JSONObject eachPropDataJson = (JSONObject) identityPropsJson.get(eachRequiredProp); // rc1
 
-				if ((rc1.has("$ref") && rc1.get("$ref").toString().contains(GlobalConstants.SIMPLETYPE))
-						|| objIDJson3.contains(GlobalConstants.RESIDENCESTATUS)) {
+				if ((eachPropDataJson.has("$ref") && eachPropDataJson.get("$ref").toString().contains("simpleType")) 
+				|| eachRequiredProp.contains(GlobalConstants.RESIDENCESTATUS)) {
 
-					JSONArray jArray = new JSONArray();
+					JSONArray eachPropDataArray = new JSONArray(); // jArray
+
 					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
-
-						{
-							JSONObject studentJSON = new JSONObject();
-							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
-							studentJSON.put(GlobalConstants.VALUE,
-									(propsMap.getProperty(objIDJson3) == null) ? "TEST_" + objIDJson3
-											: propsMap.getProperty(objIDJson3));
-							jArray.put(studentJSON);
-						}
+						JSONObject eachValueJson = new JSONObject(); // studentJSON
+						eachValueJson.put("language", BaseTestCase.getLanguageList().get(j));
+						eachValueJson.put("value", (propsMap.getProperty(eachRequiredProp) == null) ? "TEST_" + eachRequiredProp
+								: propsMap.getProperty(eachRequiredProp));
+						eachPropDataArray.put(eachValueJson);
 					}
+					identityJson.put(eachRequiredProp, eachPropDataArray);
+				}
+				else {
 
-					JSONObject mainObj = new JSONObject();
-
-					logger.info(mainObj);
-
-					fileWriter2 = new FileWriter(GlobalConstants.CREATEPREREG_HBS, flag);
-					flag = true;
-					fileWriter2.write("\t  ,\"" + objIDJson3 + "\": ");
-
-					fileWriter2.write(jArray.toString());
-					fileWriter2.write("\t");
-
-					if (jArray.toString().contains(GlobalConstants.RESIDENCESTATUS)
-							|| objIDJson3.contains(GlobalConstants.RESIDENCESTATUS)) {
-						fileWriter2.write("\n\t  \n}\n}\n}\n}\n");
-					} else {
-						fileWriter2.write("\n\t  \n");
-					} 
-					 
-
-					fileWriter2.close();
-
-				} else {
-
-					fileWriter2 = new FileWriter(GlobalConstants.CREATEPREREG_HBS, flag);
-					flag = true;
-
-					if (i == size - 1) {
-						fileWriter2.write("\t  ,\"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\""
-								+ "\n}\n}\n}\n}");
-
+					if (eachRequiredProp.equals("IDSchemaVersion")) {
+						identityJson.put(eachRequiredProp, schemaVersion);
 					}
-
-					else if (objIDJson3.equals(GlobalConstants.IDSCHEMAVERSION)) {
-						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + "\n");
-					}
-					
-					else if (objIDJson3.equals(result)) {
-
-						if (phoneFieldAdditionallyAdded) {
-							fileWriter2.write(
-									",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
-						} else {
-							fileWriter2.write(
-									"\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
-						}
-
-						/*
-						 * fileWriter2 .write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" +
-						 * objIDJson3 + "}}\"" + ",\n");
-						 */
-					}
-
-					else if (objIDJson3.equals(emailResult)) {
-						if (emailFieldAdditionallyAdded) {
-							fileWriter2.write(
-									",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
-						} else {
-							fileWriter2.write(
-									"\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
-						}
-
-					}
-
 					else {
-						fileWriter2
-								.write("\t  ,\"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
-
-					}
-
-					fileWriter2.close();
-
+						identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
+					}				
 				}
-
 			}
-			fileWriter3 = new FileWriter(GlobalConstants.CREATEPREREG_HBS, true);
+			requestJson.getJSONObject("request").getJSONObject("demographicDetails").put("identity", identityJson);
 
-			fileWriter3.close();
-
-			fileReader = new FileReader(GlobalConstants.CREATEPREREG_HBS);
-
-			bufferedReader = new BufferedReader(fileReader);
-			try {
-				StringBuilder sb = new StringBuilder();
-				String line = bufferedReader.readLine();
-
-				while (line != null) {
-					sb.append(line);
-					sb.append(System.lineSeparator());
-					line = bufferedReader.readLine();
-
-					StringBuffer everythingtrue = new StringBuffer(sb.toString());
-					everything = everythingtrue;
-
-				}
-
-			} finally {
-				bufferedReader.close();
-			}
-
-		} catch (IOException | NullPointerException e) {
+		} catch (NullPointerException e) {
 			logger.error(e.getMessage());
-		} finally {
-			closeFileWriter(fileWriter1);
-			closeFileWriter(fileWriter2);
-			closeFileWriter(fileWriter3);
-			closeFileReader(fileReader);
-			closeBufferedReader(bufferedReader);
 		}
 		if (isItUpdate) {
 
-			preregHbsForUpdate = everything.toString();
+			preregHbsForUpdate = requestJson.toString();
 			return preregHbsForUpdate;
 		}
-		preregHbsForCreate = everything.toString();
+		preregHbsForCreate = requestJson.toString();
 		return preregHbsForCreate;
 	}
+
+//	public static String generateHbsForPrereg(boolean isItUpdate) {
+//		if (isItUpdate && preregHbsForUpdate != null) {
+//			return preregHbsForUpdate;
+//		}
+//
+//		if (!isItUpdate && preregHbsForCreate != null) {
+//			return preregHbsForCreate;
+//		}
+//		StringBuffer everything = new StringBuffer("");
+//		kernelAuthLib = new KernelAuthentication();
+//		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+//		String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
+//
+//		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
+//				GlobalConstants.AUTHORIZATION, token);
+//
+//		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
+//		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
+//
+//		Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
+//		logger.info(schemaVersion);
+//		String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
+//
+//		String schemaFile = schemaJsonData;
+//
+//		FileWriter fileWriter1 = null;
+//		FileWriter fileWriter2 = null;
+//		FileWriter fileWriter3 = null;
+//		FileReader fileReader = null;
+//		BufferedReader bufferedReader = null;
+//
+//		try {
+//			JSONObject jObj = new JSONObject(schemaFile);
+//			JSONObject objIDJson4 = jObj.getJSONObject(GlobalConstants.PROPERTIES);
+//			logger.info(objIDJson4);
+//			JSONObject objIDJson = objIDJson4.getJSONObject(GlobalConstants.IDENTITY);
+//			logger.info(objIDJson);
+//			JSONObject objIDJson2 = objIDJson.getJSONObject(GlobalConstants.PROPERTIES);
+//			logger.info(objIDJson2);
+//			JSONArray objIDJson1 = objIDJson.getJSONArray(GlobalConstants.REQUIRED);
+//			logger.info(objIDJson1);
+//			boolean emailFieldAdditionallyAdded=false;
+//			boolean phoneFieldAdditionallyAdded=false;
+//			String phone = getValueFromAuthActuator("json-property", "phone_number");
+//			String result = phone.replaceAll("\\[\"|\"\\]", "");
+//
+//			if (!isElementPresent(objIDJson1, result)) {
+//				objIDJson1.put(result);
+//				phoneFieldAdditionallyAdded=true;
+//			}
+//
+//			//System.out.println("result is:" + result);
+//			String email = getValueFromAuthActuator("json-property", "emailId");
+//			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
+//			if (!isElementPresent(objIDJson1, emailResult)) {
+//				objIDJson1.put(emailResult);
+//				emailFieldAdditionallyAdded=true;
+//			}
+//
+//			ArrayList<String> list = new ArrayList<>();
+//
+//			if (objIDJson1 != null) {
+//				int len = objIDJson1.length();
+//				for (int i = 0; i < len; i++) {
+//					list.add(objIDJson1.get(i).toString());
+//				}
+//			}
+//			list.remove(GlobalConstants.RESIDENCESTATUS);
+//			list.remove("addressCopy");
+//			list.remove("proofOfAddress");
+//			list.remove(GlobalConstants.RESIDENCESTATUS);
+//			list.add(GlobalConstants.RESIDENCESTATUS);
+//			if (list.contains(GlobalConstants.PROOFOFIDENTITY)) {
+//				list.remove(GlobalConstants.PROOFOFIDENTITY);
+//			}
+//
+//			if (list.contains(GlobalConstants.INDIVIDUALBIOMETRICS)) {
+//				list.remove(GlobalConstants.INDIVIDUALBIOMETRICS);
+//			}
+//
+//			JSONArray newIdJson = new JSONArray(list);
+//
+//			fileWriter1 = new FileWriter(GlobalConstants.CREATEPREREG_HBS);
+//			fileWriter1.write("{\n");
+//			fileWriter1.write("  \"id\": \"{{id}}\",\n");
+//			if (isItUpdate) {
+//				fileWriter1.write("  \"preRegistrationId\": \"{{preRegistrationId}}\",\n");
+//			}
+//
+//			fileWriter1.write("  \"requesttime\": \"{{requesttime}}\",\n");
+//			fileWriter1.write("  \"version\": \"{{version}}\",\n");
+//			fileWriter1.write("  \"request\": {\n");
+//			fileWriter1.write("    \"langCode\": \"{{langCode}}\",\n");
+//			fileWriter1.write("    \"requiredFields\": " + newIdJson + ",\n");
+//			fileWriter1.write("    \"demographicDetails\": {\n");
+//
+//			fileWriter1.write("      \"identity\": {\n");
+//
+//			fileWriter1.close();
+//
+//			boolean flag = true;
+//			for (int i = 0, size = newIdJson.length(); i < size; i++) {
+//				String objIDJson3 = newIdJson.getString(i);
+//
+//				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
+//
+//				if ((rc1.has("$ref") && rc1.get("$ref").toString().contains(GlobalConstants.SIMPLETYPE))
+//						|| objIDJson3.contains(GlobalConstants.RESIDENCESTATUS)) {
+//
+//					JSONArray jArray = new JSONArray();
+//					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
+//
+//						{
+//							JSONObject studentJSON = new JSONObject();
+//							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
+//							studentJSON.put(GlobalConstants.VALUE,
+//									(propsMap.getProperty(objIDJson3) == null) ? "TEST_" + objIDJson3
+//											: propsMap.getProperty(objIDJson3));
+//							jArray.put(studentJSON);
+//						}
+//					}
+//
+//					JSONObject mainObj = new JSONObject();
+//
+//					logger.info(mainObj);
+//
+//					fileWriter2 = new FileWriter(GlobalConstants.CREATEPREREG_HBS, flag);
+//					flag = true;
+//					fileWriter2.write("\t  ,\"" + objIDJson3 + "\": ");
+//
+//					fileWriter2.write(jArray.toString());
+//					fileWriter2.write("\t");
+//
+//					if (jArray.toString().contains(GlobalConstants.RESIDENCESTATUS)
+//							|| objIDJson3.contains(GlobalConstants.RESIDENCESTATUS)) {
+//						fileWriter2.write("\n\t  \n}\n}\n}\n}\n");
+//					} else {
+//						fileWriter2.write("\n\t  \n");
+//					} 
+//					 
+//
+//					fileWriter2.close();
+//
+//				} else {
+//
+//					fileWriter2 = new FileWriter(GlobalConstants.CREATEPREREG_HBS, flag);
+//					flag = true;
+//
+//					if (i == size - 1) {
+//						fileWriter2.write("\t  ,\"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\""
+//								+ "\n}\n}\n}\n}");
+//
+//					}
+//
+//					else if (objIDJson3.equals(GlobalConstants.IDSCHEMAVERSION)) {
+//						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + "\n");
+//					}
+//					
+//					else if (objIDJson3.equals(result)) {
+//
+//						if (phoneFieldAdditionallyAdded) {
+//							fileWriter2.write(
+//									",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
+//						} else {
+//							fileWriter2.write(
+//									"\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+//						}
+//
+//						/*
+//						 * fileWriter2 .write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" +
+//						 * objIDJson3 + "}}\"" + ",\n");
+//						 */
+//					}
+//
+//					else if (objIDJson3.equals(emailResult)) {
+//						if (emailFieldAdditionallyAdded) {
+//							fileWriter2.write(
+//									",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
+//						} else {
+//							fileWriter2.write(
+//									"\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
+//						}
+//
+//					}
+//
+//					else {
+//						fileWriter2
+//								.write("\t  ,\"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
+//
+//					}
+//
+//					fileWriter2.close();
+//
+//				}
+//
+//			}
+//			fileWriter3 = new FileWriter(GlobalConstants.CREATEPREREG_HBS, true);
+//
+//			fileWriter3.close();
+//
+//			fileReader = new FileReader(GlobalConstants.CREATEPREREG_HBS);
+//
+//			bufferedReader = new BufferedReader(fileReader);
+//			try {
+//				StringBuilder sb = new StringBuilder();
+//				String line = bufferedReader.readLine();
+//
+//				while (line != null) {
+//					sb.append(line);
+//					sb.append(System.lineSeparator());
+//					line = bufferedReader.readLine();
+//
+//					StringBuffer everythingtrue = new StringBuffer(sb.toString());
+//					everything = everythingtrue;
+//
+//				}
+//
+//			} finally {
+//				bufferedReader.close();
+//			}
+//
+//		} catch (IOException | NullPointerException e) {
+//			logger.error(e.getMessage());
+//		} finally {
+//			closeFileWriter(fileWriter1);
+//			closeFileWriter(fileWriter2);
+//			closeFileWriter(fileWriter3);
+//			closeFileReader(fileReader);
+//			closeBufferedReader(bufferedReader);
+//		}
+//		if (isItUpdate) {
+//
+//			preregHbsForUpdate = everything.toString();
+//			return preregHbsForUpdate;
+//		}
+//		preregHbsForCreate = everything.toString();
+//		return preregHbsForCreate;
+//	}
 
 	@SuppressWarnings("unchecked")
 	public static void createAndPublishPolicy() {
@@ -4900,6 +5427,10 @@ public class AdminTestUtil extends BaseTestCase {
 		String responseBody2 = response2.getBody().asString();
 		String policygroupId = new org.json.JSONObject(responseBody2).getJSONObject(GlobalConstants.RESPONSE)
 				.getString("id");
+		
+		String urlForUpdate = ApplnURI + properties.getProperty("authPolicyUrl")+"/"+policygroupId;
+		Response responseForUpdate = RestClient.putRequestWithCookie(urlForUpdate, actualrequest, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 
 		String url = ApplnURI + properties.getProperty("authPolicyUrl");
 		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY);
@@ -4907,6 +5438,63 @@ public class AdminTestUtil extends BaseTestCase {
 		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR);
 
 		actualrequest2.put("name", policyName);
+		actualrequest2.put("policyGroupName", policyGroup);
+		actualrequest2.put("policies", actualrequestAttr);
+		actualrequestBody.put(GlobalConstants.REQUEST, actualrequest2);
+
+		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		String responseBody = response.getBody().asString();
+		String policyId = new org.json.JSONObject(responseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
+
+		String url3 = ApplnURI + properties.getProperty("publishPolicyurl");
+
+		if (url3.contains("POLICYID")) {
+			url3 = url3.replace("POLICYID", policyId);
+			url3 = url3.replace("POLICYGROUPID", policygroupId);
+
+		}
+
+		Response response3 = RestClient.postRequestWithCookie(url3, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static void createEditAndPublishPolicy() {
+		if (!BaseTestCase.isTargetEnvLTS()) {
+			// In case of 1.1.5 we don't have auto sync of certificates between Key manager
+			// cert store and IDA cert store
+			// So use the predefined certificate folder and partner key
+			return;
+		}
+
+		String token = kernelAuthLib.getTokenByRole(GlobalConstants.PARTNER);
+
+		String url2 = ApplnURI + properties.getProperty("policyGroupUrl");
+		org.json.simple.JSONObject actualrequest = getRequestJson(POLICY_GROUP_REQUEST);
+
+		org.json.simple.JSONObject modifiedReq = new org.json.simple.JSONObject();
+		modifiedReq.put("desc", "desc mosip auth policy group for update");
+		modifiedReq.put("name", policyGroup);
+
+		actualrequest.put(GlobalConstants.REQUEST, modifiedReq);
+
+		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		String responseBody2 = response2.getBody().asString();
+		String policygroupId = new org.json.JSONObject(responseBody2).getJSONObject(GlobalConstants.RESPONSE)
+				.getString("id");
+		String urlForUpdate = ApplnURI + properties.getProperty("authPolicyUrl")+"/"+policygroupId;
+		Response responseForUpdate = RestClient.postRequestWithCookie(urlForUpdate, actualrequest, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+
+		String url = ApplnURI + properties.getProperty("authPolicyUrl");
+		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY);
+		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST);
+		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR);
+
+		actualrequest2.put("name", policyNameForUpdate);
 		actualrequest2.put("policyGroupName", policyGroup);
 		actualrequest2.put("policies", actualrequestAttr);
 		actualrequestBody.put(GlobalConstants.REQUEST, actualrequest2);
@@ -4984,18 +5572,18 @@ public class AdminTestUtil extends BaseTestCase {
 
 	}
 
-	public static String getJWKKey(File fileName) {
-		String keyString = null;
-		try {
-			if (fileName.exists()) {
-				keyString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
-			}
-			return keyString;
-		} catch (IOException e1) {
-			logger.error("Exception while getting oidcJWKKey for client assertion: " + e1.getMessage());
-			return null;
-		}
-	}
+//	public static String getJWKKey(File fileName) {
+//		String keyString = null;
+//		try {
+//			if (fileName.exists()) {
+//				keyString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
+//			}
+//			return keyString;
+//		} catch (IOException e1) {
+//			logger.error("Exception while getting oidcJWKKey for client assertion: " + e1.getMessage());
+//			return null;
+//		}
+//	}
 
 	public static String signJWKKey(String clientId, RSAKey jwkKey) {
 		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.token_endpoint");
@@ -5116,7 +5704,11 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String getValueFromActuator(String section, String key) {
 		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
-		String value = null;
+		String actuatorCacheKey = url + section + key;
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null && !value.isEmpty())
+			return value;
+		
 		try {
 			if (residentActuatorResponseArray == null) {
 				Response response = null;
@@ -5136,6 +5728,7 @@ public class AdminTestUtil extends BaseTestCase {
 					break;
 				}
 			}
+			actuatorValueCache.put(actuatorCacheKey, value);
 
 			return value;
 		} catch (Exception e) {
@@ -5148,8 +5741,12 @@ public class AdminTestUtil extends BaseTestCase {
 	public static JSONArray esignetActuatorResponseArray = null;
 
 	public static String getValueFromEsignetActuator(String section, String key) {
-		String value = null;
 		String url = ConfigManager.getEsignetBaseUrl() + propsKernel.getProperty("actuatorEsignetEndpoint");
+		String actuatorCacheKey = url + section + key;
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null && !value.isEmpty())
+			return value;
+		
 		try {
 			if (esignetActuatorResponseArray == null) {
 				Response response = null;
@@ -5169,7 +5766,8 @@ public class AdminTestUtil extends BaseTestCase {
 					break;
 				}
 			}
-
+			actuatorValueCache.put(actuatorCacheKey, value);
+			
 			return value;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
@@ -5182,7 +5780,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String getValueFromAuthActuator(String section, String key) {
 		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
-		String value = null;
+		String actuatorCacheKey = url + section + key;
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null && !value.isEmpty())
+			return value;
 		try {
 			if (authActuatorResponseArray == null) {
 				Response response = null;
@@ -5203,6 +5804,7 @@ public class AdminTestUtil extends BaseTestCase {
 					break;
 				}
 			}
+			actuatorValueCache.put(actuatorCacheKey, value);
 
 			return value;
 		} catch (Exception e) {
@@ -5217,7 +5819,14 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String getValueFromConfigActuator() {
 
 		String url = ApplnURI + propsKernel.getProperty("actuatorEndpoint");
-		String claims = null;
+
+		String actuatorCacheKey = url + "mosip.iam.module.login_flow.claims";
+
+		String claims = actuatorValueCache.get(actuatorCacheKey);
+
+		if (claims != null && !claims.isEmpty())
+			return claims;
+
 		try {
 			if (configActuatorResponseArray == null) {
 				Response response = null;
@@ -5240,6 +5849,8 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 
+			actuatorValueCache.put(actuatorCacheKey, claims);
+
 			return claims;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
@@ -5252,7 +5863,12 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String getRegprocWaitFromActuator() {
 		String url = ApplnURI + propsKernel.getProperty("actuatorRegprocEndpoint");
-		String waitInterval = null;
+		
+		String actuatorCacheKey = url + "registration.processor.reprocess.minutes";
+		String waitInterval = actuatorValueCache.get(actuatorCacheKey);
+		if (waitInterval != null && !waitInterval.isEmpty())
+			return waitInterval;
+		
 		try {
 			if (regProcActuatorResponseArray == null) {
 				Response response = null;
@@ -5273,6 +5889,8 @@ public class AdminTestUtil extends BaseTestCase {
 					break;
 				}
 			}
+			
+			actuatorValueCache.put(actuatorCacheKey, waitInterval);
 
 			return waitInterval;
 		} catch (Exception e) {
@@ -5519,7 +6137,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		objList.add(objOpDto);
-		objMap.put("expected vs actual", objList);
+		objMap.put(GlobalConstants.EXPECTED_VS_ACTUAL, objList);
 
 		if (!OutputValidationUtil.publishOutputResult(objMap))
 			throw new AdminTestException("Failed at output validation");
@@ -5626,22 +6244,72 @@ public class AdminTestUtil extends BaseTestCase {
 
 		Response response = null;
 		JSONObject responseJson = null;
-		String url = ApplnURI + props.getProperty("fetchLocationLevel") + BaseTestCase.getLanguageList().get(0);
+		String url = ApplnURI + props.getProperty("fetchLocationHierarchyLevels") + BaseTestCase.getLanguageList().get(0);
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
+		String topLevelName = null;
+		String url2 = "";
+		
+		Response responseLocationHierarchy = null;
+		JSONObject responseJsonLocationHierarchy = null;
 
 		try {
 
 			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 					GlobalConstants.AUTHORIZATION, token);
 
+			JSONObject jsonObject = new JSONObject(response.getBody().asString());
+			JSONArray locationHierarchyLevels = jsonObject.getJSONObject("response")
+					.getJSONArray("locationHierarchyLevels");
+
+			int topLevel = -1;
+
+			for (int i = 0; i < locationHierarchyLevels.length(); i++) {
+				JSONObject hierarchy = locationHierarchyLevels.getJSONObject(i);
+				int hierarchyLevel = hierarchy.getInt("hierarchyLevel");
+				if (hierarchyLevel > topLevel) {
+					topLevel = hierarchyLevel;
+					topLevelName = hierarchy.getString("hierarchyLevelName");
+				}
+			}
+
+			url2 = ApplnURI + props.getProperty("fetchLocationHierarchy") + topLevelName;
+			responseLocationHierarchy = RestClient.getRequestWithCookie(url2, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+			
+			JSONObject locationJsonObject = new JSONObject(responseLocationHierarchy.getBody().asString());
+            JSONArray locations = locationJsonObject.getJSONObject("response").getJSONArray("locations");
+
+            if (locations.length() > 0) {
+                JSONObject firstLocation = locations.getJSONObject(0);
+                locationCode = firstLocation.getString("code");
+                System.out.println("First Location Code: " + locationCode);
+            } else {
+                System.out.println("No locations found in the response.");
+            }
+
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+		}
+	}
+	
+	public static void getHierarchyZoneCode() {
+
+		Response response = null;
+		JSONObject responseJson = null;
+		String url = ApplnURI + props.getProperty("fetchZoneCode") + BaseTestCase.getLanguageList().get(0);
+		String token = kernelAuthLib.getTokenByRole("globalAdmin");
+
+		try {
+
+			response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
+					MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+
 			responseJson = new JSONObject(response.getBody().asString());
 
 			try {
-				JSONObject responseObject = responseJson.getJSONObject("response");
-				JSONArray data = responseObject.getJSONArray("locations");
+				JSONObject responseObject = responseJson.getJSONArray("response").getJSONObject(0);
 
-				JSONObject entry = data.getJSONObject(0);
-				locationCode = entry.getString("code");
+				hierarchyZoneCode = responseObject.getString("code");
 
 			} catch (Exception e) {
 				logger.error(e.getMessage());
@@ -5772,5 +6440,90 @@ public class AdminTestUtil extends BaseTestCase {
         }
 		return false;
 	}
+	
+	public static String ekycDataDecryption(String url, JSONObject kycDataForDecryption, String partnerName,
+			Boolean keyFileNameByPartnerName) {
+		 url = url + properties.getProperty("decryptKycUrl");
+		 
+		 ObjectMapper mapper = new ObjectMapper();
+			Map<String, String> map = null;
+			try {
+				map = mapper.readValue(kycDataForDecryption.toString(), Map.class);
+			} catch (JsonProcessingException e) {
+				logger.error(e.getMessage());
+			}
+		 
+		HashMap<String, Object> queryParamMap = new HashMap<>();
+		queryParamMap.put("partnerName", partnerName);
+		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
+
+			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
+
+		Response response = RestClient.postRequestWithQueryParamsAndBody(url, map, queryParamMap,
+				MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
+		GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+
+		return response.getBody().asString();
+	}
+	
+	public static String ekycDataDecryptionForDemo(String url, JSONObject kycDataForDecryption, String partnerName,
+			Boolean keyFileNameByPartnerName) {
+		 url = url + properties.getProperty("decryptKycUrl");
+		 
+		 ObjectMapper mapper = new ObjectMapper();
+			Map<String, String> map = null;
+			try {
+				map = mapper.readValue(kycDataForDecryption.toString(), Map.class);
+			} catch (JsonProcessingException e) {
+				logger.error(e.getMessage());
+			}
+		 
+		HashMap<String, Object> queryParamMap = new HashMap<>();
+		queryParamMap.put("partnerName", partnerName);
+		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
+
+			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
+			
+			GlobalMethods.reportRequest(null, map.toString(), url);
+
+		Response response = RestClient.postRequestWithQueryParamsAndBody(url, map, queryParamMap,
+				MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
+		GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+
+		return response.getBody().asString();
+	}
+	
+	public static String getValueFromUrl(String url,String dataToFetch) {
+		String idValue="";
+		try {
+			URI uri = new URI(url);
+			Map<String, String> queryParams = new HashMap<>();
+	        String query = uri.getQuery();
+	        if (query != null) {
+	        	String[] pairs = query.split("&");
+	        	for (String pair : pairs) {
+	        		String[] param = pair.split("=");
+	                String key = param[0];
+	                String value = param.length > 1 ? param[1] : "";
+	                queryParams.put(key, value);
+	        	}
+	                
+	        }
+	         idValue = queryParams.get("id");
+	        if (idValue != null) {
+	            System.out.println("Value of 'id' parameter: " + idValue);
+	        } else {
+	            System.out.println("'id' parameter not found in the URL.");
+	        }   
+	            
+		} catch (URISyntaxException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return idValue;
+		
+	}
+	
+	
 
 }

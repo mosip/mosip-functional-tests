@@ -46,7 +46,7 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 	private Map<String, String> storeUinData = new HashMap<>();
 	private Map<String, String> storeRidData = new HashMap<>();
 	private static long perTCUinCount;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -54,7 +54,7 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -72,10 +72,9 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		perTCUinCount = Long.parseLong(context.getCurrentXmlTest().getLocalParameters().get("perTCUinCount"));
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -87,45 +86,52 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		for(int i=0; i<perTCUinCount; i++)
-		{
+		for (int i = 0; i < perTCUinCount; i++) {
 			createUins(testCaseDTO, i);
 		}
-		
+
 	}
-	
+
 	public void createUins(TestCaseDTO testCaseDTO, int count) throws AuthenticationTestException, AdminTestException {
 		String uin = JsonPrecondtion
-				.getValueFromJson(RestClient.getRequestWithCookie(ApplnURI+"/v1/idgenerator/uin", MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(), "response.uin");
+				.getValueFromJson(
+						RestClient.getRequestWithCookie(ApplnURI + "/v1/idgenerator/uin", MediaType.APPLICATION_JSON,
+								MediaType.APPLICATION_JSON, COOKIENAME,
+								new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(),
+						"response.uin");
 		DateFormat dateFormatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
 		String timestampValue = dateFormatter.format(cal.getTime());
 		String genRid = "27847" + generateRandomNumberString(10) + timestampValue;
-		String inputJson =  getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		inputJson = inputJson.replace("$UIN$", uin);
 		inputJson = inputJson.replace("$RID$", genRid);
-		Response response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+		Response response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,
+				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		boolean publishResult = OutputValidationUtil.publishOutputResult(ouputValid);
 		if (!publishResult)
 			throw new AdminTestException("Failed at output validation");
 		else {
-			storeUinData.put(testCaseName+"-"+count, uin);
+			storeUinData.put(testCaseName + "-" + count, uin);
 			storeRidData.put(uin, genRid);
 		}
 	}
-	
+
 	public void writeUinRid(Map<String, String> uinMap, Map<String, String> ridMap, String testCaseName) {
-		AuthTestsUtil.generateMappingDic(RunConfigUtil.getResourcePath()+"idRepository/uinrids/"+testCaseName+"UIN.properties", uinMap);
-		AuthTestsUtil.generateMappingDic(RunConfigUtil.getResourcePath()+"idRepository/uinrids/"+testCaseName+"RID.properties", ridMap);
+		AuthTestsUtil.generateMappingDic(
+				RunConfigUtil.getResourcePath() + "idRepository/uinrids/" + testCaseName + "UIN.properties", uinMap);
+		AuthTestsUtil.generateMappingDic(
+				RunConfigUtil.getResourcePath() + "idRepository/uinrids/" + testCaseName + "RID.properties", ridMap);
 	}
 
 	/**
@@ -151,5 +157,5 @@ public class MassUINGenerator extends AdminTestUtil implements ITest {
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}	
+	}
 }

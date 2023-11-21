@@ -1,5 +1,5 @@
 FetchMissingDynamicField:
-   MasterData_FetchMissingDynamicField_valid_smoke:
+   MasterData_FetchMissingDynamicField_All_Valid_smoke:
       endPoint: /v1/masterdata/dynamicfields/missingids/{langcode}?fieldName={fieldName}
       role: admin
       checkErrorsOnlyInResponse: true

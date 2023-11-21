@@ -55,6 +55,27 @@
         },
         {
           "attributeName": "photo"
+        },
+        {
+          "attributeName": "firstName"
+        },
+         {
+          "attributeName": "province"
+        },
+         {
+          "attributeName": "city"
+        },
+        {
+          "attributeName": "zone"
+        },
+        {
+          "attributeName": "postalCode"
+        },
+        {
+          "attributeName": "phone"
+        },
+        {
+          "attributeName": "email"
         }
       ],
      "authTokenType": "partner"      

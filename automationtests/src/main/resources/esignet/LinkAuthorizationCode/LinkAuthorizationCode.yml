@@ -15,6 +15,56 @@ LinkAuthorizationCode:
       output: '{
         
 }'
+   ESignet_LinkAuthorizationCode_Consent_Vid_SameClaim_all_Valid_Smoke_sid:
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: esignet/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Consent_SameClaim_Vid_Valid_Smoke_sid_transactionId$",
+        "linkedCode": "$ID:GenerateLinkCode_Consent_Vid_SameClaim_all_Valid_Smoke_sid_linkCode$"    	
+}'
+      output: '{
+        
+}'
+
+   ESignet_LinkAuthorizationCode_Consent_uin_User2_all_Valid_Smoke_sid:
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: esignet/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Consent_User2_Uin_Valid_Smoke_sid_transactionId$",
+        "linkedCode": "$ID:GenerateLinkCode_Consent_uin_User2_all_Valid_Smoke_sid_linkCode$"    	
+}'
+      output: '{
+        
+}'
+
+   ESignet_LinkAuthorizationCode_Consent_Vid_User2_all_Valid_Smoke_sid:
+      endPoint: /v1/esignet/linked-authorization/link-auth-code
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: esignet/LinkAuthorizationCode/LinkAuthorizationCode
+      outputTemplate: esignet/LinkAuthorizationCode/LinkAuthorizationCodeResult
+      input: '{
+      	"requestTime": "$TIMESTAMP$",
+    	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Consent_User2_Vid_Valid_Smoke_sid_transactionId$",
+        "linkedCode": "$ID:GenerateLinkCode_Consent_Vid_User2_all_Valid_Smoke_sid_linkCode$"    	
+}'
+      output: '{
+        
+}'
 
    ESignet_LinkAuthorizationCode_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/link-auth-code

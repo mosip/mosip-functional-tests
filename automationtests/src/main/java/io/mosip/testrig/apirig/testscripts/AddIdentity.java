@@ -53,9 +53,9 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	@Override
 	public String getTestName() {
 		return testCaseName;
-		
+
 	}
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -75,7 +75,6 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -85,7 +84,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	 * @param testcaseName
 	 * @throws AuthenticationTestException
 	 * @throws AdminTestException
-	 */	
+	 */
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
@@ -127,8 +126,6 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 
 		String jsonInput = testCaseDTO.getInput();
 
-	
-		
 		String inputJson = getJsonFromTemplate(jsonInput, testCaseDTO.getInputTemplate(), false);
 
 		inputJson = inputJson.replace("$UIN$", uin);
@@ -138,7 +135,8 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -175,8 +173,9 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	public void waittime() {
 
 		try {
-			if (BaseTestCase.currentModule.equals("idrepo")) {
-				logger.info("waiting for " + properties.getProperty("Delaytime") + " mili secs after UIN Generation In IDREPO"); //
+			if (BaseTestCase.currentModule.equals("auth")) {
+				logger.info("waiting for " + properties.getProperty("Delaytime")
+						+ " mili secs after UIN Generation In IDREPO"); //
 				Thread.sleep(Long.parseLong(properties.getProperty("Delaytime")));
 			}
 		} catch (Exception e) {

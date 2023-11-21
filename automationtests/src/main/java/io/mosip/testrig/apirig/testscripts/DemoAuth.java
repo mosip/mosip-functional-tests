@@ -36,6 +36,7 @@ import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
+
 public class DemoAuth extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(DemoAuth.class);
 	protected String testCaseName = "";
@@ -69,8 +70,6 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -87,28 +86,28 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		
+
 		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
 				throw new SkipException("Idtype UIN is not supported. Hence skipping the testcase");
 			}
 		}
-		
+
 		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
 			}
 		}
-		
+
 		if (testCaseDTO.getEndPoint().contains("$partnerKeyURL$")) {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl));
 		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null;
-			String	identityRequestTemplate = null;
+		String identityRequestTemplate = null;
 		if (request.has(GlobalConstants.IDENTITYREQUEST)) {
 			identityRequest = request.get(GlobalConstants.IDENTITYREQUEST).toString();
 			request.remove(GlobalConstants.IDENTITYREQUEST);
@@ -160,8 +159,8 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 			}
 		}
 
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse());
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

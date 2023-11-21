@@ -58,7 +58,7 @@ CreateValidDocument:
   ]
 }'
 
-   MasterData_CreateValidDocument_Invalid_InputParameter_isActive:
+   MasterData_CreateValidDocument_Invalid_isActive:
       endPoint: /v1/masterdata/validdocuments
       role: admin
       restMethod: post

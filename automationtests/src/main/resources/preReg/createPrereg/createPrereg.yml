@@ -19,6 +19,26 @@ CreatePrereg:
 }'
       output: '{
 }'
+   Prereg_CreatePrereg_book_appoinment_without_update_prereg_status_sid:
+      endPoint: /preregistration/v1/applications/prereg
+      role: batch
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: preReg/createPrereg/createPrereg
+      outputTemplate: preReg/createPrereg/createPreregResult
+      input: '{
+  "postalCode": "14022",
+  "phone": "8249742850",
+  "email": "goku@technoforte.co.in",
+  "IDSchemaVersion": $SCHEMAVERSION$, 
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "langCode": "$1STLANG$",
+  "requesttime": "$TIMESTAMP$",
+  "id": "mosip.pre-registration.demographic.create"
+}'
+      output: '{
+}'
    Prereg_CreatePrereg_All_Valid_Smoke_UpdateDocRefID_sid:
       endPoint: /preregistration/v1/applications/prereg
       role: batch
@@ -458,6 +478,32 @@ CreatePrereg:
       outputTemplate: preReg/error
       input: '{
   "postalCode": "$34!",
+  "phone": "8249742850",
+  "mobileno": "8249742850",
+  "email": "goku@technoforte.co.in",
+  "IDSchemaVersion": $SCHEMAVERSION$, 
+  "dateOfBirth": "1996/01/01",
+  "version": "1.0",
+  "langCode": "$1STLANG$",
+  "requesttime": "$TIMESTAMP$",
+  "id": "mosip.pre-registration.demographic.create"
+}'
+      output: '{
+      "errors": [
+    {
+      "errorCode": "KER-IOV-004"
+    }
+  ]
+}'
+   Prereg_CreatePrereg_Invalid_OTP_Neg:
+      endPoint: /preregistration/v1/applications/prereg
+      role: invalidBatch
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: preReg/createPrereg/createPrereg
+      outputTemplate: preReg/error
+      input: '{
+  "postalCode": "14022",
   "phone": "8249742850",
   "mobileno": "8249742850",
   "email": "goku@technoforte.co.in",

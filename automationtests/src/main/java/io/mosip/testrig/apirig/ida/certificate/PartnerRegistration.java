@@ -20,6 +20,7 @@ import io.restassured.response.Response;
 public class PartnerRegistration extends AdminTestUtil {
 	private static final Logger lOGGER = Logger.getLogger(PartnerRegistration.class);
 	public static String partnerKeyUrl = null;
+	public static String updatedpartnerKeyUrl = null;
 	public static String ekycPartnerKeyUrl = null;
 	static String localHostUrl = null;
 
@@ -41,6 +42,7 @@ public class PartnerRegistration extends AdminTestUtil {
 	static String getEkycPartnerType = "AUTH_PARTNER";
 	static String getEkycPartnerTypeForCert = "EKYC";
 	public static String apiKey = "";
+	public static String updatedApiKey = "";
 	public static String kycApiKey = "";
 	public static String mispLicKey ="";
 	public static String policyGroup = AdminTestUtil.policyGroup;
@@ -66,6 +68,7 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		getAndUploadCertificates();
 		apiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetAPIKey();
+		//updatedApiKey = KeyCloakUserAndAPIKeyGeneration.createAPIKeyForUpdatedPolicy();
 		mispLicKey = MispPartnerAndLicenseKeyGeneration.getAndUploadCertificatesAndGenerateMispLicKey();
 		
 		if (apiKey.isEmpty() || mispLicKey.isEmpty()) {
@@ -73,6 +76,7 @@ public class PartnerRegistration extends AdminTestUtil {
 			return "";
 		}
 		partnerKeyUrl = mispLicKey + "/" + partnerId + "/" + apiKey;
+		updatedpartnerKeyUrl = mispLicKey + "/" + partnerId + "/" + updatedApiKey;
 
 		lOGGER.info("partnerKeyUrl = " + partnerKeyUrl);
 
@@ -370,6 +374,9 @@ public class PartnerRegistration extends AdminTestUtil {
 		queryParamMap.put("partnerType", partnerType);
 		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
 		if (partnerType.equals("RELYING_PARTY")) {
+			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
+		}
+		if (partnerType.equals("EKYC")) {
 			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
 		}
 

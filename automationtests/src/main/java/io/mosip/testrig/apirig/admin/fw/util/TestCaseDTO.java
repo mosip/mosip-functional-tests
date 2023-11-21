@@ -18,4 +18,5 @@ public class TestCaseDTO {
 	private boolean auditLogCheck;
 	private boolean checkErrorsOnlyInResponse;
 	private String allowedErrorCodes;
+	private String[] kycFields;
 }

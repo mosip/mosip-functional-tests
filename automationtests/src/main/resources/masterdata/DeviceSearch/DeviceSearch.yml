@@ -205,7 +205,7 @@ DeviceSearch:
       templateFields: ["value"]
       restMethod: post
       inputTemplate: masterdata/DeviceSearch/deviceSearch
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/NilSearchResult
       input: '{
     "filters": [
       {
@@ -228,11 +228,9 @@ DeviceSearch:
     "requesttime": "$TIMESTAMP$"
   }'
       output: '{
-  "errors": [
-    {
-      "errorCode": "KER-MSD-358"
-    }
-  ]
+    "fromRecord": "0",
+    "toRecord": "0",
+    "totalRecord": "0"
 }'
    MasterData_DeviceSearch_Invalid_SortType_neg:
       endPoint: /v1/masterdata/devices/search
