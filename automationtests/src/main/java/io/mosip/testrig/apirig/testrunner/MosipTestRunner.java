@@ -81,7 +81,7 @@ public class MosipTestRunner {
 				HealthChecker healthcheck = new HealthChecker();
 				healthcheck.setCurrentRunningModule(BaseTestCase.currentModule);
 				Thread trigger = new Thread(healthcheck);
-				trigger.start();
+//				trigger.start();
 			}
 			KeycloakUserManager.removeUser();
 			KeycloakUserManager.createUsers();

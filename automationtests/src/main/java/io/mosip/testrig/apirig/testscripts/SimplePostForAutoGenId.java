@@ -92,7 +92,11 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 		}
 		if (BaseTestCase.isTargetEnvLTS() && BaseTestCase.currentModule.equals("auth")
 				&& testCaseName.startsWith("auth_GenerateVID_")) {
-			throw new SkipException("Generating VID using resident API on LTS. Hence skipping this test case");
+			//if the resident module is deployed. then skip. Otherwise don't skip the test case.
+			if (!ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT)) {
+				throw new SkipException("Generating VID using resident API on LTS. Hence skipping this test case");
+			}
+			
 		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		String[] templateFields = testCaseDTO.getTemplateFields();
@@ -130,7 +134,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 			}
 		} else {
 			if (testCaseName.contains("ESignet_")) {
-				if (!ConfigManager.IseSignetDeployed()) {
+				if (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET)) {
 					throw new SkipException("esignet is not deployed hence skipping the testcase");
 				}
 				String tempUrl = ConfigManager.getEsignetBaseUrl();
