@@ -203,5 +203,6 @@ public class GlobalConstants {
 	public static final String ACTU_AUTH_REQUESTFOR_RESIDENT  = "Actual Auth Request for Resident: ";
 	public static final String AUTH_CLIENT_IDSECRET_KEYURL = "authclientidsecretkeyURL";
 	public static final String EXPECTED_VS_ACTUAL = "EXPECTED vs ACTUAL";
+	public static final String RID_GENERATOR = "ridgenerator";
 	
 }

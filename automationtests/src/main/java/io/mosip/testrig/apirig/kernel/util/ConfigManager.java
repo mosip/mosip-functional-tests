@@ -109,9 +109,6 @@ public class ConfigManager {
 	private static String IAM_USERS_TO_CREATE = "iam-users-to-create";
 	private static String IAM_USERS_PASSWORD = "iam-users-password";
 
-	private static String ESIGNET_DEPLOYED = "eSignetDeployed";
-	private static String esignet_deployed;
-
 	private static String USE_EXTERNAL_SCENARIO_SHEET = "useExternalScenarioSheet";
 	private static String useExternalScenario_sheet;
 
@@ -127,12 +124,16 @@ public class ConfigManager {
 
 	private static String SCENARIOS_TO_BE_SKIPPED = "scenariosToSkip";
 	private static String SCENARIOS_TO_BE_EXECUTED = "scenariosToExecute";
+	
+	private static String SERVICES_NOT_DEPLOYED = "servicesNotDeployed";
 
 	private static String ADMIN_USER_NAME = "admin_userName";
 
 	private static String PARTNER_URL_SUFFIX = "partnerUrlSuffix";
 
 	private static String partnerUrlSuffix;
+	
+	private static String serviceNotDeployedList;
 
 	private static String toSkippedList;
 	private static String toExecuteList;
@@ -387,16 +388,17 @@ public class ConfigManager {
 				: System.getenv(USE_EXTERNAL_SCENARIO_SHEET);
 		propsKernel.setProperty(USE_EXTERNAL_SCENARIO_SHEET, useExternalScenario_sheet);
 
-		esignet_deployed = System.getenv(ESIGNET_DEPLOYED) == null ? propsKernel.getProperty(ESIGNET_DEPLOYED)
-				: System.getenv(ESIGNET_DEPLOYED);
-		propsKernel.setProperty(ESIGNET_DEPLOYED, esignet_deployed);
-
 		if (System.getenv(ESIGNET_BASE_URL) != null) {
 			eSignetbaseurl = System.getenv(ESIGNET_BASE_URL);
 		} else {
 			eSignetbaseurl = System.getProperty("env.endpoint").replace("-internal", "");
 		}
 		propsKernel.setProperty(ESIGNET_BASE_URL, eSignetbaseurl);
+		
+		serviceNotDeployedList = System.getenv(SERVICES_NOT_DEPLOYED) == null
+				? propsKernel.getProperty(SERVICES_NOT_DEPLOYED)
+				: System.getenv(SERVICES_NOT_DEPLOYED);
+		propsKernel.setProperty(SERVICES_NOT_DEPLOYED, serviceNotDeployedList);
 
 		toSkippedList = System.getenv(SCENARIOS_TO_BE_SKIPPED) == null
 				? propsKernel.getProperty(SCENARIOS_TO_BE_SKIPPED)
@@ -415,6 +417,20 @@ public class ConfigManager {
 		userAdminName = System.getenv(ADMIN_USER_NAME) == null ? propsKernel.getProperty(ADMIN_USER_NAME)
 				: System.getenv(ADMIN_USER_NAME);
 		propsKernel.setProperty(ADMIN_USER_NAME, userAdminName);
+	}
+	
+	public static boolean isInServiceNotDeployedList(String stringToFind) {
+		synchronized (serviceNotDeployedList) {
+			List<String> serviceNotDeployed = Arrays.asList(serviceNotDeployedList.split(","));
+			if (ConfigManager.IsDebugEnabled())
+				LOGGER.info("serviceNotDeployedList:  " + serviceNotDeployedList + ", serviceNotDeployed : " + serviceNotDeployed
+						+ ", stringToFind : " + stringToFind);
+			for (String string : serviceNotDeployed) {
+				if (string.equalsIgnoreCase(stringToFind))
+					return true;
+			}
+		}
+		return false;
 	}
 
 	public static boolean isInTobeSkippedList(String stringToFind) {
@@ -456,10 +472,6 @@ public class ConfigManager {
 
 	public static String getPartnerUrlSuffix() {
 		return partnerUrlSuffix;
-	}
-
-	public static Boolean IseSignetDeployed() {
-		return esignet_deployed.equalsIgnoreCase("yes");
 	}
 
 	public static Boolean useExternalScenarioSheet() {
