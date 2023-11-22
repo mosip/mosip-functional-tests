@@ -568,12 +568,12 @@ public class BaseTestCase {
 			section = "/mosip-config/sandbox/admin-mz.properties";
 		try {
 	
-			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
+			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"),
 				section, "mosip.optional-languages");
 			
 			logger.info("optionalLanguages from env:" + optionalLanguages);
 			
-			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
+			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"),
 				section, "mosip.mandatory-languages");
 			
 			logger.info("mandatoryLanguages from env:" + mandatoryLanguages);
