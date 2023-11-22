@@ -84,7 +84,8 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 	
 	public static String generateAndGetUpdatedPartnerKeyUrl() {
-		updatedApiKey = KeyCloakUserAndAPIKeyGeneration.createAPIKeyForUpdatedPolicy();
+		
+		updatedApiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetUpdatedAPIKey();
 		updatedpartnerKeyUrl = mispLicKey + "/" + partnerId + "/" + updatedApiKey;
 		return updatedpartnerKeyUrl;
 	}
