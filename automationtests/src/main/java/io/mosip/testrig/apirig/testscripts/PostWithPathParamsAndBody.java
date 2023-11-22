@@ -38,7 +38,7 @@ public class PostWithPathParamsAndBody extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(PostWithPathParamsAndBody.class);
 	protected String testCaseName = "";
 	public String pathParams = null;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -46,7 +46,7 @@ public class PostWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -64,10 +64,9 @@ public class PostWithPathParamsAndBody extends AdminTestUtil implements ITest {
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		pathParams = context.getCurrentXmlTest().getLocalParameters().get("pathParams");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -79,7 +78,7 @@ public class PostWithPathParamsAndBody extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		String regCenterId = null;
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
@@ -87,45 +86,53 @@ public class PostWithPathParamsAndBody extends AdminTestUtil implements ITest {
 		String appDate = null;
 		String timeSlotFrom = null;
 		String timeSlotTo = null;
-		testCaseName = testCaseDTO.getTestCaseName(); 
-		Response slotAvailabilityResponse=RestClient.getRequestWithCookie(ApplnURI+properties.getProperty("appointmentavailabilityurl")+properties.getProperty("regcentretobookappointment"), MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME, new KernelAuthentication().getTokenByRole(testCaseDTO.getRole()));
-		
-		
-		if(testCaseName.endsWith("_holiday")) {
-		List<String> appointmentDetails = AdminTestUtil.getAppointmentDetailsforHoliday(slotAvailabilityResponse);
-		if(appointmentDetails.size()>=4) {
-			try {
-				regCenterId = appointmentDetails.get(0);
-				appDate = appointmentDetails.get(1);
-				timeSlotFrom = appointmentDetails.get(2);
-				timeSlotTo = appointmentDetails.get(3);
-			} catch (IndexOutOfBoundsException e) {
-				logger.info("Center not available");
-				Assert.fail("Centers unavailable");
+		testCaseName = testCaseDTO.getTestCaseName();
+		Response slotAvailabilityResponse = RestClient.getRequestWithCookie(
+				ApplnURI + properties.getProperty("appointmentavailabilityurl")
+						+ properties.getProperty("regcentretobookappointment"),
+				MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, COOKIENAME,
+				new KernelAuthentication().getTokenByRole(testCaseDTO.getRole()));
+
+		if (testCaseName.endsWith("_holiday")) {
+			List<String> appointmentDetails = AdminTestUtil.getAppointmentDetailsforHoliday(slotAvailabilityResponse);
+			if (appointmentDetails.size() >= 4) {
+				try {
+					regCenterId = appointmentDetails.get(0);
+					appDate = appointmentDetails.get(1);
+					timeSlotFrom = appointmentDetails.get(2);
+					timeSlotTo = appointmentDetails.get(3);
+				} catch (IndexOutOfBoundsException e) {
+					logger.info("Center not available");
+					Assert.fail("Centers unavailable");
+				}
 			}
-		}}else {List<String> appointmentDetails = AdminTestUtil.getAppointmentDetails(slotAvailabilityResponse);
-		if(appointmentDetails.size()>=4) {
-			try {
-				regCenterId = appointmentDetails.get(0);
-				appDate = appointmentDetails.get(1);
-				timeSlotFrom = appointmentDetails.get(2);
-				timeSlotTo = appointmentDetails.get(3);
-			} catch (IndexOutOfBoundsException e) {
-				logger.info("Center not available");
-				Assert.fail("Centers unavailable");
+		} else {
+			List<String> appointmentDetails = AdminTestUtil.getAppointmentDetails(slotAvailabilityResponse);
+			if (appointmentDetails.size() >= 4) {
+				try {
+					regCenterId = appointmentDetails.get(0);
+					appDate = appointmentDetails.get(1);
+					timeSlotFrom = appointmentDetails.get(2);
+					timeSlotTo = appointmentDetails.get(3);
+				} catch (IndexOutOfBoundsException e) {
+					logger.info("Center not available");
+					Assert.fail("Centers unavailable");
+				}
 			}
-		}}
-		String inputJosn=getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
-		inputJosn=inputJosn.replace("$registration_center_id$", regCenterId);
-		inputJosn=inputJosn.replace("$appointment_date$", appDate);
-		inputJosn=inputJosn.replace("$time_slot_from$", timeSlotFrom);
-		inputJosn=inputJosn.replace("$time_slot_to$", timeSlotTo);
-		Response response = postWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJosn, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+		}
+		String inputJosn = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+		inputJosn = inputJosn.replace("$registration_center_id$", regCenterId);
+		inputJosn = inputJosn.replace("$appointment_date$", appDate);
+		inputJosn = inputJosn.replace("$time_slot_from$", timeSlotFrom);
+		inputJosn = inputJosn.replace("$time_slot_to$", timeSlotTo);
+		Response response = postWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJosn, COOKIENAME,
+				testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
+
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
@@ -150,5 +157,5 @@ public class PostWithPathParamsAndBody extends AdminTestUtil implements ITest {
 			Reporter.log("Exception : " + e.getMessage());
 		}
 	}
-	
+
 }

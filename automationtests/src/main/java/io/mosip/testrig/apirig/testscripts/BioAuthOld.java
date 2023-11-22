@@ -69,8 +69,6 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -82,14 +80,14 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws  AdminTestException {
+	public void test(TestCaseDTO testCaseDTO) throws AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
-		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", properties.getProperty("partnerKeyURL")));
+		if (testCaseDTO.getEndPoint().contains("$partnerKeyURL$")) {
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$partnerKeyURL$", properties.getProperty("partnerKeyURL")));
 		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null;
@@ -99,7 +97,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 			request.remove(GlobalConstants.IDENTITYREQUEST);
 		}
 		identityRequest = buildIdentityRequest(identityRequest);
-		
+
 		JSONObject identityReqJson = new JSONObject(identityRequest);
 		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
 		identityReqJson.remove("identityRequestTemplate");
@@ -135,29 +133,28 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
-		
-		if(testCaseName.toLowerCase().contains("kyc")) {
+
+		if (testCaseName.toLowerCase().contains("kyc")) {
 			JSONObject resJsonObject = new JSONObject(response.asString());
-			String res="";
+			String res = "";
 			try {
 				res = resJsonObject.get("response").toString();
 			} catch (JSONException e) {
 				logger.error(e.getMessage());
 			}
 			Reporter.log("<b><u>Request for decrypting kyc data</u></b>");
-			response = postWithBodyAcceptTextPlainAndCookie(EncryptionDecrptionUtil.getEncryptUtilBaseUrl()+properties.getProperty("decryptkycdataurl"), 
-						res, COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
+			response = postWithBodyAcceptTextPlainAndCookie(
+					EncryptionDecrptionUtil.getEncryptUtilBaseUrl() + properties.getProperty("decryptkycdataurl"), res,
+					COOKIENAME, testCaseDTO.getRole(), "decryptEkycData");
 		}
-		
 
 	}
-
-	
 
 	/**
 	 * The method ser current test name to result
@@ -177,8 +174,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-		
-		
+
 	}
 
 	@AfterClass

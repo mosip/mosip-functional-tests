@@ -36,9 +36,9 @@ import io.restassured.response.Response;
 public class SimplePostForDeRegisterDevice extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(SimplePostForDeRegisterDevice.class);
 	protected String testCaseName = "";
-	
+
 	Encoder encoder = java.util.Base64.getEncoder();
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -46,7 +46,7 @@ public class SimplePostForDeRegisterDevice extends AdminTestUtil implements ITes
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -63,10 +63,9 @@ public class SimplePostForDeRegisterDevice extends AdminTestUtil implements ITes
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -84,30 +83,29 @@ public class SimplePostForDeRegisterDevice extends AdminTestUtil implements ITes
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
-		inputJson = inputJson.replace("$DEVICE$",
-				encoder.encodeToString(creatingDataForDevice().getBytes()));
+		inputJson = inputJson.replace("$DEVICE$", encoder.encodeToString(creatingDataForDevice().getBytes()));
 		Response response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
 	}
-	
+
 	public static String creatingDataForDevice() {
 		String payload = regDeviceResponse.split("\\.")[1];
-		JSONObject jsonResponse=new JSONObject(new String(Base64.decodeBase64(payload)));
+		JSONObject jsonResponse = new JSONObject(new String(Base64.decodeBase64(payload)));
 		JSONObject device = new JSONObject();
 		device.put("deviceCode", jsonResponse.get("deviceCode").toString());
 		device.put("env", jsonResponse.get("env").toString());
 		return device.toString();
 	}
-	
-	
+
 	/**
 	 * The method ser current test name to result
 	 * 
@@ -126,5 +124,5 @@ public class SimplePostForDeRegisterDevice extends AdminTestUtil implements ITes
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}	
+	}
 }

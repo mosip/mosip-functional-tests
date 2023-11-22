@@ -34,7 +34,7 @@ import io.restassured.response.Response;
 public class PatchWithBodyWithOtpGenerate extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(PatchWithBodyWithOtpGenerate.class);
 	protected String testCaseName = "";
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -42,7 +42,7 @@ public class PatchWithBodyWithOtpGenerate extends AdminTestUtil implements ITest
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -59,10 +59,9 @@ public class PatchWithBodyWithOtpGenerate extends AdminTestUtil implements ITest
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -74,14 +73,14 @@ public class PatchWithBodyWithOtpGenerate extends AdminTestUtil implements ITest
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;
-		if(req.has(GlobalConstants.SENDOTP)) {
+		if (req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
 		}
@@ -90,35 +89,42 @@ public class PatchWithBodyWithOtpGenerate extends AdminTestUtil implements ITest
 		otpReqJson.remove("sendOtpReqTemplate");
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		otpReqJson.remove("sendOtpEndPoint");
-		
-		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
-		
+
+		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint,
+				getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, GlobalConstants.RESIDENT,
+				testCaseDTO.getTestCaseName());
+
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if(res.has(GlobalConstants.SENDOTPRESP)) {
+		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
 		}
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
-		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
+		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
+				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
 			if (otpResponse.asString().contains("IDA-OTA-001"))
-				throw new AdminTestException("Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
+				throw new AdminTestException(
+						"Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
 			else
 				throw new AdminTestException("Failed at otp output validation");
 		}
-		
-		Response response = patchRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+
+		Response response = patchRequestWithCookieAndHeader(ApplnURI + testCaseDTO.getEndPoint(),
+				getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(),
+				testCaseDTO.getTestCaseName());
+
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
@@ -142,5 +148,5 @@ public class PatchWithBodyWithOtpGenerate extends AdminTestUtil implements ITest
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}	
+	}
 }

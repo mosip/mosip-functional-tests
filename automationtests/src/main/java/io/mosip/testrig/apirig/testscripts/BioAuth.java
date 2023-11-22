@@ -185,8 +185,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			}
 		}
 
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse());
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -205,21 +205,21 @@ public class BioAuth extends AdminTestUtil implements ITest {
 				JSONObject jsonObjectkycRes = new JSONObject(res);
 				JSONObject jsonObjectFromKycData = new JSONObject();
 				JSONObject jsonObjectFromIdentityData = new JSONObject();
-				//List<String> myList =new ArrayList<>();
-				
+				// List<String> myList =new ArrayList<>();
+
 				ArrayList<String> names = new ArrayList<>();
 				ArrayList<String> names2 = new ArrayList<>();
-				
+
 				for (int i = 0; i < kycFields.length; i++) {
 					for (String key : jsonObjectkycRes.keySet()) {
-			            if (key.contains(kycFields[i])) {
-			            	names.add(key);//dob gender_eng
-			            	names2.add(kycFields[i]);//dob gender
-			            	jsonObjectFromKycData.append(key, jsonObjectkycRes.getString(key));
-			            	break;
-			            }
-				}
-					
+						if (key.contains(kycFields[i])) {
+							names.add(key);// dob gender_eng
+							names2.add(kycFields[i]);// dob gender
+							jsonObjectFromKycData.append(key, jsonObjectkycRes.getString(key));
+							break;
+						}
+					}
+
 				}
 
 				newResponse = RestClient.getRequestWithCookie(
@@ -232,26 +232,24 @@ public class BioAuth extends AdminTestUtil implements ITest {
 				JSONObject responseBody = new JSONObject(newResponse.getBody().asString()).getJSONObject("response")
 						.getJSONObject("identity");
 
-				
-				
-				for(int j=0;j<names2.size();j++) {
-					
-				    String mappingField = getValueFromAuthActuator("json-property",names2.get(j));
+				for (int j = 0; j < names2.size(); j++) {
+
+					String mappingField = getValueFromAuthActuator("json-property", names2.get(j));
 					mappingField = mappingField.replaceAll("\\[\"|\"\\]", "");
-				 JSONArray valueOfJsonArray=responseBody.optJSONArray(mappingField);
-					if(valueOfJsonArray!=null) {
+					JSONArray valueOfJsonArray = responseBody.optJSONArray(mappingField);
+					if (valueOfJsonArray != null) {
 						jsonObjectFromIdentityData.append(names.get(j), valueOfJsonArray.getJSONObject(0).get("value"));
-						
-						valueOfJsonArray=null;
-					}
-					else {
+
+						valueOfJsonArray = null;
+					} else {
 						jsonObjectFromIdentityData.append(names.get(j), responseBody.getString(mappingField));
 					}
-					
+
 				}
 
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(jsonObjectFromIdentityData.toString(),
-						jsonObjectFromKycData.toString(), testCaseDTO.isCheckErrorsOnlyInResponse());
+						jsonObjectFromKycData.toString(), testCaseDTO.isCheckErrorsOnlyInResponse(),
+						response.getStatusCode());
 				Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 				if (!OutputValidationUtil.publishOutputResult(ouputValid))

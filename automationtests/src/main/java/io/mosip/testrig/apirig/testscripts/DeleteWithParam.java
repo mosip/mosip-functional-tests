@@ -37,7 +37,7 @@ public class DeleteWithParam extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean sendEsignetToken = false;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -66,7 +66,6 @@ public class DeleteWithParam extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -89,28 +88,30 @@ public class DeleteWithParam extends AdminTestUtil implements ITest {
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			
-			 for (int i=0; i<languageList.size(); i++) {
-		            	response = deleteWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
-		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		            	
-		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-								response.asString(),
-								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
-						Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-						
-						if (!OutputValidationUtil.publishOutputResult(ouputValid))
-							throw new AdminTestException("Failed at output validation");
-		        }
-		} 
-		
+
+			for (int i = 0; i < languageList.size(); i++) {
+				response = deleteWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
+						getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()),
+						COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
+				Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+						response.asString(),
+						getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()),
+						testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+				Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
+
+				if (!OutputValidationUtil.publishOutputResult(ouputValid))
+					throw new AdminTestException("Failed at output validation");
+			}
+		}
+
 		else {
 			response = deleteWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
 					testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+					testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");

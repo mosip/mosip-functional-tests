@@ -43,7 +43,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean isInternal = false;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -72,7 +72,6 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -86,25 +85,25 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		
+
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		
+
 		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
 				throw new SkipException("Idtype UIN is not supported. Hence skipping the testcase");
 			}
 		}
-		
+
 		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
 			}
 		}
-		
+
 		if (testCaseDTO.getEndPoint().contains("$PartnerKeyURL$")) {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$PartnerKeyURL$", PartnerRegistration.partnerKeyUrl));
@@ -177,7 +176,8 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
-				otpRespon.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
+				otpRespon.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), otpRespon.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
@@ -192,21 +192,18 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		if (endPoint.contains("$PartnerName$")) {
 			endPoint = endPoint.replace("$PartnerName$", PartnerRegistration.partnerId);
 		}
-		
-		String authRequest = "";
-		
-       if(!(BaseTestCase.certsForModule.equals("DSL-IDA"))){
-    	   authRequest = getJsonFromTemplate(input.toString(), testCaseDTO.getInputTemplate());
-       }
-       else {
-    	   authRequest = input.toString();
-       }
 
+		String authRequest = "";
+
+		if (!(BaseTestCase.certsForModule.equals("DSL-IDA"))) {
+			authRequest = getJsonFromTemplate(input.toString(), testCaseDTO.getInputTemplate());
+		} else {
+			authRequest = input.toString();
+		}
 
 		logger.info("******Post request Json to EndPointUrl: " + url + endPoint + " *******");
 
-		response = postWithBodyAndCookie(url + endPoint, authRequest, COOKIENAME, testCaseDTO.getRole(),
-				testCaseName);
+		response = postWithBodyAndCookie(url + endPoint, authRequest, COOKIENAME, testCaseDTO.getRole(), testCaseName);
 
 		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
 
@@ -237,8 +234,8 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 				}
 			}
 		}
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse());
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -253,7 +250,6 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 				logger.error(e.getMessage());
 			}
 		}
-
 
 	}
 

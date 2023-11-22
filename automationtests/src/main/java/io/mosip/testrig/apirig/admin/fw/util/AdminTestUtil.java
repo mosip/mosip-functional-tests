@@ -172,6 +172,8 @@ public class AdminTestUtil extends BaseTestCase {
 			+ Calendar.getInstance().getTimeInMillis();
 	public static final String RANDOM_ID_V2 = "mosip" + generateRandomNumberString(2)
 	+ Calendar.getInstance().getTimeInMillis();
+	public static final String RANDOM_ID_V2_S2 = "mosip" + generateRandomNumberString(2)
+	+ Calendar.getInstance().getTimeInMillis();
 	public static final String TRANSACTION_ID = generateRandomNumberString(10);
 	public static final String AUTHORIZATHION_HEADERNAME = GlobalConstants.AUTHORIZATION;
 	public static final String AUTH_HEADER_VALUE = "Some String";
@@ -427,7 +429,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
@@ -459,7 +461,7 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.deleteRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -477,7 +479,7 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, "*/*", cookieName,
 					token);
@@ -497,7 +499,7 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON, "*/*", cookieName,
 					token);
@@ -548,7 +550,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = properties.getProperty(GlobalConstants.XSRFTOKEN);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
@@ -578,7 +580,7 @@ public class AdminTestUtil extends BaseTestCase {
 		token = properties.getProperty(GlobalConstants.XSRFTOKEN);
 
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
@@ -626,7 +628,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = properties.getProperty(GlobalConstants.XSRFTOKEN);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
@@ -663,7 +665,7 @@ public class AdminTestUtil extends BaseTestCase {
 			inputJson = smtpOtpHandler(inputJson, testCaseName);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
@@ -733,7 +735,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
@@ -752,7 +754,7 @@ public class AdminTestUtil extends BaseTestCase {
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postRequestWithBearerToken(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -770,7 +772,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.TEXT_PLAIN, cookieName, token);
@@ -797,7 +799,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
@@ -815,7 +817,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		
 		try {
 			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
@@ -837,7 +839,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		
 		try {
 			response = RestClient.postRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
@@ -863,7 +865,7 @@ public class AdminTestUtil extends BaseTestCase {
 		headers.put(SIGNATURE_HEADERNAME, generateSignatureWithRequest(inputJson, null));
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info("******Patch request Json to EndPointUrl: " + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.patchRequestWithMultipleHeaders(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, headers);
@@ -890,7 +892,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
@@ -909,7 +911,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		headers.put(SIGNATURE_HEADERNAME, signature);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), inputJson);
+		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			response = RestClient.postRequestWithMultipleHeadersWithoutCookie(url, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, headers);
@@ -943,7 +945,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookieAndHeader(url, inputJson, MediaType.APPLICATION_JSON,
@@ -972,7 +974,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.patchRequestWithCookieAndHeader(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token, AUTHORIZATHION_HEADERNAME, AUTH_HEADER_VALUE);
@@ -1003,7 +1005,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
@@ -1057,7 +1059,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
@@ -1093,7 +1095,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postRequestWithBearerToken(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -1120,7 +1122,7 @@ public class AdminTestUtil extends BaseTestCase {
 			map = mapper.readValue(inputJson, Map.class);
 			logger.info(GlobalConstants.POST_REQ_URL + url);
 			logger.info(inputJson);
-			GlobalMethods.reportRequest(null, inputJson);
+			GlobalMethods.reportRequest(null, inputJson, url);
 			response = RestAssured.given().contentType("application/x-www-form-urlencoded; charset=utf-8")
 					.formParams(map).when().post(url);
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
@@ -1154,7 +1156,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -1175,7 +1177,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.patchRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -1234,7 +1236,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (url.contains("{") || url.contains("?")) {
 				if (bothAccessAndIdToken) {
@@ -1290,7 +1292,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (url.contains("{") || url.contains("?")) {
 				response = RestClient.getRequestWithCookieAndPathParmForKeyCloak(url, map, MediaType.APPLICATION_JSON,
@@ -1360,7 +1362,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postWithFormPathParamAndFile(url, formParams, pathParams, filetoUpload, fileKeyName,
 					MediaType.MULTIPART_FORM_DATA, token);
@@ -1413,7 +1415,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, req.toString());
+		GlobalMethods.reportRequest(null, req.toString(), url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postWithParamsAndFile(url, map, filetoUpload, fileKeyName,
@@ -1453,7 +1455,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postWithFormDataAndFile(url, formParams, absolueFilePath,
 					MediaType.MULTIPART_FORM_DATA, token);
@@ -1490,7 +1492,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 
 		try {
 			response = RestClient.postWithMultipartFormDataAndFile(url, formParams, MediaType.MULTIPART_FORM_DATA,
@@ -1547,7 +1549,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postWithFormDataAndMultipleFile(url, formParams, listFiles,
 					MediaType.MULTIPART_FORM_DATA, token);
@@ -1641,7 +1643,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.putRequestWithCookie(url, inputJson, MediaType.APPLICATION_JSON,
@@ -1672,7 +1674,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.putRequestWithParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 					cookieName, token);
@@ -1698,7 +1700,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.patchRequestWithParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
 					cookieName, token);
@@ -1731,7 +1733,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, req.toString());
+		GlobalMethods.reportRequest(null, req.toString(), url);
 		try {
 			if (testCaseName.toLowerCase().contains("dynamic"))
 				pathParamsMap.put("id", idField);
@@ -1769,7 +1771,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, req.toString());
+		GlobalMethods.reportRequest(null, req.toString(), url);
 		try {
 			if (testCaseName.toLowerCase().contains("dynamic"))
 				pathParamsMap.put("id", idField);
@@ -1801,7 +1803,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
@@ -1851,7 +1853,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(headers.toString(), req.toString());
+		GlobalMethods.reportRequest(headers.toString(), req.toString(), url);
 		try {
 			response = RestClient.postWithPathParamsBodyHeadersAndCookie(url, pathParamsMap, inputJson,
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token, headers);
@@ -1881,7 +1883,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.POST_REQ_URL + url);
-		GlobalMethods.reportRequest(null, inputJson);
+		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
 			response = RestClient.postWithQueryParamsBodyAndCookie(url, queryParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, "*/*", cookieName, token);
@@ -1913,7 +1915,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.PUT_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, req.toString());
+		GlobalMethods.reportRequest(null, req.toString(), url);
 		try {
 			response = RestClient.patchWithPathParamsBodyAndCookie(url, pathParamsMap, req.toString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, token);
@@ -1970,7 +1972,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (url.contains("{") || url.contains("?")) {
 				if (bothAccessAndIdToken) {
@@ -2038,7 +2040,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.deleteRequestWithCookieAndPathParm(url, map, MediaType.APPLICATION_JSON,
@@ -2072,7 +2074,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 
 			response = RestClient.deleteRequestWithCookieAndPathParmForKeyCloak(url, map, MediaType.APPLICATION_JSON,
@@ -2122,7 +2124,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 
 		try {
 			if (bothAccessAndIdToken) {
@@ -2165,7 +2167,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info("******post request to EndPointUrl: " + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (bothAccessAndIdToken) {
 				pdf = RestClient.postWithBodyForPdf(url, jsonInput, MediaType.APPLICATION_JSON,
@@ -2206,7 +2208,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (bothAccessAndIdToken) {
 				pdf = RestClient.getPdfWithQueryParm(url, map, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
@@ -2238,7 +2240,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -2265,7 +2267,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			response = RestClient.patchRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, token);
@@ -3107,6 +3109,7 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$IDENTITYJSON$", generateIdentityJson(testCaseName));
 		}
 		if (jsonString.contains("$RANDOMID$")) {
+			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$V2S2", RANDOM_ID_V2_S2);
 			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$V2", RANDOM_ID_V2);
 			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$2", RANDOM_ID_2);
 			jsonString = replaceKeywordWithValue(jsonString, "$RANDOMID$", RANDOM_ID);
@@ -3722,9 +3725,11 @@ public class AdminTestUtil extends BaseTestCase {
 		customResponse.setFieldName("status");
 		if (customResponse.getActualValue().equals(customResponse.getExpValue())) {
 			customResponse.setStatus("PASS");
-		} else {
-			customResponse.setStatus(GlobalConstants.FAIL_STRING);
 		}
+		else if (Integer.parseInt(responseStatusCode) >= 200 && Integer.parseInt(responseStatusCode) < 300)
+				customResponse.setStatus(GlobalConstants.FAIL_STRING);
+		else
+			throw new SkipException("API endpoint is not valid. Response code: " + responseStatusCode);
 
 		return customResponse;
 	}
@@ -3937,7 +3942,7 @@ public class AdminTestUtil extends BaseTestCase {
 			token = kernelAuthLib.getTokenByRole(role);
 		}
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			if (bothAccessAndIdToken) {
 				response = RestClient.postRequestWithCookieAndOnlyPathParm(url, map, MediaType.APPLICATION_JSON,
@@ -3969,7 +3974,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		token = kernelAuthLib.getTokenByRole(role);
 		logger.info(GlobalConstants.GET_REQ_STRING + url);
-		GlobalMethods.reportRequest(null, jsonInput);
+		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			response = RestClient.postRequestWithQueryParm(url, map, "*/*", "*/*", cookieName, token);
 			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
@@ -6451,7 +6456,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
 			
-			GlobalMethods.reportRequest(null, map.toString());
+			GlobalMethods.reportRequest(null, map.toString(), url);
 
 		Response response = RestClient.postRequestWithQueryParamsAndBody(url, map, queryParamMap,
 				MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
