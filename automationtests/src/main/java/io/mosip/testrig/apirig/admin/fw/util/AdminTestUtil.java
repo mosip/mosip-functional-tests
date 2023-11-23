@@ -6173,7 +6173,9 @@ public class AdminTestUtil extends BaseTestCase {
 					continue;
 				String[] parts = line.trim().split("=");
 				if (parts.length > 1) {
-
+					if (ConfigManager.isInServiceNotDeployedList(parts[1])) {
+						continue;
+					}
 					stringBuilder.append("\n")
 							.append(getCommitDetails(BaseTestCase.ApplnURI + parts[1].replace("health", "info")));
 				}
