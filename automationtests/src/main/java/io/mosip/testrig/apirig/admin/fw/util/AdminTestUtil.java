@@ -3722,10 +3722,13 @@ public class AdminTestUtil extends BaseTestCase {
 		if (customResponse.getActualValue().equals(customResponse.getExpValue())) {
 			customResponse.setStatus("PASS");
 		}
-		else if (Integer.parseInt(responseStatusCode) >= 200 && Integer.parseInt(responseStatusCode) < 300)
-				customResponse.setStatus(GlobalConstants.FAIL_STRING);
-		else
-			throw new SkipException("API endpoint is not valid. Response code: " + responseStatusCode);
+		else {
+			customResponse.setStatus(GlobalConstants.FAIL_STRING);
+		}
+//		else if (Integer.parseInt(responseStatusCode) >= 200 && Integer.parseInt(responseStatusCode) < 300)
+//			customResponse.setStatus(GlobalConstants.FAIL_STRING);
+//		else
+//			throw new SkipException("API endpoint is not valid. Response code: " + responseStatusCode);
 
 		return customResponse;
 	}
@@ -4437,6 +4440,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 			for (int i = 0, size = requiredPropsArray.length(); i < size; i++) {
 				String eachRequiredProp = requiredPropsArray.getString(i); // objIDJson3
+				
+				if (!identityPropsJson.has(eachRequiredProp)) {
+					continue;
+				}
 
 				JSONObject eachPropDataJson = (JSONObject) identityPropsJson.get(eachRequiredProp); // rc1
 
