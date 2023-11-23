@@ -428,6 +428,9 @@ public class ConfigManager {
 			for (String string : serviceNotDeployed) {
 				if (string.equalsIgnoreCase(stringToFind))
 					return true;
+				else if(stringToFind.toLowerCase().contains(string.toLowerCase())) {
+					return true;
+				}
 			}
 		}
 		return false;
