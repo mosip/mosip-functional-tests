@@ -559,36 +559,36 @@ public class BaseTestCase {
 		if (!languageList.isEmpty()) {
 			return languageList;
 		}
-		String section = "";
-		String optionalLanguages=null;
-		String mandatoryLanguages=null;
-		if (isTargetEnvLTS()) 
-			section = "/mosip-config/application-default.properties";
-		else 
-			section = "/mosip-config/sandbox/admin-mz.properties";
-		try {
-	
-			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"),
-				section, "mosip.optional-languages");
-			
-			logger.info("optionalLanguages from env:" + optionalLanguages);
-			
-			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"),
-				section, "mosip.mandatory-languages");
-			
-			logger.info("mandatoryLanguages from env:" + mandatoryLanguages);
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		if (mandatoryLanguages != null && !mandatoryLanguages.isBlank())
-			languageList.addAll(Arrays.asList(mandatoryLanguages.split(",")));
-		
-		if (optionalLanguages != null && !optionalLanguages.isBlank())
-			languageList.addAll(Arrays.asList(optionalLanguages.split(",")));
-		logger.info("languageList from env:" + languageList);
+		languageList.add("eng");
+		languageList.add("khm");
 		return languageList;
+		
+        //	Uncomment the below once the language configurations are properly set on the env.	
+		/*
+		 * String section = ""; String optionalLanguages=null; String
+		 * mandatoryLanguages=null; if (isTargetEnvLTS()) section =
+		 * "/mosip-config/application-default.properties"; else section =
+		 * "/mosip-config/sandbox/admin-mz.properties"; try {
+		 * 
+		 * optionalLanguages =
+		 * getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"),
+		 * section, "mosip.optional-languages");
+		 * 
+		 * logger.info("optionalLanguages from env:" + optionalLanguages);
+		 * 
+		 * mandatoryLanguages =
+		 * getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"),
+		 * section, "mosip.mandatory-languages");
+		 * 
+		 * logger.info("mandatoryLanguages from env:" + mandatoryLanguages); }
+		 * catch(Exception e) { e.printStackTrace(); } if (mandatoryLanguages != null &&
+		 * !mandatoryLanguages.isBlank())
+		 * languageList.addAll(Arrays.asList(mandatoryLanguages.split(",")));
+		 * 
+		 * if (optionalLanguages != null && !optionalLanguages.isBlank())
+		 * languageList.addAll(Arrays.asList(optionalLanguages.split(",")));
+		 * logger.info("languageList from env:" + languageList); return languageList;
+		 */
 	}
 	
 	private static String targetEnvVersion = "";
