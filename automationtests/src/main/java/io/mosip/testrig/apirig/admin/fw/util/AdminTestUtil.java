@@ -1,7 +1,8 @@
 package io.mosip.testrig.apirig.admin.fw.util;
 
 import static io.restassured.RestAssured.given;
-
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -86,6 +87,7 @@ import com.github.jknack.handlebars.Template;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import com.mifmif.common.regex.Generex;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JOSEObjectType;
 import com.nimbusds.jose.JWSAlgorithm;
@@ -2801,6 +2803,39 @@ public class AdminTestUtil extends BaseTestCase {
 		else
 			throw new SkipException("Marking testcase as skipped as required fields are empty " + keyword);
 	}
+	
+	public static String addIdentityPassword = generatePasswordForAddIdentity();
+	public static String addIdentitySalt = generateSaltForAddIdentity();
+	
+	public static String generateSaltForAddIdentity() {
+        // Generate a random salt
+        byte[] salt = new byte[16]; // 16 bytes (128 bits) salt
+        secureRandom.nextBytes(salt);
+
+        // Convert salt bytes to a string for storage
+        String base64Salt = Base64.getEncoder().encodeToString(salt);
+
+        // Output the generated salt
+        System.out.println("Generated Salt: " + base64Salt);
+        return base64Salt;
+    }
+	
+	public static String generatePasswordForAddIdentity() {
+		// Create an instance of Argon2
+        Argon2 argon2 = Argon2Factory.create();
+        String password = null;
+        String hashedPassword = null;
+        try {
+            // Hash the password using Argon2
+            password = "your_password_here";
+            hashedPassword = argon2.hash(10, 65536, 1, password.toCharArray());
+            System.out.println("Hash: " + hashedPassword);
+
+        } finally {
+            // Dispose of the Argon2 instance
+        }
+        return hashedPassword;
+    }
 
 	public String inputJsonKeyWordHandeler(String jsonString, String testCaseName) {
 		if (jsonString == null) {
@@ -4381,6 +4416,35 @@ public class AdminTestUtil extends BaseTestCase {
 			return partnerCode;
 		}
 	}
+	
+	public static String addIdentityPhoneNumber = "";
+	
+	public static String genStringAsperRegex(String regex) throws Exception {
+		if (Generex.isValidPattern(regex)) {
+
+			Generex generex = new Generex(regex);
+
+			String randomStr = generex.random();
+			// Generate all String that matches the given Regex.
+			boolean bFound = false;
+			do {
+				bFound = false;
+				if (randomStr.startsWith("^")) {
+					int idx = randomStr.indexOf("^");
+					randomStr = randomStr.substring(idx + 1);
+					bFound = true;
+				}
+				if (randomStr.endsWith("$")) {
+					int idx = randomStr.indexOf("$");
+					randomStr = randomStr.substring(0, idx);
+					bFound = true;
+				}
+			} while (bFound);
+			return randomStr;
+		}
+		throw new Exception("invalid regex");
+
+	}
 
 	public static String modifySchemaGenerateHbs() {
 		return modifySchemaGenerateHbs(false);
@@ -4487,15 +4551,24 @@ public class AdminTestUtil extends BaseTestCase {
 						identityJson.getJSONObject(eachRequiredProp).put("type", "DOC001");
 						identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
 					}
-//					else if (eachRequiredProp.equals(result)) {
-//						
+					else if (eachRequiredProp.equals("preferredLang")) {
+						identityJson.put(eachRequiredProp, "$1STLANG$");
+					}
+					else if (eachRequiredProp.equals("registrationType")) {
+						identityJson.put(eachRequiredProp, genStringAsperRegex(eachPropDataJson.getJSONArray("validators").getJSONObject(0).getString("validator")));
+					}
+					else if (eachRequiredProp.equals(result)) {
+						String regexPattern = genStringAsperRegex(eachPropDataJson.getJSONArray("validators").getJSONObject(0).getString("validator"));
+						if (regexPattern != null)
+							identityJson.put(eachRequiredProp, regexPattern);
+						
 //						if(phoneFieldAdditionallyAdded) {
 //							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 //						}
 //						else {
 //							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 //						}
-//					}
+					}
 //
 //					else if (eachRequiredProp.equals(emailResult)) {
 //						if(emailFieldAdditionallyAdded) {
@@ -4505,8 +4578,12 @@ public class AdminTestUtil extends BaseTestCase {
 //							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
 //						}
 //						
-//					}
-
+//					} 
+					else if (eachRequiredProp.equals("password")) {
+						identityJson.put(eachRequiredProp, new HashMap<>());
+						identityJson.getJSONObject(eachRequiredProp).put("hash", addIdentityPassword);
+						identityJson.getJSONObject(eachRequiredProp).put("salt", addIdentitySalt);
+					}
 					else if (eachRequiredProp.equals("individualBiometrics")) {
 						identityJson.put(eachRequiredProp, new HashMap<>());
 						identityJson.getJSONObject(eachRequiredProp).put("format", "cbeff");
@@ -4524,20 +4601,20 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 			}
 
-			JSONArray requestDocArray = new JSONArray();
-			JSONObject docJson = new JSONObject();
-			docJson.put("value", "{{value}}");
-			docJson.put("category", "{{category}}");
-			requestDocArray.put(docJson);
-
-			requestJson.getJSONObject("request").put("documents", requestDocArray);
+//			JSONArray requestDocArray = new JSONArray();
+//			JSONObject docJson = new JSONObject();
+//			docJson.put("value", "{{value}}");
+//			docJson.put("category", "{{category}}");
+//			requestDocArray.put(docJson);
+//
+//			requestJson.getJSONObject("request").put("documents", requestDocArray);
 			requestJson.getJSONObject("request").put("identity", identityJson);
 			requestJson.put("requesttime", "{{requesttime}}");
 			requestJson.put("version", "{{version}}");
 
 			System.out.println(requestJson);
 
-		} catch (NullPointerException e) {
+		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 
