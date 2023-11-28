@@ -173,7 +173,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	public void waittime() {
 
 		try {
-			if (BaseTestCase.currentModule.equals("auth")) {
+			if (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")) {
 				logger.info("waiting for " + properties.getProperty("Delaytime")
 						+ " mili secs after UIN Generation In IDREPO"); //
 				Thread.sleep(Long.parseLong(properties.getProperty("Delaytime")));
