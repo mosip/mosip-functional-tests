@@ -87,6 +87,14 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
+		
+		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
+			}
+		}
+		
 		if (!BaseTestCase.isTargetEnvLTS()) {
 			if ((BaseTestCase.currentModule.equals("auth")) && (testCaseName.startsWith("auth_GenerateVID_"))) {
 				throw new SkipException("Generating VID using IdRepo API on Pre LTS. Hence skipping this test case");

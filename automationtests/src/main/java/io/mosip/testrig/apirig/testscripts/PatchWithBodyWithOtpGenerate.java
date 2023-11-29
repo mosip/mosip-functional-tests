@@ -28,6 +28,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -77,6 +78,13 @@ public class PatchWithBodyWithOtpGenerate extends AdminTestUtil implements ITest
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
+		
+		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
+			}
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null;

@@ -87,6 +87,13 @@ public class GetWithQueryParam extends AdminTestUtil implements ITest {
 			throw new SkipException("Service not deployed. Hence skipping this test case");
 		}
 		
+		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
+			}
+		}
+		
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {

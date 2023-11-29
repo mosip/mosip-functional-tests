@@ -26,6 +26,7 @@ import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.admin.fw.util.TestCaseDTO;
 import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -83,6 +84,13 @@ public class GetWithParamForDownloadCard extends AdminTestUtil implements ITest 
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+		}
+		
+		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
+			}
 		}
 		auditLogCheck = testCaseDTO.isAuditLogCheck();
 		pdf = getWithPathParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), auditLogCheck, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
