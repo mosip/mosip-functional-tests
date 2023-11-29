@@ -288,9 +288,9 @@ public class EmailableReport implements IReporter {
 		writer.print("<table id='summary'>");
 		writer.print("<thead>");
 		writer.print("<tr>");
-//		writer.print("<th>Class</th>");
+		writer.print("<th>Class</th>");
 		writer.print("<th>Method</th>");
-//		writer.print("<th>Start</th>");
+		writer.print("<th>Start</th>");
 		writer.print("<th>Time (ms)</th>");
 		writer.print(GlobalConstants.TR);
 		writer.print("</thead>");
@@ -298,9 +298,9 @@ public class EmailableReport implements IReporter {
 		int testIndex = 0;
 		int scenarioIndex = 0;
 		for (SuiteResult suiteResult : suiteResults) {
-//			writer.print("<tbody><tr><th colspan=\"4\">");
-//			writer.print(Utils.escapeHtml(suiteResult.getSuiteName()));
-//			writer.print("</th></tr></tbody>");
+			writer.print("<tbody><tr><th colspan=\"4\">");
+			writer.print(Utils.escapeHtml(suiteResult.getSuiteName()));
+			writer.print("</th></tr></tbody>");
 
 			for (TestResult testResult : suiteResult.getTestResults()) {
 				writer.print("<tbody id=\"t");
@@ -365,7 +365,8 @@ public class EmailableReport implements IReporter {
 
 					}
 					buffer.append("<td><a href=\"#m").append(scenarioIndex).append("\">").append(methodName)
-							.append("</a></td>").append(GlobalConstants.TDROWSPAN).append(resultsCount)
+							.append("</a></td>").append(GlobalConstants.TDROWSPAN).append(resultsCount).append("\">")
+							.append(start).append("</td>").append(GlobalConstants.TDROWSPAN).append(resultsCount)
 							.append("\">").append(duration).append(GlobalConstants.TDTR);
 					scenarioIndex++;
 
@@ -384,9 +385,9 @@ public class EmailableReport implements IReporter {
 				writer.print("\">");
 				writer.print(GlobalConstants.TDROWSPAN);
 				writer.print(scenariosPerClass);
-//				writer.print("\">");
-//				writer.print(Utils.escapeHtml(classResult.getClassName()));
-//				writer.print("</td>");
+				writer.print("\">");
+				writer.print(Utils.escapeHtml(classResult.getClassName()));
+				writer.print("</td>");
 				writer.print(buffer);
 
 				classIndex++;

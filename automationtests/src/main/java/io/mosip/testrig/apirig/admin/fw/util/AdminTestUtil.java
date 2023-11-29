@@ -2568,7 +2568,8 @@ public class AdminTestUtil extends BaseTestCase {
 			return null;
 		int indexof = testCaseName.indexOf("_");
 		String autogenIdKeyName = testCaseName.substring(indexof + 1);
-		if ((!BaseTestCase.isTargetEnvLTS()) && fieldName.equals("VID") && BaseTestCase.currentModule.equals("auth"))
+		if ((!BaseTestCase.isTargetEnvLTS()) && fieldName.equals("VID")
+				&& (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")))
 			autogenIdKeyName = autogenIdKeyName + "_" + fieldName.toLowerCase();
 		else
 			autogenIdKeyName = autogenIdKeyName + "_" + fieldName;

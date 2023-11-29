@@ -87,11 +87,24 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
 		}
-		if ((!BaseTestCase.isTargetEnvLTS()) && BaseTestCase.currentModule.equals("auth")
-				&& testCaseName.startsWith("auth_GenerateVID_")) {
-			//if the resident module is not deployed. then skip. Otherwise don't skip the test case.
-			if (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT)) {
-				throw new SkipException("Generating VID using IdRepo API on Pre-LTS. Hence skipping this test case");
+		if (!BaseTestCase.isTargetEnvLTS()) {
+			if ((BaseTestCase.currentModule.equals("auth")) && (testCaseName.startsWith("auth_GenerateVID_"))) {
+				throw new SkipException("Generating VID using IdRepo API on Pre LTS. Hence skipping this test case");
+//				qa115 - t
+//				cam   - f
+//				dev	  - f
+			}
+		}
+
+		if (BaseTestCase.isTargetEnvLTS()) {
+			if (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT)
+					&& ((BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet"))
+							&& (testCaseName.startsWith("auth_GenerateVID_")
+									|| testCaseName.startsWith("ESignetRes_Generate")))) {
+				throw new SkipException("Generating VID using IdRepo API. Hence skipping this test case");
+//				qa115 - f
+//				cam   - t t
+//				dev	  - t f
 			}
 		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);

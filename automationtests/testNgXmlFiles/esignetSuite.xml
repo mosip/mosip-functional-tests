@@ -162,6 +162,13 @@
 			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
 		</classes>
 	</test>
+	<test name="CreateVID">
+		<parameter name="ymlFile" value="esignet/CreateVID/CreateVid.yml" />
+		<parameter name="idKeyName" value="VID" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
 	<test name="KycBioAuth">
 		<parameter name="ymlFile" value="esignet/KycBioAuth/KycBioAuth.yml" />
 		<parameter name="isInternal" value="false" />
