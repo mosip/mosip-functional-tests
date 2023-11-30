@@ -110,7 +110,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			}
 		}
 
-		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
@@ -165,7 +165,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 
 			}
 		} else {
-			if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+			if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 				if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
