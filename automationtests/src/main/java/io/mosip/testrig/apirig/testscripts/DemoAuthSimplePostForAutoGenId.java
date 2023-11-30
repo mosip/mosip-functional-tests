@@ -106,7 +106,7 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 			}
 		}
 
-		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
@@ -220,7 +220,7 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 
 				}
 			} else {
-				if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+				if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 					if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 							|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 						ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
