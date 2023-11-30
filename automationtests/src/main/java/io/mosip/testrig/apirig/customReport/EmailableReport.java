@@ -78,12 +78,12 @@ public class EmailableReport implements IReporter {
 		writeBody();
 		writeDocumentEnd();
 		writer.close();
-		
+
 		int totalTestCases = totalPassedTests + totalSkippedTests + totalFailedTests;
-		
+
 		String oldString = System.getProperty(GlobalConstants.EMAILABLEREPORT2NAME);
-		String temp = "-report_T-" + totalTestCases + "_P-" + totalPassedTests
-				+ "_S-" + totalSkippedTests + "_F-" + totalFailedTests;
+		String temp = "-report_T-" + totalTestCases + "_P-" + totalPassedTests + "_S-" + totalSkippedTests + "_F-"
+				+ totalFailedTests;
 		String newString = oldString.replace("-report", temp);
 
 		File orignialReportFile = new File(
@@ -106,8 +106,7 @@ public class EmailableReport implements IReporter {
 					boolean isStoreSuccess = false;
 					try {
 						isStoreSuccess = s3Adapter.putObject(ConfigManager.getS3Account(),
-								System.getProperty("modules"), null, null,
-								newString, newReportFile);
+								System.getProperty("modules"), null, null, newString, newReportFile);
 						LOG.info("isStoreSuccess:: " + isStoreSuccess);
 					} catch (Exception e) {
 						LOG.info("error occured while pushing the object" + e.getLocalizedMessage());
@@ -172,13 +171,16 @@ public class EmailableReport implements IReporter {
 		writer.print("td {vertical-align:top}");
 		writer.print("table a {font-weight:bold}");
 		writer.print(".stripe td {background-color: #E6EBF9}");
-		writer.print(".num {text-align:right}");
+		writer.print(".num {text-align:center}");
+		writer.print(".orange-bg {background-color: #FFA500}");
+		writer.print(".green-bg {background-color: #0A0}");
+		writer.print(".attn {background-color: #D00}");
 		writer.print(".passedodd td {background-color: #3F3}");
 		writer.print(".passedeven td {background-color: #0A0}");
-		writer.print(".skippedodd td {background-color: #DDD}");
-		writer.print(".skippedeven td {background-color: #CCC}");
-		writer.print(".failedodd td,.attn {background-color: #F33}");
-		writer.print(".failedeven td,.stripe .attn {background-color: #D00}");
+		writer.print(".skippedodd td, {background-color: #FFA500}");
+		writer.print(".skippedeven td,.stripe {background-color: #FFA500}");
+		writer.print(".failedodd td {background-color: #F33}");
+		writer.print(".failedeven td,.stripe {background-color: #D00}");
 		writer.print(".stacktrace {white-space:pre;font-family:monospace}");
 		writer.print(".totop {font-size:85%;text-align:center;border-bottom:2px solid #000}");
 		writer.print("</style>");
@@ -208,16 +210,16 @@ public class EmailableReport implements IReporter {
 		writer.print("<table>");
 
 		int testIndex = 0;
-		for (SuiteResult suiteResult : suiteResults) {			
+		for (SuiteResult suiteResult : suiteResults) {
 			writer.print("<tr><th colspan=\"7\">");
 			writer.print(Utils.escapeHtml(suiteResult.getSuiteName() + "-" + getCommitId()));
 			writer.print(GlobalConstants.TRTR);
-			
+
 			writer.print("<tr><th colspan=\"7\"><span class=\"not-bold\"><pre>");
 			writer.print(Utils.escapeHtml("Server Component Details " + AdminTestUtil.getServerComponentsDetails()));
 			writer.print("</pre></span>");
 			writer.print(GlobalConstants.TRTR);
-			
+
 			writer.print("<tr>");
 			writer.print("<th>Test</th>");
 			writer.print("<th># Total</th>");
@@ -228,7 +230,7 @@ public class EmailableReport implements IReporter {
 //			writer.print("<th>Included Groups</th>");
 //			writer.print("<th>Excluded Groups</th>");
 			writer.print(GlobalConstants.TR);
-			
+
 			for (TestResult testResult : suiteResult.getTestResults()) {
 				int passedTests = testResult.getPassedTestCount();
 				int skippedTests = testResult.getSkippedTestCount();
@@ -236,18 +238,17 @@ public class EmailableReport implements IReporter {
 				long duration = testResult.getDuration();
 
 				writer.print("<tr");
-				if ((testIndex % 2) == 1) {
-					writer.print(" class=\"stripe\"");
-				}
+//				if ((testIndex % 2) == 1) {
+//					writer.print(" class=\"stripe\"");
+//				}
 				writer.print(">");
 
 				buffer.setLength(0);
 				writeTableData(buffer.append("<a href=\"#t").append(testIndex).append("\">")
 						.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString());
 				writeTableData(integerFormat.format(passedTests + skippedTests + failedTests), "num");
-				writeTableData(integerFormat.format(passedTests), "num");
-				writeTableData(integerFormat.format(skippedTests),
-						(skippedTests > 0 ? GlobalConstants.NUMATTN : "num"));
+				writeTableData(integerFormat.format(passedTests), (passedTests > 0 ? "num green-bg" : "num"));
+				writeTableData(integerFormat.format(skippedTests), (skippedTests > 0 ? "num orange-bg" : "num"));
 				writeTableData(integerFormat.format(failedTests), (failedTests > 0 ? GlobalConstants.NUMATTN : "num"));
 				writeTableData(decimalFormat.format(duration), "num");
 //				writeTableData(testResult.getIncludedGroups());
@@ -268,13 +269,12 @@ public class EmailableReport implements IReporter {
 			writer.print("<tr>");
 			writer.print("<th>Total</th>");
 			writeTableHeader(integerFormat.format(totalPassedTests + totalSkippedTests + totalFailedTests), "num");
-			writeTableHeader(integerFormat.format(totalPassedTests), "num");
+			writeTableHeader(integerFormat.format(totalPassedTests), (totalPassedTests > 0 ? "num green-bg" : "num"));
 			writeTableHeader(integerFormat.format(totalSkippedTests),
-					(totalSkippedTests > 0 ? GlobalConstants.NUMATTN : "num"));
+					(totalSkippedTests > 0 ? "num orange-bg" : "num"));
 			writeTableHeader(integerFormat.format(totalFailedTests),
 					(totalFailedTests > 0 ? GlobalConstants.NUMATTN : "num"));
 			writeTableHeader(decimalFormat.format(totalDuration), "num");
-			writer.print("<th colspan=\"2\"></th>");
 			writer.print(GlobalConstants.TR);
 		}
 
@@ -288,9 +288,9 @@ public class EmailableReport implements IReporter {
 		writer.print("<table id='summary'>");
 		writer.print("<thead>");
 		writer.print("<tr>");
-		writer.print("<th>Class</th>");
+//		writer.print("<th>Class</th>");
 		writer.print("<th>Method</th>");
-		writer.print("<th>Start</th>");
+//		writer.print("<th>Start</th>");
 		writer.print("<th>Time (ms)</th>");
 		writer.print(GlobalConstants.TR);
 		writer.print("</thead>");
@@ -298,9 +298,6 @@ public class EmailableReport implements IReporter {
 		int testIndex = 0;
 		int scenarioIndex = 0;
 		for (SuiteResult suiteResult : suiteResults) {
-			writer.print("<tbody><tr><th colspan=\"4\">");
-			writer.print(Utils.escapeHtml(suiteResult.getSuiteName()));
-			writer.print("</th></tr></tbody>");
 
 			for (TestResult testResult : suiteResult.getTestResults()) {
 				writer.print("<tbody id=\"t");
@@ -366,8 +363,13 @@ public class EmailableReport implements IReporter {
 					}
 					buffer.append("<td><a href=\"#m").append(scenarioIndex).append("\">").append(methodName)
 							.append("</a></td>").append(GlobalConstants.TDROWSPAN).append(resultsCount).append("\">")
-							.append(start).append("</td>").append(GlobalConstants.TDROWSPAN).append(resultsCount)
-							.append("\">").append(duration).append(GlobalConstants.TDTR);
+							.append(duration).append(GlobalConstants.TDTR);
+					
+					
+//					buffer.append("<td><a href=\"#m").append(scenarioIndex).append("\">").append(methodName)
+//							.append("</a></td>").append(GlobalConstants.TDROWSPAN).append(resultsCount).append("\">")
+//							.append(start).append("</td>").append(GlobalConstants.TDROWSPAN).append(resultsCount)
+//							.append("\">").append(duration).append(GlobalConstants.TDTR);
 					scenarioIndex++;
 
 					for (int i = 1; i < resultsCount; i++) {
@@ -386,7 +388,7 @@ public class EmailableReport implements IReporter {
 				writer.print(GlobalConstants.TDROWSPAN);
 				writer.print(scenariosPerClass);
 				writer.print("\">");
-				writer.print(Utils.escapeHtml(classResult.getClassName()));
+//				writer.print(Utils.escapeHtml(classResult.getClassName()));
 				writer.print("</td>");
 				writer.print(buffer);
 
@@ -468,7 +470,7 @@ public class EmailableReport implements IReporter {
 				for (Object parameter : parameters) {
 					String testcaseDTO = Utils.toString(parameter).replace("TestCaseDTO(", "");
 					writer.print("<td>");
-					writer.print(Utils.escapeHtml(testcaseDTO.substring(0, testcaseDTO.length()-1)));
+					writer.print(Utils.escapeHtml(testcaseDTO.substring(0, testcaseDTO.length() - 1)));
 					writer.print("</td>");
 				}
 				writer.print(GlobalConstants.TR);
@@ -505,7 +507,8 @@ public class EmailableReport implements IReporter {
 				writer.print("\"");
 			}
 			writer.print(">");
-			writer.print((result.getStatus() == ITestResult.SUCCESS ? "Expected Exception" : "Output Validation Exception"));
+			writer.print(
+					(result.getStatus() == ITestResult.SUCCESS ? "Expected Exception" : "Output Validation Exception"));
 			writer.print(GlobalConstants.TRTR);
 
 			writer.print("<tr><td");
