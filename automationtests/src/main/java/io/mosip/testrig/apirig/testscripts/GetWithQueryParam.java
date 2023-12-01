@@ -84,7 +84,7 @@ public class GetWithQueryParam extends AdminTestUtil implements ITest {
 			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
 		if (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ADMIN) && testCaseName.contains("BulkUpload_")) {
-			throw new SkipException("Service not deployed. Hence skipping this test case");
+			throw new SkipException(GlobalConstants.SERVICE_NOT_DEPLOYED_MESSAGE);
 		}
 		
 		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {

@@ -90,7 +90,7 @@ public class PostWithFormDataAndFile extends AdminTestUtil implements ITest {
 		}
 		
 		if (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ADMIN) && testCaseName.contains("BulkUpload_")) {
-			throw new SkipException("Service not deployed. Hence skipping this test case");
+			throw new SkipException(GlobalConstants.SERVICE_NOT_DEPLOYED_MESSAGE);
 		}
 		response = postWithFormDataAndMultipleFile(ApplnURI + testCaseDTO.getEndPoint(),
 				getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), testCaseDTO.getRole(),
