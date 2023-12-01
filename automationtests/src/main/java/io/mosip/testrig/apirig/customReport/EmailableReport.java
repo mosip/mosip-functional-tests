@@ -296,89 +296,6 @@ public class EmailableReport implements IReporter {
 		writer.print(GlobalConstants.TABLE);
 	}
 	
-//	protected int getIgnoredTestCount(TestResult testResult) {
-//		List<ClassResult> classResults = testResult.getSkippedTestResults();
-//		int ignoreTestCount = 0;
-//		for (ClassResult classResult : classResults) {
-//			for (MethodResult methodResult : classResult.getMethodResults()) {
-//				List<ITestResult> results = methodResult.getResults();
-//				assert !results.isEmpty();
-//				for (ITestResult result : results) {
-//					Throwable throwable = result.getThrowable();
-//					if (throwable != null) {
-//						if (throwable.getMessage().contains("feature not supported")) {
-//							ignoreTestCount++;
-//						}
-//					}
-//				}
-//			}
-//		}
-//
-//		return ignoreTestCount;
-//	}	
-	
-	
-//	protected List<ClassResult> getResultsSubSet(List<ClassResult> originalClassResults, String subSetString) {
-//
-//		List<ClassResult> subsetClassResultResults = Lists.newArrayList();
-//
-//		Iterator<ClassResult> originalClassResultsIterator = originalClassResults.iterator();
-//		// Iterate on ClassResults
-//		while (originalClassResultsIterator.hasNext()) {
-//			List<MethodResult> subsetMethodResults = Lists.newArrayList();
-//			ClassResult originalClassResult = originalClassResultsIterator.next();
-//			List<MethodResult> originalClassMethodResults = originalClassResult.getMethodResults();
-//			Iterator<MethodResult> originalClassMethodResultsIterator = originalClassMethodResults.iterator();
-//
-//			// Iterate on ClassMethodResults
-//			while (originalClassMethodResultsIterator.hasNext()) {
-//				List<ITestResult> subsetClassMethodTestResults = Lists.newArrayList();
-//
-//				MethodResult originalClassMethodResult = originalClassMethodResultsIterator.next();
-//				List<ITestResult> originalClassMethodTestResults = originalClassMethodResult.getResults();
-//				Iterator<ITestResult> originalClassMethodTestResultsIterator = originalClassMethodTestResults
-//						.iterator();
-//
-//				// Iterate on ClassMethodTestResults
-//				while (originalClassMethodTestResultsIterator.hasNext()) {
-//					ITestResult originalClassMethodTestResult = originalClassMethodTestResultsIterator.next();
-//					Throwable throwable = originalClassMethodTestResult.getThrowable();
-//
-//					if (throwable != null) {
-//						if (subSetString.equalsIgnoreCase(GlobalConstants.FEATURE_NOT_SUPPORTED)) {
-//							if (throwable.getMessage().contains(subSetString)) {
-//								// Add only results which are skipped due to feature not supported
-//								subsetClassMethodTestResults.add(originalClassMethodTestResult);
-//							} else {
-//								// Skip the test result
-//							}
-//						} else {
-//							if (!throwable.getMessage().contains(GlobalConstants.FEATURE_NOT_SUPPORTED)) {
-//								// Add only results which are not skipped due to feature not supported
-//								subsetClassMethodTestResults.add(originalClassMethodTestResult);
-//							} else {
-//								// Skip the test result
-//							}
-//						}
-//					}
-//				}
-//
-//				// Add the subset method result if it has any results
-//				if (!subsetClassMethodTestResults.isEmpty()) {
-//					subsetMethodResults.add(new MethodResult(subsetClassMethodTestResults));
-//				}
-//			}
-//
-//			// Add the subset class result if it has any method results
-//			if (!subsetMethodResults.isEmpty()) {
-//				subsetClassResultResults.add(new ClassResult(originalClassResult.getClassName(), subsetMethodResults));
-//			}
-//		}
-//		return subsetClassResultResults;
-//	}
-//	List<ClassResult> subsetResults = getResultsSubSet(testResult.getSkippedTestResults(), "feature not supported");
-//	List<ClassResult> subsetResults = getResultsSubSet(testResult.getSkippedTestResults(), "Skipped");
-	
 	protected static Set<ITestResult> getResultsSubSet(Set<ITestResult> resultsSet, String subSetString) {
 		List<ITestResult> testResultsSubList = Lists.newArrayList();
 		if (!resultsSet.isEmpty()) {
@@ -388,15 +305,17 @@ public class EmailableReport implements IReporter {
 				ITestResult result = resultsIterator.next();
 				Throwable throwable = result.getThrowable();
 				if (throwable != null) {
-					if (subSetString.equalsIgnoreCase(GlobalConstants.FEATURE_NOT_SUPPORTED)) {
-						if (throwable.getMessage().contains(subSetString)) {
+					if (subSetString.contains(GlobalConstants.FEATURE_NOT_SUPPORTED)
+							|| subSetString.contains(GlobalConstants.SERVICE_NOT_DEPLOYED)) {
+						if (containsAny(throwable.getMessage(), subSetString)) {
 							// Add only results which are skipped due to feature not supported
 							testResultsSubList.add(result);
 						} else {
 							// Skip the test result
 						}
-					} else {
-						if (!throwable.getMessage().contains(GlobalConstants.FEATURE_NOT_SUPPORTED)) {
+					} else { // Service not deployed. Hence skipping the testcase // skipped
+						if (!throwable.getMessage().contains(GlobalConstants.FEATURE_NOT_SUPPORTED)
+								&& !throwable.getMessage().contains(GlobalConstants.SERVICE_NOT_DEPLOYED)) {
 							// Add only results which are not skipped due to feature not supported
 							testResultsSubList.add(result);
 						} else {
@@ -409,6 +328,18 @@ public class EmailableReport implements IReporter {
 		Set<ITestResult> testResultsSubSet = Set.copyOf(testResultsSubList);
 		return testResultsSubSet;
 	}
+	
+	public static boolean containsAny(String stringToCheckIn, String delimitedString) {
+	    // Split the input string into an array based on semicolons
+        String[] stringsToCheckFor = delimitedString.split(";");
+		
+        for (String str : stringsToCheckFor) {
+            if (stringToCheckIn.contains(str)) {
+                return true; // If any string is found, return true
+            }
+        }
+        return false; // If none of the strings are found, return false
+    }
 
 	/**
 	 * Writes a summary of all the test scenarios.
@@ -437,12 +368,8 @@ public class EmailableReport implements IReporter {
 				
 				scenarioIndex += writeScenarioSummary(testName + " &#8212; Ignored", testResult.getIgnoredTestResults(),
 						"ignored", scenarioIndex);
-//				scenarioIndex += writeScenarioSummary(testName + " &#8212; Failed (configuration methods)",
-//						testResult.getFailedConfigurationResults(), "Failed", scenarioIndex);
 				scenarioIndex += writeScenarioSummary(testName + " &#8212; Failed", testResult.getFailedTestResults(),
 						"failed", scenarioIndex);
-//				scenarioIndex += writeScenarioSummary(testName + " &#8212; Skipped (configuration methods)",
-//						testResult.getSkippedConfigurationResults(), "Skipped", scenarioIndex);
 				scenarioIndex += writeScenarioSummary(testName + " &#8212; Skipped", testResult.getSkippedTestResults(),
 						"skipped", scenarioIndex);
 				scenarioIndex += writeScenarioSummary(testName + " &#8212; Passed", testResult.getPassedTestResults(),
@@ -808,7 +735,7 @@ public class EmailableReport implements IReporter {
 			Set<ITestResult> skippedConfigurations = context.getSkippedConfigurations().getAllResults();
 //			Set<ITestResult> skippedTests = context.getSkippedTests().getAllResults();
 			Set<ITestResult> skippedTests = getResultsSubSet(context.getSkippedTests().getAllResults(), GlobalConstants.SKIPPED);
-			Set<ITestResult> ignoredTests =  getResultsSubSet(context.getSkippedTests().getAllResults(), GlobalConstants.FEATURE_NOT_SUPPORTED);
+			Set<ITestResult> ignoredTests =  getResultsSubSet(context.getSkippedTests().getAllResults(), GlobalConstants.IGNORED_SUBSET_STRING);
 			Set<ITestResult> passedTests = context.getPassedTests().getAllResults();
 
 			failedConfigurationResults = groupResults(failedConfigurations);

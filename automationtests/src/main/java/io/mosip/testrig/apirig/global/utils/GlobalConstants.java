@@ -206,7 +206,11 @@ public class GlobalConstants {
 	public static final String RID_GENERATOR = "ridgenerator";
 	public static final String VID_FEATURE_NOT_SUPPORTED = "VID feature not supported. Hence skipping the testcase";
 	public static final String UIN_FEATURE_NOT_SUPPORTED = "UIN feature not supported. Hence skipping the testcase";
+	public static final String FEATURE_NOT_SUPPORTED_MESSAGE = "feature not supported. Hence skipping the testcase";
+	public static final String SERVICE_NOT_DEPLOYED_MESSAGE = "Service not deployed. Hence skipping the testcase";
 	public static final String FEATURE_NOT_SUPPORTED = "feature not supported";
+	public static final String SERVICE_NOT_DEPLOYED = "Service not deployed";
+	public static final String IGNORED_SUBSET_STRING = "feature not supported;Service not deployed";
 	public static final String SKIPPED = "Skipped";
-	public static final String TARGET_ENV_HEALTH_CHECK_FAILED = GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED;
+	public static final String TARGET_ENV_HEALTH_CHECK_FAILED = "Target env health check failed ";
 }
