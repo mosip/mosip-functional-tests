@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.ITest;
@@ -152,11 +153,27 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 
 		String email = getValueFromAuthActuator("json-property", "emailId");
 		String emailResult = email.replaceAll("\\[\"|\"\\]", "");
+		
+		JSONArray dobArray = new JSONArray(getValueFromAuthActuator("json-property", "dob"));
+		String dob = dobArray.getString(0);
 
 		inputJson = inputJson.replace("\"phone\":", "\"" + result + "\":");
 		inputJson = inputJson.replace("\"email\":", "\"" + emailResult + "\":");
 
 		inputJson = inputJson.replace("$RID$", genRid);
+		
+		if (testCaseName.startsWith("IdRepository_") && inputJson.contains("dateOfBirth") && (!isElementPresent(new JSONArray(schemaRequiredField), dob))) {
+			JSONObject reqJson = new JSONObject(inputJson);
+			reqJson.getJSONObject("request").getJSONObject("identity").remove("dateOfBirth");
+			inputJson = reqJson.toString();
+		}
+		
+		if (testCaseName.startsWith("IdRepository_") && inputJson.contains("email") && (!isElementPresent(new JSONArray(schemaRequiredField), emailResult))) {
+			JSONObject reqJson = new JSONObject(inputJson);
+			reqJson.getJSONObject("request").getJSONObject("identity").remove(emailResult);
+			reqJson.getJSONObject("request").getJSONObject("identity").remove(result);
+			inputJson = reqJson.toString();
+		}
 
 		if (inputJson.contains("$PRIMARYLANG$"))
 			inputJson = inputJson.replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0));
