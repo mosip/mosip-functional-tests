@@ -100,7 +100,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
-				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
 			}
 		}
 
