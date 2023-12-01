@@ -204,5 +204,7 @@ public class GlobalConstants {
 	public static final String AUTH_CLIENT_IDSECRET_KEYURL = "authclientidsecretkeyURL";
 	public static final String EXPECTED_VS_ACTUAL = "EXPECTED vs ACTUAL";
 	public static final String RID_GENERATOR = "ridgenerator";
-	
+	public static final String VID_FEATURE_NOT_SUPPORTED = "VID feature not supported. Hence skipping the testcase";
+	public static final String FEATURE_NOT_SUPPORTED = "feature not supported";
+	public static final String SKIPPED = "Skipped";
 }
