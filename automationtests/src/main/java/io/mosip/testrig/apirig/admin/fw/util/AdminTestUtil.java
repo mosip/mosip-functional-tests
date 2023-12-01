@@ -2884,6 +2884,8 @@ public class AdminTestUtil extends BaseTestCase {
 
 		if (jsonString.contains("$SCHEMAVERSION$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$SCHEMAVERSION$", generateLatestSchemaVersion());
+		if (jsonString.contains("$PHONENUMBERFORIDENTITY$"))
+			jsonString = replaceKeywordWithValue(jsonString, "$PHONENUMBERFORIDENTITY$", phoneNumber);
 		if (jsonString.contains("$1STLANG$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$1STLANG$", BaseTestCase.languageList.get(0));
 		if (jsonString.contains("$2NDLANG$"))
@@ -4446,6 +4448,9 @@ public class AdminTestUtil extends BaseTestCase {
 		throw new Exception("invalid regex");
 
 	}
+	
+	public static String schemaRequiredField = "";
+	String phoneNumber = "";
 
 	public static String modifySchemaGenerateHbs() {
 		return modifySchemaGenerateHbs(false);
@@ -4473,6 +4478,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 		boolean emailFieldAdditionallyAdded = false;
 		boolean phoneFieldAdditionallyAdded = false;
+		String phoneNumber = "";
 		try {
 
 			JSONObject schemaFileJson = new JSONObject(schemaFile); // jObj
@@ -4480,6 +4486,8 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject schemaIdentityJson = schemaPropsJson.getJSONObject("identity"); // objIDJson
 			JSONObject identityPropsJson = schemaIdentityJson.getJSONObject("properties"); // objIDJson2
 			JSONArray requiredPropsArray = schemaIdentityJson.getJSONArray("required"); // objIDJson1
+			schemaRequiredField = requiredPropsArray.toString();
+			
 
 			String phone = getValueFromAuthActuator("json-property", "phone_number");
 			String result = phone.replaceAll("\\[\"|\"\\]", "");
@@ -4488,6 +4496,8 @@ public class AdminTestUtil extends BaseTestCase {
 				requiredPropsArray.put(result);
 				phoneFieldAdditionallyAdded = true;
 			}
+			if (identityPropsJson.has(result))
+				phoneNumber = genStringAsperRegex(identityPropsJson.getJSONObject(result).getJSONArray("validators").getJSONObject(0).getString("validator"));
 
 			String email = getValueFromAuthActuator("json-property", "emailId");
 			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
@@ -4559,9 +4569,10 @@ public class AdminTestUtil extends BaseTestCase {
 						identityJson.put(eachRequiredProp, genStringAsperRegex(eachPropDataJson.getJSONArray("validators").getJSONObject(0).getString("validator")));
 					}
 					else if (eachRequiredProp.equals(result)) {
-						String regexPattern = genStringAsperRegex(eachPropDataJson.getJSONArray("validators").getJSONObject(0).getString("validator"));
-						if (regexPattern != null)
-							identityJson.put(eachRequiredProp, regexPattern);
+//						String regexPattern = genStringAsperRegex(eachPropDataJson.getJSONArray("validators").getJSONObject(0).getString("validator"));
+//						if (regexPattern != null)
+							if (phoneNumber != null)
+								identityJson.put(eachRequiredProp, phoneNumber);
 						
 //						if(phoneFieldAdditionallyAdded) {
 //							identityJson.put(eachRequiredProp, "{{" + eachRequiredProp + "}}");
@@ -4601,14 +4612,16 @@ public class AdminTestUtil extends BaseTestCase {
 					}
 				}
 			}
+			
+			if (!ConfigManager.isInServiceNotDeployedList(GlobalConstants.ADMIN)) {
+				JSONArray requestDocArray = new JSONArray();
+				JSONObject docJson = new JSONObject();
+				docJson.put("value", "{{value}}");
+				docJson.put("category", "{{category}}");
+				requestDocArray.put(docJson);
 
-//			JSONArray requestDocArray = new JSONArray();
-//			JSONObject docJson = new JSONObject();
-//			docJson.put("value", "{{value}}");
-//			docJson.put("category", "{{category}}");
-//			requestDocArray.put(docJson);
-//
-//			requestJson.getJSONObject("request").put("documents", requestDocArray);
+				requestJson.getJSONObject("request").put("documents", requestDocArray);
+			}
 			requestJson.getJSONObject("request").put("identity", identityJson);
 			requestJson.put("requesttime", "{{requesttime}}");
 			requestJson.put("version", "{{version}}");
