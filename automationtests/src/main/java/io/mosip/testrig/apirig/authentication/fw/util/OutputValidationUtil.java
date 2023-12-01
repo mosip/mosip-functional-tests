@@ -510,29 +510,40 @@ public class OutputValidationUtil extends AuthTestsUtil {
 	}
 
 	public static boolean doesResponseHasErrors(String responseString) {
-		JSONObject responseJson = new JSONObject(responseString);
 		boolean breturn = false;
-		JSONArray errors = null;
-		String error = null;
-		if (responseJson.has("errors")) {
-			errors = responseJson.optJSONArray("errors");
-		} else if (responseJson.has("error")) {
-			error = responseJson.getString("error");
+		try {
+			JSONObject responseJson = new JSONObject(responseString);
+			JSONArray errors = null;
+			String error = null;
+			if (responseJson.has("errors")) {
+				errors = responseJson.optJSONArray("errors");
+			}
+			else if (responseJson.has("error")) {
+				error = responseJson.getString("error");
+			}
+			
+			if (errors != null)
+				breturn = (errors.length() > 0);
+			else if (error != null)
+				breturn = true;
+				
+		} catch (JSONException e) {
+			OUTPUTVALIDATION_LOGGER.error("Invalid JSON response: " + responseString);
 		}
-		if (errors != null)
-			breturn = (errors.length() > 0);
-		else if (error != null)
-			breturn = true;
-
+			
 		return breturn;
 	}
 
 	public static boolean doesResponseHasErrorCode(String responseString, int errorCode) {
-		JSONObject responseJson = new JSONObject(responseString);
-		if (responseJson.has("status")) {
-			return responseJson.getInt("status") == errorCode;
+		try {
+			JSONObject responseJson = new JSONObject(responseString);
+			if (responseJson.has("status")) {
+				return responseJson.getInt("status") == errorCode;
+			}
+		} catch (JSONException e) {
+			OUTPUTVALIDATION_LOGGER.error("Invalid JSON response: " + responseString);
 		}
-
+			
 		return false;
 	}
 
