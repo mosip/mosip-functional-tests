@@ -241,8 +241,8 @@ public class EmailableReport implements IReporter {
 
 			for (TestResult testResult : suiteResult.getTestResults()) {
 				int passedTests = testResult.getPassedTestCount();
-				int ignoredTests = getIgnoredTestCount(testResult);
-				int skippedTests = testResult.getSkippedTestCount() - ignoredTests;
+				int ignoredTests = testResult.getIgnoredTestCount();
+				int skippedTests = testResult.getSkippedTestCount();
 				int failedTests = testResult.getFailedTestCount();
 				long duration = testResult.getDuration();
 
@@ -296,88 +296,119 @@ public class EmailableReport implements IReporter {
 		writer.print(GlobalConstants.TABLE);
 	}
 	
-	protected int getIgnoredTestCount(TestResult testResult) {
-		List<ClassResult> classResults = testResult.getSkippedTestResults();
-		int ignoreTestCount = 0;
-		for (ClassResult classResult : classResults) {
-			for (MethodResult methodResult : classResult.getMethodResults()) {
-				List<ITestResult> results = methodResult.getResults();
-				assert !results.isEmpty();
-				for (ITestResult result : results) {
-					Throwable throwable = result.getThrowable();
-					if (throwable != null) {
-						if (throwable.getMessage().contains("feature not supported")) {
-							ignoreTestCount++;
-						}
-					}
-				}
-			}
-		}
-
-		return ignoreTestCount;
-	}	
+//	protected int getIgnoredTestCount(TestResult testResult) {
+//		List<ClassResult> classResults = testResult.getSkippedTestResults();
+//		int ignoreTestCount = 0;
+//		for (ClassResult classResult : classResults) {
+//			for (MethodResult methodResult : classResult.getMethodResults()) {
+//				List<ITestResult> results = methodResult.getResults();
+//				assert !results.isEmpty();
+//				for (ITestResult result : results) {
+//					Throwable throwable = result.getThrowable();
+//					if (throwable != null) {
+//						if (throwable.getMessage().contains("feature not supported")) {
+//							ignoreTestCount++;
+//						}
+//					}
+//				}
+//			}
+//		}
+//
+//		return ignoreTestCount;
+//	}	
 	
 	
-	protected List<ClassResult> getResultsSubSet(List<ClassResult> originalClassResults, String subSetString) {
-
-		List<ClassResult> subsetClassResultResults = Lists.newArrayList();
-
-		Iterator<ClassResult> originalClassResultsIterator = originalClassResults.iterator();
-		// Iterate on ClassResults
-		while (originalClassResultsIterator.hasNext()) {
-			List<MethodResult> subsetMethodResults = Lists.newArrayList();
-			ClassResult originalClassResult = originalClassResultsIterator.next();
-			List<MethodResult> originalClassMethodResults = originalClassResult.getMethodResults();
-			Iterator<MethodResult> originalClassMethodResultsIterator = originalClassMethodResults.iterator();
-
-			// Iterate on ClassMethodResults
-			while (originalClassMethodResultsIterator.hasNext()) {
-				List<ITestResult> subsetClassMethodTestResults = Lists.newArrayList();
-
-				MethodResult originalClassMethodResult = originalClassMethodResultsIterator.next();
-				List<ITestResult> originalClassMethodTestResults = originalClassMethodResult.getResults();
-				Iterator<ITestResult> originalClassMethodTestResultsIterator = originalClassMethodTestResults
-						.iterator();
-
-				// Iterate on ClassMethodTestResults
-				while (originalClassMethodTestResultsIterator.hasNext()) {
-					ITestResult originalClassMethodTestResult = originalClassMethodTestResultsIterator.next();
-					Throwable throwable = originalClassMethodTestResult.getThrowable();
-
-					if (throwable != null) {
-						if (subSetString.equalsIgnoreCase(GlobalConstants.FEATURE_NOT_SUPPORTED)) {
-							if (throwable.getMessage().contains(subSetString)) {
-								// Add only results which are skipped due to feature not supported
-								subsetClassMethodTestResults.add(originalClassMethodTestResult);
-							} else {
-								// Skip the test result
-							}
-						} else {
-							if (!throwable.getMessage().contains(GlobalConstants.FEATURE_NOT_SUPPORTED)) {
-								// Add only results which are not skipped due to feature not supported
-								subsetClassMethodTestResults.add(originalClassMethodTestResult);
-							} else {
-								// Skip the test result
-							}
-						}
-					}
-				}
-
-				// Add the subset method result if it has any results
-				if (!subsetClassMethodTestResults.isEmpty()) {
-					subsetMethodResults.add(new MethodResult(subsetClassMethodTestResults));
-				}
-			}
-
-			// Add the subset class result if it has any method results
-			if (!subsetMethodResults.isEmpty()) {
-				subsetClassResultResults.add(new ClassResult(originalClassResult.getClassName(), subsetMethodResults));
-			}
-		}
-		return subsetClassResultResults;
-	}
+//	protected List<ClassResult> getResultsSubSet(List<ClassResult> originalClassResults, String subSetString) {
+//
+//		List<ClassResult> subsetClassResultResults = Lists.newArrayList();
+//
+//		Iterator<ClassResult> originalClassResultsIterator = originalClassResults.iterator();
+//		// Iterate on ClassResults
+//		while (originalClassResultsIterator.hasNext()) {
+//			List<MethodResult> subsetMethodResults = Lists.newArrayList();
+//			ClassResult originalClassResult = originalClassResultsIterator.next();
+//			List<MethodResult> originalClassMethodResults = originalClassResult.getMethodResults();
+//			Iterator<MethodResult> originalClassMethodResultsIterator = originalClassMethodResults.iterator();
+//
+//			// Iterate on ClassMethodResults
+//			while (originalClassMethodResultsIterator.hasNext()) {
+//				List<ITestResult> subsetClassMethodTestResults = Lists.newArrayList();
+//
+//				MethodResult originalClassMethodResult = originalClassMethodResultsIterator.next();
+//				List<ITestResult> originalClassMethodTestResults = originalClassMethodResult.getResults();
+//				Iterator<ITestResult> originalClassMethodTestResultsIterator = originalClassMethodTestResults
+//						.iterator();
+//
+//				// Iterate on ClassMethodTestResults
+//				while (originalClassMethodTestResultsIterator.hasNext()) {
+//					ITestResult originalClassMethodTestResult = originalClassMethodTestResultsIterator.next();
+//					Throwable throwable = originalClassMethodTestResult.getThrowable();
+//
+//					if (throwable != null) {
+//						if (subSetString.equalsIgnoreCase(GlobalConstants.FEATURE_NOT_SUPPORTED)) {
+//							if (throwable.getMessage().contains(subSetString)) {
+//								// Add only results which are skipped due to feature not supported
+//								subsetClassMethodTestResults.add(originalClassMethodTestResult);
+//							} else {
+//								// Skip the test result
+//							}
+//						} else {
+//							if (!throwable.getMessage().contains(GlobalConstants.FEATURE_NOT_SUPPORTED)) {
+//								// Add only results which are not skipped due to feature not supported
+//								subsetClassMethodTestResults.add(originalClassMethodTestResult);
+//							} else {
+//								// Skip the test result
+//							}
+//						}
+//					}
+//				}
+//
+//				// Add the subset method result if it has any results
+//				if (!subsetClassMethodTestResults.isEmpty()) {
+//					subsetMethodResults.add(new MethodResult(subsetClassMethodTestResults));
+//				}
+//			}
+//
+//			// Add the subset class result if it has any method results
+//			if (!subsetMethodResults.isEmpty()) {
+//				subsetClassResultResults.add(new ClassResult(originalClassResult.getClassName(), subsetMethodResults));
+//			}
+//		}
+//		return subsetClassResultResults;
+//	}
 //	List<ClassResult> subsetResults = getResultsSubSet(testResult.getSkippedTestResults(), "feature not supported");
 //	List<ClassResult> subsetResults = getResultsSubSet(testResult.getSkippedTestResults(), "Skipped");
+	
+	protected static Set<ITestResult> getResultsSubSet(Set<ITestResult> resultsSet, String subSetString) {
+		List<ITestResult> testResultsSubList = Lists.newArrayList();
+		if (!resultsSet.isEmpty()) {
+			List<ITestResult> resultsList = Lists.newArrayList(resultsSet);
+			Iterator<ITestResult> resultsIterator = resultsList.iterator();
+			while (resultsIterator.hasNext()) {
+				ITestResult result = resultsIterator.next();
+				Throwable throwable = result.getThrowable();
+				if (throwable != null) {
+					if (subSetString.equalsIgnoreCase(GlobalConstants.FEATURE_NOT_SUPPORTED)) {
+						if (throwable.getMessage().contains(subSetString)) {
+							// Add only results which are skipped due to feature not supported
+							testResultsSubList.add(result);
+						} else {
+							// Skip the test result
+						}
+					} else {
+						if (!throwable.getMessage().contains(GlobalConstants.FEATURE_NOT_SUPPORTED)) {
+							// Add only results which are not skipped due to feature not supported
+							testResultsSubList.add(result);
+						} else {
+							// Skip the test result
+						}
+					}
+				}
+			}
+		}
+		Set<ITestResult> testResultsSubSet = Set.copyOf(testResultsSubList);
+		return testResultsSubSet;
+	}
 
 	/**
 	 * Writes a summary of all the test scenarios.
@@ -404,7 +435,7 @@ public class EmailableReport implements IReporter {
 
 				String testName = Utils.escapeHtml(testResult.getTestName());
 				
-				scenarioIndex += writeScenarioSummary(testName + " &#8212; Ignored", getResultsSubSet(testResult.getSkippedTestResults(), GlobalConstants.FEATURE_NOT_SUPPORTED),
+				scenarioIndex += writeScenarioSummary(testName + " &#8212; Ignored", testResult.getIgnoredTestResults(),
 						"ignored", scenarioIndex);
 //				scenarioIndex += writeScenarioSummary(testName + " &#8212; Failed (configuration methods)",
 //						testResult.getFailedConfigurationResults(), "Failed", scenarioIndex);
@@ -412,7 +443,7 @@ public class EmailableReport implements IReporter {
 						"failed", scenarioIndex);
 //				scenarioIndex += writeScenarioSummary(testName + " &#8212; Skipped (configuration methods)",
 //						testResult.getSkippedConfigurationResults(), "Skipped", scenarioIndex);
-				scenarioIndex += writeScenarioSummary(testName + " &#8212; Skipped", getResultsSubSet(testResult.getSkippedTestResults(), GlobalConstants.SKIPPED),
+				scenarioIndex += writeScenarioSummary(testName + " &#8212; Skipped", testResult.getSkippedTestResults(),
 						"skipped", scenarioIndex);
 				scenarioIndex += writeScenarioSummary(testName + " &#8212; Passed", testResult.getPassedTestResults(),
 						"passed", scenarioIndex);
@@ -510,6 +541,7 @@ public class EmailableReport implements IReporter {
 				writer.print(Utils.escapeHtml(testResult.getTestName()));
 				writer.print("</h2>");
 
+				scenarioIndex += writeScenarioDetails(testResult.getIgnoredTestResults(), scenarioIndex);
 				scenarioIndex += writeScenarioDetails(testResult.getFailedConfigurationResults(), scenarioIndex);
 				scenarioIndex += writeScenarioDetails(testResult.getFailedTestResults(), scenarioIndex);
 				scenarioIndex += writeScenarioDetails(testResult.getSkippedConfigurationResults(), scenarioIndex);
@@ -759,6 +791,8 @@ public class EmailableReport implements IReporter {
 		private final List<ClassResult> skippedConfigurationResults;
 		private final List<ClassResult> skippedTestResults;
 		private final List<ClassResult> passedTestResults;
+		private final List<ClassResult> ignoredTestResults;
+		private final int ignoredTestCount;
 		private final int failedTestCount;
 		private final int skippedTestCount;
 		private final int passedTestCount;
@@ -772,18 +806,22 @@ public class EmailableReport implements IReporter {
 			Set<ITestResult> failedConfigurations = context.getFailedConfigurations().getAllResults();
 			Set<ITestResult> failedTests = context.getFailedTests().getAllResults();
 			Set<ITestResult> skippedConfigurations = context.getSkippedConfigurations().getAllResults();
-			Set<ITestResult> skippedTests = context.getSkippedTests().getAllResults();
+//			Set<ITestResult> skippedTests = context.getSkippedTests().getAllResults();
+			Set<ITestResult> skippedTests = getResultsSubSet(context.getSkippedTests().getAllResults(), GlobalConstants.SKIPPED);
+			Set<ITestResult> ignoredTests =  getResultsSubSet(context.getSkippedTests().getAllResults(), GlobalConstants.FEATURE_NOT_SUPPORTED);
 			Set<ITestResult> passedTests = context.getPassedTests().getAllResults();
 
 			failedConfigurationResults = groupResults(failedConfigurations);
 			failedTestResults = groupResults(failedTests);
 			skippedConfigurationResults = groupResults(skippedConfigurations);
 			skippedTestResults = groupResults(skippedTests);
+			ignoredTestResults = groupResults(ignoredTests);
 			passedTestResults = groupResults(passedTests);
 
 			failedTestCount = failedTests.size();
 			skippedTestCount = skippedTests.size();
 			passedTestCount = passedTests.size();
+			ignoredTestCount = ignoredTests.size();
 
 			duration = context.getEndDate().getTime() - context.getStartDate().getTime();
 
@@ -862,6 +900,10 @@ public class EmailableReport implements IReporter {
 		public List<ClassResult> getFailedTestResults() {
 			return failedTestResults;
 		}
+		
+		public List<ClassResult> getIgnoredTestResults() {
+			return ignoredTestResults;
+		}
 
 		/**
 		 * @return the results for skipped configurations (possibly empty)
@@ -894,6 +936,10 @@ public class EmailableReport implements IReporter {
 
 		public int getPassedTestCount() {
 			return passedTestCount;
+		}
+		
+		public int getIgnoredTestCount() {
+			return ignoredTestCount;
 		}
 
 		public long getDuration() {
