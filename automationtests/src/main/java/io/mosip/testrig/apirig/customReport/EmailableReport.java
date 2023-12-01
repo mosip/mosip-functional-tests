@@ -82,11 +82,22 @@ public class EmailableReport implements IReporter {
 		writeDocumentEnd();
 		writer.close();
 
-		int totalTestCases = totalPassedTests + totalSkippedTests + totalFailedTests + totalIgnoredTests;
+		int totalTestCases = 0;
+		if (ConfigManager.reportIgnoredTestCases()) {
+			totalTestCases = totalPassedTests + totalSkippedTests + totalFailedTests + totalIgnoredTests;
+		}else {
+			totalTestCases = totalPassedTests + totalSkippedTests + totalFailedTests;
+		}
 
 		String oldString = System.getProperty(GlobalConstants.EMAILABLEREPORT2NAME);
-		String temp = "-report_T-" + totalTestCases + "_P-" + totalPassedTests + "_S-" + totalSkippedTests + "_F-"
-				+ totalFailedTests + "_I-" + totalIgnoredTests;
+		String temp = "";
+		if (ConfigManager.reportIgnoredTestCases()) {
+			temp = "-report_T-" + totalTestCases + "_P-" + totalPassedTests + "_S-" + totalSkippedTests + "_F-"
+					+ totalFailedTests + "_I-" + totalIgnoredTests;
+		}else {
+			temp = "-report_T-" + totalTestCases + "_P-" + totalPassedTests + "_S-" + totalSkippedTests + "_F-"
+				+ totalFailedTests;
+		}
 		String newString = oldString.replace("-report", temp);
 
 		File orignialReportFile = new File(
@@ -233,7 +244,9 @@ public class EmailableReport implements IReporter {
 			writer.print("<th># Passed</th>");
 			writer.print("<th># Skipped</th>");
 			writer.print("<th># Failed</th>");
-			writer.print("<th># Ignored</th>");
+			if (ConfigManager.reportIgnoredTestCases()) {
+				writer.print("<th># Ignored</th>");
+			}
 			writer.print("<th>Time (ms)</th>");
 //			writer.print("<th>Included Groups</th>");
 //			writer.print("<th>Excluded Groups</th>");
@@ -255,11 +268,18 @@ public class EmailableReport implements IReporter {
 				buffer.setLength(0);
 				writeTableData(buffer.append("<a href=\"#t").append(testIndex).append("\">")
 						.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString());
-				writeTableData(integerFormat.format(passedTests + skippedTests + failedTests + ignoredTests), "num");
+				if (ConfigManager.reportIgnoredTestCases()) {
+					writeTableData(integerFormat.format(passedTests + skippedTests + failedTests + ignoredTests),
+							"num");
+				} else {
+					writeTableData(integerFormat.format(passedTests + skippedTests + failedTests), "num");
+				}
 				writeTableData(integerFormat.format(passedTests), (passedTests > 0 ? "num green-bg" : "num"));
 				writeTableData(integerFormat.format(skippedTests), (skippedTests > 0 ? "num orange-bg" : "num"));
 				writeTableData(integerFormat.format(failedTests), (failedTests > 0 ? GlobalConstants.NUMATTN : "num"));
-				writeTableData(integerFormat.format(ignoredTests), (ignoredTests > 0 ? "num grey-bg" : "num"));
+				if (ConfigManager.reportIgnoredTestCases()) {
+					writeTableData(integerFormat.format(ignoredTests), (ignoredTests > 0 ? "num grey-bg" : "num"));
+				}
 				writeTableData(decimalFormat.format(duration), "num");
 //				writeTableData(testResult.getIncludedGroups());
 //				writeTableData(testResult.getExcludedGroups());
@@ -279,16 +299,21 @@ public class EmailableReport implements IReporter {
 		if (testIndex > 1) {
 			writer.print("<tr>");
 			writer.print("<th>Total</th>");
-			writeTableHeader(
-					integerFormat.format(totalPassedTests + totalSkippedTests + totalFailedTests + totalIgnoredTests),
-					"num");
+			if (ConfigManager.reportIgnoredTestCases()) {
+				writeTableHeader(integerFormat
+						.format(totalPassedTests + totalSkippedTests + totalFailedTests + totalIgnoredTests), "num");
+			} else {
+				writeTableHeader(integerFormat.format(totalPassedTests + totalSkippedTests + totalFailedTests), "num");
+			}
 			writeTableHeader(integerFormat.format(totalPassedTests), (totalPassedTests > 0 ? "num green-bg" : "num"));
 			writeTableHeader(integerFormat.format(totalSkippedTests),
 					(totalSkippedTests > 0 ? "num orange-bg" : "num"));
 			writeTableHeader(integerFormat.format(totalFailedTests),
 					(totalFailedTests > 0 ? GlobalConstants.NUMATTN : "num"));
-			writeTableHeader(integerFormat.format(totalIgnoredTests),
-					(totalIgnoredTests > 0 ? "num grey-bg" : "num"));
+			if (ConfigManager.reportIgnoredTestCases()) {
+				writeTableHeader(integerFormat.format(totalIgnoredTests),
+						(totalIgnoredTests > 0 ? "num grey-bg" : "num"));
+			}
 			writeTableHeader(decimalFormat.format(totalDuration), "num");
 			writer.print(GlobalConstants.TR);
 		}
@@ -365,9 +390,11 @@ public class EmailableReport implements IReporter {
 				writer.print("\">");
 
 				String testName = Utils.escapeHtml(testResult.getTestName());
-				
-				scenarioIndex += writeScenarioSummary(testName + " &#8212; Ignored", testResult.getIgnoredTestResults(),
-						"ignored", scenarioIndex);
+
+				if (ConfigManager.reportIgnoredTestCases()) {
+					scenarioIndex += writeScenarioSummary(testName + " &#8212; Ignored",
+							testResult.getIgnoredTestResults(), "ignored", scenarioIndex);
+				}
 				scenarioIndex += writeScenarioSummary(testName + " &#8212; Failed", testResult.getFailedTestResults(),
 						"failed", scenarioIndex);
 				scenarioIndex += writeScenarioSummary(testName + " &#8212; Skipped", testResult.getSkippedTestResults(),
@@ -468,7 +495,9 @@ public class EmailableReport implements IReporter {
 				writer.print(Utils.escapeHtml(testResult.getTestName()));
 				writer.print("</h2>");
 
-				scenarioIndex += writeScenarioDetails(testResult.getIgnoredTestResults(), scenarioIndex);
+				if (ConfigManager.reportIgnoredTestCases()) {
+					scenarioIndex += writeScenarioDetails(testResult.getIgnoredTestResults(), scenarioIndex);
+				}
 				scenarioIndex += writeScenarioDetails(testResult.getFailedConfigurationResults(), scenarioIndex);
 				scenarioIndex += writeScenarioDetails(testResult.getFailedTestResults(), scenarioIndex);
 				scenarioIndex += writeScenarioDetails(testResult.getSkippedConfigurationResults(), scenarioIndex);
