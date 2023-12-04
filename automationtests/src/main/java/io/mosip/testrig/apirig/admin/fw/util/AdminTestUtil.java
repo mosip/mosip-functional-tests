@@ -178,6 +178,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String AUTHORIZATHION_HEADERNAME = GlobalConstants.AUTHORIZATION;
 	public static final String AUTH_HEADER_VALUE = "Some String";
 	public static final String SIGNATURE_HEADERNAME = GlobalConstants.SIGNATURE;
+	public static String updatedPolicyId="";
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
 
 	public static BioDataUtility getBioDataUtil() {
@@ -5502,12 +5503,12 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		String responseBody = response.getBody().asString();
-		String policyId = new org.json.JSONObject(responseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
+		 updatedPolicyId = new org.json.JSONObject(responseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
 
 		String url3 = ApplnURI + properties.getProperty("publishPolicyurl");
 
 		if (url3.contains("POLICYID")) {
-			url3 = url3.replace("POLICYID", policyId);
+			url3 = url3.replace("POLICYID", updatedPolicyId);
 			url3 = url3.replace("POLICYGROUPID", policygroupId);
 
 		}

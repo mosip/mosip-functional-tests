@@ -19,6 +19,7 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 	private static final Logger lOGGER = Logger.getLogger(KeyCloakUserAndAPIKeyGeneration.class);
 	
 	static String partnerId = PartnerRegistration.partnerId;
+	static String updatedPolicyId =AdminTestUtil.updatedPolicyId;
 	static String emailId = PartnerRegistration.emailId;
 	static String emailIdForKyc = PartnerRegistration.emailIdForKyc;
 	static String role = PartnerRegistration.partnerType;
@@ -206,8 +207,11 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		return apiKey;
 	}
 	public static String createAPIKeyForUpdatedPolicy(){
-		String url = ApplnURI + "/v1/partnermanager/partners/"+partnerId+"/generate/apikey";
-		
+		String url = ApplnURI + "/v1/partnermanager/partners/" + partnerId + "/generate/apikey";
+
+		String updateApiKeyUrl = ApplnURI + "/v1/partnermanager/partners/" + partnerId + "/policy/" + updatedPolicyId
+				+ "/apiKey/status";
+
 		String token = kernelAuthLib.getTokenByRole("partnernew");
 		
 		
@@ -215,6 +219,8 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		
 		requestBody.put("policyName", policyNameForUpdate);
 		requestBody.put("label", randomAbbreviation);
+		
+		
 		
 		HashMap<String, Object> body = new HashMap<>();
 		
@@ -232,6 +238,25 @@ public class KeyCloakUserAndAPIKeyGeneration extends AdminTestUtil {
 		lOGGER.info(responseValue);
 		String apiKey = responseValue.getString(GlobalConstants.APIKEY);
 		lOGGER.info(apiKey);
+		
+		//UpdatedApiKey Call
+		
+		HashMap<String, String> updatedRequestBody = new HashMap<>();
+		HashMap<String, Object> updatedRBody = new HashMap<>();
+		
+		updatedRequestBody.put("label", randomAbbreviation);
+		updatedRequestBody.put("status", "Active");
+		
+		updatedRBody.put("id", GlobalConstants.STRING);
+		updatedRBody.put(GlobalConstants.METADATA, new HashMap<>());
+		updatedRBody.put(GlobalConstants.REQUEST, updatedRequestBody);
+		updatedRBody.put(GlobalConstants.REQUESTTIME, generateCurrentUTCTimeStamp());
+		updatedRBody.put(GlobalConstants.VERSION, GlobalConstants.STRING);
+		
+		
+		Response updatedResponse = RestClient.patchRequestWithCookie(url, updatedRBody, MediaType.APPLICATION_JSON,
+				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+		lOGGER.info(updatedResponse.asString());
 		
 		return apiKey;
 	}
