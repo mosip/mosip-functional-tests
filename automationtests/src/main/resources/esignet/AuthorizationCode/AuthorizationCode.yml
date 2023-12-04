@@ -364,7 +364,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_All_Valid_Smoke_sid:
+   ESignet_AuthorizationCode_Vid_All_Valid_Smoke_sid:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -382,7 +382,7 @@ AuthorizationCode:
       	"redirectUri": "$IGNORE$"
 }'
 
-   ESignet_AuthorizationCode_vid_Invalid_TransactionId_Neg:
+   ESignet_AuthorizationCode_Vid_Invalid_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -405,7 +405,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Missing_TransactionId_Neg:
+   ESignet_AuthorizationCode_Vid_Missing_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -428,7 +428,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Empty_TransactionId_Neg:
+   ESignet_AuthorizationCode_Vid_Empty_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -451,7 +451,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Null_TransactionId_Neg:
+   ESignet_AuthorizationCode_Vid_Null_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -474,7 +474,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Expired_TransactionId_Neg:
+   ESignet_AuthorizationCode_Vid_Expired_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -497,7 +497,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Empty_PermittedAuthorizeScopes_Neg:
+   ESignet_AuthorizationCode_Vid_Empty_PermittedAuthorizeScopes_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -521,7 +521,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Invalid_PermittedAuthorizeScopes_Neg:
+   ESignet_AuthorizationCode_Vid_Invalid_PermittedAuthorizeScopes_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -545,7 +545,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Null_PermittedAuthorizeScopes_Neg:
+   ESignet_AuthorizationCode_Vid_Null_PermittedAuthorizeScopes_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -569,7 +569,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Invalid_acceptedClaims_Neg:
+   ESignet_AuthorizationCode_Vid_Invalid_acceptedClaims_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -592,7 +592,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Missing_Claims_Neg:
+   ESignet_AuthorizationCode_Vid_Missing_Claims_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -614,7 +614,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Empty_acceptedClaims_Neg:
+   ESignet_AuthorizationCode_Vid_Empty_acceptedClaims_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -637,7 +637,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Null_acceptedClaims_Neg:
+   ESignet_AuthorizationCode_Vid_Null_acceptedClaims_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -660,7 +660,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Invalid_requestTime_Neg:
+   ESignet_AuthorizationCode_Vid_Invalid_requestTime_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -683,7 +683,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Diff_requestTime_Neg:
+   ESignet_AuthorizationCode_Vid_Diff_requestTime_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post
@@ -706,7 +706,7 @@ AuthorizationCode:
   ]
 }'
 
-   ESignet_AuthorizationCode_vid_Future_RequestTime_Neg:
+   ESignet_AuthorizationCode_Vid_Future_RequestTime_Neg:
       endPoint: /v1/esignet/authorization/auth-code
       role: resident
       restMethod: post

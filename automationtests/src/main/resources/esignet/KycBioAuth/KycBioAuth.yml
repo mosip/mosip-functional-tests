@@ -30,7 +30,7 @@ KycBioAuth:
         "kycStatus": true
 }'
 
-   Esignet_KycBioAuth_vid_all_Valid_Smoke:
+   Esignet_KycBioAuth_Vid_all_Valid_Smoke:
       endPoint: /v1/identity/createAuthRequest?id=$ID:Generate_Perpetual_VID_Kyc_Valid_Smoke_sid_vid$&idType=VID&isKyc=true&isInternal=false&transactionId=$TRANSACTIONID$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=bio&moduleName=$MODULENAME$
       role: resident
       restMethod: post
@@ -98,7 +98,7 @@ KycBioAuth:
   ]
 }'
 
-   Esignet_KycBioAuth_vid_Invalid_Biovalue_Neg:
+   Esignet_KycBioAuth_Vid_Invalid_Biovalue_Neg:
       endPoint: /v1/identity/createAuthRequest?id=$ID:Generate_Perpetual_VID_Kyc_Valid_Smoke_sid_vid$&idType=VID&isKyc=true&isInternal=false&transactionId=$TRANSACTIONID$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=bio&moduleName=$MODULENAME$
       role: resident
       restMethod: post
@@ -164,7 +164,7 @@ KycBioAuth:
         "kycStatus": true
 }'
 
-   Esignet_KycBioAuth_vid_RingFinger_all_Valid_Smoke:
+   Esignet_KycBioAuth_Vid_RingFinger_all_Valid_Smoke:
       endPoint: /v1/identity/createAuthRequest?id=$ID:Generate_Perpetual_VID_Kyc_Valid_Smoke_sid_vid$&idType=VID&isKyc=true&isInternal=false&transactionId=$TRANSACTIONID$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=bio&moduleName=$MODULENAME$
       role: resident
       restMethod: post
@@ -230,7 +230,7 @@ KycBioAuth:
   ]
 }'
 
-   Esignet_KycBioAuth_vid_RingFinger_Invalid_Biovalue_Neg:
+   Esignet_KycBioAuth_Vid_RingFinger_Invalid_Biovalue_Neg:
       endPoint: /v1/identity/createAuthRequest?id=$ID:Generate_Perpetual_VID_Kyc_Valid_Smoke_sid_vid$&idType=VID&isKyc=true&isInternal=false&transactionId=$TRANSACTIONID$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=bio&moduleName=$MODULENAME$
       role: resident
       restMethod: post
@@ -296,7 +296,7 @@ KycBioAuth:
         "kycStatus": true
 }'
 
-   Esignet_KycBioAuth_vid_LeftIris_all_Valid_Smoke:
+   Esignet_KycBioAuth_Vid_LeftIris_all_Valid_Smoke:
       endPoint: /v1/identity/createAuthRequest?id=$ID:Generate_Perpetual_VID_Kyc_Valid_Smoke_sid_vid$&idType=VID&isKyc=true&isInternal=false&transactionId=$TRANSACTIONID$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=bio&moduleName=$MODULENAME$
       role: resident
       restMethod: post
@@ -362,7 +362,7 @@ KycBioAuth:
   ]
 }'
 
-   Esignet_KycBioAuth_vid_LeftIris_Invalid_Biovalue_Neg:
+   Esignet_KycBioAuth_Vid_LeftIris_Invalid_Biovalue_Neg:
       endPoint: /v1/identity/createAuthRequest?id=$ID:Generate_Perpetual_VID_Kyc_Valid_Smoke_sid_vid$&idType=VID&isKyc=true&isInternal=false&transactionId=$TRANSACTIONID$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=bio&moduleName=$MODULENAME$
       role: resident
       restMethod: post
@@ -428,7 +428,7 @@ KycBioAuth:
         "authStatus": false
 }'
 
-   Esignet_KycBioAuth_vid_null_MispLk_Neg:
+   Esignet_KycBioAuth_Vid_null_MispLk_Neg:
       endPoint: /v1/identity/createAuthRequest?id=$ID:Generate_Perpetual_VID_Kyc_Valid_Smoke_sid_vid$&idType=VID&isKyc=true&isInternal=false&transactionId=$TRANSACTIONID$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=bio&moduleName=$MODULENAME$
       role: resident
       restMethod: post
@@ -491,7 +491,7 @@ KycBioAuth:
         "authStatus": false
 }'
 
-   Esignet_KycBioAuth_vid_Null_PartnerId_Neg:
+   Esignet_KycBioAuth_Vid_Null_PartnerId_Neg:
       endPoint: /v1/identity/createAuthRequest?id=$ID:Generate_Perpetual_VID_Kyc_Valid_Smoke_sid_vid$&idType=VID&isKyc=true&isInternal=false&transactionId=$TRANSACTIONID$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=bio&moduleName=$MODULENAME$
       role: resident
       restMethod: post
@@ -554,7 +554,7 @@ KycBioAuth:
         "authStatus": false
 }'
 
-   Esignet_KycBioAuth_vid_Null_ClientId_Neg:
+   Esignet_KycBioAuth_Vid_Null_ClientId_Neg:
       endPoint: /v1/identity/createAuthRequest?id=$ID:Generate_Perpetual_VID_Kyc_Valid_Smoke_sid_vid$&idType=VID&isKyc=true&isInternal=false&transactionId=$TRANSACTIONID$&isNewInternalAuth=false&isPreLTS=false&signWithMisp=true&partnerName=$ID:PartnerSelfRegistration_Misp_Valid_Smoke_sid_partnerId$&keyFileNameByPartnerName=true​&Authtype=bio&moduleName=$MODULENAME$
       role: resident
       restMethod: post

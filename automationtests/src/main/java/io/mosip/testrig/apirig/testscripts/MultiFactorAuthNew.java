@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -84,6 +85,8 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
+		
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 
 		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")

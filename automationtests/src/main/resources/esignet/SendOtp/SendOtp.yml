@@ -559,7 +559,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Invalid_RequestTime_Neg:
+   ESignet_SendOtp_Vid_Invalid_RequestTime_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -582,7 +582,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Diff_RequestTime_Neg:
+   ESignet_SendOtp_Vid_Diff_RequestTime_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -605,7 +605,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Future_RequestTime_Neg:
+   ESignet_SendOtp_Vid_Future_RequestTime_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -628,7 +628,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Invalid_transactionId_Neg:
+   ESignet_SendOtp_Vid_Invalid_transactionId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -651,7 +651,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Expired_transactionId_Neg:
+   ESignet_SendOtp_Vid_Expired_transactionId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -674,7 +674,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Missing_transactionId_Neg:
+   ESignet_SendOtp_Vid_Missing_transactionId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -697,7 +697,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Empty_transactionId_Neg:
+   ESignet_SendOtp_Vid_Empty_transactionId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -720,7 +720,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Null_transactionId_Neg:
+   ESignet_SendOtp_Vid_Null_transactionId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -743,7 +743,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Invalid_individualId_Neg:
+   ESignet_SendOtp_Vid_Invalid_individualId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -766,7 +766,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Missing_individualId_Neg:
+   ESignet_SendOtp_Vid_Missing_individualId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -789,7 +789,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Empty_individualId_Neg:
+   ESignet_SendOtp_Vid_Empty_individualId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -812,7 +812,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Null_individualId_Neg:
+   ESignet_SendOtp_Vid_Null_individualId_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -835,7 +835,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Invalid_OtpChannels_Neg:
+   ESignet_SendOtp_Vid_Invalid_OtpChannels_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -858,7 +858,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Missing_OtpChannels_Neg:
+   ESignet_SendOtp_Vid_Missing_OtpChannels_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -881,7 +881,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Empty_OtpChannels_Neg:
+   ESignet_SendOtp_Vid_Empty_OtpChannels_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -904,7 +904,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Null_OtpChannels_Neg:
+   ESignet_SendOtp_Vid_Null_OtpChannels_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -927,7 +927,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Missing_OtpChannel_Neg:
+   ESignet_SendOtp_Vid_Missing_OtpChannel_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -950,7 +950,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Empty_OtpChannel_Neg:
+   ESignet_SendOtp_Vid_Empty_OtpChannel_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
@@ -973,7 +973,7 @@ SendOtp:
   ]
 }'
 
-   ESignet_SendOtp_vid_Null_OtpChannel_Neg:
+   ESignet_SendOtp_Vid_Null_OtpChannel_Neg:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
