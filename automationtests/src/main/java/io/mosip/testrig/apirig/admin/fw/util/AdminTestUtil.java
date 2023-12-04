@@ -4612,8 +4612,7 @@ public class AdminTestUtil extends BaseTestCase {
 					}
 				}
 			}
-			
-			if (!ConfigManager.isInServiceNotDeployedList(GlobalConstants.ADMIN)) {
+			if (isElementPresent(requiredPropsArray, "individualBiometrics")) {
 				JSONArray requestDocArray = new JSONArray();
 				JSONObject docJson = new JSONObject();
 				docJson.put("value", "{{value}}");
@@ -4635,221 +4634,7 @@ public class AdminTestUtil extends BaseTestCase {
 		identityHbs = requestJson.toString();
 		return identityHbs;
 	}
-
-//	public static String modifySchemaGenerateHbs(boolean regenerateHbs) {
-//		String ja3 = "";
-//		if (identityHbs != null && !regenerateHbs) {
-//			return identityHbs;
-//		}
-//		StringBuffer everything = new StringBuffer("");
-//		kernelAuthLib = new KernelAuthentication();
-//		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
-//		String url = ApplnURI + properties.getProperty(GlobalConstants.MASTER_SCHEMA_URL);
-//		
-//
-//		Response response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON,
-//				GlobalConstants.AUTHORIZATION, token);
-//
-//		org.json.JSONObject responseJson = new org.json.JSONObject(response.asString());
-//		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
-//
-//		Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
-//		logger.info(schemaVersion);
-//		String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
-//
-//		String schemaFile = schemaJsonData;
-//		FileWriter fileWriter1 = null;
-//		FileWriter fileWriter2 = null;
-//		FileWriter fileWriter3 = null;
-//		FileReader fileReader = null;
-//		BufferedReader bufferedReader = null;
-//
-//		boolean emailFieldAdditionallyAdded=false;
-//		boolean phoneFieldAdditionallyAdded=false;
-//		try {
-//			JSONObject jObj = new JSONObject(schemaFile);
-//			JSONObject objIDJson4 = jObj.getJSONObject(GlobalConstants.PROPERTIES);
-//			JSONObject objIDJson = objIDJson4.getJSONObject(GlobalConstants.IDENTITY);
-//			JSONObject objIDJson2 = objIDJson.getJSONObject(GlobalConstants.PROPERTIES);
-//			JSONArray objIDJson1 = objIDJson.getJSONArray(GlobalConstants.REQUIRED);
-//
-//			String phone = getValueFromAuthActuator("json-property", "phone_number");
-//			String result = phone.replaceAll("\\[\"|\"\\]", "");
-//
-//			if (!isElementPresent(objIDJson1, result)) {
-//				objIDJson1.put(result);
-//				phoneFieldAdditionallyAdded=true;
-//			}
-//
-//			//System.out.println("result is:" + result);
-//			String email = getValueFromAuthActuator("json-property", "emailId");
-//			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
-//			if (!isElementPresent(objIDJson1, emailResult)) {
-//				objIDJson1.put(emailResult);
-//				emailFieldAdditionallyAdded=true;
-//			}
-//			
-//
-//			fileWriter1 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS);
-//			fileWriter1.write("{\n");
-//			fileWriter1.write("  \"id\": \"{{id}}\",\n");
-//			fileWriter1.write("  \"request\": {\n");
-//			fileWriter1.write("\t  \"registrationId\": \"{{registrationId}}\",\n");
-//
-//			fileWriter1.write("    \"identity\": {\n");
-//			fileWriter1.write("\t  \"UIN\": \"{{UIN}}\",\n");
-//			fileWriter1.close();
-//
-//			boolean flag = true;
-//			for (int i = 0, size = objIDJson1.length(); i < size; i++) {
-//				String objIDJson3 = objIDJson1.getString(i); // fullName
-//
-//				JSONObject rc1 = (JSONObject) objIDJson2.get(objIDJson3);
-//
-//				if (rc1.has("$ref") && rc1.get("$ref").toString().contains(GlobalConstants.SIMPLETYPE)) {
-//
-//					JSONArray jArray = new JSONArray();
-//
-//					ja3 = "{\n\t\t  \"language\":";
-//					for (int j = 0; j < BaseTestCase.getLanguageList().size(); j++) {
-//
-//					if(BaseTestCase.getLanguageList().get(j)!=null && !BaseTestCase.getLanguageList().get(j).isEmpty())	{
-//							JSONObject studentJSON = new JSONObject();
-//							studentJSON.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(j));
-//							if (objIDJson3.contains(GlobalConstants.FULLNAME) && regenerateHbs == true) {
-//								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3 + "1")); // fullName1
-//							} else if (objIDJson3.contains(GlobalConstants.FIRST_NAME) && regenerateHbs == true) {
-//								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3 + 1)); // fullName1
-//							} else if (objIDJson3.contains(GlobalConstants.GENDER)) {
-//								studentJSON.put(GlobalConstants.VALUE, propsMap.getProperty(objIDJson3));
-//							} else {
-//								studentJSON.put(GlobalConstants.VALUE, (propsMap.getProperty(objIDJson3) == null)
-//										? "TEST_" + objIDJson3
-//										: propsMap.getProperty(objIDJson3) + BaseTestCase.getLanguageList().get(j));
-//							}
-//							jArray.put(studentJSON);
-//						}
-//
-//					}
-//
-//					JSONObject mainObj = new JSONObject();
-//					mainObj.put(GlobalConstants.FULLNAME, jArray);
-//
-//					logger.info(mainObj);
-//
-//					fileWriter2 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS, flag);
-//					flag = true;
-//					fileWriter2.write("\t  \"" + objIDJson3 + "\": \n\t   ");
-//
-//					fileWriter2.write(jArray.toString());
-//					fileWriter2.write("\n\t,\n");
-//					fileWriter2.close();
-//
-//				} else {
-//
-//					fileWriter2 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS, flag);
-//					flag = true;
-//
-//					if (objIDJson3.equals(GlobalConstants.PROOFOFIDENTITY)) {
-//						fileWriter2.write("\t  \"proofOfIdentity\": {\n" + "\t\t\"format\": \"txt\",\n"
-//								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
-//					}
-//
-//					else if (objIDJson3.equals(result)) {
-//						
-//						if(phoneFieldAdditionallyAdded) {
-//							fileWriter2
-//							.write(",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
-//						}
-//						else {
-//							fileWriter2
-//							.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
-//						}
-//						
-//						/*
-//						 * fileWriter2 .write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" +
-//						 * objIDJson3 + "}}\"" + ",\n");
-//						 */
-//					}
-//
-//					else if (objIDJson3.equals(emailResult)) {
-//						if(emailFieldAdditionallyAdded) {
-//							fileWriter2
-//							.write(",\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + "\n");
-//						}
-//						else {
-//							fileWriter2
-//							.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
-//						}
-//						
-//					}
-//
-//					else if (objIDJson3.equals(GlobalConstants.INDIVIDUALBIOMETRICS)) {
-//						fileWriter2.write("\t  \"individualBiometrics\": {\n" + "\t\t\"format\": \"cbeff\",\n"
-//								+ "\t\t\"version\": 1,\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  }\n");
-//					} else if (objIDJson3.equals(GlobalConstants.PROOF_OF_ADDRESS)) {
-//						fileWriter2.write("\t  \"proofOfAddress\": {\n" + "\t\t\"format\": \"txt\",\n"
-//								+ "\t\t\"type\": \"DOC001\",\n" + "\t\t\"value\": \"fileReferenceID\"\n" + "\t  },\n");
-//					}
-//
-//					else if (objIDJson3.equals(GlobalConstants.IDSCHEMAVERSION)) {
-//						fileWriter2.write("\t  \"" + objIDJson3 + "\":" + " " + "" + "" + schemaVersion + "" + ",\n");
-//					}
-//
-//					else {
-//						fileWriter2
-//								.write("\t  \"" + objIDJson3 + "\":" + " " + "\"" + "{{" + objIDJson3 + "}}\"" + ",\n");
-//
-//					}
-//					fileWriter2.close();
-//
-//				}
-//
-//			}
-//			fileWriter3 = new FileWriter(GlobalConstants.ADDIDENTITY_HBS, true);
-//
-//			fileWriter3.write("\t},\n");
-//			fileWriter3.write("\t\"documents\": [\n" + "\t  {\n" + "\t\t\"value\": \"{{value}}\",\n"
-//					+ "\t\t\"category\": \"{{category}}\"\n" + "\t  }\n" + "\t]\n");
-//			fileWriter3.write("},\n");
-//
-//			fileWriter3.write("\t\"requesttime\": \"{{requesttime}}\",\n");
-//			fileWriter3.write("\t\"version\": \"{{version}}\"\n");
-//			fileWriter3.write("}\n");
-//			fileWriter3.close();
-//
-//			fileReader = new FileReader(GlobalConstants.ADDIDENTITY_HBS);
-//			bufferedReader = new BufferedReader(fileReader);
-//			try {
-//				StringBuilder sb = new StringBuilder();
-//				String line = bufferedReader.readLine();
-//
-//				while (line != null) {
-//					sb.append(line);
-//					sb.append(System.lineSeparator());
-//					line = bufferedReader.readLine();
-//
-//					StringBuffer everythingtrue = new StringBuffer(sb.toString());
-//					everything = everythingtrue;
-//				}
-//
-//			} finally {
-//				bufferedReader.close();
-//			}
-//
-//		} catch (NullPointerException | IOException e) {
-//			logger.error(e.getMessage());
-//		} finally {
-//			closeFileWriter(fileWriter1);
-//			closeFileWriter(fileWriter2);
-//			closeFileWriter(fileWriter3);
-//			closeFileReader(fileReader);
-//			closeBufferedReader(bufferedReader);
-//		}
-//		identityHbs = everything.toString();
-//		return identityHbs;
-//	}
-
+	
 	public static String generateLatestSchemaVersion() {
 
 		kernelAuthLib = new KernelAuthentication();
@@ -4890,6 +4675,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
 
 		String schemaFile = schemaJsonData;
+		String phoneNumber = "";
 
 		try {
 			JSONObject schemaFileJson = new JSONObject(schemaFile); // jObj
@@ -4897,6 +4683,16 @@ public class AdminTestUtil extends BaseTestCase {
 			JSONObject schemaIdentityJson = schemaPropsJson.getJSONObject("identity"); // objIDJson
 			JSONObject identityPropsJson = schemaIdentityJson.getJSONObject("properties"); // objIDJson2
 			JSONArray requiredPropsArray = schemaIdentityJson.getJSONArray("required"); // objIDJson1
+			
+			String phone = getValueFromAuthActuator("json-property", "phone_number");
+			String result = phone.replaceAll("\\[\"|\"\\]", "");
+
+			if (!isElementPresent(requiredPropsArray, result)) {
+				requiredPropsArray.put(result);
+			}
+			if (identityPropsJson.has(result))
+				phoneNumber = genStringAsperRegex(identityPropsJson.getJSONObject(result).getJSONArray("validators").getJSONObject(0).getString("validator"));
+
 
 			requestJson.put("id", "{{id}}");
 			requestJson.put("requesttime", "{{requesttime}}");
@@ -4937,6 +4733,23 @@ public class AdminTestUtil extends BaseTestCase {
 						identityJson.getJSONObject(eachRequiredProp).put("version", 1);
 						identityJson.getJSONObject(eachRequiredProp).put("value", "fileReferenceID");
 					}
+					else if (eachRequiredProp.equals("password")) {
+						identityJson.put(eachRequiredProp, new HashMap<>());
+						identityJson.getJSONObject(eachRequiredProp).put("hash", addIdentityPassword);
+						identityJson.getJSONObject(eachRequiredProp).put("salt", addIdentitySalt);
+					}
+					else if (eachRequiredProp.equals("preferredLang")) {
+						identityJson.put(eachRequiredProp, "$1STLANG$");
+					}
+					else if (eachRequiredProp.equals("registrationType")) {
+						identityJson.put(eachRequiredProp, genStringAsperRegex(eachPropDataJson.getJSONArray("validators").getJSONObject(0).getString("validator")));
+					}
+					else if (eachRequiredProp.equals(result)) {
+//						String regexPattern = genStringAsperRegex(eachPropDataJson.getJSONArray("validators").getJSONObject(0).getString("validator"));
+//						if (regexPattern != null)
+							if (phoneNumber != null)
+								identityJson.put(eachRequiredProp, phoneNumber);
+					}
 
 					else if (eachRequiredProp.equals("IDSchemaVersion")) {
 						identityJson.put(eachRequiredProp, schemaVersion);
@@ -4954,17 +4767,19 @@ public class AdminTestUtil extends BaseTestCase {
 					}
 				}
 			}
+			
+			if (isElementPresent(requiredPropsArray, "individualBiometrics")) {
+				JSONArray requestDocArray = new JSONArray();
+				JSONObject docJson = new JSONObject();
+				docJson.put("value", "{{value}}");
+				docJson.put("category", "{{category}}");
+				requestDocArray.put(docJson);
 
-			JSONArray requestDocArray = new JSONArray();
-			JSONObject docJson = new JSONObject();
-			docJson.put("value", "{{value}}");
-			docJson.put("category", "individualBiometrics");
-			requestDocArray.put(docJson);
-
-			requestJson.getJSONObject("request").put("documents", requestDocArray);
+				requestJson.getJSONObject("request").put("documents", requestDocArray);
+			}
 			requestJson.getJSONObject("request").put("identity", identityJson);
 
-		} catch (NullPointerException e) {
+		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 
@@ -5999,12 +5814,52 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String isTestCaseValidForExecution(TestCaseDTO testCaseDTO) {
 		String testCaseName = testCaseDTO.getTestCaseName();
-		if ((ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET)) && BaseTestCase.currentModule.equalsIgnoreCase("resident")
-				&& testCaseName.contains("_SignJWT_")) {
+		JSONArray dobArray = new JSONArray(getValueFromAuthActuator("json-property", "dob"));
+		JSONArray emailArray = new JSONArray(getValueFromAuthActuator("json-property", "emailId"));
+		JSONArray individualBiometricsArray = new JSONArray(
+				getValueFromAuthActuator("json-property", "individualBiometrics"));
+		String dob = dobArray.getString(0);
+		String email = emailArray.getString(0);
+		String individualBiometrics = individualBiometricsArray.getString(0);
+
+		if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.IDREPO)) {
+			if (testCaseName.startsWith("IdRepository_") && testCaseName.contains("DOB")
+					&& (!isElementPresent(new JSONArray(schemaRequiredField), dob))) {
+				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
+			}
+
+			else if (testCaseName.startsWith("IdRepository_") && testCaseName.contains("Email")
+					&& (!isElementPresent(new JSONArray(schemaRequiredField), email))) {
+				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
+			}
+
+			else if (testCaseName.startsWith("IdRepository_") && testCaseName.contains("Invalid_BioVal")
+					&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ADMIN))) {
+				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
+			}
+		} else if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.AUTH)) {
+			if (testCaseName.startsWith("auth_")
+					&& (testCaseName.contains("_BioAuth_") || testCaseName.contains("_EkycBio_")
+							|| testCaseName.contains("_MultiFactorAuth_") || testCaseName.contains("_DemoAuth_")
+							|| testCaseName.contains("_EkycDemo_"))
+					&& (!isElementPresent(new JSONArray(schemaRequiredField), individualBiometrics))) {
+				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
+			}
+		} else if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.ESIGNET)) {
+			if ((testCaseName.startsWith("Esignet_") || testCaseName.startsWith("ESignet_"))
+					&& (testCaseName.contains("_KycBioAuth_") || testCaseName.contains("_BioAuth_"))
+					&& (!isElementPresent(new JSONArray(schemaRequiredField), individualBiometrics))) {
+				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
+			}
+		}
+
+		if ((ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET))
+				&& BaseTestCase.currentModule.equalsIgnoreCase("resident") && testCaseName.contains("_SignJWT_")) {
 			throw new SkipException("esignet module is not deployed");
 		}
 
-		if ((ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET)) && BaseTestCase.currentModule.equalsIgnoreCase("resident")
+		if ((ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET))
+				&& BaseTestCase.currentModule.equalsIgnoreCase("resident")
 				&& (testCaseDTO.getRole() != null && (testCaseDTO.getRole().equalsIgnoreCase("residentNew")
 						|| testCaseDTO.getRole().equalsIgnoreCase("residentNewVid")))) {
 			throw new SkipException("esignet module is not deployed");

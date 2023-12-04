@@ -101,24 +101,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 								new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(),
 						"response.uin");
 		
-		JSONArray dobArray = new JSONArray(getValueFromAuthActuator("json-property", "dob"));
-		JSONArray emailArray = new JSONArray(getValueFromAuthActuator("json-property", "emailId"));
-		String dob = dobArray.getString(0);
-		String email = emailArray.getString(0);
-		if (testCaseName.startsWith("IdRepository_") && testCaseName.contains("DOB")
-				&& (!isElementPresent(new JSONArray(schemaRequiredField), dob))) {
-			throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
-		}
-		
-		if (testCaseName.startsWith("IdRepository_") && testCaseName.contains("Email")
-				&& (!isElementPresent(new JSONArray(schemaRequiredField), email))) {
-			throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
-		}
-
-		if (testCaseName.startsWith("IdRepository_") && testCaseName.contains("Invalid_BioVal")
-				&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ADMIN))) {
-			throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
-		}
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 
 		DateFormat dateFormatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		Calendar cal = Calendar.getInstance();

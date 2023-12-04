@@ -418,7 +418,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_Invalid_RequestTime_Neg:
+   ESignet_SendBindingOtp_Vid_Invalid_RequestTime_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
@@ -441,7 +441,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_Past_RequestTime_Neg:
+   ESignet_SendBindingOtp_Vid_Past_RequestTime_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
@@ -464,7 +464,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_Future_RequestTime_Neg:
+   ESignet_SendBindingOtp_Vid_Future_RequestTime_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
@@ -487,7 +487,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_Missing_RequestTime_Neg:
+   ESignet_SendBindingOtp_Vid_Missing_RequestTime_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
@@ -510,7 +510,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_Space_As_RequestTime_Neg:
+   ESignet_SendBindingOtp_Vid_Space_As_RequestTime_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
@@ -533,7 +533,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_invalid_individual_id_Neg:
+   ESignet_SendBindingOtp_Vid_invalid_individual_id_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
@@ -556,7 +556,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_Invalid_Case_IndividualId_Neg:
+   ESignet_SendBindingOtp_Vid_Invalid_Case_IndividualId_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
@@ -579,7 +579,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_Missing_IndividualId_Neg:
+   ESignet_SendBindingOtp_Vid_Missing_IndividualId_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
@@ -602,7 +602,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_Empty_IndividualId_Neg:
+   ESignet_SendBindingOtp_Vid_Empty_IndividualId_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
@@ -625,7 +625,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_Missing_OtpChannels_Neg:
+   ESignet_SendBindingOtp_Vid_Missing_OtpChannels_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
@@ -648,7 +648,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_Empty_OtpChannels_Neg:
+   ESignet_SendBindingOtp_Vid_Empty_OtpChannels_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
@@ -671,7 +671,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_Invalid_OtpChannels_Neg:
+   ESignet_SendBindingOtp_Vid_Invalid_OtpChannels_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true
@@ -694,7 +694,7 @@ SendBindingOtp:
   ]
 }'
 
-   ESignet_SendBindingOtp_vid_Space_Sep_OtpChannels_Neg:
+   ESignet_SendBindingOtp_Vid_Space_Sep_OtpChannels_Neg:
       endPoint: /v1/esignet/binding/binding-otp
       role: mobileauth
       validityCheckRequired: true

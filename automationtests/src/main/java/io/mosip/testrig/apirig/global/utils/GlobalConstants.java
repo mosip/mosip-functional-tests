@@ -5,6 +5,7 @@ import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 public class GlobalConstants {
 	public static final String PREREG = "prereg";
 	public static final String RESIDENT = "resident";
+	public static final String AUTH = "auth";
 	public static final String RESIDENTNEW = "residentNew";
 	public static final String MASTERDATA = "masterdata";
 	public static final String PREREGISTRATIONID = "preRegistrationId";
