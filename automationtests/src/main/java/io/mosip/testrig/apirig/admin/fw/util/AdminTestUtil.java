@@ -3467,7 +3467,8 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static String signJWK(String clientId, String accessToken, RSAKey jwkKey, String testCaseName) {
-		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.base.url");
+//		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.base.url");
+		String tempUrl = getValueFromEsignetWellKnownEndPoint("issuer") + "/v1/esignet";
 		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
 				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 		JWSSigner signer;
@@ -5587,7 +5588,8 @@ public class AdminTestUtil extends BaseTestCase {
 //	}
 
 	public static String signJWKKey(String clientId, RSAKey jwkKey) {
-		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.token_endpoint");
+//		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.token_endpoint");
+		String tempUrl = getValueFromEsignetWellKnownEndPoint("token_endpoint");
 		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
 				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 		JWSSigner signer;
@@ -5699,6 +5701,23 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 		}
 		return Integer.parseInt(otpExpTime);
+	}
+	
+	public static String getValueFromEsignetWellKnownEndPoint(String key) {
+		String url = ApplnURI + propsKernel.getProperty("esignetWellKnownEndPoint");
+		Response response = null;
+		JSONObject responseJson = null;
+		if (responseJson == null) {
+			try {
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+				responseJson = new org.json.JSONObject(response.getBody().asString());
+				return responseJson.getString(key);
+				
+			} catch (Exception e) {
+				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			}
+		}
+		return responseJson.getString(key);
 	}
 	
 	public static JSONArray residentActuatorResponseArray = null;
