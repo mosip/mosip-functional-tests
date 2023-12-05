@@ -138,7 +138,11 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 
 		requestBody.put("id", individualId);
 		requestBody.put("keyFileNameByPartnerName", GlobalConstants.TRUE_STRING);
-		requestBody.put("partnerName", PartnerRegistration.partnerId);
+		if (testCaseName.startsWith("auth_EkycOtp_")) {
+			requestBody.put("partnerName", PartnerRegistration.ekycPartnerId);
+		}else {
+			requestBody.put("partnerName", PartnerRegistration.partnerId);
+		}
 		requestBody.put("moduleName", BaseTestCase.certsForModule);
 		requestBody.put(GlobalConstants.TRANSACTIONID, "$TRANSACTIONID$");
 

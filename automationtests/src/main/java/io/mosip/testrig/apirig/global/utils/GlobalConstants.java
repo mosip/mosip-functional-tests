@@ -214,4 +214,5 @@ public class GlobalConstants {
 	public static final String IGNORED_SUBSET_STRING = "feature not supported;Service not deployed";
 	public static final String SKIPPED = "Skipped";
 	public static final String TARGET_ENV_HEALTH_CHECK_FAILED = "Target env health check failed ";
+	public static final String HOTLIST = "hotlist";
 }
