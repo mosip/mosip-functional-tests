@@ -31,7 +31,7 @@ AuthenticateUserNonAuth:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -69,7 +69,7 @@ AuthenticateUserNonAuth:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
