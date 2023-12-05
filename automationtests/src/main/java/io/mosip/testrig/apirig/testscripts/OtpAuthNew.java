@@ -103,6 +103,8 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
 			}
 		}
+		
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 
 		if (testCaseDTO.getEndPoint().contains("$PartnerKeyURL$")) {
 			testCaseDTO.setEndPoint(
@@ -138,11 +140,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 
 		requestBody.put("id", individualId);
 		requestBody.put("keyFileNameByPartnerName", GlobalConstants.TRUE_STRING);
-		if (testCaseName.startsWith("auth_EkycOtp_")) {
-			requestBody.put("partnerName", PartnerRegistration.ekycPartnerId);
-		}else {
-			requestBody.put("partnerName", PartnerRegistration.partnerId);
-		}
+		requestBody.put("partnerName", PartnerRegistration.partnerId);
 		requestBody.put("moduleName", BaseTestCase.certsForModule);
 		requestBody.put(GlobalConstants.TRANSACTIONID, "$TRANSACTIONID$");
 

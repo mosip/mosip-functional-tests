@@ -162,14 +162,14 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 
 		inputJson = inputJson.replace("$RID$", genRid);
 		
-		if ((testCaseName.startsWith("IdRepository_") || testCaseName.startsWith("auth_"))
+		if ((testCaseName.startsWith("IdRepository_") || testCaseName.startsWith("Auth_"))
 				&& inputJson.contains("dateOfBirth") && (!isElementPresent(new JSONArray(schemaRequiredField), dob))) {
 			JSONObject reqJson = new JSONObject(inputJson);
 			reqJson.getJSONObject("request").getJSONObject("identity").remove("dateOfBirth");
 			inputJson = reqJson.toString();
 		}
 		
-		if ((testCaseName.startsWith("IdRepository_") || testCaseName.startsWith("auth_"))
+		if ((testCaseName.startsWith("IdRepository_") || testCaseName.startsWith("Auth_"))
 				&& inputJson.contains("email")
 				&& (!isElementPresent(new JSONArray(schemaRequiredField), emailResult))) {
 			JSONObject reqJson = new JSONObject(inputJson);
