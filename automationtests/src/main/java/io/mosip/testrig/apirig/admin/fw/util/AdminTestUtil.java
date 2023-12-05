@@ -5840,10 +5840,25 @@ public class AdminTestUtil extends BaseTestCase {
 		} else if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.AUTH)) {
 			if (testCaseName.startsWith("auth_")
 					&& (testCaseName.contains("_BioAuth_") || testCaseName.contains("_EkycBio_")
-							|| testCaseName.contains("_MultiFactorAuth_") || testCaseName.contains("_DemoAuth_")
+							|| testCaseName.contains("_MultiFactorAuth_") || testCaseName.contains("_DemoAuth")
 							|| testCaseName.contains("_EkycDemo_"))
 					&& (!isElementPresent(new JSONArray(schemaRequiredField), individualBiometrics))) {
 				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
+			} else if (testCaseName.startsWith("auth_") && (testCaseName.contains("_DeactivateUINs_"))
+					&& (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+							&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid"))) {
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
+			} else if (testCaseName.startsWith("auth_")
+					&& (testCaseName.contains("_AuthLock_") || testCaseName.contains("_AuthUnLock_"))
+					&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT))) {
+				throw new SkipException(GlobalConstants.SERVICE_NOT_DEPLOYED_MESSAGE);
+			} else if (testCaseName.startsWith("auth_")
+					&& (testCaseName.contains("_BlockHotlistAPI_") || testCaseName.contains("_HotlistAPI_")
+							|| testCaseName.contains("_BlockPartnerId_")
+							|| testCaseName.contains("_OTP_Auth_With_blocked_misp_Pos")
+							|| testCaseName.contains("_OTP_Auth_With_blocked_partnerid_Pos"))
+					&& (ConfigManager.isInServiceNotDeployedList(GlobalConstants.HOTLIST))) {
+				throw new SkipException(GlobalConstants.SERVICE_NOT_DEPLOYED_MESSAGE);
 			}
 		} else if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.ESIGNET)) {
 			if ((testCaseName.startsWith("Esignet_") || testCaseName.startsWith("ESignet_"))
