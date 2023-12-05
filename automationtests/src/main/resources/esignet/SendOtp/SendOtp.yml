@@ -15,7 +15,7 @@ SendOtp:
 }'
       output: '{
         "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "XXXXXX3210"
+    	"maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendOtp_NR_Email_Uin_Neg:
@@ -34,7 +34,7 @@ SendOtp:
 }'
       output: '{
         "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "XXXXXX3210"
+    	"maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendOtp_NR_Phone_Uin_Neg:
@@ -73,7 +73,7 @@ SendOtp:
 }'
       output: '{
         "maskedEmail": "$IGNORE$",
-    	"maskedMobile": "XXXXXX3210"
+    	"maskedMobile": "$IGNORE$"
 }'
 
    ESignet_SendOtp_uin_SpaceSeparated_otpChannels_Neg:

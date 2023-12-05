@@ -559,36 +559,36 @@ public class BaseTestCase {
 		if (!languageList.isEmpty()) {
 			return languageList;
 		}
-		languageList.add("eng");
-		languageList.add("khm");
+
+		String section = "";
+		String optionalLanguages = null;
+		String mandatoryLanguages = null;
+		if (isTargetEnvLTS())
+			section = "/mosip-config/application-default.properties";
+		else
+			section = "/mosip-config/sandbox/admin-mz.properties";
+		try {
+
+			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"), section,
+					"mosip.optional-languages");
+
+			logger.info("optionalLanguages from env:" + optionalLanguages);
+
+			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"), section,
+					"mosip.mandatory-languages");
+
+			logger.info("mandatoryLanguages from env:" + mandatoryLanguages);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (mandatoryLanguages != null && !mandatoryLanguages.isBlank())
+			languageList.addAll(Arrays.asList(mandatoryLanguages.split(",")));
+
+		if (optionalLanguages != null && !optionalLanguages.isBlank())
+			languageList.addAll(Arrays.asList(optionalLanguages.split(",")));
+		logger.info("languageList from env:" + languageList);
 		return languageList;
-		
-        //	Uncomment the below once the language configurations are properly set on the env.	
-		/*
-		 * String section = ""; String optionalLanguages=null; String
-		 * mandatoryLanguages=null; if (isTargetEnvLTS()) section =
-		 * "/mosip-config/application-default.properties"; else section =
-		 * "/mosip-config/sandbox/admin-mz.properties"; try {
-		 * 
-		 * optionalLanguages =
-		 * getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"),
-		 * section, "mosip.optional-languages");
-		 * 
-		 * logger.info("optionalLanguages from env:" + optionalLanguages);
-		 * 
-		 * mandatoryLanguages =
-		 * getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"),
-		 * section, "mosip.mandatory-languages");
-		 * 
-		 * logger.info("mandatoryLanguages from env:" + mandatoryLanguages); }
-		 * catch(Exception e) { e.printStackTrace(); } if (mandatoryLanguages != null &&
-		 * !mandatoryLanguages.isBlank())
-		 * languageList.addAll(Arrays.asList(mandatoryLanguages.split(",")));
-		 * 
-		 * if (optionalLanguages != null && !optionalLanguages.isBlank())
-		 * languageList.addAll(Arrays.asList(optionalLanguages.split(",")));
-		 * logger.info("languageList from env:" + languageList); return languageList;
-		 */
+
 	}
 	
 	private static String targetEnvVersion = "";
@@ -620,42 +620,44 @@ public class BaseTestCase {
 		if (!supportedIdType.isEmpty()) {
 			return supportedIdType;
 		}
-		supportedIdType.add("UIN");
-		return supportedIdType;
-		
-		/*
-		 * String section = "/mosip-config/id-authentication-default.properties"; if
-		 * (!BaseTestCase.isTargetEnvLTS()) section =
-		 * "/mosip-config/sandbox/id-authentication-lts.properties";
-		 * 
-		 * Response response = null;
-		 * 
-		 * org.json.JSONObject responseJson = null; JSONArray responseArray = null;
-		 * String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint"); try {
-		 * response = RestClient.getRequest(url, MediaType.APPLICATION_JSON,
-		 * MediaType.APPLICATION_JSON);
-		 * GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url,
-		 * response);
-		 * 
-		 * responseJson = new org.json.JSONObject(response.getBody().asString());
-		 * responseArray = responseJson.getJSONArray("propertySources");
-		 * 
-		 * for (int i = 0, size = responseArray.length(); i < size; i++) {
-		 * org.json.JSONObject eachJson = responseArray.getJSONObject(i);
-		 * logger.info("eachJson is :" + eachJson.toString()); if
-		 * (eachJson.get("name").toString().contains(section)) { org.json.JSONObject
-		 * idTypes = (org.json.JSONObject) eachJson.getJSONObject("properties")
-		 * .get("request.idtypes.allowed"); String newIdTypes =
-		 * idTypes.getString(GlobalConstants.VALUE);
-		 * 
-		 * supportedIdType.addAll(Arrays.asList((newIdTypes).split(",")));
-		 * 
-		 * break; } }
-		 * 
-		 * return supportedIdType; } catch (Exception e) {
-		 * logger.error(GlobalConstants.EXCEPTION_STRING_2 + e); return supportedIdType;
-		 * }
-		 */
+//		supportedIdType.add("UIN");
+//		return supportedIdType;
+
+		String section = "/mosip-config/id-authentication-default.properties";
+		if (!BaseTestCase.isTargetEnvLTS())
+			section = "/mosip-config/sandbox/id-authentication-lts.properties";
+
+		Response response = null;
+
+		org.json.JSONObject responseJson = null;
+		JSONArray responseArray = null;
+		String url = ApplnURI + propsKernel.getProperty("actuatorIDAEndpoint");
+		try {
+			response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+			GlobalMethods.reportResponse(response.getHeaders().asList().toString(), url, response);
+
+			responseJson = new org.json.JSONObject(response.getBody().asString());
+			responseArray = responseJson.getJSONArray("propertySources");
+
+			for (int i = 0, size = responseArray.length(); i < size; i++) {
+				org.json.JSONObject eachJson = responseArray.getJSONObject(i);
+				logger.info("eachJson is :" + eachJson.toString());
+				if (eachJson.get("name").toString().contains(section)) {
+					org.json.JSONObject idTypes = (org.json.JSONObject) eachJson.getJSONObject("properties")
+							.get("request.idtypes.allowed");
+					String newIdTypes = idTypes.getString(GlobalConstants.VALUE);
+
+					supportedIdType.addAll(Arrays.asList((newIdTypes).split(",")));
+
+					break;
+				}
+			}
+
+			return supportedIdType;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			return supportedIdType;
+		}
 
 	}
 
