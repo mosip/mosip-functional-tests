@@ -559,6 +559,25 @@ OtpAuth:
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
+  auth_OTP_Auth_With_IRIS_as_true_anddo_auth_policy:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$&partnerUrlSuffix=$UpdatedPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: ida/OtpAuth/OtpAuth
+      outputTemplate: ida/OtpAuth/OtpAuthResult
+      input: '{
+         "otp": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_EMAIL$",
+        "individualId": "$ID:AddIdentity_For_Otp_Auth_smoke_Pos_UIN$",
+        "transactionID": "$TRANSACTIONID$",
+      "timestamp": "$TIMESTAMP$"
+    }'
+      output: '{
+  "authStatus": "false",
+ "sendOtpResp":{
+        "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
+    }
+}'
 #  auth_OTP_Auth_With_Uin_withou_Email_Smoke_Pos:
 #      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_without_Email_UIN$&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
 #      role: resident

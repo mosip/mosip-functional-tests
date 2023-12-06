@@ -530,7 +530,6 @@ public class OutputValidationUtil extends AuthTestsUtil {
 		} catch (JSONException e) {
 			OUTPUTVALIDATION_LOGGER.error("Invalid JSON response: " + responseString);
 		}
-			
 		return breturn;
 	}
 
@@ -543,7 +542,7 @@ public class OutputValidationUtil extends AuthTestsUtil {
 		} catch (JSONException e) {
 			OUTPUTVALIDATION_LOGGER.error("Invalid JSON response: " + responseString);
 		}
-			
+
 		return false;
 	}
 

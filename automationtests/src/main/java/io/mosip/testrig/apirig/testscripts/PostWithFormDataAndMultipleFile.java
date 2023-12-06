@@ -87,7 +87,6 @@ public class PostWithFormDataAndMultipleFile extends AdminTestUtil implements IT
 				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
 			}
 		}
-		
 		response = postWithFormDataAndMultipleFile(ApplnURI + testCaseDTO.getEndPoint(),
 				getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), testCaseDTO.getRole(),
 				testCaseDTO.getTestCaseName(), idKeyName);

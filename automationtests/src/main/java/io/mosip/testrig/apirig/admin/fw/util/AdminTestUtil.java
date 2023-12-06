@@ -165,6 +165,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String RESOURCE_FOLDER_NAME = "MosipTemporaryTestResource";
 	protected static String genertedUIN = null;
 	protected static String generatedRid = null;
+	protected static String policygroupId = null;
 	protected static String regDeviceResponse = null;
 	protected static String generatedVID = null;
 	public static final String RANDOM_ID = "mosip" + generateRandomNumberString(2)
@@ -179,6 +180,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String AUTHORIZATHION_HEADERNAME = GlobalConstants.AUTHORIZATION;
 	public static final String AUTH_HEADER_VALUE = "Some String";
 	public static final String SIGNATURE_HEADERNAME = GlobalConstants.SIGNATURE;
+	public static String updatedPolicyId="";
 	public static BioDataUtility bioDataUtil = new BioDataUtility();
 
 	public static BioDataUtility getBioDataUtil() {
@@ -203,6 +205,9 @@ public class AdminTestUtil extends BaseTestCase {
 	protected static final String AUTH_POLICY_BODY = "config/AuthPolicy.json";
 	protected static final String AUTH_POLICY_REQUEST = "config/AuthPolicy3.json";
 	protected static final String AUTH_POLICY_REQUEST_ATTR = "config/AuthPolicy2.json";
+	protected static final String AUTH_POLICY_BODY1 = "config/AuthPolicy4.json";
+	protected static final String AUTH_POLICY_REQUEST1 = "config/AuthPolicy5.json";
+	protected static final String AUTH_POLICY_REQUEST_ATTR1 = "config/AuthPolicy6.json";
 	protected static final String POLICY_GROUP_REQUEST = "config/policyGroup.json";
 	protected static final String ESIGNET_PAYLOAD = "config/esignetPayload.json";
 	protected static Map<String, String> keycloakRolesMap = new HashMap<>();
@@ -5339,7 +5344,7 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		String responseBody2 = response2.getBody().asString();
-		String policygroupId = new org.json.JSONObject(responseBody2).getJSONObject(GlobalConstants.RESPONSE)
+		 policygroupId = new org.json.JSONObject(responseBody2).getJSONObject(GlobalConstants.RESPONSE)
 				.getString("id");
 		
 		String urlForUpdate = ApplnURI + properties.getProperty("authPolicyUrl")+"/"+policygroupId;
@@ -5394,19 +5399,15 @@ public class AdminTestUtil extends BaseTestCase {
 
 		actualrequest.put(GlobalConstants.REQUEST, modifiedReq);
 
-		Response response2 = RestClient.postRequestWithCookie(url2, actualrequest, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
-		String responseBody2 = response2.getBody().asString();
-		String policygroupId = new org.json.JSONObject(responseBody2).getJSONObject(GlobalConstants.RESPONSE)
-				.getString("id");
+		
 		String urlForUpdate = ApplnURI + properties.getProperty("authPolicyUrl")+"/"+policygroupId;
 		Response responseForUpdate = RestClient.postRequestWithCookie(urlForUpdate, actualrequest, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 
 		String url = ApplnURI + properties.getProperty("authPolicyUrl");
-		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY);
-		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST);
-		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR);
+		org.json.simple.JSONObject actualrequestBody = getRequestJson(AUTH_POLICY_BODY1);
+		org.json.simple.JSONObject actualrequest2 = getRequestJson(AUTH_POLICY_REQUEST1);
+		org.json.simple.JSONObject actualrequestAttr = getRequestJson(AUTH_POLICY_REQUEST_ATTR1);
 
 		actualrequest2.put("name", policyNameForUpdate);
 		actualrequest2.put("policyGroupName", policyGroup);
@@ -5416,12 +5417,12 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = RestClient.postRequestWithCookie(url, actualrequestBody, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
 		String responseBody = response.getBody().asString();
-		String policyId = new org.json.JSONObject(responseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
+		 updatedPolicyId = new org.json.JSONObject(responseBody).getJSONObject(GlobalConstants.RESPONSE).getString("id");
 
 		String url3 = ApplnURI + properties.getProperty("publishPolicyurl");
 
 		if (url3.contains("POLICYID")) {
-			url3 = url3.replace("POLICYID", policyId);
+			url3 = url3.replace("POLICYID", updatedPolicyId);
 			url3 = url3.replace("POLICYGROUPID", policygroupId);
 
 		}
@@ -5624,7 +5625,6 @@ public class AdminTestUtil extends BaseTestCase {
 				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
 				responseJson = new org.json.JSONObject(response.getBody().asString());
 				return responseJson.getString(key);
-
 			} catch (Exception e) {
 				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			}

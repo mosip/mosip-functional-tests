@@ -99,16 +99,13 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
-
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
-
 		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
 				throw new SkipException(GlobalConstants.UIN_FEATURE_NOT_SUPPORTED);
 			}
 		}
-
 		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
