@@ -258,6 +258,7 @@ public class EmailableReport implements IReporter {
 				int skippedTests = testResult.getSkippedTestCount();
 				int failedTests = testResult.getFailedTestCount();
 				long duration = testResult.getDuration();
+				int totalTests = 0;
 
 				writer.print("<tr");
 //				if ((testIndex % 2) == 1) {
@@ -268,15 +269,22 @@ public class EmailableReport implements IReporter {
 				buffer.setLength(0);
 				writeTableData(buffer.append("<a href=\"#t").append(testIndex).append("\">")
 						.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString());
+				totalTests = ConfigManager.reportIgnoredTestCases()
+						? (passedTests + skippedTests + failedTests + ignoredTests)
+						: (passedTests + skippedTests + failedTests);
 				if (ConfigManager.reportIgnoredTestCases()) {
 					writeTableData(integerFormat.format(passedTests + skippedTests + failedTests + ignoredTests),
 							"num");
 				} else {
+					// All test cases are ignored. Hence don't print anything in the report.
+					if (totalTests == ignoredTests)
+						continue;
 					writeTableData(integerFormat.format(passedTests + skippedTests + failedTests), "num");
 				}
 				writeTableData(integerFormat.format(passedTests), (passedTests > 0 ? "num green-bg" : "num"));
 				writeTableData(integerFormat.format(skippedTests), (skippedTests > 0 ? "num orange-bg" : "num"));
 				writeTableData(integerFormat.format(failedTests), (failedTests > 0 ? GlobalConstants.NUMATTN : "num"));
+				// print the ignored column based on the flag
 				if (ConfigManager.reportIgnoredTestCases()) {
 					writeTableData(integerFormat.format(ignoredTests), (ignoredTests > 0 ? "num grey-bg" : "num"));
 				}
