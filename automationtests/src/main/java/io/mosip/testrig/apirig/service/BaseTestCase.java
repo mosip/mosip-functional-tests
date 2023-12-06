@@ -559,36 +559,36 @@ public class BaseTestCase {
 		if (!languageList.isEmpty()) {
 			return languageList;
 		}
+
 		String section = "";
-		String optionalLanguages=null;
-		String mandatoryLanguages=null;
-		if (isTargetEnvLTS()) 
+		String optionalLanguages = null;
+		String mandatoryLanguages = null;
+		if (isTargetEnvLTS())
 			section = "/mosip-config/application-default.properties";
-		else 
+		else
 			section = "/mosip-config/sandbox/admin-mz.properties";
 		try {
-	
-			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
-				section, "mosip.optional-languages");
-			
+
+			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"), section,
+					"mosip.optional-languages");
+
 			logger.info("optionalLanguages from env:" + optionalLanguages);
-			
-			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
-				section, "mosip.mandatory-languages");
-			
+
+			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"), section,
+					"mosip.mandatory-languages");
+
 			logger.info("mandatoryLanguages from env:" + mandatoryLanguages);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		if (mandatoryLanguages != null && !mandatoryLanguages.isBlank())
 			languageList.addAll(Arrays.asList(mandatoryLanguages.split(",")));
-		
+
 		if (optionalLanguages != null && !optionalLanguages.isBlank())
 			languageList.addAll(Arrays.asList(optionalLanguages.split(",")));
 		logger.info("languageList from env:" + languageList);
 		return languageList;
+
 	}
 	
 	private static String targetEnvVersion = "";
@@ -620,11 +620,13 @@ public class BaseTestCase {
 		if (!supportedIdType.isEmpty()) {
 			return supportedIdType;
 		}
-		
+//		supportedIdType.add("UIN");
+//		return supportedIdType;
+
 		String section = "/mosip-config/id-authentication-default.properties";
 		if (!BaseTestCase.isTargetEnvLTS())
 			section = "/mosip-config/sandbox/id-authentication-lts.properties";
-		
+
 		Response response = null;
 
 		org.json.JSONObject responseJson = null;

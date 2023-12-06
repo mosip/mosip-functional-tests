@@ -27,7 +27,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -61,7 +61,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -95,7 +95,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -129,7 +129,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -163,7 +163,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -197,7 +197,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -231,7 +231,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -265,7 +265,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -299,7 +299,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -333,7 +333,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -367,7 +367,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -401,7 +401,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -435,7 +435,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -469,7 +469,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -503,7 +503,7 @@ GenerateVID:
   "vid": "$IGNORE$",
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }

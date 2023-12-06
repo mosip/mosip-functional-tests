@@ -70,6 +70,7 @@ public class ConfigManager {
 	private static String S3_ACCOUNT_FOR_PERSONA_DATA = "s3-account-for-persona-data";
 	private static String PUSH_TO_S3 = "push-reports-to-s3";
 	private static String ENABLE_DEBUG = "enableDebug";
+	private static String REPORT_IGNORED_TEST_CASES = "reportIgnoredTestCases";
 	private static String THREAD_COUNT = "threadCount";
 	private static String LANG_SELECT = "langselect";
 
@@ -110,9 +111,6 @@ public class ConfigManager {
 	private static String IAM_USERS_TO_CREATE = "iam-users-to-create";
 	private static String IAM_USERS_PASSWORD = "iam-users-password";
 
-	private static String ESIGNET_DEPLOYED = "eSignetDeployed";
-	private static String esignet_deployed;
-
 	private static String USE_EXTERNAL_SCENARIO_SHEET = "useExternalScenarioSheet";
 	private static String useExternalScenario_sheet;
 
@@ -128,12 +126,16 @@ public class ConfigManager {
 
 	private static String SCENARIOS_TO_BE_SKIPPED = "scenariosToSkip";
 	private static String SCENARIOS_TO_BE_EXECUTED = "scenariosToExecute";
+	
+	private static String SERVICES_NOT_DEPLOYED = "servicesNotDeployed";
 
 	private static String ADMIN_USER_NAME = "admin_userName";
 
 	private static String PARTNER_URL_SUFFIX = "partnerUrlSuffix";
 
 	private static String partnerUrlSuffix;
+	
+	private static String serviceNotDeployedList;
 
 	private static String toSkippedList;
 	private static String toExecuteList;
@@ -188,6 +190,7 @@ public class ConfigManager {
 	private static String s3SecretKey;
 	private static String push_reports_to_s3;
 	private static String enableDebug;
+	private static String reportIgnoredTestCases;
 	private static String threadCount;
 	private static String langselect;
 	private static String usePreConfiguredOtp;
@@ -368,6 +371,10 @@ public class ConfigManager {
 		enableDebug = System.getenv(ENABLE_DEBUG) == null ? propsKernel.getProperty(ENABLE_DEBUG)
 				: System.getenv(ENABLE_DEBUG);
 		propsKernel.setProperty(ENABLE_DEBUG, enableDebug);
+		
+		reportIgnoredTestCases = System.getenv(REPORT_IGNORED_TEST_CASES) == null ? propsKernel.getProperty(REPORT_IGNORED_TEST_CASES)
+				: System.getenv(REPORT_IGNORED_TEST_CASES);
+		propsKernel.setProperty(REPORT_IGNORED_TEST_CASES, reportIgnoredTestCases);
 
 		threadCount = System.getenv(THREAD_COUNT) == null ? propsKernel.getProperty(THREAD_COUNT)
 				: System.getenv(THREAD_COUNT);
@@ -390,16 +397,17 @@ public class ConfigManager {
 				: System.getenv(USE_EXTERNAL_SCENARIO_SHEET);
 		propsKernel.setProperty(USE_EXTERNAL_SCENARIO_SHEET, useExternalScenario_sheet);
 
-		esignet_deployed = System.getenv(ESIGNET_DEPLOYED) == null ? propsKernel.getProperty(ESIGNET_DEPLOYED)
-				: System.getenv(ESIGNET_DEPLOYED);
-		propsKernel.setProperty(ESIGNET_DEPLOYED, esignet_deployed);
-
 		if (System.getenv(ESIGNET_BASE_URL) != null) {
 			eSignetbaseurl = System.getenv(ESIGNET_BASE_URL);
 		} else {
 			eSignetbaseurl = System.getProperty("env.endpoint").replace("-internal", "");
 		}
 		propsKernel.setProperty(ESIGNET_BASE_URL, eSignetbaseurl);
+		
+		serviceNotDeployedList = System.getenv(SERVICES_NOT_DEPLOYED) == null
+				? propsKernel.getProperty(SERVICES_NOT_DEPLOYED)
+				: System.getenv(SERVICES_NOT_DEPLOYED);
+		propsKernel.setProperty(SERVICES_NOT_DEPLOYED, serviceNotDeployedList);
 
 		toSkippedList = System.getenv(SCENARIOS_TO_BE_SKIPPED) == null
 				? propsKernel.getProperty(SCENARIOS_TO_BE_SKIPPED)
@@ -418,6 +426,23 @@ public class ConfigManager {
 		userAdminName = System.getenv(ADMIN_USER_NAME) == null ? propsKernel.getProperty(ADMIN_USER_NAME)
 				: System.getenv(ADMIN_USER_NAME);
 		propsKernel.setProperty(ADMIN_USER_NAME, userAdminName);
+	}
+	
+	public static boolean isInServiceNotDeployedList(String stringToFind) {
+		synchronized (serviceNotDeployedList) {
+			List<String> serviceNotDeployed = Arrays.asList(serviceNotDeployedList.split(","));
+			if (ConfigManager.IsDebugEnabled())
+				LOGGER.info("serviceNotDeployedList:  " + serviceNotDeployedList + ", serviceNotDeployed : " + serviceNotDeployed
+						+ ", stringToFind : " + stringToFind);
+			for (String string : serviceNotDeployed) {
+				if (string.equalsIgnoreCase(stringToFind))
+					return true;
+				else if(stringToFind.toLowerCase().contains(string.toLowerCase())) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public static boolean isInTobeSkippedList(String stringToFind) {
@@ -461,16 +486,16 @@ public class ConfigManager {
 		return partnerUrlSuffix;
 	}
 
-	public static Boolean IseSignetDeployed() {
-		return esignet_deployed.equalsIgnoreCase("yes");
-	}
-
 	public static Boolean useExternalScenarioSheet() {
 		return useExternalScenario_sheet.equalsIgnoreCase("yes");
 	}
 
 	public static Boolean IsDebugEnabled() {
 		return enableDebug.equalsIgnoreCase("yes");
+	}
+	
+	public static Boolean reportIgnoredTestCases() {
+		return reportIgnoredTestCases.equalsIgnoreCase("yes");
 	}
 
 	public static String getAuthDemoServicePort() {
