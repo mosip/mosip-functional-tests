@@ -158,6 +158,32 @@ definePolicy:
         }
   ]
 }'
+   Partner_DefinePolicy_without_AuthTypeToken:
+      endPoint: /v1/policymanager/policies
+      role: partner
+      restMethod: post
+      inputTemplate: partner/policy/DefinePolicy/definePolicy
+      outputTemplate: partner/error
+      input: '{
+	"desc": "desc mosip policy group AuthTypeToken",
+	"name": "mosip policy AuthTypeToken",
+	"authSubType": "FINGER",
+	"authType": "bio",
+	"mandatory": true,
+	"attributeName": "string",
+	"authTokenType": "$IGNORE$",
+	"policyGroupName": "mosip policy group for AuthTypeToken",
+	"policyType": "Auth",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: ' {
+   "errors": [
+    {
+            "errorCode": "PMS_PV_005"
+        }
+  ]
+}'
 
    Partner_DefinePolicy_All_Valid_For_Test_AuthTypeToken_Space:
       endPoint: /v1/policymanager/policies
