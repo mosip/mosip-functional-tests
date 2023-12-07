@@ -81,8 +81,19 @@ public class GetWithQueryParam extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
+		if (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ADMIN) && testCaseName.contains("BulkUpload_")) {
+			throw new SkipException(GlobalConstants.SERVICE_NOT_DEPLOYED_MESSAGE);
+		}
+		
+		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
+			}
+		}
+		
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {

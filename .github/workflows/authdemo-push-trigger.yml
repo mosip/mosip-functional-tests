@@ -20,6 +20,7 @@ on:
       - develop
       - MOSIP*
       - release*
+      - camdgc-*
 
 jobs:
   build-maven-authentication-demo-service:
@@ -88,3 +89,4 @@ jobs:
   build-automation-tests:
     needs: publish_to_nexus
     uses: ./.github/workflows/automationtests-push-trigger.yml
+    secrets: inherit

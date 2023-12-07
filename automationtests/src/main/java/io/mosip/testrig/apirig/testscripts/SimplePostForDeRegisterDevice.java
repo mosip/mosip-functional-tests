@@ -29,7 +29,9 @@ import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestException;
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
+import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -80,8 +82,16 @@ public class SimplePostForDeRegisterDevice extends AdminTestUtil implements ITes
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
+		
+		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
+			}
+		}
+		
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 		inputJson = inputJson.replace("$DEVICE$", encoder.encodeToString(creatingDataForDevice().getBytes()));
 		Response response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,

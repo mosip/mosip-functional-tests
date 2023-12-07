@@ -27,6 +27,7 @@ import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestException;
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
+import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
@@ -82,7 +83,14 @@ public class UpdatePrereg extends AdminTestUtil implements ITest {
 		testCaseDTO.setInputTemplate(AdminTestUtil.generateHbsForPrereg(true));
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+		}
+		
+		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
+			}
 		}
 
 		String outputJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());

@@ -85,11 +85,35 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 			throws AuthenticationTestException, AdminTestException, NumberFormatException, InterruptedException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
-		if ((!BaseTestCase.isTargetEnvLTS()) && BaseTestCase.currentModule.equals("auth")
-				&& testCaseName.startsWith("auth_GenerateVID_")) {
-			throw new SkipException("Generating VID using IdRepo API on Pre-LTS. Hence skipping this test case");
+		
+		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
+			}
+		}
+		
+		if (!BaseTestCase.isTargetEnvLTS()) {
+			if ((BaseTestCase.currentModule.equals("auth")) && (testCaseName.startsWith("auth_GenerateVID_"))) {
+				throw new SkipException("Generating VID using IdRepo API on Pre LTS. Hence skipping this test case");
+//				qa115 - t
+//				cam   - f
+//				dev	  - f
+			}
+		}
+
+		if (BaseTestCase.isTargetEnvLTS()) {
+			if (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT)
+					&& ((BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet"))
+							&& (testCaseName.startsWith("auth_GenerateVID_")
+									|| testCaseName.startsWith("ESignetRes_Generate")))) {
+				throw new SkipException("Generating VID using IdRepo API. Hence skipping this test case");
+//				qa115 - f
+//				cam   - t t
+//				dev	  - t f
+			}
 		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
@@ -112,7 +136,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		int currLoopCount = 0;
 		while (currLoopCount < maxLoopCount) {
 			if (testCaseName.contains(GlobalConstants.ESIGNET_)) {
-				if (!ConfigManager.IseSignetDeployed()) {
+				if (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET)) {
 					throw new SkipException("esignet is not deployed hence skipping the testcase");
 				}
 				String tempUrl = ConfigManager.getEsignetBaseUrl();
@@ -170,7 +194,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 		}
 
 		if (testCaseName.contains(GlobalConstants.ESIGNET_)) {
-			if (!ConfigManager.IseSignetDeployed()) {
+			if (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET)) {
 				throw new SkipException("esignet is not deployed hence skipping the testcase");
 			}
 			String tempUrl = ConfigManager.getEsignetBaseUrl();

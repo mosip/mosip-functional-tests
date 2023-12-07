@@ -26,7 +26,7 @@ AuthenticateUser:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -59,7 +59,7 @@ AuthenticateUser:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -93,13 +93,13 @@ AuthenticateUser:
       output: '{
           "consentAction": "NOCAPTURE",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_2nd_Otp_Valid_Smoke:
+   ESignet_AuthenticateUserIDP_Vid_2nd_Otp_Valid_Smoke:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -126,7 +126,7 @@ AuthenticateUser:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -159,7 +159,7 @@ AuthenticateUser:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -193,7 +193,7 @@ AuthenticateUser:
       output: '{
           "consentAction": "NOCAPTURE",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -232,7 +232,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -271,7 +271,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -310,7 +310,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -349,7 +349,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -388,7 +388,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -427,7 +427,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -466,7 +466,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -505,7 +505,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -544,7 +544,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -583,7 +583,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -622,7 +622,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -661,7 +661,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -700,7 +700,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -739,7 +739,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -778,7 +778,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -817,7 +817,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -856,7 +856,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -895,7 +895,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -934,7 +934,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -973,7 +973,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1012,7 +1012,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1051,7 +1051,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1090,7 +1090,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1129,7 +1129,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1162,13 +1162,13 @@ AuthenticateUser:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_2_Otp_UnAuthenticated_Neg:
+   ESignet_AuthenticateUserIDP_Vid_2_Otp_UnAuthenticated_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1201,13 +1201,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Invalid_RequestTime_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Invalid_RequestTime_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1240,13 +1240,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Diff_RequestTime_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Diff_RequestTime_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1279,13 +1279,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Future_RequestTime_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Future_RequestTime_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1318,13 +1318,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Invalid_TransactionId_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Invalid_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1357,13 +1357,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Expired_TransactionId_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Expired_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1396,13 +1396,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Missing_TransactionId_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Missing_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1435,13 +1435,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Empty_TransactionId_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Empty_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1474,13 +1474,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Null_TransactionId_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Null_TransactionId_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1513,13 +1513,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Invalid_IndividualId_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Invalid_IndividualId_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1552,13 +1552,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Missing_IndividualId_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Missing_IndividualId_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1591,13 +1591,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Empty_IndividualId_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Empty_IndividualId_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1630,13 +1630,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Null_IndividualId_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Null_IndividualId_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1669,13 +1669,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Invalid_AuthFactorType_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Invalid_AuthFactorType_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1708,13 +1708,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Missing_AuthFactorType_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Missing_AuthFactorType_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1747,13 +1747,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Empty_AuthFactorType_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Empty_AuthFactorType_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1786,13 +1786,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Null_AuthFactorType_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Null_AuthFactorType_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1825,13 +1825,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Diff_AuthFactorType_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Diff_AuthFactorType_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1864,13 +1864,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Invalid_Challenge_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Invalid_Challenge_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1903,13 +1903,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Missing_Challenge_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Missing_Challenge_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1942,13 +1942,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Empty_Challenge_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Empty_Challenge_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -1981,13 +1981,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Null_Challenge_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Null_Challenge_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -2020,13 +2020,13 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
 }'
 
-   ESignet_AuthenticateUserIDP_vid_Invalid_Otp_Challenge_Neg:
+   ESignet_AuthenticateUserIDP_Vid_Invalid_Otp_Challenge_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -2059,7 +2059,7 @@ AuthenticateUser:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }

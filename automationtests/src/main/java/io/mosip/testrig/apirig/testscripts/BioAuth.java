@@ -43,6 +43,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestExceptio
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
+import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.ida.certificate.PartnerRegistration;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
@@ -101,19 +102,22 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		String[] kycFields = testCaseDTO.getKycFields();
 
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
+		
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
+		
 		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
-				throw new SkipException("Idtype UIN is not supported. Hence skipping the testcase");
+				throw new SkipException(GlobalConstants.UIN_FEATURE_NOT_SUPPORTED);
 			}
 		}
 
-		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
-				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
 			}
 		}
 
@@ -170,7 +174,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 
 			}
 		} else {
-			if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+			if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 				if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());

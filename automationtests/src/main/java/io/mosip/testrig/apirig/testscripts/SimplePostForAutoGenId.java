@@ -88,12 +88,28 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 			throws AuthenticationTestException, AdminTestException, NoSuchAlgorithmException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
-		if (BaseTestCase.isTargetEnvLTS() && BaseTestCase.currentModule.equals("auth")
-				&& testCaseName.startsWith("auth_GenerateVID_")) {
-			throw new SkipException("Generating VID using resident API on LTS. Hence skipping this test case");
+		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
+			}
 		}
+		
+		if (BaseTestCase.isTargetEnvLTS()) {
+			if (!ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT)) {
+				if (((BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet"))
+						&& (testCaseName.startsWith("auth_GenerateVID_")
+								|| testCaseName.startsWith("ESignetIdR_Generate")))) {
+					throw new SkipException("Generating VID using IdRepo API. Hence skipping this test case");
+//					qa115 - f
+//					cam   - t f
+//					dev	  - t 
+				}
+			}
+		}
+
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		String[] templateFields = testCaseDTO.getTemplateFields();
 		String inputJson = "";
@@ -130,7 +146,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 			}
 		} else {
 			if (testCaseName.contains("ESignet_")) {
-				if (!ConfigManager.IseSignetDeployed()) {
+				if (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET)) {
 					throw new SkipException("esignet is not deployed hence skipping the testcase");
 				}
 				String tempUrl = ConfigManager.getEsignetBaseUrl();

@@ -5,6 +5,7 @@ import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 public class GlobalConstants {
 	public static final String PREREG = "prereg";
 	public static final String RESIDENT = "resident";
+	public static final String AUTH = "auth";
 	public static final String RESIDENTNEW = "residentNew";
 	public static final String MASTERDATA = "masterdata";
 	public static final String PREREGISTRATIONID = "preRegistrationId";
@@ -203,5 +204,15 @@ public class GlobalConstants {
 	public static final String ACTU_AUTH_REQUESTFOR_RESIDENT  = "Actual Auth Request for Resident: ";
 	public static final String AUTH_CLIENT_IDSECRET_KEYURL = "authclientidsecretkeyURL";
 	public static final String EXPECTED_VS_ACTUAL = "EXPECTED vs ACTUAL";
-	
+	public static final String RID_GENERATOR = "ridgenerator";
+	public static final String VID_FEATURE_NOT_SUPPORTED = "VID feature not supported. Hence skipping the testcase";
+	public static final String UIN_FEATURE_NOT_SUPPORTED = "UIN feature not supported. Hence skipping the testcase";
+	public static final String FEATURE_NOT_SUPPORTED_MESSAGE = "feature not supported. Hence skipping the testcase";
+	public static final String SERVICE_NOT_DEPLOYED_MESSAGE = "Service not deployed. Hence skipping the testcase";
+	public static final String FEATURE_NOT_SUPPORTED = "feature not supported";
+	public static final String SERVICE_NOT_DEPLOYED = "Service not deployed";
+	public static final String IGNORED_SUBSET_STRING = "feature not supported;Service not deployed";
+	public static final String SKIPPED = "Skipped";
+	public static final String TARGET_ENV_HEALTH_CHECK_FAILED = "Target env health check failed ";
+	public static final String HOTLIST = "hotlist";
 }

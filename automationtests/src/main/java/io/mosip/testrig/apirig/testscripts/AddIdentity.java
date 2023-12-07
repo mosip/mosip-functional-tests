@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.json.JSONArray;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -35,6 +36,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestExceptio
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
+import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.kernel.util.KernelAuthentication;
 import io.mosip.testrig.apirig.kernel.util.KeycloakUserManager;
@@ -89,7 +91,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
 		testCaseDTO.setInputTemplate(AdminTestUtil.modifySchemaGenerateHbs(testCaseDTO.isRegenerateHbs()));
 		String uin = JsonPrecondtion
@@ -98,6 +100,8 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 								MediaType.APPLICATION_JSON, COOKIENAME,
 								new KernelAuthentication().getTokenByRole(testCaseDTO.getRole())).asString(),
 						"response.uin");
+		
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 
 		DateFormat dateFormatter = new SimpleDateFormat("yyyyMMddHHmmss");
 		Calendar cal = Calendar.getInstance();
@@ -173,7 +177,7 @@ public class AddIdentity extends AdminTestUtil implements ITest {
 	public void waittime() {
 
 		try {
-			if (BaseTestCase.currentModule.equals("auth")) {
+			if (BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet")) {
 				logger.info("waiting for " + properties.getProperty("Delaytime")
 						+ " mili secs after UIN Generation In IDREPO"); //
 				Thread.sleep(Long.parseLong(properties.getProperty("Delaytime")));
