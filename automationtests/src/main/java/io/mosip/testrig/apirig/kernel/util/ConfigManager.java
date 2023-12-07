@@ -67,6 +67,7 @@ public class ConfigManager {
 	private static String S3_USER_KEY = "s3-user-key";
 	private static String S3_SECRET_KEY = "s3-user-secret";
 	private static String S3_ACCOUNT = "s3-account";
+	private static String S3_ACCOUNT_FOR_PERSONA_DATA = "s3-account-for-persona-data";
 	private static String PUSH_TO_S3 = "push-reports-to-s3";
 	private static String ENABLE_DEBUG = "enableDebug";
 	private static String REPORT_IGNORED_TEST_CASES = "reportIgnoredTestCases";
@@ -185,6 +186,7 @@ public class ConfigManager {
 	private static String s3Host;
 	private static String s3UserKey;
 	private static String s3Account;
+	private static String s3AccountForPersonaData;
 	private static String s3SecretKey;
 	private static String push_reports_to_s3;
 	private static String enableDebug;
@@ -294,6 +296,7 @@ public class ConfigManager {
 		s3UserKey = getValueForKey(S3_USER_KEY);
 		s3SecretKey = getValueForKey(S3_SECRET_KEY);
 		s3Account = getValueForKey(S3_ACCOUNT);
+		s3AccountForPersonaData = getValueForKey(S3_ACCOUNT_FOR_PERSONA_DATA);
 		dbPort = getValueForKey(DB_PORT);
 		dbDomain = getValueForKey(DB_DOMAIN);
 		hibernateConnectionDriverClass = getValueForKey(HIBERNATE_CONNECTION_DRIVER_CLASS);
@@ -702,6 +705,10 @@ public class ConfigManager {
 
 	public static String getS3Account() {
 		return s3Account;
+	}
+	
+	public static String getS3AccountForPersonaData() {
+		return s3AccountForPersonaData;
 	}
 
 	public static String getPushReportsToS3() {

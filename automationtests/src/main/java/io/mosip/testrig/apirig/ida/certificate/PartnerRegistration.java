@@ -68,7 +68,7 @@ public class PartnerRegistration extends AdminTestUtil {
 
 		getAndUploadCertificates();
 		apiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetAPIKey();
-		//updatedApiKey = KeyCloakUserAndAPIKeyGeneration.createAPIKeyForUpdatedPolicy();
+		
 		mispLicKey = MispPartnerAndLicenseKeyGeneration.getAndUploadCertificatesAndGenerateMispLicKey();
 		
 		if (apiKey.isEmpty() || mispLicKey.isEmpty()) {
@@ -76,11 +76,18 @@ public class PartnerRegistration extends AdminTestUtil {
 			return "";
 		}
 		partnerKeyUrl = mispLicKey + "/" + partnerId + "/" + apiKey;
-		updatedpartnerKeyUrl = mispLicKey + "/" + partnerId + "/" + updatedApiKey;
+		
 
 		lOGGER.info("partnerKeyUrl = " + partnerKeyUrl);
 
 		return partnerKeyUrl;
+	}
+	
+	public static String generateAndGetUpdatedPartnerKeyUrl() {
+		
+		updatedApiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetUpdatedAPIKey();
+		updatedpartnerKeyUrl = mispLicKey + "/" + partnerId + "/" + updatedApiKey;
+		return updatedpartnerKeyUrl;
 	}
 	
 	public static String generateAndGetEkycPartnerKeyUrl() {

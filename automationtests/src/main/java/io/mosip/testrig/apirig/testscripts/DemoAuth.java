@@ -93,7 +93,6 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 				throw new SkipException(GlobalConstants.UIN_FEATURE_NOT_SUPPORTED);
 			}
 		}
-
 		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {

@@ -259,7 +259,9 @@ public class EmailableReport implements IReporter {
 				int failedTests = testResult.getFailedTestCount();
 				long duration = testResult.getDuration();
 				int totalTests = 0;
-
+				totalTests = ConfigManager.reportIgnoredTestCases()
+						? (passedTests + skippedTests + failedTests + ignoredTests)
+						: (passedTests + skippedTests + failedTests);
 				writer.print("<tr");
 //				if ((testIndex % 2) == 1) {
 //					writer.print(" class=\"stripe\"");
@@ -267,19 +269,20 @@ public class EmailableReport implements IReporter {
 				writer.print(">");
 
 				buffer.setLength(0);
-				writeTableData(buffer.append("<a href=\"#t").append(testIndex).append("\">")
-						.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString());
-				totalTests = ConfigManager.reportIgnoredTestCases()
-						? (passedTests + skippedTests + failedTests + ignoredTests)
-						: (passedTests + skippedTests + failedTests);
+				
+				
 				if (ConfigManager.reportIgnoredTestCases()) {
-					writeTableData(integerFormat.format(passedTests + skippedTests + failedTests + ignoredTests),
+					writeTableData(buffer.append("<a href=\"#t").append(testIndex).append("\">")
+							.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString());
+					writeTableData(integerFormat.format(totalTests),
 							"num");
 				} else {
 					// All test cases are ignored. Hence don't print anything in the report.
-					if (totalTests == ignoredTests)
+					if (totalTests < 1)
 						continue;
-					writeTableData(integerFormat.format(passedTests + skippedTests + failedTests), "num");
+					writeTableData(buffer.append("<a href=\"#t").append(testIndex).append("\">")
+							.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString());
+					writeTableData(integerFormat.format(totalTests), "num");
 				}
 				writeTableData(integerFormat.format(passedTests), (passedTests > 0 ? "num green-bg" : "num"));
 				writeTableData(integerFormat.format(skippedTests), (skippedTests > 0 ? "num orange-bg" : "num"));

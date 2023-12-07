@@ -1,10 +1,7 @@
 name: Maven Package upon a push
 
 on:
-  release:
-    types: [published]
-  pull_request:
-    types: [opened, reopened, synchronize]
+  workflow_call:
   workflow_dispatch:
     inputs:
       message:
@@ -12,15 +9,18 @@ on:
         required: false
         default: 'Triggered for Updates'
         type: string
-  push:
-    branches:
-      - '!release-branch'
-      - master
-      - 1.*
-      - develop
-      - MOSIP*
-      - release*
-      - camdgc-*
+  #release:
+  #  types: [published]
+  #pull_request:
+  #  types: [opened, reopened, synchronize]
+  #push:
+  #  branches:
+  #    - '!release-branch'
+  #    - master
+  #    - 1.*
+  #    - develop
+  #    - MOSIP*
+  #    - release*
 
 jobs:
   build-maven-automationtests:

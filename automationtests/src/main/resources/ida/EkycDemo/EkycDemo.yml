@@ -961,3 +961,18 @@ EkycDemo:
       ],
         "kycStatus": false
 }'
+  auth_EkycDemo_Auth_Without_kyc_attribute_in_policy_Smoke:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$UpdatedPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/EkycDemo/EkycDemo
+      outputTemplate: ida/EkycDemo/EkycDemoResult
+      input: '{
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$",
+      "value": "1970/07/08",
+        "key": "dob"
+    }'
+      output: '{
+  "kycStatus": "false"
+}'

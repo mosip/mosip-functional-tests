@@ -97,7 +97,6 @@ public class SimplePostForRegisteredDevice extends AdminTestUtil implements ITes
 				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
 			}
 		}
-		
 		inputJson = inputJson.replace("$DEVICEDATA$",
 				encoder.encodeToString(creatingDeviceDataForDeviceData().getBytes()));
 		Response response = postWithBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,

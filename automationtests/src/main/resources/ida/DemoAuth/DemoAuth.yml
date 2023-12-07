@@ -1253,3 +1253,22 @@ DemoAuthNew:
       output: '{
   "authStatus": "false"
 }'
+  auth_DemoAuth_gender_IRIS_as_true_anddo_auth_policy:
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$UpdatedPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      role: resident
+      restMethod: post
+      inputTemplate: ida/DemoAuth/DemoIdentityEncryptGender
+      outputTemplate: ida/DemoAuth/error
+      input: '{
+    "gender": [
+    {
+      "language": "$PRIMARYLANG$",
+      "value": "MLE"
+    }
+  ],
+        "timestamp": "$TIMESTAMP$",
+        "transactionId": "$TRANSACTIONID$"
+    }'
+      output: '{
+  "authStatus": "false"
+}'
