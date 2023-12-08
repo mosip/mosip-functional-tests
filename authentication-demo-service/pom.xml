@@ -4,7 +4,7 @@
 
 	
 	<groupId>io.mosip.testrig.authentication.demo</groupId>
-	<version>1.2.1-SNAPSHOT</version>
+	<version>1.2.1-camdgc-develop-SNAPSHOT</version>
 	<artifactId>authentication-demo-service</artifactId>
 	<name>authentication-demo-service</name>
 	<packaging>jar</packaging>
