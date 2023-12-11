@@ -642,6 +642,29 @@ public class RestClient {
 
 		return postResponse;
 	}
+	
+	public static Response postRequestWithMultipleHeadersAndCookies(String url, Object body, String contentHeader,
+			String acceptHeader, Map<String, String> cookieValue, Map<String, String> headers) {
+		Response postResponse;
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
+			
+			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
+					.contentType(contentHeader).cookie(GlobalConstants.XSRF_TOKEN, cookieValue.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(GlobalConstants.TRANSACTION_ID_KEY, cookieValue.get(GlobalConstants.TRANSACTION_ID_KEY))
+					.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
+			
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
+		} else {
+			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
+					.contentType(contentHeader).cookie("XSRF-TOKEN", cookieValue.get("X-XSRF-TOKEN"))
+					.cookie(GlobalConstants.TRANSACTION_ID_KEY, cookieValue.get(GlobalConstants.TRANSACTION_ID_KEY))
+					.accept(acceptHeader).when().post(url).then().log().all().extract().response();
+		}
+
+		return postResponse;
+	}
 
 	public static Response postRequestWithMultipleHeadersWithoutCookie(String url, Object body, String contentHeader,
 			String acceptHeader, Map<String, String> headers) {
