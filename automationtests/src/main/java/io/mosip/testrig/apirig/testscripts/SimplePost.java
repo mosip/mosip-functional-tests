@@ -9,6 +9,7 @@ import java.util.Map;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -119,14 +120,23 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		}
 		
 		if (inputJson.contains("$FULLNAMETOREGISTERUSER$")) {
-			JSONArray nameList = new JSONArray();
-			JSONObject eachNameJson1 = new JSONObject();
-			JSONObject eachNameJson2 = new JSONObject();
-			eachNameJson1.put("eng", "john");
-			eachNameJson2.put("khm", "joe");
-			nameList.put(eachNameJson1);
-			nameList.put(eachNameJson2);
-			inputJson = replaceKeywordWithValue(inputJson, "$FULLNAMETOREGISTERUSER$", nameList.toString());
+			JSONArray fullNameArray = new JSONArray();
+
+			for (int i = 0; i < BaseTestCase.getLanguageList().size(); i++) {
+				if (BaseTestCase.getLanguageList().get(i) != null && !BaseTestCase.getLanguageList().get(i).isEmpty()) {
+					JSONObject eachValueJson = new JSONObject();
+					eachValueJson.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(i));
+					try {
+						eachValueJson.put(GlobalConstants.VALUE,
+								genStringAsperRegex(getValueFromSignUpSettings("fullname.pattern")));
+					} catch (Exception e) {
+						logger.error(e.getMessage());
+					}
+					fullNameArray.put(eachValueJson);
+				}
+
+			}
+			inputJson = replaceKeywordWithValue(inputJson, "$FULLNAMETOREGISTERUSER$", fullNameArray.toString());
 		}
 		
 		

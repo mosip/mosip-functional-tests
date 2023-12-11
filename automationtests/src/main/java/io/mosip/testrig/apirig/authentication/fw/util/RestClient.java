@@ -5,13 +5,16 @@ import static io.restassured.RestAssured.given;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
 
+import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.RestAssuredConfig;
@@ -35,6 +38,8 @@ public class RestClient {
 //					.setParam("http.socket.timeout", 500000).setParam("http.connection-manager.timeout", 500000));
 
 	private static RestAssuredConfig config = RestAssured.config().httpClient(HttpClientConfig.httpClientConfig());
+	protected static final Properties properties = AdminTestUtil.getproperty(
+			MosipTestRunner.getGlobalResourcePath() + "/" + "config/application.properties");
 	/**
 	 * REST ASSURED POST request method
 	 * 
@@ -629,14 +634,14 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie("XSRF-TOKEN", "7d01b2a8-b89d-41ad-9361-d7f6294021d1")
+					.contentType(contentHeader).cookie("XSRF-TOKEN", properties.getProperty(GlobalConstants.XSRFTOKEN))
 					.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
 			
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie("XSRF-TOKEN", "7d01b2a8-b89d-41ad-9361-d7f6294021d1")
+					.contentType(contentHeader).cookie("XSRF-TOKEN", properties.getProperty(GlobalConstants.XSRFTOKEN))
 					.accept(acceptHeader).when().post(url).then().extract().response();
 		}
 
@@ -870,6 +875,29 @@ public class RestClient {
 		} else {
 			getResponse = given().config(config).relaxedHTTPSValidation().cookie(cookieName, cookieValue).when()
 					.get(url).then().extract().response();
+		}
+
+		return getResponse;
+	}
+	
+	public static Response getRequestWithMultipleCookie(String url, String contentHeader, String acceptHeader,
+			Map cookieMap) {
+		Response getResponse;
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+			
+			getResponse = given().config(config).relaxedHTTPSValidation()
+					.cookie(GlobalConstants.XSRF_TOKEN, cookieMap.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(GlobalConstants.TRANSACTION_ID_KEY, cookieMap.get(GlobalConstants.TRANSACTION_ID_KEY))
+					.log().all().when().get(url).then().log().all().extract().response();
+			
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
+		} else {
+			getResponse = given().config(config).relaxedHTTPSValidation()
+					.cookie(GlobalConstants.XSRF_TOKEN, cookieMap.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(GlobalConstants.TRANSACTION_ID_KEY, cookieMap.get(GlobalConstants.TRANSACTION_ID_KEY))
+					.when().get(url).then().extract().response();
 		}
 
 		return getResponse;
