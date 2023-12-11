@@ -192,12 +192,12 @@ public class EmailableReport implements IReporter {
 		writer.print(".attn {background-color: #D00}");
 		writer.print(".passedodd td {background-color: #3F3}");
 		writer.print(".passedeven td {background-color: #0A0}");
-		writer.print(".skippedodd td, {background-color: #FFA500}");
+		writer.print(".skippedodd td {background-color: #FFA500}");
 		writer.print(".skippedeven td,.stripe {background-color: #FFA500}");
 		writer.print(".failedodd td {background-color: #F33}");
 		writer.print(".failedeven td,.stripe {background-color: #D00}");
 		writer.print(".ignoredodd td {background-color: #808080}");
-		writer.print(".ignoredeven td,.stripe {background-color: #808080}");
+		writer.print(".ignoredeven td {background-color: #808080}");
 		writer.print(".stacktrace {white-space:pre;font-family:monospace}");
 		writer.print(".totop {font-size:85%;text-align:center;border-bottom:2px solid #000}");
 		writer.print("</style>");
@@ -259,6 +259,12 @@ public class EmailableReport implements IReporter {
 				int failedTests = testResult.getFailedTestCount();
 				long duration = testResult.getDuration();
 				int totalTests = 0;
+				totalTests = ConfigManager.reportIgnoredTestCases()
+						? (passedTests + skippedTests + failedTests + ignoredTests)
+						: (passedTests + skippedTests + failedTests);
+				// All test cases are ignored. Hence don't print anything in the report.
+				if (totalTests < 1) 
+					continue;
 
 				writer.print("<tr");
 //				if ((testIndex % 2) == 1) {
@@ -267,20 +273,14 @@ public class EmailableReport implements IReporter {
 				writer.print(">");
 
 				buffer.setLength(0);
+				
+
+				
 				writeTableData(buffer.append("<a href=\"#t").append(testIndex).append("\">")
 						.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString());
-				totalTests = ConfigManager.reportIgnoredTestCases()
-						? (passedTests + skippedTests + failedTests + ignoredTests)
-						: (passedTests + skippedTests + failedTests);
-				if (ConfigManager.reportIgnoredTestCases()) {
-					writeTableData(integerFormat.format(passedTests + skippedTests + failedTests + ignoredTests),
+				
+				writeTableData(integerFormat.format(totalTests),
 							"num");
-				} else {
-					// All test cases are ignored. Hence don't print anything in the report.
-					if (totalTests == ignoredTests)
-						continue;
-					writeTableData(integerFormat.format(passedTests + skippedTests + failedTests), "num");
-				}
 				writeTableData(integerFormat.format(passedTests), (passedTests > 0 ? "num green-bg" : "num"));
 				writeTableData(integerFormat.format(skippedTests), (skippedTests > 0 ? "num orange-bg" : "num"));
 				writeTableData(integerFormat.format(failedTests), (failedTests > 0 ? GlobalConstants.NUMATTN : "num"));
@@ -391,8 +391,21 @@ public class EmailableReport implements IReporter {
 		int testIndex = 0;
 		int scenarioIndex = 0;
 		for (SuiteResult suiteResult : suiteResults) {
+			
+			
 
 			for (TestResult testResult : suiteResult.getTestResults()) {
+				int passedTests = testResult.getPassedTestCount();
+				int ignoredTests = testResult.getIgnoredTestCount();
+				int skippedTests = testResult.getSkippedTestCount();
+				int failedTests = testResult.getFailedTestCount();
+				int totalTests = 0;
+				totalTests = ConfigManager.reportIgnoredTestCases()
+						? (passedTests + skippedTests + failedTests + ignoredTests)
+						: (passedTests + skippedTests + failedTests);
+				// All test cases are ignored. Hence don't print anything in the report.
+				if (totalTests < 1) 
+					continue;
 				writer.print("<tbody id=\"t");
 				writer.print(testIndex);
 				writer.print("\">");
