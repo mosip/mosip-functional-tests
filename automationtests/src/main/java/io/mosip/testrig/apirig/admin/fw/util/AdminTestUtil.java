@@ -723,7 +723,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String certsKey = null;
 		if (testCaseName.contains("Wla_uin_")) {
 			certsKey = BINDINGCERTFILE;
-		} else if (testCaseName.contains("Wla_vid_")) {
+		} else if (testCaseName.contains("Wla_Vid_")) {
 			certsKey = BINDINGCERTFILEVID;
 		} else if (testCaseName.contains("_Consentuin_")) {
 			certsKey = BINDINGCERTCONSENTFILE;
@@ -5952,7 +5952,8 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 		} else if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.ESIGNET)) {
 			if ((testCaseName.startsWith("Esignet_") || testCaseName.startsWith("ESignet_"))
-					&& (testCaseName.contains("_KycBioAuth_") || testCaseName.contains("_BioAuth_"))
+					&& (testCaseName.contains("_KycBioAuth_") || testCaseName.contains("_BioAuth_")
+							|| testCaseName.contains("_SendBindingOtp_uin_Email_Valid_Smoke"))
 					&& (!isElementPresent(new JSONArray(schemaRequiredField), individualBiometrics))) {
 				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
 			}

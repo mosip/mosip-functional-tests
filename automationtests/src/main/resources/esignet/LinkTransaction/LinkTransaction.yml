@@ -14,7 +14,7 @@ LinkTransaction:
         
 }'
 
-   ESignet_LinkTransaction_vid_all_Valid_Smoke_sid:
+   ESignet_LinkTransaction_Vid_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/link-transaction
       role: resident
       checkErrorsOnlyInResponse: true
@@ -23,7 +23,7 @@ LinkTransaction:
       outputTemplate: esignet/LinkTransaction/LinkTransactionResult
       input: '{
       	"requestTime": "$TIMESTAMP$",
-        "linkCode": "$ID:GenerateLinkCode_vid_all_Valid_Smoke_sid_linkCode$"
+        "linkCode": "$ID:GenerateLinkCode_Vid_all_Valid_Smoke_sid_linkCode$"
 }'
       output: '{
         

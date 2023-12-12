@@ -3,6 +3,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsentResult
@@ -36,6 +37,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsentResult
@@ -135,6 +137,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/error
@@ -173,6 +176,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/error
@@ -287,6 +291,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsentResult
