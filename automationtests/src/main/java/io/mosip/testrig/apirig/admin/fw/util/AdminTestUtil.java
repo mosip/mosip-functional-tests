@@ -6557,6 +6557,20 @@ public class AdminTestUtil extends BaseTestCase {
 		
 	}
 	
+	public static String getPhoneNumber() {
+		String phoneNumber = "";
+		// TODO Regex needs to be taken from Schema
+		String phoneNumberRegex = getValueFromSignUpSettings("identifier.pattern");
+		if (!phoneNumberRegex.isEmpty())
+			try {
+				phoneNumber = genStringAsperRegex(phoneNumberRegex);
+				return phoneNumber;
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+		return phoneNumber;
+	}
+	
 	
 
 }
