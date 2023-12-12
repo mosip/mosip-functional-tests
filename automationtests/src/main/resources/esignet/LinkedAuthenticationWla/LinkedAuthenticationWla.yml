@@ -253,7 +253,7 @@ LinkedAuthenticationWla:
        }
 }'
 
-   ESignet_LinkedAuthenticationWla_vid_SCert_all_Valid_Smoke_sid:
+   ESignet_LinkedAuthenticationWla_Vid_SCert_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/authenticate
       role: resident
       checkErrorsOnlyInResponse: true
@@ -263,7 +263,7 @@ LinkedAuthenticationWla:
       outputTemplate: esignet/LinkedAuthenticationWla/LinkedAuthenticationWlaResult
       input: '{
         "requestTime": "$TIMESTAMP$",
-      "linkTransactionId": "$ID:LinkTransaction_vid_all_Valid_Smoke_sid_linkTransactionId$",
+      "linkTransactionId": "$ID:LinkTransaction_Vid_all_Valid_Smoke_sid_linkTransactionId$",
       "individualId": "$ID:Generate_Perpetual_VID_LinkedSce_Valid_Smoke_sid_vid$",
         "authFactorType": "WLA",
         "challenge": "$WLATOKENVID$",
