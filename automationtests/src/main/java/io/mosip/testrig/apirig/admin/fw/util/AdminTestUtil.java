@@ -567,6 +567,9 @@ public class AdminTestUtil extends BaseTestCase {
 		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
 			if (cookiesMap.containsKey(GlobalConstants.TRANSACTION_ID_KEY)) {
+				if(testCaseName.contains("_Missing_CSRF_"))
+					headers.remove(XSRF_HEADERNAME);
+					
 				response = RestClient.postRequestWithMultipleHeadersAndCookies(url, inputJson, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookiesMap, headers);
 			}else {
