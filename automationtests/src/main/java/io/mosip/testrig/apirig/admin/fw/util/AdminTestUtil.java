@@ -536,7 +536,7 @@ public class AdminTestUtil extends BaseTestCase {
 			headerTransactionID = request.get(GlobalConstants.HEADERTRANSACTIONID)
 					.toString();
 			cookiesMap.put(GlobalConstants.TRANSACTION_ID_KEY, headerTransactionID);
-//			headers.put(GlobalConstants.TRANSACTION_ID_KEY, headerTransactionID);
+			cookiesMap.put(GlobalConstants.XSRF_TOKEN, token);
 			request.remove(GlobalConstants.HEADERTRANSACTIONID);
 		}
 		
@@ -562,7 +562,7 @@ public class AdminTestUtil extends BaseTestCase {
 			inputJson = requestInput.toString();
 		}
 		token = properties.getProperty(GlobalConstants.XSRFTOKEN);
-		cookiesMap.put(GlobalConstants.XSRF_TOKEN, token);
+		
 		logger.info(GlobalConstants.POST_REQ_URL + url);
 		GlobalMethods.reportRequest(headers.toString(), inputJson, url);
 		try {
@@ -723,7 +723,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String certsKey = null;
 		if (testCaseName.contains("Wla_uin_")) {
 			certsKey = BINDINGCERTFILE;
-		} else if (testCaseName.contains("Wla_vid_")) {
+		} else if (testCaseName.contains("Wla_Vid_")) {
 			certsKey = BINDINGCERTFILEVID;
 		} else if (testCaseName.contains("_Consentuin_")) {
 			certsKey = BINDINGCERTCONSENTFILE;
@@ -1992,12 +1992,22 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		HashMap<String, String> map = null;
+		String headerTransactionID = "";
+		Map<String, String> cookiesMap = new HashMap<>();
 		try {
 			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
 			}.getType());
 		} catch (Exception e) {
 			logger.error(
 					GlobalConstants.ERROR_STRING_1 + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
+		}
+		
+		if (map.containsKey(GlobalConstants.HEADERTRANSACTIONID)) {
+			headerTransactionID = map.get(GlobalConstants.HEADERTRANSACTIONID)
+					.toString();
+			cookiesMap.put(GlobalConstants.TRANSACTION_ID_KEY, headerTransactionID);
+			cookiesMap.put(GlobalConstants.XSRF_TOKEN, token);
+			map.remove(GlobalConstants.HEADERTRANSACTIONID);
 		}
 
 		if (bothAccessAndIdToken) {
@@ -2026,7 +2036,11 @@ public class AdminTestUtil extends BaseTestCase {
 				}
 				response = RestClient.getRequestWithBearerToken(url, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
-			} else {
+			}else if (cookiesMap.containsKey(GlobalConstants.TRANSACTION_ID_KEY)) {
+				response = RestClient.getRequestWithMultipleCookie(url, MediaType.APPLICATION_JSON,
+						MediaType.APPLICATION_JSON, cookiesMap);
+			}
+			else {
 				if (bothAccessAndIdToken) {
 					response = RestClient.getRequestWithCookie(url, MediaType.APPLICATION_JSON,
 							MediaType.APPLICATION_JSON, cookieName, token, IDTOKENCOOKIENAME, idToken);
@@ -5938,7 +5952,8 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 		} else if (BaseTestCase.currentModule.equalsIgnoreCase(GlobalConstants.ESIGNET)) {
 			if ((testCaseName.startsWith("Esignet_") || testCaseName.startsWith("ESignet_"))
-					&& (testCaseName.contains("_KycBioAuth_") || testCaseName.contains("_BioAuth_"))
+					&& (testCaseName.contains("_KycBioAuth_") || testCaseName.contains("_BioAuth_")
+							|| testCaseName.contains("_SendBindingOtp_uin_Email_Valid_Smoke"))
 					&& (!isElementPresent(new JSONArray(schemaRequiredField), individualBiometrics))) {
 				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
 			}
@@ -6540,6 +6555,20 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return idValue;
 		
+	}
+	
+	public static String getPhoneNumber() {
+		String phoneNumber = "";
+		// TODO Regex needs to be taken from Schema
+		String phoneNumberRegex = getValueFromSignUpSettings("identifier.pattern");
+		if (!phoneNumberRegex.isEmpty())
+			try {
+				phoneNumber = genStringAsperRegex(phoneNumberRegex);
+				return phoneNumber;
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+		return phoneNumber;
 	}
 	
 	

@@ -26,6 +26,20 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name ="RegisterUser">
+		<parameter name ="ymlFile"
+			value= "esignet/RegisterUser/RegisterUser.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="GetRegistrationStatus">
+		<parameter name ="ymlFile"
+			value= "esignet/GetRegistrationStatus/GetRegistrationStatus.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="esignet/AddIdentity/AddIdentity.yml" />
@@ -668,13 +682,6 @@
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.KycAuth" />
-		</classes>
-	</test>
-	<test name ="RegisterUser">
-		<parameter name ="ymlFile"
-			value= "esignet/RegisterUser/RegisterUser.yml" />
-	<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
 	<test name="LinkedSendOtp">
