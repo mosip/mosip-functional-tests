@@ -14,7 +14,7 @@ GenerateLinkCode:
         
 }'
 
-   ESignet_GenerateLinkCode_vid_all_Valid_Smoke_sid:
+   ESignet_GenerateLinkCode_Vid_all_Valid_Smoke_sid:
       endPoint: /v1/esignet/linked-authorization/link-code
       role: resident
       checkErrorsOnlyInResponse: true

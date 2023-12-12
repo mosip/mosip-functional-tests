@@ -15,7 +15,7 @@ GetLinkStatus:
         
 }'
 
-   ESignet_GetLinkStatus_vid_all_Valid_Smoke:
+   ESignet_GetLinkStatus_Vid_all_Valid_Smoke:
       endPoint: /v1/esignet/linked-authorization/link-status
       role: resident
       checkErrorsOnlyInResponse: true
@@ -25,7 +25,7 @@ GetLinkStatus:
       input: '{
       	"requestTime": "$TIMESTAMP$",
       	"transactionId": "$ID:OAuthDetailsRequest_LinkAuth_Vid_Valid_Smoke_sid_transactionId$",
-      	"linkCode": "$ID:GenerateLinkCode_vid_all_Valid_Smoke_sid_linkCode$"
+      	"linkCode": "$ID:GenerateLinkCode_Vid_all_Valid_Smoke_sid_linkCode$"
 }'
       output: '{
         
