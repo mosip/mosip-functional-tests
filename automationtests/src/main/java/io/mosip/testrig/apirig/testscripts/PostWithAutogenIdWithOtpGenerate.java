@@ -230,7 +230,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 				response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()),
-				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+				testCaseDTO.isCheckErrorsOnlyInResponse(), testCaseDTO.getAllowedErrorCodes(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

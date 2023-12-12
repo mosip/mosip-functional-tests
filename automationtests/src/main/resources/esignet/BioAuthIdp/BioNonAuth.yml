@@ -1,5 +1,5 @@
 BioNonAuth:
-  ESignet_BioNonAuth_Biometric_Face_NonAuth_With_Valid_uin_Smoke_Pos:
+  ESignet_BioAuth_Biometric_Face_NonAuth_With_Valid_uin_Smoke_Pos:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
