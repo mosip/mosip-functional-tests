@@ -136,7 +136,7 @@ GenerateChallenge:
       endPoint: /v1/signup/registration/generate-challenge
       role: resident
       restMethod: post
-      allowedErrorCodes: invalid_request,invalid_identifier
+      allowedErrorCodes: invalid_identifier,invalid_request
       inputTemplate: esignet/GenerateChallenge/GenerateChallenge
       outputTemplate: esignet/error
       input: '{
@@ -379,7 +379,7 @@ GenerateChallenge:
       endPoint: /v1/signup/registration/generate-challenge
       role: resident
       restMethod: post
-      allowedErrorCodes: invalid_request,invalid_identifier
+      allowedErrorCodes: invalid_identifier,invalid_request
       inputTemplate: esignet/GenerateChallenge/GenerateChallenge
       outputTemplate: esignet/error
       input: '{
