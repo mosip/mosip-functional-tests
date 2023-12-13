@@ -40,6 +40,13 @@
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name ="VerifyChallengeNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/VerifyChallengeNegTC/VerifyChallengeNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="esignet/AddIdentity/AddIdentity.yml" />
