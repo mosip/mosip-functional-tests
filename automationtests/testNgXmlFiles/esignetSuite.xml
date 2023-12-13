@@ -40,6 +40,13 @@
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name ="GenerateChallengeNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/GenerateChallengeNegTC/GenerateChallengeNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name ="VerifyChallengeNegTC">
 		<parameter name ="ymlFile"
 			value= "esignet/VerifyChallengeNegTC/VerifyChallengeNegTC.yml" />
