@@ -182,7 +182,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			} else {
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(response.asString(),
 						getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
-						testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+						testCaseDTO.isCheckErrorsOnlyInResponse(), testCaseDTO.getAllowedErrorCodes(), response.getStatusCode());
 			}
 
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
