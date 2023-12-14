@@ -1,0 +1,1151 @@
+RegisterUserNegTC:
+   ESignet_RegisterUserNegTC_Valid_smoke_Pos:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/RegisterUser/RegisterUserResult
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+    "status":"PENDING"
+}'
+
+   ESignet_RegisterUserNegTC_Valid_smoke_2nd_time_Neg:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+
+   ESignet_RegisterUserNegTC_Missing_CSRF_Neg:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      allowedErrorCodes: 403
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/RegisterUser/RegisterUserResult
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+    "status":"PENDING"
+}'
+   ESignet_RegisterUserNegTC_without_headerTransactionID:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_invalid_headerTransactionID:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "@374tg4grh",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_empty_requestTime:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC__with_empty_string_requestTime:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": " ",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_with_invalid_requestTime:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "requestInvalid",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_with_number_as_requestTime:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "2536373738",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_with_invalid_requestTime_format:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "2023/11/03 11:03:29.296Z",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_without_request_Object:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      allowedErrorCodes: invalid_fullname,invalid_password,invalid_consent,invalid_username,invalid_phone_number,unsupported_language
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$REMOVE$",
+    "username": "$REMOVE$",
+    "password": "$REMOVE$",
+    "consent": "$REMOVE$",
+    "fullName": "$REMOVE$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$REMOVE$",
+    "preferredLang": "$REMOVE$"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITHout_username:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$REMOVE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITHout_password:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "$REMOVE$",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_password",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITHout_CONSENT:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "$REMOVE$",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_consent",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITHout_userInfo:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      allowedErrorCodes: invalid_username,invalid_fullname,invalid_phone_number
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$REMOVE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$REMOVE$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$REMOVE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_fullname",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_EMPTY_username:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_EMPTY_string_username:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": " ",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_different_name_username:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "b@@124and@@a",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITHout_country_code_in_username:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "5005767672",
+    "password": "+12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_spaces_in_username:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "+8550057 67672",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_spaces_in_username_and_after_plus:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "+ 8550057 67672",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_different_country_code:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "+97634567890",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_more_then_9digit_number:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "+855345678909876",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_phone_number",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_less_then_8digit_number:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "+855345678",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_phone_number",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_all_zero_in_phone:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "+00000000000",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_starting_zero_in_phone:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "+85500567890",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_alphanumeric_in_phone:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "+855@ddd37890",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_special_char_in_phone:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "%^%&&(^$$@&",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_username",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_only_alphabet_in_phone:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "abdgdhdjjs",
+    "password": "2341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_only_alphabet_in_phone:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_password",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_spaces_in_password:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": " ",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_spaces_in_password:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "5658hsknn%@",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITHout__special_character_in_password:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "ghjg4674DHR",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITHout_number_in_password:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "gjjgf%^%GHJK",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITHout_all_zero_in_password:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "00000000",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_more_then_20_digit_in_password:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "gjgdjjbj$^&^%&*JKHFDHJ(*9897656665gBVbvnbf",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_password",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_only_special_char_in_password:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "gjgdjjbj$",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_empty_consent:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      allowedErrorCodes: invalid_consent,invalid_consent
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_consent",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_empty_string_consent:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      allowedErrorCodes: invalid_consent,invalid_consent
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": " ",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_disagree_consent:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "DISAGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_transaction",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_different_alpha_consent:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "HJTDE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_consent",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_ONLY_Special_char_consent:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "&^*&^%&*",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_consent",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_ONLY_number_in_consent:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "887765543",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_consent",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_alpha_numeric_in_consent:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "8877@@assf65543",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_consent",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_agree_in_consent:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "agree",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_consent",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITH_empty_user_info:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      allowedErrorCodes: invalid_fullname,invalid_phone_number
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$REMOVE$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$REMOVE$",
+    "preferredLang": "$REMOVE$"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITHout_fullName:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$REMOVE$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_fullname",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'
+   ESignet_RegisterUserNegTC_WITHout_phone:
+      endPoint: /v1/signup/registration/register
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/RegisterUser/RegisterUser
+      outputTemplate: esignet/error
+      input: '{
+    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
+    "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
+    "password": "12341234",
+    "consent": "AGREE",
+    "fullName": "$FULLNAMETOREGISTERUSER$",
+    "requestTime": "$TIMESTAMP$",
+    "phone": "$REMOVE$",
+    "preferredLang": "khm"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "invalid_phone_number",
+      "errorMessage": "$IGNORE$"
+    }
+  ]
+}'

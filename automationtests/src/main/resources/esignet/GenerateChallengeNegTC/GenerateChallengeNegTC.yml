@@ -1,4 +1,39 @@
 GenerateChallengeNegTC:
+   ESignet_GenerateChallengeNegTC_Missing_CSRF_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      allowedErrorCodes: 403
+      inputTemplate: esignet/GenerateChallenge/GenerateChallenge
+      outputTemplate: esignet/error
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "requestTime": "$TIMESTAMP$"
+}'
+      output: '{
+}'
+
+   ESignet_GenerateChallengeNegTC_Invalid_Locale_Lang_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallenge/GenerateChallengeWithLocale
+      outputTemplate: esignet/error
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "requestTime": "$TIMESTAMP$",
+   "locale": "dfghdgh"
+}'
+      output: '{
+      	"errors": [
+    {
+      "errorCode": "unsupported_language"
+    }
+  ]
+}'
+
    ESignet_GenerateChallengeNegTC_without_requestTime:
       endPoint: /v1/signup/registration/generate-challenge
       role: resident
