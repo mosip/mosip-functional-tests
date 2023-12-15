@@ -116,15 +116,24 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		}
 		
 		if (inputJson.contains("$FULLNAMETOREGISTERUSER$")) {
-			JSONArray fullNameArray = new JSONArray();
 
+			JSONArray fullNameArray = new JSONArray();
+			String fullNamePattern = getValueFromSignUpSettings("fullname.pattern");
 			for (int i = 0; i < BaseTestCase.getLanguageList().size(); i++) {
 				if (BaseTestCase.getLanguageList().get(i) != null && !BaseTestCase.getLanguageList().get(i).isEmpty()) {
 					JSONObject eachValueJson = new JSONObject();
 					eachValueJson.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(i));
+					String generatedString = "";
+
 					try {
-						eachValueJson.put(GlobalConstants.VALUE,
-								genStringAsperRegex(getValueFromSignUpSettings("fullname.pattern")));
+						if (!fullNamePattern.isEmpty()) {
+							while (generatedString.isBlank()) {
+								generatedString = genStringAsperRegex(getValueFromSignUpSettings("fullname.pattern"));
+							}
+							eachValueJson.put(GlobalConstants.VALUE, generatedString);
+						} else {
+							logger.error("REGEX pattern not availble in the setting API");
+						}
 					} catch (Exception e) {
 						logger.error(e.getMessage());
 					}

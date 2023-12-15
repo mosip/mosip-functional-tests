@@ -12,6 +12,13 @@
 		<listener class-name="io.mosip.testrig.apirig.customReport.EmailableReport" />
 	</listeners>
 		
+	<test name ="SignUpSettings">
+		<parameter name ="ymlFile"
+			value= "esignet/SignUpSettings/SignUpSettings.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name ="GenerateChallenge">
 		<parameter name ="ymlFile"
 			value= "esignet/GenerateChallenge/GenerateChallenge.yml" />
@@ -52,6 +59,20 @@
 			value= "esignet/VerifyChallengeNegTC/VerifyChallengeNegTC.yml" />
 	<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name ="RegisterUserNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/RegisterUserNegTC/RegisterUserNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="GetRegistrationStatusNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/GetRegistrationStatusNegTC/GetRegistrationStatusNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="AddIdentity">
