@@ -5704,7 +5704,7 @@ public class AdminTestUtil extends BaseTestCase {
 	
 	public static JSONObject signUpSettingsResponseJson = null;
 
-	public static String getValueFromSignUpSettings(String key) {
+	public String getValueFromSignUpSettings(String key) {
 		String url = ApplnURI + propsKernel.getProperty("signupSettingsEndPoint");
 		String actuatorCacheKey = url + key;
 		String value = actuatorValueCache.get(actuatorCacheKey);
@@ -6592,7 +6592,7 @@ public class AdminTestUtil extends BaseTestCase {
 		
 	}
 	
-	public static String getPhoneNumber() {
+	public String getPhoneNumber() {
 		String phoneNumber = "";
 		// TODO Regex needs to be taken from Schema
 		String phoneNumberRegex = getValueFromSignUpSettings("identifier.pattern");
