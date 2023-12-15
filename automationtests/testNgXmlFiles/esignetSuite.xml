@@ -216,6 +216,21 @@
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name="OAuthDetailsRequestPassword">
+		<parameter name="ymlFile"
+			value="esignet/OAuthDetailsRequestPassword/OAuthDetailsRequestPassword.yml" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthenticateUserPassword">
+		<parameter name="ymlFile"
+			value="esignet/AuthenticateUserPassword/AuthenticateUserPassword.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
 
 	<test name="GenerateVID">
 		<parameter name="ymlFile"
