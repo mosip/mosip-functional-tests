@@ -1,0 +1,12 @@
+GetAllIssuers:
+   MobileId_GetAllIssuers_All_Valid_Smoke:
+      endPoint: /residentmobileapp/issuers
+      role: resident
+      restMethod: get
+      checkErrorsOnlyInResponse: true
+      inputTemplate: mobileId/GetAllIssuers/GetAllIssuers
+      outputTemplate: mobileId/GetAllIssuers/GetAllIssuersResult
+      input: '{
+}'
+      output: '{
+}'
