@@ -6,7 +6,7 @@ GetRegistrationStatus:
       inputTemplate: esignet/GetRegistrationStatus/GetRegistrationStatus
       outputTemplate: esignet/GetRegistrationStatus/GetRegistrationStatusResult
       input: '{
-  "headerTransactionID": "$ID:GenerateChallenge_STransId_Valid_smoke_Pos_TransactionID$"
+  "verifiedTransactionID": "$ID:VerifyChallenge_STransId_smoke_Pos_VTransactionID$"
 }'
       output: '{
   "status":"PENDING"
