@@ -12,34 +12,6 @@
 		<listener class-name="io.mosip.testrig.apirig.customReport.EmailableReport" />
 	</listeners>
 		
-	<test name ="GenerateChallenge">
-		<parameter name ="ymlFile"
-			value= "esignet/GenerateChallenge/GenerateChallenge.yml" />
-	<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name ="VerifyChallenge">
-		<parameter name ="ymlFile"
-			value= "esignet/VerifyChallenge/VerifyChallenge.yml" />
-	<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name ="RegisterUser">
-		<parameter name ="ymlFile"
-			value= "esignet/RegisterUser/RegisterUser.yml" />
-	<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
-		</classes>
-	</test>
-	<test name ="GetRegistrationStatus">
-		<parameter name ="ymlFile"
-			value= "esignet/GetRegistrationStatus/GetRegistrationStatus.yml" />
-	<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
-		</classes>
-	</test>
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="esignet/AddIdentity/AddIdentity.yml" />
@@ -682,6 +654,69 @@
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.KycAuth" />
+		</classes>
+	</test>
+	<test name ="SignUpSettings">
+		<parameter name ="ymlFile"
+			value= "esignet/SignUpSettings/SignUpSettings.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name ="GenerateChallenge">
+		<parameter name ="ymlFile"
+			value= "esignet/GenerateChallenge/GenerateChallenge.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="VerifyChallenge">
+		<parameter name ="ymlFile"
+			value= "esignet/VerifyChallenge/VerifyChallenge.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="RegisterUser">
+		<parameter name ="ymlFile"
+			value= "esignet/RegisterUser/RegisterUser.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="GetRegistrationStatus">
+		<parameter name ="ymlFile"
+			value= "esignet/GetRegistrationStatus/GetRegistrationStatus.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name ="GenerateChallengeNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/GenerateChallengeNegTC/GenerateChallengeNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="VerifyChallengeNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/VerifyChallengeNegTC/VerifyChallengeNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name ="RegisterUserNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/RegisterUserNegTC/RegisterUserNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="GetRegistrationStatusNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/GetRegistrationStatusNegTC/GetRegistrationStatusNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
 	<test name="LinkedSendOtp">
