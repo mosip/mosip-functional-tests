@@ -6027,6 +6027,47 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return testCaseName;
 	}
+	
+	public String generateFullNameToRegisterUser(String inputJson, String testCaseName) {
+		JSONArray fullNameArray = new JSONArray();
+		String fullNamePattern = getValueFromSignUpSettings("fullname.pattern");
+		List<String> languageList = new ArrayList<>();
+		languageList = BaseTestCase.getLanguageList();
+		if (testCaseName.contains("_Only_1st_Lang_On_Name_Field_Neg") && languageList.size() > 1)
+			languageList.remove(1);
+
+		for (int i = 0; i < languageList.size(); i++) {
+			if (languageList.get(i) != null && !languageList.get(i).isEmpty()) {
+				JSONObject eachValueJson = new JSONObject();
+				eachValueJson.put(GlobalConstants.LANGUAGE, languageList.get(i));
+				String generatedString = "";
+
+				try {
+					if (!fullNamePattern.isEmpty()) {
+						while (generatedString.isBlank()) {
+							generatedString = genStringAsperRegex(fullNamePattern);
+						}
+						eachValueJson.put(GlobalConstants.VALUE, generatedString);
+
+						if (testCaseName.contains("_Only_Language_On_Name_Field_Neg"))
+							eachValueJson.remove(GlobalConstants.VALUE);
+						if (testCaseName.contains("_Only_Value_On_Name_Field_Neg"))
+							eachValueJson.remove(GlobalConstants.LANGUAGE);
+
+					} else {
+						logger.error("REGEX pattern not availble in the setting API");
+					}
+				} catch (Exception e) {
+					logger.error(e.getMessage());
+				}
+				fullNameArray.put(eachValueJson);
+			}
+
+		}
+		inputJson = replaceKeywordWithValue(inputJson, "$FULLNAMETOREGISTERUSER$", fullNameArray.toString());
+
+		return inputJson;
+	}
 
 	public static String smtpOtpHandler(String inputJson, String testCaseName) {
 
