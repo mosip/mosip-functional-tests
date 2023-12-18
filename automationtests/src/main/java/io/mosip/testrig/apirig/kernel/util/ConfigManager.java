@@ -430,7 +430,9 @@ public class ConfigManager {
 	
 	public static boolean isInServiceNotDeployedList(String stringToFind) {
 		synchronized (serviceNotDeployedList) {
-			List<String> serviceNotDeployed = Arrays.asList(serviceNotDeployedList.split(","));
+			if (serviceNotDeployedList.isBlank())
+				return false;
+			List<String> serviceNotDeployed = Arrays.asList(serviceNotDeployedList.trim().split(","));
 			if (ConfigManager.IsDebugEnabled())
 				LOGGER.info("serviceNotDeployedList:  " + serviceNotDeployedList + ", serviceNotDeployed : " + serviceNotDeployed
 						+ ", stringToFind : " + stringToFind);

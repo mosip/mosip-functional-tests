@@ -116,32 +116,9 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		}
 		
 		if (inputJson.contains("$FULLNAMETOREGISTERUSER$")) {
-
-			JSONArray fullNameArray = new JSONArray();
-			String fullNamePattern = getValueFromSignUpSettings("fullname.pattern");
-			for (int i = 0; i < BaseTestCase.getLanguageList().size(); i++) {
-				if (BaseTestCase.getLanguageList().get(i) != null && !BaseTestCase.getLanguageList().get(i).isEmpty()) {
-					JSONObject eachValueJson = new JSONObject();
-					eachValueJson.put(GlobalConstants.LANGUAGE, BaseTestCase.getLanguageList().get(i));
-					String generatedString = "";
-
-					try {
-						if (!fullNamePattern.isEmpty()) {
-							while (generatedString.isBlank()) {
-								generatedString = genStringAsperRegex(getValueFromSignUpSettings("fullname.pattern"));
-							}
-							eachValueJson.put(GlobalConstants.VALUE, generatedString);
-						} else {
-							logger.error("REGEX pattern not availble in the setting API");
-						}
-					} catch (Exception e) {
-						logger.error(e.getMessage());
-					}
-					fullNameArray.put(eachValueJson);
-				}
-
-			}
-			inputJson = replaceKeywordWithValue(inputJson, "$FULLNAMETOREGISTERUSER$", fullNameArray.toString());
+			String jsonString = generateFullNameToRegisterUser(inputJson, testCaseDTO.getTestCaseName());
+			if (!jsonString.isBlank())
+				inputJson = jsonString;
 		}
 		
 		
