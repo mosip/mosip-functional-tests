@@ -129,5 +129,12 @@
 			<class name="io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
 	</test>
+	 <test name="GetAllIssuers">
+		<parameter name="ymlFile"
+			value="mobileId/GetAllIssuers/GetAllIssuers.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
 
 </suite>

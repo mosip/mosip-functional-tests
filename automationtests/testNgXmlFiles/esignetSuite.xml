@@ -12,6 +12,13 @@
 		<listener class-name="io.mosip.testrig.apirig.customReport.EmailableReport" />
 	</listeners>
 		
+	<test name ="SignUpSettings">
+		<parameter name ="ymlFile"
+			value= "esignet/SignUpSettings/SignUpSettings.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name ="GenerateChallenge">
 		<parameter name ="ymlFile"
 			value= "esignet/GenerateChallenge/GenerateChallenge.yml" />
@@ -36,6 +43,34 @@
 	<test name ="GetRegistrationStatus">
 		<parameter name ="ymlFile"
 			value= "esignet/GetRegistrationStatus/GetRegistrationStatus.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name ="GenerateChallengeNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/GenerateChallengeNegTC/GenerateChallengeNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="VerifyChallengeNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/VerifyChallengeNegTC/VerifyChallengeNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name ="RegisterUserNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/RegisterUserNegTC/RegisterUserNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="GetRegistrationStatusNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/GetRegistrationStatusNegTC/GetRegistrationStatusNegTC.yml" />
 	<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
@@ -179,6 +214,21 @@
 			value="esignet/GetOidcClient/GetOidcClient.yml" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="OAuthDetailsRequestPassword">
+		<parameter name="ymlFile"
+			value="esignet/OAuthDetailsRequestPassword/OAuthDetailsRequestPassword.yml" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthenticateUserPassword">
+		<parameter name="ymlFile"
+			value="esignet/AuthenticateUserPassword/AuthenticateUserPassword.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
 
