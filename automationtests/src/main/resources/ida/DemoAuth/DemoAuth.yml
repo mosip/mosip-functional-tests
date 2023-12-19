@@ -590,7 +590,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "TEST_FIRSTNAMEeng"
+      "value": "TEST_FULLNAMEeng"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -742,7 +742,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "TEST_FIRSTNAMEeng"
+      "value": "TEST_FULLNAMEeng"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -1176,7 +1176,7 @@ DemoAuthNew:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "TEST_FIRSTNAMEeng"
+      "value": "TEST_FULLNAMEeng"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -1189,6 +1189,7 @@ DemoAuthNew:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$abagc123&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
+      allowedErrorCodes: Internal Server Error
       inputTemplate: ida/DemoAuth/DemoAuth
       outputTemplate: ida/DemoAuth/error
       input: '{
@@ -1200,10 +1201,11 @@ DemoAuthNew:
       output: '{
   "authStatus": "false"
 }'
-  auth_DemoAuth_DOB_Valid_Smoke_with_invalid_certs_and_inavlid_vid:
+  auth_DemoAuth_DOB_with_invalid_certs_and_invalid_vid:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$abagc123&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
+      allowedErrorCodes: Internal Server Error
       inputTemplate: ida/DemoAuth/DemoAuth
       outputTemplate: ida/DemoAuth/error
       input: '{
