@@ -476,14 +476,14 @@ public class OutputValidationUtil extends AuthTestsUtil {
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
 			String expOutputJson, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors,
 			String allowedErrorCode, int responseStatusCode) throws AdminTestException {
-		if (doesResponseHasErrorCode(actualOutputJson, 500))
+		if (doesResponseHasErrorCode(actualOutputJson, allowedErrorCode))
+			return Collections.emptyMap();
+		else if (doesResponseHasErrorCode(actualOutputJson, 500))
 			throw new AdminTestException("Internal Server Error. Hence marking the test case as failed");
 		else if (doesResponseHasErrorCode(actualOutputJson, 404))
 			throw new SkipException("API end point is not valid. Hence marking the test case as skipped");
 //		else if (!(responseStatusCode >= 200 && responseStatusCode < 300))
 //			throw new SkipException("API endpoint is not valid. Response code: " + responseStatusCode +  " Hence marking the test case as skipped");
-		else if (doesResponseHasErrorCode(actualOutputJson, allowedErrorCode))
-			return Collections.emptyMap();
 		JsonPrecondtion jsonPrecondtion = new JsonPrecondtion();
 		Map<String, String> actual = jsonPrecondtion
 				.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
