@@ -411,7 +411,7 @@ EkycDemo:
     "name": [
     {
       "language": "$PRIMARYLANG$",
-      "value": "TEST_FIRSTNAMEeng"
+      "value": "TEST_FULLNAMEeng"
     }
   ],
         "timestamp": "$TIMESTAMP$",
@@ -839,7 +839,7 @@ EkycDemo:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "1980/08/10",
+      "value": "1970/07/08",
         "key": "dob"
     }'
       output: '{
