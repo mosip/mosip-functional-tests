@@ -1,0 +1,41 @@
+GetAllIssuers:
+   MobileId_GetAllIssuers_All_Valid_Smoke:
+      endPoint: /residentmobileapp/issuers
+      role: resident
+      restMethod: get
+      checkErrorsOnlyInResponse: true
+      inputTemplate: mobileId/GetAllIssuers/GetAllIssuers
+      outputTemplate: mobileId/GetAllIssuers/GetAllIssuersResult
+      input: '{
+}'
+      output: '{
+}'
+
+   MobileId_GetAllIssuers_Specific_Issuer_All_Valid_Smoke:
+      endPoint: /residentmobileapp/issuers/ESignet
+      role: resident
+      restMethod: get
+      checkErrorsOnlyInResponse: true
+      inputTemplate: mobileId/GetAllIssuers/GetAllIssuers
+      outputTemplate: mobileId/GetAllIssuers/GetAllIssuersResult
+      input: '{
+}'
+      output: '{
+}'
+
+   MobileId_GetAllIssuers_Invalid_Issuer_Neg:
+      endPoint: /residentmobileapp/issuers/invalid
+      role: resident
+      restMethod: get
+      checkErrorsOnlyInResponse: true
+      inputTemplate: mobileId/GetAllIssuers/GetAllIssuers
+      outputTemplate: mobileId/error
+      input: '{
+}'
+      output: '{
+	"errors":[
+		{
+		"errorCode":"RESIDENT-APP-035"
+		}
+	]
+}'

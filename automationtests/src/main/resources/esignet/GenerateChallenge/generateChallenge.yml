@@ -1,14 +1,30 @@
 GenerateChallenge:
-   Esignet_GenerateChallenge_withValidParameters_smoke_Pos:
-      endPoint: /v1/signup/registration/verify-challenge
+   ESignet_GenerateChallenge_STransId_Valid_smoke_Pos:
+      endPoint: /v1/signup/registration/generate-challenge
       role: resident
       restMethod: post
-      inputTemplate: esignet/GenerateChallenge/generateChallenge
-      outputTemplate: esignet/AddIdentity/generateChallengeResult
+      inputTemplate: esignet/GenerateChallenge/GenerateChallenge
+      outputTemplate: esignet/GenerateChallenge/GenerateChallengeResult
       input: '{
-   "identifier": "+85534567890",
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
    "captchaToken": "",
-   "requesttime": "$TIMESTAMP$"
+   "requestTime": "$TIMESTAMP$"
+}'
+      output: '{
+  "status":"SUCCESS"
+}'
+
+   ESignet_GenerateChallenge_STransId_With_1stLang_Valid_smoke_Pos:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallenge/GenerateChallenge
+      outputTemplate: esignet/GenerateChallenge/GenerateChallengeResult
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "requestTime": "$TIMESTAMP$",
+   "locale": "$1STLANG$"
 }'
       output: '{
   "status":"SUCCESS"

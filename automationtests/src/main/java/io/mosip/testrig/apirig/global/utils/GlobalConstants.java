@@ -51,6 +51,8 @@ public class GlobalConstants {
 	public static final String SENDOTP = "sendOtp";
 	public static final String VALIDATEOTP = "validateOtp";
 	public static final String TRANSACTIONID = "transactionId";
+	public static final String HEADERTRANSACTIONID = "headerTransactionID";
+	public static final String VERIFIEDTRANSACTIONID = "verifiedTransactionID";
 	public static final String MOBILEID = "mobileid";
 	public static final String ESIGNET = "esignet";
 	public static final String APIKEY = "apiKey";
@@ -181,6 +183,8 @@ public class GlobalConstants {
 	public static final String MODULENAME = "$MODULENAME$";
 	public static final String CERTSDIR = "$CERTSDIR$";
 	public static final String TRANSACTION_ID = "$TRANSACTIONID$";
+	public static final String TRANSACTION_ID_KEY = "TRANSACTION_ID";
+	public static final String VERIFIED_TRANSACTION_ID_KEY = "VERIFIED_TRANSACTION_ID";
 	public static final String TIMESTAMP = "$TIMESTAMP$";
 	public static final String PARTNER_ID = "$PARTNERID$";
 	public static final String MOSIP_NET = "@mosip.net";
@@ -215,4 +219,5 @@ public class GlobalConstants {
 	public static final String SKIPPED = "Skipped";
 	public static final String TARGET_ENV_HEALTH_CHECK_FAILED = "Target env health check failed ";
 	public static final String HOTLIST = "hotlist";
+	public static final String XSRF_TOKEN = "XSRF-TOKEN";
 }

@@ -3,6 +3,7 @@ AuthenticateUserNonAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
