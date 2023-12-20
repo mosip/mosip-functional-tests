@@ -7,25 +7,25 @@ CheckAidStatus:
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
       outputTemplate: resident/CheckAidStatus/CheckAidStatusResult
       input: '{
-      undefined"requesttime": "$TIMESTAMP$",
-undefined    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
-undefined    "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
-undefined    "transactionId": "$TRANSACTIONID$",
-undefined    "sendOtp":{
-undefinedundefined    "transactionId": "$TRANSACTIONID$",
-undefinedundefined    "requestTime": "$TIMESTAMP$",
-undefinedundefined    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-undefinedundefined    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
-undefinedundefined    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
-undefinedundefined    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
-undefinedundefined    "sendOtpEndPoint": "/resident/v1/individualId/otp"
-undefined    }
+      	"requesttime": "$TIMESTAMP$",
+	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+	    "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
+	    "transactionId": "$TRANSACTIONID$",
+    "sendOtp":{
+    "transactionId": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+    "sendOtpEndPoint": "/resident/v1/individualId/otp"
+    }
 }'
       output: '{
         "sendOtpResp":{
-undefined        "maskedMobile": "XXXXXX3210",
-undefined        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
-undefined        "maskedEmail": "$IGNORE$"
+        "maskedMobile": "XXXXXX3210",
+        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -37,16 +37,16 @@ undefined        "maskedEmail": "$IGNORE$"
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
       outputTemplate: resident/error 
       input: '{
-undefinedundefined"requesttime": "$TIMESTAMP$",
-undefined    "aid": "123444sasa$%",
-undefined    "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
-undefined    "transactionId": "$TRANSACTIONID$",
-undefined    "sendOtp":{
-undefinedundefined    "transactionId": "$TRANSACTIONID$",
-undefinedundefined    "requestTime": "$TIMESTAMP$",
-undefinedundefined    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-undefinedundefined    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
-undefinedundefined    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+	    "requesttime": "$TIMESTAMP$",
+	    "aid": "123444sasa$%",
+	    "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
+	    "transactionId": "$TRANSACTIONID$",
+    "sendOtp":{
+    "transactionId": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
 		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
 	    }

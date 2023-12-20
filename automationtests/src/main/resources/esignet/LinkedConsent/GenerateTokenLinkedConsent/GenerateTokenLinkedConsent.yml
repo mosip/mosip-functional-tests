@@ -1,6 +1,6 @@
 GenerateTokenLinkedConsent:
    ESignet_GenerateToken_LinkedConsent_uin_Valid_Smoke_sid:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -19,7 +19,7 @@ GenerateTokenLinkedConsent:
 }'
 
    ESignet_GenerateToken_LinkedConsent_Vid_Valid_Smoke_sid:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
