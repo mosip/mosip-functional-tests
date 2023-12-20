@@ -5771,7 +5771,7 @@ public class AdminTestUtil extends BaseTestCase {
 			return value;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
-			return value;
+			return "";
 		}
 
 	}
