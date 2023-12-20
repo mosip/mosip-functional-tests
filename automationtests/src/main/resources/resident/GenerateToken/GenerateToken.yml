@@ -1,6 +1,6 @@
 GenerateToken:
    Resident_ESignet_GenerateToken_UIN_Cookie_Valid_Smoke_sid:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMRESIDENTACTUATOR$
       role: resident
       validityCheckRequired: true
       restMethod: post
@@ -19,7 +19,7 @@ GenerateToken:
 }'
 
    Resident_ESignet_GenerateToken_Vid_Cookie_Valid_Smoke_sid:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMRESIDENTACTUATOR$
       role: resident
       validityCheckRequired: true
       restMethod: post

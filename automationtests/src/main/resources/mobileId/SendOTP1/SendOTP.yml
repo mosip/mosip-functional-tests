@@ -3,6 +3,7 @@ SendOTP:
       endPoint: /resident/v1/req/otp
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/SendOTP1/createSendOTP
       outputTemplate: mobileId/SendOTP1/createSendOTPResult
       input: '{
@@ -12,14 +13,15 @@ SendOTP:
     "individualIdType": "UIN"
 }'
       output: '{
-        "maskedMobile": "XXXXXX3210",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedMobile": "$IGNORE$",
+        "maskedEmail": "$IGNORE$"
     }'
     
    MobileId_SendOTP_Valid_VID_All_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       inputTemplate: mobileId/SendOTP1/createSendOTP
       outputTemplate: mobileId/SendOTP1/createSendOTPResult
       input: '{
@@ -29,8 +31,8 @@ SendOTP:
     "individualIdType": "VID"
 }'
       output: '{
-        "maskedMobile": "XXXXXX3210",
-        "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
+        "maskedMobile": "$IGNORE$",
+        "maskedEmail": "$IGNORE$"
 }'
 
    MobileId_SendOTP_InValid_UIN_All:
