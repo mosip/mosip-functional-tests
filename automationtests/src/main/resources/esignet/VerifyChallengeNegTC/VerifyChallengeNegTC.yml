@@ -1322,3 +1322,115 @@ VerifyChallengeNegTC:
         "sendOtpResTemplate":"esignet/GenerateChallenge/GenerateChallengeResult"
     }
 }'
+
+   ESignet_VerifyChallengeNegTC_STransId_For_Pos_Sce_4:
+      endPoint: /v1/signup/registration/verify-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/VerifyChallengeNegTC/VerifyChallengeNegTC
+      outputTemplate: esignet/VerifyChallengeNegTC/VerifyChallengeNegTCResult
+      input: '{
+   "headerTransactionID": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_4_TransactionID$",
+   "identifier": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_4_PHONE$",
+   "challenge": "111111",
+   "format": "alpha-numeric",
+   "requestTime": "$TIMESTAMP$",
+    "sendOtp":{
+    "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+    "captchaToken": "",
+    "requestTime": "$TIMESTAMP$",
+    "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
+    "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
+    }
+}'
+      output: '{
+    "status":"SUCCESS",
+    "sendOtpResp":{
+        "status":"SUCCESS",
+        "sendOtpResTemplate":"esignet/GenerateChallenge/GenerateChallengeResult"
+    }
+}'
+
+   ESignet_VerifyChallengeNegTC_STransId_For_Pos_Sce_5:
+      endPoint: /v1/signup/registration/verify-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/VerifyChallengeNegTC/VerifyChallengeNegTC
+      outputTemplate: esignet/VerifyChallengeNegTC/VerifyChallengeNegTCResult
+      input: '{
+   "headerTransactionID": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_5_TransactionID$",
+   "identifier": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_5_PHONE$",
+   "challenge": "111111",
+   "format": "alpha-numeric",
+   "requestTime": "$TIMESTAMP$",
+    "sendOtp":{
+    "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+    "captchaToken": "",
+    "requestTime": "$TIMESTAMP$",
+    "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
+    "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
+    }
+}'
+      output: '{
+    "status":"SUCCESS",
+    "sendOtpResp":{
+        "status":"SUCCESS",
+        "sendOtpResTemplate":"esignet/GenerateChallenge/GenerateChallengeResult"
+    }
+}'
+
+   ESignet_VerifyChallengeNegTC_STransId_For_Pos_Sce_6:
+      endPoint: /v1/signup/registration/verify-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/VerifyChallengeNegTC/VerifyChallengeNegTC
+      outputTemplate: esignet/VerifyChallengeNegTC/VerifyChallengeNegTCResult
+      input: '{
+   "headerTransactionID": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_6_TransactionID$",
+   "identifier": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_6_PHONE$",
+   "challenge": "111111",
+   "format": "alpha-numeric",
+   "requestTime": "$TIMESTAMP$",
+    "sendOtp":{
+    "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+    "captchaToken": "",
+    "requestTime": "$TIMESTAMP$",
+    "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
+    "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
+    }
+}'
+      output: '{
+    "status":"SUCCESS",
+    "sendOtpResp":{
+        "status":"SUCCESS",
+        "sendOtpResTemplate":"esignet/GenerateChallenge/GenerateChallengeResult"
+    }
+}'
+
+   ESignet_VerifyChallengeNegTC_STransId_For_Pos_Sce_7:
+      endPoint: /v1/signup/registration/verify-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/VerifyChallengeNegTC/VerifyChallengeNegTC
+      outputTemplate: esignet/VerifyChallengeNegTC/VerifyChallengeNegTCResult
+      input: '{
+   "headerTransactionID": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_7_TransactionID$",
+   "identifier": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_7_PHONE$",
+   "challenge": "111111",
+   "format": "alpha-numeric",
+   "requestTime": "$TIMESTAMP$",
+    "sendOtp":{
+    "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+    "captchaToken": "",
+    "requestTime": "$TIMESTAMP$",
+    "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
+    "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
+    }
+}'
+      output: '{
+    "status":"SUCCESS",
+    "sendOtpResp":{
+        "status":"SUCCESS",
+        "sendOtpResTemplate":"esignet/GenerateChallenge/GenerateChallengeResult"
+    }
+}'
