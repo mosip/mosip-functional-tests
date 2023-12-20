@@ -6027,6 +6027,67 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 		return testCaseName;
 	}
+	
+	public String generateFullNameToRegisterUser(String inputJson, String testCaseName) {
+		JSONArray fullNameArray = new JSONArray();
+		String fullNamePattern = getValueFromSignUpSettings("fullname.pattern");
+		List<String> languageList = new ArrayList<>();
+		languageList = BaseTestCase.getLanguageList();
+		if (testCaseName.contains("_Only_1st_Lang_On_Name_Field_Neg") && languageList.size() > 1)
+			languageList.remove(1);	
+
+		for (int i = 0; i < languageList.size(); i++) {
+			if (languageList.get(i) != null && !languageList.get(i).isEmpty()) {
+				JSONObject eachValueJson = new JSONObject();
+				if (testCaseName.contains("_Invalid_Value_On_Language_Field_Neg")) {
+					eachValueJson.put(GlobalConstants.LANGUAGE, "sdbfkfj");
+				}else if(testCaseName.contains("_Empty_Value_On_Language_Field_Neg")) {
+					eachValueJson.put(GlobalConstants.LANGUAGE, "");
+				}
+				else					
+					eachValueJson.put(GlobalConstants.LANGUAGE, languageList.get(i));
+				String generatedString = "";
+
+				try {
+					if (!fullNamePattern.isEmpty()) {
+						while (generatedString.isBlank()) {
+							generatedString = genStringAsperRegex(fullNamePattern);
+						}
+						eachValueJson.put(GlobalConstants.VALUE, generatedString);
+
+						if (testCaseName.contains("_Only_Language_On_Name_Field_Neg"))
+							eachValueJson.remove(GlobalConstants.VALUE);
+						else if (testCaseName.contains("_Only_Value_On_Name_Field_Neg"))
+							eachValueJson.remove(GlobalConstants.LANGUAGE);
+						else if (testCaseName.contains("_Empty_Value_On_Name_Field_Neg"))
+							eachValueJson.put(GlobalConstants.VALUE, "");
+						else if (testCaseName.contains("_Space_Value_On_Name_Field_Neg"))
+							eachValueJson.put(GlobalConstants.VALUE, " ");
+						else if (testCaseName.contains("_Only_SpecialChar_On_Name_Field_Neg"))
+							eachValueJson.put(GlobalConstants.VALUE, "%^&*&** ^&&&");
+						else if (testCaseName.contains("_Only_Num_Value_On_Name_Field_Neg"))
+							eachValueJson.put(GlobalConstants.VALUE, "564846841");
+						else if (testCaseName.contains("_AlphaNum_Value_On_Name_Field_Neg"))
+							eachValueJson.put(GlobalConstants.VALUE, "អានុសា765651");
+						else if (testCaseName.contains("_Exceeding_Limit_Value_On_Name_Field_Neg"))
+							eachValueJson.put(GlobalConstants.VALUE, generateRandomAlphaNumericString(50));
+
+					} else {
+						logger.error("REGEX pattern not availble in the setting API");
+						return "";
+					}
+				} catch (Exception e) {
+					logger.error(e.getMessage());
+					return "";
+				}
+				fullNameArray.put(eachValueJson);
+			}
+
+		}
+		inputJson = replaceKeywordWithValue(inputJson, "$FULLNAMETOREGISTERUSER$", fullNameArray.toString());
+
+		return inputJson;
+	}
 
 	public static String smtpOtpHandler(String inputJson, String testCaseName) {
 
