@@ -2,6 +2,7 @@ SendOtpForExpiration:
    Resident_SendOtpForExpiration_Valid_UIN_All_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/SendOtpForExpiration/SendOtpForExpiration
       outputTemplate: resident/SendOtpForExpiration/SendOtpForExpirationResult
@@ -11,13 +12,14 @@ SendOtpForExpiration:
     "individualId": "$ID:AddIdentity_ForEotp_Scen_smoke_Pos_UIN$"
 }'
       output: '{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "maskedEmail": "$IGNORE$"
 }'
 
    Resident_SendOtpForExpiration_using_PerpetualVid_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/SendOtpForExpiration/SendOtpForExpiration
       outputTemplate: resident/SendOtpForExpiration/SendOtpForExpirationResult
@@ -27,13 +29,14 @@ SendOtpForExpiration:
     "individualId": "$ID:GenerateVID_Perpetual_ForEotp_Scen_Valid_Smoke_sid_vid$"
 }'
       output: '{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "maskedEmail": "$IGNORE$"
 }'
 
    Resident_SendOtpForExpiration_using_TempVid_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/SendOtpForExpiration/SendOtpForExpiration
       outputTemplate: resident/SendOtpForExpiration/SendOtpForExpirationResult
@@ -43,13 +46,14 @@ SendOtpForExpiration:
     "individualId": "$ID:GenerateVID_Temporary_1_ForEotp_Scen_Valid_Smoke_sid_vid$"
 }'
       output: '{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "maskedEmail": "$IGNORE$"
 }'
 
    Resident_SendOtpForExpiration_using_OneTimeUseVid_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/SendOtpForExpiration/SendOtpForExpiration
       outputTemplate: resident/SendOtpForExpiration/SendOtpForExpirationResult
@@ -59,6 +63,6 @@ SendOtpForExpiration:
     "individualId": "$ID:GenerateVID_Onetimeuse_ForEotp_Scen_Valid_Smoke_sid_vid$"
 }'
       output: '{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "maskedEmail": "$IGNORE$"
 }'

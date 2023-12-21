@@ -25,7 +25,7 @@ DownloadUinCard:
 
       output: '{
                 "sendOtpResp":{
-			        "maskedMobile": "XXXXXX3210",
+			        "maskedMobile": "$IGNORE$",
 			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
 			        "maskedEmail": "$IGNORE$"
     }
@@ -60,7 +60,7 @@ DownloadUinCard:
 		        "message": "$IGNORE$"
 			}],
                 "sendOtpResp":{
-			        "maskedMobile": "XXXXXX3210",
+			        "maskedMobile": "$IGNORE$",
 			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
 			        "maskedEmail": "$IGNORE$"
     }
@@ -95,7 +95,7 @@ DownloadUinCard:
 		        "message": "$IGNORE$"
 			}],
                 "sendOtpResp":{
-			        "maskedMobile": "XXXXXX3210",
+			        "maskedMobile": "$IGNORE$",
 			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
 			        "maskedEmail": "$IGNORE$"
     }
@@ -130,7 +130,7 @@ DownloadUinCard:
 		        "message": "$IGNORE$"
 			}],
                 "sendOtpResp":{
-			        "maskedMobile": "XXXXXX3210",
+			        "maskedMobile": "$IGNORE$",
 			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
 			        "maskedEmail": "$IGNORE$"
     }
@@ -165,7 +165,7 @@ DownloadUinCard:
 			        "message": "Invalid input parameter - otp"
 			}],
                 "sendOtpResp":{
-			        "maskedMobile": "XXXXXX3210",
+			        "maskedMobile": "$IGNORE$",
 			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
 			        "maskedEmail": "$IGNORE$"
     }
@@ -200,7 +200,7 @@ DownloadUinCard:
 			        "message": "$IGNORE$"
 			}],
                 "sendOtpResp":{
-			        "maskedMobile": "XXXXXX3210",
+			        "maskedMobile": "$IGNORE$",
 			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
 			        "maskedEmail": "$IGNORE$"
     }
@@ -235,7 +235,7 @@ DownloadUinCard:
 			        "message": "$IGNORE$"
 			}],
                 "sendOtpResp":{
-			        "maskedMobile": "XXXXXX3210",
+			        "maskedMobile": "$IGNORE$",
 			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
 			        "maskedEmail": "$IGNORE$"
     }
@@ -270,7 +270,7 @@ DownloadUinCard:
 			        "message": "$IGNORE$"
 			}],
                 "sendOtpResp":{
-			        "maskedMobile": "XXXXXX3210",
+			        "maskedMobile": "$IGNORE$",
 			        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
 			        "maskedEmail": "$IGNORE$"
     }

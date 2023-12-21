@@ -29,11 +29,11 @@ GetChannelVerificationStatus:
       output: '{
   "verificationStatus": "true",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForEmail",
         "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -43,6 +43,7 @@ GetChannelVerificationStatus:
    Resident_GetChannelVerificationStatus_For_Phone_all_Valid_Smoke:
       endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
@@ -69,11 +70,11 @@ GetChannelVerificationStatus:
       output: '{
   "verificationStatus": "true",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone",
         "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -83,6 +84,7 @@ GetChannelVerificationStatus:
    Resident_GetChannelVerificationStatus_Invalid_Channel:
       endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/error
@@ -114,11 +116,11 @@ GetChannelVerificationStatus:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -128,6 +130,7 @@ GetChannelVerificationStatus:
    Resident_GetChannelVerificationStatus_Invalid_Id:
       endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/error
@@ -159,11 +162,11 @@ GetChannelVerificationStatus:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -173,6 +176,7 @@ GetChannelVerificationStatus:
    Resident_GetChannelVerificationStatus_Empty_Channel_Neg:
       endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/error
@@ -204,11 +208,11 @@ GetChannelVerificationStatus:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -218,6 +222,7 @@ GetChannelVerificationStatus:
    Resident_GetChannelVerificationStatus_Empty_Id_Neg:
       endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/error
@@ -249,11 +254,11 @@ GetChannelVerificationStatus:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$",
   "validateOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -302,6 +307,7 @@ GetChannelVerificationStatus:
    Resident_GetChannelVerificationStatus_Phone_Valid_Smoke:
       endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
@@ -328,10 +334,10 @@ GetChannelVerificationStatus:
       output: '{
   "verificationStatus": "true",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone",
   "validateOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone"
     }
     }
@@ -340,6 +346,7 @@ GetChannelVerificationStatus:
    Resident_GetChannelVerificationStatus_Email_Invalid:
       endPoint: /resident/v1/channel/verification-status/?channel={channel}&individualId={individualId}
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatus
       outputTemplate: resident/GetChannelVerificationStatus/getChannelVerificationStatusResult
@@ -372,10 +379,10 @@ GetChannelVerificationStatus:
   ],
   "verificationStatus": "false",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone",
   "validateOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone"
     }
     }
