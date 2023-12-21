@@ -128,7 +128,7 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 		} else {
 			if (testCaseName.contains("ESignet_")) {
 				String tempUrl = ConfigManager.getEsignetBaseUrl();
-				String endPoint = testCaseDTO.getEndPoint();
+				String endPoint = tempUrl + testCaseDTO.getEndPoint();
 				if (testCaseDTO.getEndPoint().contains("$GETENDPOINTFROMRESIDENTACTUATOR$") && BaseTestCase.currentModule.equalsIgnoreCase("resident")) {
 					endPoint = getValueFromActuator("mosip-config/resident-default.properties", "mosip.iam.token_endpoint");
 				}
