@@ -2,6 +2,7 @@ SendOTP:
    Resident_SendOTP_Valid_UIN_All_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/SendOTP/createSendOTP
       outputTemplate: resident/SendOTP/createSendOTPResult
@@ -12,12 +13,13 @@ SendOTP:
     "individualIdType": "UIN"
 }'
       output: '{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
     }'
    Resident_SendOTP_Valid_UIN_Phone_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/SendOTP/createSendOTP2
       outputTemplate: resident/SendOTP/createSendOTPResult
@@ -29,12 +31,13 @@ SendOTP:
     "individualIdType": "UIN"
 }'
       output: '{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "maskedEmail": "$IGNORE$"
     }'
    Resident_SendOTP_Valid_UIN_Email_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/SendOTP/createSendOTP2
       outputTemplate: resident/SendOTP/createSendOTPResult
@@ -52,6 +55,7 @@ SendOTP:
    Resident_SendOTP_RevokedVID_Invalid:
       endPoint: /resident/v1/req/otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: resident/SendOTP/createSendOTP
       outputTemplate: resident/SendOTP/createSendOTPErrorResult

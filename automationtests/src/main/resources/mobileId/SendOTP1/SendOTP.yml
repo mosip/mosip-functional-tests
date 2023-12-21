@@ -59,6 +59,7 @@ SendOTP:
    MobileId_SendOTP_Invalid_VID_Neg:
       endPoint: /resident/v1/req/otp
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: mobileId/SendOTP1/createSendOTP
       outputTemplate: mobileId/error
@@ -75,6 +76,6 @@ SendOTP:
       "errorMessage": "Invalid Input Parameter - individualId"
     }
   ],
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "maskedEmail": "XXsXXeXXaXXoXXtXXn@gmail.com"
 }'

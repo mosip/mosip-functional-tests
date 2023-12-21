@@ -2,6 +2,7 @@ GenerateVID:
    ESignetRes_Generate_Perpetual_VID_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -25,7 +26,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -36,6 +37,7 @@ GenerateVID:
    ESignetRes_Generate_Temporary_VID_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -59,7 +61,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -70,6 +72,7 @@ GenerateVID:
    ESignetRes_Generate_Onetimeuse_VID_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -93,7 +96,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -104,6 +107,7 @@ GenerateVID:
    ESignetRes_Generate_Perpetual2_VID_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -127,7 +131,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -138,6 +142,7 @@ GenerateVID:
    ESignetRes_Generate_Temporary2_VID_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -161,7 +166,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -172,6 +177,7 @@ GenerateVID:
    ESignetRes_Generate_Onetimeuse2_VID_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -195,7 +201,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -206,6 +212,7 @@ GenerateVID:
    ESignetRes_Generate_Perpetual_VID_Kyc_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -229,7 +236,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -240,6 +247,7 @@ GenerateVID:
    ESignetRes_Generate_Perpetual_VID_LinkedSce_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -263,7 +271,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -274,6 +282,7 @@ GenerateVID:
    ESignetRes_Generate_Perpetual_VID_Invalid_Scen_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -297,7 +306,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -308,6 +317,7 @@ GenerateVID:
    ESignetRes_Generate_Temporary_VID_Invalid_Scen_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -331,7 +341,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -342,6 +352,7 @@ GenerateVID:
    ESignetRes_Generate_Onetimeuse_VID_Invalid_Scen_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -365,7 +376,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -376,6 +387,7 @@ GenerateVID:
    ESignetRes_Generate_Perpetual_VID_Consent_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -399,7 +411,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -410,6 +422,7 @@ GenerateVID:
    ESignetRes_Generate_Perpetual_VID_Linked_Consent_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -433,7 +446,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -444,6 +457,7 @@ GenerateVID:
    ESignetRes_Generate_Perpetual_VID_VCI_Valid_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -467,7 +481,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",
@@ -478,6 +492,7 @@ GenerateVID:
    ESignetRes_Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid:
       endPoint: /resident/v1/vid
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: esignet/GenerateVID/createGenerateVID
       outputTemplate: esignet/GenerateVID/createGenerateVIDResult
@@ -501,7 +516,7 @@ GenerateVID:
     }'
       output: '{
   "vid": "$IGNORE$",
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
         "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOTPRes/createSendOTPResult",

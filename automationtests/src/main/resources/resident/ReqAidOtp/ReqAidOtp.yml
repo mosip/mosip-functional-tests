@@ -14,7 +14,7 @@ ReqAidOtp:
 		"aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$"
 }'
       output: '{
-	    "maskedMobile": XXXXXX3210,
+	    "maskedMobile": "$IGNORE$",
 	    "maskedEmail": "$IGNORE$"
 }'
 

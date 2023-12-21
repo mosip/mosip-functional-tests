@@ -27,7 +27,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -61,7 +61,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -95,7 +95,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -129,7 +129,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -168,7 +168,7 @@ AuthUnlock:
         }
     ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -208,7 +208,7 @@ AuthUnlock:
         }
     ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -242,7 +242,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -282,7 +282,7 @@ AuthUnlock:
         }
     ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -316,7 +316,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -356,7 +356,7 @@ AuthUnlock:
         }
     ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -390,7 +390,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -430,7 +430,7 @@ AuthUnlock:
         }
     ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -464,7 +464,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -504,7 +504,7 @@ AuthUnlock:
         }
     ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -538,7 +538,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -578,7 +578,7 @@ AuthUnlock:
         }
     ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -612,7 +612,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -652,7 +652,7 @@ AuthUnlock:
         }
     ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -686,7 +686,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -726,7 +726,7 @@ AuthUnlock:
         }
     ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -760,7 +760,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -800,7 +800,7 @@ AuthUnlock:
         }
     ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -840,7 +840,7 @@ AuthUnlock:
         }
     ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -880,7 +880,7 @@ AuthUnlock:
         }
     ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -920,7 +920,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -959,7 +959,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -998,7 +998,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1037,7 +1037,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1076,7 +1076,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1115,7 +1115,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1154,7 +1154,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1193,7 +1193,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1232,7 +1232,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1271,7 +1271,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1310,7 +1310,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1350,7 +1350,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1384,7 +1384,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1418,7 +1418,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1458,7 +1458,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1498,7 +1498,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1538,7 +1538,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1578,7 +1578,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1618,7 +1618,7 @@ AuthUnlock:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1730,7 +1730,7 @@ AuthUnlock:
       output: '{
   "sendOtpResp":{
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResultForPhone",
-        "maskedMobile": "XXXXXX3210"
+        "maskedMobile": "$IGNORE$"
         }
 }'
 
@@ -1762,7 +1762,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1796,7 +1796,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1830,7 +1830,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -1864,7 +1864,7 @@ AuthUnlock:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }

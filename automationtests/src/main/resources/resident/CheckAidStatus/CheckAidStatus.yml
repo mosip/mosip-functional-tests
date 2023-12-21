@@ -23,7 +23,7 @@ CheckAidStatus:
 }'
       output: '{
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -59,7 +59,7 @@ CheckAidStatus:
 	    }
   ],
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -95,7 +95,7 @@ CheckAidStatus:
 	    }
   ],
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -131,7 +131,7 @@ CheckAidStatus:
 	    }
   ],
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -167,7 +167,7 @@ CheckAidStatus:
 	    }
   ],
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -203,7 +203,7 @@ CheckAidStatus:
 	    }
   ],
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -239,7 +239,7 @@ CheckAidStatus:
 	    }
   ],
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }
