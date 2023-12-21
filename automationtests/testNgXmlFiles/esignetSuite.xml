@@ -231,6 +231,21 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="OAuthDetailsRequestPasswordNegTC">
+		<parameter name="ymlFile"
+			value="esignet/OAuthDetailsRequestPasswordNegTC/OAuthDetailsRequestPasswordNegTC.yml" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthenticateUserPasswordNegTC">
+		<parameter name="ymlFile"
+			value="esignet/AuthenticateUserPasswordNegTC/AuthenticateUserPasswordNegTC.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
 
 	<test name="GenerateVID">
 		<parameter name="ymlFile"
