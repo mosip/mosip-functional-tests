@@ -3,6 +3,7 @@ package io.mosip.testrig.apirig.admin.fw.util;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
@@ -229,10 +230,10 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 * @return String, decoded data
 	 */
 	public String getDecodeFromFile(String filename) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
-			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get("decodePath"),
-					objectData.toString(), MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
+		try (FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
+			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get("decodePath"), objectData.toString(),
+					MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION + e);
 			return e.toString();
@@ -261,8 +262,8 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 * @return String, decoded data
 	 */
 	public String getDecryptFromFile(String filename) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try (FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.postRequest(EncryptUtilBaseUrl + properties.get(GlobalConstants.DECRYPTPATH),
 					objectData.toString(), MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
@@ -356,12 +357,12 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		cert = cert.replaceAll("-----BEGIN (.*)-----\n", "");
 		cert = cert.replaceAll("-----END (.*)----\n", "");
 		cert = cert.replaceAll("\\s", "");
-		try {
+		try (ByteArrayInputStream stream = new ByteArrayInputStream(Base64.getDecoder().decode(cert))) {
 			CertificateFactory cf = CertificateFactory.getInstance("X.509");
 			return(X509Certificate) cf
-					.generateCertificate(new ByteArrayInputStream(Base64.getDecoder().decode(cert)));
+					.generateCertificate(stream);
 			
-		} catch (CertificateException e) {
+		} catch (CertificateException | IOException e) {
 			lOGGER.error("Exception in generate Certficate for generating thumbprint: "+e.getMessage());
 			return null;
 		}
@@ -390,12 +391,12 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		cert = cert.replaceAll("-----BEGIN (.*)-----\n", "");
 		cert = cert.replaceAll("-----END (.*)----\n", "");
 		cert = cert.replaceAll("\\s", "");
-		try {
+		try (ByteArrayInputStream stream = new ByteArrayInputStream(Base64.getDecoder().decode(cert))) {
 			CertificateFactory cf = CertificateFactory.getInstance("X.509");
 			return(X509Certificate) cf
-					.generateCertificate(new ByteArrayInputStream(Base64.getDecoder().decode(cert)));
+					.generateCertificate(stream);
 			
-		} catch (CertificateException e) {
+		} catch (CertificateException | IOException e) {
 			lOGGER.error("Exception in generate Certficate for generating thumbprint: "+e.getMessage());
 			return null;
 		}

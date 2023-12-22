@@ -20,6 +20,8 @@ public class CSVHelper {
 	String fileName;
 	CSVReader csvReader;
 	int recCount;
+	FileInputStream inputStream = null;
+	InputStreamReader filereader = null;
 	
 	public int getRecordCount() {
 		return recCount;
@@ -38,11 +40,10 @@ public class CSVHelper {
 	}
 	public void open() throws FileNotFoundException, UnsupportedEncodingException {
 		
-		FileInputStream inputStream = null;
-		
+
 		try {
 			inputStream = new FileInputStream(fileName);		
-			InputStreamReader filereader = new InputStreamReader(inputStream , StandardCharsets.UTF_8);
+			filereader = new InputStreamReader(inputStream , StandardCharsets.UTF_8);
 			csvReader = new CSVReaderBuilder(filereader)
         								.withSkipLines(1)
         								.build();
@@ -87,6 +88,7 @@ public class CSVHelper {
 	}
 	public void close() throws IOException {
 		csvReader.close();
+		filereader.close();
 	}
 	public List<String>  readAttribute(int col, int[] recnos) throws IOException{
 		List<String> retCols = new ArrayList<String>();

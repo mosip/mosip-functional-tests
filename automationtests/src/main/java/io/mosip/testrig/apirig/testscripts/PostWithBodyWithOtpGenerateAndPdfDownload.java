@@ -133,10 +133,18 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 		pdf = postWithBodyAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(),
 				getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		PdfReader pdfReader = null;
+		ByteArrayInputStream bIS = null;
+		
 		try {
-			pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
+			bIS = new ByteArrayInputStream(pdf);
+			pdfReader = new PdfReader(bIS);
+			pdfAsText = PdfTextExtractor.getTextFromPage(pdfReader, 1);
 		} catch (IOException e) {
 			Reporter.log("Exception : " + e.getMessage());
+		} finally {
+			AdminTestUtil.closeByteArrayInputStream(bIS);
+			AdminTestUtil.closePdfReader(pdfReader);
 		}
 
 		if (pdf != null && (new String(pdf).contains("errors") || pdfAsText == null)) {
