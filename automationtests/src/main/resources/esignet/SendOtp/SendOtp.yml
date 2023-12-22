@@ -63,6 +63,7 @@ SendOtp:
       endPoint: /v1/esignet/authorization/send-otp
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/SendOtp/SendOtp
       outputTemplate: esignet/SendOtp/SendOtpResult

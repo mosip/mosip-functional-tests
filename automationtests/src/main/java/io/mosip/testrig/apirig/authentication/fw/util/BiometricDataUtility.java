@@ -106,6 +106,7 @@ public class BiometricDataUtility extends AuthTestsUtil {
 	private static String getSignedData(String identityDataBlock) {
 		FileInputStream pkeyfis = null;
 		FileInputStream certfis = null;
+		ByteArrayInputStream bIS = null;
 		try {
 			String resourcePath = RunConfigUtil.getResourcePath();
 			pkeyfis = new FileInputStream(resourcePath + "ida/TestData/RunConfig/keys/privateKey.pem");
@@ -119,8 +120,9 @@ public class BiometricDataUtility extends AuthTestsUtil {
 			cert = cert.replaceAll("-----END (.*)----\n", "");
 			cert = cert.replaceAll("\\s", "");
 			CertificateFactory cf = CertificateFactory.getInstance("X.509");
+			bIS = new ByteArrayInputStream(Base64.getDecoder().decode(cert));
 			X509Certificate certificate = (X509Certificate) cf
-					.generateCertificate(new ByteArrayInputStream(Base64.getDecoder().decode(cert)));
+					.generateCertificate(bIS);
 			KeyFactory kf = KeyFactory.getInstance("RSA");
 			PrivateKey privateKey = kf.generatePrivate(new PKCS8EncodedKeySpec(Base64.getDecoder().decode(pKey)));
 			JWSValidation jws = new JWSValidation();
@@ -131,6 +133,7 @@ public class BiometricDataUtility extends AuthTestsUtil {
 		}finally {
 			AdminTestUtil.closeInputStream(pkeyfis);
 			AdminTestUtil.closeInputStream(certfis);
+			AdminTestUtil.closeByteArrayInputStream(bIS);
 		}
 	}
 	

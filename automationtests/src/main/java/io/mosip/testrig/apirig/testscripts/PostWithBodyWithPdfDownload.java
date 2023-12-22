@@ -95,11 +95,19 @@ public class PostWithBodyWithPdfDownload extends AdminTestUtil implements ITest 
 		}
 		
 		pdf = postWithBodyAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
-		 try {
-			 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
-			} catch (IOException e) {
-				Reporter.log("Exception : " + e.getMessage());
-			}
+		PdfReader pdfReader = null;
+		ByteArrayInputStream bIS = null;
+		
+		try {
+			bIS = new ByteArrayInputStream(pdf);
+			pdfReader = new PdfReader(bIS);
+			pdfAsText = PdfTextExtractor.getTextFromPage(pdfReader, 1);
+		} catch (IOException e) {
+			Reporter.log("Exception : " + e.getMessage());
+		} finally {
+			AdminTestUtil.closeByteArrayInputStream(bIS);
+			AdminTestUtil.closePdfReader(pdfReader);
+		}
 		 
 		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
 			 GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), "Not able to download UIN Card");

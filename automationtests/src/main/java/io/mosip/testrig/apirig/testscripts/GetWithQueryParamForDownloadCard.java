@@ -98,32 +98,48 @@ public class GetWithQueryParamForDownloadCard extends AdminTestUtil implements I
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
-			 for (int i=0; i<languageList.size(); i++) {
-		            	pdf = getWithQueryParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(),
-		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
-		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		            	try {
-		       			 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
-		       			} catch (IOException e) {
-		       				Reporter.log(GlobalConstants.EXCEPTION + e.getMessage());
-		       			}
-		       		 
-			       		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
-			       			GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), "Not able to download");
-			       		 }
-			       		 else {
-			       			GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
-			       		 }
-		        }
+			for (int i = 0; i < languageList.size(); i++) {
+				pdf = getWithQueryParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(),
+						getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()),
+						COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+				PdfReader pdfReader = null;
+				ByteArrayInputStream bIS = null;
+
+				try {
+					bIS = new ByteArrayInputStream(pdf);
+					pdfReader = new PdfReader(bIS);
+					pdfAsText = PdfTextExtractor.getTextFromPage(pdfReader, 1);
+				} catch (IOException e) {
+					Reporter.log("Exception : " + e.getMessage());
+				} finally {
+					AdminTestUtil.closeByteArrayInputStream(bIS);
+					AdminTestUtil.closePdfReader(pdfReader);
+				}
+
+				if (pdf != null && (new String(pdf).contains("errors") || pdfAsText == null)) {
+					GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), "Not able to download");
+				} else {
+					GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
+				}
+			}
 		}  
 		
 		else {
 			pdf = getWithQueryParamAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), sendEsignetToken);
+			
+			PdfReader pdfReader = null;
+			ByteArrayInputStream bIS = null;
+			
 			try {
-				 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
-				} catch (IOException e) {
-					Reporter.log(GlobalConstants.EXCEPTION + e.getMessage());
-				}
+				bIS = new ByteArrayInputStream(pdf);
+				pdfReader = new PdfReader(bIS);
+				pdfAsText = PdfTextExtractor.getTextFromPage(pdfReader, 1);
+			} catch (IOException e) {
+				Reporter.log("Exception : " + e.getMessage());
+			} finally {
+				AdminTestUtil.closeByteArrayInputStream(bIS);
+				AdminTestUtil.closePdfReader(pdfReader);
+			}
 			 
 			 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
 				 GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), "Not able to download");

@@ -87,6 +87,7 @@ import com.github.jknack.handlebars.Template;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import com.itextpdf.text.pdf.PdfReader;
 import com.mifmif.common.regex.Generex;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JOSEObjectType;
@@ -2441,6 +2442,26 @@ public class AdminTestUtil extends BaseTestCase {
 			try {
 				fileReader.close();
 			} catch (IOException e) {
+				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
+			}
+		}
+	}
+	
+	public static void closeByteArrayInputStream(ByteArrayInputStream bIS){
+		if (bIS != null) {
+			try {
+				bIS.close();
+			} catch (IOException e) {
+				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
+			}
+		}
+	}
+	
+	public static void closePdfReader(PdfReader pdfReader){
+		if (pdfReader != null) {
+			try {
+				pdfReader.close();
+			} catch (Exception e) {
 				logger.error(GlobalConstants.EXCEPTION_STRING_2 + e.getMessage());
 			}
 		}
@@ -5634,6 +5655,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public static Certificate convertToCertificate(String certData) {
+		ByteArrayInputStream bIS = null;
 		try {
 			StringReader strReader = new StringReader(certData);
 			PemReader pemReader = new PemReader(strReader);
@@ -5643,9 +5665,12 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 			byte[] certBytes = pemObject.getContent();
 			CertificateFactory certFactory = CertificateFactory.getInstance("X.509");
-			return certFactory.generateCertificate(new ByteArrayInputStream(certBytes));
+			bIS = new ByteArrayInputStream(certBytes);
+			return certFactory.generateCertificate(bIS);
 		} catch (IOException | CertificateException e) {
 			return null;
+		}finally {
+			closeByteArrayInputStream(bIS);
 		}
 	}
 
