@@ -231,6 +231,29 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="AuthorizationCodePassword">
+		<parameter name="ymlFile"
+			value="esignet/AuthorizationCodePassword/AuthorizationCodePassword.yml" />
+			<parameter name="idKeyName"	value="code" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GenerateTokenPassword">
+		<parameter name="ymlFile"
+			value="esignet/GenerateTokenPassword/GenerateTokenPassword.yml" />
+			<parameter name="idKeyName"	value="access_token" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
+		</classes>
+	</test>
+	<test name="GetOidcUserInfoPassword">
+		<parameter name="ymlFile"
+			value="esignet/GetOidcUserInfoPassword/GetOidcUserInfoPassword.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
 	<test name="OAuthDetailsRequestPasswordNegTC">
 		<parameter name="ymlFile"
 			value="esignet/OAuthDetailsRequestPasswordNegTC/OAuthDetailsRequestPasswordNegTC.yml" />
