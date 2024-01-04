@@ -241,9 +241,9 @@ public class ConfigManager {
 
 	public static void setProperty(String key, String value) {
 		// Overwrite the value with only if the key exists
-		if (propsKernel.containsKey(key)) {
+//		if (propsKernel.containsKey(key)) {
 			propsKernel.setProperty(key, value);
-		}
+//		}
 	}
 
 	public static String getValueForKey(String key) {
@@ -326,76 +326,37 @@ public class ConfigManager {
 		iamUsersToCreate = getValueForKey(IAM_USERS_TO_CREATE);
 		iamUsersPassword = getValueForKey(IAM_USERS_PASSWORD);
 
-		admin_client_secret = System.getenv(MOSIP_ADMIN_CLIENT_SECRET) == null
-				? propsKernel.getProperty(MOSIP_ADMIN_CLIENT_SECRET)
-				: System.getenv(MOSIP_ADMIN_CLIENT_SECRET);
+		admin_client_secret = getValueForKey(MOSIP_ADMIN_CLIENT_SECRET);
 
-		propsKernel.setProperty(MOSIP_ADMIN_CLIENT_SECRET, admin_client_secret);
+		authDemoServicePort = getValueForKey(AUTH_DEMO_SERVICE_PORT);
 
-		authDemoServicePort = System.getenv(AUTH_DEMO_SERVICE_PORT) == null
-				? propsKernel.getProperty(AUTH_DEMO_SERVICE_PORT)
-				: System.getenv(AUTH_DEMO_SERVICE_PORT);
-		propsKernel.setProperty(AUTH_DEMO_SERVICE_PORT, authDemoServicePort);
+		reportExpirationInDays = getValueForKey(REPORT_EXPIRATION_IN_DAYS);
 
-		reportExpirationInDays = System.getenv(REPORT_EXPIRATION_IN_DAYS) == null
-				? propsKernel.getProperty(REPORT_EXPIRATION_IN_DAYS)
-				: System.getenv(REPORT_EXPIRATION_IN_DAYS);
-		propsKernel.setProperty(REPORT_EXPIRATION_IN_DAYS, reportExpirationInDays);
+		authDemoServiceBaseUrl = getValueForKey(AUTH_DEMO_SERVICE_BASE_URL);
 
-		authDemoServiceBaseUrl = System.getenv(AUTH_DEMO_SERVICE_BASE_URL) == null
-				? propsKernel.getProperty(AUTH_DEMO_SERVICE_BASE_URL)
-				: System.getenv(AUTH_DEMO_SERVICE_BASE_URL);
-		propsKernel.setProperty(AUTH_DEMO_SERVICE_BASE_URL, authDemoServiceBaseUrl);
+		mountPath = getValueForKey(MOUNT_PATH);
 
-		mountPath = System.getenv(MOUNT_PATH) == null ? propsKernel.getProperty(MOUNT_PATH) : System.getenv(MOUNT_PATH);
-		propsKernel.setProperty(MOUNT_PATH, mountPath);
+		authCertsPath = getValueForKey(AUTHCERTS_PATH);
 
-		authCertsPath = System.getenv(AUTHCERTS_PATH) == null ? propsKernel.getProperty(AUTHCERTS_PATH)
-				: System.getenv(AUTHCERTS_PATH);
-		propsKernel.setProperty(AUTHCERTS_PATH, authCertsPath);
+		mountPathForScenario = getValueForKey(MOUNT_PATH_FOR_SCENARIO);
 
-		mountPathForScenario = System.getenv(MOUNT_PATH_FOR_SCENARIO) == null
-				? propsKernel.getProperty(MOUNT_PATH_FOR_SCENARIO)
-				: System.getenv(MOUNT_PATH_FOR_SCENARIO);
-		propsKernel.setProperty(MOUNT_PATH_FOR_SCENARIO, mountPathForScenario);
+		packetUtilityBaseUrl = getValueForKey(PACKET_UTILITY_BASE_URL);
 
-		packetUtilityBaseUrl = System.getenv(PACKET_UTILITY_BASE_URL) == null
-				? propsKernel.getProperty(PACKET_UTILITY_BASE_URL)
-				: System.getenv(PACKET_UTILITY_BASE_URL);
-		propsKernel.setProperty(PACKET_UTILITY_BASE_URL, packetUtilityBaseUrl);
+		push_reports_to_s3 = getValueForKey(PUSH_TO_S3);
 
-		push_reports_to_s3 = System.getenv(PUSH_TO_S3) == null ? propsKernel.getProperty(PUSH_TO_S3)
-				: System.getenv(PUSH_TO_S3);
-		propsKernel.setProperty(PUSH_TO_S3, push_reports_to_s3);
-
-		enableDebug = System.getenv(ENABLE_DEBUG) == null ? propsKernel.getProperty(ENABLE_DEBUG)
-				: System.getenv(ENABLE_DEBUG);
-		propsKernel.setProperty(ENABLE_DEBUG, enableDebug);
+		enableDebug = getValueForKey(ENABLE_DEBUG);
 		
-		reportIgnoredTestCases = System.getenv(REPORT_IGNORED_TEST_CASES) == null ? propsKernel.getProperty(REPORT_IGNORED_TEST_CASES)
-				: System.getenv(REPORT_IGNORED_TEST_CASES);
-		propsKernel.setProperty(REPORT_IGNORED_TEST_CASES, reportIgnoredTestCases);
+		reportIgnoredTestCases = getValueForKey(REPORT_IGNORED_TEST_CASES);
 
-		threadCount = System.getenv(THREAD_COUNT) == null ? propsKernel.getProperty(THREAD_COUNT)
-				: System.getenv(THREAD_COUNT);
-		propsKernel.setProperty(THREAD_COUNT, threadCount);
+		threadCount = getValueForKey(THREAD_COUNT);
 
-		langselect = System.getenv(LANG_SELECT) == null ? propsKernel.getProperty(LANG_SELECT)
-				: System.getenv(LANG_SELECT);
-		propsKernel.setProperty(LANG_SELECT, langselect);
+		langselect = getValueForKey(LANG_SELECT);
 
-		usePreConfiguredOtp = System.getenv(USEPRECONFIGOTP) == null ? propsKernel.getProperty(USEPRECONFIGOTP)
-				: System.getenv(USEPRECONFIGOTP);
-		propsKernel.setProperty(USEPRECONFIGOTP, usePreConfiguredOtp);
+		usePreConfiguredOtp = getValueForKey(USEPRECONFIGOTP); 
 
-		preconfiguredOtp = System.getenv(PRECONFIGOTP) == null ? propsKernel.getProperty(PRECONFIGOTP)
-				: System.getenv(PRECONFIGOTP);
-		propsKernel.setProperty(PRECONFIGOTP, preconfiguredOtp);
+		preconfiguredOtp = getValueForKey(PRECONFIGOTP);
 
-		useExternalScenario_sheet = System.getenv(USE_EXTERNAL_SCENARIO_SHEET) == null
-				? propsKernel.getProperty(USE_EXTERNAL_SCENARIO_SHEET)
-				: System.getenv(USE_EXTERNAL_SCENARIO_SHEET);
-		propsKernel.setProperty(USE_EXTERNAL_SCENARIO_SHEET, useExternalScenario_sheet);
+		useExternalScenario_sheet = getValueForKey(USE_EXTERNAL_SCENARIO_SHEET);
 
 		if (System.getenv(ESIGNET_BASE_URL) != null) {
 			eSignetbaseurl = System.getenv(ESIGNET_BASE_URL);
@@ -404,28 +365,15 @@ public class ConfigManager {
 		}
 		propsKernel.setProperty(ESIGNET_BASE_URL, eSignetbaseurl);
 		
-		serviceNotDeployedList = System.getenv(SERVICES_NOT_DEPLOYED) == null
-				? propsKernel.getProperty(SERVICES_NOT_DEPLOYED)
-				: System.getenv(SERVICES_NOT_DEPLOYED);
-		propsKernel.setProperty(SERVICES_NOT_DEPLOYED, serviceNotDeployedList);
+		serviceNotDeployedList = getValueForKey(SERVICES_NOT_DEPLOYED);
 
-		toSkippedList = System.getenv(SCENARIOS_TO_BE_SKIPPED) == null
-				? propsKernel.getProperty(SCENARIOS_TO_BE_SKIPPED)
-				: System.getenv(SCENARIOS_TO_BE_SKIPPED);
-		propsKernel.setProperty(SCENARIOS_TO_BE_SKIPPED, toSkippedList);
+		toSkippedList = getValueForKey(SCENARIOS_TO_BE_SKIPPED);
 
-		toExecuteList = System.getenv(SCENARIOS_TO_BE_EXECUTED) == null
-				? propsKernel.getProperty(SCENARIOS_TO_BE_EXECUTED)
-				: System.getenv(SCENARIOS_TO_BE_EXECUTED);
-		propsKernel.setProperty(SCENARIOS_TO_BE_EXECUTED, toExecuteList);
+		toExecuteList = getValueForKey(SCENARIOS_TO_BE_EXECUTED);
 
-		partnerUrlSuffix = System.getenv(PARTNER_URL_SUFFIX) == null ? propsKernel.getProperty(PARTNER_URL_SUFFIX)
-				: System.getenv(PARTNER_URL_SUFFIX);
-		propsKernel.setProperty(PARTNER_URL_SUFFIX, partnerUrlSuffix);
+		partnerUrlSuffix = getValueForKey(PARTNER_URL_SUFFIX);
 
-		userAdminName = System.getenv(ADMIN_USER_NAME) == null ? propsKernel.getProperty(ADMIN_USER_NAME)
-				: System.getenv(ADMIN_USER_NAME);
-		propsKernel.setProperty(ADMIN_USER_NAME, userAdminName);
+		userAdminName = getValueForKey(ADMIN_USER_NAME);
 	}
 	
 	public static boolean isInServiceNotDeployedList(String stringToFind) {
