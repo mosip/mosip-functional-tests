@@ -525,6 +525,29 @@
 	</test>
 	
 	
+	<test name="UserCenterMapping">
+		<parameter name="ymlFile"
+			value="masterdata/UserCenterMapping/UserCenterMapping.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	
+	<test name="UpdateUserCenterMapping">
+		<parameter name="ymlFile"
+			value="masterdata/UserCenterMapping/UpdateUserCenterMapping.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePut" />
+		</classes>
+	</test>	
+	<test name="UpdateUserCenterMappingStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateUserCenterMappingStatus/UpdateUserCenterMappingStatus.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>	
+	
 	
 
 
@@ -882,7 +905,7 @@
 		</classes>
 	</test>
 	
-	<test name="UpdateUISpec">
+	<!--<test name="UpdateUISpec">
 		<parameter name="ymlFile"
 			value="masterdata/UpdateUISpec/UpdateUISpec.yml" />
 		<classes>
@@ -890,7 +913,7 @@
 		</classes>
 	</test>
 	
-	<!-- <test name="UpdateIdSchema">
+	 <test name="UpdateIdSchema">
 		<parameter name="ymlFile"
 			value="masterdata/UpdateIdSchema/UpdateIdSchema.yml" />
 		<classes>
@@ -1283,28 +1306,7 @@
 			<class name="io.mosip.testrig.apirig.testscripts.PatchWithPathParam" />
 		</classes>
 	</test>
-	<test name="UserCenterMapping">
-		<parameter name="ymlFile"
-			value="masterdata/UserCenterMapping/UserCenterMapping.yml" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
-		</classes>
-	</test>
 	
-	<test name="UpdateUserCenterMapping">
-		<parameter name="ymlFile"
-			value="masterdata/UserCenterMapping/UpdateUserCenterMapping.yml" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.SimplePut" />
-		</classes>
-	</test>	
-	<test name="UpdateUserCenterMappingStatus">
-		<parameter name="ymlFile"
-			value="masterdata/UpdateUserCenterMappingStatus/UpdateUserCenterMappingStatus.yml" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.PatchWithPathParam" />
-		</classes>
-	</test>	
 	<test name="GetUserDetails">
 		<parameter name="ymlFile" value="masterdata/GetUserDetails/GetUserDetails.yml"/>  
 		<classes>

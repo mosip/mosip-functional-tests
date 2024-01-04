@@ -7,7 +7,7 @@ GetimmediateChildrenByLocationCode:
       inputTemplate: masterdata/GetimmediateChildrenByLocationCode/getimmediateChildrenByLocationCode
       outputTemplate: masterdata/GetimmediateChildrenByLocationCode/getimmediateChildrenByLocationCodeResult
       input: '{
-      "locationcode":"KNT",
+      "locationcode":"$LOCATIONCODE$",
       "langcode":"eng"
 }'
       output: '{
@@ -47,7 +47,7 @@ GetimmediateChildrenByLocationCode:
       inputTemplate: masterdata/GetimmediateChildrenByLocationCode/getimmediateChildrenByLocationCode
       outputTemplate: masterdata/error
       input: '{
-      "locationcode":"KNT",
+      "locationcode":"$LOCATIONCODE$",
       "langcode":"abc"
 }'
       output: '{

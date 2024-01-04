@@ -40,7 +40,7 @@ FetchMachine:
       input: '{
   "id": "$REMOVE$",
   "langcode": "$REMOVE$",
-  "regCenterId": "10011"
+  "regCenterId": "$ID:CreateRegCenter_allValid_smoke_sid_id$"
 }'
       output: '{
 "data": [{
