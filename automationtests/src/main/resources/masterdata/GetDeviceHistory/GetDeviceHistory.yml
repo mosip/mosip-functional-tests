@@ -9,7 +9,7 @@ GetDeviceHistory:
       input: '{
   "id":"$ID:CreateDevice_All_Valid_Smoke_sid_id$",
   "langcode":"eng",
-  "effdatetimes":"2023-02-04T15:36:11.452Z"
+  "effdatetimes":"$TIMESTAMP$"
 }'
       output: '{
 "deviceHistoryDetails": [{
