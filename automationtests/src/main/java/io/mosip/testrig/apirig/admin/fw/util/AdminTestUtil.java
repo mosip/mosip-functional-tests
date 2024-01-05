@@ -2912,7 +2912,7 @@ public class AdminTestUtil extends BaseTestCase {
 		String hashedPassword = null;
 		try {
 			// Hash the password using Argon2
-			password = "your_password_here";
+			password = "12341234";
 			hashedPassword = argon2.hash(10, 65536, 1, password.toCharArray());
 			System.out.println("Hash: " + hashedPassword);
 
