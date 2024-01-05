@@ -69,7 +69,7 @@ RegCenterFilter:
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
-      outputTemplate: masterdata/error
+      outputTemplate: masterdata/NilFilterResult
       input: '{
 	"filters": [{
 		"columnName": "fbheafg",
@@ -80,10 +80,5 @@ RegCenterFilter:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-   "errors": [
-    {
-      "errorCode": "KER-MSD-317",
-      "message": "$IGNORE$"
-    }
-  ]
-}'    
+	"totalCount": "0"
+  }'    

@@ -339,6 +339,15 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePut" />
 		</classes>
 	</test>
+	
+	<test name="UpdateDocType">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateDocType/UpdateDocType.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PatchWithQueryParam" />
+		</classes>
+	</test> 
+	
 	<test name="FetchDocumentTypes">
 		<parameter name="ymlFile"
 			value="masterdata/FetchDocumentTypes/FetchDocumentTypes.yml" />
@@ -1079,13 +1088,7 @@
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test> 
-	<test name="UpdateDocType">
-		<parameter name="ymlFile"
-			value="masterdata/UpdateDocType/UpdateDocType.yml" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.PatchWithQueryParam" />
-		</classes>
-	</test> 
+	
 	<test name="UpdateDocCategory">
 		<parameter name="ymlFile"
 			value="masterdata/UpdateDocCategory/UpdateDocCategory.yml" />
