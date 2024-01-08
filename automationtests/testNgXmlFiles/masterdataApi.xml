@@ -761,6 +761,32 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimpleDelete" />
 		</classes>
 	</test>
+	
+	<test name="CreateLocationData">
+		<parameter name="ymlFile"
+			value="masterdata/LocationController/CreateLocationData.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	
+	<test name="UpdateLocationData">
+		<parameter name="ymlFile"
+			value="masterdata/LocationController/UpdateLocationData.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePut" />
+		</classes>
+	</test>
+	
+	<test name="UpdateLocationStatus">
+		<parameter name="ymlFile"
+			value="masterdata/UpdateLocationStatus/UpdateLocationStatus.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PatchWithPathParam" />
+		</classes>
+	</test>
+	
+	
 	<test name="FilterLocationData">
 		<parameter name="ymlFile"
 			value="masterdata/FilterLocationData/FilterLocationData.yml" />
