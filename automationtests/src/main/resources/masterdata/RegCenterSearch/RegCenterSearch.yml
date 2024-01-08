@@ -11,7 +11,7 @@ RegCenterSearch:
       {
         "columnName": "name",
         "type": "equals",
-        "value": "Center Mehdia",
+        "value": "Test123",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }
