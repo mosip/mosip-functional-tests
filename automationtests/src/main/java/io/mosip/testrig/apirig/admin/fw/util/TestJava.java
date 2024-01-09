@@ -13,7 +13,7 @@ public class TestJava {
     	try {
 //    		generatedregexString =genStringAsperRegex("^[+]([0-9]{3})([0-9]{9})$");
 //    		System.out.println(generatedregexString);
-    		generatedregexString =genStringAsperRegex("^\\+855[1-9]{8,9}$");
+    		generatedregexString =genStringAsperRegex("^\\+855[1-9]\\d{7,8}$");
     		System.out.println(generatedregexString);
     		
 		} catch (Exception e) {
