@@ -2990,7 +2990,9 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$RID$", genRid);
 
 		if (jsonString.contains("$SCHEMAVERSION$"))
-			jsonString = replaceKeywordWithValue(jsonString, "$SCHEMAVERSION$", generateLatestSchemaVersion());
+			jsonString = replaceKeywordWithValue(jsonString, "$SCHEMAVERSION$",
+					String.valueOf(generateLatestSchemaVersion()));
+
 		if (jsonString.contains("$PHONENUMBERFORIDENTITY$")) {
 			String phoneNumber = "";
 			if (!phoneSchemaRegex.isEmpty())
@@ -4732,7 +4734,7 @@ public class AdminTestUtil extends BaseTestCase {
 		return identityHbs;
 	}
 	
-	public static String generateLatestSchemaVersion() {
+	public static int generateLatestSchemaVersion() {
 
 		kernelAuthLib = new KernelAuthentication();
 		String token = kernelAuthLib.getTokenByRole(GlobalConstants.ADMIN);
@@ -4745,7 +4747,7 @@ public class AdminTestUtil extends BaseTestCase {
 		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 
 		Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
-		String latestSchemaVersion = Double.toString(schemaVersion);
+		int latestSchemaVersion = Double.valueOf(schemaVersion).intValue();
 		logger.info(latestSchemaVersion);
 		return latestSchemaVersion;
 
@@ -5994,7 +5996,8 @@ public class AdminTestUtil extends BaseTestCase {
 							|| testCaseName.contains("_EkycDemo_"))
 					&& (!isElementPresent(new JSONArray(schemaRequiredField), individualBiometrics))) {
 				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
-			} else if (testCaseName.startsWith("auth_") && (testCaseName.contains("_DeactivateUINs_"))
+			} else if (testCaseName.startsWith("auth_")
+					&& ((testCaseName.contains("_DeactivateUINs_")) || (testCaseName.contains("PublishDraft_")))
 					&& (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 							&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid"))) {
 				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
