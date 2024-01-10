@@ -11,6 +11,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Missing_CSRF_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -38,6 +39,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Invalid_TransactionId_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -71,6 +73,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Missing_TransactionId_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -103,6 +106,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Expired_TransactionId_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -135,6 +139,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_DiffUser_TransactionId_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -167,6 +172,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Empty_RequestTime_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -199,6 +205,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_SpaceVal_RequestTime_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": " ",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -231,6 +238,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Invalid_RequestTime_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "requestinvalid",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -263,6 +271,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Invalid_Num_RequestTime_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "762537232",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -295,6 +304,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Invalid_Format_RequestTime_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "2023/11/03 11:03:29.296Z",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -328,6 +338,7 @@ VerifyChallengeNegTC:
    "identifier": "$REMOVE$",
    "challenge": "$REMOVE$",
    "format": "$REMOVE$",
+   "type": "$REMOVE$",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -389,6 +400,7 @@ VerifyChallengeNegTC:
    "identifier": "$REMOVE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -421,6 +433,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Missing_ChallengeInfo_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -453,6 +466,7 @@ VerifyChallengeNegTC:
    "identifier": "",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -485,6 +499,7 @@ VerifyChallengeNegTC:
    "identifier": " ",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -517,6 +532,7 @@ VerifyChallengeNegTC:
    "identifier": "+85556$%8924",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -549,6 +565,7 @@ VerifyChallengeNegTC:
    "identifier": "+85556sig8924",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -581,6 +598,7 @@ VerifyChallengeNegTC:
    "identifier": "+00000000000",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -613,6 +631,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Missing_CSRF_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -645,6 +664,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:GenerateChallenge_STransId_Valid_smoke_Pos_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$ID:GenerateChallenge_STransId_Valid_smoke_Pos_PHONE$",
@@ -674,6 +694,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Empty_ChallengeInfo_Neg_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -706,6 +727,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Missing_Format_Neg_PHONE$",
    "challenge": "111111",
    "format": "$REMOVE$",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -738,6 +760,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Missing_Challenge_Neg_PHONE$",
    "challenge": "$REMOVE$",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -770,6 +793,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Empty_Challenge_Neg_PHONE$",
    "challenge": "",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -802,6 +826,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_SpaceVal_Challenge_Neg_PHONE$",
    "challenge": " ",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -834,6 +859,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_ExtraDigit_Challenge_Neg_PHONE$",
    "challenge": "11111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -846,7 +872,7 @@ VerifyChallengeNegTC:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_challenge"
+      "errorCode": "challenge_failed"
     }
   ],
     "sendOtpResp":{
@@ -866,6 +892,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_LessDigit_Challenge_Neg_PHONE$",
    "challenge": "11111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -898,6 +925,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Invalid_Challenge_Neg_PHONE$",
    "challenge": "682643",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -930,6 +958,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Alphabet_Challenge_Neg_PHONE$",
    "challenge": "ggfhas",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -962,6 +991,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_AlphaNum_Challenge_Neg_PHONE$",
    "challenge": "682ghy",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -994,6 +1024,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_SpecialChar_Challenge_Neg_PHONE$",
    "challenge": "#$%#%^",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1026,6 +1057,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Diff_Challenge_Neg_PHONE$",
    "challenge": "000000",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1058,6 +1090,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Empty_Format_Neg_PHONE$",
    "challenge": "111111",
    "format": "",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1090,6 +1123,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_SpaceVal_Format_Neg_PHONE$",
    "challenge": "111111",
    "format": " ",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1122,6 +1156,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Invalid_Format_Neg_PHONE$",
    "challenge": "111111",
    "format": "ghah haag",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1154,6 +1189,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Numeric_Format_Neg_PHONE$",
    "challenge": "111111",
    "format": "numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1186,6 +1222,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_RandomVal_Format_Neg_PHONE$",
    "challenge": "111111",
    "format": "ahja1897",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1218,6 +1255,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_SpecialChar_Format_Neg_PHONE$",
    "challenge": "111111",
    "format": "^^&*&^&",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1250,6 +1288,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1278,6 +1317,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_2_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1306,6 +1346,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_3_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1334,6 +1375,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_4_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1362,6 +1404,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_5_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1390,6 +1433,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_6_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
@@ -1418,6 +1462,7 @@ VerifyChallengeNegTC:
    "identifier": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_7_PHONE$",
    "challenge": "111111",
    "format": "alpha-numeric",
+   "type": "OTP",
    "requestTime": "$TIMESTAMP$",
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
