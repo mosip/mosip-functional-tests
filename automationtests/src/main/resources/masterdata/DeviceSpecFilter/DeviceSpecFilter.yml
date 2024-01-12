@@ -58,7 +58,7 @@ DeviceSpecFilter:
 	"filters": [{
 		"columnName": "brand",
 		"type": "unique",
-		"text": "hogwarts"
+		"text": "Techno DeviceSpec"
 	}],
 	"languageCode": "eng",
 	"requesttime": "$TIMESTAMP$"
@@ -67,7 +67,7 @@ DeviceSpecFilter:
     "filters": [
       {
         "fieldID": "brand",
-        "fieldValue": "hogwarts"
+        "fieldValue": "Techno DeviceSpec"
       }
     ]
   }'

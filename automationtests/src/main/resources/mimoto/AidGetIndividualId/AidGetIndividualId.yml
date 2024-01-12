@@ -1,11 +1,11 @@
 AidGetIndividualId:
-   MobileId_AidGetIndividualId_Getting_With_Valid_UIN_All:
+   Mimoto_AidGetIndividualId_Getting_With_Valid_UIN_All:
       endPoint: /residentmobileapp/aid/get-individual-id
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
-      outputTemplate: mobileId/AidGetIndividualId/aidGetIndividualIdResult
+      inputTemplate: mimoto/AidGetIndividualId/aidGetIndividualId
+      outputTemplate: mimoto/AidGetIndividualId/aidGetIndividualIdResult
       input: '{
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "transactionID": "$TRANSACTIONID$",
@@ -13,24 +13,24 @@ AidGetIndividualId:
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
 		    "transactionID": "$TRANSACTIONID$",
-		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
+		    "sendOtpReqTemplate": "mimoto/SendOTPUIN/individualIdOtp",
 		    "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp"
 	 }
 }'
       output: '{
        "aidStatus": "PROCESSED",
         "sendOtpResp":{
-	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult"
+	        "sendOtpResTemplate":"mimoto/SendOTPUIN/individualIdOtpResult"
 	 }
 }'
 
-   MobileId_AidGetIndividualId_Getting_With_Invalid_AID_Neg:
+   Mimoto_AidGetIndividualId_Getting_With_Invalid_AID_Neg:
       endPoint: /residentmobileapp/aid/get-individual-id
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/AidGetIndividualId/aidGetIndividualId
+      outputTemplate: mimoto/error
       input: '{
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "transactionID": "$TRANSACTIONID$",
@@ -38,7 +38,7 @@ AidGetIndividualId:
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
 		    "transactionID": "$TRANSACTIONID$",
-		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
+		    "sendOtpReqTemplate": "mimoto/SendOTPUIN/individualIdOtp",
 		    "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp"
 	 }
 }'
@@ -49,17 +49,17 @@ AidGetIndividualId:
     }
   ],
         "sendOtpResp":{
-	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult"
+	        "sendOtpResTemplate":"mimoto/SendOTPUIN/individualIdOtpResult"
 	 }
 }'
 
-   MobileId_AidGetIndividualId_Getting_With_Invalid_Otp_Neg:
+   Mimoto_AidGetIndividualId_Getting_With_Invalid_Otp_Neg:
       endPoint: /residentmobileapp/aid/get-individual-id
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/AidGetIndividualId/aidGetIndividualId
+      outputTemplate: mimoto/error
       input: '{
         "otp": "1234",
         "transactionID": "$TRANSACTIONID$",
@@ -67,7 +67,7 @@ AidGetIndividualId:
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
 		    "transactionID": "$TRANSACTIONID$",
-		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
+		    "sendOtpReqTemplate": "mimoto/SendOTPUIN/individualIdOtp",
 		    "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp"
 	 }
 }'
@@ -78,17 +78,17 @@ AidGetIndividualId:
     }
   ],
         "sendOtpResp":{
-	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult"
+	        "sendOtpResTemplate":"mimoto/SendOTPUIN/individualIdOtpResult"
 	 }
 }'
 
-   MobileId_AidGetIndividualId_Getting_With_Valid_Otp_All:
+   Mimoto_AidGetIndividualId_Getting_With_Valid_Otp_All:
       endPoint: /residentmobileapp/aid/get-individual-id
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
-      outputTemplate: mobileId/AidGetIndividualId/aidGetIndividualIdResult
+      inputTemplate: mimoto/AidGetIndividualId/aidGetIndividualId
+      outputTemplate: mimoto/AidGetIndividualId/aidGetIndividualIdResult
       input: '{
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "transactionID": "$TRANSACTIONID$",
@@ -96,24 +96,24 @@ AidGetIndividualId:
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
 		    "transactionID": "$TRANSACTIONID$",
-		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
+		    "sendOtpReqTemplate": "mimoto/SendOTPUIN/individualIdOtp",
 		    "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp"
 	 }
 }'
       output: '{
        "aidStatus": "PROCESSED",
         "sendOtpResp":{
-	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult"
+	        "sendOtpResTemplate":"mimoto/SendOTPUIN/individualIdOtpResult"
 	 }
 }'
 
-   MobileId_AidGetIndividualId_Getting_With_Invalid_lenght_Of_AID_Neg:
+   Mimoto_AidGetIndividualId_Getting_With_Invalid_lenght_Of_AID_Neg:
       endPoint: /residentmobileapp/aid/get-individual-id
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/AidGetIndividualId/aidGetIndividualId
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/AidGetIndividualId/aidGetIndividualId
+      outputTemplate: mimoto/error
       input: '{
         "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
         "transactionID": "$TRANSACTIONID$",
@@ -121,7 +121,7 @@ AidGetIndividualId:
         "sendOtp":{
 		    "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$",
 		    "transactionID": "$TRANSACTIONID$",
-		    "sendOtpReqTemplate": "mobileId/SendOTPUIN/individualIdOtp",
+		    "sendOtpReqTemplate": "mimoto/SendOTPUIN/individualIdOtp",
 		    "sendOtpEndPoint": "/residentmobileapp/req/individualId/otp"
 	 }
 }'
@@ -132,6 +132,6 @@ AidGetIndividualId:
     }
   ],
           "sendOtpResp":{
-	        "sendOtpResTemplate":"mobileId/SendOTPUIN/individualIdOtpResult"
+	        "sendOtpResTemplate":"mimoto/SendOTPUIN/individualIdOtpResult"
 	 }
 }'

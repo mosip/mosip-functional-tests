@@ -1,11 +1,11 @@
 individualOTP:
-   MobileId_individualOTP_All_Valid_Smoke:
+   Mimoto_individualOTP_All_Valid_Smoke:
       endPoint: /residentmobileapp/req/individualId/otp
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/SendOTPUIN/individualIdOtp
-      outputTemplate: mobileId/SendOTPUIN/individualIdOtpResult
+      inputTemplate: mimoto/SendOTPUIN/individualIdOtp
+      outputTemplate: mimoto/SendOTPUIN/individualIdOtpResult
       input: '{
       "transactionID": "$TRANSACTIONID$",
     "aid": "$ID:AddIdentity_withValidParameters_smoke_Pos_RID$"

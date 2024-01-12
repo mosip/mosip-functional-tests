@@ -1,35 +1,35 @@
 GetAllIssuers:
-   MobileId_GetAllIssuers_All_Valid_Smoke:
+   Mimoto_GetAllIssuers_All_Valid_Smoke:
       endPoint: /residentmobileapp/issuers
       role: resident
       restMethod: get
       checkErrorsOnlyInResponse: true
-      inputTemplate: mobileId/GetAllIssuers/GetAllIssuers
-      outputTemplate: mobileId/GetAllIssuers/GetAllIssuersResult
+      inputTemplate: mimoto/GetAllIssuers/GetAllIssuers
+      outputTemplate: mimoto/GetAllIssuers/GetAllIssuersResult
       input: '{
 }'
       output: '{
 }'
 
-   MobileId_GetAllIssuers_Specific_Issuer_All_Valid_Smoke:
+   Mimoto_GetAllIssuers_Specific_Issuer_All_Valid_Smoke:
       endPoint: /residentmobileapp/issuers/ESignet
       role: resident
       restMethod: get
       checkErrorsOnlyInResponse: true
-      inputTemplate: mobileId/GetAllIssuers/GetAllIssuers
-      outputTemplate: mobileId/GetAllIssuers/GetAllIssuersResult
+      inputTemplate: mimoto/GetAllIssuers/GetAllIssuers
+      outputTemplate: mimoto/GetAllIssuers/GetAllIssuersResult
       input: '{
 }'
       output: '{
 }'
 
-   MobileId_GetAllIssuers_Invalid_Issuer_Neg:
+   Mimoto_GetAllIssuers_Invalid_Issuer_Neg:
       endPoint: /residentmobileapp/issuers/invalid
       role: resident
       restMethod: get
       checkErrorsOnlyInResponse: true
-      inputTemplate: mobileId/GetAllIssuers/GetAllIssuers
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/GetAllIssuers/GetAllIssuers
+      outputTemplate: mimoto/error
       input: '{
 }'
       output: '{
