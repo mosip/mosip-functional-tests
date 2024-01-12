@@ -1,11 +1,11 @@
 AuthLock:
-   MobileId_AuthLock_Valid_UIN_All:
+   Mimoto_AuthLock_Valid_UIN_All:
       endPoint: /residentmobileapp/req/auth/lock
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/AuthLock/createAuthLock
-      outputTemplate: mobileId/AuthLock/createAuthLockResult
+      inputTemplate: mimoto/AuthLock/createAuthLock
+      outputTemplate: mimoto/AuthLock/createAuthLockResult
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
@@ -17,22 +17,22 @@ AuthLock:
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
-    "sendOtpReqTemplate": "mobileId/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/residentmobileapp/req/otp"
     }
     }'
       output: '{
   "sendOtpResp":{
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
     }
 }'
-   MobileId_AuthLock_InValid_Otp_All:
+   Mimoto_AuthLock_InValid_Otp_All:
       endPoint: /residentmobileapp/req/auth/lock
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/AuthLock/createAuthLock
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/AuthLock/createAuthLock
+      outputTemplate: mimoto/error
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
@@ -44,7 +44,7 @@ AuthLock:
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
-    "sendOtpReqTemplate": "mobileId/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/residentmobileapp/req/otp"
     }
     }'
@@ -55,16 +55,16 @@ AuthLock:
     }
   ],
   "sendOtpResp":{
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
     }
 }'
-   MobileId_AuthLock_with_invalidUIN_Valid_Otp_sid:
+   Mimoto_AuthLock_with_invalidUIN_Valid_Otp_sid:
       endPoint: /residentmobileapp/req/auth/lock
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/AuthLock/createAuthLock
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/AuthLock/createAuthLock
+      outputTemplate: mimoto/error
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "263738@@#FDCVvb",
@@ -76,7 +76,7 @@ AuthLock:
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
-    "sendOtpReqTemplate": "mobileId/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/residentmobileapp/req/otp"
     }
     }'
@@ -87,16 +87,16 @@ AuthLock:
     }
   ],
   "sendOtpResp":{
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
     }
 }'
-   MobileId_AuthLock_Valid_VID_All:
+   Mimoto_AuthLock_Valid_VID_All:
       endPoint: /residentmobileapp/req/auth/lock
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/AuthLock/createAuthLock
-      outputTemplate: mobileId/AuthLock/createAuthLockResult
+      inputTemplate: mimoto/AuthLock/createAuthLock
+      outputTemplate: mimoto/AuthLock/createAuthLockResult
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
@@ -108,22 +108,22 @@ AuthLock:
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
-    "sendOtpReqTemplate": "mobileId/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/residentmobileapp/req/otp"
     }
     }'
       output: '{
   "sendOtpResp":{
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
     }
 }'
-   MobileId_AuthLock_with_invalidVID_Valid_Otp:
+   Mimoto_AuthLock_with_invalidVID_Valid_Otp:
       endPoint: /residentmobileapp/req/auth/lock
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/AuthLock/createAuthLock
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/AuthLock/createAuthLock
+      outputTemplate: mimoto/error
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "26DBDB@73",
@@ -135,7 +135,7 @@ AuthLock:
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
-    "sendOtpReqTemplate": "mobileId/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/residentmobileapp/req/otp"
     }
     }'
@@ -146,16 +146,16 @@ AuthLock:
     }
   ],
   "sendOtpResp":{
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
     }
 }'
-   MobileId_AuthLock_invalidVID_Valid_Otp:
+   Mimoto_AuthLock_invalidVID_Valid_Otp:
       endPoint: /residentmobileapp/req/auth/lock
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/AuthLock/createAuthLock
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/AuthLock/createAuthLock
+      outputTemplate: mimoto/error
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "36363gvb",
@@ -167,7 +167,7 @@ AuthLock:
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:Generate_Perpetual_VID_Valid_Smoke_sid_vid$",
     "individualIdType": "VID",
-    "sendOtpReqTemplate": "mobileId/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/residentmobileapp/req/otp"
     }
     }'
@@ -178,6 +178,6 @@ AuthLock:
     }
   ],
   "sendOtpResp":{
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
     }
 }'

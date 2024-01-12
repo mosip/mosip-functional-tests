@@ -1,12 +1,12 @@
 BindingOtp:
-   MobileId_BindingOtp_Valid_UIN_All_Smoke:
+   Mimoto_BindingOtp_Valid_UIN_All_Smoke:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/BindingOtp/BindingOtpResult
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/BindingOtp/BindingOtpResult
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -16,14 +16,14 @@ BindingOtp:
         "maskedMobile": "$IGNORE$"
 }'
 
-   MobileId_BindingOtp_Valid_vid_All_Smoke:
+   Mimoto_BindingOtp_Valid_vid_All_Smoke:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/BindingOtp/BindingOtpResult
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/BindingOtp/BindingOtpResult
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -33,13 +33,13 @@ BindingOtp:
         "maskedMobile": "$IGNORE$"
 }'
 
-   MobileId_BindingOtp_UIN_Invalid_individualId_Neg:
+   Mimoto_BindingOtp_UIN_Invalid_individualId_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "@#DSDFD@#",
@@ -53,13 +53,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Missing_individualId_Neg:
+   Mimoto_BindingOtp_UIN_Missing_individualId_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$REMOVE$",
@@ -73,13 +73,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Empty_individualId_Neg:
+   Mimoto_BindingOtp_UIN_Empty_individualId_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "",
@@ -93,13 +93,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Null_individualId_Neg:
+   Mimoto_BindingOtp_UIN_Null_individualId_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "null",
@@ -113,13 +113,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_SpaceSeparated_otpChannels_Neg:
+   Mimoto_BindingOtp_UIN_SpaceSeparated_otpChannels_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -133,13 +133,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Invalid_OtpChannels_Neg:
+   Mimoto_BindingOtp_UIN_Invalid_OtpChannels_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -153,13 +153,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Missing_OtpChannels_Neg:
+   Mimoto_BindingOtp_UIN_Missing_OtpChannels_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -173,13 +173,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Empty_OtpChannels_Neg:
+   Mimoto_BindingOtp_UIN_Empty_OtpChannels_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -193,13 +193,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Null_OtpChannels_Neg:
+   Mimoto_BindingOtp_UIN_Null_OtpChannels_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -213,13 +213,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Missing_OtpChannel_Neg:
+   Mimoto_BindingOtp_UIN_Missing_OtpChannel_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -233,13 +233,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Empty_OtpChannel_Neg:
+   Mimoto_BindingOtp_UIN_Empty_OtpChannel_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -253,13 +253,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Null_OtpChannel_Neg:
+   Mimoto_BindingOtp_UIN_Null_OtpChannel_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -273,13 +273,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Invalid_RequestTime_Neg:
+   Mimoto_BindingOtp_UIN_Invalid_RequestTime_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "2022-11-08T06:35:53",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -293,13 +293,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Past_RequestTime_Neg:
+   Mimoto_BindingOtp_UIN_Past_RequestTime_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "2022-11-07T06:51:30.195Z",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -313,13 +313,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Future_RequestTime_Neg:
+   Mimoto_BindingOtp_UIN_Future_RequestTime_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "2033-11-07T06:51:30.195Z",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -333,13 +333,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Missing_RequestTime_Neg:
+   Mimoto_BindingOtp_UIN_Missing_RequestTime_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$IGNORE$",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -353,13 +353,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_UIN_Empty_RequestTime_Neg:
+   Mimoto_BindingOtp_UIN_Empty_RequestTime_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "",
       "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -373,13 +373,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Invalid_individualId_Neg:
+   Mimoto_BindingOtp_vid_Invalid_individualId_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "@#DSDFD@#",
@@ -393,13 +393,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Missing_individualId_Neg:
+   Mimoto_BindingOtp_vid_Missing_individualId_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$REMOVE$",
@@ -413,13 +413,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Empty_individualId_Neg:
+   Mimoto_BindingOtp_vid_Empty_individualId_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "",
@@ -433,13 +433,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Null_individualId_Neg:
+   Mimoto_BindingOtp_vid_Null_individualId_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "null",
@@ -453,13 +453,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_SpaceSeparated_otpChannels_Neg:
+   Mimoto_BindingOtp_vid_SpaceSeparated_otpChannels_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -473,13 +473,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Invalid_OtpChannels_Neg:
+   Mimoto_BindingOtp_vid_Invalid_OtpChannels_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -493,13 +493,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Missing_OtpChannels_Neg:
+   Mimoto_BindingOtp_vid_Missing_OtpChannels_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -513,13 +513,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Empty_OtpChannels_Neg:
+   Mimoto_BindingOtp_vid_Empty_OtpChannels_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -533,13 +533,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Null_OtpChannels_Neg:
+   Mimoto_BindingOtp_vid_Null_OtpChannels_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -553,13 +553,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Missing_OtpChannel_Neg:
+   Mimoto_BindingOtp_vid_Missing_OtpChannel_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -573,13 +573,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Empty_OtpChannel_Neg:
+   Mimoto_BindingOtp_vid_Empty_OtpChannel_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -593,13 +593,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Null_OtpChannel_Neg:
+   Mimoto_BindingOtp_vid_Null_OtpChannel_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$TIMESTAMP$",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -613,13 +613,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Invalid_RequestTime_Neg:
+   Mimoto_BindingOtp_vid_Invalid_RequestTime_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "2022-11-08T06:35:53",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -633,13 +633,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Past_RequestTime_Neg:
+   Mimoto_BindingOtp_vid_Past_RequestTime_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "2022-11-07T06:51:30.195Z",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -653,13 +653,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Future_RequestTime_Neg:
+   Mimoto_BindingOtp_vid_Future_RequestTime_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "2033-11-07T06:51:30.195Z",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -673,13 +673,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Missing_RequestTime_Neg:
+   Mimoto_BindingOtp_vid_Missing_RequestTime_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "$IGNORE$",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
@@ -693,13 +693,13 @@ BindingOtp:
   ]
 }'
 
-   MobileId_BindingOtp_vid_Empty_RequestTime_Neg:
+   Mimoto_BindingOtp_vid_Empty_RequestTime_Neg:
       endPoint: /residentmobileapp/binding-otp
       role: resident
       restMethod: post
       validityCheckRequired: true
-      inputTemplate: mobileId/BindingOtp/BindingOtp
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
       input: '{
       "requestTime": "",
       "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",

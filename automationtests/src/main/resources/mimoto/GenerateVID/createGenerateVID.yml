@@ -1,11 +1,11 @@
 GenerateVID:
-   MobileId_Generate_Perpetual_VID_Valid_Smoke_sid:
+   Mimoto_Generate_Perpetual_VID_Valid_Smoke_sid:
       endPoint: /residentmobileapp/vid
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/GenerateVID/createGenerateVID
-      outputTemplate: mobileId/GenerateVID/createGenerateVIDResult
+      inputTemplate: mimoto/GenerateVID/createGenerateVID
+      outputTemplate: mimoto/GenerateVID/createGenerateVIDResult
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
@@ -17,22 +17,22 @@ GenerateVID:
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
-    "sendOtpReqTemplate": "mobileId/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/residentmobileapp/req/otp"
     }
     }'
       output: '{
   "sendOtpResp":{
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
     }
 }'
-   MobileId_Generate_Perpetual_VID_InValid_Otp_sid:
+   Mimoto_Generate_Perpetual_VID_InValid_Otp_sid:
       endPoint: /residentmobileapp/vid
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/GenerateVID/createGenerateVID
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/GenerateVID/createGenerateVID
+      outputTemplate: mimoto/error
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
@@ -44,7 +44,7 @@ GenerateVID:
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
-    "sendOtpReqTemplate": "mobileId/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/residentmobileapp/req/otp"
     }
     }'
@@ -55,16 +55,16 @@ GenerateVID:
     }
   ],
   "sendOtpResp":{
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
     }
 }'
-   MobileId_Generate_Perpetual_VID_with_InvalidUIN_Valid_Otp_sid:
+   Mimoto_Generate_Perpetual_VID_with_InvalidUIN_Valid_Otp_sid:
       endPoint: /residentmobileapp/vid
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/GenerateVID/createGenerateVID
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/GenerateVID/createGenerateVID
+      outputTemplate: mimoto/error
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "253SDGSH@Y37",
@@ -76,7 +76,7 @@ GenerateVID:
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
-    "sendOtpReqTemplate": "mobileId/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/residentmobileapp/req/otp"
     }
     }'
@@ -87,17 +87,17 @@ GenerateVID:
     }
   ],
   "sendOtpResp":{
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
     }
 }'
 
-   MobileId_Generate_Temporary_VID_Valid_Smoke_sid:
+   mimoto_Generate_Temporary_VID_Valid_Smoke_sid:
       endPoint: /residentmobileapp/vid
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/GenerateVID/createGenerateVID
-      outputTemplate: mobileId/GenerateVID/createGenerateVIDResult
+      inputTemplate: mimoto/GenerateVID/createGenerateVID
+      outputTemplate: mimoto/GenerateVID/createGenerateVIDResult
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
@@ -109,23 +109,23 @@ GenerateVID:
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
-    "sendOtpReqTemplate": "mobileId/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/residentmobileapp/req/otp"
     }
     }'
       output: '{
   "sendOtpResp":{
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
     }
 }'
 
-   MobileId_Generate_Perpetual_VID_Invalid_TransactionId_Neg:
+   Mimoto_Generate_Perpetual_VID_Invalid_TransactionId_Neg:
       endPoint: /residentmobileapp/vid
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/GenerateVID/createGenerateVID
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/GenerateVID/createGenerateVID
+      outputTemplate: mimoto/error
       input: '{
         "transactionID": "$trc45",
         "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
@@ -137,7 +137,7 @@ GenerateVID:
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
-    "sendOtpReqTemplate": "mobileId/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/residentmobileapp/req/otp"
     }
     }'
@@ -148,17 +148,17 @@ GenerateVID:
     }
   ],
   "sendOtpResp":{
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
     }
 }'
 
-   MobileId_Generate_Perpetual_VID_Binding_Valid_Smoke_sid:
+   Mimoto_Generate_Perpetual_VID_Binding_Valid_Smoke_sid:
       endPoint: /residentmobileapp/vid
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/GenerateVID/createGenerateVID
-      outputTemplate: mobileId/GenerateVID/createGenerateVIDResult
+      inputTemplate: mimoto/GenerateVID/createGenerateVID
+      outputTemplate: mimoto/GenerateVID/createGenerateVIDResult
       input: '{
         "transactionID": "$TRANSACTIONID$",
         "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
@@ -170,12 +170,12 @@ GenerateVID:
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
     "individualIdType": "UIN",
-    "sendOtpReqTemplate": "mobileId/SendOTP/createSendOTP",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
     "sendOtpEndPoint": "/residentmobileapp/req/otp"
     }
     }'
       output: '{
   "sendOtpResp":{
-        "sendOtpResTemplate":"mobileId/SendOTP/createSendOTPResult"
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
     }
 }'

@@ -1,11 +1,11 @@
 SendOTP:
-   MobileId_SendOTP_Valid_UIN_All_Smoke:
+   Mimoto_SendOTP_Valid_UIN_All_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
       restMethod: post
       checkErrorsOnlyInResponse: true
-      inputTemplate: mobileId/SendOTP1/createSendOTP
-      outputTemplate: mobileId/SendOTP1/createSendOTPResult
+      inputTemplate: mimoto/SendOTP1/createSendOTP
+      outputTemplate: mimoto/SendOTP1/createSendOTPResult
       input: '{
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
@@ -17,13 +17,13 @@ SendOTP:
         "maskedEmail": "$IGNORE$"
     }'
     
-   MobileId_SendOTP_Valid_VID_All_Smoke:
+   Mimoto_SendOTP_Valid_VID_All_Smoke:
       endPoint: /resident/v1/req/otp
       role: resident
       restMethod: post
       checkErrorsOnlyInResponse: true
-      inputTemplate: mobileId/SendOTP1/createSendOTP
-      outputTemplate: mobileId/SendOTP1/createSendOTPResult
+      inputTemplate: mimoto/SendOTP1/createSendOTP
+      outputTemplate: mimoto/SendOTP1/createSendOTPResult
       input: '{
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
@@ -35,12 +35,12 @@ SendOTP:
         "maskedEmail": "$IGNORE$"
 }'
 
-   MobileId_SendOTP_InValid_UIN_All:
+   Mimoto_SendOTP_InValid_UIN_All:
       endPoint: /residentmobileapp/req/otp
       role: resident
       restMethod: post
-      inputTemplate: mobileId/SendOTP1/createSendOTP
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/SendOTP1/createSendOTP
+      outputTemplate: mimoto/error
       input: '{
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
@@ -56,13 +56,13 @@ SendOTP:
   ]
 }'
     
-   MobileId_SendOTP_Invalid_VID_Neg:
+   Mimoto_SendOTP_Invalid_VID_Neg:
       endPoint: /resident/v1/req/otp
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
-      inputTemplate: mobileId/SendOTP1/createSendOTP
-      outputTemplate: mobileId/error
+      inputTemplate: mimoto/SendOTP1/createSendOTP
+      outputTemplate: mimoto/error
       input: '{
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
