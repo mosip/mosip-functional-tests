@@ -8,6 +8,7 @@ GenerateChallenge:
       input: '{
    "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
    "captchaToken": "",
+   "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$"
 }'
       output: '{
@@ -23,6 +24,7 @@ GenerateChallenge:
       input: '{
    "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
    "captchaToken": "",
+   "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$",
    "locale": "$1STLANG$"
 }'

@@ -16,6 +16,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -44,6 +45,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -78,6 +80,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -111,6 +114,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -144,6 +148,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -177,6 +182,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -210,6 +216,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -243,6 +250,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -276,6 +284,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -309,6 +318,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -343,6 +353,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -372,6 +383,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -405,6 +417,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -438,6 +451,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -471,6 +485,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -504,6 +519,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -537,6 +553,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -570,6 +587,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -603,6 +621,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -636,6 +655,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -669,6 +689,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$ID:GenerateChallenge_STransId_Valid_smoke_Pos_PHONE$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -699,6 +720,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -732,6 +754,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -765,6 +788,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -798,6 +822,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -831,6 +856,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -864,6 +890,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -897,6 +924,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -930,6 +958,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -963,6 +992,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -996,6 +1026,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1029,6 +1060,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1062,6 +1094,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1095,6 +1128,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1128,6 +1162,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1161,6 +1196,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1194,6 +1230,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1227,6 +1264,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1260,6 +1298,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1293,6 +1332,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1322,6 +1362,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1351,6 +1392,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1380,6 +1422,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1409,6 +1452,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1438,6 +1482,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
@@ -1467,6 +1512,7 @@ VerifyChallengeNegTC:
     "sendOtp":{
     "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
     "captchaToken": "",
+    "purpose": "REGISTRATION",
     "requestTime": "$TIMESTAMP$",
     "sendOtpReqTemplate": "esignet/GenerateChallenge/GenerateChallenge",
     "sendOtpEndPoint": "/v1/signup/registration/generate-challenge"
