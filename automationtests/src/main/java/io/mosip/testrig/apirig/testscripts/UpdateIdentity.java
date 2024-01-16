@@ -147,6 +147,18 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		generatedRid = genRid;
 
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
+		
+		JSONObject reqJsonObject = new JSONObject(inputJson);
+		
+		if (testCaseName.startsWith("IdRepository_") && reqJsonObject.has("request")
+				&& reqJsonObject.getJSONObject("request").has("identity")
+				&& reqJsonObject.getJSONObject("request").getJSONObject("identity").has("IDSchemaVersion")
+				&& reqJsonObject.getJSONObject("request").getJSONObject("identity").getString("IDSchemaVersion")
+						.equalsIgnoreCase("$SCHEMAVERSION$")) {
+			reqJsonObject.getJSONObject("request").getJSONObject("identity").put("IDSchemaVersion", idSchemaVersion);
+			inputJson = reqJsonObject.toString();
+		}
+			
 
 		String phone = getValueFromAuthActuator("json-property", "phone_number");
 		String result = phone.replaceAll("\\[\"|\"\\]", "");
@@ -167,6 +179,8 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 			JSONObject reqJson = new JSONObject(inputJson);
 			reqJson.getJSONObject("request").getJSONObject("identity").remove("dateOfBirth");
 			inputJson = reqJson.toString();
+			if (testCaseName.contains("dob"))
+				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
 		}
 		
 		if ((testCaseName.startsWith("IdRepository_") || testCaseName.startsWith("Auth_"))
@@ -177,6 +191,9 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 			if (reqJson.getJSONObject("request").getJSONObject("identity").has(result)) {
 				reqJson.getJSONObject("request").getJSONObject("identity").remove(result);
 			}
+			if (testCaseName.contains("email") || testCaseName.contains("phonenumber"))
+				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
+			
 			inputJson = reqJson.toString();
 		}
 
