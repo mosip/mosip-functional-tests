@@ -496,3 +496,234 @@ GenerateChallengeNegTC:
     }
   ]
 }'
+
+   ESignet_GenerateChallengeNegTC_Invalid_purpose_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallenge/GenerateChallenge
+      outputTemplate: esignet/error
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "purpose": "sdfgsd",
+   "requestTime": "$TIMESTAMP$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+   ]
+}'
+
+   ESignet_GenerateChallengeNegTC_Empty_purpose_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallenge/GenerateChallenge
+      outputTemplate: esignet/error
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "purpose": "",
+   "requestTime": "$TIMESTAMP$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+   ]
+}'
+
+   ESignet_GenerateChallengeNegTC_Null_purpose_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallenge/GenerateChallenge
+      outputTemplate: esignet/error
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "purpose": "null",
+   "requestTime": "$TIMESTAMP$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+   ]
+}'
+
+   ESignet_GenerateChallengeNegTC_Missing_purpose_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallenge/GenerateChallenge
+      outputTemplate: esignet/error
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "purpose": "$REMOVE$",
+   "requestTime": "$TIMESTAMP$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+   ]
+}'
+
+   ESignet_GenerateChallengeNegTC_SpaceVal_purpose_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallenge/GenerateChallenge
+      outputTemplate: esignet/error
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "purpose": " ",
+   "requestTime": "$TIMESTAMP$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+   ]
+}'
+
+   ESignet_GenerateChallengeNegTC_Valid_Regenerate_Field1_Pos:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallengeNegTC/GenerateChallengeWithRegenField
+      outputTemplate: esignet/GenerateChallenge/GenerateChallengeResult
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "purpose": "REGISTRATION",
+   "requestTime": "$TIMESTAMP$",
+   "regenerate": "false"
+}'
+      output: '{
+  "status":"SUCCESS"
+}'
+
+   ESignet_GenerateChallengeNegTC_Missing_Regenerate_Field_Pos:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallengeNegTC/GenerateChallengeWithRegenField
+      outputTemplate: esignet/GenerateChallenge/GenerateChallengeResult
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "purpose": "REGISTRATION",
+   "requestTime": "$TIMESTAMP$",
+   "regenerate": "$REMOVE$"
+}'
+      output: '{
+  "status":"SUCCESS"
+}'
+
+   ESignet_GenerateChallengeNegTC_Valid_Regenerate_Field_WO_TransactionID_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallengeNegTC/GenerateChallengeWithRegenField
+      outputTemplate: esignet/error
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "purpose": "REGISTRATION",
+   "requestTime": "$TIMESTAMP$",
+   "regenerate": "true"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_transaction"
+    }
+   ]
+}'
+
+   ESignet_GenerateChallengeNegTC_Invalid_Regenerate_Field2_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallengeNegTC/GenerateChallengeWithRegenField
+      outputTemplate: esignet/error
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "purpose": "REGISTRATION",
+   "requestTime": "$TIMESTAMP$",
+   "regenerate": "sjdk"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+   ]
+}'
+
+   ESignet_GenerateChallengeNegTC_Empty_Regenerate_Field3_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallengeNegTC/GenerateChallengeWithRegenField
+      outputTemplate: esignet/GenerateChallenge/GenerateChallengeResult
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "purpose": "REGISTRATION",
+   "requestTime": "$TIMESTAMP$",
+   "regenerate": ""
+}'
+      output: '{
+  "status":"SUCCESS"
+}'
+
+   ESignet_GenerateChallengeNegTC_Null_Regenerate_Field3_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallengeNegTC/GenerateChallengeWithRegenField
+      outputTemplate: esignet/GenerateChallenge/GenerateChallengeResult
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "purpose": "REGISTRATION",
+   "requestTime": "$TIMESTAMP$",
+   "regenerate": "null"
+}'
+      output: '{
+  "status":"SUCCESS"
+}'
+
+   ESignet_GenerateChallengeNegTC_SpaceVal_Regenerate_Field3_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallengeNegTC/GenerateChallengeWithRegenField
+      outputTemplate: esignet/error
+      input: '{
+   "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
+   "captchaToken": "",
+   "purpose": "REGISTRATION",
+   "requestTime": "$TIMESTAMP$",
+   "regenerate": " "
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+   ]
+}'

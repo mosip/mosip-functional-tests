@@ -4544,6 +4544,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String schemaRequiredField = "";
 	String phoneNumber = "";
 	public static String phoneSchemaRegex = "";
+	public static Double idSchemaVersion;
 
 	public static String modifySchemaGenerateHbs() {
 		return modifySchemaGenerateHbs(false);
@@ -4565,6 +4566,7 @@ public class AdminTestUtil extends BaseTestCase {
 		org.json.JSONObject schemaData = (org.json.JSONObject) responseJson.get(GlobalConstants.RESPONSE);
 
 		Double schemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
+		idSchemaVersion = (Double) schemaData.get(GlobalConstants.ID_VERSION);
 		String schemaJsonData = schemaData.getString(GlobalConstants.SCHEMA_JSON);
 
 		String schemaFile = schemaJsonData;
@@ -6665,6 +6667,20 @@ public class AdminTestUtil extends BaseTestCase {
 				logger.error(e.getMessage());
 			}
 		return phoneNumber;
+	}
+	
+	public String getPasswordPattern() {
+		String password = "";
+		// TODO Regex needs to be taken from Schema
+		String passwordRegex = getValueFromSignUpSettings("password.pattern");
+		if (!passwordRegex.isEmpty())
+			try {
+				password = genStringAsperRegex(passwordRegex);
+				return password;
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+		return password;
 	}
 
 }
