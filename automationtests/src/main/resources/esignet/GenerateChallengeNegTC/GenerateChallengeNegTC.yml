@@ -614,7 +614,7 @@ GenerateChallengeNegTC:
   "status":"SUCCESS"
 }'
 
-   ESignet_GenerateChallengeNegTC_Missing_Regenerate_Field_Pos:
+   ESignet_GenerateChallengeNegTC_STransId_Missing_Regenerate_Field_Pos:
       endPoint: /v1/signup/registration/generate-challenge
       role: resident
       restMethod: post
@@ -629,6 +629,72 @@ GenerateChallengeNegTC:
 }'
       output: '{
   "status":"SUCCESS"
+}'
+
+   ESignet_GenerateChallengeNegTC_True_Regenerate_Field_Immediately_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallengeNegTC/GenerateChallengeWithTransID
+      outputTemplate: esignet/error
+      input: '{
+   "headerTransactionID": "$ID:GenerateChallengeNegTC_STransId_Missing_Regenerate_Field_Pos_TransactionID$",
+   "identifier": "$ID:GenerateChallengeNegTC_STransId_Missing_Regenerate_Field_Pos_PHONE$",
+   "captchaToken": "",
+   "purpose": "REGISTRATION",
+   "requestTime": "$TIMESTAMP$",
+   "regenerate": "true"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "too_early_attempt"
+    }
+   ]
+}'
+
+   ESignet_GenerateChallengeNegTC_True_Regenerate_Field_With_Expired_TransactionID_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallengeNegTC/GenerateChallengeWithTransID
+      outputTemplate: esignet/error
+      input: '{
+   "headerTransactionID": "mifw7MnFkxYidmJ1u4jJKGi0XuJVsS-NQGgILa_8kSM",
+   "identifier": "$ID:GenerateChallengeNegTC_STransId_Missing_Regenerate_Field_Pos_PHONE$",
+   "captchaToken": "",
+   "purpose": "REGISTRATION",
+   "requestTime": "$TIMESTAMP$",
+   "regenerate": "true"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_transaction"
+    }
+   ]
+}'
+
+   ESignet_GenerateChallengeNegTC_True_Regenerate_Field_With_Invalid_TransactionID_Neg:
+      endPoint: /v1/signup/registration/generate-challenge
+      role: resident
+      restMethod: post
+      inputTemplate: esignet/GenerateChallengeNegTC/GenerateChallengeWithTransID
+      outputTemplate: esignet/error
+      input: '{
+   "headerTransactionID": "adsfadag",
+   "identifier": "$ID:GenerateChallengeNegTC_STransId_Missing_Regenerate_Field_Pos_PHONE$",
+   "captchaToken": "",
+   "purpose": "REGISTRATION",
+   "requestTime": "$TIMESTAMP$",
+   "regenerate": "true"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_transaction"
+    }
+   ]
 }'
 
    ESignet_GenerateChallengeNegTC_Valid_Regenerate_Field_WO_TransactionID_Neg:

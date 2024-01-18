@@ -678,7 +678,7 @@ VerifyChallengeNegTC:
       role: resident
       restMethod: post
       inputTemplate: esignet/VerifyChallengeNegTC/VerifyChallengeNegTC
-      outputTemplate: esignet/VerifyChallengeNegTC/VerifyChallengeNegTCResult
+      outputTemplate: esignet/error
       input: '{
    "headerTransactionID": "$ID:VerifyChallengeNegTC_STransId_Registered_User_Neg_TransactionID$",
    "identifier": "$ID:GenerateChallenge_STransId_Valid_smoke_Pos_PHONE$",
@@ -696,7 +696,11 @@ VerifyChallengeNegTC:
     }
 }'
       output: '{
-	"status":"SUCCESS",
+  "errors": [
+    {
+      "errorCode": "identifier_already_registered"
+    }
+  ],
     "sendOtpResp":{
         "status":"SUCCESS",
         "sendOtpResTemplate":"esignet/GenerateChallenge/GenerateChallengeResult"
