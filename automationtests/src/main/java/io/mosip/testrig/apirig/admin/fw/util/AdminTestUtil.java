@@ -3586,14 +3586,21 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$VCICONTEXTURL$",
 					properties.getProperty("vciContextURL"));
 		}
-		
-		
+
 		if (jsonString.contains("$NAMEFORUPDATEUIN$")) {
-			
+
 			String name = getValueFromAuthActuator("json-property", "name");
 			String nameResult = name.replaceAll("\\[\"|\"\\]", "");
-			
+
 			jsonString = replaceKeywordWithValue(jsonString, "$NAMEFORUPDATEUIN$", nameResult);
+		}
+
+		if (jsonString.contains("$UPDATEDEMAILATTR$")) {
+
+			String email = getValueFromAuthActuator("json-property", "emailId");
+			String emailResult = email.replaceAll("\\[\"|\"\\]", "");
+
+			jsonString = replaceKeywordWithValue(jsonString, "$UPDATEDEMAILATTR$", emailResult);
 		}
 
 		if (jsonString.contains("$PROOFJWT$")) {
@@ -3618,7 +3625,8 @@ public class AdminTestUtil extends BaseTestCase {
 				accessToken = request.getString("idpAccessToken");
 			}
 			jsonString = request.toString();
-			jsonString = replaceKeywordWithValue(jsonString, "$PROOFJWT$", signJWK(clientId, accessToken, oidcJWKKey1, testCaseName));
+			jsonString = replaceKeywordWithValue(jsonString, "$PROOFJWT$",
+					signJWK(clientId, accessToken, oidcJWKKey1, testCaseName));
 		}
 
 		if (jsonString.contains(GlobalConstants.REMOVE))
