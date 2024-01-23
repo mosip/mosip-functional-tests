@@ -1,5 +1,5 @@
 RegisterUser:
-   ESignet_RegisterUser_Valid_smoke_Pos:
+   ESignet_RegisterUser_SName_Valid_smoke_Pos:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
