@@ -1425,6 +1425,7 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_fullname,invalid_value
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
@@ -1569,7 +1570,7 @@ RegisterUserNegTC:
   ]
 }'
 
-   ESignet_RegisterUserNegTC_Valid_smoke_Pos:
+   ESignet_RegisterUserNegTC_SName_Valid_smoke_Pos:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post

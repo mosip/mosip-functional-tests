@@ -2909,6 +2909,32 @@ public class AdminTestUtil extends BaseTestCase {
 			jsonString = replaceKeywordWithValue(jsonString, "$THUMBPRINT$", EncryptionDecrptionUtil.idaFirThumbPrint);
 		}
 		
+		if (jsonString.contains("_$REGISTEREDUSERFULLNAME$")) {
+			JSONObject inputReqJson = new JSONObject(jsonString);
+			JSONObject fullNameJson = new JSONObject();
+			String keyName = "";
+			String stringArray = "";
+			if (inputReqJson.has("request") && inputReqJson.getJSONObject("request").has("challengeInfo")
+					&& inputReqJson.getJSONObject("request").getJSONArray("challengeInfo").length() > 1 && inputReqJson
+							.getJSONObject("request").getJSONArray("challengeInfo").getJSONObject(1).has("challenge")) {
+				keyName = inputReqJson.getJSONObject("request").getJSONArray("challengeInfo").getJSONObject(1)
+						.getString("challenge");
+				if (!keyName.isBlank() && keyName != null) {
+					stringArray = CertsUtil.getCertificate(keyName);
+					if (!stringArray.isBlank() && stringArray != null) {
+						JSONArray fullNameArray = new JSONArray(stringArray);
+						fullNameJson.put("fullName", fullNameArray);
+						byte[] byteBioData = fullNameJson.toString().getBytes();
+
+						String challengeValue = Base64.getUrlEncoder().encodeToString(byteBioData);
+						logger.info(challengeValue);
+
+						jsonString = replaceKeywordWithValue(jsonString, keyName, challengeValue);
+					}
+				}
+			}
+		}
+		
 		if (jsonString.contains("$PASSWORDFORAUTHENTICATION$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$PASSWORDFORAUTHENTICATION$", PASSWORD_FOR_ADDIDENTITY_AND_REGISTRATION);
 		}
