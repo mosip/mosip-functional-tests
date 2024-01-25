@@ -103,6 +103,27 @@
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name ="GenerateChallengeForResetPasswordNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/GenerateChallengeForResetPasswordNegTC/GenerateChallengeForResetPasswordNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name ="VerifyChallengeForResetPasswordNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/VerifyChallengeForResetPasswordNegTC/VerifyChallengeForResetPasswordNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	<test name ="ResetPasswordNegTC">
+		<parameter name ="ymlFile"
+			value= "esignet/ResetPasswordNegTC/ResetPasswordNegTC.yml" />
+	<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="esignet/AddIdentity/AddIdentity.yml" />

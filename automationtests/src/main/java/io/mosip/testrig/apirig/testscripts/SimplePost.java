@@ -122,32 +122,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			if (!jsonString.isBlank())
 				inputJson = jsonString;
 		}
-		
-		if (inputJson.contains("_$REGISTEREDUSERFULLNAME$")) {
-			JSONObject inputReqJson = new JSONObject(inputJson);
-			JSONObject fullNameJson = new JSONObject();
-			String keyName = "";
-			String stringArray = "";
-			if (inputReqJson.has("request") && inputReqJson.getJSONObject("request").has("challengeInfo")
-					&& inputReqJson.getJSONObject("request").getJSONArray("challengeInfo").length() > 1 && inputReqJson
-							.getJSONObject("request").getJSONArray("challengeInfo").getJSONObject(1).has("challenge")) {
-				keyName = inputReqJson.getJSONObject("request").getJSONArray("challengeInfo").getJSONObject(1)
-						.getString("challenge");
-				if (!keyName.isBlank() && keyName != null) {
-					stringArray = CertsUtil.getCertificate(keyName);
-					if (!stringArray.isBlank() && stringArray != null) {
-						JSONArray fullNameArray = new JSONArray(stringArray);
-						fullNameJson.put("fullName", fullNameArray);
-						byte[] byteBioData = fullNameJson.toString().getBytes();
-
-						String challengeValue = Base64.getUrlEncoder().encodeToString(byteBioData);
-						logger.info(challengeValue);
-
-						inputJson = replaceKeywordWithValue(inputJson, keyName, challengeValue);
-					}
-				}
-			}
-		}
+	
 		
 		if (inputJson.contains("$PASSWORDTOREGISTERUSER$")) {
 //			String password = getPasswordPattern();
