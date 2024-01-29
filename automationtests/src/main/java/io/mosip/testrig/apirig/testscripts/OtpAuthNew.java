@@ -115,6 +115,11 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$KycPartnerKeyURL$", PartnerRegistration.ekycPartnerKeyUrl));
 		}
+		
+		if (testCaseDTO.getEndPoint().contains("$UpdatedPartnerKeyURL$")) {
+			testCaseDTO.setEndPoint(
+					testCaseDTO.getEndPoint().replace("$UpdatedPartnerKeyURL$", PartnerRegistration.updatedpartnerKeyUrl));
+		}
 
 		if (testCaseDTO.getEndPoint().contains("$PartnerName$")) {
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$PartnerName$", PartnerRegistration.partnerId));
@@ -163,9 +168,17 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 
 		Response otpRespon = null;
 
-		otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(
-				ApplnURI + "/idauthentication/v1/otp/" + PartnerRegistration.partnerKeyUrl, sendOtpBody.toString(),
-				GlobalConstants.AUTHORIZATION, token, headers, testCaseName);
+		if (testCaseDTO.getTestCaseName().contains("EkycOtp")) {
+			otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(
+					ApplnURI + "/idauthentication/v1/otp/" + PartnerRegistration.ekycPartnerKeyUrl, sendOtpBody.toString(),
+					GlobalConstants.AUTHORIZATION, token, headers, testCaseName);
+		} else {
+
+			otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(
+					ApplnURI + "/idauthentication/v1/otp/" + PartnerRegistration.partnerKeyUrl, sendOtpBody.toString(),
+					GlobalConstants.AUTHORIZATION, token, headers, testCaseName);
+
+		}
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null;

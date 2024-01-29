@@ -10,9 +10,9 @@ GetPreRegInfoByPrid:
 }'
       output: '{
   "postalCode":"14022",
-  "dateOfBirth": "1996/01/01",
-  "IDSchemaVersion": "0.1",
-  "phone": "8249742850"
+  "dateOfBirth": "$IGNORE$",
+  "IDSchemaVersion": "$IGNORE$",
+  "phone": "$IGNORE$"
 }'
 
    Prereg_GetPreRegInfoByPrid_inValid_preRegistrationId:

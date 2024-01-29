@@ -183,6 +183,11 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		if (endPoint.contains("$PartnerName$")) {
 			endPoint = endPoint.replace("$PartnerName$", PartnerRegistration.partnerId);
 		}
+		
+		if (endPoint.contains("$UpdatedPartnerKeyURL$")) {
+			endPoint = endPoint.replace("$UpdatedPartnerKeyURL$", PartnerRegistration.updatedpartnerKeyUrl);
+		}
+		
 
 		String inputStr = buildIdentityRequest(input.toString());
 

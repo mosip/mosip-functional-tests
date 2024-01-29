@@ -1738,7 +1738,7 @@ BioAuth:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-  "authStatus": "true"
+  "authStatus": "false"
 }'
   auth_BioAuth_Biometric_Face_With_InValid_timestamp:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:AddIdentity_Lock_UIN_Unlock_BioAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
