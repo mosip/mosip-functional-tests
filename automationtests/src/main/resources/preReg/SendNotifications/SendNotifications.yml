@@ -10,14 +10,14 @@ SendNotifications:
     "id":"mosip.pre-registration.notification.notify",
     "version":"1.0",
     "requesttime":"$TIMESTAMP$",
-	"name":"TEST_FULLNAME",
-	"preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
-	"appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
-	"appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
-	"mobNum":"9090872300",
-	"emailID":"mosipuser123@mailinator.com",
-	"additionalRecipient":false,
-	"isBatch":false      	   
+  "name":"TEST_FULLNAME",
+  "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
+  "appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
+  "appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
+  "mobNum":"9090872300",
+  "emailID":"mosipuser123@mailinator.com",
+  "additionalRecipient":false,
+  "isBatch":false           
 }'
       output: '{
 }'
@@ -32,13 +32,13 @@ SendNotifications:
     "id":"mosip.pre-registration.notification.notify",
     "version":"1.0",
     "requesttime":"$TIMESTAMP$",
-	"name":"TEST_FULLNAME",
-	"preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
-	"appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
-	"appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
-	"mobNum":"9090872300",
-	"emailID":"mosipuser123@mailinator.com",
-	"isBatch":true      	   
+  "name":"TEST_FULLNAME",
+  "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
+  "appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
+  "appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
+  "mobNum":"9090872300",
+  "emailID":"mosipuser123@mailinator.com",
+  "isBatch":true           
 }'
       output: '{
 }'
@@ -52,14 +52,14 @@ SendNotifications:
     "id":"mosip.pre-registration.notification.notifyasdf",
     "version":"1.0",
     "requesttime":"$TIMESTAMP$",
-	"name":"FR",
-	"preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
-	"appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
-	"appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
-	"mobNum":"9090872300",
-	"emailID":"mosipuser123@mailinator.com",
-	"additionalRecipient":false,
-	"isBatch":false      	   
+  "name":"FR",
+  "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$",
+  "appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
+  "appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
+  "mobNum":"9090872300",
+  "emailID":"mosipuser123@mailinator.com",
+  "additionalRecipient":false,
+  "isBatch":false           
 }'
       output: '{
   "errors": [
@@ -78,14 +78,14 @@ SendNotifications:
     "id":"mosip.pre-registration.notification.notify",
     "version":"1.0",
     "requesttime":"$TIMESTAMP$",
-	"name":"FR",
-	"preRegistrationId":"sadgf",
-	"appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
-	"appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
-	"mobNum":"9090872300",
-	"emailID":"mosipuser123@mailinator.com",
-	"additionalRecipient":false,
-	"isBatch":false      	   
+  "name":"FR",
+  "preRegistrationId":"sadgf",
+  "appointmentDate":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_appointment_date$",
+  "appointmentTime":"$ID:GetAppointmentDetails_BookByPRID_All_Valid_Smoke_sid_time_slot_from$",
+  "mobNum":"9090872300",
+  "emailID":"mosipuser123@mailinator.com",
+  "additionalRecipient":false,
+  "isBatch":false           
 }'
       output: '{
   "errors": [

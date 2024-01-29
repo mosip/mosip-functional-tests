@@ -7,9 +7,9 @@ AuthInternalLock:
       inputTemplate: idRepository/AuthInternalLock/authInternalLock
       outputTemplate: idRepository/AuthInternalLock/AuthInternalLockResult
       input: '{
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$",
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:AddIdentity_AuthStatus_Valid_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "authType": "demo",
@@ -35,9 +35,9 @@ AuthInternalLock:
     "authSubType": "",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
 }'
@@ -56,9 +56,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
       "responsetime": "$IGNORE$"
@@ -78,9 +78,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
 }'
@@ -99,9 +99,9 @@ AuthInternalLock:
     "authSubType": "IRIS",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
 }'
@@ -120,9 +120,9 @@ AuthInternalLock:
     "authSubType": "IRIS",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
 }'
@@ -141,9 +141,9 @@ AuthInternalLock:
     "authSubType": "FINGER",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
 }'
@@ -162,9 +162,9 @@ AuthInternalLock:
     "authSubType": "FINGER",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
 }'
@@ -183,9 +183,9 @@ AuthInternalLock:
     "authSubType": "email",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
 }'
@@ -204,9 +204,9 @@ AuthInternalLock:
     "authSubType": "email",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
 }'
@@ -225,9 +225,9 @@ AuthInternalLock:
     "authSubType": "phone",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
 }'
@@ -246,9 +246,9 @@ AuthInternalLock:
     "authSubType": "phone",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
 }'
@@ -266,9 +266,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -291,9 +291,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -316,9 +316,9 @@ AuthInternalLock:
     "authSubType": "",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -341,9 +341,9 @@ AuthInternalLock:
     "authSubType": "",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -366,9 +366,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -391,9 +391,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -416,9 +416,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -441,9 +441,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -466,9 +466,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -491,9 +491,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -516,9 +516,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": ""
+  "id": "string",
+  "version": "string",
+  "requestTime": ""
 }'
       output: '{
    "errors": [
@@ -541,9 +541,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": ""
+  "id": "string",
+  "version": "string",
+  "requestTime": ""
 }'
       output: '{
    "errors": [
@@ -566,9 +566,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -591,9 +591,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -616,9 +616,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [
@@ -641,9 +641,9 @@ AuthInternalLock:
     "authSubType": "FACE",
     "locked": "true",
     "unlockForSeconds": 0,
-	"id": "string",
-	"version": "string",
-	"requestTime": "$TIMESTAMP$"
+  "id": "string",
+  "version": "string",
+  "requestTime": "$TIMESTAMP$"
 }'
       output: '{
    "errors": [

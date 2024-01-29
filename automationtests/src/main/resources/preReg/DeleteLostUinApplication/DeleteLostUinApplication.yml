@@ -7,7 +7,7 @@ DeleteLostUinApplication:
       inputTemplate: preReg/DeleteLostUinApplication/deleteLostUinApplication
       outputTemplate: preReg/DeleteLostUinApplication/deleteLostUinApplicationResult
       input: '{
-	"applicationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$"
+  "applicationId": "$ID:CreatePrereg_Valid_Smoke_sid_preRegistrationId$"
 }'
       output: '{
        "deletedBy": "$IGNORE$"
@@ -19,7 +19,7 @@ DeleteLostUinApplication:
       inputTemplate: preReg/DeleteLostUinApplication/deleteLostUinApplication
       outputTemplate: preReg/error
       input: '{
-	"applicationId": "nhhh654443@@ffffv"
+  "applicationId": "nhhh654443@@ffffv"
 }'
       output: '{
    "errors": [ 

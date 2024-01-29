@@ -7,24 +7,24 @@ GetUpdateCount:
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/GetUpdateCount/GetUpdateCountResult
       input: '{
-		  "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$",
-		  "idType": "UIN",
- 		  "attribute_list": "fullName"
+      "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$",
+      "idType": "UIN",
+       "attribute_list": "fullName"
 }'
       output: '{
-   		
+       
 }'
 
-   IdRepository_GetUpdateCount_Uin_Invalid_IndivId:
+   IdRepository_GetUpdateCount_Uin_Invalid_IndivualId:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: resident
       restMethod: get
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": "$123ds",
-		  "idType": "UIN",
- 		  "attribute_list": "fullName"
+      "individualId": "$123ds",
+      "idType": "UIN",
+       "attribute_list": "fullName"
 }'
       output: '{
   "errors": [
@@ -41,9 +41,9 @@ GetUpdateCount:
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": "",
-		  "idType": "UIN",
- 		  "attribute_list": "fullName"
+      "individualId": "",
+      "idType": "UIN",
+       "attribute_list": "fullName"
 }'
       output: "404"
 
@@ -54,9 +54,9 @@ GetUpdateCount:
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": " ",
-		  "idType": "UIN",
- 		  "attribute_list": "fullName"
+      "individualId": " ",
+      "idType": "UIN",
+       "attribute_list": "fullName"
 }'
       output: '{
   "errors": [
@@ -73,9 +73,9 @@ GetUpdateCount:
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$",
-		  "idType": "UIN",
- 		  "attribute_list": "fullName"
+      "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$",
+      "idType": "UIN",
+       "attribute_list": "fullName"
 }'
       output: "500"
 
@@ -87,12 +87,12 @@ GetUpdateCount:
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/GetUpdateCount/GetUpdateCountResult
       input: '{
-		  "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$",
-		  "idType": "VID",
- 		  "attribute_list": "fullName"
+      "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$",
+      "idType": "VID",
+       "attribute_list": "fullName"
 }'
       output: '{
-   		
+       
 }'
 
    IdRepository_GetUpdateCount_Uin_Invalid_IndivId:
@@ -102,9 +102,9 @@ GetUpdateCount:
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": "$123ds",
-		  "idType": "VID",
- 		  "attribute_list": "fullName"
+      "individualId": "$123ds",
+      "idType": "VID",
+       "attribute_list": "fullName"
 }'
       output: '{
   "errors": [
@@ -114,29 +114,29 @@ GetUpdateCount:
   ]
 }'
 
-   IdRepository_GetUpdateCount_Uin_StatusCode_Empty_IndivId:
+   IdRepository_GetUpdateCount_Uin_StaatusCode_Empty_IndivId:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: resident
       restMethod: get
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": "",
-		  "idType": "VID",
- 		  "attribute_list": "fullName"
+      "individualId": "",
+      "idType": "VID",
+       "attribute_list": "fullName"
 }'
       output: "404"
 
-   IdRepository_GetUpdateCount_Uin_SpaceVal_IndivId:
+   IdRepository_GetUpdateCount_Uin_SppaceVal_IndivId:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: resident
       restMethod: get
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": " ",
-		  "idType": "VID",
- 		  "attribute_list": "fullName"
+      "individualId": " ",
+      "idType": "VID",
+       "attribute_list": "fullName"
 }'
       output: '{
   "errors": [
@@ -146,16 +146,16 @@ GetUpdateCount:
   ]
 }'
 
-   IdRepository_GetUpdateCount_Uin_StatusCode_Invalid_Token:
+   IdRepository_GetUpdateCount_Uinn_StatusCode_Invalid_Token:
       endPoint: /idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}
       role: invalid
       restMethod: get
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$",
-		  "idType": "VID",
- 		  "attribute_list": "fullName"
+      "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$",
+      "idType": "VID",
+       "attribute_list": "fullName"
 }'
       output: "500"
       
@@ -166,9 +166,9 @@ GetUpdateCount:
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$",
-		  "idType": "dfsdf",
- 		  "attribute_list": "fullName"
+      "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$",
+      "idType": "dfsdf",
+       "attribute_list": "fullName"
 }'
       output: '{
   "errors": [
@@ -185,9 +185,9 @@ GetUpdateCount:
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$",
-		  "idType": "",
- 		  "attribute_list": "fullName"
+      "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$",
+      "idType": "",
+       "attribute_list": "fullName"
 }'
       output: '{
   "errors": [
@@ -204,9 +204,9 @@ GetUpdateCount:
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$",
-		  "idType": " ",
- 		  "attribute_list": "fullName"
+      "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$",
+      "idType": " ",
+       "attribute_list": "fullName"
 }'
       output: '{
   "errors": [
@@ -223,9 +223,9 @@ GetUpdateCount:
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$",
-		  "idType": "dfsdf",
- 		  "attribute_list": "fullName"
+      "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$",
+      "idType": "dfsdf",
+       "attribute_list": "fullName"
 }'
       output: '{
   "errors": [
@@ -242,9 +242,9 @@ GetUpdateCount:
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$",
-		  "idType": "",
- 		  "attribute_list": "fullName"
+      "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$",
+      "idType": "",
+       "attribute_list": "fullName"
 }'
       output: '{
   "errors": [
@@ -262,9 +262,9 @@ GetUpdateCount:
       inputTemplate: idRepository/GetUpdateCount/GetUpdateCount
       outputTemplate: idRepository/error
       input: '{
-		  "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$",
-		  "idType": " ",
- 		  "attribute_list": "fullName"
+      "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$",
+      "idType": " ",
+       "attribute_list": "fullName"
 }'
       output: '{
   "errors": [
