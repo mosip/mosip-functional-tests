@@ -128,6 +128,11 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 		} else {
 			if (testCaseName.contains("ESignet_")) {
 				String tempUrl = ConfigManager.getEsignetBaseUrl();
+				if (testCaseDTO.getEndPoint().startsWith("$ESIGNETMOCKBASEURL$") && testCaseName.contains("SunBirdRC")) {
+					if(ConfigManager.getEsignetMockBaseURL() != null && !ConfigManager.getEsignetMockBaseURL().isBlank())
+						tempUrl = ApplnURI.replace("api-internal.", ConfigManager.getEsignetMockBaseURL());
+					testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$ESIGNETMOCKBASEURL$", ""));
+				}
 				String endPoint = tempUrl + testCaseDTO.getEndPoint();
 				if (testCaseDTO.getEndPoint().contains("$GETENDPOINTFROMRESIDENTACTUATOR$") && BaseTestCase.currentModule.equalsIgnoreCase("resident")) {
 					endPoint = getValueFromActuator("mosip-config/resident-default.properties", "mosip.iam.token_endpoint");
