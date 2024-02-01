@@ -201,6 +201,7 @@ GenerateChallengeNegTC:
       endPoint: /v1/signup/registration/generate-challenge
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_request,invalid_purpose
       inputTemplate: esignet/GenerateChallenge/GenerateChallenge
       outputTemplate: esignet/error
       input: '{
@@ -572,7 +573,7 @@ GenerateChallengeNegTC:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_request"
+      "errorCode": "invalid_purpose"
     }
    ]
 }'
