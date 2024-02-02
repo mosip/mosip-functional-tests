@@ -1,4 +1,4 @@
-name: Maven Package upon a push
+name: Authentication demo service Build
 
 on:
   release:
