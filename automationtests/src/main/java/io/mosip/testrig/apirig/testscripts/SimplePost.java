@@ -162,6 +162,11 @@ public class SimplePost extends AdminTestUtil implements ITest {
 		else {
 			String tempUrl = ConfigManager.getEsignetBaseUrl();
 			if (testCaseName.contains("ESignet_")) {
+				if (testCaseDTO.getEndPoint().startsWith("$ESIGNETMOCKBASEURL$") && testCaseName.contains("SunBirdRC")) {
+					if(ConfigManager.getEsignetMockBaseURL() != null && !ConfigManager.getEsignetMockBaseURL().isBlank())
+						tempUrl = ApplnURI.replace("api-internal.", ConfigManager.getEsignetMockBaseURL());
+					testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$ESIGNETMOCKBASEURL$", ""));
+				}
 				if (testCaseName.contains("ESignet_SendBindingOtp")) {
 					response = postRequestWithCookieAuthHeader(tempUrl + testCaseDTO.getEndPoint(), inputJson,
 							COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());

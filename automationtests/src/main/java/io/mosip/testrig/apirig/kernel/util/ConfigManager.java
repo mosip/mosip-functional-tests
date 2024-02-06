@@ -76,6 +76,8 @@ public class ConfigManager {
 
 	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
+	
+	private static String ESIGNET_MOCK_BASE_URL = "esignetMockBaseURL";
 
 	private static String PRECONFIGOTP = "preconfiguredOtp";
 	private static String DB_PORT = "db-port";
@@ -196,6 +198,7 @@ public class ConfigManager {
 	private static String usePreConfiguredOtp;
 	private static String preconfiguredOtp;
 	private static String eSignetbaseurl;
+	private static String esignetMockBaseURL;
 
 	private static String dbPort;
 	private static String dbDomain;
@@ -404,6 +407,11 @@ public class ConfigManager {
 		}
 		propsKernel.setProperty(ESIGNET_BASE_URL, eSignetbaseurl);
 		
+		esignetMockBaseURL = System.getenv(ESIGNET_MOCK_BASE_URL) == null
+				? propsKernel.getProperty(ESIGNET_MOCK_BASE_URL)
+				: System.getenv(ESIGNET_MOCK_BASE_URL);
+		propsKernel.setProperty(ESIGNET_MOCK_BASE_URL, esignetMockBaseURL);
+		
 		serviceNotDeployedList = System.getenv(SERVICES_NOT_DEPLOYED) == null
 				? propsKernel.getProperty(SERVICES_NOT_DEPLOYED)
 				: System.getenv(SERVICES_NOT_DEPLOYED);
@@ -522,7 +530,12 @@ public class ConfigManager {
 		return eSignetbaseurl;
 
 	}
+	
+	public static String getEsignetMockBaseURL() {
+		return esignetMockBaseURL;
 
+	}
+	
 	public static String getUsePreConfiguredOtp() {
 		return usePreConfiguredOtp;
 
