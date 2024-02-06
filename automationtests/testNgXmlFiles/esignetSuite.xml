@@ -857,6 +857,21 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="OAuthDetailsRequestSunBirdRCNegTC">
+		<parameter name="ymlFile"
+			value="esignet/SunBirdRCNegTC/OAuthDetailsRequestSunBirdRCNegTC/OAuthDetailsRequestSunBirdRCNegTC.yml" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthenticateUserSunBirdRCNegTC">
+		<parameter name="ymlFile"
+			value="esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
 
 <!-- Removed kyc delegated demo auth as it is not supported 
 	<test name="KycDemoAuth">

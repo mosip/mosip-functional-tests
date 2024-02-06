@@ -1,0 +1,375 @@
+AuthenticateUserSunBirdRCNegTC:
+   ESignet_AuthenticateUserSunBirdRCNegTC_Invalid_TransactionID_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "sgsfdg",
+      	"individualId": "$POLICYNUMBERFORSUNBIRDRC$",
+      	"authFactorType" : "KBA",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_transaction"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_Missing_TransactionID_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$REMOVE$",
+      	"individualId": "$POLICYNUMBERFORSUNBIRDRC$",
+      	"authFactorType" : "KBA",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_transaction"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_Empty_TransactionID_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "sgsfdg",
+      	"individualId": "$POLICYNUMBERFORSUNBIRDRC$",
+      	"authFactorType" : "KBA",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_transaction"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_Expired_TransactionID_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "LIqWka8p3F4ID2Z2X4Dnxqf57ixUZyHxGGrDe7R96p4",
+      	"individualId": "$POLICYNUMBERFORSUNBIRDRC$",
+      	"authFactorType" : "KBA",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_transaction"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_Invalid_PolicyNum_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "5adsf1",
+      	"authFactorType" : "KBA",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "auth_failed"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_Empty_PolicyNum_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "",
+      	"authFactorType" : "KBA",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_identifier"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_SpaceVal_PolicyNum_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": " ",
+      	"authFactorType" : "KBA",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_identifier"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_Null_PolicyNum_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "null",
+      	"authFactorType" : "KBA",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "auth_failed"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_Missing_PolicyNum_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$REMOVE$",
+      	"authFactorType" : "KBA",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_identifier"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_Invalid_AuthFactorType_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$POLICYNUMBERFORSUNBIRDRC$",
+      	"authFactorType" : "ads",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "auth_factor_mismatch"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_Empty_AuthFactorType_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$POLICYNUMBERFORSUNBIRDRC$",
+      	"authFactorType" : "",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_auth_factor_type"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_SpaceVal_AuthFactorType_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$POLICYNUMBERFORSUNBIRDRC$",
+      	"authFactorType" : " ",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_auth_factor_type"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_Null_AuthFactorType_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$POLICYNUMBERFORSUNBIRDRC$",
+      	"authFactorType" : "null",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "auth_factor_mismatch"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_Other_AuthFactorType_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$POLICYNUMBERFORSUNBIRDRC$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "auth_factor_mismatch"
+    }
+  ]
+}'
+
+   ESignet_AuthenticateUserSunBirdRCNegTC_Missing_AuthFactorType_Neg:
+      endPoint: $ESIGNETMOCKBASEURL$/v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC
+      outputTemplate: esignet/error
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_SunBirdRCNegTC_all_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$POLICYNUMBERFORSUNBIRDRC$",
+      	"authFactorType" : "$REMOVE$",
+      	"challenge" : "$CHALLENGEVALUEFORSUNBIRDRC$",
+      	"format": "base64url-encoded-json"
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_auth_factor_type"
+    }
+  ]
+}'
