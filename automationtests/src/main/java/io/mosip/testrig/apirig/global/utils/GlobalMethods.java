@@ -2,6 +2,9 @@ package io.mosip.testrig.apirig.global.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
@@ -16,6 +19,26 @@ import io.restassured.response.Response;
 public class GlobalMethods {
 
 	private static final Logger logger = Logger.getLogger(GlobalMethods.class);
+	
+	public static Map<Object, Object> serverFailuresMapS = Collections
+			.synchronizedMap(new HashMap<Object, Object>());
+	
+	
+	public static void reportServerError(Object code, Object errorMessage) {
+		serverFailuresMapS.put(code, errorMessage);
+	}
+	
+	public static String getServerErrors() {
+		// Construct server errors using string builder
+//		StringBuilder stringBuilder = new StringBuilder();
+		if (serverFailuresMapS.size() == 0) {
+			return "No server errors";
+		} else {
+			return serverFailuresMapS.toString();
+		}
+
+	}
+	
 	public static void ReportRequestAndResponse(String reqHeader,String resHeader,String url, String requestBody, String response) {
 	reportRequest(reqHeader,requestBody, url);
 	reportResponse(resHeader,url, response);				
