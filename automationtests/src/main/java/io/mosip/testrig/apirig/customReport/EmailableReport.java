@@ -29,6 +29,7 @@ import org.testng.xml.XmlSuite;
 
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
+import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.kernel.util.S3Adapter;
 
@@ -235,6 +236,11 @@ public class EmailableReport implements IReporter {
 
 			writer.print("<tr><th colspan=\"7\"><span class=\"not-bold\"><pre>");
 			writer.print(Utils.escapeHtml("Server Component Details " + AdminTestUtil.getServerComponentsDetails()));
+			writer.print("</pre></span>");
+			writer.print(GlobalConstants.TRTR);
+			
+			writer.print("<tr><th colspan=\"7\"><span class=\"not-bold\"><pre>");
+			writer.print(Utils.escapeHtml("Server Errors " + "\n" + GlobalMethods.getServerErrors()));
 			writer.print("</pre></span>");
 			writer.print(GlobalConstants.TRTR);
 
