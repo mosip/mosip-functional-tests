@@ -38,7 +38,7 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 	private static final Logger logger = Logger.getLogger(GetWithParamWithOtpGenerate.class);
 	protected String testCaseName = "";
 	public Response response = null;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -66,8 +66,6 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -82,14 +80,21 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
 		
+		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
+			}
+		}
+
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null;
 		String sendOtpReqTemplate = null;
 		String sendOtpEndPoint = null;
-		if(req.has(GlobalConstants.SENDOTP)) {
+		if (req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
 		}
@@ -98,39 +103,41 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 		otpReqJson.remove("sendOtpReqTemplate");
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		otpReqJson.remove("sendOtpEndPoint");
-		
 
-		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
-
+		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint,
+				getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, GlobalConstants.RESIDENT,
+				testCaseDTO.getTestCaseName());
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null;
 		String sendOtpResTemplate = null;
-		if(res.has(GlobalConstants.SENDOTPRESP)) {
+		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
 		}
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
-		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
+		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
+				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
 			if (otpResponse.asString().contains("IDA-OTA-001"))
-				throw new AdminTestException("Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
+				throw new AdminTestException(
+						"Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
 			else
 				throw new AdminTestException("Failed at otp output validation");
 		}
-		
+
 		JSONObject reqvOtp = new JSONObject(testCaseDTO.getInput());
 		JSONObject reqvtOtp = (JSONObject) reqvOtp.get(GlobalConstants.SENDOTP);
 		String otpValidationRequest = null;
 		String validateOtpReqTemplate = null;
 		String validateOtpEndPoint = null;
-		
-		if(!reqvtOtp.isNull(GlobalConstants.VALIDATEOTP)) {
+
+		if (!reqvtOtp.isNull(GlobalConstants.VALIDATEOTP)) {
 			otpValidationRequest = reqvtOtp.get(GlobalConstants.VALIDATEOTP).toString();
 			reqvOtp.remove(GlobalConstants.VALIDATEOTP);
 		}
@@ -139,53 +146,53 @@ public class GetWithParamWithOtpGenerate extends AdminTestUtil implements ITest 
 		validateOtpReqJson.remove("validateOtpReqTemplate");
 		validateOtpEndPoint = validateOtpReqJson.getString("validateOtpEndPoint");
 		validateOtpReqJson.remove("validateOtpEndPoint");
-		
 
-		Response validateOtpResponse = postWithBodyAndCookie(ApplnURI + validateOtpEndPoint, getJsonFromTemplate(validateOtpReqJson.toString(), validateOtpReqTemplate), COOKIENAME,GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
+		Response validateOtpResponse = postWithBodyAndCookie(ApplnURI + validateOtpEndPoint,
+				getJsonFromTemplate(validateOtpReqJson.toString(), validateOtpReqTemplate), COOKIENAME,
+				GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
 
-
-		
-		
-		
-		
 		String[] templateFields = testCaseDTO.getTemplateFields();
-		
+
 		if (testCaseDTO.getInputTemplate().contains(GlobalConstants.$PRIMARYLANG$))
-			testCaseDTO.setInputTemplate(
-					testCaseDTO.getInputTemplate().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
+			testCaseDTO.setInputTemplate(testCaseDTO.getInputTemplate().replace(GlobalConstants.$PRIMARYLANG$,
+					BaseTestCase.languageList.get(0)));
 		if (testCaseDTO.getOutputTemplate().contains(GlobalConstants.$PRIMARYLANG$))
-			testCaseDTO.setOutputTemplate(
-					testCaseDTO.getOutputTemplate().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
+			testCaseDTO.setOutputTemplate(testCaseDTO.getOutputTemplate().replace(GlobalConstants.$PRIMARYLANG$,
+					BaseTestCase.languageList.get(0)));
 		if (testCaseDTO.getInput().contains(GlobalConstants.$PRIMARYLANG$))
-			testCaseDTO.setInput(testCaseDTO.getInput().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
+			testCaseDTO.setInput(
+					testCaseDTO.getInput().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
 		if (testCaseDTO.getOutput().contains(GlobalConstants.$PRIMARYLANG$))
-			testCaseDTO.setOutput(testCaseDTO.getOutput().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
+			testCaseDTO.setOutput(
+					testCaseDTO.getOutput().replace(GlobalConstants.$PRIMARYLANG$, BaseTestCase.languageList.get(0)));
 
 		if (testCaseDTO.getTemplateFields() != null && templateFields.length > 0) {
 			ArrayList<JSONObject> inputtestCases = AdminTestUtil.getInputTestCase(testCaseDTO);
 			ArrayList<JSONObject> outputtestcase = AdminTestUtil.getOutputTestCase(testCaseDTO);
-			languageList =Arrays.asList(System.getProperty("env.langcode").split(","));
-			 for (int i=0; i<languageList.size(); i++) {
-		            	response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
-		    					getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
-		    					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		            	
-		            	Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-								response.asString(),
-								getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
-						Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-						
-						if (!OutputValidationUtil.publishOutputResult(ouputValid))
-							throw new AdminTestException("Failed at output validation");
-		        }
+			languageList = Arrays.asList(System.getProperty("env.langcode").split(","));
+			for (int i = 0; i < languageList.size(); i++) {
+				response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
+						getJsonFromTemplate(inputtestCases.get(i).toString(), testCaseDTO.getInputTemplate()),
+						COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+
+				Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+						response.asString(),
+						getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()),
+						testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+				Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
+
+				if (!OutputValidationUtil.publishOutputResult(ouputValid))
+					throw new AdminTestException("Failed at output validation");
+			}
 		}
-		
+
 		else {
 			response = getWithPathParamAndCookie(ApplnURI + testCaseDTO.getEndPoint(),
 					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
 					testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+					response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+					testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");

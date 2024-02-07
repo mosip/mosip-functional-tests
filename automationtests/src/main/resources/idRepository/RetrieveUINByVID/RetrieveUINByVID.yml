@@ -144,7 +144,7 @@ Retrieve_VID_pos:
   ]
 }'
 
-  IdRepository_Retrieve_VID_perpetual_Invalid_Id:
+  IdRepository_Retrieve_PVID_with_invalid_vid_data:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
       restMethod: get
@@ -161,7 +161,7 @@ Retrieve_VID_pos:
   ]
 }'
 
-  IdRepository_Retrieve_VID_perpetual_Empty_Id:
+  IdRepository_Retrieve_PVID_with_Empty_vid:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
       restMethod: get
@@ -178,7 +178,7 @@ Retrieve_VID_pos:
   ]
 }'
 
-  IdRepository_Retrieve_VID_perpetual_SpaceVal_Id:
+  IdRepository_Retrieve_PVID_with_SpaceVal_vid_data:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
       restMethod: get
@@ -195,7 +195,7 @@ Retrieve_VID_pos:
   ]
 }'
 
-  IdRepository_Retrieve_VID_Temp_Invalid_Id:
+  IdRepository_Retrieve_VID_with_invalid_vid_data:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
       restMethod: get
@@ -212,7 +212,7 @@ Retrieve_VID_pos:
   ]
 }'
 
-  IdRepository_Retrieve_VID_Temp_Empty_Id:
+  IdRepository_Retrieve_VID_Temp_Empty_vid:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
       restMethod: get
@@ -229,7 +229,7 @@ Retrieve_VID_pos:
   ]
 }'
 
-  IdRepository_Retrieve_VID_Temp_SpaceVal_Id:
+  IdRepository_Retrieve_VID_with_SpaceVal_vid_data:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
       restMethod: get
@@ -246,7 +246,7 @@ Retrieve_VID_pos:
   ]
 }'
 
-  IdRepository_Retrieve_VID_Onetime_Invalid_Id:
+  IdRepository_Retrieve_VID_with_Invalid_vid:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
       restMethod: get
@@ -263,7 +263,7 @@ Retrieve_VID_pos:
   ]
 }'
 
-  IdRepository_Retrieve_VID_Onetime_Empty_Id:
+  IdRepository_Retrieve_VID_with_Empty_vid:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
       restMethod: get
@@ -280,7 +280,7 @@ Retrieve_VID_pos:
   ]
 }'
 
-  IdRepository_Retrieve_VID_Onetime_SpaceVal_Id:
+  IdRepository_Retrieve_VID_with_SpaceVal_vid:
       endPoint: /idrepository/v1/vid/{VID}
       role: idrepo
       restMethod: get

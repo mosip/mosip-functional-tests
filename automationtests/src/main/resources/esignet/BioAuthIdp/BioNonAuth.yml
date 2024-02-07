@@ -1,5 +1,5 @@
 BioNonAuth:
-  ESignet_BioNonAuth_Biometric_Face_NonAuth_With_Valid_uin_Smoke_Pos:
+  ESignet_BioAuth_Biometric_Face_NonAuth_With_Valid_uin_Smoke_Pos:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -517,7 +517,7 @@ BioNonAuth:
 		  ]
 }'
 
-  ESignet_BioNonAuth_Biometric_Face_NonAuth_With_Valid_vid_Smoke_Pos:
+  ESignet_BioNonAuth_Biometric_Face_NonAuth_With_Valid_Vid_Smoke_Pos:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -561,7 +561,7 @@ BioNonAuth:
 		  ]
 }'
 
-  ESignet_BioAuth_Biometric_RingFinger_With_vid_NonAuth_Neg:
+  ESignet_BioAuth_Biometric_RingFinger_With_Vid_NonAuth_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -604,7 +604,7 @@ BioNonAuth:
 		    }
 		  ]
 }'
-  ESignet_BioAuth_Biometric_LeftMiddleFingerr_With_vid_NonAuth_Neg:
+  ESignet_BioAuth_Biometric_LeftMiddleFingerr_With_Vid_NonAuth_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -647,7 +647,7 @@ BioNonAuth:
 		    }
 		  ]
 }'
-  ESignet_BioAuth_Biometric_LeftLittleFinger_With_vid_NonAuth_Neg:
+  ESignet_BioAuth_Biometric_LeftLittleFinger_With_Vid_NonAuth_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -690,7 +690,7 @@ BioNonAuth:
 		    }
 		  ]
 }'
-  ESignet_BioAuth_Biometric_RightIndexFinger_With_vid_NonAuth_Neg:
+  ESignet_BioAuth_Biometric_RightIndexFinger_With_Vid_NonAuth_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -733,7 +733,7 @@ BioNonAuth:
 		    }
 		  ]
 }'
-  ESignet_BioAuth_Biometric_RightRingFinger_With_vid_NonAuth_Neg:
+  ESignet_BioAuth_Biometric_RightRingFinger_With_Vid_NonAuth_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -776,7 +776,7 @@ BioNonAuth:
 		    }
 		  ]
 }'
-  ESignet_BioAuth_Biometric_RightMiddleFinger_With_vid_NonAuth_Neg:
+  ESignet_BioAuth_Biometric_RightMiddleFinger_With_Vid_NonAuth_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -819,7 +819,7 @@ BioNonAuth:
 		    }
 		  ]
 }'
-  ESignet_BioAuth_Biometric_RightLittleFinger_With_vid_NonAuth_Neg:
+  ESignet_BioAuth_Biometric_RightLittleFinger_With_Vid_NonAuth_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -862,7 +862,7 @@ BioNonAuth:
 		    }
 		  ]
 }'
-  ESignet_BioAuth_Biometric_LeftThumb_With_vid_NonAuth_Neg:
+  ESignet_BioAuth_Biometric_LeftThumb_With_Vid_NonAuth_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -905,7 +905,7 @@ BioNonAuth:
 		    }
 		  ]
 }'
-  ESignet_BioAuth_Biometric_RightThumb_With_vid_NonAuth_Neg:
+  ESignet_BioAuth_Biometric_RightThumb_With_Vid_NonAuth_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -948,7 +948,7 @@ BioNonAuth:
 		    }
 		  ]
 }'
-  ESignet_BioAuth_Biometric_RightIris_With_vid_NonAuth_Neg:
+  ESignet_BioAuth_Biometric_RightIris_With_Vid_NonAuth_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
@@ -991,7 +991,7 @@ BioNonAuth:
 		    }
 		  ]
 }'
-  ESignet_BioAuth_Biometric_LeftIris_With_vid_NonAuth_Neg:
+  ESignet_BioAuth_Biometric_LeftIris_With_Vid_NonAuth_Neg:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post

@@ -7,7 +7,7 @@ CancelAppointment:
       inputTemplate: preReg/CancelAppointment/cancelAppointment
       outputTemplate: preReg/CancelAppointment/cancelAppointmentResult
       input: '{
-	"preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$"
+  "preRegistrationId": "$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$"
 }'
       output: '{
 }'
@@ -18,7 +18,7 @@ CancelAppointment:
       inputTemplate: preReg/CancelAppointment/cancelAppointment
       outputTemplate: preReg/error
       input: '{
-	"preRegistrationId": "36272yhshsgblAppointment_sid_preRegistrati"
+  "preRegistrationId": "36272yhshsgblAppointment_sid_preRegistrati"
 }'
       output: '{
    "errors": [

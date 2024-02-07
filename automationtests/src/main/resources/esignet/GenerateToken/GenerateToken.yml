@@ -1,6 +1,6 @@
 GenerateToken:
    ESignet_GenerateToken_uin_Valid_Smoke_sid:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -19,7 +19,7 @@ GenerateToken:
 }'
  
    ESignet_GenerateToken_uin_Invalid_ClientId_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -38,7 +38,7 @@ GenerateToken:
  }'
  
    ESignet_GenerateToken_uin_Missing_ClientId_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -57,7 +57,7 @@ GenerateToken:
  }'
  
    ESignet_GenerateToken_uin_Null_ClientId_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -76,7 +76,7 @@ GenerateToken:
  }'
  
    ESignet_GenerateToken_uin_Empty_ClientId_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -95,7 +95,7 @@ GenerateToken:
  }'
 
    ESignet_GenerateToken_uin_Invalid_Grant_type_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -114,7 +114,7 @@ GenerateToken:
  }'
  
    ESignet_GenerateToken_uin_Missing_Grant_type_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -133,7 +133,7 @@ GenerateToken:
  }'
  
    ESignet_GenerateToken_uin_Empty_Grant_type_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -152,7 +152,7 @@ GenerateToken:
  }'
  
    ESignet_GenerateToken_uin_Null_Grant_type_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -171,7 +171,7 @@ GenerateToken:
  }'
  
    ESignet_GenerateToken_uin_SpaceFirst_Grant_type_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -190,7 +190,7 @@ GenerateToken:
  }'
  
    ESignet_GenerateToken_uin_SpaceLast_Grant_type_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -209,7 +209,7 @@ GenerateToken:
  }'
  
    ESignet_GenerateToken_uin_Invalid_Code_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -228,7 +228,7 @@ GenerateToken:
  }'
  
    ESignet_GenerateToken_uin_Missing_Code_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -247,7 +247,7 @@ GenerateToken:
  }'
  
    ESignet_GenerateToken_uin_Empty_Code_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -266,7 +266,7 @@ GenerateToken:
  }'
 
    ESignet_GenerateToken_uin_Null_Code_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -285,7 +285,7 @@ GenerateToken:
  }'
  
    ESignet_GenerateToken_uin_Used_Code_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -304,7 +304,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Invalid_Redirect_uri_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -323,7 +323,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Missing_Redirect_uri_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -342,7 +342,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Empty_Redirect_uri_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -361,7 +361,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Null_Redirect_uri_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -380,7 +380,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Incorrect_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -399,7 +399,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Missing_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -418,7 +418,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Empty_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -437,7 +437,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Null_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -456,7 +456,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_SpaceFirst_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -475,7 +475,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_SpaceLast_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -494,7 +494,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Invalid_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -513,7 +513,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Invalid_ClientAssertion_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -532,7 +532,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Missing_ClientAssertion_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -551,7 +551,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Empty_ClientAssertion_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -570,7 +570,7 @@ GenerateToken:
 }'
 
    ESignet_GenerateToken_uin_Null_ClientAssertion_Neg:
-      endPoint: /v1/esignet/oauth/token
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -588,8 +588,8 @@ GenerateToken:
       	"error": "invalid_transaction"
 }'
 
-   ESignet_GenerateToken_vid_Valid_Smoke_sid:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Valid_Smoke_sid:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -597,7 +597,7 @@ GenerateToken:
       outputTemplate: esignet/GenerateToken/GenerateTokenResult
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -607,8 +607,8 @@ GenerateToken:
    		"token_type": "Bearer" 
 }'
  
-   ESignet_GenerateToken_vid_Invalid_ClientId_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Invalid_ClientId_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -616,7 +616,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "Client_clientId",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -626,8 +626,8 @@ GenerateToken:
       	"error": "invalid_transaction"
  }'
  
-   ESignet_GenerateToken_vid_Missing_ClientId_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Missing_ClientId_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -635,7 +635,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$REMOVE$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -645,8 +645,8 @@ GenerateToken:
       	"error": "invalid_transaction"
  }'
  
-   ESignet_GenerateToken_vid_Null_ClientId_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Null_ClientId_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -654,7 +654,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "null",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -664,8 +664,8 @@ GenerateToken:
       	"error": "invalid_transaction"
  }'
  
-   ESignet_GenerateToken_vid_Empty_ClientId_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Empty_ClientId_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -673,7 +673,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -683,8 +683,8 @@ GenerateToken:
       	"error": "invalid_transaction"
  }'
 
-   ESignet_GenerateToken_vid_Invalid_Grant_type_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Invalid_Grant_type_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -692,7 +692,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "hbkd$#$@@",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -702,8 +702,8 @@ GenerateToken:
       	"error": "invalid_grant_type"
  }'
  
-   ESignet_GenerateToken_vid_Missing_Grant_type_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Missing_Grant_type_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -711,7 +711,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "$REMOVE$",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -721,8 +721,8 @@ GenerateToken:
       	"error": "invalid_grant_type"
  }'
  
-   ESignet_GenerateToken_vid_Empty_Grant_type_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Empty_Grant_type_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -730,7 +730,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -740,8 +740,8 @@ GenerateToken:
       	"error": "invalid_grant_type"
  }'
  
-   ESignet_GenerateToken_vid_Null_Grant_type_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Null_Grant_type_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -749,7 +749,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "null",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -759,8 +759,8 @@ GenerateToken:
       	"error": "invalid_grant_type"
  }'
  
-   ESignet_GenerateToken_vid_SpaceFirst_Grant_type_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_SpaceFirst_Grant_type_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -768,7 +768,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": " authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -778,8 +778,8 @@ GenerateToken:
       	"error": "invalid_grant_type"
  }'
  
-   ESignet_GenerateToken_vid_SpaceLast_Grant_type_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_SpaceLast_Grant_type_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -787,7 +787,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code ",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -797,8 +797,8 @@ GenerateToken:
       	"error": "invalid_grant_type"
  }'
  
-   ESignet_GenerateToken_vid_Invalid_Code_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Invalid_Code_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -806,7 +806,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "AuthorizationCode_vid_All_Valid_Smoke_sid_code",
+		  "code": "AuthorizationCode_Vid_All_Valid_Smoke_sid_code",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -816,8 +816,8 @@ GenerateToken:
       	"error": "invalid_transaction"
  }'
  
-   ESignet_GenerateToken_vid_Missing_Code_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Missing_Code_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -835,8 +835,8 @@ GenerateToken:
       	"error": "invalid_auth_code"
  }'
  
-   ESignet_GenerateToken_vid_Empty_Code_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Empty_Code_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -854,8 +854,8 @@ GenerateToken:
       	"error": "invalid_auth_code"
  }'
 
-   ESignet_GenerateToken_vid_Null_Code_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Null_Code_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -873,8 +873,8 @@ GenerateToken:
       	"error": "invalid_transaction"
  }'
  
-   ESignet_GenerateToken_vid_Used_Code_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Used_Code_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -882,7 +882,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -892,8 +892,8 @@ GenerateToken:
       	"error": "invalid_transaction"
 }'
 
-   ESignet_GenerateToken_vid_Invalid_Redirect_uri_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Invalid_Redirect_uri_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -901,7 +901,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -911,8 +911,8 @@ GenerateToken:
       	"error": "invalid_transaction"
 }'
 
-   ESignet_GenerateToken_vid_Missing_Redirect_uri_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Missing_Redirect_uri_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -920,7 +920,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -930,8 +930,8 @@ GenerateToken:
       	"error": "invalid_redirect_uri"
 }'
 
-   ESignet_GenerateToken_vid_Empty_Redirect_uri_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Empty_Redirect_uri_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -939,7 +939,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -949,8 +949,8 @@ GenerateToken:
       	"error": "invalid_redirect_uri"
 }'
 
-   ESignet_GenerateToken_vid_Null_Redirect_uri_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Null_Redirect_uri_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -958,7 +958,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -968,8 +968,8 @@ GenerateToken:
       	"error": "invalid_redirect_uri"
 }'
 
-   ESignet_GenerateToken_vid_Incorrect_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Incorrect_ClientAssertionType_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -977,7 +977,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn ietf params oauth client-assertion-type jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -987,8 +987,8 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   ESignet_GenerateToken_vid_Missing_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Missing_ClientAssertionType_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -996,7 +996,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "$REMOVE$",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -1006,8 +1006,8 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   ESignet_GenerateToken_vid_Empty_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Empty_ClientAssertionType_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -1015,7 +1015,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -1025,8 +1025,8 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   ESignet_GenerateToken_vid_Null_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Null_ClientAssertionType_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -1034,7 +1034,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "null",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -1044,8 +1044,8 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   ESignet_GenerateToken_vid_SpaceFirst_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_SpaceFirst_ClientAssertionType_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -1053,7 +1053,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": " urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -1063,8 +1063,8 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   ESignet_GenerateToken_vid_SpaceLast_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_SpaceLast_ClientAssertionType_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -1072,7 +1072,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer ",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -1082,8 +1082,8 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   ESignet_GenerateToken_vid_Invalid_ClientAssertionType_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Invalid_ClientAssertionType_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -1091,7 +1091,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "sdhb$$#@",
 		  "client_assertion": "$CLIENT_ASSERTION_JWK$",
@@ -1101,8 +1101,8 @@ GenerateToken:
       	"error": "invalid_assertion_type"
 }'
 
-   ESignet_GenerateToken_vid_Invalid_ClientAssertion_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Invalid_ClientAssertion_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -1110,7 +1110,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "CLIENT_ASSERTION_JWK",
@@ -1120,8 +1120,8 @@ GenerateToken:
       	"error": "invalid_transaction"
 }'
 
-   ESignet_GenerateToken_vid_Missing_ClientAssertion_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Missing_ClientAssertion_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -1129,7 +1129,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "$REMOVE$",
@@ -1139,8 +1139,8 @@ GenerateToken:
       	"error": "invalid_assertion"
 }'
 
-   ESignet_GenerateToken_vid_Empty_ClientAssertion_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Empty_ClientAssertion_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -1148,7 +1148,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "",
@@ -1158,8 +1158,8 @@ GenerateToken:
       	"error": "invalid_assertion"
 }'
 
-   ESignet_GenerateToken_vid_Null_ClientAssertion_Neg:
-      endPoint: /v1/esignet/oauth/token
+   ESignet_GenerateToken_Vid_Null_ClientAssertion_Neg:
+      endPoint: $GETENDPOINTFROMWELLKNOWN$
       role: resident
       restMethod: post
       validityCheckRequired: true
@@ -1167,7 +1167,7 @@ GenerateToken:
       outputTemplate: esignet/error2
       input: '{
 		  "grant_type": "authorization_code",
-		  "code": "$ID:AuthorizationCode_vid_All_Valid_Smoke_sid_code$",
+		  "code": "$ID:AuthorizationCode_Vid_All_Valid_Smoke_sid_code$",
 		  "client_id": "$ID:CreateOIDCClient_all_Valid_Smoke_sid_clientId$",
 		  "client_assertion_type": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
 		  "client_assertion": "null",

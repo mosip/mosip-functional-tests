@@ -5,6 +5,7 @@ import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 public class GlobalConstants {
 	public static final String PREREG = "prereg";
 	public static final String RESIDENT = "resident";
+	public static final String AUTH = "auth";
 	public static final String RESIDENTNEW = "residentNew";
 	public static final String MASTERDATA = "masterdata";
 	public static final String PREREGISTRATIONID = "preRegistrationId";
@@ -50,15 +51,18 @@ public class GlobalConstants {
 	public static final String SENDOTP = "sendOtp";
 	public static final String VALIDATEOTP = "validateOtp";
 	public static final String TRANSACTIONID = "transactionId";
-	public static final String MOBILEID = "mobileid";
+	public static final String HEADERTRANSACTIONID = "headerTransactionID";
+	public static final String VERIFIEDTRANSACTIONID = "verifiedTransactionID";
+	public static final String MIMOTO = "mimoto";
 	public static final String ESIGNET = "esignet";
 	public static final String APIKEY = "apiKey";
 	public static final String PARTNER_APIKEY = "partnerApiKey";
 	public static final String PARTNERID = "partnerId";
-	public static final String REPORT_RESPONSE_PREFIX = "<b><u>Actual Response Content: </u></b>(EndPointUrl: ";
+	public static final String REPORT_RESPONSE_PREFIX = "<b><u>Response: </u></b>";
 	public static final String REPORT_RESPONSE_SUFFIX = "</pre>";
-	public static final String REPORT_RESPONSE_BODY = ") <pre>";
-	public static final String REPORT_REQUEST_PREFIX = "<pre>";
+	public static final String REPORT_RESPONSE_BODY = "<pre>";
+	public static final String REPORT_REQUEST_PREFIX = "<b><u>Request: </u></b>(End Point URL: ";
+	public static final String REPORT_REQUEST_BODY = ") <pre>";
 	public static final String REPORT_REQUEST_SUFFIX = "</pre>";
 	public static final String EXCEPTION_STRING_1 = " Exception: ";
 	public static final String EXCEPTION_STRING_2 = "Exception ";
@@ -179,6 +183,8 @@ public class GlobalConstants {
 	public static final String MODULENAME = "$MODULENAME$";
 	public static final String CERTSDIR = "$CERTSDIR$";
 	public static final String TRANSACTION_ID = "$TRANSACTIONID$";
+	public static final String TRANSACTION_ID_KEY = "TRANSACTION_ID";
+	public static final String VERIFIED_TRANSACTION_ID_KEY = "VERIFIED_TRANSACTION_ID";
 	public static final String TIMESTAMP = "$TIMESTAMP$";
 	public static final String PARTNER_ID = "$PARTNERID$";
 	public static final String MOSIP_NET = "@mosip.net";
@@ -201,6 +207,17 @@ public class GlobalConstants {
 	public static final String USERNOTFOUNDWITHNAME = "User not found with name: %s%n";
 	public static final String ACTU_AUTH_REQUESTFOR_RESIDENT  = "Actual Auth Request for Resident: ";
 	public static final String AUTH_CLIENT_IDSECRET_KEYURL = "authclientidsecretkeyURL";
-	
-	
+	public static final String EXPECTED_VS_ACTUAL = "EXPECTED vs ACTUAL";
+	public static final String RID_GENERATOR = "ridgenerator";
+	public static final String VID_FEATURE_NOT_SUPPORTED = "VID feature not supported. Hence skipping the testcase";
+	public static final String UIN_FEATURE_NOT_SUPPORTED = "UIN feature not supported. Hence skipping the testcase";
+	public static final String FEATURE_NOT_SUPPORTED_MESSAGE = "feature not supported. Hence skipping the testcase";
+	public static final String SERVICE_NOT_DEPLOYED_MESSAGE = "Service not deployed. Hence skipping the testcase";
+	public static final String FEATURE_NOT_SUPPORTED = "feature not supported";
+	public static final String SERVICE_NOT_DEPLOYED = "Service not deployed";
+	public static final String IGNORED_SUBSET_STRING = "feature not supported;Service not deployed";
+	public static final String SKIPPED = "Skipped";
+	public static final String TARGET_ENV_HEALTH_CHECK_FAILED = "Target env health check failed ";
+	public static final String HOTLIST = "hotlist";
+	public static final String XSRF_TOKEN = "XSRF-TOKEN";
 }

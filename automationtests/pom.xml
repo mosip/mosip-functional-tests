@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 	<name>mosip-functional-test</name>
 	<url>http://maven.apache.org</url>
-	<version>1.2.1-SNAPSHOT</version>
+	<version>1.2.0.1-SNAPSHOT</version>
 
 	<licenses>
 		<license>
@@ -186,7 +186,7 @@
 		<rest.assured.version>3.0.7</rest.assured.version>
 		<testng.version>6.11</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
-		<fileName>automationtests-1.2.1-SNAPSHOT-jar-with-dependencies</fileName>
+		<fileName>automationtests-1.2.0.1-SNAPSHOT-jar-with-dependencies</fileName>
 		
 	</properties>
 	<dependencies>
@@ -450,6 +450,18 @@
 			<artifactId>itextpdf</artifactId>
 			<version>5.5.13</version>
 		</dependency>
+		
+		<dependency>
+	        <groupId>de.mkammerer</groupId>
+	        <artifactId>argon2-jvm</artifactId>
+	        <version>2.9.1</version>
+    	</dependency>
+    	
+    	<dependency>
+            <groupId>com.github.mifmif</groupId>
+            <artifactId>generex</artifactId>
+            <version>1.0.2</version>
+        </dependency>
 
 		<dependency>
 			<groupId>javax.mail</groupId>
@@ -461,7 +473,7 @@
 	 	<dependency>
 			<groupId>io.mosip.testrig.authentication.demo</groupId>
 			<artifactId>authentication-demo-service</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>1.2.0.1-SNAPSHOT</version>
 			<exclusions>
 				<exclusion>
 					<groupId>dom4j</groupId>

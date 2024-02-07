@@ -5,13 +5,16 @@ import static io.restassured.RestAssured.given;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
 
+import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.RestAssuredConfig;
@@ -35,6 +38,8 @@ public class RestClient {
 //					.setParam("http.socket.timeout", 500000).setParam("http.connection-manager.timeout", 500000));
 
 	private static RestAssuredConfig config = RestAssured.config().httpClient(HttpClientConfig.httpClientConfig());
+	protected static final Properties properties = AdminTestUtil.getproperty(
+			MosipTestRunner.getGlobalResourcePath() + "/" + "config/application.properties");
 	/**
 	 * REST ASSURED POST request method
 	 * 
@@ -305,6 +310,26 @@ public class RestClient {
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().body(body).queryParams(queryParams)
 					.contentType(contentHeader).accept(acceptHeader).when().post(url).then().extract().response();
+		}
+
+		return postResponse;
+	}
+	
+	public static Response postRequestWithQueryParamsAndBodyForDecryption(String url, Object body,
+			Map<String, Object> queryParams, String contentHeader) {
+		Response postResponse;
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a POST request with query param " + url);
+
+			postResponse = given().config(config).relaxedHTTPSValidation().body(body).queryParams(queryParams)
+					.contentType(contentHeader).log().all().when().post(url).then().log().all()
+					.extract().response();
+
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
+		} else {
+			postResponse = given().config(config).relaxedHTTPSValidation().body(body).queryParams(queryParams)
+					.contentType(contentHeader).when().post(url).then().extract().response();
 		}
 
 		return postResponse;
@@ -609,15 +634,43 @@ public class RestClient {
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
 			
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie("XSRF-TOKEN", "7d01b2a8-b89d-41ad-9361-d7f6294021d1")
+					.contentType(contentHeader).cookie("XSRF-TOKEN", properties.getProperty(GlobalConstants.XSRFTOKEN))
 					.accept(acceptHeader).log().all().when().post(url).then().log().all().extract().response();
 			
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
 			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
 		} else {
 			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
-					.contentType(contentHeader).cookie("XSRF-TOKEN", "7d01b2a8-b89d-41ad-9361-d7f6294021d1")
+					.contentType(contentHeader).cookie("XSRF-TOKEN", properties.getProperty(GlobalConstants.XSRFTOKEN))
 					.accept(acceptHeader).when().post(url).then().extract().response();
+		}
+
+		return postResponse;
+	}
+	
+	public static Response postRequestWithMultipleHeadersAndCookies(String url, Object body, String contentHeader,
+			String acceptHeader, Map<String, String> cookieValue, Map<String, String> headers) {
+		Response postResponse;
+		String key = GlobalConstants.TRANSACTION_ID_KEY;
+		if (cookieValue.containsKey(GlobalConstants.VERIFIED_TRANSACTION_ID_KEY))
+			key = GlobalConstants.VERIFIED_TRANSACTION_ID_KEY;
+		
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_1 + url);
+
+			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
+					.contentType(contentHeader)
+					.cookie(GlobalConstants.XSRF_TOKEN, cookieValue.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(key, cookieValue.get(key)).accept(acceptHeader).log().all().when().post(url).then().log()
+					.all().extract().response();
+
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + postResponse.asString());
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + postResponse.time());
+		} else {
+			postResponse = given().config(config).relaxedHTTPSValidation().headers(headers).body(body)
+					.contentType(contentHeader).cookie("XSRF-TOKEN", cookieValue.get("X-XSRF-TOKEN"))
+					.cookie(key, cookieValue.get(key)).accept(acceptHeader).when().post(url).then().log().all()
+					.extract().response();
 		}
 
 		return postResponse;
@@ -827,6 +880,31 @@ public class RestClient {
 		} else {
 			getResponse = given().config(config).relaxedHTTPSValidation().cookie(cookieName, cookieValue).when()
 					.get(url).then().extract().response();
+		}
+
+		return getResponse;
+	}
+	
+	public static Response getRequestWithMultipleCookie(String url, String contentHeader, String acceptHeader,
+			Map<String, String> cookieMap) {
+		Response getResponse;
+		String key = GlobalConstants.TRANSACTION_ID_KEY;
+		if (cookieMap.containsKey(GlobalConstants.VERIFIED_TRANSACTION_ID_KEY))
+			key = GlobalConstants.VERIFIED_TRANSACTION_ID_KEY;
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+
+			getResponse = given().config(config).relaxedHTTPSValidation()
+					.cookie(GlobalConstants.XSRF_TOKEN, cookieMap.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(key, cookieMap.get(key)).log().all().when().get(url).then().log().all().extract()
+					.response();
+
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_2 + getResponse.asString());
+			RESTCLIENT_LOGGER.info(GlobalConstants.REST_ASSURED_STRING_3 + getResponse.time());
+		} else {
+			getResponse = given().config(config).relaxedHTTPSValidation()
+					.cookie(GlobalConstants.XSRF_TOKEN, cookieMap.get(GlobalConstants.XSRF_TOKEN))
+					.cookie(key, cookieMap.get(key)).when().get(url).then().extract().response();
 		}
 
 		return getResponse;

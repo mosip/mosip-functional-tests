@@ -7,7 +7,7 @@ DeleteAllDocForaPRID:
       inputTemplate: preReg/DeleteAllDocForaPRID/deleteAllDocForaPRID
       outputTemplate: preReg/DeleteAllDocForaPRID/deleteAllDocForaPRIDResult
       input: '{
-	"preRegistrationId": "$ID:CreatePrereg_Smoke_alldel_sid_preRegistrationId$"
+  "preRegistrationId": "$ID:CreatePrereg_Smoke_alldel_sid_preRegistrationId$"
 }'
       output: '{
 }'
@@ -18,7 +18,7 @@ DeleteAllDocForaPRID:
       inputTemplate: preReg/DeleteAllDocForaPRID/deleteAllDocForaPRID
       outputTemplate: preReg/error
       input: '{
-	"preRegistrationId": "$I8765fghsid_preRegistrationId$"
+  "preRegistrationId": "$I8765fghsid_preRegistrationId$"
 }'
       output: '{
    "errors": [

@@ -26,7 +26,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -59,7 +59,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -92,7 +92,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -125,7 +125,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -158,7 +158,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -191,7 +191,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -224,7 +224,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -257,7 +257,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -290,7 +290,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -323,7 +323,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -356,7 +356,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -389,7 +389,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -422,7 +422,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -455,7 +455,7 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -488,7 +488,205 @@ AuthenticateUserVCIVidNegTC:
     }'
       output: '{
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   ESignet_AuthenticateUserVCI_Vid_Otp_NegCredScen4_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCI
+      outputTemplate: esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCIResultResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen4_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen4_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid_vid$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "$ID:AddIdentity_Valid_Params_VCI_Vid_Inv_Scen_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen4_Valid_Smoke_sid_encodedResp$",
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen4_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid_vid$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "esignet/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   ESignet_AuthenticateUserVCI_Vid_Otp_NegCredScen5_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCI
+      outputTemplate: esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCIResultResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen5_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen5_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid_vid$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "$ID:AddIdentity_Valid_Params_VCI_Vid_Inv_Scen_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen5_Valid_Smoke_sid_encodedResp$",
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen5_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid_vid$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "esignet/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   ESignet_AuthenticateUserVCI_Vid_Otp_NegCredScen6_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCI
+      outputTemplate: esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCIResultResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen6_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen6_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid_vid$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "$ID:AddIdentity_Valid_Params_VCI_Vid_Inv_Scen_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen6_Valid_Smoke_sid_encodedResp$",
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen6_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid_vid$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "esignet/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   ESignet_AuthenticateUserVCI_Vid_Otp_NegCredScen7_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCI
+      outputTemplate: esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCIResultResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen7_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen7_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid_vid$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "$ID:AddIdentity_Valid_Params_VCI_Vid_Inv_Scen_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen7_Valid_Smoke_sid_encodedResp$",
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen7_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid_vid$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "esignet/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   ESignet_AuthenticateUserVCI_Vid_Otp_NegCredScen8_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCI
+      outputTemplate: esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCIResultResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen8_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen8_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid_vid$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "$ID:AddIdentity_Valid_Params_VCI_Vid_Inv_Scen_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen8_Valid_Smoke_sid_encodedResp$",
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen8_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid_vid$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "esignet/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
+        "maskedEmail": "$IGNORE$"
+    }
+}'
+
+   ESignet_AuthenticateUserVCI_Vid_Otp_NegCredScen9_Valid_Smoke:
+      endPoint: /v1/esignet/authorization/authenticate
+      role: resident
+      restMethod: post
+      checkErrorsOnlyInResponse: true
+      validityCheckRequired: true
+      inputTemplate: esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCI
+      outputTemplate: esignet/VCIVidNegTC/AuthenticateUserVCI/AuthenticateUserVCIResultResult
+      input: '{
+        "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen9_Valid_Smoke_sid_encodedResp$",
+      	"requestTime": "$TIMESTAMP$",
+      	"transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen9_Valid_Smoke_sid_transactionId$",
+      	"individualId": "$ID:Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid_vid$",
+      	"authFactorType" : "OTP",
+      	"challenge" : "$ID:AddIdentity_Valid_Params_VCI_Vid_Inv_Scen_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "encodedHash": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen9_Valid_Smoke_sid_encodedResp$",
+    "requestTime": "$TIMESTAMP$",
+    "transactionId": "$ID:OAuthDetailsRequest_VCI_Vid_NegCredScen9_Valid_Smoke_sid_transactionId$",
+	"individualId": "$ID:Generate_Perpetual_VID_VCI_Invalid_Scen_Smoke_sid_vid$",
+    "otpChannels": [{channel: "email"},{channel: "phone"}],
+    "sendOtpReqTemplate": "esignet/SendOtp/SendOtp",
+    "sendOtpEndPoint": "/v1/esignet/authorization/send-otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }

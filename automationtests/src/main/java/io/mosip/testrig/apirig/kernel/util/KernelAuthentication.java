@@ -12,6 +12,7 @@ import org.json.simple.JSONObject;
 import com.nimbusds.jose.util.StandardCharset;
 
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
+import io.mosip.testrig.apirig.admin.fw.util.CertsUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.ida.certificate.PartnerRegistration;
 import io.mosip.testrig.apirig.kernel.service.ApplicationLibrary;
@@ -30,12 +31,14 @@ public class KernelAuthentication extends BaseTestCase {
 	public final Map<String, String> props = clib.readProperty("Kernel");
 
 	private String admin_password = props.get("admin_password");
-	
+
 //	private String admin_userName = props.get("admin_userName");
 	private String admin_userName = ConfigManager.getUserAdminName();
-	
+
 	private String partner_password = props.get("partner_user_password");
 	private String partner_userName = props.get("partner_userName");
+	private String partner_userName_without_role = props.get("policytest_userName");
+	private String partner_userName_without_pm_role = props.get("policytest_without_pmrole_userName");
 
 	private String registrationAdmin_appid = props.get("registrationAdmin_appid");
 	private String registrationAdmin_password = props.get("registrationAdmin_password");
@@ -64,10 +67,14 @@ public class KernelAuthentication extends BaseTestCase {
 	private String authInternalRequest = "config/Authorization/internalAuthRequest.json";
 	private String preregSendOtp = props.get("preregSendOtp");
 	private String preregValidateOtp = props.get("preregValidateOtp");
-	private static File ESignetUINCookiesFile = new File(
-			AdminTestUtil.getResourcePath() + "ESignetUINCookiesResponse.txt");
-	private static File ESignetVIDCookiesFile = new File(
-			AdminTestUtil.getResourcePath() + "ESignetVIDCookiesResponse.txt");
+
+	protected static final String ESIGNETUINCOOKIESRESPONSE = "ESignetUINCookiesResponse";
+	protected static final String ESIGNETVIDCOOKIESRESPONSE = "ESignetVIDCookiesResponse";
+
+//	private static File ESignetUINCookiesFile = new File(
+//			AdminTestUtil.getResourcePath() + "ESignetUINCookiesResponse.txt");
+//	private static File ESignetVIDCookiesFile = new File(
+//			AdminTestUtil.getResourcePath() + "ESignetVIDCookiesResponse.txt");
 
 	public String getTokenByRole(String role) {
 		return getTokenByRole(role, null);
@@ -120,18 +127,32 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!kernelCmnLib.isValidToken(partnerCookie))
 				partnerCookie = kernelAuthLib.getAuthForPartner();
 			return partnerCookie;
-		case "partnernew": 
+		case "partnernew":
 			if (!kernelCmnLib.isValidToken(partnerNewCookie))
 				partnerNewCookie = kernelAuthLib.getAuthForNewPartner();
 			return partnerNewCookie;
-		case "partnernewkyc": 
-		if (!kernelCmnLib.isValidToken(partnerNewKycCookie))
-			partnerNewKycCookie = kernelAuthLib.getAuthForNewKycPartner();
-		return partnerNewKycCookie;
+		case "withoutpartner":
+			if (!kernelCmnLib.isValidToken(withoutpartnerCookie))
+				withoutpartnerCookie = kernelAuthLib.getAuthForPartnerWithoutPAdminRole();
+			return withoutpartnerCookie;
+
+		case "withoutpolicymanager":
+			if (!kernelCmnLib.isValidToken(withoutpolicyCookie))
+				withoutpolicyCookie = kernelAuthLib.getAuthForPartnerWithoutPManagerRole();
+			return withoutpolicyCookie;
+
+		case "partnernewkyc":
+			if (!kernelCmnLib.isValidToken(partnerNewKycCookie))
+				partnerNewKycCookie = kernelAuthLib.getAuthForNewKycPartner();
+			return partnerNewKycCookie;
 		case "esignetpartner":
 			if (!kernelCmnLib.isValidToken(esignetPartnerCookie))
 				esignetPartnerCookie = kernelAuthLib.getAuthForNewPartnerEsignet();
 			return esignetPartnerCookie;
+		case "esignetpartnerkyc":
+			if (!kernelCmnLib.isValidToken(esignetPartnerKycCookie))
+				esignetPartnerKycCookie = kernelAuthLib.getAuthForNewPartnerEsignetKyc();
+			return esignetPartnerKycCookie;
 		case "policytest":
 			if (!kernelCmnLib.isValidToken(policytestCookie))
 				policytestCookie = kernelAuthLib.getAuthForPolicytest();
@@ -140,6 +161,12 @@ public class KernelAuthentication extends BaseTestCase {
 			if (!kernelCmnLib.isValidToken(batchJobToken))
 				batchJobToken = kernelAuthLib.getPreRegToken();
 			return batchJobToken;
+
+		case "invalidBatch":
+			if (!kernelCmnLib.isValidToken(batchJobToken))
+				invalidBatchJobToken = kernelAuthLib.getPreRegInvalidToken();
+			return invalidBatchJobToken;
+
 		case "invalid":
 			return "anyRandomString";
 		case "regAdmin":
@@ -152,11 +179,11 @@ public class KernelAuthentication extends BaseTestCase {
 			return residentCookie;
 		case "residentnew":
 			if (!kernelCmnLib.isValidToken(residentNewCookie.get(tokenType)))
-				residentNewCookie = getAuthFromEsignet(ESignetUINCookiesFile);
+				residentNewCookie = getAuthFromEsignet(ESIGNETUINCOOKIESRESPONSE);
 			return residentNewCookie.get(tokenType);
 		case "residentnewvid":
 			if (!kernelCmnLib.isValidToken(residentNewVidCookie.get(tokenType)))
-				residentNewVidCookie = getAuthFromEsignet(ESignetVIDCookiesFile);
+				residentNewVidCookie = getAuthFromEsignet(ESIGNETVIDCOOKIESRESPONSE);
 			return residentNewVidCookie.get(tokenType);
 		case "residentnewKc":
 			if (!kernelCmnLib.isValidToken(residentNewCookieKc))
@@ -194,21 +221,13 @@ public class KernelAuthentication extends BaseTestCase {
 	}
 
 	@SuppressWarnings("unchecked")
-	public HashMap<String, String> getAuthFromEsignet(File fileName) {
+	public HashMap<String, String> getAuthFromEsignet(String keyName) {
 		HashMap<String, String> tokens = new HashMap<>();
-		if (fileName.exists()) {
-			String ESignetCookiesFileString = null;
-			try {
-				ESignetCookiesFileString = FileUtils.readFileToString(fileName, StandardCharset.UTF_8);
-			} catch (IOException e) {
-				logger.error(e.getMessage());
-			}
-			org.json.JSONObject jsonCookies = new org.json.JSONObject(ESignetCookiesFileString);
-			tokens.put(GlobalConstants.ACCESSTOKEN, jsonCookies.get(GlobalConstants.ACCESSTOKEN).toString());
-			tokens.put("id_token", jsonCookies.get("id_token").toString());
-		} else {
-			logger.error("ESignetCookiesFile File not Found in location:" + fileName.getAbsolutePath());
-		}
+
+		org.json.JSONObject jsonCookies = new org.json.JSONObject(CertsUtil.getCertificate(keyName));
+		tokens.put(GlobalConstants.ACCESSTOKEN, jsonCookies.get(GlobalConstants.ACCESSTOKEN).toString());
+		tokens.put("id_token", jsonCookies.get("id_token").toString());
+
 		return tokens;
 	}
 
@@ -289,7 +308,39 @@ public class KernelAuthentication extends BaseTestCase {
 		String responseBody = reponse.getBody().asString();
 		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
 	}
-	
+
+	@SuppressWarnings({ "unchecked" })
+	public String getAuthForPartnerWithoutPAdminRole() {
+
+		JSONObject request = new JSONObject();
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + partner_userName_without_role);
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+		actualInternalrequest.put(GlobalConstants.REQUEST, request);
+		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+	}
+
+	@SuppressWarnings({ "unchecked" })
+	public String getAuthForPartnerWithoutPManagerRole() {
+
+		JSONObject request = new JSONObject();
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME, BaseTestCase.currentModule + "-" + partner_userName_without_pm_role);
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+		actualInternalrequest.put(GlobalConstants.REQUEST, request);
+		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+	}
+
 	@SuppressWarnings({ "unchecked" })
 	public String getAuthForNewKycPartner() {
 
@@ -313,6 +364,22 @@ public class KernelAuthentication extends BaseTestCase {
 		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
 		request.put(GlobalConstants.PASSWORD, partner_password);
 		request.put(GlobalConstants.USER_NAME, AdminTestUtil.genPartnerName);
+		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
+		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
+		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
+		actualInternalrequest.put(GlobalConstants.REQUEST, request);
+		Response reponse = appl.postWithJson(authenticationInternalEndpoint, actualInternalrequest);
+		String responseBody = reponse.getBody().asString();
+		return new org.json.JSONObject(responseBody).getJSONObject(dataKey).getString(GlobalConstants.TOKEN);
+	}
+	
+	@SuppressWarnings({ "unchecked" })
+	public String getAuthForNewPartnerEsignetKyc() {
+
+		JSONObject request = new JSONObject();
+		request.put(GlobalConstants.APPID, ConfigManager.getPmsAppId());
+		request.put(GlobalConstants.PASSWORD, partner_password);
+		request.put(GlobalConstants.USER_NAME, AdminTestUtil.genPartnerName + "2n");
 		JSONObject actualInternalrequest = getRequestJson(authInternalRequest);
 		request.put(GlobalConstants.CLIENTID, ConfigManager.getPmsClientId());
 		request.put(GlobalConstants.CLIENTSECRET, ConfigManager.getPmsClientSecret());
@@ -455,6 +522,27 @@ public class KernelAuthentication extends BaseTestCase {
 		String otp = null;
 		if (proxy)
 			otp = "111111";
+		else {
+		}
+		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);
+		actualRequest_validation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());
+		Response otpValidate = appl.postWithJson(preregValidateOtp, actualRequest_validation);
+		cookie = otpValidate.getCookie(GlobalConstants.AUTHORIZATION);
+		return cookie;
+	}
+
+	@SuppressWarnings("unchecked")
+	public String getPreRegInvalidToken() {
+		JSONObject actualRequest_generation = getRequestJson("config/prereg_SendOtp.json");
+		actualRequest_generation.put(GlobalConstants.REQUESTTIME, clib.getCurrentUTCTime());
+		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).put("langCode",
+				BaseTestCase.getLanguageList().get(0));
+		((JSONObject) actualRequest_generation.get(GlobalConstants.REQUEST)).get("userId").toString();
+		JSONObject actualRequest_validation = getRequestJson("config/prereg_ValidateOtp.json");
+		appl.postWithJson(preregSendOtp, actualRequest_generation);
+		String otp = null;
+		if (proxy)
+			otp = "111222";
 		else {
 		}
 		((JSONObject) actualRequest_validation.get(GlobalConstants.REQUEST)).put("otp", otp);

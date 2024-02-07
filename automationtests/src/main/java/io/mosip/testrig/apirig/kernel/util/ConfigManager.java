@@ -41,11 +41,11 @@ public class ConfigManager {
 	private static String MOSIP_REG_CLIENT_SECRET = "mosip_reg_client_secret";
 	private static String MOSIP_REG_CLIENT_ID = "mosip_reg_client_id";
 	private static String MOSIP_REGCLIENT_APP_ID = "mosip_regclient_app_id";
-	
+
 	private static String MOSIP_REGPROC_CLIENT_SECRET = "mosip_regproc_client_secret";
 	private static String MOSIP_REGPROC_CLIENT_ID = "mosip_regproc_client_id";
 	private static String MOSIP_REGPROC_APP_ID = "mosip_regprocclient_app_id";
-	
+
 	private static String MOSIP_IDA_CLIENT_SECRET = "mosip_ida_client_secret";
 	private static String MOSIP_IDA_CLIENT_ID = "mosip_ida_client_id";
 	private static String MOSIP_IDA_APP_ID = "mosip_ida_app_id";
@@ -57,19 +57,27 @@ public class ConfigManager {
 	private static String MOSIP_AUTOMATION_CLIENT_SECRET = "mosip_testrig_client_secret";
 	private static String MOSIP_AUTOMATION_CLIENT_ID = "mosip_testrig_client_id";
 	private static String MOSIP_AUTOMATION_APP_ID = "mosip_automation_app_id";
+	
+	public static String DB_PASSWORD_KEY = "postgres-password";
+	public static String DB_USER_KEY = "db-su-user";
+	
 
 	private static String S3_HOST = "s3-host";
 	private static String S3_REGION = "s3-region";
 	private static String S3_USER_KEY = "s3-user-key";
 	private static String S3_SECRET_KEY = "s3-user-secret";
 	private static String S3_ACCOUNT = "s3-account";
+	private static String S3_ACCOUNT_FOR_PERSONA_DATA = "s3-account-for-persona-data";
 	private static String PUSH_TO_S3 = "push-reports-to-s3";
 	private static String ENABLE_DEBUG = "enableDebug";
+	private static String REPORT_IGNORED_TEST_CASES = "reportIgnoredTestCases";
 	private static String THREAD_COUNT = "threadCount";
 	private static String LANG_SELECT = "langselect";
 
 	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
+	
+	private static String ESIGNET_MOCK_BASE_URL = "esignetMockBaseURL";
 
 	private static String PRECONFIGOTP = "preconfiguredOtp";
 	private static String DB_PORT = "db-port";
@@ -80,24 +88,24 @@ public class ConfigManager {
 	private static String HIBERNATE_SHOW_SQL = "hibernate.show_sql";
 	private static String HIBERNATE_CONTEXT_CLASS = "hibernate.current_session_context_class";
 
-	private static String AUDIT_DB_USER = "db-su-user";
-	private static String AUDIT_DB_PASS = "postgresql-password";
+	private static String AUDIT_DB_USER = DB_USER_KEY;
+	private static String AUDIT_DB_PASS = DB_PASSWORD_KEY;
 	private static String AUDIT_DB_SCHEMA = "audit_db_schema";
 
-	private static String IDA_DB_USER = "db-su-user";
-	private static String IDA_DB_PASS = "postgresql-password";
+	private static String IDA_DB_USER = DB_USER_KEY;
+	private static String IDA_DB_PASS = DB_PASSWORD_KEY;
 	private static String IDA_DB_SCHEMA = "ida_db_schema";
 
-	private static String PMS_DB_USER = "db-su-user";
-	private static String PMS_DB_PASS = "postgresql-password";
+	private static String PMS_DB_USER = DB_USER_KEY;
+	private static String PMS_DB_PASS = DB_PASSWORD_KEY;
 	private static String PMS_DB_SCHEMA = "pms_db_schema";
 
-	private static String KM_DB_USER = "db-su-user";
-	private static String KM_DB_PASS = "postgresql-password";
+	private static String KM_DB_USER = DB_USER_KEY;
+	private static String KM_DB_PASS = DB_PASSWORD_KEY;
 	private static String KM_DB_SCHEMA = "km_db_schema";
 
-	private static String MASTER_DB_USER = "db-su-user";
-	private static String MASTER_DB_PASS = "postgresql-password";
+	private static String MASTER_DB_USER = DB_USER_KEY;
+	private static String MASTER_DB_PASS = DB_PASSWORD_KEY;
 	private static String MASTER_DB_SCHEMA = "master_db_schema";
 
 	private static String IAM_EXTERNAL_URL = "keycloak-external-url";
@@ -105,8 +113,8 @@ public class ConfigManager {
 	private static String IAM_USERS_TO_CREATE = "iam-users-to-create";
 	private static String IAM_USERS_PASSWORD = "iam-users-password";
 
-	private static String ESIGNET_DEPLOYED = "eSignetDeployed";
-	private static String esignet_deployed;
+	private static String USE_EXTERNAL_SCENARIO_SHEET = "useExternalScenarioSheet";
+	private static String useExternalScenario_sheet;
 
 	private static String AUTH_DEMO_SERVICE_PORT = "authDemoServicePort";
 	private static String AUTH_DEMO_SERVICE_BASE_URL = "authDemoServiceBaseURL";
@@ -119,13 +127,20 @@ public class ConfigManager {
 	private static String REPORT_EXPIRATION_IN_DAYS = "reportExpirationInDays";
 
 	private static String SCENARIOS_TO_BE_SKIPPED = "scenariosToSkip";
-    private static String ADMIN_USER_NAME = "admin_userName";
+	private static String SCENARIOS_TO_BE_EXECUTED = "scenariosToExecute";
 	
+	private static String SERVICES_NOT_DEPLOYED = "servicesNotDeployed";
+
+	private static String ADMIN_USER_NAME = "admin_userName";
+
 	private static String PARTNER_URL_SUFFIX = "partnerUrlSuffix";
-	
+
 	private static String partnerUrlSuffix;
 	
+	private static String serviceNotDeployedList;
+
 	private static String toSkippedList;
+	private static String toExecuteList;
 	private static String userAdminName;
 
 	private static String pms_client_secret;
@@ -133,8 +148,6 @@ public class ConfigManager {
 	private static String pms_client_id;
 	private static String pms_app_id;
 	private static String partner_client_id;
-
-
 
 	private static String resident_client_secret;
 	private static String resident_client_id;
@@ -154,7 +167,7 @@ public class ConfigManager {
 	private static String regproc_client_secret;
 	private static String regproc_client_id;
 	private static String regproc_app_id;
-	
+
 	private static String regprocessor_client_secret;
 	private static String regprocessor_client_id;
 	private static String regprocessor_app_id;
@@ -175,15 +188,18 @@ public class ConfigManager {
 	private static String s3Host;
 	private static String s3UserKey;
 	private static String s3Account;
+	private static String s3AccountForPersonaData;
 	private static String s3SecretKey;
 	private static String push_reports_to_s3;
 	private static String enableDebug;
+	private static String reportIgnoredTestCases;
 	private static String threadCount;
 	private static String langselect;
 	private static String usePreConfiguredOtp;
 	private static String preconfiguredOtp;
 	private static String eSignetbaseurl;
-	
+	private static String esignetMockBaseURL;
+
 	private static String dbPort;
 	private static String dbDomain;
 	private static String hibernateConnectionDriverClass;
@@ -247,7 +263,7 @@ public class ConfigManager {
 		partner_client_secret = getValueForKey(MOSIP_PARTNER_CLIENT_SECRET);
 		pms_client_id = getValueForKey(MOSIP_PMS_CLIENT_ID);
 		partner_client_id = getValueForKey(MOSIP_PARTNER_CLIENT_ID);
-		
+
 		pms_app_id = getValueForKey(MOSIP_PMS_APP_ID);
 		resident_client_secret = getValueForKey(MOSIP_RESIDENT_CLIENT_SECRET);
 		resident_client_id = getValueForKey(MOSIP_RESIDENT_CLIENT_ID);
@@ -260,15 +276,15 @@ public class ConfigManager {
 		admin_client_secret = getValueForKey(MOSIP_ADMIN_CLIENT_SECRET);
 		admin_client_id = getValueForKey(MOSIP_ADMIN_CLIENT_ID);
 		admin_app_id = getValueForKey(MOSIP_ADMIN_APP_ID);
-		
+
 		regproc_client_secret = getValueForKey(MOSIP_REG_CLIENT_SECRET);
 		regproc_client_id = getValueForKey(MOSIP_REG_CLIENT_ID);
 		regproc_app_id = getValueForKey(MOSIP_REGCLIENT_APP_ID);
-		
+
 		regprocessor_client_secret = getValueForKey(MOSIP_REGPROC_CLIENT_SECRET);
 		regprocessor_client_id = getValueForKey(MOSIP_REGPROC_CLIENT_ID);
 		regprocessor_app_id = getValueForKey(MOSIP_REGPROC_APP_ID);
-		
+
 		ida_client_secret = getValueForKey(MOSIP_IDA_CLIENT_SECRET);
 		ida_client_id = getValueForKey(MOSIP_IDA_CLIENT_ID);
 		ida_app_id = getValueForKey(MOSIP_IDA_APP_ID);
@@ -283,6 +299,7 @@ public class ConfigManager {
 		s3UserKey = getValueForKey(S3_USER_KEY);
 		s3SecretKey = getValueForKey(S3_SECRET_KEY);
 		s3Account = getValueForKey(S3_ACCOUNT);
+		s3AccountForPersonaData = getValueForKey(S3_ACCOUNT_FOR_PERSONA_DATA);
 		dbPort = getValueForKey(DB_PORT);
 		dbDomain = getValueForKey(DB_DOMAIN);
 		hibernateConnectionDriverClass = getValueForKey(HIBERNATE_CONNECTION_DRIVER_CLASS);
@@ -357,6 +374,10 @@ public class ConfigManager {
 		enableDebug = System.getenv(ENABLE_DEBUG) == null ? propsKernel.getProperty(ENABLE_DEBUG)
 				: System.getenv(ENABLE_DEBUG);
 		propsKernel.setProperty(ENABLE_DEBUG, enableDebug);
+		
+		reportIgnoredTestCases = System.getenv(REPORT_IGNORED_TEST_CASES) == null ? propsKernel.getProperty(REPORT_IGNORED_TEST_CASES)
+				: System.getenv(REPORT_IGNORED_TEST_CASES);
+		propsKernel.setProperty(REPORT_IGNORED_TEST_CASES, reportIgnoredTestCases);
 
 		threadCount = System.getenv(THREAD_COUNT) == null ? propsKernel.getProperty(THREAD_COUNT)
 				: System.getenv(THREAD_COUNT);
@@ -374,37 +395,73 @@ public class ConfigManager {
 				: System.getenv(PRECONFIGOTP);
 		propsKernel.setProperty(PRECONFIGOTP, preconfiguredOtp);
 
-		esignet_deployed = System.getenv(ESIGNET_DEPLOYED) == null ? propsKernel.getProperty(ESIGNET_DEPLOYED)
-				: System.getenv(ESIGNET_DEPLOYED);
-		propsKernel.setProperty(ESIGNET_DEPLOYED, esignet_deployed);
-		
+		useExternalScenario_sheet = System.getenv(USE_EXTERNAL_SCENARIO_SHEET) == null
+				? propsKernel.getProperty(USE_EXTERNAL_SCENARIO_SHEET)
+				: System.getenv(USE_EXTERNAL_SCENARIO_SHEET);
+		propsKernel.setProperty(USE_EXTERNAL_SCENARIO_SHEET, useExternalScenario_sheet);
+
 		if (System.getenv(ESIGNET_BASE_URL) != null) {
-			eSignetbaseurl =System.getenv(ESIGNET_BASE_URL);
+			eSignetbaseurl = System.getenv(ESIGNET_BASE_URL);
 		} else {
 			eSignetbaseurl = System.getProperty("env.endpoint").replace("-internal", "");
 		}
 		propsKernel.setProperty(ESIGNET_BASE_URL, eSignetbaseurl);
+		
+		esignetMockBaseURL = System.getenv(ESIGNET_MOCK_BASE_URL) == null
+				? propsKernel.getProperty(ESIGNET_MOCK_BASE_URL)
+				: System.getenv(ESIGNET_MOCK_BASE_URL);
+		propsKernel.setProperty(ESIGNET_MOCK_BASE_URL, esignetMockBaseURL);
+		
+		
+		serviceNotDeployedList = System.getenv(SERVICES_NOT_DEPLOYED) == null
+				? propsKernel.getProperty(SERVICES_NOT_DEPLOYED)
+				: System.getenv(SERVICES_NOT_DEPLOYED);
+		propsKernel.setProperty(SERVICES_NOT_DEPLOYED, serviceNotDeployedList);
 
 		toSkippedList = System.getenv(SCENARIOS_TO_BE_SKIPPED) == null
 				? propsKernel.getProperty(SCENARIOS_TO_BE_SKIPPED)
 				: System.getenv(SCENARIOS_TO_BE_SKIPPED);
 		propsKernel.setProperty(SCENARIOS_TO_BE_SKIPPED, toSkippedList);
-		
+
+		toExecuteList = System.getenv(SCENARIOS_TO_BE_EXECUTED) == null
+				? propsKernel.getProperty(SCENARIOS_TO_BE_EXECUTED)
+				: System.getenv(SCENARIOS_TO_BE_EXECUTED);
+		propsKernel.setProperty(SCENARIOS_TO_BE_EXECUTED, toExecuteList);
+
 		partnerUrlSuffix = System.getenv(PARTNER_URL_SUFFIX) == null ? propsKernel.getProperty(PARTNER_URL_SUFFIX)
 				: System.getenv(PARTNER_URL_SUFFIX);
 		propsKernel.setProperty(PARTNER_URL_SUFFIX, partnerUrlSuffix);
-		
-		userAdminName = System.getenv(ADMIN_USER_NAME) == null
-				? propsKernel.getProperty(ADMIN_USER_NAME)
+
+		userAdminName = System.getenv(ADMIN_USER_NAME) == null ? propsKernel.getProperty(ADMIN_USER_NAME)
 				: System.getenv(ADMIN_USER_NAME);
 		propsKernel.setProperty(ADMIN_USER_NAME, userAdminName);
+	}
+	
+	public static boolean isInServiceNotDeployedList(String stringToFind) {
+		synchronized (serviceNotDeployedList) {
+			if (serviceNotDeployedList.isBlank())
+				return false;
+			List<String> serviceNotDeployed = Arrays.asList(serviceNotDeployedList.trim().split(","));
+			if (ConfigManager.IsDebugEnabled())
+				LOGGER.info("serviceNotDeployedList:  " + serviceNotDeployedList + ", serviceNotDeployed : " + serviceNotDeployed
+						+ ", stringToFind : " + stringToFind);
+			for (String string : serviceNotDeployed) {
+				if (string.equalsIgnoreCase(stringToFind))
+					return true;
+				else if(stringToFind.toLowerCase().contains(string.toLowerCase())) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public static boolean isInTobeSkippedList(String stringToFind) {
 		synchronized (toSkippedList) {
 			List<String> toBeSkippedLsit = Arrays.asList(toSkippedList.split(","));
 			if (ConfigManager.IsDebugEnabled())
-				LOGGER.info("toSkippedList:  " + toSkippedList + ", toBeSkippedLsit : "+ toBeSkippedLsit + ", stringToFind : "+ stringToFind );
+				LOGGER.info("toSkippedList:  " + toSkippedList + ", toBeSkippedLsit : " + toBeSkippedLsit
+						+ ", stringToFind : " + stringToFind);
 			for (String string : toBeSkippedLsit) {
 				if (string.equalsIgnoreCase(stringToFind))
 					return true;
@@ -412,22 +469,44 @@ public class ConfigManager {
 		}
 		return false;
 	}
-	
+
+	public static boolean isInTobeExecuteList(String stringToFind) {
+		synchronized (toExecuteList) {
+			// If there are no specific execution list is provided , execute all scenarios
+			if (toExecuteList != null && toExecuteList.isEmpty())
+				return true;
+
+			List<String> toBeExecuteList = Arrays.asList(toExecuteList.split(","));
+			if (ConfigManager.IsDebugEnabled())
+				LOGGER.info("toExecuteList:  " + toExecuteList + ", toBeExecuteList : " + toBeExecuteList
+						+ ", stringToFind : " + stringToFind);
+			for (String string : toBeExecuteList) {
+				if (string.trim().equalsIgnoreCase(stringToFind))
+					return true;
+			}
+		}
+		return false;
+	}
+
 	public static String getUserAdminName() {
 		return userAdminName;
 
 	}
-	
+
 	public static String getPartnerUrlSuffix() {
 		return partnerUrlSuffix;
 	}
 
-	public static Boolean IseSignetDeployed() {
-		return esignet_deployed.equalsIgnoreCase("yes");
+	public static Boolean useExternalScenarioSheet() {
+		return useExternalScenario_sheet.equalsIgnoreCase("yes");
 	}
-	
+
 	public static Boolean IsDebugEnabled() {
 		return enableDebug.equalsIgnoreCase("yes");
+	}
+	
+	public static Boolean reportIgnoredTestCases() {
+		return reportIgnoredTestCases.equalsIgnoreCase("yes");
 	}
 
 	public static String getAuthDemoServicePort() {
@@ -447,11 +526,17 @@ public class ConfigManager {
 		return Integer.parseInt(langselect);
 
 	}
-	
+
 	public static String getEsignetBaseUrl() {
 		return eSignetbaseurl;
 
 	}
+	
+	public static String getEsignetMockBaseURL() {
+		return esignetMockBaseURL;
+
+	}
+
 	public static String getUsePreConfiguredOtp() {
 		return usePreConfiguredOtp;
 
@@ -497,8 +582,7 @@ public class ConfigManager {
 	public static String getPmsClientSecret() {
 		return pms_client_secret;
 	}
-	
-	
+
 	public static String getPartnerClientSecret() {
 		return partner_client_secret;
 	}
@@ -506,8 +590,7 @@ public class ConfigManager {
 	public static String getPmsClientId() {
 		return pms_client_id;
 	}
-	
-	
+
 	public static String getPartnerClientId() {
 		return partner_client_id;
 	}
@@ -571,9 +654,9 @@ public class ConfigManager {
 	public static String getRegprocAppId() {
 		return regproc_app_id;
 	}
-	
+
 	public static String getRegprocessorClientSecret() {
-		return  regprocessor_client_secret;
+		return regprocessor_client_secret;
 	}
 
 	public static String getRegprocessorClientId() {
@@ -638,6 +721,10 @@ public class ConfigManager {
 
 	public static String getS3Account() {
 		return s3Account;
+	}
+	
+	public static String getS3AccountForPersonaData() {
+		return s3AccountForPersonaData;
 	}
 
 	public static String getPushReportsToS3() {

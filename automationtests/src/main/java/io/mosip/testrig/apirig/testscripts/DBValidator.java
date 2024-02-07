@@ -75,7 +75,7 @@ public class DBValidator extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
 		
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
@@ -111,7 +111,7 @@ public class DBValidator extends AdminTestUtil implements ITest {
 		}
 		
 		objList.add(objOpDto);
-		objMap.put("expected vs actual", objList);
+		objMap.put(GlobalConstants.EXPECTED_VS_ACTUAL, objList);
 
 		if (!OutputValidationUtil.publishOutputResult(objMap))
 			throw new AdminTestException("Failed at output validation");

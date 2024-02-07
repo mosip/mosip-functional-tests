@@ -27,7 +27,9 @@ import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestException;
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
+import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -37,7 +39,7 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 	public String idKeyName = null;
 	public Response response = null;
 	public boolean sendEsignetToken = false;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -45,7 +47,7 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -64,10 +66,9 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		sendEsignetToken = context.getCurrentXmlTest().getLocalParameters().containsKey("sendEsignetToken");
 		idKeyName = context.getCurrentXmlTest().getLocalParameters().get("idKeyName");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -83,28 +84,36 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
+		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
+			}
+		}
+		
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 
-		
-		
-		response = postWithParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName, sendEsignetToken);
-		
+		response = postWithParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, testCaseDTO.getRole(),
+				testCaseDTO.getTestCaseName(), idKeyName, sendEsignetToken);
+
 		Map<String, List<OutputValidationDto>> ouputValid = null;
-		if(testCaseName.contains("_StatusCode")) {
-			
-			OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()), testCaseDTO.getOutput());
-			
+		if (testCaseName.contains("_StatusCode")) {
+
+			OutputValidationDto customResponse = customStatusCodeResponse(String.valueOf(response.getStatusCode()),
+					testCaseDTO.getOutput());
+
 			ouputValid = new HashMap<>();
-			ouputValid.put("expected vs actual", List.of(customResponse));
-		}else {
-			ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+			ouputValid.put(GlobalConstants.EXPECTED_VS_ACTUAL, List.of(customResponse));
+		} else {
+			ouputValid = OutputValidationUtil.doJsonOutputValidation(response.asString(),
+					getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+					testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		}
-		
+
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
@@ -128,5 +137,5 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}	
+	}
 }

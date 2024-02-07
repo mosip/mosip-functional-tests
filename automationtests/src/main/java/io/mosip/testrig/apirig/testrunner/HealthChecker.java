@@ -60,11 +60,13 @@ public class HealthChecker implements Runnable {
 					continue;
 				String[] parts = line.trim().split("=");
 				if (parts.length > 1) {
-					if (parts[0].contains(currentRunningModule)) 
 					// only add health check required for the current running module
 					if (parts[0].contains(currentRunningModule)) {
-						// If the actuator link contains esignet add to the list only if esignet is deployed
-						if (parts[1].contains(GlobalConstants.ESIGNET) && (!ConfigManager.IseSignetDeployed()))
+						if (parts[1].contains(GlobalConstants.ESIGNET) && (ConfigManager.isInServiceNotDeployedList(GlobalConstants.ESIGNET)))
+							continue;
+						else if (parts[1].contains(GlobalConstants.RESIDENT) && (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT)))
+							continue;
+						else if (parts[1].contains(GlobalConstants.RID_GENERATOR) && (ConfigManager.isInServiceNotDeployedList(GlobalConstants.RID_GENERATOR)))
 							continue;
 						controllerPaths.add(BaseTestCase.ApplnURI + parts[1]);
 					}

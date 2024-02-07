@@ -31,6 +31,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestExceptio
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
+import io.mosip.testrig.apirig.ida.certificate.PartnerRegistration;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -39,7 +40,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 	private static final Logger logger = Logger.getLogger(MultiFactorAuth.class);
 	protected String testCaseName = "";
 	public Response response = null;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -47,7 +48,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -64,10 +65,9 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -82,12 +82,17 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		if (testCaseDTO.getEndPoint().contains(GlobalConstants.$PARTNERKEYURL$)) {
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace(GlobalConstants.$PARTNERKEYURL$,
+					properties.getProperty("partnerKeyURL")));
+		}
+		
+		if (testCaseDTO.getEndPoint().contains("$UpdatedPartnerKeyURL$")) {
 			testCaseDTO.setEndPoint(
-					testCaseDTO.getEndPoint().replace(GlobalConstants.$PARTNERKEYURL$, properties.getProperty("partnerKeyURL")));
+					testCaseDTO.getEndPoint().replace("$UpdatedPartnerKeyURL$", PartnerRegistration.updatedpartnerKeyUrl));
 		}
 		String otpRequest = null;
 		String sendOtpReqTemplate = null;
@@ -105,7 +110,8 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		otpReqJson.remove("sendOtpEndPoint");
 
 		if (sendOtpEndPoint.contains(GlobalConstants.$PARTNERKEYURL$)) {
-			sendOtpEndPoint = sendOtpEndPoint.replace(GlobalConstants.$PARTNERKEYURL$, properties.getProperty("partnerKeyURL"));
+			sendOtpEndPoint = sendOtpEndPoint.replace(GlobalConstants.$PARTNERKEYURL$,
+					properties.getProperty("partnerKeyURL"));
 		}
 
 		Response otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint,
@@ -122,7 +128,8 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
-				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
+				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 		OutputValidationUtil.publishOutputResult(ouputValidOtp);
 
@@ -159,7 +166,8 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 			if (jsonObject.has("key") && jsonObject.has(GlobalConstants.VALUE)) {
 				JSONObject jsonHbs = new JSONObject(jsonBioHbs.get(GlobalConstants.IDENTITYREQUEST).toString());
 				encryptedIdentityReq = JsonPrecondtion.parseAndReturnJsonContent(encryptedIdentityReq,
-						jsonObject.get(GlobalConstants.VALUE).toString(), demographicsMapper + jsonObject.get("key").toString());
+						jsonObject.get(GlobalConstants.VALUE).toString(),
+						demographicsMapper + jsonObject.get("key").toString());
 			}
 
 		}
@@ -181,7 +189,8 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -208,7 +217,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 			Reporter.log("Exception : " + e.getMessage());
 		}
 	}
-	
+
 	@AfterClass
 	public static void authTestTearDown() {
 		logger.info("Terminating authpartner demo application...");

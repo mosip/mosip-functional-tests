@@ -1432,7 +1432,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Invalid_RequestTime_Neg:
+   ESignet_WalletBinding_Vid_Invalid_RequestTime_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1475,7 +1475,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_PastVal_RequestTime_Neg:
+   ESignet_WalletBinding_Vid_PastVal_RequestTime_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1518,7 +1518,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Future_RequestTime_Neg:
+   ESignet_WalletBinding_Vid_Future_RequestTime_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1561,7 +1561,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Invalid_IndividualId_Neg:
+   ESignet_WalletBinding_Vid_Invalid_IndividualId_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1604,7 +1604,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Empty_IndividualId_Neg:
+   ESignet_WalletBinding_Vid_Empty_IndividualId_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1647,7 +1647,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Null_IndividualId_Neg:
+   ESignet_WalletBinding_Vid_Null_IndividualId_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1690,7 +1690,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Missing_IndividualId_Neg:
+   ESignet_WalletBinding_Vid_Missing_IndividualId_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1733,7 +1733,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_SpaceVal_IndividualId_Neg:
+   ESignet_WalletBinding_Vid_SpaceVal_IndividualId_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1775,7 +1775,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Invalid_AuthFactorType_Neg:
+   ESignet_WalletBinding_Vid_Invalid_AuthFactorType_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1818,7 +1818,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Missing_AuthFactorType_Neg:
+   ESignet_WalletBinding_Vid_Missing_AuthFactorType_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1861,7 +1861,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_EmptyVal_AuthFactorType_Neg:
+   ESignet_WalletBinding_Vid_EmptyVal_AuthFactorType_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1904,7 +1904,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_SpaceVal_AuthFactorType_Neg:
+   ESignet_WalletBinding_Vid_SpaceVal_AuthFactorType_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1947,7 +1947,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Invalid_Challenge_Neg:
+   ESignet_WalletBinding_Vid_Invalid_Challenge_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -1990,7 +1990,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_EmptyVal_Challenge_Neg:
+   ESignet_WalletBinding_Vid_EmptyVal_Challenge_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2033,7 +2033,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Missing_Challenge_Neg:
+   ESignet_WalletBinding_Vid_Missing_Challenge_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2076,7 +2076,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_SpaceVal_Challenge_Neg:
+   ESignet_WalletBinding_Vid_SpaceVal_Challenge_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2119,7 +2119,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Invalid_Formate_Neg:
+   ESignet_WalletBinding_Vid_Invalid_Formate_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2162,7 +2162,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Missing_Formate_Neg:
+   ESignet_WalletBinding_Vid_Missing_Formate_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2205,7 +2205,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_SpaceVal_Formate_Neg:
+   ESignet_WalletBinding_Vid_SpaceVal_Formate_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2248,7 +2248,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Empty_Formate_Neg:
+   ESignet_WalletBinding_Vid_Empty_Formate_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2291,7 +2291,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Invalid_authFactorType1_Neg:
+   ESignet_WalletBinding_Vid_Invalid_authFactorType1_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2333,7 +2333,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Missing_authFactorType1_Neg:
+   ESignet_WalletBinding_Vid_Missing_authFactorType1_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2376,7 +2376,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Empty_authFactorType1_Neg:
+   ESignet_WalletBinding_Vid_Empty_authFactorType1_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2419,7 +2419,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_SpaceVal_authFactorType1_Neg:
+   ESignet_WalletBinding_Vid_SpaceVal_authFactorType1_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2461,7 +2461,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Invalid_format1_Neg:
+   ESignet_WalletBinding_Vid_Invalid_format1_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2503,7 +2503,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Empty_format1_Neg:
+   ESignet_WalletBinding_Vid_Empty_format1_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2546,7 +2546,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Missing_format1_Neg:
+   ESignet_WalletBinding_Vid_Missing_format1_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2589,7 +2589,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_SpaceVal_format1_Neg:
+   ESignet_WalletBinding_Vid_SpaceVal_format1_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2631,7 +2631,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Invalid_publicKey_Neg:
+   ESignet_WalletBinding_Vid_Invalid_publicKey_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true
@@ -2674,7 +2674,7 @@ WalletBinding:
        }
 }'
 
-   ESignet_WalletBinding_vid_Null_publicKey_Neg:
+   ESignet_WalletBinding_Vid_Null_publicKey_Neg:
       endPoint: /v1/esignet/binding/wallet-binding
       role: mobileauth
       checkErrorsOnlyInResponse: true

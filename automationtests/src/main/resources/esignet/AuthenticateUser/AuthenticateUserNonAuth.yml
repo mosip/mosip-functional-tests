@@ -3,6 +3,7 @@ AuthenticateUserNonAuth:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
       outputTemplate: esignet/error
@@ -31,7 +32,7 @@ AuthenticateUserNonAuth:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -40,6 +41,7 @@ AuthenticateUserNonAuth:
    ESignet_AuthenticateUserIDP_NonAuth_Otp_Vid_Valid_Smoke:
       endPoint: /v1/esignet/authorization/authenticate
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/AuthenticateUser/AuthenticateUser
@@ -69,7 +71,7 @@ AuthenticateUserNonAuth:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }

@@ -77,8 +77,11 @@ public class BaseTestCase {
 	public String adminCookie = null;
 	public String partnerCookie = null;
 	public String partnerNewCookie = null;
+	public String withoutpartnerCookie = null;
+	public String withoutpolicyCookie = null;
 	public String partnerNewKycCookie = null;
 	public String esignetPartnerCookie = null;
+	public String esignetPartnerKycCookie = null;
 	public String policytestCookie = null;
 	public String residentCookie = null;
 	public HashMap<String, String> residentNewCookie = new HashMap<>();
@@ -102,6 +105,8 @@ public class BaseTestCase {
 	public static HashMap<String, String> regCenterId = new HashMap<>();
 	public static String expiredPreId = null;
 	public String batchJobToken = null;
+	public String invalidBatchJobToken = null;
+	
 	public static List<String> expiredPreRegIds = null;
 	public static List<String> consumedPreRegIds = null;
 	public static Map<?, ?> residentQueries;
@@ -156,12 +161,12 @@ public class BaseTestCase {
 			+ generateRandomNumberString(3);
 	public static String genPartnerName = "partnernameforautomationesi-" + generateRandomNumberString(6);
 	public static String genPartnerNameNonAuth = "partnernameforesignet-" + generateRandomNumberString(6);
-	public String genPartnerNameForDsl = "partnernameforautomationesi-" + generateRandomNumberString(6);
+	public String genPartnerNameForDsl = "partnernameforautomationdsl-" + generateRandomNumberString(6);
 	public static String genMispPartnerName = "esignet_" + generateRandomNumberString(6)
 			+ generateRandomNumberString(3);
 	public static String genPartnerEmail = "automationpartneresi" + generateRandomNumberString(7)
 			+ "@automationMosip.com";
-	public String genPartnerEmailForDsl = "automationpartneresi" + generateRandomNumberString(10)
+	public String genPartnerEmailForDsl = "automationpartnerdsl" + generateRandomNumberString(10)
 	+ "@automationMosip.com";
 	public String genPartnerEmailNonAuth = "automationesignet" + generateRandomNumberString(10)
 	+ "@automationMosip.com";
@@ -266,10 +271,10 @@ public class BaseTestCase {
 			AdminTestUtil.initiateMasterDataTest();
 		}
 
-		if (listOfModules.contains(GlobalConstants.MOBILEID)) {
-			BaseTestCase.currentModule = GlobalConstants.MOBILEID;
-			setReportName(GlobalConstants.MOBILEID);
-			AdminTestUtil.initiateMobileIdTestTest();
+		if (listOfModules.contains(GlobalConstants.MIMOTO)) {
+			BaseTestCase.currentModule = GlobalConstants.MIMOTO;
+			setReportName(GlobalConstants.MIMOTO);
+			AdminTestUtil.initiateMimotoTest();
 			mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
 
@@ -404,6 +409,7 @@ public class BaseTestCase {
 
 	}
 
+	//below method is used by dsl.
 	@SuppressWarnings("unchecked")
 	public static void mapUserToZone(String user, String zone) {
 
@@ -411,7 +417,7 @@ public class BaseTestCase {
 		String url = ApplnURI + propsKernel.getProperty("zoneMappingUrl");
 		org.json.simple.JSONObject actualrequest = getRequestJson(zoneMappingRequest);
 		JSONObject request = new JSONObject();
-		request.put("zoneCode", zone);
+		request.put("zoneCode", zone); 
 		request.put("userId", user);
 		request.put("langCode", BaseTestCase.getLanguageList().get(0));
 		request.put(GlobalConstants.ISACTIVE, GlobalConstants.TRUE_STRING);
@@ -553,36 +559,36 @@ public class BaseTestCase {
 		if (!languageList.isEmpty()) {
 			return languageList;
 		}
+
 		String section = "";
-		String optionalLanguages=null;
-		String mandatoryLanguages=null;
-		if (isTargetEnvLTS()) 
+		String optionalLanguages = null;
+		String mandatoryLanguages = null;
+		if (isTargetEnvLTS())
 			section = "/mosip-config/application-default.properties";
-		else 
+		else
 			section = "/mosip-config/sandbox/admin-mz.properties";
 		try {
-	
-			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
-				section, "mosip.optional-languages");
-			
+
+			optionalLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"), section,
+					"mosip.optional-languages");
+
 			logger.info("optionalLanguages from env:" + optionalLanguages);
-			
-			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorAdminEndpoint"),
-				section, "mosip.mandatory-languages");
-			
+
+			mandatoryLanguages = getValueFromActuators(propsKernel.getProperty("actuatorMasterDataEndpoint"), section,
+					"mosip.mandatory-languages");
+
 			logger.info("mandatoryLanguages from env:" + mandatoryLanguages);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		if (mandatoryLanguages != null && !mandatoryLanguages.isBlank())
 			languageList.addAll(Arrays.asList(mandatoryLanguages.split(",")));
-		
+
 		if (optionalLanguages != null && !optionalLanguages.isBlank())
 			languageList.addAll(Arrays.asList(optionalLanguages.split(",")));
 		logger.info("languageList from env:" + languageList);
 		return languageList;
+
 	}
 	
 	private static String targetEnvVersion = "";
@@ -614,11 +620,13 @@ public class BaseTestCase {
 		if (!supportedIdType.isEmpty()) {
 			return supportedIdType;
 		}
-		
+//		supportedIdType.add("UIN");
+//		return supportedIdType;
+
 		String section = "/mosip-config/id-authentication-default.properties";
 		if (!BaseTestCase.isTargetEnvLTS())
 			section = "/mosip-config/sandbox/id-authentication-lts.properties";
-		
+
 		Response response = null;
 
 		org.json.JSONObject responseJson = null;

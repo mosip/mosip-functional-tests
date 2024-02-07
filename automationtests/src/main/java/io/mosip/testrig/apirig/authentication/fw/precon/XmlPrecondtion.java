@@ -118,16 +118,18 @@ public class XmlPrecondtion extends MessagePrecondtion {
 		try {
 			StringBuilder xmlStringBuilder = new StringBuilder();
 			xmlStringBuilder.append(content);
-			ByteArrayInputStream input = new ByteArrayInputStream(xmlStringBuilder.toString().getBytes(StandardCharsets.UTF_8));
-			builderFactory.setFeature(FEATURE, true);
-			builderFactory.setFeature(EXTERNAL_DTD_FEATURE, false);
-			builderFactory.setXIncludeAware(false);
-			builderFactory.setExpandEntityReferences(false);
-			builder = builderFactory.newDocumentBuilder();
-			Document doc = builder.parse(input);
-			doc.getDocumentElement().normalize();
-			XPath xPath = XPathFactory.newInstance().newXPath();
-			return xPath.compile(expression).evaluate(doc);
+			try (ByteArrayInputStream input = new ByteArrayInputStream(
+					xmlStringBuilder.toString().getBytes(StandardCharsets.UTF_8))) {
+				builderFactory.setFeature(FEATURE, true);
+				builderFactory.setFeature(EXTERNAL_DTD_FEATURE, false);
+				builderFactory.setXIncludeAware(false);
+				builderFactory.setExpandEntityReferences(false);
+				builder = builderFactory.newDocumentBuilder();
+				Document doc = builder.parse(input);
+				doc.getDocumentElement().normalize();
+				XPath xPath = XPathFactory.newInstance().newXPath();
+				return xPath.compile(expression).evaluate(doc);
+			}
 		} catch (Exception e) {
 			XMLPRECONDTION_LOGGER.error("Exception in xml precondtion : " + e.getMessage());
 			return e.getMessage();

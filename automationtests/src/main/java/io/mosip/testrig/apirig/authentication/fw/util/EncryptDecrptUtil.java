@@ -85,8 +85,8 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	 * @return String , Ecrypted JSON
 	 */
 	private static String getEncryption(String filename) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			Reporter.log("<b><u> Identity request:</u></b>");
 			GlobalMethods.reportRequest(null, objectData.toString());
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncryptionPath(), objectData.toJSONString(), MediaType.APPLICATION_JSON,
@@ -104,8 +104,8 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	 * @return String , Ecrypted JSON
 	 */
 	private static String getIntenalEncryption(String filename) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			Reporter.log("<b><u> Identity request:</u></b>");
 			GlobalMethods.reportRequest(null, objectData.toString());
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getInternalEncryptionPath(), objectData.toJSONString(), MediaType.APPLICATION_JSON,
@@ -123,8 +123,8 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	 * @return String, Encoded data
 	 */
 	public static String getEncode(String filename) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl()+RunConfigUtil.objRunConfig.getEncodePath(), objectData.toJSONString(), MediaType.TEXT_PLAIN,
 					MediaType.TEXT_PLAIN).asString();
 		} catch (Exception e) {
@@ -188,8 +188,8 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	 * @return String, decoded data
 	 */
 	public static String getDecodeFromFile(String filename) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl() + RunConfigUtil.objRunConfig.getDecodePath(),
 					objectData.toJSONString(), MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
@@ -220,8 +220,8 @@ public class EncryptDecrptUtil extends AuthTestsUtil{
 	 * @return String, decoded data
 	 */
 	public static String getDecryptFromFile(String filename) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.postRequest(RunConfigUtil.objRunConfig.getEncryptUtilBaseUrl() + RunConfigUtil.objRunConfig.getDecryptPath(),
 					objectData.toJSONString(), MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {

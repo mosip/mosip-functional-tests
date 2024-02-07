@@ -241,8 +241,8 @@ public class AuthTestsUtil extends BaseTestCase {
 	protected Response postRequestWithCookie(String filename, String url, int expCode, String cookieName,
 			String cookieValue) {
 		Response response = null;
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			response = RestClient.postRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue);
 			Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
@@ -261,8 +261,8 @@ public class AuthTestsUtil extends BaseTestCase {
 	protected Response postRequestWithCookieAndHeader(String filename, String url, int expCode, String cookieName,
 			String cookieValue, String authHeaderName, String authHeaderValue) {
 		Response response = null;
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			response = RestClient.postRequestWithCookieAndHeader(url, objectData.toJSONString(),
 					MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, cookieName, cookieValue, authHeaderName,
 					authHeaderValue);
@@ -361,8 +361,8 @@ public class AuthTestsUtil extends BaseTestCase {
 
 	protected Response postRequestWithAuthHeader(String filename, String url, String authHeaderName,
 			String authHeaderValue) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.postRequestWithAuthHeader(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, authHeaderName, authHeaderValue);
 		} catch (Exception e) {
@@ -379,8 +379,8 @@ public class AuthTestsUtil extends BaseTestCase {
 	 * @return String, Reponse for request
 	 */
 	protected String patchRequest(String filename, String url) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.patchRequest(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
@@ -399,9 +399,9 @@ public class AuthTestsUtil extends BaseTestCase {
 	 */
 	protected String patchRequest(String filename, String url, int expCode) {
 		String responseString = "";
-		try {
+		try(FileReader fr = new FileReader(filename)) {
 			Response response = null;
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			response = RestClient.patchRequest(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON);
 			Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
@@ -445,8 +445,8 @@ public class AuthTestsUtil extends BaseTestCase {
 	protected Response postRequestWithAuthHeader(String filename, String url, int expCode, String authHeaderName,
 			String authHeaderValue) {
 		Response response = null;
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			response = RestClient.postRequestWithAuthHeader(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, authHeaderName, authHeaderValue);
 			Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
@@ -1124,8 +1124,8 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 
 	protected Response postRequestWithCookie(String filename, String url, String cookieName, String cookieValue) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.postRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue);
 		} catch (Exception e) {
@@ -1136,8 +1136,8 @@ public class AuthTestsUtil extends BaseTestCase {
 
 	protected Response postRequestWithCookieAndHeader(String filename, String url, String cookieName,
 			String cookieValue, String authHeaderName, String authHeaderValue) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.postRequestWithCookieAndHeader(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue, authHeaderName, authHeaderValue);
 		} catch (Exception e) {
@@ -1148,8 +1148,8 @@ public class AuthTestsUtil extends BaseTestCase {
 
 	protected String postRequestWithCookie(String filename, String url, String cookieName, String cookieValue,
 			int code) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.postRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue).asString();
 		} catch (Exception e) {
@@ -1190,8 +1190,8 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 
 	protected Response patchRequestWithCookie(String filename, String url, String cookieName, String cookieValue) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.patchRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue);
 		} catch (Exception e) {
@@ -1203,8 +1203,8 @@ public class AuthTestsUtil extends BaseTestCase {
 	protected Response patchRequestWithCookie(String filename, String url, int expCode, String cookieName,
 			String cookieValue) {
 		Response response = null;
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			response = RestClient.patchRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue);
 			Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
@@ -1326,8 +1326,8 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 
 	protected String putRequestWithparm(String filename, String url, String cookieName, String cookieValue) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.putRequestWithParm(url, objectData, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue).asString();
 		} catch (Exception e) {
@@ -1337,8 +1337,8 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 
 	protected String putRequestWithCookie(String filename, String url, String cookieName, String cookieValue) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.putRequestWithCookie(url, objectData.toJSONString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue).asString();
 		} catch (Exception e) {
@@ -1356,8 +1356,8 @@ public class AuthTestsUtil extends BaseTestCase {
 
 	// Added by Admin Test Team
 	protected Response getRequestWithPathParm(String filename, String url, String cookieName, String cookieValue) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.getRequestWithCookieAndPathParm(url, objectData, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue);
 		} catch (Exception e) {
@@ -1367,8 +1367,8 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 
 	protected Response getRequestWithQueryParm(String filename, String url, String cookieName, String cookieValue) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.getRequestWithCookieAndQueryParm(url, objectData, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue);
 		} catch (Exception e) {
@@ -1436,8 +1436,8 @@ public class AuthTestsUtil extends BaseTestCase {
 
 
 	protected Response deleteRequestWithPathParm(String filename, String url, String cookieName, String cookieValue) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.deleteRequestWithCookieAndPathParm(url, objectData, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue);
 		} catch (Exception e) {
@@ -1447,8 +1447,8 @@ public class AuthTestsUtil extends BaseTestCase {
 	}
 
 	protected String putRequestWithQueryparm(String filename, String url, String cookieName, String cookieValue) {
-		try {
-			JSONObject objectData = (JSONObject) new JSONParser().parse(new FileReader(filename));
+		try(FileReader fr = new FileReader(filename)) {
+			JSONObject objectData = (JSONObject) new JSONParser().parse(fr);
 			return RestClient.putRequestWithQueryParm(url, objectData, MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON, cookieName, cookieValue).asString();
 		} catch (Exception e) {

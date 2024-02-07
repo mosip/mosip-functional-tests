@@ -11,21 +11,21 @@ CheckAidStatus:
 	    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 	    "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
 	    "transactionId": "$TRANSACTIONID$",
-	    "sendOtp":{
-		    "transactionId": "$TRANSACTIONID$",
-		    "requestTime": "$TIMESTAMP$",
-		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
-		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
-		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
-		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
-	    }
+    "sendOtp":{
+    "transactionId": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
+    "sendOtpEndPoint": "/resident/v1/individualId/otp"
+    }
 }'
       output: '{
         "sendOtpResp":{
-	        "maskedMobile": "XXXXXX3210",
-	        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
-	        "maskedEmail": "$IGNORE$"
+        "maskedMobile": "$IGNORE$",
+        "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
+        "maskedEmail": "$IGNORE$"
     }
 }'
 
@@ -37,16 +37,16 @@ CheckAidStatus:
       inputTemplate: resident/CheckAidStatus/CheckAidStatus
       outputTemplate: resident/error 
       input: '{
-		"requesttime": "$TIMESTAMP$",
+	    "requesttime": "$TIMESTAMP$",
 	    "aid": "123444sasa$%",
 	    "otp": "$ID:AddIdentity_Positive_PRE_smoke_EMAIL$",
 	    "transactionId": "$TRANSACTIONID$",
-	    "sendOtp":{
-		    "transactionId": "$TRANSACTIONID$",
-		    "requestTime": "$TIMESTAMP$",
-		    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
-		    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
-		    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
+    "sendOtp":{
+    "transactionId": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Positive_PRE_smoke_UIN$",
+    "otpChannel": [{channel: "EMAIL"},{channel: "PHONE"}],
+    "aid": "$ID:UpdateUIN_Valid_All_Smoke_Pos_sid_registrationId$",
 		    "sendOtpReqTemplate": "resident/ReqAidOtp/ReqAidOtp",
 		    "sendOtpEndPoint": "/resident/v1/individualId/otp"
 	    }
@@ -54,12 +54,12 @@ CheckAidStatus:
       output: '{
 		 "errors": [
 	    {
-	      "errorCode": "RES-SER-457",
+	      "errorCode": "RES-SER-410",
 	      "message": "$IGNORE$"
 	    }
   ],
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -95,7 +95,7 @@ CheckAidStatus:
 	    }
   ],
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -131,7 +131,7 @@ CheckAidStatus:
 	    }
   ],
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -162,12 +162,12 @@ CheckAidStatus:
       output: '{
 		 "errors": [
 	    {
-	      "errorCode": "RES-SER-457",
+	      "errorCode": "RES-SER-410",
 	      "message": "$IGNORE$"
 	    }
   ],
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -203,7 +203,7 @@ CheckAidStatus:
 	    }
   ],
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -234,12 +234,12 @@ CheckAidStatus:
       output: '{
 		 "errors": [
 	    {
-	      "errorCode": "RES-SER-422",
+	      "errorCode": "RES-SER-410",
 	      "message": "$IGNORE$"
 	    }
   ],
         "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"resident/ReqAidOtp/ReqAidOtpResult",
         "maskedEmail": "$IGNORE$"
     }

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.ITest;
 import org.testng.ITestContext;
@@ -82,20 +83,22 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
+		
+		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 
 		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
-				throw new SkipException("Idtype UIN is not supported. Hence skipping the testcase");
+				throw new SkipException(GlobalConstants.UIN_FEATURE_NOT_SUPPORTED);
 			}
 		}
 
-		if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
-				throw new SkipException("Idtype VID is not supported. Hence skipping the testcase");
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
 			}
 		}
 
@@ -153,7 +156,7 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 			sendOtpRespJson.remove("sendOtpResTemplate");
 			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
 					otpRespon.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
-					testCaseDTO.isCheckErrorsOnlyInResponse());
+					testCaseDTO.isCheckErrorsOnlyInResponse(), otpRespon.getStatusCode());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
@@ -180,6 +183,11 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		if (endPoint.contains("$PartnerName$")) {
 			endPoint = endPoint.replace("$PartnerName$", PartnerRegistration.partnerId);
 		}
+		
+		if (endPoint.contains("$UpdatedPartnerKeyURL$")) {
+			endPoint = endPoint.replace("$UpdatedPartnerKeyURL$", PartnerRegistration.updatedpartnerKeyUrl);
+		}
+		
 
 		String inputStr = buildIdentityRequest(input.toString());
 
@@ -199,7 +207,7 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 				ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
 			}
 		} else {
-			if (testCaseDTO.getTestCaseName().contains("vid") || testCaseDTO.getTestCaseName().contains("VID")) {
+			if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 				if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
@@ -209,8 +217,8 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 			}
 		}
 
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse());
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

@@ -24,7 +24,9 @@ import com.nimbusds.jose.jwk.KeyUse;
 import com.nimbusds.jose.jwk.RSAKey;
 
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
+import io.mosip.testrig.apirig.admin.fw.util.CertsUtil;
 import io.mosip.testrig.apirig.admin.fw.util.EncryptionDecrptionUtil;
+import io.mosip.testrig.apirig.admin.fw.util.JWKKeyUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.dbaccess.DBManager;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
@@ -79,7 +81,7 @@ public class MosipTestRunner {
 				HealthChecker healthcheck = new HealthChecker();
 				healthcheck.setCurrentRunningModule(BaseTestCase.currentModule);
 				Thread trigger = new Thread(healthcheck);
-				trigger.start();
+//				trigger.start();
 			}
 			KeycloakUserManager.removeUser();
 			KeycloakUserManager.createUsers();
@@ -89,6 +91,7 @@ public class MosipTestRunner {
 			AdminTestUtil.getLocationData();
 
 			String partnerKeyURL = "";
+			String updatedPartnerKeyURL = "";
 			String ekycPartnerKeyURL = "";
 
 			if (BaseTestCase.listOfModules.contains("auth")
@@ -96,8 +99,9 @@ public class MosipTestRunner {
 				PartnerRegistration.deleteCertificates();
 				CertificateGenerationUtil.getThumbprints();
 				AdminTestUtil.createAndPublishPolicy();
+				AdminTestUtil.createEditAndPublishPolicy();
 				partnerKeyURL = PartnerRegistration.generateAndGetPartnerKeyUrl();
-				
+				updatedPartnerKeyURL = PartnerRegistration.generateAndGetUpdatedPartnerKeyUrl();
 				
 				AdminTestUtil.createAndPublishPolicyForKyc();
 				ekycPartnerKeyURL = PartnerRegistration.generateAndGetEkycPartnerKeyUrl();
@@ -154,6 +158,8 @@ public class MosipTestRunner {
 		PartnerRegistration.setLogLevel();
 		KeyCloakUserAndAPIKeyGeneration.setLogLevel();
 		MispPartnerAndLicenseKeyGeneration.setLogLevel();
+		JWKKeyUtil.setLogLevel();
+		CertsUtil.setLogLevel();
 	}
 
 	/**

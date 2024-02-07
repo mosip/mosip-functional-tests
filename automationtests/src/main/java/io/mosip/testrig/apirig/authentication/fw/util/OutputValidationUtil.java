@@ -37,19 +37,20 @@ import io.mosip.testrig.apirig.kernel.util.ConfigManager;
  * @author Vignesh
  *
  */
-public class OutputValidationUtil extends AuthTestsUtil{
+public class OutputValidationUtil extends AuthTestsUtil {
 
 	private static final Logger OUTPUTVALIDATION_LOGGER = Logger.getLogger(OutputValidationUtil.class);
-	
+
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
 			OUTPUTVALIDATION_LOGGER.setLevel(Level.ALL);
 		else
 			OUTPUTVALIDATION_LOGGER.setLevel(Level.ERROR);
 	}
-	
+
 	/**
-	 * The method will perform output validation by comparing expected and actual value
+	 * The method will perform output validation by comparing expected and actual
+	 * value
 	 * 
 	 * @param actualOutputFile
 	 * @param expOutputFile
@@ -71,7 +72,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 //			return Collections.emptyMap();
 //		}
 //	}
-	
+
 	/**
 	 * The method will compare expected and actual value
 	 * 
@@ -79,14 +80,14 @@ public class OutputValidationUtil extends AuthTestsUtil{
 	 * @param exp
 	 * @param actVsExp
 	 * @return map
-	 * @throws JsonMappingException 
-	 * @throws JsonParseException 
+	 * @throws JsonMappingException
+	 * @throws JsonParseException
 	 */
 	public static Map<String, List<OutputValidationDto>> compareActuExpValue(Map<String, String> actual,
 			Map<String, String> exp, String actVsExp) {
-		if(actual == null || exp == null)
+		if (actual == null || exp == null)
 			throw new SkipException("Marking testcase as Skipped, as no Output comparison done");
-		
+
 		Map<String, List<OutputValidationDto>> objMap = new HashMap<>();
 		List<OutputValidationDto> objList = new ArrayList<OutputValidationDto>();
 		boolean comparisonDone = false;
@@ -145,7 +146,8 @@ public class OutputValidationUtil extends AuthTestsUtil{
 								objOpDto.setStatus(GlobalConstants.FAIL_STRING);
 								comparisonDone = true;
 							}
-						} else if (expEntry.getValue().contains(GlobalConstants.TOKENID_STRING) && expEntry.getValue().contains(".")) {
+						} else if (expEntry.getValue().contains(GlobalConstants.TOKENID_STRING)
+								&& expEntry.getValue().contains(".")) {
 							String key = expEntry.getValue().replace(GlobalConstants.TOKENID_STRING, "");
 							String[] keys = key.split(Pattern.quote("."));
 							String tokenid = RunConfigUtil.getTokenId(keys[0], keys[1]);
@@ -220,7 +222,8 @@ public class OutputValidationUtil extends AuthTestsUtil{
 								JsonPrecondtion.getJsonInOrder(EncryptDecrptUtil.getDecyptFromStr(content)));
 						if (compareTwoKycMap(expMap, actualMap)) {
 							Reporter.log("Kyc verification passed");
-							OUTPUTVALIDATION_LOGGER.info("Kyc Verification Passed \\n Expected Kyc: " + expMap + "\\n Actual Kyc: " + actualMap);
+							OUTPUTVALIDATION_LOGGER.info("Kyc Verification Passed \\n Expected Kyc: " + expMap
+									+ "\\n Actual Kyc: " + actualMap);
 							objOpDto.setFieldName(expEntry.getKey());
 							objOpDto.setFieldHierarchy(expEntry.getKey());
 							objOpDto.setActualValue(actualMap.toString());
@@ -229,7 +232,8 @@ public class OutputValidationUtil extends AuthTestsUtil{
 							comparisonDone = true;
 						} else {
 							Reporter.log("Kyc verification failed");
-							OUTPUTVALIDATION_LOGGER.error("Kyc Verification failed \\n Expected Kyc: " + expMap + "\\n Actual Kyc: " + actualMap);
+							OUTPUTVALIDATION_LOGGER.error("Kyc Verification failed \\n Expected Kyc: " + expMap
+									+ "\\n Actual Kyc: " + actualMap);
 							objOpDto.setFieldName(expEntry.getKey());
 							objOpDto.setFieldHierarchy(expEntry.getKey());
 							objOpDto.setActualValue(actualMap.toString());
@@ -255,11 +259,11 @@ public class OutputValidationUtil extends AuthTestsUtil{
 		} catch (JSONException | IOException e) {
 			OUTPUTVALIDATION_LOGGER.error("Kyc Verification failed " + e.getMessage());
 		}
-		if(comparisonDone == false)
+		if (comparisonDone == false)
 			throw new SkipException("Marking testcase as Skipped, as no Output comparison done");
 		return objMap;
 	}
-	
+
 	/**
 	 * The method will validate timestamp
 	 * 
@@ -306,11 +310,11 @@ public class OutputValidationUtil extends AuthTestsUtil{
 			return false;
 		}
 	}
-	
+
 	/**
 	 * The methold will validate timestamp with Z format
 	 * 
-	 * @param timestamp 
+	 * @param timestamp
 	 * @return true or false
 	 */
 	public static boolean validateTimestampZ(String timestamp) {
@@ -351,7 +355,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 			return false;
 		}
 	}
-	
+
 	/**
 	 * The method will validate regular expression
 	 * 
@@ -365,7 +369,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 		else
 			return false;
 	}
-	
+
 	/**
 	 * The method will publish report
 	 * 
@@ -385,12 +389,12 @@ public class OutputValidationUtil extends AuthTestsUtil{
 					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.EXPECTED_VALUE_STRING + dto.getExpValue());
 					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.ACTUAL_VALUE_STRING + dto.getActualValue());
 					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.STATUS_STRING + dto.getStatus());
-				}else if (dto.getStatus().equals("WARNING")) {
+				} else if (dto.getStatus().equals("WARNING")) {
 					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.JSONFIELD_PATH_STRING + dto.getFieldName());
 					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.EXPECTED_VALUE_STRING + dto.getExpValue());
 					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.ACTUAL_VALUE_STRING + dto.getActualValue());
 					OUTPUTVALIDATION_LOGGER.info(GlobalConstants.STATUS_STRING + dto.getStatus());
-				}else if (dto.getStatus().equals(GlobalConstants.FAIL_STRING)) {
+				} else if (dto.getStatus().equals(GlobalConstants.FAIL_STRING)) {
 					OUTPUTVALIDATION_LOGGER.error(GlobalConstants.JSONFIELD_PATH_STRING + dto.getFieldName());
 					OUTPUTVALIDATION_LOGGER.error(GlobalConstants.EXPECTED_VALUE_STRING + dto.getExpValue());
 					OUTPUTVALIDATION_LOGGER.error(GlobalConstants.ACTUAL_VALUE_STRING + dto.getActualValue());
@@ -403,7 +407,7 @@ public class OutputValidationUtil extends AuthTestsUtil{
 				"*******************************************************************************************************");
 		return outputStatus;
 	}
-	
+
 	/**
 	 * The method will perform token id operation for uin
 	 * 
@@ -426,107 +430,122 @@ public class OutputValidationUtil extends AuthTestsUtil{
 			generateMappingDic(file.getAbsolutePath(), map);
 		}
 	}
-	
+
 	public static boolean compareTwoKycMap(Map<String, Object> expMap, Map<String, Object> actualMap) {
 		for (Entry<String, Object> entry : expMap.entrySet()) {
 			if (actualMap.containsKey(entry.getKey())) {
-				
-				if(entry.getValue()==null || actualMap.get(entry.getKey())==null)
+
+				if (entry.getValue() == null || actualMap.get(entry.getKey()) == null)
 					continue;
 				try {
-				if (actualMap.get(entry.getKey()).toString().contains(",")
-						&& entry.getValue().toString().contains(",")) {
-					String[] value = entry.getValue().toString().split(Pattern.quote("}, {"));
-					for (int i = 0; i < value.length; i++) {
-						String normalise = value[i].replace("{", "").replace("[", "").replace("}", "")
-								.replace("]", "");
-						if (!actualMap.get(entry.getKey()).toString().contains(normalise)) {
-							return false;
+					if (actualMap.get(entry.getKey()).toString().contains(",")
+							&& entry.getValue().toString().contains(",")) {
+						String[] value = entry.getValue().toString().split(Pattern.quote("}, {"));
+						for (int i = 0; i < value.length; i++) {
+							String normalise = value[i].replace("{", "").replace("[", "").replace("}", "").replace("]",
+									"");
+							if (!actualMap.get(entry.getKey()).toString().contains(normalise)) {
+								return false;
+							}
 						}
+					} else if (!actualMap.get(entry.getKey()).equals(entry.getValue())) {
+						return false;
 					}
-				}
-				else if (!actualMap.get(entry.getKey()).equals(entry.getValue())) {
-					return false;
-				}
-				}catch(Exception e)
-				{
+				} catch (Exception e) {
 					OUTPUTVALIDATION_LOGGER.error(e.getMessage());
 				}
 			}
 		}
 		return true;
 	}
-	
+
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
-			String expOutputJson, boolean checkErrorsOnlyInResponse, String allowedErrorCode) throws AdminTestException {
-		return doJsonOutputValidation(actualOutputJson,
-				expOutputJson, checkErrorsOnlyInResponse, "expected vs actual", doesResponseHasErrors(actualOutputJson), allowedErrorCode);
+			String expOutputJson, boolean checkErrorsOnlyInResponse, String allowedErrorCode, int responseStatusCode)
+			throws AdminTestException {
+		return doJsonOutputValidation(actualOutputJson, expOutputJson, checkErrorsOnlyInResponse,
+				GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson), allowedErrorCode,
+				responseStatusCode);
 	}
-	
+
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
-			String expOutputJson, boolean checkErrorsOnlyInResponse) throws AdminTestException {
-		return doJsonOutputValidation(actualOutputJson,
-				expOutputJson, checkErrorsOnlyInResponse, "expected vs actual", doesResponseHasErrors(actualOutputJson), null);
+			String expOutputJson, boolean checkErrorsOnlyInResponse, int responseStatusCode) throws AdminTestException {
+		return doJsonOutputValidation(actualOutputJson, expOutputJson, checkErrorsOnlyInResponse,
+				GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson), null, responseStatusCode);
 	}
-	
-	
+
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
-			String expOutputJson, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors, String allowedErrorCode) throws AdminTestException {
-		if (doesResponseHasErrorCode(actualOutputJson, 500))
+			String expOutputJson, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors,
+			String allowedErrorCode, int responseStatusCode) throws AdminTestException {
+		if (doesResponseHasErrorCode(actualOutputJson, allowedErrorCode))
+			return Collections.emptyMap();
+		else if (doesResponseHasErrorCode(actualOutputJson, 500))
 			throw new AdminTestException("Internal Server Error. Hence marking the test case as failed");
 		else if (doesResponseHasErrorCode(actualOutputJson, 404))
-			throw new AdminTestException("Page not found. Hence marking the test case as failed");
-		else if (doesResponseHasErrorCode(actualOutputJson, allowedErrorCode))
-			return Collections.emptyMap();
+			throw new SkipException("API end point is not valid. Hence marking the test case as skipped");
+//		else if (!(responseStatusCode >= 200 && responseStatusCode < 300))
+//			throw new SkipException("API endpoint is not valid. Response code: " + responseStatusCode +  " Hence marking the test case as skipped");
 		JsonPrecondtion jsonPrecondtion = new JsonPrecondtion();
-		Map<String, String> actual = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
-		Map<String, String> exp = jsonPrecondtion.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);
-		
-		return doJsonOutputValidation(actual, exp, checkErrorsOnlyInResponse, context, responseHasErrors, allowedErrorCode);
+		Map<String, String> actual = jsonPrecondtion
+				.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
+		Map<String, String> exp = jsonPrecondtion
+				.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);
+
+		return doJsonOutputValidation(actual, exp, checkErrorsOnlyInResponse, context, responseHasErrors,
+				allowedErrorCode, responseStatusCode);
 	}
-	
+
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(Map<String, String> actualOutput,
-			Map<String, String> expOutput, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors, String allowedErrorCode ) throws AdminTestException {
+			Map<String, String> expOutput, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors,
+			String allowedErrorCode, int responseStatusCode) throws AdminTestException {
 		try {
 			return compareActuExpValue(actualOutput, expOutput, context);
-		}catch (SkipException e) {
-			if (responseHasErrors) 
+		} catch (SkipException e) {
+			if (responseHasErrors)
 				throw new AdminTestException("Response has errors");
-			else if(!checkErrorsOnlyInResponse)
+			else if (!checkErrorsOnlyInResponse)
 				throw new SkipException(e.getMessage());
-			else 
+			else
 				return Collections.emptyMap(); // No output validation required. Hence marking the test case as passed
 		}
 	}
-	
+
 	public static boolean doesResponseHasErrors(String responseString) {
-		JSONObject responseJson = new JSONObject(responseString);
 		boolean breturn = false;
-		JSONArray errors = null;
-		String error = null;
-		if (responseJson.has("errors")) {
-			errors = responseJson.optJSONArray("errors");
-		}
-		else if (responseJson.has("error")) {
-			error = responseJson.getString("error");
-		}
-		if (errors != null)
-			breturn = (errors.length() > 0);
-		else if (error != null)
-			breturn = true;
+		try {
+			JSONObject responseJson = new JSONObject(responseString);
+			JSONArray errors = null;
+			String error = null;
+			if (responseJson.has("errors")) {
+				errors = responseJson.optJSONArray("errors");
+			}
+			else if (responseJson.has("error")) {
+				error = responseJson.getString("error");
+			}
 			
+			if (errors != null)
+				breturn = (errors.length() > 0);
+			else if (error != null)
+				breturn = true;
+				
+		} catch (JSONException e) {
+			OUTPUTVALIDATION_LOGGER.error("Invalid JSON response: " + responseString);
+		}
 		return breturn;
 	}
-	
+
 	public static boolean doesResponseHasErrorCode(String responseString, int errorCode) {
-		JSONObject responseJson = new JSONObject(responseString);
-		if (responseJson.has("status")) {
-			return responseJson.getInt("status") == errorCode;
+		try {
+			JSONObject responseJson = new JSONObject(responseString);
+			if (responseJson.has("status")) {
+				return responseJson.getInt("status") == errorCode;
+			}
+		} catch (JSONException e) {
+			OUTPUTVALIDATION_LOGGER.error("Invalid JSON response: " + responseString);
 		}
-			
+
 		return false;
 	}
-	
+
 	public static boolean doesResponseHasErrorCode(String responseString, String allowedErrorCode) {
 		boolean responseHasAllowedErrorCode = false;
 		if (allowedErrorCode != null) {
@@ -540,5 +559,5 @@ public class OutputValidationUtil extends AuthTestsUtil{
 		}
 		return responseHasAllowedErrorCode;
 	}
-	
+
 }

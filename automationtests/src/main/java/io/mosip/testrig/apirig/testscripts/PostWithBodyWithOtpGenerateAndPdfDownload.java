@@ -34,6 +34,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -41,9 +42,9 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 	private static final Logger logger = Logger.getLogger(PostWithBodyWithOtpGenerateAndPdfDownload.class);
 	protected String testCaseName = "";
 	public Response response = null;
-	public byte[] pdf=null;
-	public String pdfAsText =null;
-	
+	public byte[] pdf = null;
+	public String pdfAsText = null;
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -51,7 +52,7 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -68,10 +69,9 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 	@DataProvider(name = "testcaselist")
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -83,16 +83,23 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+		}
+		
+		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
+			}
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
-		String otpRequest = null; 
+		String otpRequest = null;
 		String sendOtpReqTemplate = null;
-		String	sendOtpEndPoint = null;
-		if(req.has(GlobalConstants.SENDOTP)) {
+		String sendOtpEndPoint = null;
+		if (req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
 		}
@@ -101,41 +108,51 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 		otpReqJson.remove("sendOtpReqTemplate");
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		otpReqJson.remove("sendOtpEndPoint");
-		
 
-		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
+		Response otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint,
+				getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, GlobalConstants.RESIDENT,
+				testCaseDTO.getTestCaseName());
 
-		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null, sendOtpResTemplate = null;
-		if(res.has(GlobalConstants.SENDOTPRESP)) {
+		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
 		}
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
-		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
+		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
+				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at otp output validation");
+
+		pdf = postWithBodyAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(),
+				getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
+				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		PdfReader pdfReader = null;
+		ByteArrayInputStream bIS = null;
 		
-		pdf = postWithBodyAndCookieForPdf(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-		 try {
-			 pdfAsText = PdfTextExtractor.getTextFromPage(new PdfReader(new ByteArrayInputStream(pdf)), 1);
-			} catch (IOException e) {
-				Reporter.log("Exception : " + e.getMessage());
-			}
-		 
-		 if(pdf!=null && (new String(pdf).contains("errors")|| pdfAsText == null)) {
-			 GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), "Not able to download UIN Card");
-		 }
-		 else {
-			 GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
-		 }
-		
+		try {
+			bIS = new ByteArrayInputStream(pdf);
+			pdfReader = new PdfReader(bIS);
+			pdfAsText = PdfTextExtractor.getTextFromPage(pdfReader, 1);
+		} catch (IOException e) {
+			Reporter.log("Exception : " + e.getMessage());
+		} finally {
+			AdminTestUtil.closeByteArrayInputStream(bIS);
+			AdminTestUtil.closePdfReader(pdfReader);
+		}
+
+		if (pdf != null && (new String(pdf).contains("errors") || pdfAsText == null)) {
+			GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), "Not able to download UIN Card");
+		} else {
+			GlobalMethods.reportResponse(null, ApplnURI + testCaseDTO.getEndPoint(), pdfAsText);
+		}
+
 	}
 
 	/**
@@ -156,5 +173,5 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}	
+	}
 }

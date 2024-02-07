@@ -29,6 +29,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
@@ -37,7 +38,7 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 	protected String testCaseName = "";
 	public String idKeyName = null;
 	public Response response = null;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -45,7 +46,7 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -63,10 +64,9 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		idKeyName = context.getCurrentXmlTest().getLocalParameters().get("idKeyName");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -78,17 +78,24 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws  AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
+	public void test(TestCaseDTO testCaseDTO) throws AdminTestException {
+		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
+		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
+			}
+		}
+		
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
-		String otpRequest = null; 
+		String otpRequest = null;
 		String sendOtpReqTemplate = null;
 		String sendOtpEndPoint = null;
-		if(req.has(GlobalConstants.SENDOTP)) {
+		if (req.has(GlobalConstants.SENDOTP)) {
 			otpRequest = req.get(GlobalConstants.SENDOTP).toString();
 			req.remove(GlobalConstants.SENDOTP);
 		}
@@ -97,38 +104,42 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		otpReqJson.remove("sendOtpReqTemplate");
 		sendOtpEndPoint = otpReqJson.getString("sendOtpEndPoint");
 		otpReqJson.remove("sendOtpEndPoint");
-		
+
 		Response otpResponse = null;
-		if(testCaseName.contains(GlobalConstants.ESIGNET_)) {
+		if (testCaseName.contains(GlobalConstants.ESIGNET_)) {
 			String tempUrl = ConfigManager.getEsignetBaseUrl();
-			otpResponse = postRequestWithCookieAuthHeaderForAutoGenId(tempUrl + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, "mobileauth", testCaseDTO.getTestCaseName(), idKeyName);
-		}
-		else {
-			otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
+			otpResponse = postRequestWithCookieAuthHeaderForAutoGenId(tempUrl + sendOtpEndPoint,
+					getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME, "mobileauth",
+					testCaseDTO.getTestCaseName(), idKeyName);
+		} else {
+			otpResponse = postWithBodyAndCookie(ApplnURI + sendOtpEndPoint,
+					getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,
+					GlobalConstants.RESIDENT, testCaseDTO.getTestCaseName());
 		}
 
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());
 		String sendOtpResp = null;
-		String	sendOtpResTemplate = null;
-		if(res.has(GlobalConstants.SENDOTPRESP)) {
+		String sendOtpResTemplate = null;
+		if (res.has(GlobalConstants.SENDOTPRESP)) {
 			sendOtpResp = res.get(GlobalConstants.SENDOTPRESP).toString();
 			res.remove(GlobalConstants.SENDOTPRESP);
 		}
 		JSONObject sendOtpRespJson = new JSONObject(sendOtpResp);
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
-		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil
-				.doJsonOutputValidation(otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO.isCheckErrorsOnlyInResponse());
+		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
+				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
 			throw new AdminTestException("Failed at otp output validation");
-		
+
 		String otpValidationRequest = null;
-		 String validateOtpReqTemplate = null;
-		 String validateOtpEndPoint = null;
-		
-		if(req.has(GlobalConstants.VALIDATEOTP)) {
+		String validateOtpReqTemplate = null;
+		String validateOtpEndPoint = null;
+
+		if (req.has(GlobalConstants.VALIDATEOTP)) {
 			otpValidationRequest = req.get(GlobalConstants.VALIDATEOTP).toString();
 			req.remove(GlobalConstants.VALIDATEOTP);
 		}
@@ -137,26 +148,32 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 		validateOtpReqJson.remove("validateOtpReqTemplate");
 		validateOtpEndPoint = validateOtpReqJson.getString("validateOtpEndPoint");
 		validateOtpReqJson.remove("validateOtpEndPoint");
-		
 
 		Response validateOtpResponse;
-		if(testCaseName.contains(GlobalConstants.ESIGNET_)) {
+		if (testCaseName.contains(GlobalConstants.ESIGNET_)) {
 			String tempUrl = ConfigManager.getEsignetBaseUrl();
-			validateOtpResponse = postRequestWithCookieAuthHeaderForAutoGenId(tempUrl + validateOtpEndPoint, getJsonFromTemplate(validateOtpReqJson.toString(), validateOtpReqTemplate), COOKIENAME, "mobileauth", testCaseDTO.getTestCaseName(), idKeyName);
+			validateOtpResponse = postRequestWithCookieAuthHeaderForAutoGenId(tempUrl + validateOtpEndPoint,
+					getJsonFromTemplate(validateOtpReqJson.toString(), validateOtpReqTemplate), COOKIENAME,
+					"mobileauth", testCaseDTO.getTestCaseName(), idKeyName);
 		}
-		
-		if(testCaseName.contains(GlobalConstants.ESIGNET_)) {
+
+		if (testCaseName.contains(GlobalConstants.ESIGNET_)) {
 			String tempUrl = ConfigManager.getEsignetBaseUrl();
-			response = postWithBodyAndCookieAuthHeaderAndXsrfTokenForAutoGeneratedId(tempUrl + testCaseDTO.getEndPoint(), getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getTestCaseName(), idKeyName);
+			response = postWithBodyAndCookieAuthHeaderAndXsrfTokenForAutoGeneratedId(
+					tempUrl + testCaseDTO.getEndPoint(),
+					getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate()), COOKIENAME,
+					testCaseDTO.getTestCaseName(), idKeyName);
+		} else {
+			response = postWithBodyAndCookieForAutoGeneratedId(ApplnURI + testCaseDTO.getEndPoint(),
+					getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,
+					testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
 		}
-		else {
-			response = postWithBodyAndCookieForAutoGeneratedId(ApplnURI + testCaseDTO.getEndPoint(), getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
-		}
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(res.toString(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
@@ -181,11 +198,12 @@ public class PostWithAutogenIdWithOtpGenerateForWla extends AdminTestUtil implem
 			Reporter.log("Exception : " + e.getMessage());
 		}
 	}
-	
+
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
 		try {
-			if((!testCaseName.contains(GlobalConstants.ESIGNET_)) && (!testCaseName.contains("Resident_CheckAidStatus"))) {
+			if ((!testCaseName.contains(GlobalConstants.ESIGNET_))
+					&& (!testCaseName.contains("Resident_CheckAidStatus"))) {
 				logger.info("waiting for" + properties.getProperty("Delaytime")
 						+ " mili secs after VID Generation In RESIDENT SERVICES");
 				Thread.sleep(Long.parseLong(properties.getProperty("Delaytime")));

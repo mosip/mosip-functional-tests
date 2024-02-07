@@ -3,6 +3,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsentResult
@@ -26,7 +27,7 @@ AuthenticateUserConsent:
       output: '{
           "consentAction": "CAPTURE",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -36,6 +37,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsentResult
@@ -59,7 +61,7 @@ AuthenticateUserConsent:
       output: '{
           "consentAction": "CAPTURE",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -69,6 +71,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsentResult
@@ -92,7 +95,7 @@ AuthenticateUserConsent:
       output: '{
           "consentAction": "CAPTURE",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -102,6 +105,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsentResult
@@ -125,7 +129,7 @@ AuthenticateUserConsent:
       output: '{
           "consentAction": "CAPTURE",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -135,6 +139,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/error
@@ -163,7 +168,7 @@ AuthenticateUserConsent:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -173,6 +178,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/error
@@ -201,7 +207,7 @@ AuthenticateUserConsent:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -211,6 +217,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/error
@@ -239,7 +246,7 @@ AuthenticateUserConsent:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -248,6 +255,7 @@ AuthenticateUserConsent:
    ESignet_AuthenticateUserIDP_Consent_Vid_Otp_Invalid_IndividualId_Neg:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
@@ -277,7 +285,7 @@ AuthenticateUserConsent:
     }
   ],
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -287,6 +295,7 @@ AuthenticateUserConsent:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
       restMethod: post
+      checkErrorsOnlyInResponse: true
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
       outputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsentResult
@@ -310,7 +319,7 @@ AuthenticateUserConsent:
       output: '{
           "consentAction": "CAPTURE",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }
@@ -319,6 +328,7 @@ AuthenticateUserConsent:
    ESignet_AuthenticateUserIDP_Consent_Vid_User2_Otp_Valid_Smoke:
       endPoint: /v1/esignet/authorization/v2/authenticate
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       validityCheckRequired: true
       inputTemplate: esignet/Consent/AuthenticateUserConsent/AuthenticateUserConsent
@@ -343,7 +353,7 @@ AuthenticateUserConsent:
       output: '{
           "consentAction": "CAPTURE",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX3210",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"esignet/SendOtp/SendOtpResult",
         "maskedEmail": "$IGNORE$"
     }

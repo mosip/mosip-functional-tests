@@ -117,14 +117,20 @@ public class KeyMgrUtil {
      * @throws IOException Signals that an I/O exception has occurred.
      * @throws CertificateException the certificate exception
      */
-    public Certificate convertToCertificate(String certData) throws IOException, CertificateException {
-		StringReader strReader = new StringReader(certData);
-		PemReader pemReader = new PemReader(strReader);
-		PemObject pemObject = pemReader.readPemObject();
-		
-		byte[] certBytes = pemObject.getContent();
-		CertificateFactory certFactory = CertificateFactory.getInstance(CERTIFICATE_TYPE);
-		return certFactory.generateCertificate(new ByteArrayInputStream(certBytes));
+	public Certificate convertToCertificate(String certData) throws IOException, CertificateException {
+		ByteArrayInputStream bIS = null;
+		try {
+			StringReader strReader = new StringReader(certData);
+			PemReader pemReader = new PemReader(strReader);
+			PemObject pemObject = pemReader.readPemObject();
+
+			byte[] certBytes = pemObject.getContent();
+			CertificateFactory certFactory = CertificateFactory.getInstance(CERTIFICATE_TYPE);
+			bIS = new ByteArrayInputStream(certBytes);
+			return certFactory.generateCertificate(bIS);
+		} finally {
+			AdminTestUtil.closeByteArrayInputStream(bIS);
+		}
 	}
 
     /**
@@ -441,19 +447,25 @@ public class KeyMgrUtil {
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 * @throws CertificateException the certificate exception
 	 */
-	public X509Certificate getCertificateEntry(String dirPath, String partnerId) throws KeyStoreException, IOException, CertificateException {
-        String partnerCertFilePath = dirPath + '/' + partnerId + PARTNER_CER_FILE_NAME;
+	public X509Certificate getCertificateEntry(String dirPath, String partnerId)
+			throws KeyStoreException, IOException, CertificateException {
+		String partnerCertFilePath = dirPath + '/' + partnerId + PARTNER_CER_FILE_NAME;
+		ByteArrayInputStream bIS = null;
+		try {
+			Path path = Paths.get(partnerCertFilePath);
+			if (Files.exists(path)) {
+				String cert = new String(Files.readAllBytes(path));
+				cert = trimBeginEnd(cert);
+				CertificateFactory cf = CertificateFactory.getInstance("X.509");
+				bIS = new ByteArrayInputStream(Base64.getDecoder().decode(cert));
+				return (X509Certificate) cf
+						.generateCertificate(bIS);
 
-		Path path = Paths.get(partnerCertFilePath);
-		if (Files.exists(path)) {
-			String cert = new String(Files.readAllBytes(path));
-			cert = trimBeginEnd(cert);
-			CertificateFactory cf = CertificateFactory.getInstance("X.509");
-			return (X509Certificate) cf
-					.generateCertificate(new ByteArrayInputStream(Base64.getDecoder().decode(cert)));
-			
+			}
+			return null;
+		} finally {
+			AdminTestUtil.closeByteArrayInputStream(bIS);
 		}
-        return null;
 	}
 	
 	/**

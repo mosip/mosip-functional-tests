@@ -36,7 +36,7 @@ public class PostWithFormDataAndFileForNotificationAPI extends AdminTestUtil imp
 	protected String testCaseName = "";
 	String idKeyName = null;
 	public Response response = null;
-	
+
 	@BeforeClass
 	public static void setLogLevel() {
 		if (ConfigManager.IsDebugEnabled())
@@ -44,7 +44,7 @@ public class PostWithFormDataAndFileForNotificationAPI extends AdminTestUtil imp
 		else
 			logger.setLevel(Level.ERROR);
 	}
-	
+
 	/**
 	 * get current testcaseName
 	 */
@@ -62,10 +62,9 @@ public class PostWithFormDataAndFileForNotificationAPI extends AdminTestUtil imp
 	public Object[] getTestCaseList(ITestContext context) {
 		String ymlFile = context.getCurrentXmlTest().getLocalParameters().get("ymlFile");
 		idKeyName = context.getCurrentXmlTest().getLocalParameters().get("idKeyName");
-		logger.info("Started executing yml: "+ymlFile);
+		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
-	
 
 	/**
 	 * Test method for OTP Generation execution
@@ -77,26 +76,34 @@ public class PostWithFormDataAndFileForNotificationAPI extends AdminTestUtil imp
 	 * @throws AdminTestException
 	 */
 	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws  AdminTestException {		
-		testCaseName = testCaseDTO.getTestCaseName(); 
-		testCaseDTO=AdminTestUtil.filterHbs(testCaseDTO);
+	public void test(TestCaseDTO testCaseDTO) throws AdminTestException {
+		testCaseName = testCaseDTO.getTestCaseName();
+		testCaseDTO = AdminTestUtil.filterHbs(testCaseDTO);
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException("Target env health check failed " + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
+		
+		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
+			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
+			}
+		}
+		
 		String inputJson = filterInputHbs(testCaseDTO);
-		
-		response = postWithMultipartFormDataAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, testCaseDTO.getRole(), testCaseDTO.getTestCaseName(),idKeyName);
-		
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO.isCheckErrorsOnlyInResponse());
+
+		response = postWithMultipartFormDataAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson,
+				testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), idKeyName);
+
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
+				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
+				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-		
+
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
 			throw new AdminTestException("Failed at output validation");
 
 	}
-	
-	
 
 	private String filterInputHbs(TestCaseDTO testCaseDTO) {
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
@@ -107,8 +114,7 @@ public class PostWithFormDataAndFileForNotificationAPI extends AdminTestUtil imp
 			inputJson = inputJson.replace(GlobalConstants.$2STLANG$, BaseTestCase.languageList.get(1));
 		if (inputJson.contains(GlobalConstants.$3STLANG$))
 			inputJson = inputJson.replace(GlobalConstants.$3STLANG$, BaseTestCase.languageList.get(2));
-		
-		
+
 		return inputJson;
 	}
 
@@ -130,5 +136,5 @@ public class PostWithFormDataAndFileForNotificationAPI extends AdminTestUtil imp
 		} catch (Exception e) {
 			Reporter.log("Exception : " + e.getMessage());
 		}
-	}	
+	}
 }

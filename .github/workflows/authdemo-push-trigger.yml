@@ -20,6 +20,7 @@ on:
       - develop
       - MOSIP*
       - release*
+      - camdgc-*
 
 jobs:
   build-maven-authentication-demo-service:
