@@ -1,4 +1,4 @@
-name: Maven Package upon a push
+name: Automationtests Build
 
 on:
   workflow_call:
