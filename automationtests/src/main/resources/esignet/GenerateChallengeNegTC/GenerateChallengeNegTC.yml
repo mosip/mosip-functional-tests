@@ -24,8 +24,8 @@ GenerateChallengeNegTC:
       input: '{
    "identifier": "$PHONENUMBERFROMREGEXFORSIGNUP$",
    "captchaToken": "",
-   "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$",
+   "purpose": "REGISTRATION",
    "locale": "dfghdgh"
 }'
       output: '{
