@@ -86,6 +86,12 @@ public class SimplePostForAutoGenIdForUrlEncoded extends AdminTestUtil implement
 		if (HealthChecker.signalTerminateExecution) {
 			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
+		
+		if (testCaseDTO.getEndPoint().startsWith("$ESIGNETMOCKBASEURL$") && testCaseName.contains("SunBirdRC")) {
+			if (ConfigManager.isInServiceNotDeployedList("sunbirdrc"))
+				throw new SkipException(GlobalConstants.SERVICE_NOT_DEPLOYED_MESSAGE);
+		}
+		
 		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {

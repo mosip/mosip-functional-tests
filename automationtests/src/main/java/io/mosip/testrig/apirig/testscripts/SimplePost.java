@@ -146,6 +146,9 @@ public class SimplePost extends AdminTestUtil implements ITest {
 			String tempUrl = ConfigManager.getEsignetBaseUrl();
 			if (testCaseName.contains("ESignet_")) {
 				if (testCaseDTO.getEndPoint().startsWith("$ESIGNETMOCKBASEURL$") && testCaseName.contains("SunBirdRC")) {
+					if (ConfigManager.isInServiceNotDeployedList("sunbirdrc"))
+						throw new SkipException(GlobalConstants.SERVICE_NOT_DEPLOYED_MESSAGE);
+					
 					if(ConfigManager.getEsignetMockBaseURL() != null && !ConfigManager.getEsignetMockBaseURL().isBlank())
 						tempUrl = ApplnURI.replace("api-internal.", ConfigManager.getEsignetMockBaseURL());
 					testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$ESIGNETMOCKBASEURL$", ""));
