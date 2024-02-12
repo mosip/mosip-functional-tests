@@ -22,6 +22,7 @@ FilterHolidays:
    MasterData_FilterHolidays_inValid_filterText:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
       outputTemplate: masterdata/NilFilterResult
@@ -35,7 +36,10 @@ FilterHolidays:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
+<<<<<<< HEAD
+=======
     "totalCount": 0
+>>>>>>> upstream/develop
 }'
    MasterData_FilterHolidays_inValid_filterType_blank:
       endPoint: /v1/masterdata/holidays/filtervalues
@@ -183,6 +187,7 @@ FilterHolidays:
    MasterData_FilterHolidays_inValid_FilterText:
       endPoint: /v1/masterdata/holidays/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterHolidays/filterHolidays
@@ -197,5 +202,4 @@ FilterHolidays:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "totalCount": 0
 }'

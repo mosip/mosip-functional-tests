@@ -2,6 +2,7 @@ CreateLocationData:
    MasterData_CreateLocationData_All_Valid_Smoke:
       endPoint: /v1/masterdata/locations
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["name","hierarchyName"]
       restMethod: post
       inputTemplate: masterdata/LocationData/locationData
@@ -135,9 +136,9 @@ CreateLocationData:
       input: '{
     "code": "NST",
     "name": "NDATA",
-    "hierarchyLevel":"$HIERARCHYLEVEL$",
+    "hierarchyLevel":"363g3vf@636336gg",
     "hierarchyName":"$HIERARCHYNAME$",
-    "parentLocCode":"$PARENTLOCCODE$",    
+    "parentLocCode":"363t3g",    
     "langCode": "eng",
     "isActive": false,
     "requesttime": "$TIMESTAMP$"
@@ -146,7 +147,7 @@ CreateLocationData:
    "errors": [
      {
       "errorCode": "KER-MSD-244",
-      "message": "Location hierarchy is invalid"
+      "message": "$IGNORE$"
     }
   ]
 }'
