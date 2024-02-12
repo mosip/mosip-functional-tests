@@ -36,6 +36,10 @@ FilterHolidays:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
+<<<<<<< HEAD
+=======
+    "totalCount": 0
+>>>>>>> upstream/develop
 }'
    MasterData_FilterHolidays_inValid_filterType_blank:
       endPoint: /v1/masterdata/holidays/filtervalues

@@ -12,10 +12,33 @@ import com.google.gson.JsonObject;
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.restassured.response.Response;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GlobalMethods {
 
 	private static final Logger logger = Logger.getLogger(GlobalMethods.class);
+	
+	public static Map<Object, Object> serverFailuresMapS = Collections
+			.synchronizedMap(new HashMap<Object, Object>());
+	
+	
+	public static void reportServerError(Object code, Object errorMessage) {
+		serverFailuresMapS.put(code, errorMessage);
+	}
+	
+	public static String getServerErrors() {
+		// Construct server errors using string builder
+//		StringBuilder stringBuilder = new StringBuilder();
+		if (serverFailuresMapS.size() == 0) {
+			return "No server errors";
+		} else {
+			return serverFailuresMapS.toString();
+		}
+
+	}
+	
 	public static void ReportRequestAndResponse(String reqHeader,String resHeader,String url, String requestBody, String response) {
 	reportRequest(reqHeader,requestBody, url);
 	reportResponse(resHeader,url, response);				

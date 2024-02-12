@@ -857,6 +857,44 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
 	</test>
+	<test name="OAuthDetailsRequestSunBirdRCNegTC">
+		<parameter name="ymlFile"
+			value="esignet/SunBirdRCNegTC/OAuthDetailsRequestSunBirdRCNegTC/OAuthDetailsRequestSunBirdRCNegTC.yml" />
+			<parameter name="idKeyName"	value="transactionId,encodedResp" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="AuthenticateUserSunBirdRCNegTC">
+		<parameter name="ymlFile"
+			value="esignet/SunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC/AuthenticateUserSunBirdRCNegTC.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+	<test name="AuthorizationCodeSunBirdRCNegTC">
+		<parameter name="ymlFile"
+			value="esignet/SunBirdRCNegTC/AuthorizationCodeSunBirdRCNegTC/AuthorizationCodeSunBirdRCNegTC.yml" />
+			<parameter name="idKeyName"	value="code" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
+		</classes>
+	</test>
+	<test name="GenerateTokenSunBirdRCNegTC">
+		<parameter name="ymlFile"
+			value="esignet/SunBirdRCNegTC/GenerateTokenSunBirdRCNegTC/GenerateTokenSunBirdRCNegTC.yml" />
+			<parameter name="idKeyName"	value="access_token" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenIdForUrlEncoded" />
+		</classes>
+	</test>
+	<test name="GetCredentialSunBirdRCNegTC">
+		<parameter name="ymlFile"
+			value="esignet/SunBirdRCNegTC/GetCredentialSunBirdRCNegTC/GetCredentialSunBirdRCNegTC.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
 
 <!-- Removed kyc delegated demo auth as it is not supported 
 	<test name="KycDemoAuth">
