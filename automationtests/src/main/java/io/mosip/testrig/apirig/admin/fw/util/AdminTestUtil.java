@@ -6381,8 +6381,12 @@ public class AdminTestUtil extends BaseTestCase {
 						if (request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
 								.endsWith(GlobalConstants.MAILINATOR_COM)
 								|| request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
-										.endsWith(GlobalConstants.MOSIP_IO)) {
+										.endsWith(GlobalConstants.MOSIP_IO)
+										|| request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
+										.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 							emailId = request.getJSONObject(GlobalConstants.REQUEST).get("otp").toString();
+							if(emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+								emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 							logger.info(emailId);
 							otp = MockSMTPListener.getOtp(emailId);
 							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
