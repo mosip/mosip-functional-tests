@@ -11,7 +11,7 @@ MachineTypeSearch:
       {
         "columnName": "code",
         "type": "equals",
-        "value": "Laptop-2",
+        "value": "Laptop2",
         "fromValue": "$REMOVE$",
         "toValue": "$REMOVE$"
       }

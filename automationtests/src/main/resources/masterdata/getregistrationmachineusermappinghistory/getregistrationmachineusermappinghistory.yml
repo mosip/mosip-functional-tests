@@ -6,7 +6,7 @@ getregistrationmachineusermappinghistory:
       inputTemplate: masterdata/getregistrationmachineusermappinghistory/getregistrationmachineusermappinghistory
       outputTemplate: masterdata/getregistrationmachineusermappinghistory/getregistrationmachineusermappinghistoryResult
       input: '{
-      "effdtimes":"2021-10-27T08:43:46.614Z",
+      "effdtimes":"$TIMESTAMP$",
       "registrationcenterid":"10001",
       "machineid":"10001",
       "userid":"110001"
