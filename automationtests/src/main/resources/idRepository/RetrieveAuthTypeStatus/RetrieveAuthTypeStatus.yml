@@ -2,6 +2,7 @@ RetrieveAuthTypeStatus:
   IdRepository_RetrieveAuthTypeStatus_Uin_Active_smoke:
       endPoint: /idrepository/v1/identity/authtypes/status/{ID}
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: idRepository/RetrieveAuthTypeStatus/retrieveAuthTypeStatus
       outputTemplate: idRepository/RetrieveAuthTypeStatus/retrieveAuthTypeStatusResult
@@ -17,6 +18,7 @@ RetrieveAuthTypeStatus:
   IdRepository_RetrieveAuthTypeStatus_Vid_Active_smoke:
       endPoint: /idrepository/v1/identity/authtypes/status/{ID}
       role: idrepo
+      checkErrorsOnlyInResponse: true
       restMethod: get
       inputTemplate: idRepository/RetrieveAuthTypeStatus/retrieveAuthTypeStatus
       outputTemplate: idRepository/RetrieveAuthTypeStatus/retrieveAuthTypeStatusResult
