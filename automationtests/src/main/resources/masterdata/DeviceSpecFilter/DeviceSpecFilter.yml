@@ -74,6 +74,7 @@ DeviceSpecFilter:
    MasterData_DeviceSpecFilter_All_Brand_eng_smoke:
       endPoint: /v1/masterdata/devicespecifications/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/DeviceSpecFilter/deviceSpecFilter

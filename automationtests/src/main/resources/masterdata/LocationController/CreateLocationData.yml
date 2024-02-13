@@ -2,6 +2,7 @@ CreateLocationData:
    MasterData_CreateLocationData_All_Valid_Smoke:
       endPoint: /v1/masterdata/locations
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["name","hierarchyName"]
       restMethod: post
       inputTemplate: masterdata/LocationController/locationData

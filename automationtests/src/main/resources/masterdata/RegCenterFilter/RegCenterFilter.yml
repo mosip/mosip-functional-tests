@@ -66,6 +66,7 @@ RegCenterFilter:
    MasterData_RegCenterFilter_inValid_columnName:
       endPoint: /v1/masterdata/registrationcenters/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/RegCenterFilter/regCenterFilter
