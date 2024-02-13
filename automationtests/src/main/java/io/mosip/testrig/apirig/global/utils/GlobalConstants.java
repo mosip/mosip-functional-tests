@@ -121,6 +121,7 @@ public class GlobalConstants {
 	public static final String USERCREATEDWITHUSERID = "User created with userId: %s%n";
 	public static final String MOSIP123 = "mosip123";
 	public static final String MOSIP_IO = "@mosip.io";
+	public static final String OTP_AS_PHONE = "@phone";
 	public static final String EMAILABLEREPORT2NAME = "emailable.report2.name";
 	public static final String TR = "</tr>";
 	public static final String TRTR = "</th></tr>";
