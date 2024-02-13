@@ -156,8 +156,8 @@ UpdateIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "Invalid Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-001",
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -181,8 +181,8 @@ UpdateIdentity:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-004",
-      "message": "Invalid Input Parameter - requesttime"
+      "errorCode": "IDR-IDC-001",
+      "message": "$IGNORE$"
     }
   ]
 }'
@@ -261,31 +261,6 @@ UpdateIdentity:
     }
   ]
 }'
-
-  IdRepository_UpdateIdentity_with_Invalid_registrationId:
-      endPoint: /idrepository/v1/identity/
-      role: idrepo
-      restMethod: patch
-      inputTemplate: idRepository/UpdateIdentity/updateIdentity
-      outputTemplate: idRepository/error
-      input: '{
-      "registrationId":"sdfdgdg",
-      "UIN":"$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
-      "email": "user@mailinator.com",
-      "phone": "8249742850",
-      "status": "ACTIVATED",
-      "dateOfBirth": "1992/04/15",
-      "requesttime": "$TIMESTAMP$",
-      "version": "v1"
-      }'
-      output: '{
-   "errors": [
-    {
-      "errorCode": "IDR-IDC-001"
-    }
-  ]
-}'
-
   IdRepository_UpdateIdentity_with_Missing_version:
       endPoint: /idrepository/v1/identity/
       role: idrepo

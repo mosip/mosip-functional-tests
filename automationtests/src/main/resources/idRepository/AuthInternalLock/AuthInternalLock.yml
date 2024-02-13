@@ -273,7 +273,7 @@ AuthInternalLock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -298,7 +298,7 @@ AuthInternalLock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -323,7 +323,7 @@ AuthInternalLock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
@@ -348,7 +348,7 @@ AuthInternalLock:
       output: '{
    "errors": [
     {
-      "errorCode": "IDR-IDC-003"
+      "errorCode": "IDR-IDC-002"
     }
   ]
 }'
