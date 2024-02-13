@@ -9,7 +9,7 @@ UpdateLocationData:
       input: '{
     "code": "TST12",
     "name": "Test_Loc_A_updated",
-    "hierarchyLevel": "0",
+    "hierarchyLevel": "$HIERARCHYLEVEL$",
     "hierarchyName": "$HIERARCHYNAME$",
     "parentLocCode": "$PARENTLOCCODE$",
     "langCode": "eng",
@@ -20,9 +20,9 @@ UpdateLocationData:
 "isActive": "$IGNORE$",
 "code": "TST12",
 "name": "Test_Loc_A_updated",
-"hierarchyLevel": "4",
+"hierarchyLevel": "$IGNORE$",
 "hierarchyName": "$IGNORE$",
-"parentLocCode": "KNT",
+"parentLocCode": "$IGNORE$",
 "langCode": "$IGNORE$"
 }'
    MasterData_UpdateLocationData_Invalid_code_for_primaryLang_eng:

@@ -160,6 +160,7 @@ FilterMachineType:
    Masterdata_FilterMachineType_inValid_FilterText:
       endPoint: /v1/masterdata/machinetypes/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["text"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineType/filterMachineType
