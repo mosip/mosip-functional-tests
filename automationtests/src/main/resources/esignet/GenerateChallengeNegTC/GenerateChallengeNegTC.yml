@@ -160,6 +160,7 @@ GenerateChallengeNegTC:
       endPoint: /v1/signup/registration/generate-challenge
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_purpose,invalid_identifier
       inputTemplate: esignet/GenerateChallenge/GenerateChallenge
       outputTemplate: esignet/error
       input: '{
