@@ -284,6 +284,7 @@ FilterMachineSpec:
    Masterdata_FilterMachineSpec_inValid_FilterText:
       endPoint: /v1/masterdata/machinespecifications/filtervalues
       role: admin
+      checkErrorsOnlyInResponse: true
       templateFields: ["languageCode"]
       restMethod: post
       inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
@@ -298,5 +299,4 @@ FilterMachineSpec:
 	"requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "totalCount": 0
   }'

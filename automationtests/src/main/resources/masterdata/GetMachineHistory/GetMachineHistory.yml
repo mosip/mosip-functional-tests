@@ -9,7 +9,7 @@ GetMachineHistory:
       input: '{
       "id":"10001",
       "langcode":"eng",
-      "effdatetimes":"2021-10-19T06:04:22.475Z"
+      "effdatetimes":"$TIMESTAMP$"
 }'
       output: '{
 "machineHistoryDetails": [{
