@@ -30,6 +30,7 @@ import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.kernel.util.SlackChannelIntegration;
 import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
@@ -169,6 +170,8 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 						+ " as UIN not available in database");
 				try {
 					Thread.sleep(Long.parseLong(properties.getProperty("uinGenDelayTime")));
+					SlackChannelIntegration.sendMessageToSlack("UIN not available in database in :" + ApplnURI + "Env") ;
+					
 				} catch (NumberFormatException | InterruptedException e) {
 					logger.error(e.getMessage());
 					Thread.currentThread().interrupt();
@@ -197,9 +200,13 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
-				if (otpResponse.asString().contains("IDA-OTA-001"))
+				if (otpResponse.asString().contains("IDA-OTA-001")) {
+					SlackChannelIntegration.sendMessageToSlack("Exceeded number of OTP requests in a given time, :" + ApplnURI + "Env") ;
 					throw new AdminTestException(
 							"Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
+				}
+					
+				
 				else
 					throw new AdminTestException("Failed at otp output validation");
 			}
