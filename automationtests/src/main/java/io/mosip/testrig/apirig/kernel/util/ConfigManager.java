@@ -112,6 +112,8 @@ public class ConfigManager {
 	private static String IAM_REALM_ID = "keycloak-realm-id";
 	private static String IAM_USERS_TO_CREATE = "iam-users-to-create";
 	private static String IAM_USERS_PASSWORD = "iam-users-password";
+	
+	private static String SLACK_WEBHOOK_URL = "slack-webhook-url";
 
 	private static String USE_EXTERNAL_SCENARIO_SHEET = "useExternalScenarioSheet";
 	private static String useExternalScenario_sheet;
@@ -230,6 +232,8 @@ public class ConfigManager {
 
 	private static String iamExternalURL;
 	private static String iamRealmID;
+	private static String getSlackWebHookUrl;
+	
 	private static String iamUsersToCreate;
 	private static String iamUsersPassword;
 	private static String authDemoServicePort;
@@ -326,6 +330,7 @@ public class ConfigManager {
 		LOGGER.info("keycloakendpoint from config manager::" + iamExternalURL);
 
 		iamRealmID = getValueForKey(IAM_REALM_ID);
+		getSlackWebHookUrl = getValueForKey(SLACK_WEBHOOK_URL);
 		iamUsersToCreate = getValueForKey(IAM_USERS_TO_CREATE);
 		iamUsersPassword = getValueForKey(IAM_USERS_PASSWORD);
 
@@ -850,6 +855,10 @@ public class ConfigManager {
 
 	public static String getIAMUsersPassword() {
 		return iamUsersPassword;
+	}
+	
+	public static String getSlackWebHookUrl() {
+		return getSlackWebHookUrl;
 	}
 
 	public static String getRolesForUser(String userId) {

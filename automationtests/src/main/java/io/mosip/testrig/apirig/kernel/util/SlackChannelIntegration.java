@@ -4,7 +4,8 @@ import java.io.IOException;
 
 import io.mosip.testrig.apirig.service.BaseTestCase;
 public class SlackChannelIntegration extends BaseTestCase  {
-    private static final String SLACK_WEBHOOK_URL =propsKernel.getProperty("slackWebHookUrl");
+    private static final String SLACK_WEBHOOK_URL =ConfigManager.getSlackWebHookUrl();
+    
 
 	/*
 	 * public static void main(String[] args) {
