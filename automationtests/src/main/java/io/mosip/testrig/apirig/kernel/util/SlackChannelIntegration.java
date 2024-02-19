@@ -7,22 +7,15 @@ public class SlackChannelIntegration extends BaseTestCase  {
     private static final String SLACK_WEBHOOK_URL =ConfigManager.getSlackWebHookUrl();
     
 
-	/*
-	 * public static void main(String[] args) {
-	 * sendMessageToSlack("Hey, How are you doing!"); }
-	 */
     public static void sendMessageToSlack(String message) {
         OkHttpClient client = new OkHttpClient();
-        // Create JSON body for the request
         MediaType mediaType = MediaType.parse("application/json");
         String json = "{\"text\":\"" + message + "\"}";
         RequestBody body = RequestBody.create(json, mediaType);
-        // Create the HTTP request
         Request request = new Request.Builder()
                 .url(SLACK_WEBHOOK_URL)
                 .post(body)
                 .build();
-        // Execute the request and handle the response
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
