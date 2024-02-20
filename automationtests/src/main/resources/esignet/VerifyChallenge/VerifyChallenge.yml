@@ -10,6 +10,7 @@ VerifyChallenge:
          "identifier": "$ID:GenerateChallenge_STransId_Valid_smoke_Pos_PHONE$",
          "challenge": "111111",
          "format": "alpha-numeric",
+         "type": "OTP",
          "requestTime": "$TIMESTAMP$"
 }'
       output: '{

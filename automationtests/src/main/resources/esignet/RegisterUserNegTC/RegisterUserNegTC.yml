@@ -9,7 +9,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -28,7 +28,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -52,7 +52,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "@374tg4grh",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -76,7 +76,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "",
@@ -100,7 +100,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": " ",
@@ -124,7 +124,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "requestInvalid",
@@ -148,7 +148,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "2536373738",
@@ -172,7 +172,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "2023/11/03 11:03:29.296Z",
@@ -221,7 +221,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$REMOVE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -269,7 +269,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "$REMOVE$",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -294,7 +294,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$REMOVE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$REMOVE$",
     "requestTime": "$TIMESTAMP$",
@@ -318,7 +318,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -342,7 +342,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": " ",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -366,7 +366,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "b@@124and@@a",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -390,7 +390,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "5005767672",
-    "password": "+12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -414,7 +414,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "+8550057 67672",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -438,7 +438,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "+ 8550057 67672",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -462,7 +462,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "+97634567890",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -486,7 +486,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -510,7 +510,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -534,7 +534,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "+00000000000",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -558,7 +558,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "+85500567890",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -582,7 +582,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "+855@ddd37890",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -606,7 +606,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "%^%&&(^$$@&",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -751,7 +751,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -776,7 +776,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": " ",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -800,7 +800,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "DISAGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -824,7 +824,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "HJTDE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -848,7 +848,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "&^*&^%&*",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -872,7 +872,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "887765543",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -896,7 +896,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "8877@@assf65543",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -920,7 +920,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "agree",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -945,7 +945,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$REMOVE$",
     "requestTime": "$TIMESTAMP$",
@@ -969,7 +969,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$REMOVE$",
     "requestTime": "$TIMESTAMP$",
@@ -993,7 +993,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1018,7 +1018,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1042,7 +1042,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$REMOVE$",
     "requestTime": "$TIMESTAMP$",
@@ -1066,7 +1066,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1090,7 +1090,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1114,7 +1114,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1138,7 +1138,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1162,7 +1162,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1186,7 +1186,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1211,7 +1211,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1235,7 +1235,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1260,7 +1260,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1285,7 +1285,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1309,7 +1309,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1333,7 +1333,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1357,7 +1357,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1381,7 +1381,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1405,7 +1405,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1425,12 +1425,13 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_fullname,invalid_value
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1454,7 +1455,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1464,7 +1465,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "unsupported_language"
+      "errorCode": "unknown_error"
     }
   ]
 }'
@@ -1473,12 +1474,13 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_fullname,unsupported_language
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1497,12 +1499,13 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: unsupported_language,invalid_fullname
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1521,12 +1524,13 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_value,invalid_fullname
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1545,12 +1549,13 @@ RegisterUserNegTC:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
+      allowedErrorCodes: invalid_fullname,invalid_value
       inputTemplate: esignet/RegisterUser/RegisterUser
       outputTemplate: esignet/error
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1565,31 +1570,7 @@ RegisterUserNegTC:
   ]
 }'
 
-   ESignet_RegisterUserNegTC_Reregister_Neg:
-      endPoint: /v1/signup/registration/register
-      role: resident
-      restMethod: post
-      inputTemplate: esignet/RegisterUser/RegisterUser
-      outputTemplate: esignet/error
-      input: '{
-    "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Registered_User_Neg_VTransactionID$",
-    "username": "$ID:GenerateChallenge_STransId_Valid_smoke_Pos_PHONE$",
-    "password": "12341234",
-    "consent": "AGREE",
-    "fullName": "$FULLNAMETOREGISTERUSER$",
-    "requestTime": "$TIMESTAMP$",
-    "phone": "$ID:GenerateChallenge_STransId_Valid_smoke_Pos_PHONE$",
-    "preferredLang": "khm"
-}'
-      output: '{
-      	"errors": [
-    {
-      "errorCode": "already-registered"
-    }
-  ]
-}'
-
-   ESignet_RegisterUserNegTC_Valid_smoke_Pos:
+   ESignet_RegisterUserNegTC_SName_Valid_smoke_Pos:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
@@ -1598,7 +1579,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1618,7 +1599,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_Valid_Smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1643,7 +1624,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_2_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_2_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1663,7 +1644,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_3_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_3_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1683,7 +1664,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_4_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_4_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1693,7 +1674,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_value"
+      "errorCode": "invalid_fullname"
     }
   ]
 }'
@@ -1707,7 +1688,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_5_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_5_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1717,7 +1698,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_value"
+      "errorCode": "invalid_fullname"
     }
   ]
 }'
@@ -1731,7 +1712,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_6_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_6_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1741,7 +1722,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_value"
+      "errorCode": "invalid_fullname"
     }
   ]
 }'
@@ -1755,7 +1736,7 @@ RegisterUserNegTC:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_7_VTransactionID$",
     "username": "$ID:VerifyChallengeNegTC_STransId_For_Pos_Sce_7_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDFORAUTHENTICATION$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
@@ -1765,7 +1746,7 @@ RegisterUserNegTC:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_value"
+      "errorCode": "invalid_fullname"
     }
   ]
 }'

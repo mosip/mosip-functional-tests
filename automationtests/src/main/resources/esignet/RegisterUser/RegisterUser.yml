@@ -1,5 +1,5 @@
 RegisterUser:
-   ESignet_RegisterUser_Valid_smoke_Pos:
+   ESignet_RegisterUser_SName_Valid_smoke_Pos:
       endPoint: /v1/signup/registration/register
       role: resident
       restMethod: post
@@ -8,7 +8,7 @@ RegisterUser:
       input: '{
     "verifiedTransactionID": "$ID:VerifyChallenge_STransId_smoke_Pos_VTransactionID$",
     "username": "$ID:GenerateChallenge_STransId_Valid_smoke_Pos_PHONE$",
-    "password": "12341234",
+    "password": "$PASSWORDTOREGISTERUSER$",
     "consent": "AGREE",
     "fullName": "$FULLNAMETOREGISTERUSER$",
     "requestTime": "$TIMESTAMP$",
