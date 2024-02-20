@@ -32,6 +32,9 @@
 		</developer>
 	</developers>
 
+
+
+
 	<properties>
 		<!-- kernel versions -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -196,6 +199,13 @@
 			<artifactId>opencsv</artifactId>
 			<version>4.1</version>
 		</dependency>
+		
+		
+		 <dependency>
+            <groupId>com.slack.api</groupId>
+            <artifactId>slack-api-client</artifactId>
+            <version>1.6.1-RC1</version>
+        </dependency>
 
 		<!-- for translation -->
 		<dependency>
