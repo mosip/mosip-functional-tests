@@ -1,0 +1,181 @@
+GenerateVID:
+   Mimoto_Generate_Perpetual_VID_Valid_Smoke_sid:
+      endPoint: /residentmobileapp/vid
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: mimoto/GenerateVID/createGenerateVID
+      outputTemplate: mimoto/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/residentmobileapp/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
+    }
+}'
+   Mimoto_Generate_Perpetual_VID_InValid_Otp_sid:
+      endPoint: /residentmobileapp/vid
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: mimoto/GenerateVID/createGenerateVID
+      outputTemplate: mimoto/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "vidType": "Perpetual",
+        "otp": "112637338",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/residentmobileapp/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-422"
+    }
+  ],
+  "sendOtpResp":{
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
+    }
+}'
+   Mimoto_Generate_Perpetual_VID_with_InvalidUIN_Valid_Otp_sid:
+      endPoint: /residentmobileapp/vid
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: mimoto/GenerateVID/createGenerateVID
+      outputTemplate: mimoto/error
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "253SDGSH@Y37",
+        "individualIdType": "UIN",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/residentmobileapp/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-410"
+    }
+  ],
+  "sendOtpResp":{
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
+    }
+}'
+
+   mimoto_Generate_Temporary_VID_Valid_Smoke_sid:
+      endPoint: /residentmobileapp/vid
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: mimoto/GenerateVID/createGenerateVID
+      outputTemplate: mimoto/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "vidType": "Temporary",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/residentmobileapp/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
+    }
+}'
+
+   Mimoto_Generate_Perpetual_VID_Invalid_TransactionId_Neg:
+      endPoint: /residentmobileapp/vid
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: mimoto/GenerateVID/createGenerateVID
+      outputTemplate: mimoto/error
+      input: '{
+        "transactionID": "$trc45",
+        "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_withValidParameters_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/residentmobileapp/req/otp"
+    }
+    }'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RES-SER-422"
+    }
+  ],
+  "sendOtpResp":{
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
+    }
+}'
+
+   Mimoto_Generate_Perpetual_VID_Binding_Valid_Smoke_sid:
+      endPoint: /residentmobileapp/vid
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: mimoto/GenerateVID/createGenerateVID
+      outputTemplate: mimoto/GenerateVID/createGenerateVIDResult
+      input: '{
+        "transactionID": "$TRANSACTIONID$",
+        "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+        "individualIdType": "UIN",
+        "vidType": "Perpetual",
+        "otp": "$ID:AddIdentity_Binding_smoke_Pos_EMAIL$",
+        "sendOtp":{
+    "transactionID": "$TRANSACTIONID$",
+    "requestTime": "$TIMESTAMP$",
+    "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+    "individualIdType": "UIN",
+    "sendOtpReqTemplate": "mimoto/SendOTP/createSendOTP",
+    "sendOtpEndPoint": "/residentmobileapp/req/otp"
+    }
+    }'
+      output: '{
+  "sendOtpResp":{
+        "sendOtpResTemplate":"mimoto/SendOTP/createSendOTPResult"
+    }
+}'
