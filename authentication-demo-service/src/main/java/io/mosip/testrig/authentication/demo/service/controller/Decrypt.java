@@ -503,7 +503,7 @@ public class Decrypt {
 
 	private String kernelAsymmetricDecryptForP12File(String data, String p12FileName, String certsDir,
 			String moduleName, char[] p12Pass, String keyAlias) throws InvalidCipherTextException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, CertificateException, OperatorCreationException, GeneralSecurityException, IOException {
-		return keyMgrUtil.asymmetricDecryptionForP12File(CryptoUtil.decodeURLSafeBase64(data), p12FileName, certsDir, moduleName, p12Pass, keyAlias);
+		return keyMgrUtil.asymmetricDecryptionForP12File(CryptoUtil.decodePlainBase64(data), p12FileName, certsDir, moduleName, p12Pass, keyAlias);
 	}
 
 	private byte[] decryptSecretKey(PrivateKey privKey, byte[] encKey) throws NoSuchAlgorithmException, NoSuchPaddingException, 

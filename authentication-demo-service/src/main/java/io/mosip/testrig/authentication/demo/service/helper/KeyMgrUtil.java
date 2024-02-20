@@ -289,7 +289,7 @@ public class KeyMgrUtil {
 	public String asymmetricEncryptionPublicKey(byte[] dataToEncrypt, PublicKey publicKey) throws GeneralSecurityException {
 		byte[] encryptedData = cryptoCoreUtil.asymmetricEncrypt(publicKey, dataToEncrypt);
 		System.out.println("AssymetricEncrypted data -- Start" + encryptedData+ " End--AssymetricEncrypted data" );
-		return CryptoUtil.encodeBase64Url(encryptedData);
+		return CryptoUtil.encodeBase64(encryptedData);
 	}
 	
 	public String asymmetricDecryptionForP12File(byte[] bytes, String p12FileName, String certsDir, String moduleName, char[] p12Pass, String keyAlias) throws InvalidCipherTextException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, CertificateException, OperatorCreationException, GeneralSecurityException, IOException {
