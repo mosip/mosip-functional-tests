@@ -57,10 +57,9 @@ public class ConfigManager {
 	private static String MOSIP_AUTOMATION_CLIENT_SECRET = "mosip_testrig_client_secret";
 	private static String MOSIP_AUTOMATION_CLIENT_ID = "mosip_testrig_client_id";
 	private static String MOSIP_AUTOMATION_APP_ID = "mosip_automation_app_id";
-	
+
 	public static String DB_PASSWORD_KEY = "postgres-password";
 	public static String DB_USER_KEY = "db-su-user";
-	
 
 	private static String S3_HOST = "s3-host";
 	private static String S3_REGION = "s3-region";
@@ -76,7 +75,7 @@ public class ConfigManager {
 
 	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
-	
+
 	private static String ESIGNET_MOCK_BASE_URL = "esignetMockBaseURL";
 
 	private static String PRECONFIGOTP = "preconfiguredOtp";
@@ -128,7 +127,7 @@ public class ConfigManager {
 
 	private static String SCENARIOS_TO_BE_SKIPPED = "scenariosToSkip";
 	private static String SCENARIOS_TO_BE_EXECUTED = "scenariosToExecute";
-	
+
 	private static String SERVICES_NOT_DEPLOYED = "servicesNotDeployed";
 
 	private static String ADMIN_USER_NAME = "admin_userName";
@@ -136,7 +135,7 @@ public class ConfigManager {
 	private static String PARTNER_URL_SUFFIX = "partnerUrlSuffix";
 
 	private static String partnerUrlSuffix;
-	
+
 	private static String serviceNotDeployedList;
 
 	private static String toSkippedList;
@@ -374,8 +373,9 @@ public class ConfigManager {
 		enableDebug = System.getenv(ENABLE_DEBUG) == null ? propsKernel.getProperty(ENABLE_DEBUG)
 				: System.getenv(ENABLE_DEBUG);
 		propsKernel.setProperty(ENABLE_DEBUG, enableDebug);
-		
-		reportIgnoredTestCases = System.getenv(REPORT_IGNORED_TEST_CASES) == null ? propsKernel.getProperty(REPORT_IGNORED_TEST_CASES)
+
+		reportIgnoredTestCases = System.getenv(REPORT_IGNORED_TEST_CASES) == null
+				? propsKernel.getProperty(REPORT_IGNORED_TEST_CASES)
 				: System.getenv(REPORT_IGNORED_TEST_CASES);
 		propsKernel.setProperty(REPORT_IGNORED_TEST_CASES, reportIgnoredTestCases);
 
@@ -406,13 +406,12 @@ public class ConfigManager {
 			eSignetbaseurl = System.getProperty("env.endpoint").replace("-internal", "");
 		}
 		propsKernel.setProperty(ESIGNET_BASE_URL, eSignetbaseurl);
-		
+
 		esignetMockBaseURL = System.getenv(ESIGNET_MOCK_BASE_URL) == null
 				? propsKernel.getProperty(ESIGNET_MOCK_BASE_URL)
 				: System.getenv(ESIGNET_MOCK_BASE_URL);
 		propsKernel.setProperty(ESIGNET_MOCK_BASE_URL, esignetMockBaseURL);
-		
-		
+
 		serviceNotDeployedList = System.getenv(SERVICES_NOT_DEPLOYED) == null
 				? propsKernel.getProperty(SERVICES_NOT_DEPLOYED)
 				: System.getenv(SERVICES_NOT_DEPLOYED);
@@ -436,19 +435,19 @@ public class ConfigManager {
 				: System.getenv(ADMIN_USER_NAME);
 		propsKernel.setProperty(ADMIN_USER_NAME, userAdminName);
 	}
-	
+
 	public static boolean isInServiceNotDeployedList(String stringToFind) {
 		synchronized (serviceNotDeployedList) {
 			if (serviceNotDeployedList.isBlank())
 				return false;
 			List<String> serviceNotDeployed = Arrays.asList(serviceNotDeployedList.trim().split(","));
 			if (ConfigManager.IsDebugEnabled())
-				LOGGER.info("serviceNotDeployedList:  " + serviceNotDeployedList + ", serviceNotDeployed : " + serviceNotDeployed
-						+ ", stringToFind : " + stringToFind);
+				LOGGER.info("serviceNotDeployedList:  " + serviceNotDeployedList + ", serviceNotDeployed : "
+						+ serviceNotDeployed + ", stringToFind : " + stringToFind);
 			for (String string : serviceNotDeployed) {
 				if (string.equalsIgnoreCase(stringToFind))
 					return true;
-				else if(stringToFind.toLowerCase().contains(string.toLowerCase())) {
+				else if (stringToFind.toLowerCase().contains(string.toLowerCase())) {
 					return true;
 				}
 			}
@@ -504,7 +503,7 @@ public class ConfigManager {
 	public static Boolean IsDebugEnabled() {
 		return enableDebug.equalsIgnoreCase("yes");
 	}
-	
+
 	public static Boolean reportIgnoredTestCases() {
 		return reportIgnoredTestCases.equalsIgnoreCase("yes");
 	}
@@ -531,7 +530,7 @@ public class ConfigManager {
 		return eSignetbaseurl;
 
 	}
-	
+
 	public static String getEsignetMockBaseURL() {
 		return esignetMockBaseURL;
 
@@ -722,7 +721,7 @@ public class ConfigManager {
 	public static String getS3Account() {
 		return s3Account;
 	}
-	
+
 	public static String getS3AccountForPersonaData() {
 		return s3AccountForPersonaData;
 	}
