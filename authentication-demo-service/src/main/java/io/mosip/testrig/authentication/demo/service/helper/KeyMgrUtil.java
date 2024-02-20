@@ -13,6 +13,8 @@ import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.GeneralSecurityException;
+import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.KeyStore;
@@ -28,6 +30,9 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Arrays;
@@ -51,6 +56,7 @@ import org.bouncycastle.cert.X509v3CertificateBuilder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
 import org.bouncycastle.cert.jcajce.JcaX509ExtensionUtils;
 import org.bouncycastle.cert.jcajce.JcaX509v3CertificateBuilder;
+import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.OperatorCreationException;
@@ -62,6 +68,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+import io.mosip.authentication.core.exception.IdAuthenticationBusinessException;
+import io.mosip.authentication.core.util.CryptoUtil;
 import io.mosip.testrig.authentication.demo.service.dto.CertificateChainResponseDto;
 
 @Component
@@ -84,6 +92,7 @@ public class KeyMgrUtil {
     private static final String SIGN_ALGO = "SHA256withRSA";
     private static final String DEVICE_SPECIFIC_KEY = "-dsk";
     private static final String CHIP_SPECIFIC_KEY = "-csk";
+    
 
 	@Autowired
 	private Environment environment;
@@ -96,6 +105,9 @@ public class KeyMgrUtil {
 
 	@Value("${device-partner-cert-expiry-months:6}")
 	private int deviceCertificateExpiryMonths;
+	
+	@Autowired
+	CryptoCoreUtil cryptoCoreUtil;
 
     public Certificate convertToCertificate(String certData) throws IOException, CertificateException {
 		StringReader strReader = new StringReader(certData);
@@ -150,14 +162,19 @@ public class KeyMgrUtil {
         return responseDto;
     }
 
-    private PrivateKeyEntry getPrivateKeyEntry(String filePath) throws NoSuchAlgorithmException, UnrecoverableEntryException, 
+    public PrivateKeyEntry getPrivateKeyEntry(String filePath) throws NoSuchAlgorithmException, UnrecoverableEntryException, 
+    KeyStoreException, IOException, CertificateException{
+       return getPrivateKeyEntry(filePath, getP12Pass(), getKeyAlias());
+    }
+    
+    public PrivateKeyEntry getPrivateKeyEntry(String filePath, char[] p12Pass, String keyAlias) throws NoSuchAlgorithmException, UnrecoverableEntryException, 
     KeyStoreException, IOException, CertificateException{
         Path path = Paths.get(filePath);
         if (Files.exists(path)){
             KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
 	            try(InputStream p12FileStream = new FileInputStream(filePath);) {
-	            keyStore.load(p12FileStream, getP12Pass());
-	            return (PrivateKeyEntry) keyStore.getEntry(getKeyAlias(), new PasswordProtection (getP12Pass()));
+	            keyStore.load(p12FileStream, p12Pass);
+	            return (PrivateKeyEntry) keyStore.getEntry(keyAlias, new PasswordProtection (p12Pass));
             }
         }
         return null;
@@ -253,6 +270,73 @@ public class KeyMgrUtil {
 		builder.addRDN(BCStyle.CN, cn);
 		return builder.build();
 	}   
+    
+    public String readStringFile(String dirPath, String fileName) throws IOException {   
+    	return Files.readString(new File(dirPath + File.separator + fileName).toPath());
+    }
+    
+    public String asymmetricEncryptionForCert(byte[] dataToEncrypt, String certFileName, String certsDir, String moduleName) throws GeneralSecurityException, IOException {
+		X509Certificate x509Certificate = getX509Certificate(readStringFile(getKeysDirPath(certsDir, moduleName), certFileName));
+		PublicKey publicKey = x509Certificate.getPublicKey();
+		return asymmetricEncryptionPublicKey(dataToEncrypt, publicKey);
+	}
+    
+    public String asymmetricEncryptionForPemFile(byte[] dataToEncrypt, String pemFile, String certsDir, String moduleName) throws GeneralSecurityException, IOException {
+		PublicKey publicKey = getPublicKey(readStringFile(getKeysDirPath(certsDir, moduleName), pemFile));
+		return asymmetricEncryptionPublicKey(dataToEncrypt, publicKey);
+	}
+
+	public String asymmetricEncryptionPublicKey(byte[] dataToEncrypt, PublicKey publicKey) throws GeneralSecurityException {
+		byte[] encryptedData = cryptoCoreUtil.asymmetricEncrypt(publicKey, dataToEncrypt);
+		System.out.println("AssymetricEncrypted data -- Start" + encryptedData+ " End--AssymetricEncrypted data" );
+		return CryptoUtil.encodeBase64Url(encryptedData);
+	}
+	
+	public String asymmetricDecryptionForP12File(byte[] bytes, String p12FileName, String certsDir, String moduleName, char[] p12Pass, String keyAlias) throws InvalidCipherTextException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, CertificateException, OperatorCreationException, GeneralSecurityException, IOException {
+		return new String(cryptoCoreUtil.asymmetricDecrypt(
+				getPrivateKeyEntry(getKeysDirPath(certsDir, moduleName) + File.separator + p12FileName, p12Pass, keyAlias)
+						.getPrivateKey(),
+				bytes));
+	}
+	
+    
+    /**
+	 * Gets the x 509 certificate.
+	 *
+	 * @param partnerCertificate the partner certificate
+	 * @return the x 509 certificate
+     * @throws CertificateException 
+	 * @throws IdAuthenticationBusinessException the id authentication business exception
+	 */
+	private X509Certificate getX509Certificate(String partnerCertificate) throws CertificateException {
+			String certificate = trimBeginEnd(partnerCertificate);
+			CertificateFactory cf = CertificateFactory.getInstance("X.509");
+			X509Certificate x509cert = (X509Certificate) cf
+					.generateCertificate(new ByteArrayInputStream(java.util.Base64.getDecoder().decode(certificate)));
+			return x509cert;
+	}
+	
+	private PublicKey getPublicKey(String publicKeyPEM) throws CertificateException, NoSuchAlgorithmException, InvalidKeySpecException {
+		String trimmedPublicKeyPEM = trimBeginEnd(publicKeyPEM);
+		byte[] encoded = java.util.Base64.getDecoder().decode(trimmedPublicKeyPEM);
+
+	    KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+	    X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
+	    return (RSAPublicKey) keyFactory.generatePublic(keySpec);
+	}
+	
+	/**
+	 * Trim begin end.
+	 *
+	 * @param pKey the key
+	 * @return the string
+	 */
+	public static String trimBeginEnd(String pKey) {
+		pKey = pKey.replaceAll("-{0,30}BEGIN([^-]{0,30})-{0,30}(\r?\n)?", "");
+		pKey = pKey.replaceAll("-{0,30}END([^-]{0,30})-{0,30}(\r?\n)?", "");
+		pKey = pKey.replaceAll("\\s", "");
+		return pKey;
+	}
     
 
     public PrivateKeyEntry getKeyEntry(String dirPath, PartnerTypes partnerType, String organization, boolean keyFileNameByPartnerName) throws NoSuchAlgorithmException, UnrecoverableEntryException, 
@@ -406,5 +490,6 @@ public class KeyMgrUtil {
   		return certsTargetDir + File.separator + certsModuleName + "-" + domain;
   		
   }
+
 
 }
