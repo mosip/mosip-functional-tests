@@ -271,10 +271,10 @@ public class BaseTestCase {
 			AdminTestUtil.initiateMasterDataTest();
 		}
 
-		if (listOfModules.contains(GlobalConstants.MOBILEID)) {
-			BaseTestCase.currentModule = GlobalConstants.MOBILEID;
-			setReportName(GlobalConstants.MOBILEID);
-			AdminTestUtil.initiateMobileIdTestTest();
+		if (listOfModules.contains(GlobalConstants.MIMOTO)) {
+			BaseTestCase.currentModule = GlobalConstants.MIMOTO;
+			setReportName(GlobalConstants.MIMOTO);
+			AdminTestUtil.initiateMimotoTest();
 			mockSMTPListener = new MockSMTPListener();
 			mockSMTPListener.run();
 

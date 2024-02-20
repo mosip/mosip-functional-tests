@@ -1,0 +1,714 @@
+BindingOtp:
+   Mimoto_BindingOtp_Valid_UIN_All_Smoke:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/BindingOtp/BindingOtpResult
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+        "maskedMobile": "$IGNORE$"
+}'
+
+   Mimoto_BindingOtp_Valid_vid_All_Smoke:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/BindingOtp/BindingOtpResult
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+        "maskedMobile": "$IGNORE$"
+}'
+
+   Mimoto_BindingOtp_UIN_Invalid_individualId_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "@#DSDFD@#",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Missing_individualId_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$REMOVE$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RESIDENT-APP-011"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Empty_individualId_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_identifier"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Null_individualId_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "null",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_SpaceSeparated_otpChannels_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "E M A I L"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RESIDENT-APP-011"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Invalid_OtpChannels_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "sdsgsg"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RESIDENT-APP-011"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Missing_OtpChannels_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "$IGNORE$"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RESIDENT-APP-011"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Empty_OtpChannels_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: ""}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Null_OtpChannels_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "null"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RESIDENT-APP-011"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Missing_OtpChannel_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": "$IGNORE$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Empty_OtpChannel_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": ""
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Null_OtpChannel_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": "null"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Invalid_RequestTime_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "2022-11-08T06:35:53",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Past_RequestTime_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "2022-11-07T06:51:30.195Z",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Future_RequestTime_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "2033-11-07T06:51:30.195Z",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Missing_RequestTime_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$IGNORE$",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_UIN_Empty_RequestTime_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "",
+      "individualId": "$ID:AddIdentity_Binding_smoke_Pos_UIN$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Invalid_individualId_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "@#DSDFD@#",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Missing_individualId_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$REMOVE$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RESIDENT-APP-011"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Empty_individualId_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_identifier"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Null_individualId_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "null",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "IDA-MLC-009"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_SpaceSeparated_otpChannels_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "E M A I L"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RESIDENT-APP-011"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Invalid_OtpChannels_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "sdsgsg"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RESIDENT-APP-011"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Missing_OtpChannels_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "$IGNORE$"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RESIDENT-APP-011"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Empty_OtpChannels_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: ""}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Null_OtpChannels_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "null"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "RESIDENT-APP-011"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Missing_OtpChannel_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": "$IGNORE$"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Empty_OtpChannel_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": ""
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Null_OtpChannel_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$TIMESTAMP$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": "null"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_otp_channel"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Invalid_RequestTime_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "2022-11-08T06:35:53",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Past_RequestTime_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "2022-11-07T06:51:30.195Z",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Future_RequestTime_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "2033-11-07T06:51:30.195Z",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Missing_RequestTime_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "$IGNORE$",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+  ]
+}'
+
+   Mimoto_BindingOtp_vid_Empty_RequestTime_Neg:
+      endPoint: /residentmobileapp/binding-otp
+      role: resident
+      restMethod: post
+      validityCheckRequired: true
+      inputTemplate: mimoto/BindingOtp/BindingOtp
+      outputTemplate: mimoto/error
+      input: '{
+      "requestTime": "",
+      "individualId": "$ID:Generate_Perpetual_VID_Binding_Valid_Smoke_sid_vid$",
+      "otpChannels": [{channel: "EMAIL"}]
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "invalid_request"
+    }
+  ]
+}'

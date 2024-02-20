@@ -1,31 +1,30 @@
 package io.mosip.testrig.apirig.admin.fw.util;
 
 import org.apache.log4j.Logger;
-
 import com.mifmif.common.regex.Generex;
 
 public class TestJava {
-    private static final Logger LOGGER = Logger.getLogger(TestJava.class);
+	private static final Logger LOGGER = Logger.getLogger(TestJava.class);
 
-    public static void main(String[] args) {
-    	String generatedregexString = "";
-    	try {
+	public static void main(String[] args) {
+		String generatedregexString = "";
+		try {
 //    		generatedregexString =genStringAsperRegex("^[+]([0-9]{3})([0-9]{9})$");
 //    		System.out.println(generatedregexString);
 //    		generatedregexString =genStringAsperRegex("^\\+855[1-9]\\d{7,8}$");
-    		generatedregexString =genStringAsperRegex("^[\\ក-\\៿\\᧠-\\᧿\\ᨀ-\\᪟\\ ]{1,30}$");
+			generatedregexString = genStringAsperRegex("^[\\ក-\\៿\\᧠-\\᧿\\ᨀ-\\᪟\\ ]{1,30}$");
 //    		generatedregexString =genStringAsperRegex("^[\u1780-\u17FF\u19E0-\u19FF\u1A00-\u1A9F\u0020]{1,30}$");
 //    		                                           ^[\u1780-\u17FF\u19E0-\u19FF\u1A00-\u1A9F\u0020]{1,30}$
 //    		generatedregexString =genStringAsperRegex("^(?=.{8,20}$)(?=.*[A-Za-z])(?=.*\\d).*$");
-    		
-    		System.out.println(generatedregexString);
-    		
+
+			System.out.println(generatedregexString);
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }
-    
+	}
+
 	public static String genStringAsperRegex(String regex) throws Exception {
 		if (Generex.isValidPattern(regex)) {
 
