@@ -12,7 +12,7 @@
 		<listener class-name="io.mosip.testrig.apirig.customReport.EmailableReport" />
 	</listeners>
 		
-<!--	<test name ="SignUpSettings">
+	<test name ="SignUpSettings">
 		<parameter name ="ymlFile"
 			value= "esignet/SignUpSettings/SignUpSettings.yml" />
 	<classes>
@@ -123,7 +123,7 @@
 	<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
-	</test>-->
+	</test>
 	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="esignet/AddIdentity/AddIdentity.yml" />
@@ -718,7 +718,7 @@
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
-<!--	<test name="OAuthDetailsRequestPassword">
+	<test name="OAuthDetailsRequestPassword">
 		<parameter name="ymlFile"
 			value="esignet/OAuthDetailsRequestPassword/OAuthDetailsRequestPassword.yml" />
 			<parameter name="idKeyName"	value="transactionId,encodedResp" />
@@ -770,7 +770,7 @@
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
-	</test>-->
+	</test>
 	<test name="CreateOIDCClient">
 		<parameter name="ymlFile"
 			value="esignet/CreateOIDCClient/CreateOIDCClient.yml" />
@@ -811,7 +811,7 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-	<test name="CreateOIDCClientV2SunBirdRC">
+<!--	<test name="CreateOIDCClientV2SunBirdRC">
 		<parameter name="ymlFile"
 			value="esignet/SunBirdRC/CreateOIDCClientV2SunBirdRC/CreateOIDCClientV2SunBirdRC.yml" />
 			<parameter name="idKeyName"	value="clientId" />
@@ -894,7 +894,7 @@
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
-	</test>
+	</test>-->
 
 <!-- Removed kyc delegated demo auth as it is not supported 
 	<test name="KycDemoAuth">
