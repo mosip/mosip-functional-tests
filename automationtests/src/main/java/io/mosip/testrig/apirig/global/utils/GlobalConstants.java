@@ -88,8 +88,8 @@ public class GlobalConstants {
 	public static final String $3STLANG$ = "$3STLANG$";
 	public static final String $PARTNERKEYURL$ = "$partnerKeyURL$";
 	public static final String ESIGNET_ = "ESignet_";
-	public static final String $PRIMARYLANG$="$PRIMARYLANG$";
-	public static final String BOTHOBJECTSAREEQUAL= "both object are equal";
+	public static final String $PRIMARYLANG$ = "$PRIMARYLANG$";
+	public static final String BOTHOBJECTSAREEQUAL = "both object are equal";
 	public static final String KYCAUTHENDPOINT = "kycAuthEndPoint";
 	public static final String IDP_ACCESS_TOKEN = "idpAccessToken";
 	public static final String RESIDENT_DEFAULT_PROPERTIES = "resident-default.properties";
@@ -114,7 +114,7 @@ public class GlobalConstants {
 	public static final String PARTNERTYPE = "partnerType";
 	public static final String CERTIFICATEDATA = "certificateData";
 	public static final String PARTNERDOMAIN = "partnerDomain";
-	public static final String DATA =".data";
+	public static final String DATA = ".data";
 	public static final String AUTOMATION = "automation";
 	public static final String AUTOMATIONLABS = "@automationlabs.com";
 	public static final String REPSONSE = "Repsonse: %s %s%n";
@@ -142,14 +142,10 @@ public class GlobalConstants {
 	public static final String ACCESSTOKEN = "access_token";
 	public static final String APPID = "appId";
 	public static final String PASSWORD = "password";
-	public static final String USER_NAME ="userName";
+	public static final String USER_NAME = "userName";
 	public static final String TOKEN = "token";
 	public static final String SECRETKEY = "secretKey";
-	
-	
-	
-	
-	
+
 	public static final String POST_REQ_URL = "******Post request Json to EndPointUrl: ";
 	public static final String TEST_FULLNAME = "TEST_FULLNAME";
 	public static final String ENCODEDHASH = "encodedHash";
@@ -166,10 +162,10 @@ public class GlobalConstants {
 	public static final String FILES_TO_UPLOAD = "FilesToUpload";
 	public static final String UPDATE = "update";
 	public static final String ADMIN = "admin";
-	public static final String PUT_REQ_STRING = "******Put request Json to EndPointUrl: "; 
+	public static final String PUT_REQ_STRING = "******Put request Json to EndPointUrl: ";
 	public static final String REQ_STR = "req is::";
 	public static final String ERROR_STRING_2 = "request doesn't contanin param: ";
-	public static final String IN_STRING = " in: "; 
+	public static final String IN_STRING = " in: ";
 	public static final String POST_REQ_STRING = "******post request Json to EndPointUrl: ";
 	public static final String SIGNATURE = "signature";
 	public static final int INTEGER_36 = 36;
@@ -204,9 +200,9 @@ public class GlobalConstants {
 	public static final String CHALLENGE = "challenge";
 	public static final String EXCEPTIONFORJSON = "Exception Occured in retrieving the value from json file: ";
 	public static final String ROLENOTFOUNDINKEYCLOAK = "Role not found in keycloak: %s%n";
-	public static final String USERREMOVEDWITHNAME ="User removed with name: %s%n";
+	public static final String USERREMOVEDWITHNAME = "User removed with name: %s%n";
 	public static final String USERNOTFOUNDWITHNAME = "User not found with name: %s%n";
-	public static final String ACTU_AUTH_REQUESTFOR_RESIDENT  = "Actual Auth Request for Resident: ";
+	public static final String ACTU_AUTH_REQUESTFOR_RESIDENT = "Actual Auth Request for Resident: ";
 	public static final String AUTH_CLIENT_IDSECRET_KEYURL = "authclientidsecretkeyURL";
 	public static final String EXPECTED_VS_ACTUAL = "EXPECTED vs ACTUAL";
 	public static final String RID_GENERATOR = "ridgenerator";
