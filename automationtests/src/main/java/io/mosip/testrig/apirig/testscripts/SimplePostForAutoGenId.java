@@ -88,7 +88,8 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 			throws AuthenticationTestException, AdminTestException, NoSuchAlgorithmException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(
+					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
 		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
@@ -96,7 +97,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
 			}
 		}
-		
+
 		if (BaseTestCase.isTargetEnvLTS()) {
 			if (!ConfigManager.isInServiceNotDeployedList(GlobalConstants.RESIDENT)) {
 				if (((BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet"))
@@ -150,11 +151,13 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 					throw new SkipException("esignet is not deployed hence skipping the testcase");
 				}
 				String tempUrl = ConfigManager.getEsignetBaseUrl();
-				if (testCaseDTO.getEndPoint().startsWith("$ESIGNETMOCKBASEURL$") && testCaseName.contains("SunBirdRC")) {
+				if (testCaseDTO.getEndPoint().startsWith("$ESIGNETMOCKBASEURL$")
+						&& testCaseName.contains("SunBirdRC")) {
 					if (ConfigManager.isInServiceNotDeployedList("sunbirdrc"))
 						throw new SkipException(GlobalConstants.SERVICE_NOT_DEPLOYED_MESSAGE);
-						
-					if(ConfigManager.getEsignetMockBaseURL() != null && !ConfigManager.getEsignetMockBaseURL().isBlank())
+
+					if (ConfigManager.getEsignetMockBaseURL() != null
+							&& !ConfigManager.getEsignetMockBaseURL().isBlank())
 						tempUrl = ApplnURI.replace("api-internal.", ConfigManager.getEsignetMockBaseURL());
 					testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$ESIGNETMOCKBASEURL$", ""));
 				}
