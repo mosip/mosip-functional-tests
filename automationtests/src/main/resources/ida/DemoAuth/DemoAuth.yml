@@ -856,7 +856,7 @@ DemoAuthNew:
       inputTemplate: ida/DemoAuth/DemoAuth
       outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
-    "value": "7019858531",
+    "value": "$ID:AddIdentity_ValidParam_smoke_Pos_PHONE$",
   "key": "phoneNumber",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
@@ -901,7 +901,7 @@ DemoAuthNew:
       inputTemplate: ida/DemoAuth/DemoAuth
       outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
-    "value": "7019858531",
+    "value": "$ID:AddIdentity_ValidParam_smoke_Pos_PHONE$",
   "key": "phoneNumber",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
@@ -1145,7 +1145,7 @@ DemoAuthNew:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "7019858531",
+      "value": "$ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$",
         "key": "mobileno"
     }'
       output: '{
@@ -1160,7 +1160,7 @@ DemoAuthNew:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "7019858531",
+      "value": "$ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$",
         "key": "phone"
     }'
       output: '{
