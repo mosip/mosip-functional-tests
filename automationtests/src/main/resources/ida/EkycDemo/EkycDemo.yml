@@ -736,7 +736,7 @@ EkycDemo:
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-      "value": "7019858531",
+      "value": "$ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$",
     "key": "phoneNumber",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
@@ -752,7 +752,7 @@ EkycDemo:
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-      "value": "7019858531",
+      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_PHONE$",
     "key": "phoneNumber",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
