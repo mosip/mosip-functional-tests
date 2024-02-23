@@ -169,7 +169,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 						+ " as UIN not available in database");
 				try {
 					Thread.sleep(Long.parseLong(properties.getProperty("uinGenDelayTime")));
-					SlackChannelIntegration.sendMessageToSlack("UIN not available in database in :" + ApplnURI + "Env") ;
+//					SlackChannelIntegration.sendMessageToSlack("UIN not available in database in :" + ApplnURI + "Env") ;
 					
 				} catch (NumberFormatException | InterruptedException e) {
 					logger.error(e.getMessage());
@@ -200,7 +200,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
 				if (otpResponse.asString().contains("IDA-OTA-001")) {
-					SlackChannelIntegration.sendMessageToSlack("Exceeded number of OTP requests in a given time, :" + ApplnURI + "Env") ;
+//					SlackChannelIntegration.sendMessageToSlack("Exceeded number of OTP requests in a given time, :" + ApplnURI + "Env") ;
 					throw new AdminTestException(
 							"Exceeded number of OTP requests in a given time, Increase otp.request.flooding.max-count");
 				}

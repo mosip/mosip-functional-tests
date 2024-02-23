@@ -29,7 +29,10 @@ import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.testrig.apirig.authentication.fw.precon.MessagePrecondtion;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
+import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.kernel.util.SlackChannelIntegration;
+import io.mosip.testrig.apirig.service.BaseTestCase;
 
 /**
  * Perform output validation between expected and actual json file or message
@@ -476,6 +479,9 @@ public class OutputValidationUtil extends AuthTestsUtil {
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
 			String expOutputJson, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors,
 			String allowedErrorCode, int responseStatusCode) throws AdminTestException {
+//		Checks output Json contains server issues and log in report
+		reportServerIssues(actualOutputJson);
+		
 		if (doesResponseHasErrorCode(actualOutputJson, allowedErrorCode))
 			return Collections.emptyMap();
 		else if (doesResponseHasErrorCode(actualOutputJson, 500))
@@ -558,6 +564,40 @@ public class OutputValidationUtil extends AuthTestsUtil {
 			}
 		}
 		return responseHasAllowedErrorCode;
+	}
+	
+	public static void reportServerIssues(String responseString) {
+		JSONObject responseJson = new JSONObject(responseString);
+
+		JSONArray errors = new JSONArray();
+		if (responseJson.has("errors")) {
+			errors = responseJson.optJSONArray("errors");
+		} else if (responseJson.has("error")) {
+			String error = responseJson.getString("error");
+			JSONObject tempJson = new JSONObject();
+			tempJson.put("errorCode", error);
+			tempJson.put("errorMessage", error);
+			errors.put(tempJson);
+		}
+
+		if (errors.length() == 0) {
+			return;
+		}
+
+		for (int i = 0; i < errors.length(); i++) {
+
+			if (ConfigManager.getServerErrorsToMonitor().contains(errors.getJSONObject(i).getString("errorCode"))) {
+				StringBuilder stringBuilder = new StringBuilder();
+				stringBuilder.append("On ").append(ConfigManager.getTargetEnvName()).append(" Encountered -- ")
+						.append(errors.getJSONObject(i).getString("errorCode")).append(" -- ")
+						.append(errors.getJSONObject(i).getString("errorMessage"));
+//				Report to slack. If slack integration is done
+//				SlackChannelIntegration.sendMessageToSlack(stringBuilder.toString());
+				
+				GlobalMethods.reportServerError(errors.getJSONObject(i).getString("errorCode"),
+						errors.getJSONObject(i).getString("errorMessage"));
+			}
+		}
 	}
 
 }
