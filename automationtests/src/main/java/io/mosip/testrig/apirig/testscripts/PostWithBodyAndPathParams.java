@@ -85,7 +85,8 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(
+					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
 		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
@@ -109,7 +110,7 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 				Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 						response.asString(),
 						getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()),
-						testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+						testCaseDTO, response.getStatusCode());
 				Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 				if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -125,9 +126,8 @@ public class PostWithBodyAndPathParams extends AdminTestUtil implements ITest {
 				response = postWithPathParamsBodyAndCookie(ApplnURI + testCaseDTO.getEndPoint(), inputJson, COOKIENAME,
 						testCaseDTO.getRole(), testCaseDTO.getTestCaseName(), pathParams);
 			}
-			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-					response.asString(), outputJson, testCaseDTO.isCheckErrorsOnlyInResponse(),
-					response.getStatusCode());
+			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+					.doJsonOutputValidation(response.asString(), outputJson, testCaseDTO, response.getStatusCode());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))

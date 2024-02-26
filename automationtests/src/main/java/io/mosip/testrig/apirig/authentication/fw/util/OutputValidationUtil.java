@@ -25,6 +25,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestException;
+import io.mosip.testrig.apirig.admin.fw.util.TestCaseDTO;
 import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.testrig.apirig.authentication.fw.precon.MessagePrecondtion;
@@ -462,42 +463,62 @@ public class OutputValidationUtil extends AuthTestsUtil {
 		return true;
 	}
 
+//	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
+//			String expOutputJson, boolean checkErrorsOnlyInResponse, String allowedErrorCode, int responseStatusCode)
+//			throws AdminTestException {
+//		return doJsonOutputValidation(actualOutputJson, expOutputJson, checkErrorsOnlyInResponse,
+//				GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson), allowedErrorCode,
+//				responseStatusCode);
+//	}
+
+//	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
+//			String expOutputJson, boolean checkErrorsOnlyInResponse, int responseStatusCode) throws AdminTestException {
+//		return doJsonOutputValidation(actualOutputJson, expOutputJson, checkErrorsOnlyInResponse,
+//				GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson), null, responseStatusCode);
+//	}
+
+//	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
+//			String expOutputJson, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors,
+//			String allowedErrorCode, int responseStatusCode) throws AdminTestException {
+////		Checks output JSON contains server issues and log in report
+//		reportServerIssues(actualOutputJson);
+//		
+//		if (doesResponseHasErrorCode(actualOutputJson, allowedErrorCode))
+//			return Collections.emptyMap();
+//		else if (doesResponseHasErrorCode(actualOutputJson, 500))
+//			throw new AdminTestException("Internal Server Error. Hence marking the test case as failed");
+//		else if (doesResponseHasErrorCode(actualOutputJson, 404))
+//			throw new SkipException("API end point is not valid. Hence marking the test case as skipped");
+//		JsonPrecondtion jsonPrecondtion = new JsonPrecondtion();
+//		Map<String, String> actual = jsonPrecondtion
+//				.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
+//		Map<String, String> exp = jsonPrecondtion
+//				.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);
+//
+//		return doJsonOutputValidation(actual, exp, checkErrorsOnlyInResponse, context, responseHasErrors,
+//				allowedErrorCode, responseStatusCode);
+//	}
+	
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
-			String expOutputJson, boolean checkErrorsOnlyInResponse, String allowedErrorCode, int responseStatusCode)
+			String expOutputJson, TestCaseDTO testCaseDTO, int responseStatusCode)
 			throws AdminTestException {
-		return doJsonOutputValidation(actualOutputJson, expOutputJson, checkErrorsOnlyInResponse,
-				GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson), allowedErrorCode,
-				responseStatusCode);
-	}
-
-	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
-			String expOutputJson, boolean checkErrorsOnlyInResponse, int responseStatusCode) throws AdminTestException {
-		return doJsonOutputValidation(actualOutputJson, expOutputJson, checkErrorsOnlyInResponse,
-				GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson), null, responseStatusCode);
-	}
-
-	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(String actualOutputJson,
-			String expOutputJson, boolean checkErrorsOnlyInResponse, String context, boolean responseHasErrors,
-			String allowedErrorCode, int responseStatusCode) throws AdminTestException {
-//		Checks output Json contains server issues and log in report
-		reportServerIssues(actualOutputJson);
+//		Checks output JSON contains server issues and log in report
+		reportServerIssues(actualOutputJson, testCaseDTO);
 		
-		if (doesResponseHasErrorCode(actualOutputJson, allowedErrorCode))
+		if (doesResponseHasErrorCode(actualOutputJson, testCaseDTO.getAllowedErrorCodes()))
 			return Collections.emptyMap();
 		else if (doesResponseHasErrorCode(actualOutputJson, 500))
 			throw new AdminTestException("Internal Server Error. Hence marking the test case as failed");
 		else if (doesResponseHasErrorCode(actualOutputJson, 404))
 			throw new SkipException("API end point is not valid. Hence marking the test case as skipped");
-//		else if (!(responseStatusCode >= 200 && responseStatusCode < 300))
-//			throw new SkipException("API endpoint is not valid. Response code: " + responseStatusCode +  " Hence marking the test case as skipped");
 		JsonPrecondtion jsonPrecondtion = new JsonPrecondtion();
 		Map<String, String> actual = jsonPrecondtion
 				.retrieveMappingAndItsValueToPerformJsonOutputValidation(actualOutputJson);
 		Map<String, String> exp = jsonPrecondtion
 				.retrieveMappingAndItsValueToPerformJsonOutputValidation(expOutputJson);
 
-		return doJsonOutputValidation(actual, exp, checkErrorsOnlyInResponse, context, responseHasErrors,
-				allowedErrorCode, responseStatusCode);
+		return doJsonOutputValidation(actual, exp, testCaseDTO.isCheckErrorsOnlyInResponse(), GlobalConstants.EXPECTED_VS_ACTUAL, doesResponseHasErrors(actualOutputJson),
+				testCaseDTO.getAllowedErrorCodes(), responseStatusCode);
 	}
 
 	public static Map<String, List<OutputValidationDto>> doJsonOutputValidation(Map<String, String> actualOutput,
@@ -566,7 +587,7 @@ public class OutputValidationUtil extends AuthTestsUtil {
 		return responseHasAllowedErrorCode;
 	}
 	
-	public static void reportServerIssues(String responseString) {
+	public static void reportServerIssues(String responseString, TestCaseDTO testCaseDTO) {
 		JSONObject responseJson = new JSONObject(responseString);
 
 		JSONArray errors = new JSONArray();
@@ -590,7 +611,9 @@ public class OutputValidationUtil extends AuthTestsUtil {
 				StringBuilder stringBuilder = new StringBuilder();
 				stringBuilder.append("On ").append(ConfigManager.getTargetEnvName()).append(" Encountered -- ")
 						.append(errors.getJSONObject(i).getString("errorCode")).append(" -- ")
-						.append(errors.getJSONObject(i).getString("errorMessage"));
+						.append(errors.getJSONObject(i).getString("errorMessage"))
+						.append("on this end point - ")
+						.append(testCaseDTO.getEndPoint());
 //				Report to slack. If slack integration is done
 				SlackChannelIntegration.sendMessageToSlack(stringBuilder.toString());
 				

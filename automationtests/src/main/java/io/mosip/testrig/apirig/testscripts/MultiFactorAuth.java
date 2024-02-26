@@ -82,17 +82,18 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(
+					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		if (testCaseDTO.getEndPoint().contains(GlobalConstants.$PARTNERKEYURL$)) {
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace(GlobalConstants.$PARTNERKEYURL$,
 					properties.getProperty("partnerKeyURL")));
 		}
-		
+
 		if (testCaseDTO.getEndPoint().contains("$UpdatedPartnerKeyURL$")) {
-			testCaseDTO.setEndPoint(
-					testCaseDTO.getEndPoint().replace("$UpdatedPartnerKeyURL$", PartnerRegistration.updatedpartnerKeyUrl));
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$UpdatedPartnerKeyURL$",
+					PartnerRegistration.updatedpartnerKeyUrl));
 		}
 		String otpRequest = null;
 		String sendOtpReqTemplate = null;
@@ -129,7 +130,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
 				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
-				testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
+				testCaseDTO, otpResponse.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 		OutputValidationUtil.publishOutputResult(ouputValidOtp);
 
@@ -190,7 +191,7 @@ public class MultiFactorAuth extends AdminTestUtil implements ITest {
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
-				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+				testCaseDTO, response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

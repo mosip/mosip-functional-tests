@@ -83,7 +83,8 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(
+					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
 		if (testCaseDTO.getEndPoint().contains("$partnerKeyURL$")) {
 			testCaseDTO.setEndPoint(
@@ -134,7 +135,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
-				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+				testCaseDTO, response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
