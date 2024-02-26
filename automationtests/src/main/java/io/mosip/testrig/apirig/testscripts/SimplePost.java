@@ -151,7 +151,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 				Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 						response.asString(),
 						getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()),
-						testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+						testCaseDTO, response.getStatusCode());
 				Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 				if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -194,8 +194,7 @@ public class SimplePost extends AdminTestUtil implements ITest {
 				ouputValid.put(GlobalConstants.EXPECTED_VS_ACTUAL, List.of(customResponse));
 			} else {
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(response.asString(),
-						getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
-						testCaseDTO.isCheckErrorsOnlyInResponse(), testCaseDTO.getAllowedErrorCodes(),
+						getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO,
 						response.getStatusCode());
 			}
 

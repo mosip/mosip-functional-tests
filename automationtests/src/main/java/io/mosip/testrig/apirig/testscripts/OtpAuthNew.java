@@ -87,7 +87,8 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(
+					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
 
 		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
@@ -103,7 +104,7 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
 			}
 		}
-		
+
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 
 		if (testCaseDTO.getEndPoint().contains("$PartnerKeyURL$")) {
@@ -115,10 +116,10 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$KycPartnerKeyURL$", PartnerRegistration.ekycPartnerKeyUrl));
 		}
-		
+
 		if (testCaseDTO.getEndPoint().contains("$UpdatedPartnerKeyURL$")) {
-			testCaseDTO.setEndPoint(
-					testCaseDTO.getEndPoint().replace("$UpdatedPartnerKeyURL$", PartnerRegistration.updatedpartnerKeyUrl));
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$UpdatedPartnerKeyURL$",
+					PartnerRegistration.updatedpartnerKeyUrl));
 		}
 
 		if (testCaseDTO.getEndPoint().contains("$PartnerName$")) {
@@ -170,8 +171,8 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 
 		if (testCaseDTO.getTestCaseName().contains("EkycOtp")) {
 			otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(
-					ApplnURI + "/idauthentication/v1/otp/" + PartnerRegistration.ekycPartnerKeyUrl, sendOtpBody.toString(),
-					GlobalConstants.AUTHORIZATION, token, headers, testCaseName);
+					ApplnURI + "/idauthentication/v1/otp/" + PartnerRegistration.ekycPartnerKeyUrl,
+					sendOtpBody.toString(), GlobalConstants.AUTHORIZATION, token, headers, testCaseName);
 		} else {
 
 			otpRespon = postRequestWithAuthHeaderAndSignatureForOtp(
@@ -191,8 +192,8 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		sendOtpResTemplate = sendOtpRespJson.getString("sendOtpResTemplate");
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
-				otpRespon.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
-				testCaseDTO.isCheckErrorsOnlyInResponse(), otpRespon.getStatusCode());
+				otpRespon.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate), testCaseDTO,
+				otpRespon.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
@@ -249,8 +250,8 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 				}
 			}
 		}
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO, response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

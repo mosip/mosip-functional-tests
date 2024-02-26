@@ -82,16 +82,17 @@ public class SimplePut extends AdminTestUtil implements ITest {
 	public void test(TestCaseDTO testCaseDTO) throws AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(
+					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
-		
+
 		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
 				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
 			}
 		}
-		
+
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		String[] templateFields = testCaseDTO.getTemplateFields();
 
@@ -108,7 +109,7 @@ public class SimplePut extends AdminTestUtil implements ITest {
 				Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 						response.asString(),
 						getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()),
-						testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+						testCaseDTO, response.getStatusCode());
 				Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 				if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -129,8 +130,8 @@ public class SimplePut extends AdminTestUtil implements ITest {
 				ouputValid.put(GlobalConstants.EXPECTED_VS_ACTUAL, List.of(customResponse));
 			} else {
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(response.asString(),
-						getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
-						testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+						getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO,
+						response.getStatusCode());
 			}
 
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));

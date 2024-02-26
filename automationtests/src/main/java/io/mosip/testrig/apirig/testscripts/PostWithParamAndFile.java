@@ -84,7 +84,8 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(
+					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
 		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
@@ -92,7 +93,7 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
 			}
 		}
-		
+
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 
 		response = postWithParamAndFile(ApplnURI + testCaseDTO.getEndPoint(), inputJson, testCaseDTO.getRole(),
@@ -108,8 +109,8 @@ public class PostWithParamAndFile extends AdminTestUtil implements ITest {
 			ouputValid.put(GlobalConstants.EXPECTED_VS_ACTUAL, List.of(customResponse));
 		} else {
 			ouputValid = OutputValidationUtil.doJsonOutputValidation(response.asString(),
-					getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
-					testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+					getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()), testCaseDTO,
+					response.getStatusCode());
 		}
 
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));

@@ -102,11 +102,12 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		String[] kycFields = testCaseDTO.getKycFields();
 
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(
+					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
-		
+
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
-		
+
 		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
@@ -130,10 +131,10 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$KycPartnerKeyURL$", PartnerRegistration.ekycPartnerKeyUrl));
 		}
-		
+
 		if (testCaseDTO.getEndPoint().contains("$UpdatedPartnerKeyURL$")) {
-			testCaseDTO.setEndPoint(
-					testCaseDTO.getEndPoint().replace("$UpdatedPartnerKeyURL$", PartnerRegistration.updatedpartnerKeyUrl));
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$UpdatedPartnerKeyURL$",
+					PartnerRegistration.updatedpartnerKeyUrl));
 		}
 
 		if (testCaseDTO.getEndPoint().contains("$PartnerName$")) {
@@ -189,8 +190,8 @@ public class BioAuth extends AdminTestUtil implements ITest {
 			}
 		}
 
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO, response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))
@@ -252,8 +253,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 				}
 
 				ouputValid = OutputValidationUtil.doJsonOutputValidation(jsonObjectFromIdentityData.toString(),
-						jsonObjectFromKycData.toString(), testCaseDTO.isCheckErrorsOnlyInResponse(),
-						response.getStatusCode());
+						jsonObjectFromKycData.toString(), testCaseDTO, response.getStatusCode());
 				Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 				if (!OutputValidationUtil.publishOutputResult(ouputValid))
