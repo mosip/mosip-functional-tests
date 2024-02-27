@@ -26,7 +26,7 @@ RevokeVID:
       output: '{
   "message": "Notification has been sent to the provided contact detail(s)",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8360",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult",
         "maskedEmail": "$IGNORE$"
     }

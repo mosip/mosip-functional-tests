@@ -2,6 +2,7 @@ AuthLock:
    auth_AuthLock_Valid_UIN_All:
       endPoint: /resident/v1/req/auth-lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/AuthLock/createAuthLock
       outputTemplate: ida/AuthLock/createAuthLockResult
@@ -33,6 +34,7 @@ AuthLock:
    auth_AuthLock_Valid_UIN_locked_All:
       endPoint: /resident/v1/req/auth-lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/AuthLock/createAuthLock
       outputTemplate: ida/AuthLock/createAuthLockResult
@@ -64,6 +66,7 @@ AuthLock:
    auth_AuthLock_Valid_UIN_for_bio_auth:
       endPoint: /resident/v1/req/auth-lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/AuthLock/createAuthLock
       outputTemplate: ida/AuthLock/createAuthLockResult
