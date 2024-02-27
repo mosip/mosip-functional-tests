@@ -97,7 +97,8 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 		testCaseName = testCaseDTO.getTestCaseName();
 		String[] kycFields = testCaseDTO.getKycFields();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(
+					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
@@ -131,10 +132,10 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 			testCaseDTO.setEndPoint(
 					testCaseDTO.getEndPoint().replace("$KycPartnerName$", PartnerRegistration.ekycPartnerId));
 		}
-		
+
 		if (testCaseDTO.getEndPoint().contains("$UpdatedPartnerKeyURL$")) {
-			testCaseDTO.setEndPoint(
-					testCaseDTO.getEndPoint().replace("$UpdatedPartnerKeyURL$", PartnerRegistration.updatedpartnerKeyUrl));
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$UpdatedPartnerKeyURL$",
+					PartnerRegistration.updatedpartnerKeyUrl));
 		}
 
 		String input = testCaseDTO.getInput();
@@ -187,7 +188,7 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 				Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 						response.asString(),
 						getJsonFromTemplate(outputtestcase.get(i).toString(), testCaseDTO.getOutputTemplate()),
-						testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+						testCaseDTO, response.getStatusCode());
 				if (testCaseDTO.getTestCaseName().toLowerCase().contains("dynamic")) {
 					JSONObject json = new JSONObject(response.asString());
 					idField = json.getJSONObject("response").get("id").toString();
@@ -237,9 +238,8 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 				}
 			}
 
-			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-					response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse(),
-					response.getStatusCode());
+			Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+					.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO, response.getStatusCode());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 			if (!OutputValidationUtil.publishOutputResult(ouputValid))
 				throw new AdminTestException("Failed at output validation");
@@ -302,8 +302,8 @@ public class DemoAuthSimplePostForAutoGenId extends AdminTestUtil implements ITe
 				}
 
 				Map<String, List<OutputValidationDto>> ouputValidNew = OutputValidationUtil.doJsonOutputValidation(
-						jsonObjectFromIdentityData.toString(), jsonObjectFromKycData.toString(),
-						testCaseDTO.isCheckErrorsOnlyInResponse(), newResponse.getStatusCode());
+						jsonObjectFromIdentityData.toString(), jsonObjectFromKycData.toString(), testCaseDTO,
+						newResponse.getStatusCode());
 				Reporter.log(ReportUtil.getOutputValidationReport(ouputValidNew));
 
 				if (!OutputValidationUtil.publishOutputResult(ouputValidNew))

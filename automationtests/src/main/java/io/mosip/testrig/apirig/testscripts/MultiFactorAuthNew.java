@@ -83,9 +83,10 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		testCaseName = testCaseDTO.getTestCaseName();
 
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(
+					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
-		
+
 		testCaseName = isTestCaseValidForExecution(testCaseDTO);
 
 		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
@@ -156,7 +157,7 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 			sendOtpRespJson.remove("sendOtpResTemplate");
 			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
 					otpRespon.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
-					testCaseDTO.isCheckErrorsOnlyInResponse(), otpRespon.getStatusCode());
+					testCaseDTO, otpRespon.getStatusCode());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
@@ -183,11 +184,10 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		if (endPoint.contains("$PartnerName$")) {
 			endPoint = endPoint.replace("$PartnerName$", PartnerRegistration.partnerId);
 		}
-		
+
 		if (endPoint.contains("$UpdatedPartnerKeyURL$")) {
 			endPoint = endPoint.replace("$UpdatedPartnerKeyURL$", PartnerRegistration.updatedpartnerKeyUrl);
 		}
-		
 
 		String inputStr = buildIdentityRequest(input.toString());
 
@@ -217,8 +217,8 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 			}
 		}
 
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
-				response.asString(), ActualOPJson, testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO, response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValid))

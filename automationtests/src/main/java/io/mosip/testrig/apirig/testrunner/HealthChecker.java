@@ -17,7 +17,9 @@ import org.json.JSONObject;
 
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
+import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.apirig.kernel.util.SlackChannelIntegration;
 import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -88,6 +90,13 @@ public class HealthChecker implements Runnable {
 				if (serviceStatus.equalsIgnoreCase("UP") == false) {
 					isAllServicesUp = false;
 					healthCheckFailureMapS.put(controllerPaths.get(i), serviceStatus);
+					StringBuilder stringBuilder = new StringBuilder();
+					stringBuilder.append("On ").append(ConfigManager.getTargetEnvName())
+							.append(" Health check failed for this end point -- ").append(controllerPaths.get(i));
+//					Report to slack. If slack integration is done
+					SlackChannelIntegration.sendMessageToSlack(stringBuilder.toString());
+
+					GlobalMethods.reportServerError(" Health check failed " + controllerPaths.get(i), serviceStatus);
 				}
 
 			}
