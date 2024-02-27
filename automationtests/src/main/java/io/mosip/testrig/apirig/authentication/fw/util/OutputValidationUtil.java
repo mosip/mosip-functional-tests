@@ -601,7 +601,7 @@ public class OutputValidationUtil extends AuthTestsUtil {
 			errors.put(tempJson);
 		}
 
-		if (errors.length() == 0) {
+		if (errors == null ||errors.length() == 0) {
 			return;
 		}
 
