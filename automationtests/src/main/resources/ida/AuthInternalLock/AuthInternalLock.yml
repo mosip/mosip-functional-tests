@@ -14,7 +14,7 @@ AuthInternalLock:
     "unlockForSeconds": 500
 }'
       output: '{
-	"message": "Notification has been sent to the provided contact detail(s)"
+	"status": "Success"
 }'
   auth_AuthInternal_Lock_UIN_child_UIN_which_locked_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
@@ -31,7 +31,7 @@ AuthInternalLock:
     "unlockForSeconds": 0
 }'
       output: '{
-	"message": "Notification has been sent to the provided contact detail(s)"
+	"status": "Success"
 }'
   auth_AuthInternal_lock_with_explicitly_Smoke_Pos:
       endPoint: /idrepository/v1/identity/authtypes/status
@@ -48,7 +48,7 @@ AuthInternalLock:
     "unlockForSeconds": 5000
 }'
       output: '{
-	"message": "Notification has been sent to the provided contact detail(s)"
+	"status": "Success"
 }'
 
   auth_AuthInternal_Lock_UIN_Unlock_DemoAuth_Smoke_Pos:
@@ -66,7 +66,7 @@ AuthInternalLock:
     "unlockForSeconds": 500
 }'
       output: '{
-	"message": "Notification has been sent to the provided contact detail(s)"
+	"status": "Success"
 }'
 
   auth_AuthInternal_Permanent_Lock_BioAuth_Smoke_Pos:
@@ -84,7 +84,7 @@ AuthInternalLock:
     "unlockForSeconds": 0
 }'
       output: '{
-	"message": "Notification has been sent to the provided contact detail(s)"
+	"status": "Success"
 }'
 
   auth_AuthInternal_Permanent_Lock_DemoAuth_Smoke_Pos:
@@ -102,7 +102,7 @@ AuthInternalLock:
     "unlockForSeconds": 0
 }'
       output: '{
-	"message": "Notification has been sent to the provided contact detail(s)"
+	"status": "Success"
 }'
 
   auth_AuthInternal_Lock_UIN_Unlock_WithSecs_BioAuth_Smoke_Pos:
@@ -120,7 +120,7 @@ AuthInternalLock:
     "unlockForSeconds": 5
 }'
       output: '{
-	"message": "Notification has been sent to the provided contact detail(s)"
+	"status": "Success"
 }'
 
   auth_AuthInternal_Lock_UIN_Unlock_WithSecs_DemoAuth_Smoke_Pos:
@@ -138,7 +138,7 @@ AuthInternalLock:
     "unlockForSeconds": 5
 }'
       output: '{
-	"message": "Notification has been sent to the provided contact detail(s)"
+	"status": "Success"
 }'
 
   auth_AuthInternal_Permanent_Lock_BioAuth_Valid_Smoke_Pos:
@@ -156,7 +156,7 @@ AuthInternalLock:
     "unlockForSeconds": 0
 }'
       output: '{
-	"message": "Notification has been sent to the provided contact detail(s)"
+	"status": "Success"
 }'
 
   auth_AuthInternal_Permanent_Lock_DemoAuth_Valid_Smoke_Pos:
@@ -174,5 +174,5 @@ AuthInternalLock:
     "unlockForSeconds": 0
 }'
       output: '{
-	"message": "Notification has been sent to the provided contact detail(s)"
+	"status": "Success"
 }'
