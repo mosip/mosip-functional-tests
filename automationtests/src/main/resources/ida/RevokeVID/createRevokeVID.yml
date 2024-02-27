@@ -2,6 +2,7 @@ RevokeVID:
    auth_RevokeVID_all_valid_smoke:
       endPoint: /resident/v1/vid/$ID:GenerateVID_to_revoke_Perpetual_sid_vid$
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: patch
       inputTemplate: ida/RevokeVID/createRevokeVID
       outputTemplate: ida/RevokeVID/createRevokeVIDResult

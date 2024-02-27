@@ -2488,7 +2488,7 @@ MultiFactorAuth:
       checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
-      outputTemplate: ida/MultiFactorAuth/error
+      outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
           "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
           "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
@@ -2513,7 +2513,7 @@ MultiFactorAuth:
         "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "authStatus": false,
+    "authStatus": true,
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes"
     }
