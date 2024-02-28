@@ -61,7 +61,7 @@ AuthInternalLock:
     "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "authType": "Demo",
-    "authSubType": "dob",
+    "authSubType": "",
     "locked": false,
     "unlockForSeconds": 500
 }'
@@ -97,7 +97,7 @@ AuthInternalLock:
     "individualId": "$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParameters_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "authType": "Demo",
-    "authSubType": "dob",
+    "authSubType": "",
     "locked": true,
     "unlockForSeconds": 0
 }'
@@ -133,7 +133,7 @@ AuthInternalLock:
     "individualId": "$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParams_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "authType": "Demo",
-    "authSubType": "dob",
+    "authSubType": "",
     "locked": false,
     "unlockForSeconds": 5
 }'
@@ -169,7 +169,7 @@ AuthInternalLock:
     "individualId": "$ID:AddIdentity_Lock_permanent_DemoAuth_withValidParams_smoke_Pos_UIN$",
     "individualIdType": "UIN",
     "authType": "Demo",
-    "authSubType": "dob",
+    "authSubType": "",
     "locked": true,
     "unlockForSeconds": 0
 }'

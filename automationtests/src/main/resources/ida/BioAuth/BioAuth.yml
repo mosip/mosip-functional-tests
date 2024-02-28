@@ -1619,7 +1619,7 @@ BioAuth:
       role: resident
       restMethod: post
       inputTemplate: ida/BioAuth/BioAuth
-      outputTemplate: ida/BioAuth/error
+      outputTemplate: ida/BioAuth/BioAuthResult
       input: '{
           "bioSubType": "",
           "bioType": "FACE",
@@ -1641,12 +1641,7 @@ BioAuth:
           "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-    "errors": [
-        {
-          "errorCode": "IDA-MLC-019"
-        }
-      ],
-        "authStatus": false
+    "authStatus": "true"
 }'
   auth_BioAuth_Biometric_Face_With_Draft_uin_Smoke_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&id=$ID:GetDraft_all_valid_smoke_sid_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
