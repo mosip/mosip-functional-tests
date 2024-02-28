@@ -2,6 +2,7 @@ AuthUnlock:
    auth_AuthUnLock_Valid_UIN_All:
       endPoint: /resident/v1/req/auth-unlock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/AuthUnLock/createAuthUnLock
       outputTemplate: ida/AuthUnLock/createAuthUnLockResult
@@ -35,6 +36,7 @@ AuthUnlock:
    auth_AuthUnLock_Valid_UIN_DEMO_UNLOCK_All:
       endPoint: /resident/v1/req/auth-unlock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/AuthUnLock/createAuthUnLock
       outputTemplate: ida/AuthUnLock/createAuthUnLockResult

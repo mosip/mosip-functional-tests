@@ -592,6 +592,7 @@ EkycDemo:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
       kycFields: ["fullName"]
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -612,6 +613,7 @@ EkycDemo:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
       kycFields: ["fullName"]
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -660,6 +662,7 @@ EkycDemo:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
       kycFields: ["fullName"]
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
