@@ -103,7 +103,7 @@ public class SimplePostForAutoGenId extends AdminTestUtil implements ITest {
 				if (((BaseTestCase.currentModule.equals("auth") || BaseTestCase.currentModule.equals("esignet"))
 						&& (testCaseName.startsWith("auth_GenerateVID_")
 								|| testCaseName.startsWith("ESignetIdR_Generate")))) {
-					throw new SkipException("Generating VID using IdRepo API. Hence skipping this test case");
+					throw new SkipException(GlobalConstants.VID_GENERATED_USING_RESIDENT_API_SO_FEATURE_NOT_SUPPORTED_OR_NEEDED_MESSAGE);
 //					qa115 - f
 //					cam   - t f
 //					dev	  - t 
