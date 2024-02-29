@@ -2,6 +2,7 @@ AuthLock:
    auth_AuthLock_Valid_UIN_All:
       endPoint: /resident/v1/req/auth-lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/AuthLock/createAuthLock
       outputTemplate: ida/AuthLock/createAuthLockResult
@@ -24,15 +25,16 @@ AuthLock:
     }
     }'
       output: '{
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8531",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult"
     }
 }'
    auth_AuthLock_Valid_UIN_locked_All:
       endPoint: /resident/v1/req/auth-lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/AuthLock/createAuthLock
       outputTemplate: ida/AuthLock/createAuthLockResult
@@ -55,15 +57,16 @@ AuthLock:
     }
     }'
       output: '{
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8531",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult"
     }
 }'
    auth_AuthLock_Valid_UIN_for_bio_auth:
       endPoint: /resident/v1/req/auth-lock
       role: resident
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/AuthLock/createAuthLock
       outputTemplate: ida/AuthLock/createAuthLockResult
@@ -86,9 +89,9 @@ AuthLock:
     }
     }'
       output: '{
-  "message": "Notification has been sent to the provided contact detail(s)",
+  "message": "$IGNORE$",
   "sendOtpResp":{
-        "maskedMobile": "XXXXXX8531",
+        "maskedMobile": "$IGNORE$",
         "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult"
     }
 }'

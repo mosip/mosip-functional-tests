@@ -1,6 +1,10 @@
 name: Automationtests Build
 
 on:
+  release:
+    types: [published]
+  pull_request:
+    types: [opened, reopened, synchronize]
   workflow_call:
   workflow_dispatch:
     inputs:

@@ -122,6 +122,8 @@ public class ConfigManager {
 	private static String MOUNT_PATH = "mountPath";
 	private static String AUTHCERTS_PATH = "authCertsPath";
 	private static String MOUNT_PATH_FOR_SCENARIO = "mountPathForScenario";
+	
+	private static String SERVER_ERRORS_TO_MONITOR = "serverErrorsToMonitor";
 
 	private static String PACKET_UTILITY_BASE_URL = "packetUtilityBaseUrl";
 
@@ -237,6 +239,8 @@ public class ConfigManager {
 	private static String iamUsersPassword;
 	private static String authDemoServicePort;
 	private static String authDemoServiceBaseUrl;
+	
+	private static String serverErrorsToMonitor;
 
 	private static String mountPath;
 	private static String authCertsPath;
@@ -343,6 +347,11 @@ public class ConfigManager {
 				? propsKernel.getProperty(AUTH_DEMO_SERVICE_PORT)
 				: System.getenv(AUTH_DEMO_SERVICE_PORT);
 		propsKernel.setProperty(AUTH_DEMO_SERVICE_PORT, authDemoServicePort);
+		
+		serverErrorsToMonitor = System.getenv(SERVER_ERRORS_TO_MONITOR) == null
+				? propsKernel.getProperty(SERVER_ERRORS_TO_MONITOR)
+				: propsKernel.getProperty(SERVER_ERRORS_TO_MONITOR) + "," + System.getenv(SERVER_ERRORS_TO_MONITOR);
+		propsKernel.setProperty(SERVER_ERRORS_TO_MONITOR, serverErrorsToMonitor);
 
 		reportExpirationInDays = System.getenv(REPORT_EXPIRATION_IN_DAYS) == null
 				? propsKernel.getProperty(REPORT_EXPIRATION_IN_DAYS)
@@ -490,6 +499,10 @@ public class ConfigManager {
 			}
 		}
 		return false;
+	}
+	
+	public static String getServerErrorsToMonitor() {
+		return serverErrorsToMonitor;
 	}
 
 	public static String getUserAdminName() {
@@ -733,6 +746,10 @@ public class ConfigManager {
 
 	public static String getPushReportsToS3() {
 		return push_reports_to_s3;
+	}
+	
+	public static String getTargetEnvName() {
+		return dbDomain;
 	}
 
 	public static String getIdaDbUrl() {

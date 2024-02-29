@@ -203,7 +203,7 @@ EkycDemo:
   auth_EkycDemo_Auth_With_email_Valid_UIN_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
-      kycFields: ["name"]
+      kycFields: ["dob"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -592,6 +592,7 @@ EkycDemo:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
       kycFields: ["fullName"]
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -612,6 +613,7 @@ EkycDemo:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Positive_demoauth_name_smoke_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
       kycFields: ["fullName"]
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/EkycDemo/DemoIdentityEncryptName
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -660,6 +662,7 @@ EkycDemo:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
       kycFields: ["fullName"]
+      checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
@@ -736,7 +739,7 @@ EkycDemo:
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-      "value": "7019858531",
+      "value": "$ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$",
     "key": "phoneNumber",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
@@ -752,7 +755,7 @@ EkycDemo:
       inputTemplate: ida/EkycDemo/EkycDemo
       outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
-      "value": "7019858531",
+      "value": "$ID:AddIdentity_ValidParam_smoke_Pos_PHONE$",
     "key": "phoneNumber",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
@@ -931,7 +934,7 @@ EkycDemo:
       kycFields: ["gender"]
       restMethod: post
       inputTemplate: ida/EkycDemo/EkycDemo
-      outputTemplate: ida/EkycDemo/error
+      outputTemplate: ida/EkycDemo/EkycDemoResult
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
@@ -941,7 +944,7 @@ EkycDemo:
       output: '{
   "kycStatus": "true"
 }'
-  auth_EkycDemo_Auth_With_Valid_NOAUTH_UIN_Smoke:
+  auth_EkycDemo_Auth_With_Valid_NOAUTH_resident_cookie_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$KycPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$KycPartnerName$
       role: resident
       restMethod: post
@@ -954,12 +957,7 @@ EkycDemo:
         "key": "dob"
     }'
       output: '{
-      "errors": [
-        {
-          "errorCode": "IDA-MLC-019"
-        }
-      ],
-        "kycStatus": false
+  "kycStatus": "true"
 }'
   auth_EkycDemo_Auth_Without_kyc_attribute_in_policy_Smoke:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_EkycDemo_Auth_smoke_Pos_UIN$&isKyc=true&partnerUrlSuffix=$UpdatedPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$

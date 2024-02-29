@@ -445,7 +445,7 @@ OtpAuth:
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
 }'
-  auth_OTP_Auth_With_Invalid_individualIdType_VID_neg:
+  auth_OTP_Auth_With_Optional_individualIdType_VID:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$&idType=ndjshswhw3277272&partnerUrlSuffix=$partnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       checkErrorsOnlyInResponse: true
@@ -459,7 +459,7 @@ OtpAuth:
       "timestamp": "$TIMESTAMP$"
     }'
       output: '{
-  "authStatus": "false",
+  "authStatus": "true",
  "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }

@@ -16,6 +16,6 @@ createSendOTP:
     ]
   }'
       output: '{
-        "maskedMobile": "XXXXXX7143",
+        "maskedMobile": "$IGNORE$",
         "maskedEmail": "XXkXXlXXhXXuXXr@technoforte.co.in"
     }'

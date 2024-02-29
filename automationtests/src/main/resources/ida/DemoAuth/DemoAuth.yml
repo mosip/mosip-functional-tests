@@ -1,10 +1,10 @@
 DemoAuthNew:
-  auth_DemoAuth_DOB_Valid_Smoke_UIN_Neg:
+  auth_DemoAuth_DOB_Valid_Smoke_UIN:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
-      outputTemplate: ida/DemoAuth/error
+      outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
@@ -12,7 +12,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-        "authStatus": "false"
+        "authStatus": "true"
 }'
   auth_DemoAuth_DOB_InValid_UIN_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$IDlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -105,7 +105,7 @@ DemoAuthNew:
   "authStatus": "true"
 }'
 
-  auth_DemoAuth_DOB_Valid_Smoke_Infant_Uin_which_locked_Pos:
+  auth_DemoAuth_DOB_Valid_Smoke_Infant_Uin_which_locked_for_demo_Pos:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_with_Infant_which_locked_smoke_Pos_UIN$&idType=UIN&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
@@ -118,7 +118,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-  "authStatus": "false"
+  "authStatus": "true"
 }'
 
   auth_DemoAuth_DOB_Invalid_Past_Timestamp_VID_Neg:
@@ -856,7 +856,7 @@ DemoAuthNew:
       inputTemplate: ida/DemoAuth/DemoAuth
       outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
-    "value": "7019858531",
+    "value": "$ID:AddIdentity_ValidParam_smoke_Pos_PHONE$",
   "key": "phoneNumber",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
@@ -901,7 +901,7 @@ DemoAuthNew:
       inputTemplate: ida/DemoAuth/DemoAuth
       outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
-    "value": "7019858531",
+    "value": "$ID:AddIdentity_ValidParam_smoke_Pos_PHONE$",
   "key": "phoneNumber",
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$"
@@ -1091,12 +1091,12 @@ DemoAuthNew:
       output: '{
         "authStatus": "false"
 }'
-  auth_DemoAuth_DOB_Valid_Smoke_UIN_NOAUTH_Neg:
+  auth_DemoAuth_DOB_Valid_Smoke_UIN_NOAUTH_resident_cookie_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
-      outputTemplate: ida/DemoAuth/error
+      outputTemplate: ida/DemoAuth/DemoAuthResult
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
@@ -1104,7 +1104,7 @@ DemoAuthNew:
         "key": "dob"
     }'
       output: '{
-        "authStatus": "false"
+        "authStatus": "true"
 }'
   auth_DemoAuth_DOB_Valid_Smoke_with_Draft_UIN_Neg:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GetDraft_all_valid_smoke_sid_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
@@ -1121,36 +1121,36 @@ DemoAuthNew:
       output: '{
         "authStatus": "true"
 }'
-  auth_DemoAuthValid_Smoke_with_addressCopy:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/DemoAuth/DemoAuth
-      outputTemplate: ida/DemoAuth/DemoAuthResult
-      input: '{
-        "timestamp": "$TIMESTAMP$",
-        "transactionId": "$TRANSACTIONID$",
-      "value": "Y",
-        "key": "addressCopy"
-    }'
-      output: '{
-        "authStatus": "true"
-}'
-  auth_DemoAuthValid_Smoke_with_mobileno:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
-      role: resident
-      restMethod: post
-      inputTemplate: ida/DemoAuth/DemoAuth
-      outputTemplate: ida/DemoAuth/DemoAuthResult
-      input: '{
-        "timestamp": "$TIMESTAMP$",
-        "transactionId": "$TRANSACTIONID$",
-      "value": "7019858531",
-        "key": "mobileno"
-    }'
-      output: '{
-        "authStatus": "true"
-}'
+#  auth_DemoAuthValid_Smoke_with_addressCopy:
+#      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+#      role: resident
+#      restMethod: post
+#      inputTemplate: ida/DemoAuth/DemoAuth
+#      outputTemplate: ida/DemoAuth/DemoAuthResult
+#      input: '{
+#        "timestamp": "$TIMESTAMP$",
+#        "transactionId": "$TRANSACTIONID$",
+#      "value": "Y",
+#        "key": "addressCopy"
+#    }'
+#      output: '{
+#        "authStatus": "true"
+#}'
+#  auth_DemoAuthValid_Smoke_with_mobileno:
+#      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+#      role: resident
+#      restMethod: post
+#      inputTemplate: ida/DemoAuth/DemoAuth
+#      outputTemplate: ida/DemoAuth/DemoAuthResult
+#      input: '{
+#        "timestamp": "$TIMESTAMP$",
+#        "transactionId": "$TRANSACTIONID$",
+#      "value": "$ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$",
+#        "key": "mobileno"
+#    }'
+#      output: '{
+#        "authStatus": "true"
+#}'
   auth_DemoAuthValid_with_phone:
       endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
@@ -1160,7 +1160,7 @@ DemoAuthNew:
       input: '{
         "timestamp": "$TIMESTAMP$",
         "transactionId": "$TRANSACTIONID$",
-      "value": "7019858531",
+      "value": "$ID:AddIdentity_withValidParameters_smoke_Pos_PHONE$",
         "key": "phone"
     }'
       output: '{

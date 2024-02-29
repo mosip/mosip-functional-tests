@@ -86,9 +86,10 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(
+					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
-		
+
 		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
@@ -124,7 +125,7 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
 				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
-				testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
+				testCaseDTO, otpResponse.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
@@ -135,7 +136,7 @@ public class PostWithBodyWithOtpGenerateAndPdfDownload extends AdminTestUtil imp
 				testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
 		PdfReader pdfReader = null;
 		ByteArrayInputStream bIS = null;
-		
+
 		try {
 			bIS = new ByteArrayInputStream(pdf);
 			pdfReader = new PdfReader(bIS);

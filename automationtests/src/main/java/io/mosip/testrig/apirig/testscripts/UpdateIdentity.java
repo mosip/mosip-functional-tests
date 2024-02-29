@@ -99,9 +99,10 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 
 		testCaseName = testCaseDTO.getTestCaseName();
 		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+			throw new SkipException(
+					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
 		}
-		
+
 		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
 			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
 					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
@@ -148,12 +149,23 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 
 		String inputJson = getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate());
 
+		JSONObject reqJsonObject = new JSONObject(inputJson);
+
+		if (testCaseName.startsWith("IdRepository_") && reqJsonObject.has("request")
+				&& reqJsonObject.getJSONObject("request").has("identity")
+				&& reqJsonObject.getJSONObject("request").getJSONObject("identity").has("IDSchemaVersion")
+				&& reqJsonObject.getJSONObject("request").getJSONObject("identity").getString("IDSchemaVersion")
+						.equalsIgnoreCase("$SCHEMAVERSION$")) {
+			reqJsonObject.getJSONObject("request").getJSONObject("identity").put("IDSchemaVersion", idSchemaVersion);
+			inputJson = reqJsonObject.toString();
+		}
+
 		String phone = getValueFromAuthActuator("json-property", "phone_number");
 		String result = phone.replaceAll("\\[\"|\"\\]", "");
 
 		String email = getValueFromAuthActuator("json-property", "emailId");
 		String emailResult = email.replaceAll("\\[\"|\"\\]", "");
-		
+
 		JSONArray dobArray = new JSONArray(getValueFromAuthActuator("json-property", "dob"));
 		String dob = dobArray.getString(0);
 
@@ -161,14 +173,16 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 		inputJson = inputJson.replace("\"email\":", "\"" + emailResult + "\":");
 
 		inputJson = inputJson.replace("$RID$", genRid);
-		
+
 		if ((testCaseName.startsWith("IdRepository_") || testCaseName.startsWith("Auth_"))
 				&& inputJson.contains("dateOfBirth") && (!isElementPresent(new JSONArray(schemaRequiredField), dob))) {
 			JSONObject reqJson = new JSONObject(inputJson);
 			reqJson.getJSONObject("request").getJSONObject("identity").remove("dateOfBirth");
 			inputJson = reqJson.toString();
+			if (testCaseName.contains("dob"))
+				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
 		}
-		
+
 		if ((testCaseName.startsWith("IdRepository_") || testCaseName.startsWith("Auth_"))
 				&& inputJson.contains("email")
 				&& (!isElementPresent(new JSONArray(schemaRequiredField), emailResult))) {
@@ -177,6 +191,9 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 			if (reqJson.getJSONObject("request").getJSONObject("identity").has(result)) {
 				reqJson.getJSONObject("request").getJSONObject("identity").remove(result);
 			}
+			if (testCaseName.contains("email") || testCaseName.contains("phonenumber"))
+				throw new SkipException(GlobalConstants.FEATURE_NOT_SUPPORTED_MESSAGE);
+
 			inputJson = reqJson.toString();
 		}
 
@@ -188,7 +205,7 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 
 		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil.doJsonOutputValidation(
 				response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()),
-				testCaseDTO.isCheckErrorsOnlyInResponse(), response.getStatusCode());
+				testCaseDTO, response.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
 		Assert.assertEquals(OutputValidationUtil.publishOutputResult(ouputValid), true);
 
@@ -202,7 +219,7 @@ public class UpdateIdentity extends AdminTestUtil implements ITest {
 			sendOtpRespJson.remove("sendOtpResTemplate");
 			Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
 					otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
-					testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
+					testCaseDTO, otpResponse.getStatusCode());
 			Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 
 			if (!OutputValidationUtil.publishOutputResult(ouputValidOtp))
