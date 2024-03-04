@@ -3723,7 +3723,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String signJWKForMock(String clientId, String accessToken, RSAKey jwkKey, String testCaseName) {
 //		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.base.url");
-		String tempUrl = getValueFromEsignetWellKnownEndPoint("issuer") + "/v1/esignet";
+		String tempUrl = getValueFromEsignetWellKnownEndPoint("issuer");
 		if (tempUrl.contains("esignet.")) {
 			tempUrl = tempUrl.replace("esignet.", propsKernel.getProperty("esignetMockBaseURL"));
 		}
@@ -3772,7 +3772,7 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public static String signJWK(String clientId, String accessToken, RSAKey jwkKey, String testCaseName) {
 //		String tempUrl = getValueFromActuator(GlobalConstants.RESIDENT_DEFAULT_PROPERTIES, "mosip.iam.base.url");
-		String tempUrl = getValueFromEsignetWellKnownEndPoint("issuer") + "/v1/esignet";
+		String tempUrl = getValueFromEsignetWellKnownEndPoint("issuer");
 		int idTokenExpirySecs = Integer.parseInt(getValueFromEsignetActuator(GlobalConstants.ESIGNET_DEFAULT_PROPERTIES,
 				GlobalConstants.MOSIP_ESIGNET_ID_TOKEN_EXPIRE_SECONDS));
 		JWSSigner signer;
