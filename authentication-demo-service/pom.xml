@@ -17,9 +17,9 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git://github.com/mosip/esignet.git</connection>
-		<developerConnection>scm:git:ssh://github.com:mosip/esignet.git</developerConnection>
-		<url>https://github.com/mosip/esignet</url>
+		<connection>scm:git:git://github.com/mosip/mosip-functional-tests.git</connection>
+		<developerConnection>scm:git:ssh://github.com:mosip/mosip-functional-tests.git</developerConnection>
+		<url>https://github.com/mosip/mosip-functional-tests</url>
 		<tag>HEAD</tag>
 	</scm>
 
@@ -28,7 +28,7 @@
 			<name>Mosip</name>
 			<email>mosip.emailnotifier@gmail.com</email>
 			<organization>io.mosip</organization>
-			<organizationUrl>https://github.com/mosip/esignet</organizationUrl>
+			<organizationUrl>https://github.com/mosip/mosip-functional-tests</organizationUrl>
 		</developer>
 	</developers>
 
