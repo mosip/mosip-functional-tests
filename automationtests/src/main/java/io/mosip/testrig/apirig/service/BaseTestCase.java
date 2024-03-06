@@ -284,6 +284,9 @@ public class BaseTestCase {
 
 			BaseTestCase.currentModule = GlobalConstants.ESIGNET;
 			BaseTestCase.certsForModule = GlobalConstants.ESIGNET;
+			DBManager.clearKeyManagerDbDataForEsignet();
+			DBManager.clearIDADbDataForEsignet();
+			DBManager.clearMasterDbDataForEsignet();
 			setReportName(GlobalConstants.ESIGNET);
 			AdminTestUtil.initiateesignetTest();
 			mockSMTPListener = new MockSMTPListener();
