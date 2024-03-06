@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 	<name>mosip-functional-test</name>
 	<url>http://maven.apache.org</url>
-	<version>1.2.0.1-SNAPSHOT</version>
+	<version>1.2.0.1</version>
 
 	<licenses>
 		<license>
@@ -180,7 +180,7 @@
 
 		<!-- automationtests version -->
 		<wink-json4j-provider.version>1.1.2-incubating</wink-json4j-provider.version>
-		<kernel.version>1.2.0.1-SNAPSHOT</kernel.version>
+		<kernel.version>1.2.0.1</kernel.version>
 		<zjsonpatch.version>0.4.7</zjsonpatch.version>
 		<extentreports.aventstack.version>3.0.0</extentreports.aventstack.version>
 		<extentreports.relevantcodes.version>2.41.2</extentreports.relevantcodes.version>
@@ -483,7 +483,7 @@
 	 	<dependency>
 			<groupId>io.mosip.testrig.authentication.demo</groupId>
 			<artifactId>authentication-demo-service</artifactId>
-			<version>1.2.0.1-SNAPSHOT</version>
+			<version>1.2.0.1</version>
 			<exclusions>
 				<exclusion>
 					<groupId>dom4j</groupId>
