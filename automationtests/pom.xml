@@ -6,6 +6,7 @@
 	<artifactId>automationtests</artifactId>
 	<packaging>jar</packaging>
 	<name>mosip-functional-test</name>
+	<description>Parent project of MOSIP functional tests</description>
 	<url>http://maven.apache.org</url>
 	<version>1.2.0.1</version>
 
