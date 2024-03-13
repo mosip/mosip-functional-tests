@@ -494,8 +494,8 @@ public class Decrypt {
 	@ApiOperation(value = "Asymmetric Decrypt using private key p12 file", response = EncryptionResponseDto.class)
 	public String asymmetricDecryptionForPrivateKeyP12File(@RequestBody String data,
 			@RequestParam(name = "p12FileName", required = true) String p12FileName,
-			@RequestParam(name = "keystorePassword", required = false) char[] p12Pass,
-			@RequestParam(name = "keyAlias", required = false) String keyAlias,
+			@RequestParam(name = "keystorePassword", required = true) char[] p12Pass,
+			@RequestParam(name = "keyAlias", required = true) String keyAlias,
 			@RequestParam(name = "certsDir", required = false) String certsDir,
 			@RequestParam(name = "moduleName", required = false) String moduleName) throws Exception {
 		return kernelAsymmetricDecryptForP12File(data, p12FileName, certsDir, moduleName, p12Pass, keyAlias);
