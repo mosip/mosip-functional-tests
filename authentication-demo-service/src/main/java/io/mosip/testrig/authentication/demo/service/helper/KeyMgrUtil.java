@@ -174,11 +174,19 @@ public class KeyMgrUtil {
             KeyStore keyStore = KeyStore.getInstance(KEY_STORE);
 	            try(InputStream p12FileStream = new FileInputStream(filePath);) {
 	            keyStore.load(p12FileStream, p12Pass);
-	            return (PrivateKeyEntry) keyStore.getEntry(keyAlias, new PasswordProtection (p12Pass));
+	            return (PrivateKeyEntry) keyStore.getEntry(getKeyAlias(keyAlias), new PasswordProtection (getP12Pass(p12Pass)));
             }
         }
         return null;
     }
+
+	private char[] getP12Pass(char[] p12Pass) {
+		return p12Pass == null ? getP12Pass() : p12Pass;
+	}
+
+	private String getKeyAlias(String keyAlias) {
+		return keyAlias == null ? getKeyAlias() : keyAlias;
+	}
     
     private char[] getP12Pass() {
 		String pass = environment.getProperty("p12.password");
