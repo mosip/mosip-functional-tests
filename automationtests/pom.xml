@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 	<name>mosip-functional-test</name>
 	<description>Parent project of MOSIP functional tests</description>
-	<url>http://maven.apache.org</url>
+	<url>https://github.com/mosip/mosip-functional-tests</url>
 	<version>1.2.0.1</version>
 
 	<licenses>
@@ -665,6 +665,65 @@
         </execution>
     </executions>
 </plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven.jar.plugin.version}</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Project-Name>${project.name}</Project-Name>
+								<Project-Version>${project.version}</Project-Version>
+								<Built-By>${user.name}</Built-By>
+								<Built-OS>${os.name}</Built-OS>
+								<Local-Build-Date>${maven.build.timestamp}</Local-Build-Date>
+								<Build-Number>${env.BUILD_NUMBER}</Build-Number>
+								<Build-Date>${env.BUILD_ID}</Build-Date>
+								<Build-URL>${env.BUILD_URL}</Build-URL>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${maven.war.plugin.version}</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Project-Name>${project.name}</Project-Name>
+								<Project-Version>${project.version}</Project-Version>
+								<Built-By>${user.name}</Built-By>
+								<Built-OS>${os.name}</Built-OS>
+								<Local-Build-Date>${maven.build.timestamp}</Local-Build-Date>
+								<Build-Number>${env.BUILD_NUMBER}</Build-Number>
+								<Build-Date>${env.BUILD_ID}</Build-Date>
+								<Build-URL>${env.BUILD_URL}</Build-URL>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-source-plugin</artifactId>
+                  <version>2.2.1</version>
+                  <executions>
+                        <execution>
+                          <id>attach-sources</id>
+                          <goals>
+                                <goal>jar-no-fork</goal>
+                          </goals>
+                        </execution>
+                  </executions>
+                </plugin>			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
