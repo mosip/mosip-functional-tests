@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.GeneralSecurityException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
@@ -38,6 +39,7 @@ import javax.xml.bind.DatatypeConverter;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang.ArrayUtils;
+import org.bouncycastle.operator.OperatorCreationException;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -152,6 +154,32 @@ public class Encrypt {
 			refId = getRefId(isInternal, isBiometrics);
 		}
 		return kernelEncrypt(encryptionRequestDto, refId);
+	}
+	
+	@PostMapping(path = "/asymmetricEncryptionForCertFile")
+	@ApiOperation(value = "Asymmetric Encrypt data using certificate file", response = EncryptionResponseDto.class)
+	public String asymmetricEncryptionForCertFile(@RequestBody String data,
+			@RequestParam(name = "certFileName", required = true) String certFileName,
+			@RequestParam(name = "certsDir", required = false) String certsDir,
+			@RequestParam(name = "moduleName", required = false) String moduleName) throws Exception {
+		return kernelAsymmetricEncryptForCertFile(data, certFileName, certsDir, moduleName);
+	}
+	
+	@PostMapping(path = "/asymmetricEncryptionForPublicKeyPEMFile")
+	@ApiOperation(value = "Asymmetric Encrypt data with public key PEM file", response = EncryptionResponseDto.class)
+	public String asymmetricEncryptionForPublicKeyPEMFile(@RequestBody String data,
+			@RequestParam(name = "publicKeyPEMFileName", required = true) String publicKeyPEMFileName,
+			@RequestParam(name = "keysDir", required = false) String keysDir,
+			@RequestParam(name = "moduleName", required = false) String moduleName) throws Exception {
+		return kernelAsymmetricEncryptForPublicKeyPEMFile(data, publicKeyPEMFileName, keysDir, moduleName);
+	}
+
+	private String kernelAsymmetricEncryptForCertFile(String data, String certFileName, String certsDir, String moduleName) throws OperatorCreationException, IOException, GeneralSecurityException {
+		return keyMgrUtil.asymmetricEncryptionForCert(data.getBytes(), certFileName, certsDir, moduleName);
+	}
+	
+	private String kernelAsymmetricEncryptForPublicKeyPEMFile(String data, String publicKeyPEMFile, String certsDir, String moduleName) throws OperatorCreationException, IOException, GeneralSecurityException {
+		return keyMgrUtil.asymmetricEncryptionForPemFile(data.getBytes(), publicKeyPEMFile, certsDir, moduleName);
 	}
 
 	/**

@@ -5,6 +5,7 @@ import static io.mosip.authentication.core.constant.IdAuthCommonConstants.DEFAUL
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.security.GeneralSecurityException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
@@ -35,6 +36,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang.ArrayUtils;
+import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,10 +77,12 @@ import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.testrig.authentication.demo.service.controller.Encrypt.SplittedEncryptedData;
 import io.mosip.testrig.authentication.demo.service.dto.CryptomanagerRequestDto;
+import io.mosip.testrig.authentication.demo.service.dto.EncryptionResponseDto;
 import io.mosip.testrig.authentication.demo.service.helper.CryptoCoreUtil;
 import io.mosip.testrig.authentication.demo.service.helper.KeyMgrUtil;
 import io.mosip.testrig.authentication.demo.service.helper.PartnerTypes;
-import io.swagger.annotations.Api;;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;;
 
 /**
  * The Class Decrypt is used to decrypt the KYC Response.
@@ -90,6 +94,7 @@ import io.swagger.annotations.Api;;
 public class Decrypt {
 
 	private static final int TAG_LENGTH = 128;
+
 	@Autowired
 	private Environment env;
 	
@@ -484,6 +489,22 @@ public class Decrypt {
 		PrivateKeyEntry ekycKey = keyMgrUtil.getKeyEntry(keyMgrUtil.getKeysDirPath(certsDir, moduleName), partnerType, partnerName, keyFileNameByPartnerName);
 		return cryptoCoreUtil.decrypt(data, ekycKey);
 	}
+	
+	@PostMapping(path = "/asymmetricDecryptionForPrivateKeyP12File")
+	@ApiOperation(value = "Asymmetric Decrypt using private key p12 file", response = EncryptionResponseDto.class)
+	public String asymmetricDecryptionForPrivateKeyP12File(@RequestBody String data,
+			@RequestParam(name = "p12FileName", required = true) String p12FileName,
+			@RequestParam(name = "keystorePassword", required = false) char[] p12Pass,
+			@RequestParam(name = "keyAlias", required = false) String keyAlias,
+			@RequestParam(name = "certsDir", required = false) String certsDir,
+			@RequestParam(name = "moduleName", required = false) String moduleName) throws Exception {
+		return kernelAsymmetricDecryptForP12File(data, p12FileName, certsDir, moduleName, p12Pass, keyAlias);
+	}
+
+	private String kernelAsymmetricDecryptForP12File(String data, String p12FileName, String certsDir,
+			String moduleName, char[] p12Pass, String keyAlias) throws InvalidCipherTextException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, CertificateException, OperatorCreationException, GeneralSecurityException, IOException {
+		return keyMgrUtil.asymmetricDecryptionForP12File(CryptoUtil.decodePlainBase64(data), p12FileName, certsDir, moduleName, p12Pass, keyAlias);
+	}
 
 	private byte[] decryptSecretKey(PrivateKey privKey, byte[] encKey) throws NoSuchAlgorithmException, NoSuchPaddingException, 
 			InvalidKeyException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
@@ -493,5 +514,5 @@ public class Decrypt {
 	     cipher.init(Cipher.DECRYPT_MODE, privKey, oaepParams);
 	     return cipher.doFinal(encKey, 0, encKey.length);
 	}
-
+	
 }
