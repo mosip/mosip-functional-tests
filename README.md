@@ -84,3 +84,4 @@ Example: Current version of Dev Code Base is 1.2.0.1 so the jar name will be aut
 
 ## License
 This project is licensed under the terms of [Mozilla Public License 2.0](https://github.com/mosip/mosip-platform/blob/master/LICENSE)
+
