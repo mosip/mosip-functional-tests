@@ -6,7 +6,8 @@
 	<artifactId>automationtests</artifactId>
 	<packaging>jar</packaging>
 	<name>mosip-functional-test</name>
-	<url>http://maven.apache.org</url>
+	<description>Parent project of MOSIP functional tests</description>
+	<url>https://github.com/mosip/mosip-functional-tests</url>
 	<version>1.2.0.1-SNAPSHOT</version>
 
 	<licenses>
@@ -50,7 +51,7 @@
 		<maven.sonar.plugin.version>3.2</maven.sonar.plugin.version>
 		<maven.javadoc.version>3.0.1</maven.javadoc.version>
 		<maven-shade-plugin.version>2.3</maven-shade-plugin.version>
-		<maven.javadoc.skip>true</maven.javadoc.skip>
+		<maven.javadoc.skip>false</maven.javadoc.skip>
 		<maven.sonar.plugin.version>3.7.0.1746</maven.sonar.plugin.version>
 		<!-- spring -->
 		<spring.boot.version>2.0.2.RELEASE</spring.boot.version>
@@ -558,6 +559,21 @@
 		</pluginManagement>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<doclint>none</doclint>
+				</configuration>
+			</plugin>
+			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.5.1</version>
 				<configuration>
@@ -566,7 +582,14 @@
 					<argLine>-Dfile.encoding=UTF-8</argLine>
 				</configuration>
 			</plugin>
-			
+                <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-javadoc-plugin</artifactId>
+                  <version>3.2.0</version>
+                  <configuration>
+                     <doclint>none</doclint>    
+                  </configuration>
+                </plugin>			
 			<plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
@@ -592,9 +615,24 @@
             </plugin>
 
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<version>1.5</version>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>1.5</version>
+					<executions>
+						<execution>
+							<id>sign-artifacts</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>sign</goal>
+							</goals>
+							<configuration>
+								<gpgArguments>
+									<arg>--pinentry-mode</arg>
+									<arg>loopback</arg>
+								</gpgArguments>
+							</configuration>
+						</execution>
+					</executions>
 			</plugin>
 
 
@@ -634,6 +672,65 @@
         </execution>
     </executions>
 </plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven.jar.plugin.version}</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Project-Name>${project.name}</Project-Name>
+								<Project-Version>${project.version}</Project-Version>
+								<Built-By>${user.name}</Built-By>
+								<Built-OS>${os.name}</Built-OS>
+								<Local-Build-Date>${maven.build.timestamp}</Local-Build-Date>
+								<Build-Number>${env.BUILD_NUMBER}</Build-Number>
+								<Build-Date>${env.BUILD_ID}</Build-Date>
+								<Build-URL>${env.BUILD_URL}</Build-URL>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${maven.war.plugin.version}</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
+							<manifestEntries>
+								<Project-Name>${project.name}</Project-Name>
+								<Project-Version>${project.version}</Project-Version>
+								<Built-By>${user.name}</Built-By>
+								<Built-OS>${os.name}</Built-OS>
+								<Local-Build-Date>${maven.build.timestamp}</Local-Build-Date>
+								<Build-Number>${env.BUILD_NUMBER}</Build-Number>
+								<Build-Date>${env.BUILD_ID}</Build-Date>
+								<Build-URL>${env.BUILD_URL}</Build-URL>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-source-plugin</artifactId>
+                  <version>2.2.1</version>
+                  <executions>
+                        <execution>
+                          <id>attach-sources</id>
+                          <goals>
+                                <goal>jar-no-fork</goal>
+                          </goals>
+                        </execution>
+                  </executions>
+                </plugin>			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
