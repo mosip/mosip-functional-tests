@@ -8,7 +8,7 @@
 	<name>mosip-functional-test</name>
 	<description>Parent project of MOSIP functional tests</description>
 	<url>https://github.com/mosip/mosip-functional-tests</url>
-	<version>1.3.0-ES-SNAPSHOT</version>
+	<version>1.3.0-ES</version>
 
 	<licenses>
 		<license>
