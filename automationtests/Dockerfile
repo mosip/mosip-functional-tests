@@ -35,7 +35,7 @@ RUN apt-get -y update \
 && useradd -u ${container_user_uid} -g ${container_user_group} -s /bin/sh -m ${container_user} \
 && curl -LO "https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl" \
 && chmod +x kubectl \
-&& mv kubectl /usr/local/bin/
+&& mv kubectl /usr/local/bin/ \
 && chown -R ${container_user}:${container_user} /home/${container_user} /usr/local/openjdk-11/lib/security/cacerts \
 && chmod +x $work_dir/entrypoint.sh \
 && chmod 644 /usr/local/openjdk-11/lib/security/cacerts
