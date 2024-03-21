@@ -47,6 +47,22 @@ public class DBManager {
 				}
 			}
 		}
+	
+	public static void clearKeyManagerDbDataForEsignet() {
+		Session session = null;
+		try {
+			session = getDataBaseConnection(ConfigManager.getKMDbUrl(), ConfigManager.getKMDbUser(),
+					ConfigManager.getKMDbPass(), ConfigManager.getKMDbSchema());
+			executeQueries(session, MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/keyManagerDataDeleteQueriesForEsignet.txt");				
+			} catch (Exception e) {
+				logger.error("Error:: While executing PMS DB Quiries." + e.getMessage());
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
+		}
+	
 	public static void clearMasterDbData() {
 		Session session = null;
 		try {
@@ -61,6 +77,37 @@ public class DBManager {
 				}
 			}
 		}
+	
+	public static void clearMasterDbDataForEsignet() {
+		Session session = null;
+		try {
+			session = getDataBaseConnection(ConfigManager.getMASTERDbUrl(), ConfigManager.getMasterDbUser(),
+					ConfigManager.getMasterDbPass(), ConfigManager.getMasterDbSchema());
+			executeQueries(session,  MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/masterDataDeleteQueriesForEsignet.txt");
+			} catch (Exception e) {
+				logger.error("Error:: While executing MASTER DB Quiries." + e.getMessage());
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
+		}
+	
+	public static void clearIDADbDataForEsignet() {
+		Session session = null;
+		try {
+			session = getDataBaseConnection(ConfigManager.getIdaDbUrl(), ConfigManager.getIdaDbUser(),
+					ConfigManager.getPMSDbPass(), ConfigManager.getIdaDbSchema());
+			executeQueries(session,  MosipTestRunner.getGlobalResourcePath() + "/"	+ "config/idaDeleteQueriesForEsignet.txt");
+			} catch (Exception e) {
+				logger.error("Error:: While executing MASTER DB Quiries." + e.getMessage());
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
+		}
+	
 	public static void executeQueries(Session session, String strQueriesFilePath) throws Exception {
 		if (session != null) {
 				session.doWork(new Work() {
