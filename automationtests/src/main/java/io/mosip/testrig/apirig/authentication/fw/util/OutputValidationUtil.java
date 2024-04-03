@@ -604,9 +604,10 @@ public class OutputValidationUtil extends AuthTestsUtil {
 		if (errors == null ||errors.length() == 0) {
 			return;
 		}
-		String errorMessage = "";
+		
 
 		for (int i = 0; i < errors.length(); i++) {
+			String errorMessage = "";
 
 			if (ConfigManager.getServerErrorsToMonitor().contains(errors.getJSONObject(i).getString("errorCode"))) {
 				errorMessage = errors.getJSONObject(i).has("errorMessage")
