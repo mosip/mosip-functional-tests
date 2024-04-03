@@ -604,19 +604,23 @@ public class OutputValidationUtil extends AuthTestsUtil {
 		if (errors == null ||errors.length() == 0) {
 			return;
 		}
+		
 
 		for (int i = 0; i < errors.length(); i++) {
+			String errorMessage = "";
 
 			if (ConfigManager.getServerErrorsToMonitor().contains(errors.getJSONObject(i).getString("errorCode"))) {
+				errorMessage = errors.getJSONObject(i).has("errorMessage")
+						? errors.getJSONObject(i).getString("errorMessage")
+						: errors.getJSONObject(i).getString("message");
 				StringBuilder stringBuilder = new StringBuilder();
 				stringBuilder.append("On ").append(ConfigManager.getTargetEnvName()).append(" Encountered -- ")
 						.append(errors.getJSONObject(i).getString("errorCode")).append(" -- ")
-						.append(errors.getJSONObject(i).getString("errorMessage"))
-						.append("on this end point - ")
+						.append(errorMessage).append("on this end point - ")
 						.append(testCaseDTO.getEndPoint());
 //				Report to slack. If slack integration is done
 				SlackChannelIntegration.sendMessageToSlack(stringBuilder.toString());
-				
+
 				GlobalMethods.reportServerError(errors.getJSONObject(i).getString("errorCode"),
 						errors.getJSONObject(i).getString("errorMessage"));
 			}
