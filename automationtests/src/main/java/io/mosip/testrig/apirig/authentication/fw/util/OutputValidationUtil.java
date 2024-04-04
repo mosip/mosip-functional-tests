@@ -622,7 +622,7 @@ public class OutputValidationUtil extends AuthTestsUtil {
 				SlackChannelIntegration.sendMessageToSlack(stringBuilder.toString());
 
 				GlobalMethods.reportServerError(errors.getJSONObject(i).getString("errorCode"),
-						errors.getJSONObject(i).getString("errorMessage"));
+						errorMessage);
 			}
 		}
 	}
