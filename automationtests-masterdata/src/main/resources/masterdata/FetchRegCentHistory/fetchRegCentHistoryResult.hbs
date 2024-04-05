@@ -1,0 +1,12 @@
+{
+"response": {
+  "registrationCentersHistory": [
+  {{#each registrationCentersHistory}}
+    {
+        "isActive": "{{isActive}}"
+      }
+     {{#unless @last}},{{/unless}}
+      	{{/each}}
+  ]
+  }
+}

@@ -1,0 +1,68 @@
+FetchMachine:
+   Masterdata_FetchMachine_allValid_smoke:
+      endPoint: /v1/masterdata/machines
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchMachine/fetchMachine
+      outputTemplate: masterdata/FetchMachine/fetchMachineResult
+      input: '{
+  "id": "$REMOVE$",
+  "langcode": "$REMOVE$",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+"machines": [{
+			"isActive": true
+		}]
+}'
+   Masterdata_FetchMachine_allValid_smoke_with_id:
+      endPoint: /v1/masterdata/machines/{id}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchMachine/fetchMachine
+      outputTemplate: masterdata/FetchMachine/fetchMachineResult
+      input: '{
+  "id": "$ID:CreateMachine_All_Valid_Smoke_sid_id$",
+  "langcode": "$REMOVE$",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+"machines": [{
+			"isActive": true
+		}]
+}'
+   Masterdata_FetchMachine_allValid_smoke_with_regCenterId:
+      endPoint: /v1/masterdata/machines/mappedmachines/{regCenterId}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchMachine/fetchMachine
+      outputTemplate: masterdata/FetchMachine/fetchMachineByCenterResult
+      input: '{
+  "id": "$REMOVE$",
+  "langcode": "$REMOVE$",
+  "regCenterId": "$ID:CreateRegCenter_allValid_smoke_sid_id$"
+}'
+      output: '{
+"data": [{
+			"isActive": "true"
+		}]
+}'
+   Masterdata_FetchMachine_inValid_regCenterId:
+      endPoint: /v1/masterdata/machines/mappedmachines/{regCenterId}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchMachine/fetchMachine
+      outputTemplate: masterdata/error
+      input: '{
+  "id": "$REMOVE$",
+  "langcode": "$REMOVE$",
+  "regCenterId": "1@222"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-030",
+      "message": "Machine not Found"
+    }
+  ]
+}'

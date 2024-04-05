@@ -1,0 +1,12 @@
+GetTemplates:
+   Admin_GetTemplates_allValid_smoke:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetTemplates/getTemplates
+      outputTemplate: masterdata/GetTemplates/getTemplatesResult
+      input: '{
+  
+}'
+      output: '{
+}'

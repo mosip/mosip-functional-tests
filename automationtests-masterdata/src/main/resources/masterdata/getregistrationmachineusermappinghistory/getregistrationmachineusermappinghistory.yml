@@ -1,0 +1,23 @@
+getregistrationmachineusermappinghistory:
+   Admin_getregistrationmachineusermappinghistory_allValid_smoke:
+      endPoint: /v1/masterdata/getregistrationmachineusermappinghistory/{effdtimes}/{registrationcenterid}/{machineid}/{userid}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/getregistrationmachineusermappinghistory/getregistrationmachineusermappinghistory
+      outputTemplate: masterdata/getregistrationmachineusermappinghistory/getregistrationmachineusermappinghistoryResult
+      input: '{
+      "effdtimes":"$TIMESTAMP$",
+      "registrationcenterid":"10001",
+      "machineid":"10001",
+      "userid":"110001"
+}'
+      output: '{
+"registrationCenters": [{
+        "cntrId": "10001",
+        "machineId": "10001",
+        "usrId": "110001",
+        "isActive": "$IGNORE$",
+        "langCode": "$IGNORE$",
+        "effectivetimes": "$IGNORE$"
+    }]
+}'  

@@ -1,0 +1,41 @@
+UpdateUISpec:
+   MasterData_Invalid_UpdateUISpec_older_date_Smoke:  
+      endPoint: /v1/masterdata/uispec/publish
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/UpdateUISpec/updateUISpec
+      outputTemplate: masterdata/error
+      input: '{
+  "effectiveFrom": "2021-07-19T12:25:54.886Z",
+  "id": "ff8df956-f529-45b6-9242-abe61bb02df9",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "UIS-UIS-007",
+      "message": "UI spec effective from date cannot be older"
+    }
+  ]
+}'
+
+   MasterData_Invalid_UpdateUISpec_Already_exists:  
+      endPoint: /v1/masterdata/uispec/publish
+      role: admin
+      restMethod: put
+      inputTemplate: masterdata/UpdateUISpec/updateUISpec
+      outputTemplate: masterdata/error
+      input: '{
+  "effectiveFrom": "2052-07-29T12:25:54.886Z",
+  "id": "ff8df956-f529-45b6-9242-abe61bb02df9",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-UIS-006",
+      "message": "UI spec already published"
+    }
+  ]
+}'
+   

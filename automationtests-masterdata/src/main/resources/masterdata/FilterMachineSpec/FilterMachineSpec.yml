@@ -1,0 +1,302 @@
+FilterMachineSpec:
+   Masterdata_FilterMachineSpec_Valid_Smoke:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "HP"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "HP"
+      }
+    ]
+  }'
+   Masterdata_FilterMachineSpec_Valid_col_as_name_filterType_all:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "all",
+		"text": "HP"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "HP"
+      }
+    ]
+  }'
+   Masterdata_FilterMachineSpec_Valid_name_tro_filterType_all:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "all",
+		"text": "HP"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "$IGNORE$"
+      }
+    ]
+  }'
+   Masterdata_FilterMachineSpec_Valid_name_tro_filterType_unique:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "HP"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "name",
+        "fieldValue": "$IGNORE$"
+      }
+    ]
+  }'
+   Masterdata_FilterMachineSpec_Valid_col_brand:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
+      input: '{
+	"filters": [{
+		"columnName": "brand",
+		"type": "unique",
+		"text": "HP"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "brand",
+        "fieldValue": "$IGNORE$"
+      }
+    ]
+  }'
+   Masterdata_FilterMachineSpec_Valid_col_model:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
+      input: '{
+	"filters": [{
+		"columnName": "model",
+		"type": "all",
+		"text": "1234"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "model",
+        "fieldValue": "1234"
+      }
+    ]
+  }'
+   Masterdata_FilterMachineSpec_Valid_filterText_blank:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/FilterMachineSpec/filterMachineSpecResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": ""
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+  }'  
+   Masterdata_FilterMachineSpec_inValid_filterType_blank:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "",
+		"text": "POA"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'  
+   Masterdata_FilterMachineSpec_inValid_filterColumnName_blank:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "",
+		"type": "unique",
+		"text": "POA"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.filters[0].columnName: must not be blank"
+    }
+  ]
+}'  
+   Masterdata_FilterMachineSpec_inValid_RequestTime_format:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "POA"
+	}],
+	"languageCode": "eng",
+	"requesttime": "2018-12-1006:12:52.994Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}'
+   Masterdata_FilterMachineSpec_inValid_filterColumnName:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "fbheafg",
+		"type": "unique",
+		"text": "POA"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-317"
+    }
+  ]
+}'
+   Masterdata_FilterMachineSpec_inValid_filterType:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "fbheafg",
+		"text": "POA"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-324",
+      "message": "Received Filter Type not supported"
+    }
+  ]
+}'
+   Masterdata_FilterMachineSpec_inValid_FilterText:
+      endPoint: /v1/masterdata/machinespecifications/filtervalues
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/FilterMachineSpec/filterMachineSpec
+      outputTemplate: masterdata/NilFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "name",
+		"type": "unique",
+		"text": "fbheafg"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+  }'

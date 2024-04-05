@@ -1,0 +1,60 @@
+GetimmediateChildrenByLocationCode:
+   Admin_GetimmediateChildrenByLocationCode_allValid_smoke:
+      endPoint: /v1/masterdata/locations/immediatechildren/{locationcode}/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/GetimmediateChildrenByLocationCode/getimmediateChildrenByLocationCode
+      outputTemplate: masterdata/GetimmediateChildrenByLocationCode/getimmediateChildrenByLocationCodeResult
+      input: '{
+      "locationcode":"$LOCATIONCODE$",
+      "langcode":"eng"
+}'
+      output: '{
+"locations": [{
+        "code": "$IGNORE$",
+        "name": "$IGNORE$",
+        "hierarchyLevel": "$IGNORE$",
+        "hierarchyName": "$IGNORE$",
+        "parentLocCode": "$IGNORE$",
+        "isActive": "$IGNORE$"
+    }]
+}'
+
+   Admin_GetimmediateChildrenByLocationCode_Invalid_Invalid_locationcode:
+      endPoint: /v1/masterdata/locations/immediatechildren/{locationcode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetimmediateChildrenByLocationCode/getimmediateChildrenByLocationCode
+      outputTemplate: masterdata/error
+      input: '{
+      "locationcode":"abc",
+      "langcode":"eng"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}'
+
+   Admin_GetimmediateChildrenByLocationCode_Invalid_Invalid_langcode:
+      endPoint: /v1/masterdata/locations/immediatechildren/{locationcode}/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetimmediateChildrenByLocationCode/getimmediateChildrenByLocationCode
+      outputTemplate: masterdata/error
+      input: '{
+      "locationcode":"$LOCATIONCODE$",
+      "langcode":"abc"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-026",
+      "message": "Location not found"
+    }
+  ]
+}'

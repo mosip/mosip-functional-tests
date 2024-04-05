@@ -1,0 +1,14 @@
+DeleteDevice:
+   MasterData_DeleteDevice_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/devices/{id}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: delete
+      inputTemplate: masterdata/DeleteDevice/deleteDevice
+      outputTemplate: masterdata/DeleteDevice/deleteDeviceResult
+      input: '{
+    "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$"
+	}'
+      output: '{
+      "id": "$IGNORE$"
+}'

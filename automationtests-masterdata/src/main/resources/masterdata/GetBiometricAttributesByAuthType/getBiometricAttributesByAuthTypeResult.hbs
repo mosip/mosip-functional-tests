@@ -1,0 +1,13 @@
+{
+  "response": {
+    "biometricattributes": [
+	
+    {{#each biometricattributes}}
+      {
+        "biometricTypeCode": "{{biometricTypeCode}}"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

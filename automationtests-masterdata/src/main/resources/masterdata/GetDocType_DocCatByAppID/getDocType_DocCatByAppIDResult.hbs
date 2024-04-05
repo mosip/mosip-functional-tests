@@ -1,0 +1,13 @@
+{
+  "response":{
+    "isActive":{{isActive}},
+    "documentCategories":[
+{{#each documentCategories}}
+      {
+        "isActive":{{isActive}}
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+      ]
+  }
+}

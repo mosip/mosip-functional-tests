@@ -1,0 +1,31 @@
+FetchBlockListedWordByLangcode:
+   Masterdata_FetchBlockListedWordByLangcode_valid_eng_smoke:
+      endPoint: /v1/masterdata/blocklistedwords/{langCode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchBlockListedWordByLangcode/fetchBlockListedWordByLangcode
+      outputTemplate: masterdata/FetchBlockListedWordByLangcode/fetchBlockListedWordByLangcodeResult
+      input: '{
+   "langCode": "eng"
+      }'
+      output: '{
+}'
+   Masterdata_FetchBlackListedWord_invalid_langcode:
+      endPoint: /v1/masterdata/blocklistedwords/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchBlockListedWordByLangcode/fetchBlockListedWordByLangcode
+      outputTemplate: masterdata/error
+      input: '{
+      "langCode": "GER"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-008",
+      "message": "Blocklisted word not found"
+    }
+  ]
+}'    

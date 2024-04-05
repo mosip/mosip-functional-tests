@@ -1,0 +1,18 @@
+CreateBiometricTypes:
+   Masterdata_CreateBiometricTypes_All_Valid_Smoke:
+      endPoint: /v1/masterdata/biometrictypes
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: post
+      inputTemplate: masterdata/CreateBiometricType/createBiometricType
+      outputTemplate: masterdata/CreateBiometricType/createBiometricTypeResult
+      input: '{
+    "description": "wrong word",
+	"name": "dumbo6",
+	"langCode": "eng",
+	"code": "dumbo6",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"code": "dumbo6"
+}'

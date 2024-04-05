@@ -1,0 +1,12 @@
+FetchAppConfig:
+   MasterData_FetchAppConfig_allValid_smoke:
+      endPoint: /v1/masterdata/configs
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchAppConfig/fetchAppConfig
+      outputTemplate: masterdata/FetchAppConfig/fetchAppConfigResult
+      input: '{
+}'
+      output: '{
+}'

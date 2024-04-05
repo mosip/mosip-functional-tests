@@ -1,0 +1,12 @@
+{
+  "response": {
+    "holidays": [
+      {{#each holidays}}  
+      {
+        "isActive": {{isActive}}
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+FetchDevice:
+   MasterData_FetchDevice_allValid_smoke_with_lang:
+      endPoint: /v1/masterdata/devices/{langCode}
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/FetchDevice/fetchDeviceResult
+      input: '{
+  "deviceType": "$REMOVE$",
+  "langCode": "eng",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+"devices": [{
+            "isActive": true
+        }]
+}'       
+   MasterData_FetchDevice_allValid_smoke_with_lang_and_deviceType:
+      endPoint: /v1/masterdata/devices/{langCode}/{deviceType}
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/FetchDevice/fetchDeviceResult
+      input: '{
+  "deviceType": "GST4",
+  "langCode": "eng",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+"devices": [{
+            "isActive": true
+        }]
+}'
+   MasterData_FetchDevice_allValid_smoke_with_regCentre:
+      endPoint: /v1/masterdata/devices/mappeddevices/{regCenterId}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/FetchDevice/fetchDeviceByCenterResult
+      input: '{
+  "regCenterId": "10005",
+  "deviceType": "$REMOVE$",
+  "langCode": "$REMOVE$"
+}'
+      output: '{
+"devices": [{
+            "isActive": true
+        }]
+}'
+   MasterData_FetchDevice_invalid_regCentre:
+      endPoint: /v1/masterdata/devices/mappeddevices/{regCenterId}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/error
+      input: '{
+  "regCenterId": "100@@345",
+  "deviceType": "$REMOVE$",
+  "langCode": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-441",
+      "message": "Registration Center and Device Not Found"
+    }
+  ]
+}'       
+   MasterData_FetchDevice_invalid_deviceType_unexisting:
+      endPoint: /v1/masterdata/devices/{langCode}/{deviceType}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchDevice/fetchDevice
+      outputTemplate: masterdata/error
+      input: '{
+  "deviceType": "notInDB",
+  "langCode": "eng",
+  "regCenterId": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-010",
+      "message": "Device not Found"
+    }
+  ]
+}'       

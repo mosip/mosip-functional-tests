@@ -1,0 +1,36 @@
+GetHolidaysMissingIds:
+   Admin_GetHolidaysMissingIds_allValid_smoke:
+      endPoint: /v1/masterdata/holidays/missingids/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/GetHolidaysMissingIds/getHolidaysMissingIds
+      outputTemplate: masterdata/GetHolidaysMissingIds/getHolidaysMissingIdsResult
+      input: '{
+      "langcode":"eng"
+}'
+      output: '{
+      "id": "$IGNORE$",
+      "fieldValue": "$IGNORE$",
+      "langCode": "$IGNORE$"  
+}'
+
+   Admin_GetHolidaysMissingIds_InValid_Inavild_langCode:
+      endPoint: /v1/masterdata/holidays/missingids/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetHolidaysMissingIds/getHolidaysMissingIds
+      outputTemplate: masterdata/error
+      input: '{
+      "langcode":"eng1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-LANG-ERR",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+     

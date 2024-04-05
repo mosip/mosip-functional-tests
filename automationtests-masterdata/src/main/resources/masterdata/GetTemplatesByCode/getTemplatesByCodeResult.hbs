@@ -1,0 +1,14 @@
+{
+  "response": {
+  "templates": [
+    {{#each templates}}
+    {
+        "templateTypeCode": "{{templateTypeCode}}",
+        "isActive": "{{isActive}}"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  },
+  "errors": $IGNORE$
+}

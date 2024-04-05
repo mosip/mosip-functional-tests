@@ -1,0 +1,79 @@
+FetchRegCentDeviceHistory:
+   MasterData_FetchRegCentDeviceHistory_valid_smoke:
+      endPoint: /v1/masterdata/registrationcenterdevicehistory/{regcenterid}/{deviceid}/{effdatetimes}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCentDeviceHistory/fetchRegCentDeviceHistory
+      outputTemplate: masterdata/FetchRegCentDeviceHistory/fetchRegCentDeviceHistoryResult
+      input: '{
+  "regcenterid": "10002",
+  "deviceid":"2002",
+  "effdatetimes":"2021-09-30T11:20:35.835Z"
+}'
+      output: '{
+  "response": {
+  "registrationCenterDeviceHistoryDetails": {
+      "regCenterId": "10002",
+      "deviceId": "2002"
+    }
+    }
+}'
+
+   MasterData_FetchRegCentDeviceHistory_invalid_invalid_regcenterid:
+      endPoint: /v1/masterdata/registrationcenterdevicehistory/{regcenterid}/{deviceid}/{effdatetimes}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCentDeviceHistory/fetchRegCentDeviceHistory
+      outputTemplate: masterdata/error
+      input: '{
+  "regcenterid": "abc",
+  "deviceid":"2002",
+  "effdatetimes":"2021-09-30T11:20:35.835Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-133",
+      "message": " registration center device history not found"
+    }
+  ]
+}'
+
+   MasterData_FetchRegCentDeviceHistory_invalid_invalid_deviceid:
+      endPoint: /v1/masterdata/registrationcenterdevicehistory/{regcenterid}/{deviceid}/{effdatetimes}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCentDeviceHistory/fetchRegCentDeviceHistory
+      outputTemplate: masterdata/error
+      input: '{
+  "regcenterid": "1002",
+  "deviceid":"abc",
+  "effdatetimes":"2021-09-30T11:20:35.835Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-133",
+      "message": " registration center device history not found"
+    }
+  ]
+}'
+
+   MasterData_FetchRegCentDeviceHistory_invalid_invalid_effdatetimes:
+      endPoint: /v1/masterdata/registrationcenterdevicehistory/{regcenterid}/{deviceid}/{effdatetimes}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCentDeviceHistory/fetchRegCentDeviceHistory
+      outputTemplate: masterdata/error
+      input: '{
+  "regcenterid": "1002",
+  "deviceid":"2002",
+  "effdatetimes":"abc"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-033"
+    }
+  ]
+}'

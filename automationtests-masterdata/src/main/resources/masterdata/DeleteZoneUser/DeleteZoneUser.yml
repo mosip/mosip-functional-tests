@@ -1,0 +1,14 @@
+DeleteZoneUser:
+   MasterData_DeleteZoneUser_All_Valid_Smoke_sid:  
+      endPoint: /v1/masterdata/zoneuser/{userid}/{zonecode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: delete
+      inputTemplate: masterdata/DeleteZoneUser/deleteZoneUser
+      outputTemplate: masterdata/DeleteZoneUser/deleteZoneUserResult
+      input: '{
+    "userid": "func_auto_test_user",
+    "zonecode": "$ZONE_CODE$"
+  }'
+      output: '{
+}'

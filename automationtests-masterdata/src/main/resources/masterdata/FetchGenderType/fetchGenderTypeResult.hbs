@@ -1,0 +1,13 @@
+{
+  "response": {
+    "genderType": [
+      {{#each genderType}}  
+      {
+        "langCode": "{{langCode}}",
+        "isActive": "{{isActive}}"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

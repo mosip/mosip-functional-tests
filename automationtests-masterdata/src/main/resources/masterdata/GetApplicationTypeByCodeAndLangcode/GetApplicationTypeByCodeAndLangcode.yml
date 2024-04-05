@@ -1,0 +1,51 @@
+GetApplicationTypeByCodeAndLangcode:
+   Masterdata_GetApplicationTypeByCodeAndLangcode_allValid_AAA_smoke:
+      endPoint: /v1/masterdata/applicationtypes/{code}/{langCode}
+      role: admin
+      templateFields: ["langCode"]
+      restMethod: get
+      inputTemplate: masterdata/GetApplicationTypeByCodeAndLangcode/getApplicationTypeByCodeAndLangcode
+      outputTemplate: masterdata/GetApplicationTypeByCodeAndLangcode/getApplicationTypeByCodeAndLangcodeResult
+      input: '{
+   "code":"AAA",
+   "langCode":"eng"
+}'
+      output: '{
+   "code":  "AAA"
+}'
+   Masterdata_GetApplicationTypeByCodeAndLangcode_InValid_Code:
+      endPoint: /v1/masterdata/applicationtypes/{code}/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetApplicationTypeByCodeAndLangcode/getApplicationTypeByCodeAndLangcode
+      outputTemplate: masterdata/error
+      input: '{
+   "code":"FTTasdf",
+   "langCode":"eng"
+}'
+      output: '{
+   "errors": [
+        {
+            "errorCode": "KER-MSD-002",
+            "message": "Application not found"
+        }
+    ]
+}'
+   Masterdata_GetApplicationTypeByCodeAndLangcode_InValid_langCode:
+      endPoint: /v1/masterdata/applicationtypes/{code}/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetApplicationTypeByCodeAndLangcode/getApplicationTypeByCodeAndLangcode
+      outputTemplate: masterdata/error
+      input: '{
+   "code":"AAA",
+   "langCode":"awegaf"
+}'
+      output: '{
+   "errors": [
+        {
+            "errorCode": "KER-MSD-002",
+            "message": "Application not found"
+        }
+    ]
+}'

@@ -1,0 +1,12 @@
+{
+  "response": {
+    "data": [
+     {{#each data}}
+      {
+        "statusCode": "{{statusCode}}"
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

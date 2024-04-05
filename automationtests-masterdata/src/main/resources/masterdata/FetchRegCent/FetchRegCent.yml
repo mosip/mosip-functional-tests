@@ -1,0 +1,617 @@
+FetchRegCent:
+   MasterData_FetchRegCent_allValid_smoke:
+      endPoint: /v1/masterdata/registrationcenters
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/FetchRegCent/fetchRegCentResult
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "$REMOVE$",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+}'
+   MasterData_FetchRegCent_coordinate_specific_allValid_smoke:
+      endPoint: /v1/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/FetchRegCent/fetchRegCentResult
+      input: '{
+  "longitude": "-6.453275",
+  "latitude": "34.52117",
+  "langcode": "eng",
+  "proximitydistance": "21",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+}'
+   
+   MasterData_FetchRegCent_coordinate_specific_invalid_latitude:
+      endPoint: /v1/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/error
+      input: '{
+  "longitude": "-6.453275",
+  "latitude": "34117",
+  "langcode": "eng",
+  "proximitydistance": "21",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
+    }
+  ]
+}'
+   MasterData_FetchRegCent_coordinate_specific_invalid_longitude:
+      endPoint: /v1/masterdata/getcoordinatespecificregistrationcenters/{langcode}/{longitude}/{latitude}/{proximitydistance}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/error
+      input: '{
+  "longitude": "-63275",
+  "latitude": "34.52117",
+  "langcode": "eng",
+  "proximitydistance": "21",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
+    }
+  ]
+}'
+   MasterData_FetchRegCent_By_LocationCode_allValid_smoke:
+      endPoint: /v1/masterdata/getlocspecificregistrationcenters/{langcode}/{locationcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/FetchRegCent/fetchRegCentResult
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "14022",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+}'
+   MasterData_FetchRegCent_By_LocationCode_invalid_locationcode:
+      endPoint: /v1/masterdata/getlocspecificregistrationcenters/{langcode}/{locationcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/error
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "14022222322",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
+    }
+  ]
+}'
+   
+   MasterData_FetchRegCent_Holidays_allValid_smoke:
+      endPoint: /v1/masterdata/getregistrationcenterholidays/{langcode}/{registrationcenterid}/{year}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/FetchRegCent/fetchRegCentHolidayResult
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$ID:CreateRegCenter_allValid_smoke_sid_id$",
+  "year": "2021",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+}'
+   
+   MasterData_FetchRegCent_Holidays_invalid_registrationcenterid:
+      endPoint: /v1/masterdata/getregistrationcenterholidays/{langcode}/{registrationcenterid}/{year}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/error
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "1009393901",
+  "year": "2021",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
+    }
+  ]
+}'
+   MasterData_FetchRegCent_By_id_allValid_smoke:
+      endPoint: /v1/masterdata/registrationcenters/{id}/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/FetchRegCent/fetchRegCentResult
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "10001",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+}'
+   
+   MasterData_FetchRegCent_By_HierarchyLevel_Text_langCode_allValid_smoke:
+      endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/{name}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/FetchRegCent/fetchRegCentResult
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "1",
+  "name": "Rabat Sale Kenitra",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+}'
+   
+   MasterData_FetchRegCent_By_HierarchyLevel_Text_langCode_invalid_hierarchylevel:
+      endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/{name}
+      role: admin
+      templateFields: ["name"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/error
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "4",
+  "name": "Rabat Sale Kenitra",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
+    }
+  ]
+}'
+   MasterData_FetchRegCent_By_HierarchyLevel_Text_langCode_invalid_name:
+      endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/{name}
+      role: admin
+      templateFields: ["name"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/error
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "1",
+  "name": "Rabatdhdhhdjshdjjdnlenitra",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
+    }
+  ]
+}'
+   MasterData_FetchRegCent_By_HierarchyLevel__ListText_langCode_allValid_smoke:
+      endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/names?name=Rabat Sale Kenitra
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/FetchRegCent/fetchRegCentResult
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "1",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+}'
+   MasterData_FetchRegCent_validateTimestamp_allValid_smoke:
+      endPoint: /v1/masterdata/registrationcenters/validate/{id}/{langcode}/{timestamp}
+      role: admin
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/FetchRegCent/fetchRegCentValidateResult
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "10001",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "2021-01-20T06:22:07.797Z"
+}'
+      output: '{
+  "status":"Valid"
+}'
+   
+   MasterData_FetchRegCent_validateTimestamp_invalid_id:
+      endPoint: /v1/masterdata/registrationcenters/validate/{id}/{langcode}/{timestamp}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/error
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "1000ffudyf1",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "2021-01-20T06:22:07.797Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
+    }
+  ]
+}'
+   MasterData_FetchRegCent_validateTimestamp_invalid_timestamp:
+      endPoint: /v1/masterdata/registrationcenters/validate/{id}/{langcode}/{timestamp}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/error
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "10001",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$TIMESTAM@@33$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-033"
+    }
+  ]
+}'
+   MasterData_FetchRegCent_by_langCode_zoneCode_allValid_smoke:
+      endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/FetchRegCent/fetchRegCentResult
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$ZONE_CODE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+}'
+   
+   MasterData_FetchRegCent_by_langCode_zoneCode_InValid_zonecode:
+      endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/error
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "KTA1",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
+    }
+  ]
+}'
+   MasterData_FetchRegCent_By_Pagenation_HierarchyLevel_Text_langCode_allValid_smoke:
+      endPoint: /v1/masterdata/registrationcenters/{langcode}/{hierarchylevel}/{name}
+      role: admin
+      templateFields: ["name"]
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/FetchRegCent/fetchAllRegCentWithPaginationResult
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "1",
+  "name": "Rabat Sale Kenitra",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+"data": [{
+     
+    }]
+}'
+   
+   MasterData_FetchRegCent_By_Pagination_HierarchyLevel_Text_langCode_invalid_hierarchylevel:
+      endPoint: /v1/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}
+      role: admin
+      templateFields: ["name"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/error
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "4",
+  "name": "Rabat Sale Kenitra",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
+    }
+  ]
+}'
+   MasterData_FetchRegCent_By_Pagination_HierarchyLevel_Text_langCode_invalid_name:
+      endPoint: /v1/masterdata/registrationcenters/page/{langcode}/{hierarchylevel}/{name}
+      role: admin
+      templateFields: ["name"]
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/error
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "eng",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "1",
+  "name": "Rabatdhdhhdjshdjjdnlenitra",
+  "zonecode": "$REMOVE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
+    }
+  ]
+}'
+
+   MasterData_FetchRegCent_By_zoneCode:
+      endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: []
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/FetchRegCent/fetchAllRegCentResult
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "fra",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "$ZONE_CODE$",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+}'
+   MasterData_FetchRegCent_By_zoneCode_invalid_invalid_zonecode:
+      endPoint: /v1/masterdata/getzonespecificregistrationcenters/{langcode}/{zonecode}
+      role: admin
+      templateFields: []
+      restMethod: get
+      inputTemplate: masterdata/FetchRegCent/fetchRegCent
+      outputTemplate: masterdata/error
+      input: '{
+  "longitude": "$REMOVE$",
+  "latitude": "$REMOVE$",
+  "langcode": "fra",
+  "proximitydistance": "$REMOVE$",
+  "locationcode": "$REMOVE$",
+  "registrationcenterid": "$REMOVE$",
+  "year": "$REMOVE$",
+  "id": "$REMOVE$",
+  "hierarchylevel": "$REMOVE$",
+  "name": "$REMOVE$",
+  "zonecode": "abc",
+  "timestamp": "$REMOVE$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-215",
+      "message": "Registration Center not found"
+    }
+  ]
+}'

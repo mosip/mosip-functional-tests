@@ -1,0 +1,15 @@
+{
+  "response": {
+    "data": [
+     {{#each data}}
+      {
+        "zoneCode": "{{zoneCode}}",
+        "userId": "{{userId}}",
+        "userName": "{{userName}}",
+        "zoneName": "{{zoneName}}" 
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

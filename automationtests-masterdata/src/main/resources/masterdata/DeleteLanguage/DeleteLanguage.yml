@@ -1,0 +1,13 @@
+DeleteLanguage:
+   Masterdata_DeleteLanguage_All_Valid_Smoke:
+      endPoint: /v1/masterdata/languages/{code}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: delete
+      inputTemplate: masterdata/DeleteLanguage/deletelanguage
+      outputTemplate: masterdata/DeleteLanguage/deletelanguageResult
+      input: '{
+    "code": "$ID:CreateLanguage_All_Valid_Smoke_sid_code$"
+  }'
+      output: '{
+}'

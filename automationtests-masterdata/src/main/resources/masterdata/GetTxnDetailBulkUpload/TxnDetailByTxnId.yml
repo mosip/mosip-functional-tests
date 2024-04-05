@@ -1,0 +1,15 @@
+GetTxnDetailBulkUpload:
+   master_GetTxnDetailBulkUpload_Smoke:
+      endPoint: /v1/admin/bulkupload/transcation/{transcationId}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetTxnDetailBulkUpload/txnDetail
+      outputTemplate: masterdata/GetTxnDetailBulkUpload/txnDetailResult
+      input: '{
+   "transcationId":"$ID:BulkUpload_Smoke_sid_transcationId$"
+  }'
+      output: '{
+    "entityName": "$IGNORE$",
+    "operation": "$IGNORE$",
+    "category": "$IGNORE$"
+}'

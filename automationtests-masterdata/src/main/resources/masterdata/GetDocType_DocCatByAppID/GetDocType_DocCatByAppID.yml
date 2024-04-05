@@ -1,0 +1,36 @@
+GetDocType_DocCatByAppID:
+   Masterdata_GetDocType_DocCatByAppID_valid_smoke:
+      endPoint: /v1/masterdata/applicanttype/{applicantId}/languages?languages={languages}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetDocType_DocCatByAppID/getDocType_DocCatByAppID
+      outputTemplate: masterdata/GetDocType_DocCatByAppID/getDocType_DocCatByAppIDResult
+      input: '{
+	"applicantId": "001",
+	"languages": "eng"
+}'
+      output: '{
+    "isActive":true,
+    "documentCategories":[
+      {
+        "isActive":true
+          }]
+}'
+   Masterdata_GetDocType_DocCatByAppID_invalid_language:
+      endPoint: /v1/masterdata/applicanttype/{applicantId}/languages?languages={languages}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetDocType_DocCatByAppID/getDocType_DocCatByAppID
+      outputTemplate: masterdata/error
+      input: '{
+	"applicantId": "001",
+	"languages": "e@@@@456rfdhdh"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-150",
+      "message": "Document Category- Document Type mapping not found"
+    }
+  ]
+}'

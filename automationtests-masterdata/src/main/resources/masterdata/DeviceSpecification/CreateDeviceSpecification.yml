@@ -1,0 +1,538 @@
+CreateDeviceSpecification:
+   MasterData_CreateDeviceSpecification_All_Valid_Smoke_sid:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/DeviceSpecification/deviceSpecificationResult
+      input: '{
+      "brand": "hogwarts",
+      "description": "Test DeviceSpec",
+      "deviceTypeCode": "GST4",
+      "id": "743",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "Face scanner",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+      "id": "$IGNORE$"
+      }'
+      
+   MasterData_CreateDeviceSpecification_Duplicate_DeviceSpecification_Neg:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "hogwarts",
+      "description": "Test DeviceSpec",
+      "deviceTypeCode": "GST4",
+      "id": "743",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "Face scanner",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+     "errors": [
+    {
+      "errorCode": "KER-MSD-054"
+    }
+  ]
+      }'
+      
+   MasterData_CreateDeviceSpecification_InputParameter_Name_Missing:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "$REMOVE$",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: must not be null"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_Name_Empty:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_Name_AboveMaxLen64:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_Brand_Missing:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "$REMOVE$",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "ara",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.brand: must not be null"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_Brand_Empty:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.brand: Should not be blank or size must be between 1 and 32"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_Brand_AboveMaxLen32:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.brand: Should not be blank or size must be between 1 and 32"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_Model_Missing:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "$REMOVE$",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.model: must not be null"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_Model_Empty:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.model: Should not be blank or size must be between 1 and 16"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_Model_AboveMaxLen16:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "qwertyuiopasdfg17",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.model: Should not be blank or size must be between 1 and 16"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_DeviceTypeCode_Missing:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "$REMOVE$",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.deviceTypeCode: must not be null"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_DeviceTypeCode_Empty:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.deviceTypeCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_DeviceTypeCode_AboveMaxLen36:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.deviceTypeCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_Invalid_DeviceTypeCode:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "DMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-714",
+      "message": "Invalid dtype_code received"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_MinDriverversion_Missing:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "$REMOVE$",
+      "model": "2020",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.minDriverversion: must not be null"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_MinDriverversion_Empty:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "",
+      "model": "2020",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.minDriverversion: Should not be blank or size must be between 1 and 16"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_MinDriverversion_AboveMaxLen16:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "qwertyuiopasdfg17",
+      "model": "2020",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.minDriverversion: Should not be blank or size must be between 1 and 16"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_Description_AboveMaxLen256:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": true,
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: size must be between 0 and 256"
+    }
+  ]
+}'
+   MasterData_CreateDeviceSpecification_InputParameter_isActive_Missing:
+      endPoint: /v1/masterdata/devicespecifications
+      role: admin
+      templateFields: ["name","description"]
+      restMethod: post
+      inputTemplate: masterdata/DeviceSpecification/deviceSpecification
+      outputTemplate: masterdata/error
+      input: '{
+      "brand": "Techno",
+      "description": "Techno DeviceSpec",
+      "deviceTypeCode": "CMR",
+      "id": "744",
+      "isActive": "$REMOVE$",
+      "langCode": "eng",
+      "minDriverversion": "1.0",
+      "model": "2020",
+      "name": "Cam",
+      "requesttime": "$TIMESTAMP$"
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.isActive: must not be null"
+    }
+  ]
+}'

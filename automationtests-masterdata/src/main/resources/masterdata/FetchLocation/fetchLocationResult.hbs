@@ -1,0 +1,11 @@
+  "response": {
+    "locations": [
+    {{#each locations}}
+      {
+        "isActive": "{{isActive}}"
+      }
+      {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}
