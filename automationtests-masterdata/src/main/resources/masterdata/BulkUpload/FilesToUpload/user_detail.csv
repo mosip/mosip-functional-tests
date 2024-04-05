@@ -1,0 +1,2 @@
+id,name,statusCode,regCenterId,langCode,isActive,isDeleted
+masterdata-111992,AutomationInitialUser,ACT,10001,eng,TRUE,FALSE

@@ -1,0 +1,32 @@
+GetBiometricTypesByLangcode:
+   Masterdata_GetBiometricTypesByLangcode_allValid_smoke:
+      endPoint: /v1/masterdata/biometrictypes/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/GetBiometricTypesByLangcode/getBiometricTypesByLangcode
+      outputTemplate: masterdata/GetBiometricTypesByLangcode/getBiometricTypesByLangcodeResult
+      input: '{
+   "langcode":"eng"
+}'
+      output: '{
+  
+}'
+   Masterdata_GetBiometricTypesByLangcode_InValid_langCode:
+      endPoint: /v1/masterdata/biometrictypes/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetBiometricTypesByLangcode/getBiometricTypesByLangcode
+      outputTemplate: masterdata/error
+      input: '{
+   "langcode":"asdgav"
+}'
+      output: '{
+   "errors": [
+        {
+            "errorCode": "KER-MSD-006",
+            "message": "Biometric Type not found"
+        }
+    ]
+}'

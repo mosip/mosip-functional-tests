@@ -1,0 +1,316 @@
+UpdateTemplate:
+   MasterData_UpdateTemplate_All_Valid_Smoke:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["description","name"]
+      restMethod: put
+      inputTemplate: masterdata/Template/template
+      outputTemplate: masterdata/Template/templateResult
+      input: '{
+        "description": "test template updated",
+        "fileFormatCode": "json",
+        "fileText": "abc",
+        "id": "$ID:CreateTemplate_All_Valid_Smoke_sid_id$",
+        "isActive": true,
+        "langCode": "eng",
+        "model": "model-1",
+        "moduleId": "10001",
+        "moduleName": "Pre-Registration",
+        "name": "Test-template",
+        "templateTypeCode": "Test-info-Template-auto",
+	    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+	"id": "$IGNORE$"
+}'
+   MasterData_UpdateTemplate_InputParameter_Name_Missing:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/Template/template
+      outputTemplate: masterdata/error
+      input: '{
+        "description": "test template",
+        "fileFormatCode": "Doc",
+        "fileText": "abc",
+        "id": "test-03",
+        "isActive": false,
+        "langCode": "eng",
+        "model": "model-1",
+        "moduleId": "10001",
+        "moduleName": "Pre-Registration",
+        "name": "$REMOVE$",
+        "templateTypeCode": "Test-info-Template-auto",
+	    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: must not be null"
+    }
+  ]
+}'
+   MasterData_UpdateTemplate_InputParameter_Name_Empty:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/Template/template
+      outputTemplate: masterdata/error
+      input: '{
+        "description": "test template",
+        "fileFormatCode": "Doc",
+        "fileText": "abc",
+        "id": "test-03",
+        "isActive": false,
+        "langCode": "eng",
+        "model": "model-1",
+        "moduleId": "10001",
+        "moduleName": "Pre-Registration",
+        "name": "",
+        "templateTypeCode": "Test-info-Template-auto",
+	    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 128"
+    }
+  ]
+}'
+   MasterData_UpdateTemplate_InputParameter_Name_AboveMaxLen128:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      templateFields: ["description"]
+      restMethod: put
+      inputTemplate: masterdata/Template/template
+      outputTemplate: masterdata/error
+      input: '{
+        "description": "test template",
+        "fileFormatCode": "Doc",
+        "fileText": "abc",
+        "id": "test-03",
+        "isActive": false,
+        "langCode": "eng",
+        "model": "model-1",
+        "moduleId": "10001",
+        "moduleName": "Pre-Registration",
+        "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+        "templateTypeCode": "Test-info-Template-auto",
+	    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 128"
+    }
+  ]
+}'
+   MasterData_UpdateTemplate_InputParameter_FileFormatCode_Missing:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      templateFields: ["description","name"]
+      restMethod: put
+      inputTemplate: masterdata/Template/template
+      outputTemplate: masterdata/error
+      input: '{
+        "description": "test template",
+        "fileFormatCode": "$REMOVE$",
+        "fileText": "abc",
+        "id": "test-03",
+        "isActive": false,
+        "langCode": "eng",
+        "model": "model-1",
+        "moduleId": "10001",
+        "moduleName": "Pre-Registration",
+        "name": "Test-template",
+        "templateTypeCode": "Test-info-Template-auto",
+	    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.fileFormatCode: must not be null"
+    }
+  ]
+}'
+   MasterData_UpdateTemplate_InputParameter_FileFormatCode_Empty:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      templateFields: ["description","name"]
+      restMethod: put
+      inputTemplate: masterdata/Template/template
+      outputTemplate: masterdata/error
+      input: '{
+        "description": "test template",
+        "fileFormatCode": "",
+        "fileText": "abc",
+        "id": "test-03",
+        "isActive": false,
+        "langCode": "eng",
+        "model": "model-1",
+        "moduleId": "10001",
+        "moduleName": "Pre-Registration",
+        "name": "Test-template",
+        "templateTypeCode": "Test-info-Template-auto",
+	    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.fileFormatCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   MasterData_UpdateTemplate_InputParameter_FileFormatCode_AboveMaxLen36:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      templateFields: ["description","name"]
+      restMethod: put
+      inputTemplate: masterdata/Template/template
+      outputTemplate: masterdata/error
+      input: '{
+        "description": "test template",
+        "fileFormatCode": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+        "fileText": "abc",
+        "id": "test-03",
+        "isActive": false,
+        "langCode": "eng",
+        "model": "model-1",
+        "moduleId": "10001",
+        "moduleName": "Pre-Registration",
+        "name": "Test-template",
+        "templateTypeCode": "Test-info-Template-auto",
+	    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.fileFormatCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   MasterData_UpdateTemplate_InputParameter_ModuleName_AboveMaxLen128:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      templateFields: ["description","name"]
+      restMethod: put
+      inputTemplate: masterdata/Template/template
+      outputTemplate: masterdata/error
+      input: '{
+        "description": "test template",
+        "fileFormatCode": "Doc",
+        "fileText": "abc",
+        "id": "test-03",
+        "isActive": false,
+        "langCode": "eng",
+        "model": "model-1",
+        "moduleId": "10001",
+        "moduleName": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+        "name": "Test-template",
+        "templateTypeCode": "Test-info-Template-auto",
+	    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.moduleName: size must be between 0 and 128"
+    }
+  ]
+}'
+   MasterData_UpdateTemplate_InputParameter_TemplateTypeCode_Missing:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      templateFields: ["description","name"]
+      restMethod: put
+      inputTemplate: masterdata/Template/template
+      outputTemplate: masterdata/error
+      input: '{
+        "description": "test template",
+        "fileFormatCode": "Doc",
+        "fileText": "abc",
+        "id": "test-03",
+        "isActive": false,
+        "langCode": "eng",
+        "model": "model-1",
+        "moduleId": "10001",
+        "moduleName": "Pre-Registration",
+        "name": "Test-template",
+        "templateTypeCode": "$REMOVE$",
+	    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.templateTypeCode: must not be null"
+    }
+  ]
+}'
+   MasterData_UpdateTemplate_InputParameter_TemplateTypeCode_Empty:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      templateFields: ["description","name"]
+      restMethod: put
+      inputTemplate: masterdata/Template/template
+      outputTemplate: masterdata/error
+      input: '{
+        "description": "test template",
+        "fileFormatCode": "Doc",
+        "fileText": "abc",
+        "id": "test-03",
+        "isActive": false,
+        "langCode": "eng",
+        "model": "model-1",
+        "moduleId": "10001",
+        "moduleName": "Pre-Registration",
+        "name": "Test-template",
+        "templateTypeCode": "",
+	    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.templateTypeCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+   MasterData_UpdateTemplate_InputParameter_TemplateTypeCode_AboveMaxLen36:
+      endPoint: /v1/masterdata/templates
+      role: admin
+      templateFields: ["description","name"]
+      restMethod: put
+      inputTemplate: masterdata/Template/template
+      outputTemplate: masterdata/error
+      input: '{
+        "description": "test template",
+        "fileFormatCode": "Doc",
+        "fileText": "abc",
+        "id": "test-03",
+        "isActive": false,
+        "langCode": "eng",
+        "model": "model-1",
+        "moduleId": "10001",
+        "moduleName": "Pre-Registration",
+        "name": "Test-template",
+        "templateTypeCode": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+	    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.templateTypeCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'

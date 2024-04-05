@@ -1,0 +1,84 @@
+CreateZoneUser:
+   MasterData_CreateZoneUser_All_Valid_Smoke:
+      endPoint: /v1/masterdata/zoneuser
+      role: globalAdmin
+      checkErrorsOnlyInResponse: true
+      restMethod: post
+      inputTemplate: masterdata/ZoneUser/zoneUser
+      outputTemplate: masterdata/ZoneUser/zoneUserResult
+      input: '{
+    "zoneCode": "$ZONE_CODE$",
+    "userId": "func_auto_test_user",
+    "isActive": true,
+    "langCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+        
+    }'
+    
+   MasterData_CreateZoneUser__Empty_UserID_Valid:
+      endPoint: /v1/masterdata/zoneuser
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ZoneUser/zoneUser
+      outputTemplate: masterdata/error
+      input: '{
+    "zoneCode": "$ZONE_CODE$",
+    "userId": "",
+    "isActive": true,
+    "langCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+
+   MasterData_CreateZoneUser__Empty_zoneCode_Valid:
+      endPoint: /v1/masterdata/zoneuser
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ZoneUser/zoneUser
+      outputTemplate: masterdata/error
+      input: '{
+    "zoneCode": "",
+    "userId": "func_auto_test_user",
+    "isActive": true,
+    "langCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.zoneCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+
+   MasterData_CreateZoneUser__Invalid_zoneCode_Valid:
+      endPoint: /v1/masterdata/zoneuser
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ZoneUser/zoneUser
+      outputTemplate: masterdata/error
+      input: '{
+    "zoneCode": "CST1",
+    "userId": "func_auto_test_user",
+    "isActive": true,
+    "langCode": "eng",
+  "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-USR-014",
+      "message": "Admin not authorized to access for this Zone"
+    }
+  ]
+}'

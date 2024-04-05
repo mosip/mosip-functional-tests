@@ -1,0 +1,19 @@
+UpdateRegistrationCenterNonLanguage:
+   MasterData_UpdateRegistrationCenterNonLanguage_Smoke:  
+      endPoint: /v1/masterdata/registrationcenters/nonlanguage
+      role: admin
+      templateFields: ["contactPerson","name"]
+      restMethod: put
+      inputTemplate: masterdata/UpdateRegistrationCenterNonLanguage/updateRegistrationCenter
+      outputTemplate: masterdata/UpdateRegistrationCenterNonLanguage/updateRegistrationCenterResult
+      input: '{
+    "contactPerson": "sudeep",
+    "id": "10008",
+    "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "id": "$IGNORE$",
+    "contactPhone": "9663089998",
+    "centerTypeCode": "REG"
+}'
+   

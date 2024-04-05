@@ -1,0 +1,112 @@
+UpdateRegCenterType:
+   MasterData_UpdateRegCenterType_All_Valid_Smoke:
+      endPoint: /v1/masterdata/registrationcentertypes
+      role: admin
+      templateFields: ["name","descr","langCode"]
+      restMethod: put
+      inputTemplate: masterdata/RegCenterType/regCenterType
+      outputTemplate: masterdata/RegCenterType/regCenterTypeResult
+      input: '{
+    "code": "$ID:CreateRegCenterType_All_Valid_Smoke_sid_code$",
+    "langCode": "eng",
+    "name": "alternate",
+    "descr": "alternate center updated",
+    "isActive":true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+	"code": "ALT-3"
+}'
+   
+   MasterData_UpdateRegCenterType_InputParameter_Name_Missing:
+      endPoint: /v1/masterdata/registrationcentertypes
+      role: admin
+      templateFields: ["descr"]
+      restMethod: put
+      inputTemplate: masterdata/RegCenterType/regCenterType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "ALT-3",
+    "langCode": "eng",
+    "name": "$REMOVE$",
+    "descr": "alternate center updated",
+    "isActive":true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: must not be null"
+    }
+  ]
+}'
+   MasterData_UpdateRegCenterType_InputParameter_Name_Empty:
+      endPoint: /v1/masterdata/registrationcentertypes
+      role: admin
+      templateFields: ["descr"]
+      restMethod: put
+      inputTemplate: masterdata/RegCenterType/regCenterType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "ALT-3",
+    "langCode": "eng",
+    "name": "",
+    "descr": "alternate center updated",
+    "isActive":true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_UpdateRegCenterType_InputParameter_Name_AboveMaxLen64:
+      endPoint: /v1/masterdata/registrationcentertypes
+      role: admin
+      templateFields: ["name","descr"]
+      restMethod: put
+      inputTemplate: masterdata/RegCenterType/regCenterType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "ALT-3",
+    "langCode": "eng",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "descr": "alternate center updated",
+    "isActive":true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}'
+   MasterData_UpdateRegCenterType_InputParameter_Description_AboveMaxLen256:
+      endPoint: /v1/masterdata/registrationcentertypes
+      role: admin
+      templateFields: ["name","descr"]
+      restMethod: put
+      inputTemplate: masterdata/RegCenterType/regCenterType
+      outputTemplate: masterdata/error
+      input: '{
+    "code": "ALT-5",
+    "langCode": "eng",
+    "name": "alternate",
+    "descr": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
+    "isActive":true,
+    "requesttime": "$TIMESTAMP$"
+  }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.descr: size must be between 0 and 128"
+    }
+  ]
+}'

@@ -1,0 +1,34 @@
+GetMissingDocumentCategoryByLangcode:
+   Masterdata_GetMissingDocumentCategoryByLangcode_allValid_smoke:
+      endPoint: /v1/masterdata/documentcategories/missingids/{langcode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["langcode"]
+      restMethod: get
+      inputTemplate: masterdata/GetMissingDocumentCategoryByLangcode/getMissingDocumentCategoryByLangcode
+      outputTemplate: masterdata/GetMissingDocumentCategoryByLangcode/getMissingDocumentCategoryByLangcodeResult
+      input: '{
+      "langcode":"eng"
+}'
+      output: '{
+    "id": "$IGNORE$"
+}'
+   Masterdata_GetDocumentTypeByLangCode_InValid_langcode:
+      endPoint: /v1/masterdata/documentcategories/missingids/{langcode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetMissingDocumentCategoryByLangcode/getMissingDocumentCategoryByLangcode
+      outputTemplate: masterdata/error
+      input: '{
+      "langcode":"eng1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-LANG-ERR",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+
+   

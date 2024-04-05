@@ -1,0 +1,30 @@
+GetSubZoneByLangCode:
+   MasterData_GetSubZoneByLangCode_allValid_smoke:
+      endPoint: /v1/masterdata/zones/subzone/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetSubZoneByLangCode/getSubZoneByLangCode
+      outputTemplate: masterdata/GetSubZoneByLangCode/getSubZoneByLangCodeResult
+      input: '{
+  "langCode": "eng"
+}'
+      output: '{
+}'
+   MasterData_GetSubZoneByLangCode_inValid_code:
+      endPoint: /v1/masterdata/zones/subzone/{langCode}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetSubZoneByLangCode/getSubZoneByLangCode
+      outputTemplate: masterdata/error
+      input: '{
+  "langCode": "eng1"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Language Code is Invalid"
+    }
+  ]
+}'
+   

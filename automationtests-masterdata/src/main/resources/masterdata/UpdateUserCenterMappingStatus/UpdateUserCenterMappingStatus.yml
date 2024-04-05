@@ -1,0 +1,36 @@
+UpdateUserCenterMappingStatus:
+   MasterData_UpdateUserCenterMappingStatus_All_Valid_Smoke:  
+      endPoint: /v1/masterdata/usercentermapping?isActive={isActive}&id={id}
+      role: globalAdmin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateUserCenterMappingStatus/updateUserCenterMappingStatus
+      outputTemplate: masterdata/UpdateUserCenterMappingStatus/updateUserCenterMappingStatusResult
+      input: '{
+  "id": "func_auto_test_user",
+  "isActive": true
+}'
+      output: '{
+    "status": "Status updated successfully for User"
+}'
+   MasterData_UpdateUserCenterMappingStatus_Invalid_Id:  
+      endPoint: /v1/masterdata/usercentermapping?isActive={isActive}&id={id}
+      role: globalAdmin
+      restMethod: patch
+      inputTemplate: masterdata/UpdateUserCenterMappingStatus/updateUserCenterMappingStatus
+      outputTemplate: masterdata/error
+      input: '{
+    "id": "notexist",
+    "isActive": true
+}'
+      output: '{
+    "errors": [
+        {
+            "errorCode": "KER-USR-008",
+            "message": "Zone user mapping not exists or not active"
+        }
+    ]
+}'
+
+
+
+

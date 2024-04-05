@@ -1,0 +1,255 @@
+GenderFilter:
+   Masterdata_GenderFilter_Valid_col_name_withText:
+      endPoint: /v1/masterdata/gendertypes/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/GenderFilter/genderFilter
+      outputTemplate: masterdata/GenderFilter/genderFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "genderName",
+		"type": "All",
+		"text": "TestGenderName"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "genderName",
+        "fieldValue": "$IGNORE$"
+      }
+    ]
+  }'
+   Masterdata_GenderFilter_ValidColNameAsCodeForAllType_Request_Contains_Smoke:
+      endPoint: /v1/masterdata/gendertypes/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/GenderFilter/genderFilter
+      outputTemplate: masterdata/GenderFilter/genderFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "All",
+		"text": "Genderdummy"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "code",
+        "fieldValue": "Genderdummy"
+      }
+    ]
+  }'
+   Masterdata_GenderFilter_ValidColNameAsCodeForUniqueType_Request_Contains_Smoke:
+      endPoint: /v1/masterdata/gendertypes/filtervalues
+      role: admin
+      templateFields: ["languageCode"]
+      restMethod: post
+      inputTemplate: masterdata/GenderFilter/genderFilter
+      outputTemplate: masterdata/GenderFilter/genderFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "unique",
+		"text": "Genderdummy"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": [
+      {
+        "fieldID": "code",
+        "fieldValue": "Genderdummy"
+      }
+    ]
+  }'
+   Masterdata_GenderFilter_ValidTextAsEmpty_Smoke:
+      endPoint: /v1/masterdata/gendertypes/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/GenderFilter/genderFilter
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "",
+		"text": "Genderdummy"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'
+   Masterdata_GenderFilter_ValidColNameAsLangCodeForAllType_Request_Contains_Smoke:
+      endPoint: /v1/masterdata/gendertypes/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/GenderFilter/genderFilter
+      outputTemplate: masterdata/GenderFilter/genderFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "langCode",
+		"type": "All",
+		"text": "true"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": []
+  }'
+   Masterdata_GenderFilter_InValidColumnNameAsEmpty:
+      endPoint: /v1/masterdata/gendertypes/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/GenderFilter/genderFilter
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "",
+		"type": "All",
+		"text": "TestGenderName"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.filters[0].columnName: must not be blank"
+    }
+  ]
+}'
+   Masterdata_GenderFilter_InValidColumnNameAsNonExistingValue:
+      endPoint: /v1/masterdata/gendertypes/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/GenderFilter/genderFilter
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "lang_code",
+		"type": "All",
+		"text": "TestGenderName"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "$IGNORE$"
+    }
+  ]
+}'
+   Masterdata_GenderFilter_InValidTypeAsNonExisting:
+      endPoint: /v1/masterdata/gendertypes/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/GenderFilter/genderFilter
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "genderName",
+		"type": "between",
+		"text": "TestGenderName"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-324",
+      "message": "Received Filter Type not supported"
+    }
+  ]
+}'
+   Masterdata_GenderFilter_InValidTextAsNonExisting:
+      endPoint: /v1/masterdata/gendertypes/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/GenderFilter/genderFilter
+      outputTemplate: masterdata/GenderFilter/genderFilterResult
+      input: '{
+	"filters": [{
+		"columnName": "genderName",
+		"type": "All",
+		"text": "abdhsg"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+    "filters": []
+  }'
+   Masterdata_GenderFilter_InValidRequestTimeAsEmpty:
+      endPoint: /v1/masterdata/gendertypes/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/GenderFilter/genderFilter
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "genderName",
+		"type": "All",
+		"text": "TestGenderName"
+	}],
+	"languageCode": "eng",
+	"requesttime": ""
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}'
+   Masterdata_GenderFilter_InValidTypeAsEmpty:
+      endPoint: /v1/masterdata/gendertypes/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/GenderFilter/genderFilter
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "genderName",
+		"type": "",
+		"text": "TestGenderName"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}'

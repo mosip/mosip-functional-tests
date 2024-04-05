@@ -1,0 +1,155 @@
+FilterDocCategory:
+   MasterData_FilterDocCategory_Valid_Request_Smoke:
+      endPoint: /v1/masterdata/documentcategories/filtervalues
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/FilterDocCategory/filterDocCategory
+      outputTemplate: masterdata/FilterDocCategory/filterDocCategoryResult
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "unique",
+		"text": "DocTestCode01"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+  }'
+   MasterData_FilterDocCategory_Valid_column_code_filterType_all:
+      endPoint: /v1/masterdata/documentcategories/filtervalues
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/FilterDocCategory/filterDocCategory
+      outputTemplate: masterdata/FilterDocCategory/filterDocCategoryResult
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "all",
+		"text": "DocTestCode01"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+  }'
+   
+   MasterData_FilterDocCategory_inValid_filterColumnName_blank:
+      endPoint: /v1/masterdata/documentcategories/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/FilterDocCategory/filterDocCategory
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "",
+		"type": "All",
+		"text": "DocTestCode01"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.filters[0].columnName: must not be blank"
+    }
+  ]
+}'
+   
+   MasterData_FilterDocCategory_inValid_RequestTime_format:
+      endPoint: /v1/masterdata/documentcategories/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/FilterDocCategory/filterDocCategory
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "All",
+		"text": "DocTestCode01"
+	}],
+	"languageCode": "eng",
+	"requesttime": "2018-12-1006:12:52.994Z"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}'
+   MasterData_FilterDocCategory_inValid_filterColumnName:
+      endPoint: /v1/masterdata/documentcategories/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/FilterDocCategory/filterDocCategory
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "dfjkdj",
+		"type": "All",
+		"text": "DocTestCode01"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-317"
+    }
+  ]
+}'
+   MasterData_FilterDocCategory_inValid_filterType:
+      endPoint: /v1/masterdata/documentcategories/filtervalues
+      role: admin
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/FilterDocCategory/filterDocCategory
+      outputTemplate: masterdata/error
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "adfdf",
+		"text": "DocTestCode01"
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-324",
+      "message": "Received Filter Type not supported"
+    }
+  ]
+}'
+   MasterData_FilterDocCategory_Empty_FilterText_Pos:
+      endPoint: /v1/masterdata/documentcategories/filtervalues
+      role: admin
+      checkErrorsOnlyInResponse: true
+      templateFields: ["text"]
+      restMethod: post
+      inputTemplate: masterdata/FilterDocCategory/filterDocCategory
+      outputTemplate: masterdata/FilterDocCategory/filterDocCategoryResult
+      input: '{
+	"filters": [{
+		"columnName": "code",
+		"type": "All",
+		"text": ""
+	}],
+	"languageCode": "eng",
+	"requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+  }'

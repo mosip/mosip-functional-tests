@@ -1,0 +1,20 @@
+{
+  "response": {
+    "data": [
+     {{#each data}}
+      {
+        "id": "{{id}}",
+        "name": "{{name}}",
+        "serialNum": "{{serialNum}}",
+        "description": "{{description}}",
+        "macAddress": "{{macAddress}}",
+        "ipAddress": "{{ipAddress}}",
+        "deviceSpecId": "{{deviceSpecId}}",
+        "validityDateTime": "{{validityDateTime}}",
+        "isActive": "{{isActive}}" 
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

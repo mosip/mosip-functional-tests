@@ -1,0 +1,31 @@
+GetMappedMachinesByRegCentID:
+   Admin_GetMappedMachinesByRegCentID_allValid_smoke:
+      endPoint: /v1/masterdata/machines/mappedmachines/{regCenterId}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/GetMappedMachinesByRegCentID/getMappedMachinesByRegCentID
+      outputTemplate: masterdata/GetMappedMachinesByRegCentID/getMappedMachinesByRegCentIDResult
+      input: '{
+      "regCenterId":"10005"
+}'
+      output: '{
+}'
+
+   Admin_GetMappedMachinesByRegCentID_Invalid_Invalid_regCenterId:
+      endPoint: /v1/masterdata/machines/mappedmachines/{regCenterId}
+      role: admin
+      restMethod: get
+      inputTemplate: masterdata/GetMappedMachinesByRegCentID/getMappedMachinesByRegCentID
+      outputTemplate: masterdata/error
+      input: '{
+      "regCenterId":"abc"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-030",
+      "message": "Machine not Found"
+    }
+  ]
+}' 

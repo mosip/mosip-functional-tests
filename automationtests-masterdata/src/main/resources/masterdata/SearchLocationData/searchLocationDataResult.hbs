@@ -1,0 +1,17 @@
+{
+  "response": {
+    "data": [
+     {{#each data}}
+      {
+        "isActive": {{isActive}},
+        "region": "{{region}}",
+        "city": "{{city}}",
+        "province": "{{province}}",
+        "zone": "{{zone}}",
+        "postalCode": "{{postalCode}}" 
+      }
+       {{#unless @last}},{{/unless}}
+      	{{/each}}
+    ]
+  }
+}

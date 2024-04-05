@@ -1,0 +1,33 @@
+FetchValidDocumentsByDocCategoryCode:
+   MasterData_FetchValidDocumentsByDocCategoryCode_allValid_smoke_with_lang:
+      endPoint: /v1/masterdata/validdocuments/{doccategorycode}/{languagecode}
+      role: admin
+      templateFields: ["languagecode"]
+      restMethod: get
+      inputTemplate: masterdata/FetchValidDocumentsByDocCategoryCode/fetchValidDocumentsByDocCategoryCode
+      outputTemplate: masterdata/FetchValidDocumentsByDocCategoryCode/fetchValidDocumentsByDocCategoryCodeResult
+      input: '{
+   "doccategorycode": "POI",
+   "languagecode": "eng"
+}'
+      output: '{
+   "response":[
+      {
+         "docCategoryCode": "POI"
+      }
+   ]
+}'  
+   MasterData_FetchValidDocumentsByDocCategoryCode_inValid_DocCategory:
+      endPoint: /v1/masterdata/validdocuments/{doccategorycode}/{languagecode}
+      role: admin
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: masterdata/FetchValidDocumentsByDocCategoryCode/fetchValidDocumentsByDocCategoryCode
+      outputTemplate: masterdata/FetchValidDocumentsByDocCategoryCode/invalidValidDocumentsByDocCategoryCodeResult
+      input: '{
+   "doccategorycode": "POIsdf",
+   "languagecode": "eng"
+}'
+      output: '{
+   "response":[]
+}'

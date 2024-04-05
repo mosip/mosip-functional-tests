@@ -1,0 +1,81 @@
+CreateValidDocument:
+   MasterData_CreateValidDocument_All_Valid_Smoke:
+      endPoint: /v1/masterdata/validdocuments
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ValidDocument/validDocument
+      outputTemplate: masterdata/ValidDocument/validDocumentResult
+      input: '{
+     "docTypeCode": "doc_auto_test",
+     "docCategoryCode": "POA",
+     "isActive": true,
+	   "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+       "docTypeCode": "doc_auto_test",
+       "docCategoryCode": "POA"
+    }'
+  
+   MasterData_CreateValidDocument_Invalid_InputParameter_docTypeCode_Missing:
+      endPoint: /v1/masterdata/validdocuments
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ValidDocument/validDocument
+      outputTemplate: masterdata/error
+      input: '{
+    "docTypeCode": "",
+     "docCategoryCode": "POA",
+     "isActive": true,
+     "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.docTypeCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+
+   MasterData_CreateValidDocument_Invalid_InputParameter_docCategoryCode_Missing:
+      endPoint: /v1/masterdata/validdocuments
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ValidDocument/validDocument
+      outputTemplate: masterdata/error
+      input: '{
+    "docTypeCode": "doc_auto_test",
+     "docCategoryCode": "",
+     "isActive": true,
+     "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.docCategoryCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}'
+
+   MasterData_CreateValidDocument_Invalid_isActive:
+      endPoint: /v1/masterdata/validdocuments
+      role: admin
+      restMethod: post
+      inputTemplate: masterdata/ValidDocument/validDocument
+      outputTemplate: masterdata/error
+      input: '{
+    "docTypeCode": "doc_auto_test",
+     "docCategoryCode": "POA",
+     "isActive": abc,
+     "requesttime": "$TIMESTAMP$"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : "
+    }
+  ]
+}'
+   
