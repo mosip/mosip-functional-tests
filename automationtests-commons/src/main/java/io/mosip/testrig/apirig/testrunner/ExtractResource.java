@@ -10,8 +10,6 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
-import io.mosip.testrig.apirig.authentication.fw.util.RunConfigUtil;
-
 public class ExtractResource {
 	
 	private static final Logger LOGGER = Logger.getLogger(ExtractResource.class);
