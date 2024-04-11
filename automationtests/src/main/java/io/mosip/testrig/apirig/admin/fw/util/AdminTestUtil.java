@@ -6036,6 +6036,46 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
+	
+	public static JSONArray regprocActuatorResponseArray = null;
+
+	public static String getValueFromRegprocActuator(String section, String key) {
+		String url = ApplnURI + propsKernel.getProperty("regprocActuatorEndpoint");
+		String actuatorCacheKey = url + section + key;
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null && !value.isEmpty())
+			return value;
+
+		try {
+			if (regprocActuatorResponseArray == null) {
+				Response response = null;
+				JSONObject responseJson = null;
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+
+				responseJson = new JSONObject(response.getBody().asString());
+				regprocActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
+			for (int i = 0, size = regprocActuatorResponseArray.length(); i < size; i++) {
+				JSONObject eachJson = regprocActuatorResponseArray.getJSONObject(i);
+				if (eachJson.get("name").toString().contains(section)) {
+					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
+							.get(GlobalConstants.VALUE).toString();
+					if (ConfigManager.IsDebugEnabled())
+						logger.info("Actuator: " + url + " key: " + key + " value: " + value);
+					break;
+				}
+			}
+			actuatorValueCache.put(actuatorCacheKey, value);
+
+			return value;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			return "";
+		}
+
+	}
+	
+	
 
 	public static JSONArray esignetActuatorResponseArray = null;
 
