@@ -6036,6 +6036,46 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
+	
+	public static JSONArray regprocActuatorResponseArray = null;
+
+	public static String getValueFromRegprocActuator(String section, String key) {
+		String url = ApplnURI + propsKernel.getProperty("regprocActuatorEndpoint");
+		String actuatorCacheKey = url + section + key;
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null && !value.isEmpty())
+			return value;
+
+		try {
+			if (regprocActuatorResponseArray == null) {
+				Response response = null;
+				JSONObject responseJson = null;
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+
+				responseJson = new JSONObject(response.getBody().asString());
+				regprocActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
+			for (int i = 0, size = regprocActuatorResponseArray.length(); i < size; i++) {
+				JSONObject eachJson = regprocActuatorResponseArray.getJSONObject(i);
+				if (eachJson.get("name").toString().contains(section)) {
+					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
+							.get(GlobalConstants.VALUE).toString();
+					if (ConfigManager.IsDebugEnabled())
+						logger.info("Actuator: " + url + " key: " + key + " value: " + value);
+					break;
+				}
+			}
+			actuatorValueCache.put(actuatorCacheKey, value);
+
+			return value;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			return "";
+		}
+
+	}
+	
+	
 
 	public static JSONArray esignetActuatorResponseArray = null;
 
@@ -6377,9 +6417,11 @@ public class AdminTestUtil extends BaseTestCase {
 			if (request.has("otp")) {
 				if (request.getString("otp").endsWith(GlobalConstants.MOSIP_NET)
 						|| request.getString("otp").endsWith(GlobalConstants.MAILINATOR_COM)
-						|| request.getString("otp").endsWith(GlobalConstants.MOSIP_IO)) {
-
+						|| request.getString("otp").endsWith(GlobalConstants.MOSIP_IO)
+						|| request.getString("otp").endsWith(GlobalConstants.OTP_AS_PHONE)) {
 					emailId = request.get("otp").toString();
+					if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+						emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 					logger.info(emailId);
 					otp = MockSMTPListener.getOtp(emailId);
 					request.put("otp", otp);
@@ -6407,8 +6449,12 @@ public class AdminTestUtil extends BaseTestCase {
 				if (request.has(GlobalConstants.REQUEST)) {
 					if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
 						if (request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
-								.endsWith(GlobalConstants.MOSIP_NET)) {
+								.endsWith(GlobalConstants.MOSIP_NET)
+								|| request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
+										.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 							emailId = request.getJSONObject(GlobalConstants.REQUEST).get("otp").toString();
+							if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+								emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 							logger.info(emailId);
 							otp = MockSMTPListener.getOtp(emailId);
 							request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
@@ -6454,10 +6500,16 @@ public class AdminTestUtil extends BaseTestCase {
 											|| request.getJSONObject(GlobalConstants.REQUEST)
 													.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 													.getString(GlobalConstants.CHALLENGE)
-													.endsWith(GlobalConstants.MOSIP_IO)) {
+													.endsWith(GlobalConstants.MOSIP_IO)
+											|| request.getJSONObject(GlobalConstants.REQUEST)
+													.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
+													.getString(GlobalConstants.CHALLENGE)
+													.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 										emailId = request.getJSONObject(GlobalConstants.REQUEST)
 												.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 												.getString(GlobalConstants.CHALLENGE);
+										if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+											emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 										logger.info(emailId);
 										otp = MockSMTPListener.getOtp(emailId);
 										request.getJSONObject(GlobalConstants.REQUEST)
@@ -6479,8 +6531,12 @@ public class AdminTestUtil extends BaseTestCase {
 			if (request.has(GlobalConstants.REQUEST)) {
 				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
 					if (request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
-							.endsWith(GlobalConstants.MOSIP_NET)) {
+							.endsWith(GlobalConstants.MOSIP_NET)
+							|| request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
+									.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 						emailId = request.getJSONObject(GlobalConstants.REQUEST).get("otp").toString();
+						if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+							emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 						logger.info(emailId);
 						otp = MockSMTPListener.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
@@ -6496,10 +6552,16 @@ public class AdminTestUtil extends BaseTestCase {
 									.has(GlobalConstants.CHALLENGE)) {
 								if (request.getJSONObject(GlobalConstants.REQUEST)
 										.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
-										.getString(GlobalConstants.CHALLENGE).endsWith(GlobalConstants.MOSIP_NET)) {
+										.getString(GlobalConstants.CHALLENGE).endsWith(GlobalConstants.MOSIP_NET)
+										|| request.getJSONObject(GlobalConstants.REQUEST)
+												.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
+												.getString(GlobalConstants.CHALLENGE)
+												.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 									emailId = request.getJSONObject(GlobalConstants.REQUEST)
 											.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 											.getString(GlobalConstants.CHALLENGE);
+									if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+										emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 									logger.info(emailId);
 									otp = MockSMTPListener.getOtp(emailId);
 									request.getJSONObject(GlobalConstants.REQUEST)
@@ -6520,8 +6582,12 @@ public class AdminTestUtil extends BaseTestCase {
 			if (request.has(GlobalConstants.REQUEST)) {
 				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
 					if (request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
-							.endsWith(GlobalConstants.MOSIP_NET)) {
+							.endsWith(GlobalConstants.MOSIP_NET)
+							|| request.getJSONObject(GlobalConstants.REQUEST).getString("otp")
+									.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 						emailId = request.getJSONObject(GlobalConstants.REQUEST).get("otp").toString();
+						if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+							emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 						logger.info(emailId);
 						otp = MockSMTPListener.getOtp(emailId);
 						request.getJSONObject(GlobalConstants.REQUEST).put("otp", otp);
@@ -6534,10 +6600,15 @@ public class AdminTestUtil extends BaseTestCase {
 								.getJSONObject(0).has(GlobalConstants.CHALLENGE)) {
 							if (request.getJSONObject(GlobalConstants.REQUEST)
 									.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
-									.getString(GlobalConstants.CHALLENGE).endsWith(GlobalConstants.MOSIP_NET)) {
+									.getString(GlobalConstants.CHALLENGE).endsWith(GlobalConstants.MOSIP_NET)
+									|| request.getJSONObject(GlobalConstants.REQUEST)
+											.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
+											.getString(GlobalConstants.CHALLENGE).endsWith(GlobalConstants.OTP_AS_PHONE)) {
 								emailId = request.getJSONObject(GlobalConstants.REQUEST)
 										.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 										.getString(GlobalConstants.CHALLENGE);
+								if (emailId.endsWith(GlobalConstants.OTP_AS_PHONE))
+									emailId = emailId.replace(GlobalConstants.OTP_AS_PHONE, "");
 								logger.info(emailId);
 								otp = MockSMTPListener.getOtp(emailId);
 								request.getJSONObject(GlobalConstants.REQUEST)
