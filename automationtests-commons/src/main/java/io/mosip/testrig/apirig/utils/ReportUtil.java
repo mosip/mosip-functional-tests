@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
+import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 
 /**
  * Class to show the result in table and text area format in testng report

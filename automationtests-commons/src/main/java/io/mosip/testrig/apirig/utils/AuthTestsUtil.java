@@ -36,10 +36,10 @@ import com.google.common.base.Verify;
 import com.ibm.icu.text.Transliterator;
 
 import io.mosip.kernel.core.util.HMACUtils;
-import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
-import io.mosip.testrig.apirig.testrunner.XmlPrecondtion;
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
+import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
+import io.mosip.testrig.apirig.testrunner.XmlPrecondtion;
 import io.restassured.response.Response;
 
 /**
