@@ -16,8 +16,8 @@ import org.json.JSONObject;
 
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
-import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
+import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
 import io.restassured.response.Response;
 
 /**

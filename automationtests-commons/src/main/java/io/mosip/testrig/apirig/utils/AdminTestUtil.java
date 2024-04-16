@@ -102,13 +102,13 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
 import io.mosip.kernel.core.util.HMACUtils2;
-import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
-import io.mosip.testrig.apirig.testrunner.MessagePrecondtion;
 import io.mosip.testrig.apirig.dbaccess.AuditDBManager;
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.dto.TestCaseDTO;
 import io.mosip.testrig.apirig.testrunner.BaseTestCase;
 import io.mosip.testrig.apirig.testrunner.ExtractResource;
+import io.mosip.testrig.apirig.testrunner.JsonPrecondtion;
+import io.mosip.testrig.apirig.testrunner.MessagePrecondtion;
 import io.mosip.testrig.apirig.testrunner.MockSMTPListener;
 import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
