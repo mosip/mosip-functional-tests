@@ -2920,6 +2920,21 @@ public class AdminTestUtil extends BaseTestCase {
 
 		return uri;
 	}
+	
+	public String getAuthTransactionId(String oidcTransactionId) {
+	    final String transactionId = oidcTransactionId.replaceAll("_|-", "");
+	    String lengthOfTransactionId =  AdminTestUtil.getValueFromEsignetActuator("/mosip/mosip-config/esignet-default.properties", "mosip.esignet.auth-txn-id-length");
+	   int authTransactionIdLength = lengthOfTransactionId != null ? Integer.parseInt(lengthOfTransactionId): 0;
+	    final byte[] oidcTransactionIdBytes = transactionId.getBytes();
+	    final byte[] authTransactionIdBytes = new byte[authTransactionIdLength];
+	    int i = oidcTransactionIdBytes.length - 1;
+	    int j = 0;
+	    while(j < authTransactionIdLength) {
+	        authTransactionIdBytes[j++] = oidcTransactionIdBytes[i--];
+	        if(i < 0) { i = oidcTransactionIdBytes.length - 1; }
+	    }
+	    return new String(authTransactionIdBytes);
+	}
 
 	public String replaceKeywordWithValue(String jsonString, String keyword, String value) {
 		if (value != null && !value.isEmpty())
