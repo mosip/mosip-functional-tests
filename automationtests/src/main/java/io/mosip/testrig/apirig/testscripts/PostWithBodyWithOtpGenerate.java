@@ -136,7 +136,7 @@ public class PostWithBodyWithOtpGenerate extends AdminTestUtil implements ITest 
 		sendOtpRespJson.remove("sendOtpResTemplate");
 		Map<String, List<OutputValidationDto>> ouputValidOtp = OutputValidationUtil.doJsonOutputValidation(
 				otpResponse.asString(), getJsonFromTemplate(sendOtpRespJson.toString(), sendOtpResTemplate),
-				testCaseDTO.isCheckErrorsOnlyInResponse(), otpResponse.getStatusCode());
+				testCaseDTO.isCheckErrorsOnlyInResponse(), testCaseDTO.getAllowedErrorCodes(), otpResponse.getStatusCode());
 		Reporter.log(ReportUtil.getOutputValidationReport(ouputValidOtp));
 
 		if (!OutputValidationUtil.publishOutputResult(ouputValidOtp)) {
