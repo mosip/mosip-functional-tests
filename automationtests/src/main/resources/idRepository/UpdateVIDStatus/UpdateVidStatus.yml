@@ -855,5 +855,5 @@ UpdateVidStatus:
   "requesttime": "$TIMESTAMP$"
 }'
       output: '{
-    "vidStatus": "ACTIVATED"
+    "vidStatus": "ACTIVE"
 }'
