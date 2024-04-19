@@ -27,13 +27,7 @@
 		</classes>
 	</test>
 	
-	<test name="UpdateIdentityForUin">
-		<parameter name="ymlFile"
-			value="ida/UpdateIdentityForUin/UpdateIdentity.yml" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.UpdateIdentity" />
-		</classes>
-	</test>
+	
 
 
 <test name="CreateDraft">
@@ -80,6 +74,14 @@
 		<classes>
 			<class
 				name="io.mosip.testrig.apirig.testscripts.PostWithAutogenIdWithOtpGenerate" />
+		</classes>
+	</test>
+	
+	<test name="UpdateIdentityForUin">
+		<parameter name="ymlFile"
+			value="ida/UpdateIdentityForUin/UpdateIdentity.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.UpdateIdentity" />
 		</classes>
 	</test>
 	
