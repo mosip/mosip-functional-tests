@@ -1,6 +1,6 @@
 DemoAuthNew:
   auth_DemoAuth_DOB_Valid_Smoke_UIN:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_Lock_UIN_Unlock_DemoAuth_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:AddIdentity_withValidParameters_smoke_Pos_UIN$&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
@@ -895,7 +895,7 @@ DemoAuthNew:
         "authStatus": "false"
 }'
   auth_DemoAuth_PhoneNumber__with_Valid_TVID_Smoke_Pos:
-      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Temporary_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
+      endPoint: /v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=$ID:GenerateVID_All_Valid_Smoke_Temp_VID_sid_vid$&idType=VID&partnerUrlSuffix=$PartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$
       role: resident
       restMethod: post
       inputTemplate: ida/DemoAuth/DemoAuth
