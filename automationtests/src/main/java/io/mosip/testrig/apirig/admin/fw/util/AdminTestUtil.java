@@ -6051,7 +6051,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
-	
+
 	public static JSONArray regprocActuatorResponseArray = null;
 
 	public static String getValueFromRegprocActuator(String section, String key) {
@@ -6089,8 +6089,6 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
-	
-	
 
 	public static JSONArray esignetActuatorResponseArray = null;
 
@@ -6618,7 +6616,8 @@ public class AdminTestUtil extends BaseTestCase {
 									.getString(GlobalConstants.CHALLENGE).endsWith(GlobalConstants.MOSIP_NET)
 									|| request.getJSONObject(GlobalConstants.REQUEST)
 											.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
-											.getString(GlobalConstants.CHALLENGE).endsWith(GlobalConstants.OTP_AS_PHONE)) {
+											.getString(GlobalConstants.CHALLENGE)
+											.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 								emailId = request.getJSONObject(GlobalConstants.REQUEST)
 										.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 										.getString(GlobalConstants.CHALLENGE);
@@ -6680,7 +6679,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String getServerComponentsDetails() {
 		if (serverComponentsCommitDetails != null && !serverComponentsCommitDetails.isEmpty())
 			return serverComponentsCommitDetails;
-
+		String commitDetailsResponse = "";
 		File file = new File(propsHealthCheckURL);
 		FileReader fileReader = null;
 		BufferedReader bufferedReader = null;
@@ -6698,8 +6697,13 @@ public class AdminTestUtil extends BaseTestCase {
 					if (ConfigManager.isInServiceNotDeployedList(parts[1])) {
 						continue;
 					}
-					stringBuilder.append("\n")
-							.append(getCommitDetails(BaseTestCase.ApplnURI + parts[1].replace("health", "info")));
+					commitDetailsResponse = getCommitDetails(
+							BaseTestCase.ApplnURI + parts[1].replace("health", "info"));
+					if (commitDetailsResponse.contains("No Response"))
+						continue;
+					else {
+						stringBuilder.append("\n").append(commitDetailsResponse);
+					}
 				}
 			}
 		} catch (Exception e) {
