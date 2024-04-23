@@ -28,7 +28,7 @@ public class ReportUtil {
 		if (headers != null && !headers.isEmpty())
 			formattedHeader = headers;
 		StringBuilder sb = new StringBuilder();
-		sb.append("<div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>");
+		sb.append("<div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='2' cols='160' readonly='true'>");
 		sb.append(formattedHeader);
 		sb.append("</textarea> </div>");
 		return sb.toString();
@@ -73,7 +73,7 @@ public class ReportUtil {
 			}
 		}
 		if (!outputValidationDone) {
-			return "<b> Marking test case as passed. As Output validation not performed and no errors in the response </b>";
+		    return "<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br>\n";
 		}
 			
 		htmlforReport = temp + htmlforReport + "</table>";
@@ -89,7 +89,7 @@ public class ReportUtil {
 	 */
 	public static String getTextAreaJsonMsgHtml(String content) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("<div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>");
+		sb.append("<div> <textarea style='border:solid 1px black;' name='message' rows='6' cols='160' readonly='true'>");
 		try {
 			sb.append(JsonPrecondtion.toPrettyFormat(content));
 		} catch (Exception e) {

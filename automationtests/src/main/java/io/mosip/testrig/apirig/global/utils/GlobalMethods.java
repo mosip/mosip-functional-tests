@@ -42,6 +42,11 @@ public class GlobalMethods {
 
 	}
 	
+	public static void ReportRequestAndResponse(String reqHeader,String resHeader,String url, String requestBody, String response, boolean formatResponse ) {
+	reportRequest(reqHeader,requestBody, url);
+	reportResponse(resHeader,url, response, formatResponse);				
+	}
+	
 	public static void ReportRequestAndResponse(String reqHeader,String resHeader,String url, String requestBody, String response) {
 	reportRequest(reqHeader,requestBody, url);
 	reportResponse(resHeader,url, response);				
@@ -60,7 +65,7 @@ public class GlobalMethods {
 					+ GlobalConstants.REPORT_REQUEST_SUFFIX);
 		else
 			Reporter.log(
-					GlobalConstants.REPORT_REQUEST_PREFIX + url + GlobalConstants.REPORT_REQUEST_BODY + formattedHeader + "No request body" + GlobalConstants.REPORT_REQUEST_SUFFIX);
+					GlobalConstants.REPORT_REQUEST_PREFIX + url + GlobalConstants.REPORT_REQUEST_BODY + formattedHeader + ReportUtil.getTextAreaJsonMsgHtml("No request body") + GlobalConstants.REPORT_REQUEST_SUFFIX);
 	}
 
 	public static void reportResponse(String responseHeader, String url, Response response) {
