@@ -38,6 +38,11 @@ MapDeviceWithSBI:
     "sbiId": "$ID:SaveSecureBiometricInterface_TO_Map_sid_id$"
   }'
       output: '{
+      "errors": [
+    {
+      "errorCode": "PMS_AUT_511"
+    }
+  ]
     }'
     
    Partner_MapDeviceWithSBI_Multiple_MapDeviceWith_Diff_Provider:
