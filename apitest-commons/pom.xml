@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.mosip.testrig.apirig.automationtests.commons</groupId>
-	<artifactId>automationtests-commons</artifactId>
+	<artifactId>apitest-commons</artifactId>
 	<packaging>jar</packaging>
-	<name>automationtests-commons</name>
+	<name>apitest-commons</name>
 	<description>Parent project of MOSIP functional tests</description>
 	<url>https://github.com/mosip/mosip-functional-tests</url>
 	<version>1.2.0.1-SNAPSHOT</version>
