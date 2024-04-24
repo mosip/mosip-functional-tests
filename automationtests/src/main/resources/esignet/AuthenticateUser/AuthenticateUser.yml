@@ -227,7 +227,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "IDA-OTA-004",
+      "errorCode": "IDA-OTA-012",
       "errorMessage": "$IGNORE$"
     }
   ],
