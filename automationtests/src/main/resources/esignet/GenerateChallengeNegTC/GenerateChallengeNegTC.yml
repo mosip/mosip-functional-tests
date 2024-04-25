@@ -610,7 +610,7 @@ GenerateChallengeNegTC:
    "captchaToken": "",
    "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$",
-   "regenerate": "false"
+   "regenerateChallenge": "false"
 }'
       output: '{
   "status":"SUCCESS"
@@ -627,7 +627,7 @@ GenerateChallengeNegTC:
    "captchaToken": "",
    "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$",
-   "regenerate": "$REMOVE$"
+   "regenerateChallenge": "$REMOVE$"
 }'
       output: '{
   "status":"SUCCESS"
@@ -645,7 +645,7 @@ GenerateChallengeNegTC:
    "captchaToken": "",
    "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$",
-   "regenerate": "true"
+   "regenerateChallenge": "true"
 }'
       output: '{
   "errors": [
@@ -667,7 +667,7 @@ GenerateChallengeNegTC:
    "captchaToken": "",
    "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$",
-   "regenerate": "true"
+   "regenerateChallenge": "true"
 }'
       output: '{
   "errors": [
@@ -689,7 +689,7 @@ GenerateChallengeNegTC:
    "captchaToken": "",
    "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$",
-   "regenerate": "true"
+   "regenerateChallenge": "true"
 }'
       output: '{
   "errors": [
@@ -710,7 +710,7 @@ GenerateChallengeNegTC:
    "captchaToken": "",
    "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$",
-   "regenerate": "true"
+   "regenerateChallenge": "true"
 }'
       output: '{
   "errors": [
@@ -731,7 +731,7 @@ GenerateChallengeNegTC:
    "captchaToken": "",
    "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$",
-   "regenerate": "sjdk"
+   "regenerateChallenge": "sjdk"
 }'
       output: '{
   "errors": [
@@ -752,7 +752,7 @@ GenerateChallengeNegTC:
    "captchaToken": "",
    "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$",
-   "regenerate": ""
+   "regenerateChallenge": ""
 }'
       output: '{
   "status":"SUCCESS"
@@ -769,7 +769,7 @@ GenerateChallengeNegTC:
    "captchaToken": "",
    "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$",
-   "regenerate": "null"
+   "regenerateChallenge": "null"
 }'
       output: '{
   "status":"SUCCESS"
@@ -786,7 +786,7 @@ GenerateChallengeNegTC:
    "captchaToken": "",
    "purpose": "REGISTRATION",
    "requestTime": "$TIMESTAMP$",
-   "regenerate": " "
+   "regenerateChallenge": " "
 }'
       output: '{
   "errors": [
