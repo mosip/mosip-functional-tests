@@ -79,8 +79,8 @@ MultiFactorAuth:
       inputTemplate: ida/MultiFactorAuth/MultiFactorAuth
       outputTemplate: ida/MultiFactorAuth/MultiFactorAuthResult
       input: '{
-          "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$",
-          "individualId": "$ID:AddIdentity_ValidParam_smoke_Pos_UIN$",
+          "otp": "$ID:AddIdentity_deactivate_UIN_smoke_sid_Pos_EMAIL$",
+          "individualId": "$ID:AddIdentity_deactivate_UIN_smoke_sid_Pos_UIN$",
           "bioSubType": "",
           "bioType": "FACE",
           "bioValue": "$FACE$",
