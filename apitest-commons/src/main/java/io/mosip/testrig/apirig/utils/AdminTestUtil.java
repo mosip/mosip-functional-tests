@@ -3263,7 +3263,7 @@ public class AdminTestUtil extends BaseTestCase {
 					MosipTestRunner.generatePublicKeyForMimoto());
 		}
 		if (jsonString.contains("$BLOCKEDPARTNERID$")) {
-			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.PARTNER_ID, getPartnerId());
+			jsonString = replaceKeywordWithValue(jsonString, "$BLOCKEDPARTNERID$", getPartnerId());
 		}
 		if (jsonString.contains("$APIKEY$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$APIKEY$", getAPIKey());
