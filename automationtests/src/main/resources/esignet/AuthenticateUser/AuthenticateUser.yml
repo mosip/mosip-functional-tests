@@ -774,7 +774,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_challenge_length",
+      "errorCode": "invalid_auth_factor_type",
       "errorMessage": "$IGNORE$"
     }
   ],
@@ -893,7 +893,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_challenge_length",
+      "errorCode": "invalid_auth_factor_type",
       "errorMessage": "$IGNORE$"
     }
   ],
@@ -933,7 +933,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_challenge_length",
+      "errorCode": "invalid_challenge_format",
       "errorMessage": "$IGNORE$"
     }
   ],
@@ -972,7 +972,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_challenge_length",
+      "errorCode": "invalid_challenge",
       "errorMessage": "$IGNORE$"
     }
   ],
@@ -1091,7 +1091,7 @@ AuthenticateUser:
       output: '{
       	"errors": [
     {
-      "errorCode": "invalid_challenge_length",
+      "errorCode": "invalid_challenge",
       "errorMessage": "$IGNORE$"
     }
   ],
