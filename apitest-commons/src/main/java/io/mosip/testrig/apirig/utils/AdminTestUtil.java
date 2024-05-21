@@ -2908,7 +2908,7 @@ public class AdminTestUtil extends BaseTestCase {
 		return uri;
 	}
 	
-	public String getAuthTransactionId(String oidcTransactionId) {
+	public static String getAuthTransactionId(String oidcTransactionId) {
 	    final String transactionId = oidcTransactionId.replaceAll("_|-", "");
 	    String lengthOfTransactionId =  AdminTestUtil.getValueFromEsignetActuator("/mosip/mosip-config/esignet-default.properties", "mosip.esignet.auth-txn-id-length");
 	   int authTransactionIdLength = lengthOfTransactionId != null ? Integer.parseInt(lengthOfTransactionId): 0;
