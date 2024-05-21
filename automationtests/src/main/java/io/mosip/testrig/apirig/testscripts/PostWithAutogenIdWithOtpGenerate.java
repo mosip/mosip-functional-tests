@@ -267,7 +267,8 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 	@AfterClass(alwaysRun = true)
 	public void waittime() {
 		try {
-			if (!testCaseName.contains("Resident_CheckAidStatus")) {
+			if ((!testCaseName.contains(GlobalConstants.ESIGNET_))
+					&& (!testCaseName.contains("Resident_CheckAidStatus"))) {
 				long delayTime = Long.parseLong(properties.getProperty("Delaytime"));
 				if (!BaseTestCase.isTargetEnvLTS())
 					delayTime = Long.parseLong(properties.getProperty("uinGenDelayTime"))
