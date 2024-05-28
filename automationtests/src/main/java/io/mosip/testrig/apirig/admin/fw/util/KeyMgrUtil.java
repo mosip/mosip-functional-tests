@@ -371,16 +371,7 @@ public class KeyMgrUtil {
             KeyStoreException, CertificateException, IOException, OperatorCreationException {
         String filePrepend = parterId;
 
-        String partnerFilePath = null;
-        
-        if(PartnerRegistration.ekycPartnerId.contains("ekyc")) {
-        	partnerFilePath = dirPath + '/' +"ekyc-"+ filePrepend + PARTNER_P12_FILE_NAME;
-        }else {
-        partnerFilePath = dirPath + '/' +"rp-"+ filePrepend + PARTNER_P12_FILE_NAME;
-        }
-        
-        
-        
+        String partnerFilePath = dirPath + '/' +PartnerRegistration.appendEkycOrRp+ filePrepend + PARTNER_P12_FILE_NAME;;
         return getPrivateKeyEntry(partnerFilePath);
     }
 

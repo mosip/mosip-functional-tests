@@ -74,12 +74,29 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 	@Test(dataProvider = "testcaselist")
 	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
 		testCaseName = testCaseDTO.getTestCaseName();
-		String ekycPartnerKeyUrl = PartnerRegistration.mispLicKey + "/" + PartnerRegistration.partnerId + "/" + PartnerRegistration.apiKey;
-		JSONObject req = new JSONObject(testCaseDTO.getInput());
+		//String ekycPartnerKeyUrl = PartnerRegistration.mispLicKey + "/" + PartnerRegistration.partnerId + "/" + PartnerRegistration.apiKey;
+		
+		String partnerKeyUrl = PartnerRegistration.mispLicKey + "/" + PartnerRegistration.partnerId + "/" + PartnerRegistration.apiKey;
+		String ekycPartnerKeyURL = PartnerRegistration.mispLicKey + "/" + PartnerRegistration.ekycPartnerId + "/" + PartnerRegistration.kycApiKey;
+		
 		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
+			
 		{
-			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", ekycPartnerKeyUrl));
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", partnerKeyUrl));
+			PartnerRegistration.appendEkycOrRp = "rp-";
 		}
+		if(testCaseDTO.getEndPoint().contains("$ekycPartnerKeyURL$"))
+		{
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$ekycPartnerKeyURL$", ekycPartnerKeyURL));
+			PartnerRegistration.appendEkycOrRp = "ekyc-";
+		}
+		
+		
+		JSONObject req = new JSONObject(testCaseDTO.getInput());
+//		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
+//		{
+//			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", ekycPartnerKeyUrl));
+//		}
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;
 		if(req.has("sendOtp")) {
 			otpRequest = req.get("sendOtp").toString();
@@ -93,11 +110,18 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		
 		otpReqJson.remove("sendOtpEndPoint");
 		
+//		if(sendOtpEndPoint.contains("$partnerKeyURL$"))
+//		{
+//			sendOtpEndPoint = sendOtpEndPoint.replace("$partnerKeyURL$", ekycPartnerKeyURL);
+//		}
 		if(sendOtpEndPoint.contains("$partnerKeyURL$"))
 		{
-			sendOtpEndPoint = sendOtpEndPoint.replace("$partnerKeyURL$", ekycPartnerKeyUrl);
+			sendOtpEndPoint = sendOtpEndPoint.replace("$partnerKeyURL$", partnerKeyUrl);
 		}
-		
+		if(sendOtpEndPoint.contains("$ekycPartnerKeyURL$"))
+		{
+			sendOtpEndPoint = sendOtpEndPoint.replace("$partnerKeyURL$", ekycPartnerKeyURL);
+		}
 		Response otpResponse = postRequestWithAuthHeaderAndSignature(ApplnURI + sendOtpEndPoint, getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), testCaseDTO.getTestCaseName());
 		
 		JSONObject res = new JSONObject(testCaseDTO.getOutput());

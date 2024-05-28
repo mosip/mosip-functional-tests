@@ -87,10 +87,12 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 			
 		{
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", partnerKeyUrl));
+			PartnerRegistration.appendEkycOrRp = "rp-";
 		}
 		if(testCaseDTO.getEndPoint().contains("$ekycPartnerKeyURL$"))
 		{
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$ekycPartnerKeyURL$", ekycPartnerKeyURL));
+			PartnerRegistration.appendEkycOrRp = "ekyc-";
 		}
 		JSONObject req = new JSONObject(testCaseDTO.getInput());
 		String otpRequest = null, sendOtpReqTemplate = null, sendOtpEndPoint = null, otpIdentyEnryptRequestPath = null;

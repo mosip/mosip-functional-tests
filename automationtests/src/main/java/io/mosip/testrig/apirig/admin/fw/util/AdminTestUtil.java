@@ -4332,8 +4332,6 @@ public class AdminTestUtil extends BaseTestCase {
 		String singResponse = null;
 		try {
 			singResponse = sign(request, false, true, false, null, getKeysDirPath(), partnerId);
-			logger.info("Kamal testing"+ singResponse);
-			System.out.print("Kamal testing"+ singResponse);			
 			} catch (NoSuchAlgorithmException | UnrecoverableEntryException | KeyStoreException | CertificateException
 				| OperatorCreationException | JoseException | IOException e) {
 			logger.error(e.getMessage());

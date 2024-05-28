@@ -105,10 +105,12 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
 		{
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", partnerKeyUrl));
+			PartnerRegistration.appendEkycOrRp = "rp-";
 		}
 		if(testCaseDTO.getEndPoint().contains("$ekycPartnerKeyURL$"))
 		{
 			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$ekycPartnerKeyURL$", ekycPartnerKeyURL));
+			PartnerRegistration.appendEkycOrRp = "ekyc-";
 		}
 		JSONObject request = new JSONObject(testCaseDTO.getInput());
 		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
