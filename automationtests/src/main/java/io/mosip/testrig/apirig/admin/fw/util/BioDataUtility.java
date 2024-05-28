@@ -142,6 +142,15 @@ public class BioDataUtility extends AdminTestUtil {
 			String encryptedContent = encryptIsoBioValue(bioValue, timestamp, bioValueencryptionTemplateJson,
 					transactionId, isInternal);
 			String encryptedBioValue = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedData");
+			
+			
+			
+			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, "https://api-internal.qa-inji.mosip.net",
+					biometricsMapper + ".data.domainUri");
+			
+			
+			
+			logger.info(identityRequest);
 			String encryptedSessionKey = JsonPrecondtion.getValueFromJson(encryptedContent, "encryptedSessionKey");
 			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, encryptedBioValue,
 					biometricsMapper + ".data.bioValue");

@@ -78,6 +78,7 @@ import org.testng.Reporter;
 import org.testng.SkipException;
 import org.yaml.snakeyaml.Yaml;
 
+import java.lang.Double;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -4331,7 +4332,9 @@ public class AdminTestUtil extends BaseTestCase {
 		String singResponse = null;
 		try {
 			singResponse = sign(request, false, true, false, null, getKeysDirPath(), partnerId);
-		} catch (NoSuchAlgorithmException | UnrecoverableEntryException | KeyStoreException | CertificateException
+			logger.info("Kamal testing"+ singResponse);
+			System.out.print("Kamal testing"+ singResponse);			
+			} catch (NoSuchAlgorithmException | UnrecoverableEntryException | KeyStoreException | CertificateException
 				| OperatorCreationException | JoseException | IOException e) {
 			logger.error(e.getMessage());
 		}
@@ -4504,7 +4507,7 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public String getKeysDirPath() {
-		String path = System.getProperty("java.io.tmpdir") + "/" + "IDA-" + environment + ".mosip.net";
+		String path = "/Users/kamalsingh/mosip/authcerts" + "/" + "IDA-" + environment + ".mosip.net";
 		logger.info("certificate path is::" + path);
 		return new File(path).getAbsolutePath();
 	}

@@ -1,6 +1,11 @@
 package io.mosip.testrig.apirig.ida.certificate;
 
 import java.io.File;
+import java.io.IOException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableEntryException;
+import java.security.cert.CertificateException;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -8,8 +13,12 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.bouncycastle.operator.OperatorCreationException;
 import org.json.JSONObject;
 
+import Util.AuthUtil;
+import dto.CertificateChainResponseDto;
+import helper.PartnerTypes;
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
@@ -63,10 +72,11 @@ public class PartnerRegistration extends AdminTestUtil {
 			partnerId = getPartnerIdFromPartnerURL(partnerKeyUrl);
 			return ConfigManager.getPartnerUrlSuffix();
 		}
+		getAndUploadCertificates();
 		ftmGeneration();
 		deviceGeneration();
 
-		getAndUploadCertificates();
+		
 		apiKey = KeyCloakUserAndAPIKeyGeneration.createKCUserAndGetAPIKey();
 		
 		mispLicKey = MispPartnerAndLicenseKeyGeneration.getAndUploadCertificatesAndGenerateMispLicKey();
@@ -138,7 +148,7 @@ public class PartnerRegistration extends AdminTestUtil {
 		JSONObject signedcertificateValue = uploadPartnerCertificate(partnerCertValue, "Auth", partnerId);
 
 		String certValueSigned = signedcertificateValue.getString("signedCertificateData");
-		lOGGER.info(certValueSigned);
+		lOGGER.info(certValueSigned);		
 		uploadSignedCertificate(certValueSigned, getPartnerType, partnerId, true);
 
 	}
@@ -237,52 +247,112 @@ public class PartnerRegistration extends AdminTestUtil {
 	}
 
 	public static JSONObject getCertificates(String partnerId, String partnerType) {
-		if (localHostUrl == null) {
-			localHostUrl = getLocalHostUrl();
+		// Need to update PartnerTypes.DEVICE with partnerType
+		PartnerTypes partnerTypeEnum = null;
+		if (partnerType.equals("RELYING_PARTY")) {
+			partnerTypeEnum = PartnerTypes.RELYING_PARTY;           
+        } else if (partnerType.equals("DEVICE")) {
+        	partnerTypeEnum = PartnerTypes.DEVICE;
+        }else if (partnerType.equals("FTM")) {
+        	partnerTypeEnum = PartnerTypes.FTM;
+        }else if (partnerType.equals("EKYC")) {
+        	partnerTypeEnum = PartnerTypes.EKYC;
+        }else if (partnerType.equals("MISP")) {
+        	partnerTypeEnum = PartnerTypes.MISP;
+        }
+		AuthUtil authUtil = new AuthUtil();
+		boolean keyFileNameByPartnerName = true;
+		CertificateChainResponseDto certificateChainResponseDto = null;
+	
+		try {
+			certificateChainResponseDto = authUtil.generatePartnerKeys(partnerTypeEnum, partnerId, keyFileNameByPartnerName, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+		} catch (Exception  e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		String url = localHostUrl + properties.getProperty("getPartnerCertURL");
+		
+		
+//		if (localHostUrl == null) {
+//			localHostUrl = getLocalHostUrl();
+//		}
+//		String url = localHostUrl + properties.getProperty("getPartnerCertURL");
+//
+//		HashMap<String, String> map = new HashMap<>();
+//
+//		map.put("partnerName", partnerId);
+//		map.put("partnerType", partnerType);
+//		map.put("moduleName", BaseTestCase.certsForModule);
+//		map.put("keyFileNameByPartnerName", GlobalConstants.TRUE_STRING);
+//
+//		String token = kernelAuthLib.getTokenByRole("partner");
 
-		HashMap<String, String> map = new HashMap<>();
-
-		map.put("partnerName", partnerId);
-		map.put("partnerType", partnerType);
-		map.put("moduleName", BaseTestCase.certsForModule);
-		map.put("keyFileNameByPartnerName", GlobalConstants.TRUE_STRING);
-
-		String token = kernelAuthLib.getTokenByRole("partner");
-
-		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
-		lOGGER.info(response);
-		JSONObject responseJson = new JSONObject(response.asString());
-		lOGGER.info(responseJson);
-
+//		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
+//				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+//		lOGGER.info(response);
+//		JSONObject responseJson = new JSONObject(response.asString());
+//		lOGGER.info(responseJson);
+		
+		JSONObject responseJson = new JSONObject();
+		responseJson.put("caCertificate", certificateChainResponseDto.getCaCertificate());
+		responseJson.put("interCertificate", certificateChainResponseDto.getInterCertificate());
+		responseJson.put("partnerCertificate", certificateChainResponseDto.getPartnerCertificate());
 		return responseJson;
+
+	
 	}
 
 	public static JSONObject getDeviceCertificates(String partnerId, String partnerType) {
-		if (localHostUrl == null) {
-			localHostUrl = getLocalHostUrl();
-		}
-		String url = localHostUrl + properties.getProperty("getPartnerCertURL");
-
-		HashMap<String, String> map = new HashMap<>();
-
-		map.put("partnerName", partnerId);
-		map.put("partnerType", partnerType);
-		map.put("moduleName", BaseTestCase.certsForModule);
+		AuthUtil authUtil = new AuthUtil();
+		PartnerTypes partnerTypeEnum = null;
+		
+		if (partnerType.equals("RELYING_PARTY")) {
+			partnerTypeEnum = PartnerTypes.RELYING_PARTY;           
+        } else if (partnerType.equals("DEVICE")) {
+        	partnerTypeEnum = PartnerTypes.DEVICE;
+        }else if (partnerType.equals("FTM")) {
+        	partnerTypeEnum = PartnerTypes.FTM;
+        }else if (partnerType.equals("EKYC")) {
+        	partnerTypeEnum = PartnerTypes.EKYC;
+        }else if (partnerType.equals("MISP")) {
+        	partnerTypeEnum = PartnerTypes.MISP;
+        }
+		boolean keyFileNameByPartnerName = false;
+		CertificateChainResponseDto certificateChainResponseDto = null;
 		if (partnerType.equals("RELYING_PARTY") || partnerType.equals("MISP")) {
-			map.put("keyFileNameByPartnerName", GlobalConstants.TRUE_STRING);
+			keyFileNameByPartnerName = true;
 		}
-
-		String token = kernelAuthLib.getTokenByRole("partner");
-
-		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
-				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
-		lOGGER.info(response);
-		JSONObject responseJson = new JSONObject(response.asString());
-		lOGGER.info(responseJson);
-
+		try {
+			certificateChainResponseDto = authUtil.generatePartnerKeys(partnerTypeEnum, partnerId, keyFileNameByPartnerName, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+		} catch (Exception  e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		if (localHostUrl == null) {
+//			localHostUrl = getLocalHostUrl();
+//		}
+//		String url = localHostUrl + properties.getProperty("getPartnerCertURL");
+//
+//		HashMap<String, String> map = new HashMap<>();
+//
+//		map.put("partnerName", partnerId);
+//		map.put("partnerType", partnerType);
+//		map.put("moduleName", BaseTestCase.certsForModule);
+//		if (partnerType.equals("RELYING_PARTY") || partnerType.equals("MISP")) {
+//			map.put("keyFileNameByPartnerName", GlobalConstants.TRUE_STRING);
+//		}
+//
+//		String token = kernelAuthLib.getTokenByRole("partner");
+//
+//		Response response = RestClient.getRequestWithCookieAndQueryParm(url, map, MediaType.APPLICATION_JSON,
+//				MediaType.APPLICATION_JSON, GlobalConstants.AUTHORIZATION, token);
+//		lOGGER.info(response);
+//		JSONObject responseJson = new JSONObject(response.asString());
+//		lOGGER.info(responseJson);
+		
+		JSONObject responseJson = new JSONObject();
+		responseJson.put("caCertificate", certificateChainResponseDto.getCaCertificate());
+		responseJson.put("interCertificate", certificateChainResponseDto.getInterCertificate());
+		responseJson.put("partnerCertificate", certificateChainResponseDto.getPartnerCertificate());
 		return responseJson;
 	}
 
@@ -370,27 +440,69 @@ public class PartnerRegistration extends AdminTestUtil {
 
 	public static void uploadSignedCertificate(String certValueSigned, String partnerType, String partnerId,
 			Boolean keyFileNameByPartnerName) {
-		String url = localHostUrl + properties.getProperty("uploadSignedCertificateUrl");
-
+		PartnerTypes partnerTypeEnum = null;
+		if (partnerType.equals("RELYING_PARTY")) {
+			partnerTypeEnum = PartnerTypes.RELYING_PARTY;           
+        } else if (partnerType.equals("DEVICE")) {
+        	partnerTypeEnum = PartnerTypes.DEVICE;
+        }else if (partnerType.equals("FTM")) {
+        	partnerTypeEnum = PartnerTypes.FTM;
+        }else if (partnerType.equals("EKYC")) {
+        	partnerTypeEnum = PartnerTypes.EKYC;
+        }else if (partnerType.equals("MISP")) {
+        	partnerTypeEnum = PartnerTypes.MISP;
+        }
+		
+		keyFileNameByPartnerName = false;
+		
+		if (partnerType.equals("RELYING_PARTY") || partnerType.equals("EKYC")) {
+			keyFileNameByPartnerName = true;
+		}
 		HashMap<String, String> requestBody = new HashMap<>();
 
 		requestBody.put("certData", certValueSigned);
-
-		HashMap<String, Object> queryParamMap = new HashMap<>();
-		queryParamMap.put("partnerName", partnerId);
-		queryParamMap.put("partnerType", partnerType);
-		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
-		if (partnerType.equals("RELYING_PARTY")) {
-			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
+		
+		AuthUtil authUtil = new AuthUtil();
+		try {
+//			String url = ConfigManager.getAuthDemoServiceUrl() + properties.getProperty("uploadSignedCertificateUrl");
+//
+//
+//			HashMap<String, Object> queryParamMap = new HashMap<>();
+//			queryParamMap.put("partnerName", partnerId);
+//			queryParamMap.put("partnerType", partnerType);
+//			queryParamMap.put("moduleName", BaseTestCase.certsForModule);
+//			if (partnerType.equals("RELYING_PARTY")) {
+//				queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
+//			}
+//			if (partnerType.equals("EKYC")) {
+//				queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
+//			}
+//
+//			Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap,
+//					MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
+//
+//			lOGGER.info(response);
+			String str = authUtil.updatePartnerCertificate(partnerTypeEnum, partnerId, keyFileNameByPartnerName, requestBody, null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+			lOGGER.info("Is update partner certificate "+str);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		if (partnerType.equals("EKYC")) {
-			queryParamMap.put("keyFileNameByPartnerName", keyFileNameByPartnerName);
-		}
-
-		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap,
-				MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
-
-		lOGGER.info(response);
+		
+//		String url = localHostUrl + properties.getProperty("uploadSignedCertificateUrl");
+//
+//		
+//
+//		HashMap<String, Object> queryParamMap = new HashMap<>();
+//		queryParamMap.put("partnerName", partnerId);
+//		queryParamMap.put("partnerType", partnerType);
+//		queryParamMap.put("moduleName", BaseTestCase.certsForModule);
+//		
+//
+//		Response response = RestClient.postRequestWithQueryParamsAndBody(url, requestBody, queryParamMap,
+//				MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN);
+//
+//		lOGGER.info(response);
 	}
 
 	public static void deviceGeneration() {
@@ -492,23 +604,29 @@ public class PartnerRegistration extends AdminTestUtil {
 			// So use the predefined certificate folder and partnerkey
 			return ;
 		}
+		AuthUtil authUtil = new AuthUtil();
+		try {
+			authUtil.clearKeys(null, BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		
-		if (localHostUrl == null) {
-			localHostUrl = getLocalHostUrl();
-		}
-		String url = localHostUrl + properties.getProperty("clearCertificateURL");
-
-		if (url.contains("$MODULENAME$")) {
-			url = url.replace("$MODULENAME$", BaseTestCase.certsForModule);
-		}
-
-		if (url.contains("$CERTSDIR$")) {
-			url = url.replace("$CERTSDIR$", ConfigManager.getauthCertsPath());
-		}
-
-		Response response = RestClient.deleteRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
-		lOGGER.info(response);
+//		if (localHostUrl == null) {
+//			localHostUrl = getLocalHostUrl();
+//		}
+//		String url = localHostUrl + properties.getProperty("clearCertificateURL");
+//
+//		if (url.contains("$MODULENAME$")) {
+//			url = url.replace("$MODULENAME$", BaseTestCase.certsForModule);
+//		}
+//
+//		if (url.contains("$CERTSDIR$")) {
+//			url = url.replace("$CERTSDIR$", ConfigManager.getauthCertsPath());
+//		}
+//
+//		Response response = RestClient.deleteRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+//		lOGGER.info(response);
 
 	}
 
