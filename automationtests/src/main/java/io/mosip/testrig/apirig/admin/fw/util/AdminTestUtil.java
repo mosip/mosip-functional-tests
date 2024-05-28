@@ -6723,9 +6723,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (response != null && response.getStatusCode() == 200) {
 			logger.info(response.getBody().asString());
 			JSONObject jsonResponse = new JSONObject(response.getBody().asString());
-			return "Group: " + jsonResponse.getJSONObject("build").getString("group") + ", Artifact: "
-					+ jsonResponse.getJSONObject("build").getString("artifact") + ", version: "
-					+ jsonResponse.getJSONObject("build").getString("version") + ", Commit ID: "
+			return "Group: " + jsonResponse.getJSONObject("build").getString("group") + " ---- Artifact: "
+					+ jsonResponse.getJSONObject("build").getString("artifact") + " ---- version: "
+					+ jsonResponse.getJSONObject("build").getString("version") + " ---- Commit ID: "
 					+ jsonResponse.getJSONObject("git").getJSONObject("commit").getString("id");
 		}
 		return path + "- No Response";
