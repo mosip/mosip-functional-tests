@@ -1,12 +1,17 @@
 package io.mosip.testrig.apirig.report;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.text.NumberFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -14,6 +19,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
+import org.apache.commons.lang3.SerializationUtils;
 import org.testng.IReporter;
 import org.testng.ISuite;
 import org.testng.ISuiteResult;
@@ -175,31 +181,31 @@ public class EmailableReport implements IReporter {
 		writeStylesheet();
 		writer.print("</head>");
 	}
-
+	
 	protected void writeStylesheet() {
-		writer.print("<style type=\"text/css\">");
-		writer.print("table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}");
-		writer.print("th,td {border:1px solid #009;padding:.25em .5em}");
-		writer.print("th {vertical-align:bottom}");
-		writer.print("td {vertical-align:top}");
-		writer.print("table a {font-weight:bold}");
-		writer.print(".stripe td {background-color: #E6EBF9}");
-		writer.print(".num {text-align:center}");
-		writer.print(".orange-bg {background-color: #FFA500}");
-		writer.print(".grey-bg {background-color: #808080}");
-		writer.print(".green-bg {background-color: #0A0}");
-		writer.print(".attn {background-color: #D00}");
-		writer.print(".passedodd td {background-color: #3F3}");
-		writer.print(".passedeven td {background-color: #0A0}");
-		writer.print(".skippedodd td {background-color: #FFA500}");
-		writer.print(".skippedeven td,.stripe {background-color: #FFA500}");
-		writer.print(".failedodd td {background-color: #F33}");
-		writer.print(".failedeven td,.stripe {background-color: #D00}");
-		writer.print(".ignoredodd td {background-color: #808080}");
-		writer.print(".ignoredeven td {background-color: #808080}");
-		writer.print(".stacktrace {white-space:pre;font-family:monospace}");
-		writer.print(".totop {font-size:85%;text-align:center;border-bottom:2px solid #000}");
-		writer.print("</style>");
+	    writer.print("<style type=\"text/css\">");
+	    writer.print("table {margin-bottom:10px;border-collapse:collapse;empty-cells:show;width: 100%;}");
+	    writer.print("th,td {border:1px solid #009;padding:.25em .5em;width: 25%;}");  // Set a fixed width for uniform cell sizes
+	    writer.print("th {vertical-align:bottom}");
+	    writer.print("td {vertical-align:top}");
+	    writer.print("table a {font-weight:bold}");
+	    writer.print(".stripe td {background-color: #E6EBF9}");
+	    writer.print(".num {text-align:center}");
+	    writer.print(".orange-bg {background-color: #FFA500}");
+	    writer.print(".grey-bg {background-color: #808080}");
+	    writer.print(".green-bg {background-color: #0A0}");
+	    writer.print(".attn {background-color: #D00}");
+	    writer.print(".passedodd td {background-color: #3F3}");
+	    writer.print(".passedeven td {background-color: #0A0}");
+	    writer.print(".skippedodd td {background-color: #FFA500}");
+	    writer.print(".skippedeven td,.stripe {background-color: #FFA500}");
+	    writer.print(".failedodd td {background-color: #F33}");
+	    writer.print(".failedeven td,.stripe {background-color: #D00}");
+	    writer.print(".ignoredodd td {background-color: #808080}");
+	    writer.print(".ignoredeven td {background-color: #808080}");
+	    writer.print(".stacktrace {white-space:pre;font-family:monospace}");
+	    writer.print(".totop {font-size:85%;text-align:center;border-bottom:2px solid #000}");
+	    writer.print("</style>");
 	}
 
 	protected void writeBody() {
@@ -217,7 +223,23 @@ public class EmailableReport implements IReporter {
 	protected void writeSuiteSummary() {
 		NumberFormat integerFormat = NumberFormat.getIntegerInstance();
 		NumberFormat decimalFormat = NumberFormat.getNumberInstance();
+		LocalDate currentDate = LocalDate.now();
+		String formattedDate =null;
+		 String branch = null;
 
+		// Format the current date as per your requirement
+		try {
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	    formattedDate = currentDate.format(formatter);
+		Process process = Runtime.getRuntime().exec("git rev-parse --abbrev-ref HEAD");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        branch = reader.readLine();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		totalPassedTests = 0;
 		totalSkippedTests = 0;
 		totalIgnoredTests = 0;
@@ -229,12 +251,21 @@ public class EmailableReport implements IReporter {
 		int testIndex = 0;
 		for (SuiteResult suiteResult : suiteResults) {
 			writer.print("<tr><th colspan=\"7\">");
-			writer.print(Utils.escapeHtml(suiteResult.getSuiteName() + "-" + getCommitId()));
+			writer.print(Utils.escapeHtml(suiteResult.getSuiteName() + " ---- " + "Report Date: " + formattedDate
+					+ " ---- " + "Tested Environment: "
+					+ System.getProperty("env.endpoint").replaceAll(".*?\\.([^\\.]+)\\..*", "$1") + " ---- "
+					+ getCommitId()));
 			writer.print(GlobalConstants.TRTR);
+			
+			// Left column: "Tested Component Details" with central alignment
+			writer.print("<th style=\"text-align: center; vertical-align: middle;\" colspan=\"2\"><span class=\"not-bold\"><pre>");
+			writer.print(Utils.escapeHtml("Tested Component Details"));
+			writer.print("</span></th>");
 
-			writer.print("<tr><th colspan=\"7\"><span class=\"not-bold\"><pre>");
-			writer.print(Utils.escapeHtml("Server Component Details " + AdminTestUtil.getServerComponentsDetails()));
-			writer.print("</pre></span>");
+			// Right column: Details from AdminTestUtil.getServerComponentsDetails() without bold formatting
+			writer.print("<td colspan=\"5\"><pre>");
+			writer.print(Utils.escapeHtml(AdminTestUtil.getServerComponentsDetails()));
+			writer.print("</pre></td>");
 			writer.print(GlobalConstants.TRTR);
 			
 			writer.print("<tr><th colspan=\"7\"><span class=\"not-bold\"><pre>");
@@ -281,7 +312,7 @@ public class EmailableReport implements IReporter {
 
 				
 				writeTableData(buffer.append("<a href=\"#t").append(testIndex).append("\">")
-						.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString());
+						.append(Utils.escapeHtml(testResult.getTestName())).append("</a>").toString(), "num");
 				
 				writeTableData(integerFormat.format(totalTests),
 							"num");
@@ -471,22 +502,19 @@ public class EmailableReport implements IReporter {
 						buffer.append(GlobalConstants.TRCLASS).append(cssClass).append("\">");
 
 					}
-					buffer.append("<td><a href=\"#m").append(scenarioIndex).append("\">").append(methodName)
-							.append("</a></td>").append(GlobalConstants.TDROWSPAN).append(resultsCount).append("\">")
-							.append(duration).append(GlobalConstants.TDTR);
-					
-					
-//					buffer.append("<td><a href=\"#m").append(scenarioIndex).append("\">").append(methodName)
-//							.append("</a></td>").append(GlobalConstants.TDROWSPAN).append(resultsCount).append("\">")
-//							.append(start).append("</td>").append(GlobalConstants.TDROWSPAN).append(resultsCount)
-//							.append("\">").append(duration).append(GlobalConstants.TDTR);
-					scenarioIndex++;
+					buffer.append("<td style=\"text-align:center;\"><a href=\"#m").append(scenarioIndex).append("\">")
+					.append(methodName).append("</a></td>")
+					.append("<td style=\"text-align:center;\" rowspan=\"").append(resultsCount).append("\">")
+					.append(duration).append("</td></tr>");
 
-					for (int i = 1; i < resultsCount; i++) {
-						buffer.append(GlobalConstants.TRCLASS).append(cssClass).append("\">").append("<td><a href=\"#m")
-								.append(scenarioIndex).append("\">").append(methodName).append("</a></td></tr>");
-						scenarioIndex++;
-					}
+			scenarioIndex++;
+			
+			for (int i = 1; i < resultsCount; i++) {
+				buffer.append("<tr class=\"").append(cssClass).append("\">")
+						.append("<td style=\"text-align:center;\"><a href=\"#m").append(scenarioIndex)
+						.append("\">").append(methodName).append("</a></td></tr>");
+				scenarioIndex++;
+			}
 
 					scenariosPerClass += resultsCount;
 					methodIndex++;
@@ -495,11 +523,11 @@ public class EmailableReport implements IReporter {
 				writer.print(GlobalConstants.TRCLASS);
 				writer.print(cssClass);
 				writer.print("\">");
-				writer.print(GlobalConstants.TDROWSPAN);
-				writer.print(scenariosPerClass);
-				writer.print("\">");
+//				writer.print(GlobalConstants.TDROWSPAN);
+//				writer.print(scenariosPerClass);
+//				writer.print("\">");
 //				writer.print(Utils.escapeHtml(classResult.getClassName()));
-				writer.print("</td>");
+//				writer.print("</td>");
 				writer.print(buffer);
 
 				classIndex++;
