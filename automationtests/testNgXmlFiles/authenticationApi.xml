@@ -12,8 +12,7 @@
 		<listener class-name="io.mosip.testrig.apirig.customReport.EmailableReport" />
 	</listeners>
 
-	
-<test name="BioAuth">
+	<test name="BioAuth">
 		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
@@ -62,5 +61,5 @@
 		</classes>
 	</test>
 
-
+	
 </suite>

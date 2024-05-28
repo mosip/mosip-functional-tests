@@ -42,6 +42,13 @@
 	</classes>
 	</test>
 	
+	<test name="UpdateIdentity">
+		<parameter name="ymlFile"
+			value="idRepository/UpdateIdentity/UpdateIdentity.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.UpdateIdentity" />
+		</classes>
+	</test>
 	
 	<test name="RetrieveVIDByUIN">
 		<parameter name="ymlFile"	value="idRepository/RetrieveVIDByUIN/RetrieveVIDByUIN.yml" />
@@ -50,13 +57,7 @@
 	</classes>
 	</test>
 	
-	<test name="UpdateIdentity">
-		<parameter name="ymlFile"
-			value="idRepository/UpdateIdentity/UpdateIdentity.yml" />
-		<classes>
-			<class name="io.mosip.testrig.apirig.testscripts.UpdateIdentity" />
-		</classes>
-	</test>
+	
 	<test name="UpdateVIDStatus">
 		<parameter name="ymlFile"
 			value="idRepository/UpdateVIDStatus/UpdateVidStatus.yml" />

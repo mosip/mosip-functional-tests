@@ -449,6 +449,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_auth_factor_type
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -473,7 +474,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type_or_challenge_format"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],        
         "sendOtpResp": {
@@ -487,6 +488,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_auth_factor_type
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -525,6 +527,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_auth_factor_type
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -563,6 +566,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_auth_factor_type
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -601,6 +605,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_auth_factor_type
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -625,7 +630,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type_or_challenge_format"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],        
         "sendOtpResp": {
@@ -639,6 +644,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -663,7 +669,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "binding_auth_failed"
+      "errorCode": "invalid_challenge"
     }
   ],       
         "sendOtpResp": {
@@ -677,6 +683,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -715,6 +722,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -753,6 +761,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -791,6 +800,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: 
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -815,7 +825,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "binding_auth_failed"
+      "errorCode": "invalid_challenge"
     }
   ],       
         "sendOtpResp": {
@@ -829,6 +839,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge_format
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -853,7 +864,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type_or_challenge_format"
+      "errorCode": "invalid_challenge_format"
     }
   ],      
         "sendOtpResp": {
@@ -867,6 +878,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge_format
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -905,6 +917,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge_format
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -943,6 +956,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge_format
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -981,6 +995,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge_format
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -1005,7 +1020,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type_or_challenge_format"
+      "errorCode": "invalid_challenge_format"
     }
   ],
         "sendOtpResp": {
@@ -1893,6 +1908,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_auth_factor_type
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -1917,7 +1933,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type_or_challenge_format"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],        
         "sendOtpResp": {
@@ -1931,6 +1947,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_auth_factor_type
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -1969,6 +1986,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_auth_factor_type
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -2007,6 +2025,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_auth_factor_type
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -2069,7 +2088,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type_or_challenge_format"
+      "errorCode": "invalid_auth_factor_type"
     }
   ],        
         "sendOtpResp": {
@@ -2083,6 +2102,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -2107,7 +2127,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "binding_auth_failed"
+      "errorCode": "invalid_challenge"
     }
   ],       
         "sendOtpResp": {
@@ -2121,6 +2141,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -2159,6 +2180,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -2197,6 +2219,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -2259,7 +2282,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "binding_auth_failed"
+      "errorCode": "invalid_challenge"
     }
   ],       
         "sendOtpResp": {
@@ -2297,7 +2320,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type_or_challenge_format"
+      "errorCode": "invalid_challenge_format"
     }
   ],      
         "sendOtpResp": {
@@ -2311,6 +2334,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge_format
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -2349,6 +2373,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge_format
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -2387,6 +2412,7 @@ WalletBinding:
       endPoint: /residentmobileapp/wallet-binding
       role: resident
       validityCheckRequired: true
+      allowedErrorCodes: invalid_challenge_format
       restMethod: post
       checkErrorsOnlyInResponse: true
       inputTemplate: mimoto/WalletBinding/WalletBinding
@@ -2449,7 +2475,7 @@ WalletBinding:
       output: '{
   "errors": [
     {
-      "errorCode": "invalid_auth_factor_type_or_challenge_format"
+      "errorCode": "invalid_challenge_format"
     }
   ],
         "sendOtpResp": {
