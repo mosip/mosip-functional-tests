@@ -408,9 +408,12 @@ public class Encrypt {
 	 */
 	private String generateAuthToken() {
 		ObjectNode requestBody = objMapper.createObjectNode();
-		requestBody.put("clientId", env.getProperty("auth-token-generator.rest.clientId"));
-		requestBody.put("secretKey", env.getProperty("auth-token-generator.rest.secretKey"));
-		requestBody.put("appId", env.getProperty("auth-token-generator.rest.appId"));
+//		requestBody.put("clientId", env.getProperty("auth-token-generator.rest.clientId"));
+//		requestBody.put("secretKey", env.getProperty("auth-token-generator.rest.secretKey"));
+//		requestBody.put("appId", env.getProperty("auth-token-generator.rest.appId"));
+		requestBody.put("clientId", "mosip-resident-client");
+		requestBody.put("secretKey", "SnZQ6nnVwN9YWvdM");
+		requestBody.put("appId", "resident");
 		RequestWrapper<ObjectNode> request = new RequestWrapper<>();
 		request.setRequesttime(DateUtils.getUTCCurrentDateTime());
 		request.setRequest(requestBody);
