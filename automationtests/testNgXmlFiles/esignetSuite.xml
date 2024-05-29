@@ -804,7 +804,7 @@
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId" />
 		</classes>
 	</test>
-<!--	<test name="CreateOIDCClientV2SunBirdRC">
+	<test name="CreateOIDCClientV2SunBirdRC">
 		<parameter name="ymlFile"
 			value="esignet/SunBirdRC/CreateOIDCClientV2SunBirdRC/CreateOIDCClientV2SunBirdRC.yml" />
 			<parameter name="idKeyName"	value="clientId" />
@@ -887,7 +887,7 @@
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
 		</classes>
-	</test>-->
+	</test>
 
 <!-- Removed kyc delegated demo auth as it is not supported 
 	<test name="KycDemoAuth">
