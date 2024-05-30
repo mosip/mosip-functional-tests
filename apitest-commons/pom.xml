@@ -68,7 +68,7 @@
 		<maven.model.version>3.3.9</maven.model.version>
 		<testng.version>7.10.1</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
-		<fileName>automationtests-commons-1.2.0.1-SNAPSHOT-jar-with-dependencies</fileName>
+		<fileName>apitests-commons-1.2.1-java21-SNAPSHOT-jar-with-dependencies</fileName>
 		
 	</properties>
 	
@@ -272,6 +272,7 @@
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.70</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
 		<dependency>
@@ -340,7 +341,7 @@
 	 	<dependency>
 			<groupId>io.mosip.testrig.authentication.demo</groupId>
 			<artifactId>authentication-demo-service</artifactId>
-			<version>1.2.1-java21-SNAPSHOT</version>
+			<version>1.2.0.1-SNAPSHOT</version>
 			<exclusions>
 				<exclusion>
 					<groupId>dom4j</groupId>
