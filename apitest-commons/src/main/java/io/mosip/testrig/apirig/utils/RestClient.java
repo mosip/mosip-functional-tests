@@ -1688,4 +1688,21 @@ public class RestClient {
 
 		return postResponse;
 	}
+	
+	public static byte[] getRequestWithPathParamAndBearerTokenAsCookieForPdf(String url, Map<String, String> body, String cookieName, String cookieValue) {
+		byte[] pdf;
+
+		if (ConfigManager.IsDebugEnabled()) {
+			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+			
+			pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).accept("*/*")
+					.headers(cookieName, cookieValue).log().all().when().get(url).then()
+					.extract().asByteArray();
+		} else {
+			pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).accept("*/*")
+					.headers(cookieName, cookieValue).when().get(url).then().extract().asByteArray();
+		}
+
+		return pdf;
+	}
 }

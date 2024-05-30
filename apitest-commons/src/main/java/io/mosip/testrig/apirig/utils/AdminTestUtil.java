@@ -418,11 +418,14 @@ public class AdminTestUtil extends BaseTestCase {
 		Response response = null;
 		String inputJson = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		url = uriKeyWordHandelerUri(url, testCaseName);
-		/*if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG) || BaseTestCase.currentModule.equals("auth")
-				|| BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT)
-				|| BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {*/
-			inputJson = smtpOtpHandler(inputJson, testCaseName);
-			/* } */
+		/*
+		 * if (BaseTestCase.currentModule.equals(GlobalConstants.PREREG) ||
+		 * BaseTestCase.currentModule.equals("auth") ||
+		 * BaseTestCase.currentModule.equals(GlobalConstants.RESIDENT) ||
+		 * BaseTestCase.currentModule.equals(GlobalConstants.MASTERDATA)) {
+		 */
+		inputJson = smtpOtpHandler(inputJson, testCaseName);
+		/* } */
 
 		if (bothAccessAndIdToken) {
 			token = kernelAuthLib.getTokenByRole(role, ACCESSTOKENCOOKIENAME);
@@ -436,7 +439,7 @@ public class AdminTestUtil extends BaseTestCase {
 			}
 
 		}
-		
+
 		logger.info(GlobalConstants.POST_REQ_URL + url);
 		GlobalMethods.reportRequest(null, inputJson, url);
 		try {
@@ -2263,6 +2266,38 @@ public class AdminTestUtil extends BaseTestCase {
 			} else {
 				pdf = RestClient.postWithBodyForPdf(url, jsonInput, MediaType.APPLICATION_JSON,
 						MediaType.APPLICATION_JSON, cookieName, token);
+			}
+			return pdf;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			return pdf;
+		}
+	}
+
+	protected byte[] getWithPathParamAndBearerTokenForPdf(String url, String jsonInput, String cookieName, String role,
+			String testCaseName, boolean bothAccessAndIdToken) {
+		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+
+		HashMap<String, String> map = null;
+		try {
+			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
+			}.getType());
+		} catch (Exception e) {
+			logger.error(
+					GlobalConstants.ERROR_STRING_1 + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
+		}
+
+		byte[] pdf = null;
+
+		logger.info("******Get request to EndPointUrl: " + url);
+		GlobalMethods.reportRequest(null, jsonInput, url);
+		try {
+			JSONObject request = new JSONObject(jsonInput);
+			if (request.has(GlobalConstants.BEARER_TOKEN)) {
+				token = request.get(GlobalConstants.BEARER_TOKEN).toString();
+				map.remove(GlobalConstants.BEARER_TOKEN);
+
+				pdf = RestClient.getRequestWithPathParamAndBearerTokenAsCookieForPdf(url, map, cookieName, token);
 			}
 			return pdf;
 		} catch (Exception e) {
@@ -6023,6 +6058,44 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 	}
+	
+	public static JSONArray regprocActuatorResponseArray = null;
+	
+	public static String getValueFromRegprocActuator(String section, String key) {
+		String url = ApplnURI + propsKernel.getProperty("regprocActuatorEndpoint");
+		String actuatorCacheKey = url + section + key;
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null && !value.isEmpty())
+			return value;
+
+		try {
+			if (regprocActuatorResponseArray == null) {
+				Response response = null;
+				JSONObject responseJson = null;
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+
+				responseJson = new JSONObject(response.getBody().asString());
+				regprocActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
+			for (int i = 0, size = regprocActuatorResponseArray.length(); i < size; i++) {
+				JSONObject eachJson = regprocActuatorResponseArray.getJSONObject(i);
+				if (eachJson.get("name").toString().contains(section)) {
+					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
+							.get(GlobalConstants.VALUE).toString();
+					if (ConfigManager.IsDebugEnabled())
+						logger.info("Actuator: " + url + " key: " + key + " value: " + value);
+					break;
+				}
+			}
+			actuatorValueCache.put(actuatorCacheKey, value);
+
+			return value;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			return "";
+		}
+
+	}
 
 	public static JSONArray esignetActuatorResponseArray = null;
 
@@ -6474,6 +6547,7 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		if (BaseTestCase.currentModule.equals(GlobalConstants.ESIGNET)
+				|| BaseTestCase.currentModule.equals(GlobalConstants.MIMOTO)
 				|| testCaseName.startsWith("Mimoto_WalletBinding")) {
 			if (request.has(GlobalConstants.REQUEST)) {
 				if (request.getJSONObject(GlobalConstants.REQUEST).has("otp")) {
@@ -6550,7 +6624,8 @@ public class AdminTestUtil extends BaseTestCase {
 									.getString(GlobalConstants.CHALLENGE).endsWith(GlobalConstants.MOSIP_NET)
 									|| request.getJSONObject(GlobalConstants.REQUEST)
 											.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
-											.getString(GlobalConstants.CHALLENGE).endsWith(GlobalConstants.OTP_AS_PHONE)) {
+											.getString(GlobalConstants.CHALLENGE)
+											.endsWith(GlobalConstants.OTP_AS_PHONE)) {
 								emailId = request.getJSONObject(GlobalConstants.REQUEST)
 										.getJSONArray(GlobalConstants.CHALLENGELIST).getJSONObject(0)
 										.getString(GlobalConstants.CHALLENGE);

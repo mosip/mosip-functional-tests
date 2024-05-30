@@ -72,9 +72,15 @@ public class GlobalMethods {
 		if (formatResponse)
 			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + formattedHeader
 					+ ReportUtil.getTextAreaJsonMsgHtml(response) + GlobalConstants.REPORT_RESPONSE_SUFFIX);
-		else
-			Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + responseHeader + response
-					+ GlobalConstants.REPORT_RESPONSE_SUFFIX);
+		else {
+			if(responseHeader == null) {
+				Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + response
+						+ GlobalConstants.REPORT_RESPONSE_SUFFIX);
+			} else {
+				Reporter.log(GlobalConstants.REPORT_RESPONSE_PREFIX + GlobalConstants.REPORT_RESPONSE_BODY + responseHeader + response
+						+ GlobalConstants.REPORT_RESPONSE_SUFFIX);
+			}			
+		}			
 	}
 	
     // Hashes a string using SHA-256

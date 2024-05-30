@@ -35,6 +35,7 @@ public class GlobalConstants {
 	public static final String APP_NAME = "app_name";
 	public static final String MODULE_NAME = "module_name";
 	public static final String AUTHORIZATION = "Authorization";
+	public static final String BEARER = "Bearer";
 	public static final String STRING = "string";
 	public static final String METADATA = "metadata";
 	public static final String REQUESTTIME = "requesttime";
@@ -216,4 +217,5 @@ public class GlobalConstants {
 	public static final String TARGET_ENV_HEALTH_CHECK_FAILED = "Target env health check failed ";
 	public static final String HOTLIST = "hotlist";
 	public static final String XSRF_TOKEN = "XSRF-TOKEN";
+	public static final String BEARER_TOKEN = "bearerToken";
 }
