@@ -1,0 +1,45 @@
+{{- if .Values.persistence.enabled }}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ template "common.names.fullname" . }}-authcerts-pv
+spec:
+  accessModes:
+  {{- if not (empty .Values.persistence.accessModes) }}
+  {{- range .Values.persistence.accessModes }}
+  - {{ . | quote }}
+  {{- end }}
+  {{- else }}
+  - {{ .Values.persistence.accessMode | quote }}
+  {{- end }}
+  capacity:
+    storage: {{ .Values.persistence.size | quote }}
+  nfs:
+    path: {{ .Values.persistence.nfs.path }}
+    server: {{ .Values.persistence.nfs.server }}
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    pv.kubernetes.io/bind-completed: "yes"
+  name: {{ template "common.names.fullname" . }}-authcerts-pvc
+  namespace: {{ .Release.namespace }}
+spec:
+  accessModes:
+  {{- if not (empty .Values.persistence.accessModes) }}
+  {{- range .Values.persistence.accessModes }}
+  - {{ . | quote }}
+  {{- end }}
+  {{- else }}
+  - {{ .Values.persistence.accessMode | quote }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size | quote }}
+  storageClassName: ""
+  volumeMode: Filesystem
+  volumeName: {{ template "common.names.fullname" . }}-authcerts-pv
+{{- end }}
