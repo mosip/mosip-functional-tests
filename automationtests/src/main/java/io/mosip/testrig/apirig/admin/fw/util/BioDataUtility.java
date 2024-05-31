@@ -1,9 +1,13 @@
 package io.mosip.testrig.apirig.admin.fw.util;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyStoreException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableEntryException;
+import java.security.cert.CertificateException;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.regex.Pattern;
@@ -13,8 +17,12 @@ import javax.ws.rs.core.MediaType;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
+import org.bouncycastle.operator.OperatorCreationException;
+import org.jose4j.lang.JoseException;
 import org.json.JSONObject;
 
+import Util.AuthUtil;
+import helper.PartnerTypes;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.testrig.apirig.authentication.fw.precon.JsonPrecondtion;
@@ -205,27 +213,52 @@ public class BioDataUtility extends AdminTestUtil {
 	
 	private String generateSignatureWithBioMetric(String identityDataBlock, String string, String key) {
 		
-		String singResponse = null;
-		String EncryptUtilBaseUrl = ConfigManager.getAuthDemoServiceUrl() + "/";
+		PartnerTypes partnerTypeEnum = null;
+		if (key.equals("RELYING_PARTY")) {
+			partnerTypeEnum = PartnerTypes.RELYING_PARTY;           
+        } else if (key.equals("DEVICE")) {
+        	partnerTypeEnum = PartnerTypes.DEVICE;
+        }else if (key.equals("FTM")) {
+        	partnerTypeEnum = PartnerTypes.FTM;
+        }else if (key.equals("EKYC")) {
+        	partnerTypeEnum = PartnerTypes.EKYC;
+        }else if (key.equals("MISP")) {
+        	partnerTypeEnum = PartnerTypes.MISP;
+        }
+		AuthUtil authUtil = new AuthUtil();
+		String response = null;
+		try {
+			response = authUtil.signRequest(partnerTypeEnum, null, false, identityDataBlock,"", BaseTestCase.certsForModule, ApplnURI.replace("https://", ""));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
 		
-        residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
-        HashMap<String, String> pathParamsMap = new HashMap<>();
-        pathParamsMap.put("partnerType", key);
-        pathParamsMap.put("moduleName", BaseTestCase.certsForModule);
-        pathParamsMap.put("certsDir", ConfigManager.getauthCertsPath());
-		Response response = RestClient.postRequestWithQueryParamBodyAndCookie(
-				EncryptUtilBaseUrl + properties.get("signRequest"), identityDataBlock, pathParamsMap,
-				 MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, GlobalConstants.AUTHORIZATION,
-				residentCookie);
-		
+//		String singResponse = null;
+//		String EncryptUtilBaseUrl = ConfigManager.getAuthDemoServiceUrl() + "/";
+//		
+//        residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
+//        HashMap<String, String> pathParamsMap = new HashMap<>();
+//        pathParamsMap.put("partnerType", key);
+//        pathParamsMap.put("moduleName", BaseTestCase.certsForModule);
+//        pathParamsMap.put("certsDir", ConfigManager.getauthCertsPath());
+//        
+//        
+//		Response response = RestClient.postRequestWithQueryParamBodyAndCookie(
+//				EncryptUtilBaseUrl + properties.get("signRequest"), identityDataBlock, pathParamsMap,
+//				 MediaType.TEXT_PLAIN, MediaType.TEXT_PLAIN, GlobalConstants.AUTHORIZATION,
+//				residentCookie);
+//		
 		byte[] bytePayload = identityDataBlock.getBytes();
 		String payloadData = Base64.getUrlEncoder().encodeToString(bytePayload);
 		payloadData= payloadData.replace("=", "");
-		String signNewResponse = response.asString().replace("..", "."+ payloadData +".");
+		
+		String signNewResponse = response.replace("..", "."+ payloadData +".");
 		logger.info(signNewResponse);
 		
         
-         singResponse = response.asString();
+         //singResponse = response.asString();
 		
 		return signNewResponse;
 	}

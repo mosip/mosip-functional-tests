@@ -23,6 +23,12 @@ import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.testng.Reporter;
 
+import com.google.gson.Gson;
+
+import Util.Encrypt;
+import Util.Encrypt.SplittedEncryptedData;
+import dto.EncryptionRequestDto;
+import dto.EncryptionResponseDto;
 import io.mosip.testrig.apirig.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.testrig.apirig.authentication.fw.util.FileUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
@@ -127,10 +133,23 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 * @return String , Ecrypted JSON
 	 */
 	private String getEncryption(String jsonString) {
+		
 		try {
 			JSONObject objectData = new JSONObject(jsonString);
 			Reporter.log("<b><u> Identity request:</u></b>");
+			
 			GlobalMethods.reportRequest(null, objectData.toString());
+			
+			Map<String, Object> identityRequestMap = new HashMap<>();
+			identityRequestMap.put("identityRequest", objectData);					
+					
+			
+			EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
+			encryptionRequestDto.setIdentityRequest(identityRequestMap);	
+			
+			Encrypt encruptObject = new Encrypt();		
+			EncryptionResponseDto encryptionResponseDto = encruptObject.encrypt(encryptionRequestDto, null, false, false);
+			
 			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get("encryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
