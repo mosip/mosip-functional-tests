@@ -54,6 +54,7 @@ import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
 import org.springframework.stereotype.Component;
 
+import io.mosip.testrig.apirig.ida.certificate.PartnerRegistration;
 import io.mosip.testrig.apirig.service.BaseTestCase;
 
 
@@ -370,7 +371,7 @@ public class KeyMgrUtil {
             KeyStoreException, CertificateException, IOException, OperatorCreationException {
         String filePrepend = parterId;
 
-        String partnerFilePath = dirPath + '/' + filePrepend + PARTNER_P12_FILE_NAME;
+        String partnerFilePath = dirPath + '/' +PartnerRegistration.appendEkycOrRp+ filePrepend + PARTNER_P12_FILE_NAME;;
         return getPrivateKeyEntry(partnerFilePath);
     }
 

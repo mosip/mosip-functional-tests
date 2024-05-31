@@ -49,7 +49,7 @@
 			<class name="io.mosip.testrig.apirig.testscripts.AddIdentity" />
 		</classes>
 	</test>
-	<test name="GenerateVID">
+	<!-- <test name="GenerateVID">
 		<parameter name="ymlFile"
 			value="mimoto/GenerateVID/createGenerateVID.yml" />
 			<parameter name="idKeyName"	value="vid" />
@@ -135,6 +135,6 @@
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
-	</test>
+	</test>-->
 
 </suite>

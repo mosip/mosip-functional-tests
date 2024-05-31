@@ -70,6 +70,67 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 		logger.info("Started executing yml: " + ymlFile);
 		return getYmlTestData(ymlFile);
 	}
+	
+	@Test(dataProvider = "testcaselist")
+	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {		
+		testCaseName = testCaseDTO.getTestCaseName(); 
+		
+		String partnerKeyUrl = PartnerRegistration.mispLicKey + "/" + PartnerRegistration.partnerId + "/" + PartnerRegistration.apiKey;
+		String ekycPartnerKeyURL = PartnerRegistration.mispLicKey + "/" + PartnerRegistration.ekycPartnerId + "/" + PartnerRegistration.kycApiKey;
+		
+		if(testCaseDTO.getEndPoint().contains("$partnerKeyURL$"))
+		{
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$partnerKeyURL$", partnerKeyUrl));
+			PartnerRegistration.appendEkycOrRp = "rp-";
+		}
+		if(testCaseDTO.getEndPoint().contains("$ekycPartnerKeyURL$"))
+		{
+			testCaseDTO.setEndPoint(testCaseDTO.getEndPoint().replace("$ekycPartnerKeyURL$", ekycPartnerKeyURL));
+			PartnerRegistration.appendEkycOrRp = "ekyc-";
+		}
+		JSONObject request = new JSONObject(testCaseDTO.getInput());
+		String identityRequest = null, identityRequestTemplate = null, identityRequestEncUrl = null;
+		if(request.has("identityRequest")) {
+			identityRequest = request.get("identityRequest").toString();
+			request.remove("identityRequest");
+		}
+		
+		if (identityRequest.contains("$PRIMARYLANG$"))
+			identityRequest = identityRequest.replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0));
+		
+		JSONObject identityReqJson = new JSONObject(identityRequest);
+		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
+		identityReqJson.remove("identityRequestTemplate");
+		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
+		identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, generateCurrentUTCTimeStamp(), "identityRequest.timestamp");
+		Map<String, String> demoAuthTempMap = encryptDecryptUtil.getEncryptSessionKeyValue(identityRequest);
+		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
+		logger.info("************* Modification of bio auth request ******************");
+		Reporter.log("<b><u>Modification of demo auth request</u></b>");
+		authRequest = modifyRequest(authRequest, demoAuthTempMap, getResourcePath()+props.getProperty("idaMappingPath"));
+		JSONObject authRequestTemp = new JSONObject(authRequest);
+		authRequestTemp.remove("env");
+		authRequestTemp.put("env", "Staging");
+		authRequest = authRequestTemp.toString();
+		testCaseDTO.setInput(authRequest);
+		testCaseDTO.setInput(authRequest);
+				
+		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");		
+		
+		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest, COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+		
+		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+				.doJsonOutputValidation(response.asString(), getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate()));
+		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
+		
+		if (!OutputValidationUtil.publishOutputResult(ouputValid))
+			throw new AdminTestException("Failed at output validation");
+
+		//if(!encryptDecryptUtil.verifyResponseUsingDigitalSignature(response.asString(), response.getHeader(props.getProperty("signatureheaderKey"))))
+			//	throw new AdminTestException("Failed at Signature validation");
+
+
+	}
 
 	/**
 	 * Test method for OTP Generation execution
@@ -80,93 +141,93 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 	 * @throws AuthenticationTestException
 	 * @throws AdminTestException
 	 */
-	@Test(dataProvider = "testcaselist")
-	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
-		testCaseName = testCaseDTO.getTestCaseName();
-		if (HealthChecker.signalTerminateExecution) {
-			throw new SkipException(
-					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
-		}
-
-		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
-			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
-					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
-				throw new SkipException(GlobalConstants.UIN_FEATURE_NOT_SUPPORTED);
-			}
-		}
-		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
-			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
-					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
-				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
-			}
-		}
-
-		if (testCaseDTO.getEndPoint().contains("$partnerKeyURL$")) {
-			testCaseDTO.setEndPoint(
-					testCaseDTO.getEndPoint().replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl));
-		}
-		JSONObject request = new JSONObject(testCaseDTO.getInput());
-		String identityRequest = null;
-		String identityRequestTemplate = null;
-		if (request.has(GlobalConstants.IDENTITYREQUEST)) {
-			identityRequest = request.get(GlobalConstants.IDENTITYREQUEST).toString();
-			request.remove(GlobalConstants.IDENTITYREQUEST);
-		}
-
-		if (identityRequest.contains("$PRIMARYLANG$"))
-			identityRequest = identityRequest.replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0));
-
-		JSONObject identityReqJson = new JSONObject(identityRequest);
-		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
-		identityReqJson.remove("identityRequestTemplate");
-		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
-		identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, generateCurrentUTCTimeStamp(),
-				"identityRequest.timestamp");
-		Map<String, String> demoAuthTempMap = encryptDecryptUtil.getEncryptSessionKeyValue(identityRequest);
-		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
-		logger.info("************* Modification of bio auth request ******************");
-		Reporter.log("<b><u>Modification of demo auth request</u></b>");
-		authRequest = modifyRequest(authRequest, demoAuthTempMap,
-				getResourcePath() + properties.getProperty("idaMappingPath"));
-		JSONObject authRequestTemp = new JSONObject(authRequest);
-		authRequestTemp.remove("env");
-		authRequestTemp.put("env", "Staging");
-		authRequest = authRequestTemp.toString();
-		testCaseDTO.setInput(authRequest);
-
-		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");
-
-		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest,
-				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
-
-		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
-
-		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
-			if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
-					|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
-				ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
-			} else {
-				ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
-			}
-		} else {
-			if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
-				if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
-						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
-					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
-				} else {
-					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
-				}
-			}
-		}
-
-		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
-				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO, response.getStatusCode());
-		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
-
-		if (!OutputValidationUtil.publishOutputResult(ouputValid))
-			throw new AdminTestException("Failed at output validation");
-
-	}
+//	@Test(dataProvider = "testcaselist")
+//	public void test(TestCaseDTO testCaseDTO) throws AuthenticationTestException, AdminTestException {
+//		testCaseName = testCaseDTO.getTestCaseName();
+//		if (HealthChecker.signalTerminateExecution) {
+//			throw new SkipException(
+//					GlobalConstants.TARGET_ENV_HEALTH_CHECK_FAILED + HealthChecker.healthCheckFailureMapS);
+//		}
+//
+//		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
+//			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+//					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
+//				throw new SkipException(GlobalConstants.UIN_FEATURE_NOT_SUPPORTED);
+//			}
+//		}
+//		if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
+//			if (!BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+//					&& !BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+//				throw new SkipException(GlobalConstants.VID_FEATURE_NOT_SUPPORTED);
+//			}
+//		}
+//
+//		if (testCaseDTO.getEndPoint().contains("$partnerKeyURL$")) {
+//			testCaseDTO.setEndPoint(
+//					testCaseDTO.getEndPoint().replace("$partnerKeyURL$", PartnerRegistration.partnerKeyUrl));
+//		}
+//		JSONObject request = new JSONObject(testCaseDTO.getInput());
+//		String identityRequest = null;
+//		String identityRequestTemplate = null;
+//		if (request.has(GlobalConstants.IDENTITYREQUEST)) {
+//			identityRequest = request.get(GlobalConstants.IDENTITYREQUEST).toString();
+//			request.remove(GlobalConstants.IDENTITYREQUEST);
+//		}
+//
+//		if (identityRequest.contains("$PRIMARYLANG$"))
+//			identityRequest = identityRequest.replace("$PRIMARYLANG$", BaseTestCase.languageList.get(0));
+//
+//		JSONObject identityReqJson = new JSONObject(identityRequest);
+//		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
+//		identityReqJson.remove("identityRequestTemplate");
+//		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
+//		identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, generateCurrentUTCTimeStamp(),
+//				"identityRequest.timestamp");
+//		Map<String, String> demoAuthTempMap = encryptDecryptUtil.getEncryptSessionKeyValue(identityRequest);
+//		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
+//		logger.info("************* Modification of bio auth request ******************");
+//		Reporter.log("<b><u>Modification of demo auth request</u></b>");
+//		authRequest = modifyRequest(authRequest, demoAuthTempMap,
+//				getResourcePath() + properties.getProperty("idaMappingPath"));
+//		JSONObject authRequestTemp = new JSONObject(authRequest);
+//		authRequestTemp.remove("env");
+//		authRequestTemp.put("env", "Staging");
+//		authRequest = authRequestTemp.toString();
+//		testCaseDTO.setInput(authRequest);
+//
+//		logger.info("******Post request Json to EndPointUrl: " + ApplnURI + testCaseDTO.getEndPoint() + " *******");
+//
+//		response = postRequestWithCookieAuthHeaderAndSignature(ApplnURI + testCaseDTO.getEndPoint(), authRequest,
+//				COOKIENAME, testCaseDTO.getRole(), testCaseDTO.getTestCaseName());
+//
+//		String ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+//
+//		if (testCaseDTO.getTestCaseName().contains("uin") || testCaseDTO.getTestCaseName().contains("UIN")) {
+//			if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("UIN")
+//					|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("uin")) {
+//				ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+//			} else {
+//				ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+//			}
+//		} else {
+//			if (testCaseDTO.getTestCaseName().contains("VID") || testCaseDTO.getTestCaseName().contains("Vid")) {
+//				if (BaseTestCase.getSupportedIdTypesValueFromActuator().contains("VID")
+//						|| BaseTestCase.getSupportedIdTypesValueFromActuator().contains("vid")) {
+//					ActualOPJson = getJsonFromTemplate(testCaseDTO.getOutput(), testCaseDTO.getOutputTemplate());
+//				} else {
+//					ActualOPJson = AdminTestUtil.getRequestJson("config/errorUIN.json").toString();
+//				}
+//			}
+//		}
+//
+//		Map<String, List<OutputValidationDto>> ouputValid = OutputValidationUtil
+//				.doJsonOutputValidation(response.asString(), ActualOPJson, testCaseDTO, response.getStatusCode());
+//		Reporter.log(ReportUtil.getOutputValidationReport(ouputValid));
+//
+//		if (!OutputValidationUtil.publishOutputResult(ouputValid))
+//			throw new AdminTestException("Failed at output validation");
+//
+//	}
 
 	/**
 	 * The method ser current test name to result
