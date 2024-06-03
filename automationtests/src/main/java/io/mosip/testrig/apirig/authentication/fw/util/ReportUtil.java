@@ -41,7 +41,7 @@ public class ReportUtil {
 	 * @return html table
 	 */
 	public static String getOutputValidationReport(Map<String, List<OutputValidationDto>> outputresult) {
-		String htmlforReport = "<table width='90%' charset='UTF8'>\r\n" + "  <tr>\r\n" + "    <th>FieldName</th>\r\n"
+		String htmlforReport = "<table width='100%' charset='UTF8'>\r\n" + "  <tr style='background-color: #d3d3d3;'>\r\n" + "    <th>FieldName</th>\r\n"
 				+ "    <th>Expected Value</th> \r\n" + "    <th>Actual Value</th>\r\n" + "    <th>Status</th>\r\n"
 				+ "  </tr>\r\n";
 		boolean outputValidationDone = false;
@@ -73,7 +73,7 @@ public class ReportUtil {
 			}
 		}
 		if (!outputValidationDone) {
-		    return "<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br>\n";
+		    return "<b style=\"background-color: #0A0;\">Marking test case as passed. As Output validation not performed and no errors in the response</b><br>\n";
 		}
 			
 		htmlforReport = temp + htmlforReport + "</table>";

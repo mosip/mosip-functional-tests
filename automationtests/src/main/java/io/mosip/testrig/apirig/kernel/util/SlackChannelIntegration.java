@@ -2,12 +2,17 @@ package io.mosip.testrig.apirig.kernel.util;
 import okhttp3.*;
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
+
+import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.service.BaseTestCase;
 public class SlackChannelIntegration extends BaseTestCase  {
+	private static final Logger LOGGER = Logger.getLogger(SlackChannelIntegration.class);
     private static final String SLACK_WEBHOOK_URL =ConfigManager.getSlackWebHookUrl();
     
 
     public static void sendMessageToSlack(String message) {
+    	LOGGER.info("SLACK_WEBHOOK_URL is - " + SLACK_WEBHOOK_URL);
         OkHttpClient client = new OkHttpClient();
         MediaType mediaType = MediaType.parse("application/json");
         String json = "{\"text\":\"" + message + "\"}";
@@ -19,7 +24,7 @@ public class SlackChannelIntegration extends BaseTestCase  {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
+            	LOGGER.error("Exception on slack integration " + e.getMessage());
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
