@@ -108,3 +108,16 @@ UpdatePreRegStatus:
     }
   ]
 }'
+   Prereg_UpdatePreRegStatus_DiscardBooking_Smoke_sid:
+      endPoint: /preregistration/v1/applications/prereg/status/{preRegistrationId}?statusCode={statusCode}
+      role: batch
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: preReg/UpdatePreRegStatus/updatePreRegStatus
+      outputTemplate: preReg/UpdatePreRegStatus/updatePreRegStatusResult
+      input: '{
+  "preRegistrationId": "$ID:CreatePrereg_Smoke_DiscardBooking_sid_preRegistrationId$",
+  "statusCode": "Pending_Appointment"
+}'
+      output: '{
+}'

@@ -1,0 +1,10 @@
+GetAllPreRegApplications:
+   Prereg_GetAllPreRegApplications_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/applications/prereg
+      role: batch
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: preReg/GetAllPreRegApplicationsDemographic/getAllPreRegApplicationsDemographic
+      outputTemplate: preReg/GetAllPreRegApplicationsDemographic/getAllPreRegApplicationsDemographicResult
+      input: '{}'
+      output: '{}'

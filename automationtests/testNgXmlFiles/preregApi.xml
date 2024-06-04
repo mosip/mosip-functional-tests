@@ -286,6 +286,76 @@
 			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
 		</classes>
 	</test>
+	<test name="DiscardBooking">
+		<parameter name="ymlFile"
+			value="preReg/DiscardBooking/DiscardBooking.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
+	<test name="FetchAvailabilityData">
+		<parameter name="ymlFile"
+			value="preReg/FetchAvailabilityData/FetchAvailabilityData.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
+		 <test name="GetPreRegDemographicDataByPrid">
+		<parameter name="ymlFile"
+			value="preReg/GetPreRegDemographicDataByPrid/GetPreRegDemographicDataByPrid.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	 <test name="GetApplicationsApplicationID">
+		<parameter name="ymlFile"
+			value="preReg/GetApplicationsApplicationID/GetApplicationsApplicationID.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	 <test name="GetApplicationStatusByApplicationID">
+		<parameter name="ymlFile"
+			value="preReg/GetApplicationStatusByApplicationID/GetApplicationStatusByApplicationID.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
+	<test name="GetBookingsForRegCenter">
+		<parameter name="ymlFile"
+			value="preReg/GetBookingsForRegCenter/GetBookingsForRegCenter.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test>
+		<test name="GetAllPreRegApplicationsDemographic">
+		<parameter name="ymlFile"
+			value="preReg/GetAllPreRegApplicationsDemographic/GetAllPreRegApplicationsDemographic.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.GetWithParam" />
+		</classes>
+	</test> 
+		<test name="AddPreRegDemographicData">
+		<parameter name="ymlFile"
+			value="preReg/AddPreRegDemographicData/AddPreRegDemographicData.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
+		<test name="UpdatePreRegDemographicDataByPrid">
+		<parameter name="ymlFile"
+			value="preReg/UpdatePreRegDemographicDataByPrid/UpdatePreRegDemographicDataByPrid.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.SimplePost" />
+		</classes>
+	</test>
 	
+	<test name="DeleteUpdateRegistration">
+		<parameter name="ymlFile"
+			value="preReg/DeleteUpdateRegistration/DeleteUpdateRegistration.yml" />
+		<classes>
+			<class name="io.mosip.testrig.apirig.testscripts.DeleteWithParam" />
+		</classes>
+	</test>
 	
 </suite>
