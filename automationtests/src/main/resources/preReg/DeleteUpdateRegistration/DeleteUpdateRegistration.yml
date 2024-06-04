@@ -1,0 +1,29 @@
+DeleteUpdateRegistration:
+   Prereg_DeleteUpdateRegistration_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/applications/updateregistration/53670523169289
+      role: batch
+      restMethod: delete
+      inputTemplate: preReg/DeleteUpdateRegistration/deleteUpdateRegistration
+      outputTemplate: preReg/DeleteUpdateRegistration/deleteUpdateRegistrationResult
+      input: '{
+  "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$"
+}'
+      output: '{
+"deletedBy": "robin.hood@mailinator.com"
+}'
+   Prereg_DeletePreRegistration_inValid_preRegistrationId_sid:
+      endPoint: /preregistration/v1/applications/updateregistration/{preRegistrationId}
+      role: batch
+      restMethod: post
+      inputTemplate: preReg/DeleteUpdateRegistration/deleteUpdateRegistration
+      outputTemplate: preReg/error
+      input: '{
+  "preRegistrationId": "hnyfv_preRegistrationId"
+}'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_PAM_APP_005"
+    }
+  ]
+}'

@@ -1,0 +1,45 @@
+GetBookingsForRegCenter:
+   Prereg_GetBookingsForRegCenter_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/applications/bookings/{regCenterId}?appointmentDate={appointmentDate}
+      role: batch
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: preReg/GetBookingsForRegCenter/getBookingsForRegCenter
+      outputTemplate: preReg/GetBookingsForRegCenter/getBookingsForRegCenterResult
+      input: '{
+  "regCenterId": "10003",
+  "appointmentDate": "2024-05-27"
+}'
+      output: '{
+}'
+   Prereg_GetBookingsForRegCenter_All_inValid_regCenterId_Smoke_sid:
+      endPoint: /preregistration/v1/applications/bookings/{regCenterId}?appointmentDate={appointmentDate}
+      role: batch
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: preReg/GetBookingsForRegCenter/getBookingsForRegCenter
+      outputTemplate: preReg/error
+      input: '{
+  "regCenterId": "@#@#$@",
+  "appointmentDate": "2024-05-24"
+}'
+      output: '{
+}'
+   Prereg_GetBookingsForRegCenter_All_inValid_appointmentDate_Smoke_sid:
+      endPoint: /preregistration/v1/applications/bookings/{regCenterId}?appointmentDate={appointmentDate}
+      role: batch
+      checkErrorsOnlyInResponse: true
+      restMethod: get
+      inputTemplate: preReg/GetBookingsForRegCenter/getBookingsForRegCenter
+      outputTemplate: preReg/error
+      input: '{
+  "regCenterId": "10003",
+  "appointmentDate": "@#@$@$@#"
+}'
+      output: '{
+  "errors": [
+    {
+      "errorCode": "PRG_APP_013"
+    }
+  ]
+}'

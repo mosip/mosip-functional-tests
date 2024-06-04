@@ -1,0 +1,45 @@
+AddPreRegDemographicData:
+   Prereg_AddPreRegDemographicData_All_Valid_Smoke_sid:
+      endPoint: /preregistration/v1/applications/prereg
+      role: batch
+      templateFields: ["langCode"]
+      restMethod: post
+      inputTemplate: preReg/AddPreRegDemographicData/addPreRegDemographicData
+      outputTemplate: preReg/AddPreRegDemographicData/addPreRegDemographicDataResult
+      input: '{
+	"id": "mosip.pre-registration.demographic.create",
+	"version": "1.0",
+	"requesttime": "$TIMESTAMP$",
+	"request": {
+		"langCode": "fra",
+		"demographicDetails": {
+			"empty": true,
+			"firstName": {
+				"language": "fra",
+				"value": "abcd"
+			}
+		},
+		"requiredFields": [
+			"firstName"
+		]
+	}
+}'
+      output: '{
+}'
+   Prereg_AddPreRegDemographicData_All_emptyRequest_Smoke_sid:
+      endPoint: /preregistration/v1/applications/prereg
+      role: batch
+      templateFields: ["langCode"]
+      restMethod: post
+      inputTemplate: preReg/AddPreRegDemographicData/addPreRegDemographicData
+      outputTemplate: preReg/AddPreRegDemographicData/addPreRegDemographicDataResult
+      input: '{
+      }'
+      output: '{
+   "errors": [
+    {
+      "errorCode": "PRG_PAM_CORE_001",
+      "message": "Request id is invalid"
+    }
+  ]
+}'
