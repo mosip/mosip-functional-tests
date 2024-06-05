@@ -137,25 +137,36 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		try {
 			JSONObject objectData = new JSONObject(jsonString);
 			Reporter.log("<b><u> Identity request:</u></b>");
-			
 			GlobalMethods.reportRequest(null, objectData.toString());
-			
-			Map<String, Object> identityRequestMap = new HashMap<>();
-			identityRequestMap.put("identityRequest", objectData);					
-					
-			
-			EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
-			encryptionRequestDto.setIdentityRequest(identityRequestMap);	
-			
-			Encrypt encruptObject = new Encrypt();		
-			EncryptionResponseDto encryptionResponseDto = encruptObject.encrypt(encryptionRequestDto, null, false, false);
-			
 			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get("encryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
 					MediaType.APPLICATION_JSON).asString();
 		} catch (Exception e) {
 			lOGGER.error(GlobalConstants.EXCEPTION+ e);
 			return e.toString();
 		}
+		
+//		try {
+//			JSONObject objectData = new JSONObject(jsonString);
+//			Reporter.log("<b><u> Identity request:</u></b>");
+//			
+//			GlobalMethods.reportRequest(null, objectData.toString());
+//			
+//			Map<String, Object> identityRequestMap = new HashMap<>();
+//			identityRequestMap.put("identityRequest", objectData);					
+//					
+//			
+//			EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
+//			encryptionRequestDto.setIdentityRequest(identityRequestMap);	
+//			
+//			Encrypt encruptObject = new Encrypt();		
+//			EncryptionResponseDto encryptionResponseDto = encruptObject.encrypt(encryptionRequestDto, null, false, false);
+//			
+//			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get("encryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
+//					MediaType.APPLICATION_JSON).asString();
+//		} catch (Exception e) {
+//			lOGGER.error(GlobalConstants.EXCEPTION+ e);
+//			return e.toString();
+//		}
 	}
 	
 	/**

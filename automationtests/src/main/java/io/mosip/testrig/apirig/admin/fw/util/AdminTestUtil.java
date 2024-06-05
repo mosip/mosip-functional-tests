@@ -4520,9 +4520,17 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public String getKeysDirPath() {
-		String path = "/Users/kamalsingh/mosip/authcerts" + "/" + "IDA-" + environment + ".mosip.net";
-		logger.info("certificate path is::" + path);
-		return new File(path).getAbsolutePath();
+//		String path = "/Users/kamalsingh/mosip/authcerts" + "/" + "IDA-" + environment + ".mosip.net";
+//		logger.info("certificate path is::" + path);
+//		return new File(path).getAbsolutePath();
+		
+		String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator + System.getProperty("parent.certs.folder.name", "AUTHCERTS");
+
+		if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
+      		certsTargetDir = "/home/mosip/authcerts";
+      	}
+
+        return certsTargetDir + File.separator + certsForModule + "-" + environment + ".mosip.net";
 	}
 
 	public static String buildIdentityRequest(String identityRequest) {
@@ -6724,9 +6732,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (response != null && response.getStatusCode() == 200) {
 			logger.info(response.getBody().asString());
 			JSONObject jsonResponse = new JSONObject(response.getBody().asString());
-			return "Group: " + jsonResponse.getJSONObject("build").getString("group") + ", Artifact: "
-					+ jsonResponse.getJSONObject("build").getString("artifact") + ", version: "
-					+ jsonResponse.getJSONObject("build").getString("version") + ", Commit ID: "
+			return "Group: " + jsonResponse.getJSONObject("build").getString("group") + " ---- Artifact: "
+					+ jsonResponse.getJSONObject("build").getString("artifact") + " ---- version: "
+					+ jsonResponse.getJSONObject("build").getString("version") + " ---- Commit ID: "
 					+ jsonResponse.getJSONObject("git").getJSONObject("commit").getString("id");
 		}
 		return path + "- No Response";

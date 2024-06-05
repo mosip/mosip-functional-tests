@@ -131,6 +131,7 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		try {
 			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
 					getResourcePath() + props.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
+			System.out.println("encryptedIdentityReq = " + encryptedIdentityReq);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -10,7 +10,7 @@ public class PropertiesReader {
         Properties prop = new Properties();
 
         // The path to your properties file
-        String propFileName = "/Users/kamalsingh/TestAutomation/AuthenticationUtil/src/main/resources/application.properties";
+        String propFileName = "C:/MOSIP-33327/mosip-functional-tests/AuthenticationUtil/src/main/resources/application.properties";
 
         try (InputStream inputStream = new FileInputStream(propFileName)) {
             // Load the properties file
