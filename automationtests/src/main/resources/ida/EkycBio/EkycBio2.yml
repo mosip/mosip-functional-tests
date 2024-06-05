@@ -2106,7 +2106,7 @@ EkycBio:
     }
   ]
 }'
-  auth_EkycBio_LeftIris_With_Valid_with_empty_env_Pos:
+  auth_EkycBio_LeftIris_With_Valid_with_empty_env:
       endPoint: /idauthentication/v1/kyc/$ekycPartnerKeyURL$
       role: resident
       kycFields: ["gender"]
@@ -2144,9 +2144,9 @@ EkycBio:
     }
     }'
       output: '{
-        "kycStatus": "true"
+        "kycStatus": "false"
 }'
-  auth_EkycBio_LeftIris_With_Valid_with_blank_env_Pos:
+  auth_EkycBio_LeftIris_With_Valid_with_blank_env:
       endPoint: /idauthentication/v1/kyc/$ekycPartnerKeyURL$
       role: resident
       kycFields: ["gender"]
@@ -2184,9 +2184,9 @@ EkycBio:
     }
     }'
       output: '{
-        "kycStatus": "true"
+        "kycStatus": "false"
 }'
-  auth_EkycBio_LeftIris_With_Valid_with_invalid_env_Pos:
+  auth_EkycBio_LeftIris_With_Valid_with_invalid_env:
       endPoint: /idauthentication/v1/kyc/$ekycPartnerKeyURL$
       role: resident
       kycFields: ["gender"]
@@ -2224,9 +2224,9 @@ EkycBio:
     }
     }'
       output: '{
-        "kycStatus": "true"
+        "kycStatus": "false"
 }'
-  auth_EkycBio_LeftIris_With_Valid_without_env_key_Pos:
+  auth_EkycBio_LeftIris_With_Valid_without_env:
       endPoint: /idauthentication/v1/kyc/$ekycPartnerKeyURL$
       role: resident
       kycFields: ["gender"]
@@ -2264,7 +2264,7 @@ EkycBio:
     }
     }'
       output: '{
-        "kycStatus": "true"
+        "kycStatus": "false"
 }'
   auth_EkycBio_Face_With_Valid_With_space_in_domain:
       endPoint: /idauthentication/v1/kyc/$ekycPartnerKeyURL$

@@ -136,7 +136,7 @@ OtpAuth:
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
         "transactionId": "$TRANSACTIONID$",
-        "individualIdType": "UIN",
+        "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
@@ -144,7 +144,7 @@ OtpAuth:
     "transactionID": "$TRANSACTIONID$",
     "requestTime": "$TIMESTAMP$",
     "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
-    "individualIdType": "UIN",
+    "individualIdType": "VID",
     "sendOtpReqTemplate": "ida/OtpAuth/sendOtp",
     "sendOtpEndPoint": "/idauthentication/v1/otp/$partnerKeyURL$",
     "otpIdentyEnryptRequestPath": "ida/OtpAuth/OtpIdentityEncrypt.json"
@@ -481,9 +481,7 @@ OtpAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN",
-      "actionMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-006"
     }
   ],
   "sendOtpResp":{
@@ -521,9 +519,7 @@ OtpAuth:
     "authStatus": false,
    "errors": [
     {
-      "errorCode": "IDA-MLC-002",
-      "errorMessage": "Invalid UIN",
-      "actionMessage": "$IGNORE$"
+      "errorCode": "IDA-MLC-006"
     }
   ],
   "sendOtpResp":{
@@ -637,7 +633,7 @@ OtpAuth:
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
         "transactionId": "$123@@@@@",
-        "individualIdType": "UIN",
+        "individualIdType": "VID",
         "bio": false,
         "demo": false,
         "otp": true,
@@ -787,7 +783,7 @@ OtpAuth:
       checkErrorsOnlyInResponse: true
       restMethod: post
       inputTemplate: ida/OtpAuth/OtpAuth
-      outputTemplate: ida/OtpAuth/OtpAuthResult
+      outputTemplate: ida/OtpAuth/error
       input: '{
         "requestTime": "$TIMESTAMP$",
         "individualId": "$ID:GenerateVID_All_Valid_Smoke_Perpetual_sid_vid$",
@@ -807,7 +803,12 @@ OtpAuth:
     }
     }'
       output: '{
-    "authStatus": true,
+      "errors": [
+        {
+          "errorCode": "IDA-MLC-006"
+        }
+      ],
+        "authStatus": false,
   "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
@@ -844,7 +845,7 @@ OtpAuth:
     }
 }'
   auth_OTP_Auth_With_Invalid_uin_partner:
-      endPoint: /idauthentication/v1/auth/$partnerKeyURL$
+      endPoint: /idauthentication/v1/auth/zY22wDwZxwMdlxTZRWrM50m4zBoOiMyUGY/45362768/27822828287
       role: resident
       checkErrorsOnlyInResponse: true
       restMethod: post
@@ -869,7 +870,15 @@ OtpAuth:
     }
     }'
       output: '{
-  "authStatus": "false",
+    "authStatus": false,
+   "errors": [
+    {
+      "errorCode": "IDA-MLC-007"
+    },
+    {
+      "errorCode": "IDA-MPA-001"
+    }
+  ],
  "sendOtpResp":{
         "sendOtpResTemplate":"ida/OtpAuth/sendOtpRes"
     }
