@@ -4520,9 +4520,17 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	public String getKeysDirPath() {
-		String path = "/Users/kamalsingh/mosip/authcerts" + "/" + "IDA-" + environment + ".mosip.net";
-		logger.info("certificate path is::" + path);
-		return new File(path).getAbsolutePath();
+//		String path = "/Users/kamalsingh/mosip/authcerts" + "/" + "IDA-" + environment + ".mosip.net";
+//		logger.info("certificate path is::" + path);
+//		return new File(path).getAbsolutePath();
+		
+		String certsTargetDir = System.getProperty("java.io.tmpdir") + File.separator + System.getProperty("parent.certs.folder.name", "AUTHCERTS");
+
+		if (System.getProperty("os.name").toLowerCase().contains("windows") == false) {
+      		certsTargetDir = "/home/mosip/authcerts";
+      	}
+
+        return certsTargetDir + File.separator + certsForModule + "-" + environment + ".mosip.net";
 	}
 
 	public static String buildIdentityRequest(String identityRequest) {
