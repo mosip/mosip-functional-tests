@@ -154,6 +154,9 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 					throw new SkipException("esignet is not deployed hence skipping the testcase");
 				}
 				String tempUrl = ConfigManager.getEsignetBaseUrl();
+				
+				if (testCaseDTO.getEndPoint().contains("/signup/"))
+					tempUrl = ApplnURI;
 				otpResponse = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + sendOtpEndPoint,
 						getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,
 						testCaseDTO.getTestCaseName());
@@ -212,6 +215,9 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 				throw new SkipException("esignet is not deployed hence skipping the testcase");
 			}
 			String tempUrl = ConfigManager.getEsignetBaseUrl();
+			
+			if (testCaseDTO.getEndPoint().contains("/signup/"))
+				tempUrl = ApplnURI;
 			if (testCaseName.startsWith("ESignet_VerifyChallengeNegTC_")
 					|| testCaseName.startsWith("ESignet_VerifyChallengeForResetPasswordNegTC_")) {
 				response = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + testCaseDTO.getEndPoint(),
