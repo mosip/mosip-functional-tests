@@ -2907,6 +2907,21 @@ public class AdminTestUtil extends BaseTestCase {
 
 		return uri;
 	}
+	
+	public static String getAuthTransactionId(String oidcTransactionId) {
+	    final String transactionId = oidcTransactionId.replaceAll("_|-", "");
+	    String lengthOfTransactionId =  AdminTestUtil.getValueFromEsignetActuator("/mosip/mosip-config/esignet-default.properties", "mosip.esignet.auth-txn-id-length");
+	   int authTransactionIdLength = lengthOfTransactionId != null ? Integer.parseInt(lengthOfTransactionId): 0;
+	    final byte[] oidcTransactionIdBytes = transactionId.getBytes();
+	    final byte[] authTransactionIdBytes = new byte[authTransactionIdLength];
+	    int i = oidcTransactionIdBytes.length - 1;
+	    int j = 0;
+	    while(j < authTransactionIdLength) {
+	        authTransactionIdBytes[j++] = oidcTransactionIdBytes[i--];
+	        if(i < 0) { i = oidcTransactionIdBytes.length - 1; }
+	    }
+	    return new String(authTransactionIdBytes);
+	}
 
 	public String replaceKeywordWithValue(String jsonString, String keyword, String value) {
 		if (value != null && !value.isEmpty())
@@ -3263,7 +3278,7 @@ public class AdminTestUtil extends BaseTestCase {
 					MosipTestRunner.generatePublicKeyForMimoto());
 		}
 		if (jsonString.contains("$BLOCKEDPARTNERID$")) {
-			jsonString = replaceKeywordWithValue(jsonString, GlobalConstants.PARTNER_ID, getPartnerId());
+			jsonString = replaceKeywordWithValue(jsonString, "$BLOCKEDPARTNERID$", getPartnerId());
 		}
 		if (jsonString.contains("$APIKEY$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$APIKEY$", getAPIKey());
@@ -6024,6 +6039,44 @@ public class AdminTestUtil extends BaseTestCase {
 
 	}
 
+	public static JSONArray regprocActuatorResponseArray = null;
+
+	public static String getValueFromRegprocActuator(String section, String key) {
+		String url = ApplnURI + propsKernel.getProperty("regprocActuatorEndpoint");
+		String actuatorCacheKey = url + section + key;
+		String value = actuatorValueCache.get(actuatorCacheKey);
+		if (value != null && !value.isEmpty())
+			return value;
+
+		try {
+			if (regprocActuatorResponseArray == null) {
+				Response response = null;
+				JSONObject responseJson = null;
+				response = RestClient.getRequest(url, MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON);
+
+				responseJson = new JSONObject(response.getBody().asString());
+				regprocActuatorResponseArray = responseJson.getJSONArray("propertySources");
+			}
+			for (int i = 0, size = regprocActuatorResponseArray.length(); i < size; i++) {
+				JSONObject eachJson = regprocActuatorResponseArray.getJSONObject(i);
+				if (eachJson.get("name").toString().contains(section)) {
+					value = eachJson.getJSONObject(GlobalConstants.PROPERTIES).getJSONObject(key)
+							.get(GlobalConstants.VALUE).toString();
+					if (ConfigManager.IsDebugEnabled())
+						logger.info("Actuator: " + url + " key: " + key + " value: " + value);
+					break;
+				}
+			}
+			actuatorValueCache.put(actuatorCacheKey, value);
+
+			return value;
+		} catch (Exception e) {
+			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+			return "";
+		}
+
+	}
+
 	public static JSONArray esignetActuatorResponseArray = null;
 
 	public static String getValueFromEsignetActuator(String section, String key) {
@@ -6612,7 +6665,7 @@ public class AdminTestUtil extends BaseTestCase {
 	public static String getServerComponentsDetails() {
 		if (serverComponentsCommitDetails != null && !serverComponentsCommitDetails.isEmpty())
 			return serverComponentsCommitDetails;
-
+		String commitDetailsResponse = "";
 		File file = new File(propsHealthCheckURL);
 		FileReader fileReader = null;
 		BufferedReader bufferedReader = null;
@@ -6630,8 +6683,13 @@ public class AdminTestUtil extends BaseTestCase {
 					if (ConfigManager.isInServiceNotDeployedList(parts[1])) {
 						continue;
 					}
-					stringBuilder.append("\n")
-							.append(getCommitDetails(BaseTestCase.ApplnURI + parts[1].replace("health", "info")));
+					commitDetailsResponse = getCommitDetails(
+							BaseTestCase.ApplnURI + parts[1].replace("health", "info"));
+					if (commitDetailsResponse.contains("No Response"))
+						continue;
+					else {
+						stringBuilder.append("\n").append(commitDetailsResponse);
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -6651,9 +6709,9 @@ public class AdminTestUtil extends BaseTestCase {
 		if (response != null && response.getStatusCode() == 200) {
 			logger.info(response.getBody().asString());
 			JSONObject jsonResponse = new JSONObject(response.getBody().asString());
-			return "Group: " + jsonResponse.getJSONObject("build").getString("group") + ", Artifact: "
-					+ jsonResponse.getJSONObject("build").getString("artifact") + ", version: "
-					+ jsonResponse.getJSONObject("build").getString("version") + ", Commit ID: "
+			return "Group: " + jsonResponse.getJSONObject("build").getString("group") + " ---- Artifact: "
+					+ jsonResponse.getJSONObject("build").getString("artifact") + " ---- version: "
+					+ jsonResponse.getJSONObject("build").getString("version") + " ---- Commit ID: "
 					+ jsonResponse.getJSONObject("git").getJSONObject("commit").getString("id");
 		}
 		return path + "- No Response";

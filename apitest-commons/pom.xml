@@ -68,7 +68,7 @@
 		<maven.model.version>3.3.9</maven.model.version>
 		<testng.version>7.10.1</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
-		<fileName>apitests-commons-1.2.1-java21-SNAPSHOT-jar-with-dependencies</fileName>
+		<fileName>apitest-commons-1.2.1-java21-SNAPSHOT-jar-with-dependencies</fileName>
 		
 	</properties>
 	
