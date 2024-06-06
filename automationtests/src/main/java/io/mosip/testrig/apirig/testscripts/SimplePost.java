@@ -161,6 +161,9 @@ public class SimplePost extends AdminTestUtil implements ITest {
 
 		else {
 			String tempUrl = ConfigManager.getEsignetBaseUrl();
+			
+			if (testCaseDTO.getEndPoint().contains("/signup/"))
+				tempUrl = ApplnURI;
 			if (testCaseName.contains("ESignet_")) {
 				if (testCaseDTO.getEndPoint().startsWith("$ESIGNETMOCKBASEURL$")
 						&& testCaseName.contains("SunBirdRC")) {
