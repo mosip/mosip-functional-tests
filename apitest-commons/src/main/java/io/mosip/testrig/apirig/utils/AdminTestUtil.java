@@ -2275,35 +2275,76 @@ public class AdminTestUtil extends BaseTestCase {
 	}
 
 	protected byte[] getWithPathParamAndBearerTokenForPdf(String url, String jsonInput, String cookieName, String role,
-			String testCaseName, boolean bothAccessAndIdToken) {
+			String testCaseName, boolean bothAccessAndIdToken, String pathParams) {
+//		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+//
+//		HashMap<String, String> map = null;
+//		try {
+//			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
+//			}.getType());
+//		} catch (Exception e) {
+//			logger.error(
+//					GlobalConstants.ERROR_STRING_1 + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
+//		}
+//
+//		byte[] pdf = null;
+//
+//		logger.info("******Get request to EndPointUrl: " + url);
+//		GlobalMethods.reportRequest(null, jsonInput, url);
+//		try {
+//			JSONObject request = new JSONObject(jsonInput);
+//			if (request.has(GlobalConstants.BEARER_TOKEN)) {
+//				token = request.get(GlobalConstants.BEARER_TOKEN).toString();
+//				map.remove(GlobalConstants.BEARER_TOKEN);
+//
+//				pdf = RestClient.getRequestWithPathParamAndBearerTokenAsCookieForPdf(url, map, cookieName, token);
+//			}
+//			return pdf;
+//		} catch (Exception e) {
+//			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
+//			return pdf;
+//		}
+		
+		
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
+		logger.info("inputJson is::" + jsonInput);
+		
+		JSONObject req = new JSONObject(jsonInput);
+		logger.info(GlobalConstants.REQ_STR + req);
 
-		HashMap<String, String> map = null;
-		try {
-			map = new Gson().fromJson(jsonInput, new TypeToken<HashMap<String, String>>() {
-			}.getType());
-		} catch (Exception e) {
-			logger.error(
-					GlobalConstants.ERROR_STRING_1 + jsonInput + GlobalConstants.EXCEPTION_STRING_1 + e.getMessage());
+		HashMap<String, String> pathParamsMap = new HashMap<>();
+		
+		String[] params = pathParams.split(",");
+		for (String param : params) {
+			logger.info("param is::" + param);
+			if (req.has(param)) {
+				logger.info(GlobalConstants.REQ_STR + req);
+				pathParamsMap.put(param, req.get(param).toString());
+				req.remove(param);
+			} else
+				logger.error(GlobalConstants.ERROR_STRING_2 + param + GlobalConstants.IN_STRING + jsonInput);
 		}
 
 		byte[] pdf = null;
 
-		logger.info("******Get request to EndPointUrl: " + url);
+		logger.info("******Post request to EndPointUrl: " + url);
 		GlobalMethods.reportRequest(null, jsonInput, url);
 		try {
 			JSONObject request = new JSONObject(jsonInput);
 			if (request.has(GlobalConstants.BEARER_TOKEN)) {
 				token = request.get(GlobalConstants.BEARER_TOKEN).toString();
-				map.remove(GlobalConstants.BEARER_TOKEN);
+				req.remove(GlobalConstants.BEARER_TOKEN);
 
-				pdf = RestClient.getRequestWithPathParamAndBearerTokenAsCookieForPdf(url, map, cookieName, token);
+				pdf = RestClient.getRequestWithPathParamAndBearerTokenAsCookieForPdf(url, pathParamsMap, req.toString(), MediaType.APPLICATION_JSON, cookieName, token);
 			}
 			return pdf;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return pdf;
 		}
+		
+		
+		
 	}
 
 	protected byte[] getWithQueryParamAndCookieForPdf(String url, String jsonInput, String cookieName, String role,

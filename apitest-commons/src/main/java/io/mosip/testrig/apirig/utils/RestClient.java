@@ -1689,18 +1689,31 @@ public class RestClient {
 		return postResponse;
 	}
 	
-	public static byte[] getRequestWithPathParamAndBearerTokenAsCookieForPdf(String url, Map<String, String> body, String cookieName, String cookieValue) {
+	public static byte[] getRequestWithPathParamAndBearerTokenAsCookieForPdf(String url, Map<String, String> pathParams, String body, String contentHeader, String cookieName, String cookieValue) {
 		byte[] pdf;
 
+//		if (ConfigManager.IsDebugEnabled()) {
+//			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
+//			
+//			pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).accept("*/*")
+//					.headers(cookieName, cookieValue).log().all().when().get(url).then()
+//					.extract().asByteArray();
+//		} else {
+//			pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).accept("*/*")
+//					.headers(cookieName, cookieValue).when().get(url).then().extract().asByteArray();
+//		}
+//
+//		return pdf;
+		
 		if (ConfigManager.IsDebugEnabled()) {
 			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 			
-			pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).accept("*/*")
-					.headers(cookieName, cookieValue).log().all().when().get(url).then()
+			pdf = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body).contentType(contentHeader).accept("application/pdf")
+					.headers(cookieName, "Bearer " + cookieValue).log().all().when().post(url).then()
 					.extract().asByteArray();
 		} else {
-			pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).accept("*/*")
-					.headers(cookieName, cookieValue).when().get(url).then().extract().asByteArray();
+			pdf = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).body(body).contentType(contentHeader).accept("application/pdf")
+					.headers(cookieName, "Bearer " + cookieValue).when().post(url).then().extract().asByteArray();
 		}
 
 		return pdf;
