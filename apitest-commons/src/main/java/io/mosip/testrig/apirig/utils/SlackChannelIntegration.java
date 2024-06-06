@@ -9,11 +9,14 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import org.apache.log4j.Logger;
 public class SlackChannelIntegration extends BaseTestCase  {
+	private static final Logger LOGGER = Logger.getLogger(SlackChannelIntegration.class);
     private static final String SLACK_WEBHOOK_URL =ConfigManager.getSlackWebHookUrl();
     
 
     public static void sendMessageToSlack(String message) {
+    	LOGGER.info("SLACK_WEBHOOK_URL is - " + SLACK_WEBHOOK_URL);
         OkHttpClient client = new OkHttpClient();
         MediaType mediaType = MediaType.parse("application/json");
         String json = "{\"text\":\"" + message + "\"}";
@@ -25,7 +28,7 @@ public class SlackChannelIntegration extends BaseTestCase  {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
+            	LOGGER.error("Exception on slack integration " + e.getMessage());
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
