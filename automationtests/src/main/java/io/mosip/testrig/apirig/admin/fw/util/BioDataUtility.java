@@ -1,15 +1,9 @@
 package io.mosip.testrig.apirig.admin.fw.util;
 
-import java.io.File;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.security.KeyStoreException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableEntryException;
-import java.security.cert.CertificateException;
 import java.util.Base64;
-import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import javax.ws.rs.core.MediaType;
@@ -17,12 +11,10 @@ import javax.ws.rs.core.MediaType;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
-import org.bouncycastle.operator.OperatorCreationException;
-import org.jose4j.lang.JoseException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import Util.AuthUtil;
-import helper.PartnerTypes;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.HMACUtils;
 import io.mosip.testrig.apirig.authentication.fw.precon.JsonPrecondtion;
@@ -31,9 +23,9 @@ import io.mosip.testrig.apirig.authentication.fw.util.BytesUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.FileUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
-import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.service.BaseTestCase;
-import io.restassured.response.Response;
+import io.mosip.testrig.auth.util.AuthUtil;
+import io.mosip.testrig.auth.util.PartnerTypes;
 
 /**
  * The class to perform or construct biometric identity data which involves
@@ -43,10 +35,12 @@ import io.restassured.response.Response;
  * @author Ravi Kant
  *
  */
-
+@Component
 public class BioDataUtility extends AdminTestUtil {
 
 	private static final Logger logger = Logger.getLogger(BioDataUtility.class);
+	@Autowired
+	private EncryptionDecrptionUtil encryptDecryptUtil;
 
 
 	private String encryptIsoBioValue(String isoBiovalue, String timestamp, String bioValueEncryptionTemplateJson,
@@ -71,6 +65,15 @@ public class BioDataUtility extends AdminTestUtil {
 				AdminTestUtil.generateCurrentUTCTimeStamp(), GlobalConstants.REQUESTTIME);
 			
 		residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
+		
+		
+		try {
+			String json = encryptDecryptUtil.encrypt(jsonContent);
+			logger.info("json is" + json);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		String content = RestClient.postRequestWithCookie(cryptoEncryptUrl, jsonContent, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, COOKIENAME, residentCookie).asString();

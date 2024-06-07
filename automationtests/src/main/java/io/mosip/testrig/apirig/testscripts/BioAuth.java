@@ -1,29 +1,17 @@
 package io.mosip.testrig.apirig.testscripts;
 
-import static io.mosip.testrig.apirig.service.BaseTestCase.getRequestJson;
-
 import java.lang.reflect.Field;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
-import org.testng.Assert;
-
-import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
-import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -32,26 +20,17 @@ import org.testng.annotations.Test;
 import org.testng.internal.BaseTestMethod;
 import org.testng.internal.TestResult;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestException;
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
+import io.mosip.testrig.apirig.admin.fw.util.BioDataUtility;
+import io.mosip.testrig.apirig.admin.fw.util.EncryptionDecrptionUtil;
 import io.mosip.testrig.apirig.admin.fw.util.TestCaseDTO;
 import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
-import io.mosip.testrig.apirig.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestException;
 import io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
-import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
-import io.mosip.testrig.apirig.global.utils.GlobalConstants;
-import io.mosip.testrig.apirig.global.utils.GlobalMethods;
-import io.mosip.testrig.apirig.ida.certificate.KeyCloakUserAndAPIKeyGeneration;
-import io.mosip.testrig.apirig.ida.certificate.MispPartnerAndLicenseKeyGeneration;
 import io.mosip.testrig.apirig.ida.certificate.PartnerRegistration;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
-import io.mosip.testrig.apirig.service.BaseTestCase;
-import io.mosip.testrig.apirig.testrunner.HealthChecker;
 import io.restassured.response.Response;
 
 public class BioAuth extends AdminTestUtil implements ITest {
@@ -60,6 +39,12 @@ public class BioAuth extends AdminTestUtil implements ITest {
 	public Response response = null;
 	public Response newResponse = null;
 	public boolean isInternal = false;
+	
+	@Autowired
+	private EncryptionDecrptionUtil encryptDecryptUtil;
+	
+	@Autowired
+	private BioDataUtility bioDataUtil;
 
 	@BeforeClass
 	public static void setLogLevel() {

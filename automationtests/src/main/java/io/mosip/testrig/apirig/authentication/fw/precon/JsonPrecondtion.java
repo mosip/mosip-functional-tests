@@ -90,6 +90,8 @@ public class JsonPrecondtion extends MessagePrecondtion{
 							map.getValue());
 			}
 			
+			// TO DO -- Handle Neg test cases
+			
 			PropertyUtils.setProperty(jsonObj, props.getProperty("AuthReq.env"),
 					BaseTestCase.ApplnURI);
 			PropertyUtils.setProperty(jsonObj, props.getProperty("AuthReq.domainUri"),

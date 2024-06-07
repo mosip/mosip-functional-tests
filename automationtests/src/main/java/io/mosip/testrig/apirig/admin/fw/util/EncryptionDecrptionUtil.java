@@ -4,6 +4,8 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.security.PublicKey;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
@@ -14,21 +16,22 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.crypto.SecretKey;
 import javax.ws.rs.core.MediaType;
+import javax.xml.bind.DatatypeConverter;
 
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.testng.Reporter;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import Util.Encrypt;
-import Util.Encrypt.SplittedEncryptedData;
-import dto.EncryptionRequestDto;
-import dto.EncryptionResponseDto;
+import io.mosip.kernel.core.util.HMACUtils2;
 import io.mosip.testrig.apirig.authentication.fw.precon.JsonPrecondtion;
 import io.mosip.testrig.apirig.authentication.fw.util.FileUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
@@ -36,6 +39,8 @@ import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.global.utils.GlobalMethods;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
+import io.mosip.testrig.auth.dto.EncryptionResponseDto;
+import io.mosip.testrig.auth.util.CryptoUtil;
 import io.restassured.response.Response;
 
 /**
@@ -47,6 +52,7 @@ import io.restassured.response.Response;
  * @author Ravi Kant
  *
  */
+@Component
 public class EncryptionDecrptionUtil extends AdminTestUtil{
 	private static final Logger lOGGER = Logger.getLogger(EncryptionDecrptionUtil.class);
 	private static String key="encryptedSessionKey";
@@ -56,6 +62,11 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public static String partnerThumbPrint =null;
 	public static String internalThumbPrint =null;
 	public static String idaFirThumbPrint =null;
+	private static ObjectMapper objMapper = new ObjectMapper();
+	@Autowired
+	private CryptoUtil cryptoUtil;
+	@Autowired
+	private KeyMgrUtil keymgrUtil;
 	
 	static {
 		if(EncryptUtilBaseUrl==null)			
@@ -87,7 +98,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	public Map<String, String> getEncryptSessionKeyValue(String jsonString) {
 		Map<String, String> ecryptData = new HashMap<>();
 		try {
-			String json = getEncryption(jsonString);
+			String json = encrypt(jsonString);
 			JSONObject jsonobj = new JSONObject(json);
 			Reporter.log("<b> <u>Encryption of identity request</u> </b>");
 			GlobalMethods.reportRequest(null, json);
@@ -131,43 +142,110 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 	 * 
 	 * @param filename
 	 * @return String , Ecrypted JSON
+	 * 
 	 */
-	private String getEncryption(String jsonString) {
+	
+	
+	public String encrypt(String jsonString) throws Exception {
+        
+		String refId= null;
+		boolean isInternal = false;
+		boolean isBiometrics = true;
 		
-		try {
-			JSONObject objectData = new JSONObject(jsonString);
-			Reporter.log("<b><u> Identity request:</u></b>");
-			GlobalMethods.reportRequest(null, objectData.toString());
-			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get("encryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
-					MediaType.APPLICATION_JSON).asString();
-		} catch (Exception e) {
-			lOGGER.error(GlobalConstants.EXCEPTION+ e);
-			return e.toString();
-		}
-		
-//		try {
-//			JSONObject objectData = new JSONObject(jsonString);
-//			Reporter.log("<b><u> Identity request:</u></b>");
-//			
-//			GlobalMethods.reportRequest(null, objectData.toString());
-//			
-//			Map<String, Object> identityRequestMap = new HashMap<>();
-//			identityRequestMap.put("identityRequest", objectData);					
-//					
-//			
-//			EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
-//			encryptionRequestDto.setIdentityRequest(identityRequestMap);	
-//			
-//			Encrypt encruptObject = new Encrypt();		
-//			EncryptionResponseDto encryptionResponseDto = encruptObject.encrypt(encryptionRequestDto, null, false, false);
-//			
-//			return RestClient.postRequest(EncryptUtilBaseUrl+properties.get("encryptionPath"), objectData.toString(), MediaType.APPLICATION_JSON,
-//					MediaType.APPLICATION_JSON).asString();
-//		} catch (Exception e) {
-//			lOGGER.error(GlobalConstants.EXCEPTION+ e);
-//			return e.toString();
-//		}
+		if (refId == null) {
+            refId = getRefId(isInternal, isBiometrics);
+        }
+        return kernelEncrypt(jsonString, refId);
+    }
+	
+	private static String getRefId(boolean isInternal, boolean isBiometrics) {
+        String refId;
+        if (isBiometrics) {
+            if (isInternal) {
+                refId = props.getProperty("internal.biometric.reference.id");
+            } else {
+                refId = props.getProperty("internal.biometric.reference.id");
+            }
+        } else {
+            if (isInternal) {
+                refId = props.getProperty("internal.reference.id");
+            } else {
+                refId = props.getProperty("partner.reference.id");
+            }
+        }
+        return refId;
+    }
+	
+	private  String kernelEncrypt(String jsonString, String refId) throws Exception {
+        String identityBlock = objMapper.writeValueAsString(jsonString);
+        SecretKey secretKey = cryptoUtil.genSecKey();
+        EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
+        
+        byte[] encryptedIdentityBlock = cryptoUtil.symmetricEncrypt(identityBlock.getBytes(StandardCharsets.UTF_8), secretKey);
+        encryptionResponseDto.setEncryptedIdentity(Base64.getUrlEncoder().encodeToString(encryptedIdentityBlock));
+        
+        //ToDO: Cache it
+        X509Certificate x509Cert = keymgrUtil.getCertificate(refId);
+        
+        //To get the certificate as per the reference id
+       // certificate = JWSSignAndVerifyController.trimBeginEnd(certificate);
+		//CertificateFactory cf = CertificateFactory.getInstance("X.509");
+		//X509Certificate x509cert = (X509Certificate) cf
+			//	.generateCertificate(new ByteArrayInputStream(java.util.Base64.getDecoder().decode(certificate)));
+		//return x509cert;
+        
+        
+        PublicKey publicKey = x509Cert.getPublicKey();
+        
+        byte[] encryptedSessionKeyByte = cryptoUtil.asymmetricEncrypt(secretKey.getEncoded(), publicKey);
+        encryptionResponseDto.setEncryptedSessionKey(Base64.getUrlEncoder().encodeToString(encryptedSessionKeyByte));
+        
+        byte[] byteArr = cryptoUtil.symmetricEncrypt(
+            digestAsPlainText(HMACUtils2.generateHash(identityBlock.getBytes(StandardCharsets.UTF_8))).getBytes(), secretKey);
+        encryptionResponseDto.setRequestHMAC(Base64.getUrlEncoder().encodeToString(byteArr));
+        
+        return encryptionResponseDto.toString();
+    }
+	
+	public static String digestAsPlainText(byte[] data) {
+		return DatatypeConverter.printHexBinary(data).toUpperCase();
 	}
+	
+	
+	/*
+	 * class Encrypt { public static String digestAsPlainText(byte[] data) { return
+	 * DatatypeConverter.printHexBinary(data).toUpperCase(); } }
+	 */
+	/*
+	 * private String getEncryption(String jsonString) {
+	 * 
+	 * try { JSONObject objectData = new JSONObject(jsonString);
+	 * Reporter.log("<b><u> Identity request:</u></b>");
+	 * 
+	 * GlobalMethods.reportRequest(null, objectData.toString());
+	 * 
+	 * Map<String, Object> identityRequestMap = new HashMap<>();
+	 * identityRequestMap.put("identityRequest", objectData);
+	 * 
+	 * 
+	 * 
+	 * EncryptionRequestDto encryptionRequestDto = new EncryptionRequestDto();
+	 * encryptionRequestDto.setIdentityRequest(identityRequestMap);
+	 * 
+	 * Encrypt encruptObject = new Encrypt(); EncryptionResponseDto
+	 * encryptionResponseDto = encruptObject.encrypt(encryptionRequestDto, null,
+	 * false, false);
+	 * 
+	 * return
+	 * RestClient.postRequest(EncryptUtilBaseUrl+properties.get("encryptionPath"),
+	 * objectData.toString(), MediaType.APPLICATION_JSON,
+	 * MediaType.APPLICATION_JSON).asString(); } catch (Exception e) {
+	 * lOGGER.error(GlobalConstants.EXCEPTION+ e); return e.toString(); } }
+	 */
+	
+	
+	
+	
 	
 	/**
 	 * The method get encrypted json for identity request

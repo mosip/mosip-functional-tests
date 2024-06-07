@@ -11,13 +11,13 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
-import Util.AuthUtil;
-import helper.CertificateTypes;
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.kernel.util.ConfigManager;
 import io.mosip.testrig.apirig.service.BaseTestCase;
+import io.mosip.testrig.auth.util.AuthUtil;
+import io.mosip.testrig.auth.util.CertificateTypes;
 import io.restassured.response.Response;
 
 public class CertificateGenerationUtil extends AdminTestUtil {

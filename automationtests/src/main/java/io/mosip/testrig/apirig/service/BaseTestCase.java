@@ -20,6 +20,8 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
 
@@ -28,6 +30,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.nimbusds.jose.jwk.RSAKey;
 
+import io.mosip.testrig.apirig.admin.fw.config.BeanConfig;
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.AuthTestsUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
@@ -47,8 +50,8 @@ import io.restassured.response.Response;
  * All suite level before and after tests will be completed here.
  *
  */
-
-public class BaseTestCase {
+@ContextConfiguration(classes = {BeanConfig.class})
+public class BaseTestCase extends AbstractTestNGSpringContextTests {
 
 	protected static Logger logger = Logger.getLogger(BaseTestCase.class);
 	protected static MockSMTPListener mockSMTPListener = null;
