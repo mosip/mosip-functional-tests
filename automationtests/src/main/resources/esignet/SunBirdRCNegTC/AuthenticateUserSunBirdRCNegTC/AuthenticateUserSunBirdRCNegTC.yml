@@ -244,7 +244,7 @@ AuthenticateUserSunBirdRCNegTC:
       output: '{
   "errors": [
     {
-      "errorCode": "auth_factor_mismatch"
+      "errorCode": "invalid_auth_factor_type"
     }
   ]
 }'
@@ -319,7 +319,7 @@ AuthenticateUserSunBirdRCNegTC:
       output: '{
   "errors": [
     {
-      "errorCode": "auth_factor_mismatch"
+      "errorCode": "invalid_auth_factor_type"
     }
   ]
 }'
@@ -344,7 +344,7 @@ AuthenticateUserSunBirdRCNegTC:
       output: '{
   "errors": [
     {
-      "errorCode": "auth_factor_mismatch"
+      "errorCode": "invalid_challenge_format"
     }
   ]
 }'
@@ -519,7 +519,7 @@ AuthenticateUserSunBirdRCNegTC:
       output: '{
   "errors": [
     {
-      "errorCode": "auth_failed"
+      "errorCode": "invalid_challenge"
     }
   ]
 }'
@@ -544,7 +544,7 @@ AuthenticateUserSunBirdRCNegTC:
       output: '{
   "errors": [
     {
-      "errorCode": "auth_failed"
+      "errorCode": "invalid_challenge"
     }
   ]
 }'
