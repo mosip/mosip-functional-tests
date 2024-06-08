@@ -8,6 +8,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -23,6 +24,7 @@ import org.testng.internal.TestResult;
 
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestException;
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
+import io.mosip.testrig.apirig.admin.fw.util.BioDataUtility;
 import io.mosip.testrig.apirig.admin.fw.util.EncryptionDecrptionUtil;
 import io.mosip.testrig.apirig.admin.fw.util.TestCaseDTO;
 import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
@@ -40,6 +42,12 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean isInternal = false;
+	
+	@Autowired
+	private EncryptionDecrptionUtil encryptDecryptUtil;
+	
+	@Autowired
+	private BioDataUtility bioDataUtil;
 
 	@BeforeClass
 	public static void setLogLevel() {
@@ -108,7 +116,7 @@ public class BioAuthOld extends AdminTestUtil implements ITest {
 
 		String encryptedIdentityReq = null;
 		try {
-			encryptedIdentityReq = getBioDataUtil().constractBioIdentityRequest(identityRequest,
+			encryptedIdentityReq = bioDataUtil.constractBioIdentityRequest(identityRequest,
 					getResourcePath() + properties.getProperty("bioValueEncryptionTemplate"), testCaseName, isInternal);
 		} catch (Exception e) {
 			logger.error(e.getMessage());

@@ -189,13 +189,13 @@ public class AdminTestUtil extends BaseTestCase {
 	public static final String AUTH_HEADER_VALUE = "Some String";
 	public static final String SIGNATURE_HEADERNAME = GlobalConstants.SIGNATURE;
 	public static String updatedPolicyId = "";
-	public static BioDataUtility bioDataUtil = new BioDataUtility();
+//	public static BioDataUtility bioDataUtil = new BioDataUtility();
+//
+//	public static BioDataUtility getBioDataUtil() {
+//		return bioDataUtil;
+//	}
 
-	public static BioDataUtility getBioDataUtil() {
-		return bioDataUtil;
-	}
-
-	public static EncryptionDecrptionUtil encryptDecryptUtil = null;
+//	public static EncryptionDecrptionUtil encryptDecryptUtil = null;
 	protected static String idField = null;
 	protected static String identityHbs = null;
 	protected static String draftHbs = null;

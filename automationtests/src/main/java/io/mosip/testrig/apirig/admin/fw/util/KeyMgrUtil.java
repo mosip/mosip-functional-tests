@@ -434,8 +434,8 @@ public class KeyMgrUtil {
      * @return the keys dir path
      */
     public String getKeysDirPath() {
-    	String domain = System.getProperty(DOMAIN_URL, "localhost").replace("https://", "").replace("http://", "").replace("/", "");
-		return System.getProperty("java.io.tmpdir") + "/" + "IDA-" + domain;
+    	String domain = System.getProperty("env.endpoint", "localhost").replace("https://", "").replace("http://", "").replace("/", "");
+		return System.getProperty("java.io.tmpdir") + "/" + "AUTHCERTS" + "/" + "IDA-" + domain;
     }
 
 	/**
@@ -480,5 +480,30 @@ public class KeyMgrUtil {
 		pKey = pKey.replaceAll("-*END([^-]*)-*(\r?\n)?", "");
 		pKey = pKey.replaceAll("\\s", "");
 		return pKey;
+	}
+	
+	public X509Certificate getCertificate(String refId)
+			throws KeyStoreException, IOException, CertificateException {
+		String keysDirPath = getKeysDirPath();
+		
+		String certFilePath = keysDirPath + '/' + "ida-" + refId.toLowerCase() + ".cer";
+//		String certFilePath = keysDirPath + '/' + "ida-internal.cer";
+		ByteArrayInputStream bIS = null;
+		try {
+			Path path = Paths.get(certFilePath);
+			if (Files.exists(path)) {
+				String cert = new String(Files.readAllBytes(path));
+				
+				cert = trimBeginEnd(cert);
+				CertificateFactory cf = CertificateFactory.getInstance("X.509");
+				bIS = new ByteArrayInputStream(Base64.getDecoder().decode(cert));
+				return (X509Certificate) cf
+						.generateCertificate(bIS);
+
+			}
+			return null;
+		} finally {
+			AdminTestUtil.closeByteArrayInputStream(bIS);
+		}
 	}
 }

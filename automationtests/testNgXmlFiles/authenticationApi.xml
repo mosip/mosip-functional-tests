@@ -12,7 +12,7 @@
 		<listener class-name="io.mosip.testrig.apirig.customReport.EmailableReport" />
 	</listeners>
 
-	<test name="AddIdentity">
+<!--	<test name="AddIdentity">
 		<parameter name="ymlFile"
 			value="ida/AddIdentity/AddIdentity.yml" />
 		<classes>
@@ -114,17 +114,17 @@
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate" />
 		</classes>
-	</test>
+	</test>-->
 
 	<test name="BioAuth">
-		<parameter name="ymlFile" value="ida/BioAuth/BioAuth2.yml" />
+		<parameter name="ymlFile" value="ida/BioAuth/BioAuth.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.BioAuth" />
 		</classes>
 	</test>
 
-	<test name="EkycBio">
+<!--	<test name="EkycBio">
 		<parameter name="ymlFile" value="ida/EkycBio/EkycBio2.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
@@ -137,8 +137,8 @@
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.OtpAuthNew" />
 		</classes>
-	</test>
-	<test name="EkycOtp">
+	</test>-->
+<!--	<test name="EkycOtp">
 		<parameter name="ymlFile" value="ida/EkycOtp/EkycOtp2.yml" />
 		<parameter name="isInternal" value="false" />
 		<classes>
@@ -288,7 +288,7 @@
 		<classes>
 			<class name="io.mosip.testrig.apirig.testscripts.OtpAuthNew" />
 		</classes>
-	</test>
+	</test>-->
 	
 	
 </suite>

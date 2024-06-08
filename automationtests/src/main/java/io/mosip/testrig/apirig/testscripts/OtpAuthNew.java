@@ -11,6 +11,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.ITest;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -27,6 +28,8 @@ import org.testng.internal.TestResult;
 
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestException;
 import io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil;
+import io.mosip.testrig.apirig.admin.fw.util.BioDataUtility;
+import io.mosip.testrig.apirig.admin.fw.util.EncryptionDecrptionUtil;
 import io.mosip.testrig.apirig.admin.fw.util.TestCaseDTO;
 import io.mosip.testrig.apirig.authentication.fw.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.authentication.fw.util.AuthenticationTestException;
@@ -46,6 +49,9 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 	protected String testCaseName = "";
 	public Response response = null;
 	public boolean isInternal = false;
+	
+	@Autowired
+	private EncryptionDecrptionUtil encryptDecryptUtil;
 
 	@BeforeClass
 	public static void setLogLevel() {
@@ -151,7 +157,9 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		String authRequest = getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate());
 		logger.info("************* Modification of OTP auth request ******************");
 		Reporter.log("<b><u>Modification of otp auth request</u></b>");
+//		System.out.println("authRequest = " + authRequest);
 		authRequest = modifyRequest(authRequest, bioAuthTempMap, getResourcePath()+props.getProperty("idaMappingPath"));
+//		System.out.println("modifyRequest = " + authRequest);
 		testCaseDTO.setInput(authRequest);
 		JSONObject authRequestTemp = new JSONObject(authRequest);
 		authRequestTemp.remove("env");
