@@ -1695,11 +1695,11 @@ public class RestClient {
 //		if (ConfigManager.IsDebugEnabled()) {
 //			RESTCLIENT_LOGGER.info("REST-ASSURED: Sending a GET request to " + url);
 //			
-//			pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).accept("*/*")
+//			pdf = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).accept("*/*")
 //					.headers(cookieName, cookieValue).log().all().when().get(url).then()
 //					.extract().asByteArray();
 //		} else {
-//			pdf = given().config(config).relaxedHTTPSValidation().pathParams(body).accept("*/*")
+//			pdf = given().config(config).relaxedHTTPSValidation().pathParams(pathParams).accept("*/*")
 //					.headers(cookieName, cookieValue).when().get(url).then().extract().asByteArray();
 //		}
 //

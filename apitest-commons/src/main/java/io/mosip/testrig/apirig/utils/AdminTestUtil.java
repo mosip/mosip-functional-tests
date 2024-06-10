@@ -2306,13 +2306,16 @@ public class AdminTestUtil extends BaseTestCase {
 //		}
 		
 		
+		HashMap<String, String> pathParamsMap = new HashMap<>();
+		HashMap<String, String> headers = new HashMap<>();
+		
+		
 		jsonInput = inputJsonKeyWordHandeler(jsonInput, testCaseName);
 		logger.info("inputJson is::" + jsonInput);
 		
 		JSONObject req = new JSONObject(jsonInput);
 		logger.info(GlobalConstants.REQ_STR + req);
-
-		HashMap<String, String> pathParamsMap = new HashMap<>();
+		
 		
 		String[] params = pathParams.split(",");
 		for (String param : params) {
@@ -2324,26 +2327,41 @@ public class AdminTestUtil extends BaseTestCase {
 			} else
 				logger.error(GlobalConstants.ERROR_STRING_2 + param + GlobalConstants.IN_STRING + jsonInput);
 		}
-
+		
+		jsonInput = req.toString();
+		
+		headers.put(XSRF_HEADERNAME, properties.getProperty(GlobalConstants.XSRFTOKEN));
+		
+		
 		byte[] pdf = null;
+		
+		if (testCaseName.contains("_IdpAccessToken_")) {
+			JSONObject request = new JSONObject(jsonInput);
+			headers.put(cookieName, "Bearer " + request.get(GlobalConstants.IDP_ACCESS_TOKEN).toString());
+			token = request.get(GlobalConstants.IDP_ACCESS_TOKEN).toString();
+			request.remove(GlobalConstants.IDP_ACCESS_TOKEN);
+			if (request.has("client_id"))
+				request.remove("client_id");
+			jsonInput = request.toString();
+		}
+		//token = properties.getProperty(GlobalConstants.XSRFTOKEN);
 
 		logger.info("******Post request to EndPointUrl: " + url);
-		GlobalMethods.reportRequest(null, jsonInput, url);
-		try {
-			JSONObject request = new JSONObject(jsonInput);
-			if (request.has(GlobalConstants.BEARER_TOKEN)) {
-				token = request.get(GlobalConstants.BEARER_TOKEN).toString();
-				req.remove(GlobalConstants.BEARER_TOKEN);
-
-				pdf = RestClient.getRequestWithPathParamAndBearerTokenAsCookieForPdf(url, pathParamsMap, req.toString(), MediaType.APPLICATION_JSON, cookieName, token);
-			}
+		GlobalMethods.reportRequest(null, jsonInput, url);	
+		
+		try {	
+			
+//			pdf = RestClient.postRequestWithMultipleHeadersAndCookies(url, jsonInput,
+//					MediaType.APPLICATION_JSON, "application/pdf", cookieName, token, headers);
+			
+			pdf = RestClient.getRequestWithPathParamAndBearerTokenAsCookieForPdf(url, pathParamsMap, jsonInput, 
+					MediaType.APPLICATION_JSON, cookieName, token);
+			
 			return pdf;
 		} catch (Exception e) {
 			logger.error(GlobalConstants.EXCEPTION_STRING_2 + e);
 			return pdf;
 		}
-		
-		
 		
 	}
 
