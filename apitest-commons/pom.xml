@@ -8,7 +8,7 @@
 	<name>apitest-commons</name>
 	<description>Parent project of MOSIP functional tests</description>
 	<url>https://github.com/mosip/mosip-functional-tests</url>
-	<version>1.2.1-java21-SNAPSHOT</version>
+	<version>1.2.1-SNAPSHOT</version>
 
 	<licenses>
 		<license>
@@ -61,14 +61,14 @@
 
 		<!-- automationtests version -->
 		<wink-json4j-provider.version>1.1.2-incubating</wink-json4j-provider.version>
-		<kernel.version>1.2.1-java21-SNAPSHOT</kernel.version>
+		<kernel.version>1.2.1-SNAPSHOT</kernel.version>
 		<zjsonpatch.version>0.4.7</zjsonpatch.version>
 		<extentreports.aventstack.version>3.0.0</extentreports.aventstack.version>
 		<extentreports.relevantcodes.version>2.41.2</extentreports.relevantcodes.version>
 		<maven.model.version>3.3.9</maven.model.version>
 		<testng.version>7.10.1</testng.version>
 		<zt.zip.version>1.13</zt.zip.version>
-		<fileName>apitest-commons-1.2.1-java21-SNAPSHOT-jar-with-dependencies</fileName>
+		<fileName>apitest-commons-1.2.1-SNAPSHOT-jar-with-dependencies</fileName>
 		
 	</properties>
 	
@@ -416,7 +416,7 @@
 			<dependency>
 				<groupId>io.mosip.kernel</groupId>
 				<artifactId>kernel-bom</artifactId>
-				<version>1.2.1-java21-SNAPSHOT</version>
+				<version>1.2.1-SNAPSHOT</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
