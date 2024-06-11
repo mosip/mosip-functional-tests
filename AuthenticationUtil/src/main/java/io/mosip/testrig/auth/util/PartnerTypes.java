@@ -1,4 +1,4 @@
-package helper;
+package io.mosip.testrig.auth.util;
 
 public enum PartnerTypes {
 

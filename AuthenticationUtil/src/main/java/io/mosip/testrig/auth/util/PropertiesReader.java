@@ -1,4 +1,4 @@
-package helper;
+package io.mosip.testrig.auth.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;

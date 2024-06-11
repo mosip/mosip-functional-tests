@@ -129,8 +129,12 @@ public class BioAuth extends AdminTestUtil implements ITest {
 		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
 		logger.info("************* Modification of bio auth request ******************");
 		Reporter.log("<b><u>Modification of bio auth request</u></b>");
+		
+		logger.info("authRequest is = " + authRequest);
+		logger.info("bioAuthTempMap is = " + bioAuthTempMap);
 		authRequest = modifyRequest(authRequest, bioAuthTempMap,
 				getResourcePath() + props.getProperty("idaMappingPath"));
+		logger.info("authRequestTemp is = " + authRequest);
 		JSONObject authRequestTemp = new JSONObject(authRequest);
 		authRequestTemp.remove("env");
 		authRequestTemp.put("env", "Staging");

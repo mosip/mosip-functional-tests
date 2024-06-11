@@ -1,4 +1,4 @@
-package helper;
+package io.mosip.testrig.auth.util;
 
 import io.mosip.kernel.core.crypto.spi.CryptoCoreSpec;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -16,7 +16,7 @@ import java.security.*;
  * The Class CryptoUtil.
  */
 @Component
-public class CryptoUtility {
+public class CryptoUtil {
 
 	/** The Constant SYM_ALGORITHM. */
 	private static final String SYM_ALGORITHM = "AES";
@@ -98,8 +98,8 @@ public class CryptoUtility {
 	public SecretKey genSecKey() throws NoSuchAlgorithmException {
 		KeyGenerator keyGen;
 		SecretKey secretKey = null;
-        keyGen = KeyGenerator.getInstance(CryptoUtility.SYM_ALGORITHM, bouncyCastleProvider);
-		keyGen.init(CryptoUtility.SYM_ALGORITHM_LENGTH, new SecureRandom());
+        keyGen = KeyGenerator.getInstance(CryptoUtil.SYM_ALGORITHM, bouncyCastleProvider);
+		keyGen.init(CryptoUtil.SYM_ALGORITHM_LENGTH, new SecureRandom());
 		secretKey = keyGen.generateKey();
         return secretKey;
 

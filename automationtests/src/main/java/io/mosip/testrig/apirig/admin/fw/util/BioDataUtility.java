@@ -25,6 +25,8 @@ import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.service.BaseTestCase;
 import io.mosip.testrig.auth.util.AuthUtil;
+import io.mosip.testrig.auth.util.Encrypt;
+import io.mosip.testrig.auth.util.Encrypt.SplittedEncryptedData;
 import io.mosip.testrig.auth.util.PartnerTypes;
 
 /**
@@ -41,6 +43,8 @@ public class BioDataUtility extends AdminTestUtil {
 	private static final Logger logger = Logger.getLogger(BioDataUtility.class);
 	@Autowired
 	private EncryptionDecrptionUtil encryptDecryptUtil;
+	@Autowired
+	private Encrypt encrypt;
 
 
 	private String encryptIsoBioValue(String isoBiovalue, String timestamp, String bioValueEncryptionTemplateJson,
@@ -67,20 +71,41 @@ public class BioDataUtility extends AdminTestUtil {
 		residentCookie = kernelAuthLib.getTokenByRole(GlobalConstants.RESIDENT);
 		
 		
-		try {
-			String json = encryptDecryptUtil.encrypt(jsonContent);
-			logger.info("json is" + json);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			String json = encryptDecryptUtil.encrypt(jsonContent);
+//			logger.info("json is" + json);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		String content = RestClient.postRequestWithCookie(cryptoEncryptUrl, jsonContent, MediaType.APPLICATION_JSON,
 				MediaType.APPLICATION_JSON, COOKIENAME, residentCookie).asString();
 		String data = JsonPrecondtion.getValueFromJson(content, "response.data");
 		logger.info("data is" + data);
-		return EncryptionDecrptionUtil.splitEncryptedData(data);
+		
+		SplittedEncryptedData splittedEncryptedData = null;
+		JSONObject splittedEncryptedDataJson = new JSONObject();
+		
+		
+		try {
+			splittedEncryptedData = encrypt.splitEncryptedData(data);
+			logger.info("EncryptedSessionKey is " + splittedEncryptedData.getEncryptedSessionKey());
+			logger.info("EncryptedData is " + splittedEncryptedData.getEncryptedData());
+			logger.info("Thumbprint is " + splittedEncryptedData.getThumbprint());
+			splittedEncryptedDataJson.put("encryptedSessionKey", splittedEncryptedData.getEncryptedSessionKey());
+			splittedEncryptedDataJson.put("encryptedData", splittedEncryptedData.getEncryptedData());
+			splittedEncryptedDataJson.put("thumbprint", splittedEncryptedData.getThumbprint());			
+			
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		
+//		return EncryptionDecrptionUtil.splitEncryptedData(data);
+		return splittedEncryptedDataJson.toString();
 	}
+	
+	
 
 	private String getHash(String content) {
 		return HMACUtils.digestAsPlainText(HMACUtils.generateHash(content.getBytes()));
@@ -156,7 +181,7 @@ public class BioDataUtility extends AdminTestUtil {
 			
 			
 			
-			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, "https://api-internal.qa-inji.mosip.net",
+			identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, BaseTestCase.ApplnURI,
 					biometricsMapper + ".data.domainUri");
 			
 			

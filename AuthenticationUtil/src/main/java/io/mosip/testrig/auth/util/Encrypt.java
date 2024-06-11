@@ -1,22 +1,14 @@
-package Util;
+package io.mosip.testrig.auth.util;
 
 import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.security.GeneralSecurityException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -24,34 +16,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseCookie;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.ClientHttpRequestExecution;
-import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.lang.Nullable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.ClientResponse;
-import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.util.UriComponentsBuilder;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -59,35 +23,32 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import javax.xml.bind.DatatypeConverter;
 
-import dto.EncryptionRequestDto;
-import dto.EncryptionResponseDto;
-import helper.CryptoUtility;
-import helper.PropertiesReader;
 import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.lang.ArrayUtils;
-import org.bouncycastle.operator.OperatorCreationException;
 import org.json.JSONException;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.ResponseCookie;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.ClientHttpRequestExecution;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.client.ClientHttpResponse;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.ClientResponse;
+import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.util.UriComponentsBuilder;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import io.mosip.authentication.core.constant.IdAuthConfigKeyConstants;
-import io.mosip.authentication.core.logger.IdaLogger;
-import io.mosip.authentication.core.util.BytesUtil;
 import io.mosip.kernel.core.http.RequestWrapper;
-import io.mosip.kernel.core.logger.spi.Logger;
-import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.DateUtils;
 import io.mosip.kernel.core.util.HMACUtils2;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.web.client.RestTemplate;
-
+import io.mosip.testrig.auth.dto.EncryptionRequestDto;
+import io.mosip.testrig.auth.dto.EncryptionResponseDto;
+@Component
 public class Encrypt {
 
     private static final String SSL = "SSL";
@@ -95,6 +56,9 @@ public class Encrypt {
     String appID = "${application.id}";
 
     String keySplitter = "#KEY_SPLITTER#";
+    
+    @Autowired
+    CryptoUtil cryptoUtil;
 
     public EncryptionResponseDto encrypt(EncryptionRequestDto encryptionRequestDto,
                                          String refId,
@@ -109,7 +73,6 @@ public class Encrypt {
     private EncryptionResponseDto kernelEncrypt(EncryptionRequestDto encryptionRequestDto, String refId)
             throws Exception {
         ObjectMapper objMapper = new ObjectMapper();
-        CryptoUtility cryptoUtil = new CryptoUtility();
 
         String identityBlock = objMapper.writeValueAsString(encryptionRequestDto.getIdentityRequest());
         SecretKey secretKey = cryptoUtil.genSecKey();
@@ -147,7 +110,7 @@ public class Encrypt {
     }
 
     @SuppressWarnings({"unchecked", "rawtypes"})
-    private X509Certificate getCertificate(String refId) throws IOException, KeyManagementException,
+	public X509Certificate getCertificate(String refId) throws IOException, KeyManagementException,
             NoSuchAlgorithmException, JSONException, CertificateException {
         turnOffSslChecking();
         RestTemplate restTemplate = new RestTemplate();
@@ -230,7 +193,7 @@ public class Encrypt {
     public SplittedEncryptedData splitEncryptedData(String data) throws Exception {
         //boolean encryptedDataHasVersion =  env.getProperty("encryptedDataHasVersion", boolean.class, false);
         boolean encryptedDataHasVersion = false;
-        byte[] dataBytes = CryptoUtil.decodeURLSafeBase64(data);
+        byte[] dataBytes = io.mosip.kernel.core.util.CryptoUtil.decodeURLSafeBase64(data);
         byte[][] splits = splitAtFirstOccurance(dataBytes, keySplitter.getBytes());
         byte[] thumbPrintAndSessionKey = splits[0];
         byte[] sessionKey;
@@ -246,7 +209,7 @@ public class Encrypt {
         }
 
         byte[] encryptedData = splits[1];
-        return new SplittedEncryptedData(CryptoUtil.encodeToURLSafeBase64(sessionKey), CryptoUtil.encodeToURLSafeBase64(encryptedData), digestAsPlainText(thumbPrint));
+        return new SplittedEncryptedData(io.mosip.kernel.core.util.CryptoUtil.encodeToURLSafeBase64(sessionKey), io.mosip.kernel.core.util.CryptoUtil.encodeToURLSafeBase64(encryptedData), digestAsPlainText(thumbPrint));
     }
 
     public static class SplittedEncryptedData {

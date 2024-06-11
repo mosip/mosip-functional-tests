@@ -1,5 +1,6 @@
-import Util.AuthUtil;
-import helper.PartnerTypes;
+import io.mosip.testrig.auth.util.AuthUtil;
+import io.mosip.testrig.auth.util.PartnerTypes;
+
 import org.bouncycastle.operator.OperatorCreationException;
 
 import java.io.IOException;
