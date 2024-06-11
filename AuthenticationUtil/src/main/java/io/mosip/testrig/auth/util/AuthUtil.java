@@ -1,10 +1,7 @@
-package Util;
+package io.mosip.testrig.auth.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dto.EncryptionRequestDto;
-import dto.EncryptionResponseDto;
-import helper.*;
-import dto.CertificateChainResponseDto;
+
 import io.mosip.authentication.core.constant.IdAuthenticationErrorConstants;
 import io.mosip.authentication.core.exception.IdAuthenticationAppException;
 import io.mosip.authentication.core.exception.IdAuthenticationBusinessException;
@@ -15,6 +12,10 @@ import io.mosip.kernel.core.exception.ServiceError;
 import io.mosip.kernel.core.templatemanager.spi.TemplateManager;
 import io.mosip.kernel.core.util.CryptoUtil;
 import io.mosip.kernel.core.util.DateUtils;
+import io.mosip.testrig.auth.dto.CertificateChainResponseDto;
+import io.mosip.testrig.auth.dto.EncryptionRequestDto;
+import io.mosip.testrig.auth.dto.EncryptionResponseDto;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
 import org.bouncycastle.operator.OperatorCreationException;
@@ -100,13 +101,13 @@ public class AuthUtil {
 
 
     public void clearKeys(String certsDir, String moduleName, String targetEnv) throws IOException {
-        KeyMgrUtil keyMgrUtil = new KeyMgrUtil();
+        KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
         keyMgrUtil.deleteFile(new File(keyMgrUtil.getKeysDirPath(certsDir, moduleName, targetEnv).toString()));
     }
 
     public CertificateChainResponseDto generatePartnerKeys(
             PartnerTypes partnerType, String partnerName, boolean keyFileNameByPartnerName, String certsDir, String moduleName, String targetEnv) throws UnrecoverableEntryException, CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException, OperatorCreationException {
-        KeyMgrUtil keyMgrUtil = new KeyMgrUtil();
+        KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
         return keyMgrUtil.getPartnerCertificates(partnerType, keyMgrUtil.getKeysDirPath(certsDir, moduleName, targetEnv), partnerName,
                 keyFileNameByPartnerName);
     }
@@ -115,7 +116,7 @@ public class AuthUtil {
             PartnerTypes partnerType, String partnerName, boolean keyFileNameByPartnerName, Map<String, String> requestData, String certsDir,
             String moduleName, String targetEnv) throws CertificateException,
             IOException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException {
-        KeyMgrUtil keyMgrUtil = new KeyMgrUtil();
+        KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
         String certificateData = requestData.get("certData");
         String filePrepend = partnerType.getFilePrepend();
 
@@ -134,7 +135,7 @@ public class AuthUtil {
             String moduleName,
             String targetEnv)
             throws CertificateException, IOException {
-        KeyMgrUtil keyMgrUtil = new KeyMgrUtil();
+        KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
 
         String certificateData = requestData.get("certData");
         String fileName = certificateType.getFileName();
@@ -266,7 +267,7 @@ public class AuthUtil {
             String targetEnv)
             throws JoseException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException,
             CertificateException, IOException, OperatorCreationException {
-        KeyMgrUtil keyMgrUtil = new KeyMgrUtil();
+        KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
         JWSSignAndVerifyController jWSSignAndVerifyController = new JWSSignAndVerifyController();
         return jWSSignAndVerifyController.sign(request, false,
                 true, false, null, keyMgrUtil.getKeysDirPath(certsDir, moduleName, targetEnv), partnerType, partnerName, keyFileNameByPartnerName);

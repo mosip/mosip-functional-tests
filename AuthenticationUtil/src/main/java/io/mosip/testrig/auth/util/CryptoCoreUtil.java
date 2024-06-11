@@ -1,4 +1,4 @@
-package helper;
+package io.mosip.testrig.auth.util;
 
 import io.mosip.kernel.core.crypto.exception.InvalidParamSpecException;
 import io.mosip.kernel.core.util.CryptoUtil;

@@ -1,7 +1,5 @@
-package Util;
+package io.mosip.testrig.auth.util;
 
-import helper.KeyMgrUtil;
-import helper.PartnerTypes;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,6 +19,7 @@ import java.util.List;
 import java.util.Objects;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import io.swagger.annotations.Api;
 import lombok.Data;
 
@@ -45,7 +44,7 @@ public class JWSSignAndVerifyController {
                        boolean keyFileNameByPartnerName) throws JoseException, NoSuchAlgorithmException, UnrecoverableEntryException,
             KeyStoreException, CertificateException, IOException, OperatorCreationException {
 
-        KeyMgrUtil keyMgrUtil = new KeyMgrUtil();
+        KeyMgrUtility keyMgrUtil = new KeyMgrUtility();
         JsonWebSignature jwSign = new JsonWebSignature();
         PrivateKeyEntry keyEntry = keyMgrUtil.getKeyEntry(dirPath, partnerType, organizationName,
                 keyFileNameByPartnerName);
