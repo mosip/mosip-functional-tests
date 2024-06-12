@@ -4040,10 +4040,10 @@ public class AdminTestUtil extends BaseTestCase {
 
 	public String updateTimestampOtp(String otpIdentyEnryptRequest) {
 		otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest,
-				generateCurrentUTCTimeStamp(), "identityRequest.timestamp");
+				generateCurrentUTCTimeStamp(), "timestamp");
 		if (proxy)
 			otpIdentyEnryptRequest = JsonPrecondtion.parseAndReturnJsonContent(otpIdentyEnryptRequest,
-					properties.getProperty("proxyOTP"), "identityRequest.otp");
+					properties.getProperty("proxyOTP"), "otp");
 		else
 			return otpIdentyEnryptRequest;
 

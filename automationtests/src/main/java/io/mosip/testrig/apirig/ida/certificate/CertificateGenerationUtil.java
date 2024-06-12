@@ -39,9 +39,9 @@ public class CertificateGenerationUtil extends AdminTestUtil {
 			return ;
 		}
 		String appId = properties.getProperty("appIdForCertificate");
-		getAndUploadIdaCertificate(appId, properties.getProperty("partnerrefId"), CertificateTypes.IDA_FIR);
-		getAndUploadIdaCertificate(appId, properties.getProperty("internalrefId"), CertificateTypes.PARTNER);
-		getAndUploadIdaCertificate(appId, properties.getProperty("idaFirRefId"), CertificateTypes.INTERNAL);
+		getAndUploadIdaCertificate(appId, properties.getProperty("partnerrefId"), CertificateTypes.PARTNER);
+		getAndUploadIdaCertificate(appId, properties.getProperty("internalrefId"), CertificateTypes.INTERNAL);
+		getAndUploadIdaCertificate(appId, properties.getProperty("idaFirRefId"), CertificateTypes.IDA_FIR);
 	}
 
 	public static void getAndUploadIdaCertificate(String applicationId, String referenceId, CertificateTypes certificateType) {

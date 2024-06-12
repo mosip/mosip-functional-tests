@@ -176,16 +176,16 @@ public class MultiFactorAuthNew extends AdminTestUtil implements ITest {
 		}
 		
 		
-		if(Arrays.asList(testCaseDTO.getTestCaseName().split("_")).contains("MultiFactorAuth")) {
-			String demographicsMapper = "identityRequest.(demographics)";
+		if (Arrays.asList(testCaseDTO.getTestCaseName().split("_")).contains("MultiFactorAuth")) {
+			String demographicsMapper = "(demographics)";
 			JSONObject jsonObject = new JSONObject(identityReqJson.toString());
 			JSONObject jsonBioHbs = new JSONObject(encryptedIdentityReq);
-			if(jsonObject.has("key") && jsonObject.has("value")) {
-				JSONObject jsonHbs = new JSONObject(jsonBioHbs.get("identityRequest").toString());
-				encryptedIdentityReq = JsonPrecondtion.parseAndReturnJsonContent(encryptedIdentityReq.toString(), jsonObject.get("value").toString(),
-											demographicsMapper+jsonObject.get("key").toString());
+			if (jsonObject.has("key") && jsonObject.has("value")) {
+				JSONObject jsonHbs = new JSONObject(jsonBioHbs.toString()); // TO DO
+				encryptedIdentityReq = JsonPrecondtion.parseAndReturnJsonContent(encryptedIdentityReq.toString(),
+						jsonObject.get("value").toString(), demographicsMapper + jsonObject.get("key").toString());
 			}
-			
+
 		}
 		Map<String, String> bioAuthTempMap = encryptDecryptUtil.getEncryptSessionKeyValue(encryptedIdentityReq);
 		String authRequest = getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate());
