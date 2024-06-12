@@ -67,7 +67,7 @@ public class BiometricDataUtility extends AuthTestsUtil {
 		int count = getNumberOfTimeWordPresentInString(identityRequest, "\"data\"");
 		String previousHash = getHash("");
 		for (int i = 0; i < count; i++) {
-			String biometricsMapper = "identityRequest.(biometrics)[" + i + "]";
+			String biometricsMapper = "(biometrics)[" + i + "]";
 			String digitalId = JsonPrecondtion.getJsonValueFromJson(identityRequest,
 					biometricsMapper + ".data.digitalId");
 			digitalId = getSignedData(digitalId);

@@ -486,8 +486,8 @@ public class KeyMgrUtil {
 			throws KeyStoreException, IOException, CertificateException {
 		String keysDirPath = getKeysDirPath();
 		
-		String certFilePath = keysDirPath + '/' + "ida-" + refId.toLowerCase() + ".cer";
-//		String certFilePath = keysDirPath + '/' + "ida-internal.cer";
+		String certFilePath = keysDirPath + '/' + "ida-" + "partner" + ".cer";
+//		String certFilePath = keysDirPath + '/' + "ida-internal.cer"; // bio auth
 		ByteArrayInputStream bIS = null;
 		try {
 			Path path = Paths.get(certFilePath);

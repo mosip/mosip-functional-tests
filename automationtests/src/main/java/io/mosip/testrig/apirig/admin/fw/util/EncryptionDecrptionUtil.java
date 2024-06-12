@@ -1,8 +1,6 @@
 package io.mosip.testrig.apirig.admin.fw.util;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.PublicKey;
@@ -24,17 +22,14 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.testng.Reporter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import groovy.json.StringEscapeUtils;
 import io.mosip.kernel.core.util.HMACUtils2;
-import io.mosip.testrig.apirig.authentication.fw.precon.JsonPrecondtion;
-import io.mosip.testrig.apirig.authentication.fw.util.FileUtil;
-import io.mosip.testrig.apirig.authentication.fw.util.ReportUtil;
 import io.mosip.testrig.apirig.authentication.fw.util.RestClient;
 import io.mosip.testrig.apirig.global.utils.GlobalConstants;
 import io.mosip.testrig.apirig.global.utils.GlobalMethods;
@@ -102,6 +97,7 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
 		Map<String, String> ecryptData = new HashMap<>();
 		EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
 		try {
+//			jsonString = StringEscapeUtils.unescapeJava(jsonString);
 			encryptionResponseDto = encrypt(jsonString);
 //			JSONObject jsonobj = new JSONObject(json);
 			Reporter.log("<b> <u>Encryption of identity request</u> </b>");
@@ -185,8 +181,8 @@ public class EncryptionDecrptionUtil extends AdminTestUtil{
         return refId;
     }
 	
-	private EncryptionResponseDto kernelEncrypt(String jsonString, String refId) throws Exception {
-        String identityBlock = objMapper.writeValueAsString(jsonString);
+	private EncryptionResponseDto kernelEncrypt(String identityBlock, String refId) throws Exception {
+//        String identityBlock = objMapper.writeValueAsString(jsonString);
         SecretKey secretKey = cryptoUtil.genSecKey();
         EncryptionResponseDto encryptionResponseDto = new EncryptionResponseDto();
         

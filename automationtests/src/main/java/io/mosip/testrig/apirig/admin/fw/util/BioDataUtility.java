@@ -159,7 +159,7 @@ public class BioDataUtility extends AdminTestUtil {
 		byte [] previousDataByteArr =  "".getBytes(StandardCharsets.UTF_8);
 		previousBioDataHash = generateHash(previousDataByteArr);
 		for (int i = 0; i < count; i++) {
-			String biometricsMapper = "identityRequest.(biometrics)[" + i + "]";
+			String biometricsMapper = "(biometrics)[" + i + "]";
 			if (!isInternal) {
 				String digitalId = JsonPrecondtion.getJsonValueFromJson(identityRequest,
 						biometricsMapper + ".data.digitalId");
@@ -223,7 +223,7 @@ public class BioDataUtility extends AdminTestUtil {
 		}
 
 		identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest,
-				AdminTestUtil.generateCurrentUTCTimeStamp(), "identityRequest.timestamp");
+				AdminTestUtil.generateCurrentUTCTimeStamp(), "timestamp");
 
 		return identityRequest;
 	}

@@ -153,7 +153,9 @@ public class OtpAuthNew extends AdminTestUtil implements ITest {
 		String otpIdentyEnryptRequest = FileUtil.readInput(getResourcePath()+otpIdentyEnryptRequestPath);
 		otpIdentyEnryptRequest = updateTimestampOtp(otpIdentyEnryptRequest);
 		
-		Map<String, String> bioAuthTempMap = (isInternal)? encryptDecryptUtil.getInternalEncryptSessionKeyValue(otpIdentyEnryptRequest) : encryptDecryptUtil.getEncryptSessionKeyValue(otpIdentyEnryptRequest);
+		Map<String, String> bioAuthTempMap = (isInternal)
+				? encryptDecryptUtil.getInternalEncryptSessionKeyValue(otpIdentyEnryptRequest)
+				: encryptDecryptUtil.getEncryptSessionKeyValue(otpIdentyEnryptRequest);
 		String authRequest = getJsonFromTemplate(req.toString(), testCaseDTO.getInputTemplate());
 		logger.info("************* Modification of OTP auth request ******************");
 		Reporter.log("<b><u>Modification of otp auth request</u></b>");

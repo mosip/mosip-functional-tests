@@ -108,7 +108,7 @@ public class DemoAuth extends AdminTestUtil implements ITest {
 		identityRequestTemplate = identityReqJson.getString("identityRequestTemplate");
 		identityReqJson.remove("identityRequestTemplate");
 		identityRequest = getJsonFromTemplate(identityReqJson.toString(), identityRequestTemplate);
-		identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, generateCurrentUTCTimeStamp(), "identityRequest.timestamp");
+		identityRequest = JsonPrecondtion.parseAndReturnJsonContent(identityRequest, generateCurrentUTCTimeStamp(), "timestamp");
 		Map<String, String> demoAuthTempMap = encryptDecryptUtil.getEncryptSessionKeyValue(identityRequest);
 		String authRequest = getJsonFromTemplate(request.toString(), testCaseDTO.getInputTemplate());
 		logger.info("************* Modification of bio auth request ******************");
