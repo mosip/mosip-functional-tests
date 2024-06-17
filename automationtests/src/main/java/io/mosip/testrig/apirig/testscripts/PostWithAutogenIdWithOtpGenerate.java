@@ -156,7 +156,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 				String tempUrl = ConfigManager.getEsignetBaseUrl();
 				
 				if (testCaseDTO.getEndPoint().contains("/signup/"))
-					tempUrl = ApplnURI;
+					tempUrl = ConfigManager.getSignupBaseUrl();
 				otpResponse = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + sendOtpEndPoint,
 						getJsonFromTemplate(otpReqJson.toString(), sendOtpReqTemplate), COOKIENAME,
 						testCaseDTO.getTestCaseName());
@@ -217,7 +217,7 @@ public class PostWithAutogenIdWithOtpGenerate extends AdminTestUtil implements I
 			String tempUrl = ConfigManager.getEsignetBaseUrl();
 			
 			if (testCaseDTO.getEndPoint().contains("/signup/"))
-				tempUrl = ApplnURI;
+				tempUrl = ConfigManager.getSignupBaseUrl();
 			if (testCaseName.startsWith("ESignet_VerifyChallengeNegTC_")
 					|| testCaseName.startsWith("ESignet_VerifyChallengeForResetPasswordNegTC_")) {
 				response = postRequestWithCookieAuthHeaderAndXsrfToken(tempUrl + testCaseDTO.getEndPoint(),
