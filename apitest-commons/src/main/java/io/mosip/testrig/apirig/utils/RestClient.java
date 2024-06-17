@@ -3,23 +3,31 @@ package io.mosip.testrig.apirig.utils;
 import static io.restassured.RestAssured.given;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
+import io.mosip.testrig.apirig.dataprovider.mds.HttpRCapture;
 import io.mosip.testrig.apirig.testrunner.MosipTestRunner;
 import io.restassured.RestAssured;
 import io.restassured.config.HttpClientConfig;
 import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.Cookie;
 import io.restassured.http.Header;
+import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-
 /**
  * The Rest assured class to put, post, get request and response
  * 
@@ -66,7 +74,47 @@ public class RestClient {
 		
 		return postResponse;
 	}
+	
+	public static Response post(String url, String requestBody) throws Exception {
+		Response response = null;
+//		if (ConfigManager.IsDebugEnabled())
+			response = RestAssured.given().log().all().baseUri(url).contentType(MediaType.APPLICATION_JSON).and()
+					.body(requestBody).when().post().then().log().all().extract().response();
+//		else
+//			response = RestAssured.given().baseUri(url).contentType(MediaType.APPLICATION_JSON).and().body(requestBody).when()
+//					.post().then().extract().response();
 
+		return response;
+
+	}
+	
+	public static String rawHttp(HttpRCapture httpRCapture, String jsonBody) throws IOException {
+
+		String result = "";
+		try (CloseableHttpClient httpClient = HttpClients.createDefault();) {
+			httpRCapture.setEntity(new StringEntity(jsonBody));
+			HttpResponse response = httpClient.execute(httpRCapture);
+			HttpEntity entity = response.getEntity();
+			if (entity != null) {
+				result = EntityUtils.toString(entity);
+			}
+		}
+		return result;
+	}
+	
+//	public static String rawHttp(String url, String jsonBody, String method) {
+//		RequestSpecification request = RestAssured.given().header("Content-Type", "application/json")
+//				.header("Accept", "application/json").body(jsonBody).log().all()
+//				.config(RestAssured.config().httpClient(io.restassured.config.HttpClientConfig.httpClientConfig()
+//						.setParam("http.connection.timeout", 120000).setParam("http.socket.timeout", 120000)));
+//		// Send the request with the custom method
+//		Response response = request.request(method, url);
+//		// Get the response as a string
+//		String result = response.getBody().asString();
+//		return result;
+//	}
+	
+	 
 	/**
 	 * REST ASSURED POST request method
 	 * 

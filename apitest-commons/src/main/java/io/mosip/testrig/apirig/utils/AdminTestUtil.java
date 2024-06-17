@@ -102,6 +102,7 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
 import io.mosip.kernel.core.util.HMACUtils2;
+import io.mosip.testrig.apirig.dataprovider.BiometricDataProvider;
 import io.mosip.testrig.apirig.dbaccess.AuditDBManager;
 import io.mosip.testrig.apirig.dto.OutputValidationDto;
 import io.mosip.testrig.apirig.dto.TestCaseDTO;
@@ -386,6 +387,12 @@ public class AdminTestUtil extends BaseTestCase {
 			logger.setLevel(Level.ALL);
 		else
 			logger.setLevel(Level.ERROR);
+	}
+	
+	private static boolean generateBiometricData(String deviceP12Path) {
+		
+		
+		return true;
 	}
 
 	/**
@@ -3003,11 +3010,11 @@ public class AdminTestUtil extends BaseTestCase {
 		}
 
 		if (jsonString.contains("$BIOVALUE$")) {
-			jsonString = replaceKeywordWithValue(jsonString, "$BIOVALUE$", propsBio.getProperty("BioValue"));
+			jsonString = replaceKeywordWithValue(jsonString, "$BIOVALUE$", BiometricDataProvider.getFromBiometricMap("BioValue"));
 		}
 		if (jsonString.contains("$BIOVALUEWITHOUTFACE$")) {
 			jsonString = replaceKeywordWithValue(jsonString, "$BIOVALUEWITHOUTFACE$",
-					propsBio.getProperty("BioValueWithoutFace"));
+					BiometricDataProvider.getFromBiometricMap("BioValueWithoutFace"));
 		}
 		if (jsonString.contains("$CLAIMSFROMCONFIG$"))
 			jsonString = replaceKeywordWithValue(jsonString, "$CLAIMSFROMCONFIG$", getValueFromConfigActuator());
@@ -4519,40 +4526,40 @@ public class AdminTestUtil extends BaseTestCase {
 		if (identityRequest.contains(GlobalConstants.TRANSACTION_ID))
 			identityRequest = identityRequest.replace(GlobalConstants.TRANSACTION_ID, TRANSACTION_ID);
 		if (identityRequest.contains("$FACE$"))
-			identityRequest = identityRequest.replace("$FACE$", propsBio.getProperty("FaceBioValue"));
+			identityRequest = identityRequest.replace("$FACE$", BiometricDataProvider.getFromBiometricMap("FaceBioValue"));
 		if (identityRequest.contains("$RIGHTIRIS$"))
-			identityRequest = identityRequest.replace("$RIGHTIRIS$", propsBio.getProperty("RightIrisBioValue"));
+			identityRequest = identityRequest.replace("$RIGHTIRIS$", BiometricDataProvider.getFromBiometricMap("rightEye"));
 		if (identityRequest.contains("$LEFTIRIS$"))
-			identityRequest = identityRequest.replace("$LEFTIRIS$", propsBio.getProperty("LeftIrisBioValue"));
+			identityRequest = identityRequest.replace("$LEFTIRIS$", BiometricDataProvider.getFromBiometricMap("leftEye"));
 		if (identityRequest.contains("$RIGHTTHUMB$"))
-			identityRequest = identityRequest.replace("$RIGHTTHUMB$", propsBio.getProperty("RightThumbBioValue"));
+			identityRequest = identityRequest.replace("$RIGHTTHUMB$", BiometricDataProvider.getFromBiometricMap("rightThumb"));
 		if (identityRequest.contains("$LEFTTHUMB$"))
-			identityRequest = identityRequest.replace("$LEFTTHUMB$", propsBio.getProperty("LeftThumbBioValue"));
+			identityRequest = identityRequest.replace("$LEFTTHUMB$", BiometricDataProvider.getFromBiometricMap("leftThumb"));
 		if (identityRequest.contains("$RIGHTLITTLEFINGER$"))
 			identityRequest = identityRequest.replace("$RIGHTLITTLEFINGER$",
-					propsBio.getProperty("RightLittleFingerBioValue"));
+					BiometricDataProvider.getFromBiometricMap("rightLittle"));
 		if (identityRequest.contains("$RIGHTMIDDLEFINGER$"))
-			identityRequest = identityRequest.replace("$RIGHTMIDDLEFINGER$", propsBio.getProperty("RightMiddleFinger"));
+			identityRequest = identityRequest.replace("$RIGHTMIDDLEFINGER$", BiometricDataProvider.getFromBiometricMap("rightMiddle"));
 		if (identityRequest.contains("$RIGHTRINGFINGER$"))
 			identityRequest = identityRequest.replace("$RIGHTRINGFINGER$",
-					propsBio.getProperty("RightRingFingerBioValue"));
+					BiometricDataProvider.getFromBiometricMap("rightRing"));
 		if (identityRequest.contains("$RIGHTINDEXFINGER$"))
 			identityRequest = identityRequest.replace("$RIGHTINDEXFINGER$",
-					propsBio.getProperty("RightIndexFingerBioValue"));
+					BiometricDataProvider.getFromBiometricMap("rightIndex"));
 		if (identityRequest.contains("$LEFTLITTLEFINGER$"))
 			identityRequest = identityRequest.replace("$LEFTLITTLEFINGER$",
-					propsBio.getProperty("LeftLittleFingerBioValue"));
+					BiometricDataProvider.getFromBiometricMap("leftLittle"));
 		if (identityRequest.contains("$LEFTINDEXFINGER$"))
 			identityRequest = identityRequest.replace("$LEFTINDEXFINGER$",
-					propsBio.getProperty("LeftIndexFingerBioValue"));
+					BiometricDataProvider.getFromBiometricMap("leftIndex"));
 		if (identityRequest.contains("$LEFTMIDDLEFINGER$"))
 			identityRequest = identityRequest.replace("$LEFTMIDDLEFINGER$",
-					propsBio.getProperty("LeftMiddleFingerBioValue"));
+					BiometricDataProvider.getFromBiometricMap("leftMiddle"));
 		if (identityRequest.contains("$LEFTRINGFINGER$"))
 			identityRequest = identityRequest.replace("$LEFTRINGFINGER$",
-					propsBio.getProperty("LeftRingFingerBioValue"));
+					BiometricDataProvider.getFromBiometricMap("leftRing"));
 		if (identityRequest.contains("$FACEDRAFTVALUE$"))
-			identityRequest = identityRequest.replace("$FACEDRAFTVALUE$", propsBio.getProperty("FACEDRAFTVALUE"));
+			identityRequest = identityRequest.replace("$FACEDRAFTVALUE$", BiometricDataProvider.getFromBiometricMap("FACEDRAFTVALUE"));
 
 		return identityRequest;
 	}
