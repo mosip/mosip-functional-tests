@@ -133,7 +133,7 @@ public class GetWithParam extends AdminTestUtil implements ITest {
 			if (testCaseName.contains("ESignet_")) {
 				String tempUrl = ConfigManager.getEsignetBaseUrl();
 				if (testCaseDTO.getEndPoint().contains("/signup/"))
-					tempUrl = ApplnURI;
+					tempUrl = ConfigManager.getSignupBaseUrl();
 					
 				response = getWithPathParamAndCookie(tempUrl + testCaseDTO.getEndPoint(),
 						getJsonFromTemplate(testCaseDTO.getInput(), testCaseDTO.getInputTemplate()), COOKIENAME,

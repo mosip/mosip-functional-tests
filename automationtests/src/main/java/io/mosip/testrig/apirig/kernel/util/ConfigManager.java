@@ -75,6 +75,8 @@ public class ConfigManager {
 
 	private static String USEPRECONFIGOTP = "usePreConfiguredOtp";
 	private static String ESIGNET_BASE_URL = "eSignetbaseurl";
+	
+	private static String SIGNUP_BASE_URL = "signupBaseUrl";
 
 	private static String ESIGNET_MOCK_BASE_URL = "esignetMockBaseURL";
 
@@ -197,6 +199,7 @@ public class ConfigManager {
 	private static String usePreConfiguredOtp;
 	private static String preconfiguredOtp;
 	private static String eSignetbaseurl;
+	private static String signupBaseUrl;
 	private static String esignetMockBaseURL;
 
 	private static String dbPort;
@@ -406,7 +409,14 @@ public class ConfigManager {
 			eSignetbaseurl = System.getProperty("env.endpoint").replace("-internal", "");
 		}
 		propsKernel.setProperty(ESIGNET_BASE_URL, eSignetbaseurl);
-
+		
+		if (System.getenv(SIGNUP_BASE_URL) != null) {
+			signupBaseUrl = System.getenv(SIGNUP_BASE_URL);
+		} else {
+			signupBaseUrl = System.getProperty("env.endpoint");
+		}
+		propsKernel.setProperty(SIGNUP_BASE_URL, signupBaseUrl);
+		
 		esignetMockBaseURL = System.getenv(ESIGNET_MOCK_BASE_URL) == null
 				? propsKernel.getProperty(ESIGNET_MOCK_BASE_URL)
 				: System.getenv(ESIGNET_MOCK_BASE_URL);
@@ -528,6 +538,11 @@ public class ConfigManager {
 
 	public static String getEsignetBaseUrl() {
 		return eSignetbaseurl;
+
+	}
+	
+	public static String getSignupBaseUrl() {
+		return signupBaseUrl;
 
 	}
 
