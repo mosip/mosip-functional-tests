@@ -93,17 +93,18 @@ public class MosipTestRunner {
 
 			if (BaseTestCase.listOfModules.contains("auth")
 					|| BaseTestCase.listOfModules.contains(GlobalConstants.ESIGNET)) {
-				PartnerRegistration.deleteCertificates();
-				CertificateGenerationUtil.getThumbprints();
-				AdminTestUtil.createAndPublishPolicy();
-				AdminTestUtil.createEditAndPublishPolicy();
-				partnerKeyURL = PartnerRegistration.generateAndGetPartnerKeyUrl();
-				updatedPartnerKeyURL = PartnerRegistration.generateAndGetUpdatedPartnerKeyUrl();
-				
-				AdminTestUtil.createAndPublishPolicyForKyc();
-				ekycPartnerKeyURL = PartnerRegistration.generateAndGetEkycPartnerKeyUrl();
+			PartnerRegistration.deleteCertificates();
+			CertificateGenerationUtil.getThumbprints();
+			AdminTestUtil.createAndPublishPolicy();
+			AdminTestUtil.createEditAndPublishPolicy();
+			partnerKeyURL = PartnerRegistration.generateAndGetPartnerKeyUrl();
+			updatedPartnerKeyURL = PartnerRegistration.generateAndGetUpdatedPartnerKeyUrl();
+
+			AdminTestUtil.createAndPublishPolicyForKyc();
+			ekycPartnerKeyURL = PartnerRegistration.generateAndGetEkycPartnerKeyUrl();
 
 			}
+//			BiometricDataProvider.generateBiometricTestData("Registration");
 
 			if (BaseTestCase.listOfModules.contains(GlobalConstants.MASTERDATA)) {
 				AdminTestUtil.getHierarchyZoneCode();
