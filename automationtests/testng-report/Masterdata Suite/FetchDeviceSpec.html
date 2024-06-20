@@ -1,0 +1,721 @@
+<html>
+<head>
+<title>TestNG:  FetchDeviceSpec</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>FetchDeviceSpec</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:47:36 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>2 seconds (2857 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchDeviceSpec_allValid_byDeviceTypeCode_smoke()'><b>MasterData_FetchDeviceSpec_allValid_byDeviceTypeCode_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchDeviceSpec_invalid_devicetypecode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchDeviceSpec_allValid_byDeviceTypeCode_smoke, endPoint=/v1/masterdata/devicespecifications/devicetypecode/{devicetypecode}, role=admin, templateFields=[], input={ "devicetypecode": "FRS", "langcode": "$REMOVE$" }, output={ "devicespecifications": [{ "langCode": "$IGNORE$", "isActive": $IGNORE$ }] }, inputTemplate=masterdata/FetchDeviceSpec/fetchDeviceSpec, outputTemplate=masterdata/FetchDeviceSpec/fetchDeviceSpecResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1880044907" onClick='toggleBox("Output-1880044907", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1880044907" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1880044907">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "devicetypecode": "FRS"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/devicetypecode/{devicetypecode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:17:37.745Z",
+  "response": {
+    "devicespecifications": [
+      {
+        "id": "165",
+        "name": "Fingerprint Scanner",
+        "brand": "Safran Morpho",
+        "model": "1300 E2",
+        "deviceTypeCode": "FRS",
+        "minDriverversion": "1.12",
+        "description": "To scan fingerprint",
+        "langCode": "eng",
+        "isActive": true
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>FRS</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].brand</td>
+    <td>NOT VERIFIED</td>
+    <td>Safran Morpho</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].description</td>
+    <td>NOT VERIFIED</td>
+    <td>To scan fingerprint</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].model</td>
+    <td>NOT VERIFIED</td>
+    <td>1300 E2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Fingerprint Scanner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].minDriverversion</td>
+    <td>NOT VERIFIED</td>
+    <td>1.12</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:17:37.745Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>165</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@3e9053b3</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchDeviceSpec_allValid_smoke_with_lang()'><b>MasterData_FetchDeviceSpec_allValid_smoke_with_lang</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchDeviceSpec_invalid_devicetypecode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchDeviceSpec_allValid_smoke_with_lang, endPoint=/v1/masterdata/devicespecifications/{langcode}, role=admin, templateFields=[], input={ "devicetypecode": "$REMOVE$", "langcode": "eng" }, output={ "devicespecifications": [{ "langCode": "$IGNORE$", "isActive": $IGNORE$ }] }, inputTemplate=masterdata/FetchDeviceSpec/fetchDeviceSpec, outputTemplate=masterdata/FetchDeviceSpec/fetchDeviceSpecResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2067625375" onClick='toggleBox("Output-2067625375", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2067625375" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2067625375">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:17:37.020Z",
+  "response": {
+    "devicespecifications": [
+      {
+        "id": "165",
+        "name": "Fingerprint Scanner",
+        "brand": "Safran Morpho",
+        "model": "1300 E2",
+        "deviceTypeCode": "FRS",
+        "minDriverversion": "1.12",
+        "description": "To scan fingerprint",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "id": "327",
+        "name": "High Speed Dual Iris Scanner",
+        "brand": "Cogent",
+        "model": "3M",
+        "deviceTypeCode": "IRS",
+        "minDriverversion": "2.34",
+        "description": "To scan iris",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "id": "736",
+        "name": "Webcam",
+        "brand": "Logitech",
+        "model": "C270",
+        "deviceTypeCode": "CMR",
+        "minDriverversion": "2.086",
+        "description": "To capture photo",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "id": "801",
+        "name": "imageFORMULA",
+        "brand": "Canon",
+        "model": "DR-C130",
+        "deviceTypeCode": "SCN",
+        "minDriverversion": "1.02",
+        "description": "To scan documents",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "id": "920",
+        "name": "Single Function Inkjet",
+        "brand": "Canon",
+        "model": "TS207",
+        "deviceTypeCode": "PRT",
+        "minDriverversion": "1.123",
+        "description": "To print documents",
+        "langCode": "eng",
+        "isActive": true
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[2].minDriverversion</td>
+    <td>NOT VERIFIED</td>
+    <td>2.086</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>920</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Webcam</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[3].brand</td>
+    <td>NOT VERIFIED</td>
+    <td>Canon</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>FRS</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>736</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[4].model</td>
+    <td>NOT VERIFIED</td>
+    <td>TS207</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>imageFORMULA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>327</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[3].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>SCN</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[1].brand</td>
+    <td>NOT VERIFIED</td>
+    <td>Cogent</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[1].minDriverversion</td>
+    <td>NOT VERIFIED</td>
+    <td>2.34</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>801</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].description</td>
+    <td>NOT VERIFIED</td>
+    <td>To scan fingerprint</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[2].description</td>
+    <td>NOT VERIFIED</td>
+    <td>To capture photo</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].model</td>
+    <td>NOT VERIFIED</td>
+    <td>1300 E2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[2].model</td>
+    <td>NOT VERIFIED</td>
+    <td>C270</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[1].description</td>
+    <td>NOT VERIFIED</td>
+    <td>To scan iris</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[4].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].minDriverversion</td>
+    <td>NOT VERIFIED</td>
+    <td>1.12</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[3].description</td>
+    <td>NOT VERIFIED</td>
+    <td>To scan documents</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[4].description</td>
+    <td>NOT VERIFIED</td>
+    <td>To print documents</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[4].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Single Function Inkjet</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[4].minDriverversion</td>
+    <td>NOT VERIFIED</td>
+    <td>1.123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Fingerprint Scanner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:17:37.020Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>165</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[1].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>IRS</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[2].brand</td>
+    <td>NOT VERIFIED</td>
+    <td>Logitech</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[3].model</td>
+    <td>NOT VERIFIED</td>
+    <td>DR-C130</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[0].brand</td>
+    <td>NOT VERIFIED</td>
+    <td>Safran Morpho</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[4].brand</td>
+    <td>NOT VERIFIED</td>
+    <td>Canon</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[2].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>CMR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[1].model</td>
+    <td>NOT VERIFIED</td>
+    <td>3M</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[3].minDriverversion</td>
+    <td>NOT VERIFIED</td>
+    <td>1.02</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(devicespecifications)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>High Speed Dual Iris Scanner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@3e9053b3</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchDeviceSpec_allValid_smoke_with_lang_and_deviceType()'><b>MasterData_FetchDeviceSpec_allValid_smoke_with_lang_and_deviceType</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchDeviceSpec_invalid_devicetypecode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchDeviceSpec_allValid_smoke_with_lang_and_deviceType, endPoint=/v1/masterdata/devicespecifications/{langcode}/{devicetypecode}, role=admin, templateFields=[], input={ "devicetypecode": "GST4", "langcode": "eng" }, output={ "devicespecifications": [{ "langCode": "$IGNORE$", "isActive": $IGNORE$ }] }, inputTemplate=masterdata/FetchDeviceSpec/fetchDeviceSpec, outputTemplate=masterdata/FetchDeviceSpec/fetchDeviceSpecResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1833549064" onClick='toggleBox("Output-1833549064", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1833549064" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1833549064">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "devicetypecode": "GST4",
+  "langcode": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/{langcode}/{devicetypecode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:17:38.473Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-012",
+      "message": "Device Specification not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Device Specification not found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-MSD-012</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:17:38.473Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@3e9053b3</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchDeviceSpec_invalid_devicetypecode_unexisting()'><b>MasterData_FetchDeviceSpec_invalid_devicetypecode_unexisting</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchDeviceSpec_invalid_devicetypecode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchDeviceSpec_invalid_devicetypecode_unexisting, endPoint=/v1/masterdata/devicespecifications/{langcode}/{devicetypecode}, role=admin, templateFields=[], input={ "devicetypecode": "notInDB", "langcode": "eng" }, output={ "errors": [ { "errorCode": "KER-MSD-012", "message": "Device Specification not found" } ] }, inputTemplate=masterdata/FetchDeviceSpec/fetchDeviceSpec, outputTemplate=masterdata/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2025444884" onClick='toggleBox("Output-2025444884", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2025444884" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2025444884">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "devicetypecode": "notInDB",
+  "langcode": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devicespecifications/{langcode}/{devicetypecode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:17:39.167Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-012",
+      "message": "Device Specification not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Device Specification not found</td>
+    <td>Device Specification not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-012</td>
+    <td>KER-MSD-012</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@3e9053b3</td></tr>
+</table><p>
+</body>
+</html>

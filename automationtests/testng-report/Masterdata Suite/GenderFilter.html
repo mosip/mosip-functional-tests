@@ -1,0 +1,884 @@
+<html>
+<head>
+<title>TestNG:  GenderFilter</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GenderFilter</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>11/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Dec 16 14:55:55 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>8 seconds (8361 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GenderFilter_InValidColumnNameAsEmpty()'><b>Masterdata_GenderFilter_InValidColumnNameAsEmpty</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GenderFilter_InValidTypeAsEmpty)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GenderFilter_InValidColumnNameAsEmpty, endPoint=/v1/masterdata/gendertypes/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "", "type": "All", "text": "TestGenderName" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.filters[0].columnName: must not be blank" } ] }, inputTemplate=masterdata/GenderFilter/genderFilter, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-753549739" onClick='toggleBox("Output-753549739", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-753549739" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-753549739">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:25:59.875Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "",
+        "type": "All",
+        "text": "TestGenderName"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:26:00.456Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.filters[0].columnName: must not be blank"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.filters[0].columnName: must not be blank</td>
+    <td>request.filters[0].columnName: must not be blank</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6adc5b9c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GenderFilter_InValidColumnNameAsNonExistingValue()'><b>Masterdata_GenderFilter_InValidColumnNameAsNonExistingValue</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GenderFilter_InValidTypeAsEmpty)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GenderFilter_InValidColumnNameAsNonExistingValue, endPoint=/v1/masterdata/gendertypes/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "lang_code", "type": "All", "text": "TestGenderName" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-317", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/GenderFilter/genderFilter, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-2078888343" onClick='toggleBox("Output-2078888343", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2078888343" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2078888343">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:26:00.479Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "lang_code",
+        "type": "All",
+        "text": "TestGenderName"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:26:01.161Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-317",
+      "message": "Column lang_code doesn\u0027t exist for the searched entity"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-317</td>
+    <td>KER-MSD-317</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6adc5b9c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GenderFilter_InValidRequestTimeAsEmpty()'><b>Masterdata_GenderFilter_InValidRequestTimeAsEmpty</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GenderFilter_InValidTypeAsEmpty)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GenderFilter_InValidRequestTimeAsEmpty, endPoint=/v1/masterdata/gendertypes/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "genderName", "type": "All", "text": "TestGenderName" }], "languageCode": "eng", "requesttime": "" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "Invalid Format in field : requesttime" } ] }, inputTemplate=masterdata/GenderFilter/genderFilter, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1968974256" onClick='toggleBox("Output-1968974256", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1968974256" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1968974256">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "genderName",
+        "type": "All",
+        "text": "TestGenderName"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:26:03.276Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6adc5b9c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GenderFilter_InValidTextAsNonExisting()'><b>Masterdata_GenderFilter_InValidTextAsNonExisting</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GenderFilter_InValidTypeAsEmpty)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GenderFilter_InValidTextAsNonExisting, endPoint=/v1/masterdata/gendertypes/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "genderName", "type": "All", "text": "abdhsg" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [] }, inputTemplate=masterdata/GenderFilter/genderFilter, outputTemplate=masterdata/GenderFilter/genderFilterResult, restMethod=post)<br/>
+<a href="#Output-526035976" onClick='toggleBox("Output-526035976", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-526035976" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-526035976">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:26:01.926Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "genderName",
+        "type": "All",
+        "text": "abdhsg"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:26:02.556Z",
+  "response": {
+    "filters": []
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6adc5b9c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GenderFilter_InValidTypeAsEmpty()'><b>Masterdata_GenderFilter_InValidTypeAsEmpty</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GenderFilter_InValidTypeAsEmpty)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GenderFilter_InValidTypeAsEmpty, endPoint=/v1/masterdata/gendertypes/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "genderName", "type": "", "text": "TestGenderName" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-322", "message": "Filter Type cannot be empty or null" } ] }, inputTemplate=masterdata/GenderFilter/genderFilter, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-657530009" onClick='toggleBox("Output-657530009", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-657530009" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-657530009">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:26:03.309Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "genderName",
+        "type": "",
+        "text": "TestGenderName"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:26:03.904Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Filter Type cannot be empty or null</td>
+    <td>Filter Type cannot be empty or null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-322</td>
+    <td>KER-MSD-322</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6adc5b9c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GenderFilter_InValidTypeAsNonExisting()'><b>Masterdata_GenderFilter_InValidTypeAsNonExisting</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GenderFilter_InValidTypeAsEmpty)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GenderFilter_InValidTypeAsNonExisting, endPoint=/v1/masterdata/gendertypes/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "genderName", "type": "between", "text": "TestGenderName" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-324", "message": "Received Filter Type not supported" } ] }, inputTemplate=masterdata/GenderFilter/genderFilter, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-301682537" onClick='toggleBox("Output-301682537", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-301682537" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-301682537">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:26:01.222Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "genderName",
+        "type": "between",
+        "text": "TestGenderName"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:26:01.889Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-324",
+      "message": "Received Filter Type not supported"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Received Filter Type not supported</td>
+    <td>Received Filter Type not supported</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-324</td>
+    <td>KER-MSD-324</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6adc5b9c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GenderFilter_ValidColNameAsCodeForAllType_Request_Contains_Smoke()'><b>Masterdata_GenderFilter_ValidColNameAsCodeForAllType_Request_Contains_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GenderFilter_InValidTypeAsEmpty)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GenderFilter_ValidColNameAsCodeForAllType_Request_Contains_Smoke, endPoint=/v1/masterdata/gendertypes/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "code", "type": "All", "text": "Genderdummy" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "code", "fieldValue": "Genderdummy" } ] }, inputTemplate=masterdata/GenderFilter/genderFilter, outputTemplate=masterdata/GenderFilter/genderFilterResult, restMethod=post)<br/>
+<a href="#Output-1621037931" onClick='toggleBox("Output-1621037931", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1621037931" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1621037931">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:25:56.238Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "All",
+        "text": "Genderdummy"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:25:56.931Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "code",
+        "fieldValue": "Genderdummy"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldValue</td>
+    <td>Genderdummy</td>
+    <td>Genderdummy</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>code</td>
+    <td>code</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6adc5b9c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GenderFilter_ValidColNameAsCodeForUniqueType_Request_Contains_Smoke()'><b>Masterdata_GenderFilter_ValidColNameAsCodeForUniqueType_Request_Contains_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GenderFilter_InValidTypeAsEmpty)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GenderFilter_ValidColNameAsCodeForUniqueType_Request_Contains_Smoke, endPoint=/v1/masterdata/gendertypes/filtervalues, role=admin, templateFields=[languageCode], input={ "filters": [{ "columnName": "code", "type": "unique", "text": "Genderdummy" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "code", "fieldValue": "Genderdummy" } ] }, inputTemplate=masterdata/GenderFilter/genderFilter, outputTemplate=masterdata/GenderFilter/genderFilterResult, restMethod=post)<br/>
+<a href="#Output-717995748" onClick='toggleBox("Output-717995748", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-717995748" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-717995748">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:25:57.024Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "unique",
+        "text": "Genderdummy"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:25:58.098Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "code",
+        "fieldValue": "Genderdummy"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldValue</td>
+    <td>Genderdummy</td>
+    <td>Genderdummy</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>code</td>
+    <td>code</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@6adc5b9c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GenderFilter_ValidColNameAsLangCodeForAllType_Request_Contains_Smoke()'><b>Masterdata_GenderFilter_ValidColNameAsLangCodeForAllType_Request_Contains_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GenderFilter_InValidTypeAsEmpty)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GenderFilter_ValidColNameAsLangCodeForAllType_Request_Contains_Smoke, endPoint=/v1/masterdata/gendertypes/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "langCode", "type": "All", "text": "true" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [] }, inputTemplate=masterdata/GenderFilter/genderFilter, outputTemplate=masterdata/GenderFilter/genderFilterResult, restMethod=post)<br/>
+<a href="#Output-1056110668" onClick='toggleBox("Output-1056110668", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1056110668" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1056110668">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:25:59.115Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "langCode",
+        "type": "All",
+        "text": "true"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:25:59.716Z",
+  "response": {
+    "filters": []
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6adc5b9c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GenderFilter_ValidTextAsEmpty_Smoke()'><b>Masterdata_GenderFilter_ValidTextAsEmpty_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GenderFilter_InValidTypeAsEmpty)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GenderFilter_ValidTextAsEmpty_Smoke, endPoint=/v1/masterdata/gendertypes/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "code", "type": "", "text": "Genderdummy" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-322", "message": "Filter Type cannot be empty or null" } ] }, inputTemplate=masterdata/GenderFilter/genderFilter, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-260794179" onClick='toggleBox("Output-260794179", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-260794179" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-260794179">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:25:58.164Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "code",
+        "type": "",
+        "text": "Genderdummy"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:25:59.051Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Filter Type cannot be empty or null</td>
+    <td>Filter Type cannot be empty or null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-322</td>
+    <td>KER-MSD-322</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6adc5b9c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Masterdata_GenderFilter_Valid_col_name_withText()'><b>Masterdata_GenderFilter_Valid_col_name_withText</b><br>Test class: io.mosip.testscripts.SimplePost (Masterdata_GenderFilter_InValidTypeAsEmpty)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GenderFilter_Valid_col_name_withText, endPoint=/v1/masterdata/gendertypes/filtervalues, role=admin, templateFields=[text], input={ "filters": [{ "columnName": "genderName", "type": "All", "text": "TestGenderName" }], "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "genderName", "fieldValue": "$IGNORE$" } ] }, inputTemplate=masterdata/GenderFilter/genderFilter, outputTemplate=masterdata/GenderFilter/genderFilterResult, restMethod=post)<br/>
+<a href="#Output-604186374" onClick='toggleBox("Output-604186374", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-604186374" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-604186374">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "requesttime": "2021-12-16T09:25:55.565Z",
+  "version": "string",
+  "request": {
+    "filters": [
+      {
+        "columnName": "genderName",
+        "type": "All",
+        "text": "TestGenderName"
+      }
+    ],
+    "languageCode": "eng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-16T09:25:56.198Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "genderName",
+        "fieldValue": "TestGenderName"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>genderName</td>
+    <td>genderName</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@6adc5b9c</td></tr>
+</table><p>
+</body>
+</html>

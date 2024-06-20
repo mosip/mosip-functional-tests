@@ -1,0 +1,463 @@
+<html>
+<head>
+<title>TestNG:  GetPreRegInfo</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetPreRegInfo</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:00:37 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>4 seconds (4124 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Prereg_GetPreRegInfoByPrid_Valid_preRegistrationId()'><b>Prereg_GetPreRegInfoByPrid_Valid_preRegistrationId</b><br>Test class: io.mosip.testscripts.GetWithParam (Prereg_GetPreRegInfoByPrid_inValid_preRegistrationId)<br>Parameters: TestCaseDTO(testCaseName=Prereg_GetPreRegInfoByPrid_Valid_preRegistrationId, endPoint=/preregistration/v1/applications/prereg/info/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$" }, output={ "postalCode":"14022", "dateOfBirth": "1996/01/01", "IDSchemaVersion": "0.1", "phone": "8249742850" }, inputTemplate=preReg/GetPreRegInfoByPrid/getPreRegInfoByPrid, outputTemplate=preReg/GetPreRegInfoByPrid/getPreRegInfoByPridResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-669455316" onClick='toggleBox("Output-669455316", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-669455316" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-669455316">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "preRegistrationId": "51842975028036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/prereg/info/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:30:39.428Z",
+  "response": {
+    "demographicResponse": {
+      "preRegistrationId": "51842975028036",
+      "createdBy": "robin.hood@mailinator.com",
+      "createdDateTime": "2023-07-14T16:22:16.760Z",
+      "updatedBy": "robin.hood@mailinator.com",
+      "updatedDateTime": "2023-07-14T16:22:56.353Z",
+      "statusCode": "Application_Incomplete",
+      "langCode": "eng",
+      "demographicDetails": {
+        "identity": {
+          "gender": [
+            {
+              "language": "eng",
+              "value": "MLE"
+            },
+            {
+              "language": "ara",
+              "value": "MLE"
+            }
+          ],
+          "city": [
+            {
+              "language": "eng",
+              "value": "TEST_CITY"
+            },
+            {
+              "language": "ara",
+              "value": "TEST_CITY"
+            }
+          ],
+          "postalCode": "14022",
+          "fullName": [
+            {
+              "language": "eng",
+              "value": "TEST_FULLNAME"
+            },
+            {
+              "language": "ara",
+              "value": "TEST_FULLNAME"
+            }
+          ],
+          "dateOfBirth": "1996/01/01",
+          "IDSchemaVersion": 0.1,
+          "province": [
+            {
+              "language": "eng",
+              "value": "TEST_PROVINCE"
+            },
+            {
+              "language": "ara",
+              "value": "TEST_PROVINCE"
+            }
+          ],
+          "zone": [
+            {
+              "language": "eng",
+              "value": "TEST_ZONE"
+            },
+            {
+              "language": "ara",
+              "value": "TEST_ZONE"
+            }
+          ],
+          "phone": "8249742850",
+          "addressLine1": [
+            {
+              "language": "eng",
+              "value": "TEST_ADDRESSLINE1"
+            },
+            {
+              "language": "ara",
+              "value": "TEST_ADDRESSLINE1"
+            }
+          ],
+          "addressLine2": [
+            {
+              "language": "eng",
+              "value": "TEST_ADDRESSLINE2"
+            },
+            {
+              "language": "ara",
+              "value": "TEST_ADDRESSLINE2"
+            }
+          ],
+          "residenceStatus": [
+            {
+              "language": "eng",
+              "value": "NFR"
+            },
+            {
+              "language": "ara",
+              "value": "NFR"
+            }
+          ],
+          "addressLine3": [
+            {
+              "language": "eng",
+              "value": "TEST_ADDRESSLINE3"
+            },
+            {
+              "language": "ara",
+              "value": "TEST_ADDRESSLINE3"
+            }
+          ],
+          "region": [
+            {
+              "language": "eng",
+              "value": "TEST_REGION"
+            },
+            {
+              "language": "ara",
+              "value": "TEST_REGION"
+            }
+          ],
+          "email": "goku@hogwarts.co.in"
+        }
+      }
+    }
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(addressLine2)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(zone)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>TEST_ZONE</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(gender)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>MLE</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(addressLine3)[0].language</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(city)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>TEST_CITY</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(zone)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(residenceStatus)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>NFR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(province)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(addressLine1)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>TEST_ADDRESSLINE1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(residenceStatus)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(addressLine2)[0].value</td>
+    <td>NOT VERIFIED</td>
+    <td>TEST_ADDRESSLINE2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.documentsMetaData</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(province)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>TEST_PROVINCE</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(city)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(addressLine2)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>TEST_ADDRESSLINE2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(addressLine3)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(addressLine1)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(fullName)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(addressLine2)[0].language</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(addressLine3)[0].value</td>
+    <td>NOT VERIFIED</td>
+    <td>TEST_ADDRESSLINE3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(addressLine3)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>TEST_ADDRESSLINE3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(gender)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(region)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>TEST_REGION</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(fullName)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>TEST_FULLNAME</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.(region)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.postalCode</td>
+    <td>14022</td>
+    <td>14022</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.dateOfBirth</td>
+    <td>1996/01/01</td>
+    <td>1996/01/01</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.phone</td>
+    <td>8249742850</td>
+    <td>8249742850</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.demographicResponse.demographicDetails.identity.email</td>
+    <td>goku@hogwarts.co.in</td>
+    <td>goku@hogwarts.co.in</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.GetWithParam@72c9ebfa</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Prereg_GetPreRegInfoByPrid_inValid_preRegistrationId()'><b>Prereg_GetPreRegInfoByPrid_inValid_preRegistrationId</b><br>Test class: io.mosip.testscripts.GetWithParam (Prereg_GetPreRegInfoByPrid_inValid_preRegistrationId)<br>Parameters: TestCaseDTO(testCaseName=Prereg_GetPreRegInfoByPrid_inValid_preRegistrationId, endPoint=/preregistration/v1/applications/prereg/info/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId": "123456" }, output={ "errors": [ { "errorCode": "PRG_PAM_APP_005", "message": "No data found for the requested pre-registration id" } ] }, inputTemplate=preReg/GetPreRegInfoByPrid/getPreRegInfoByPrid, outputTemplate=preReg/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1270516" onClick='toggleBox("Output-1270516", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1270516" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1270516">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "preRegistrationId": "123456"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/prereg/info/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:30:41.430Z",
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_APP_005",
+      "message": "No data found for the requested pre-registration id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>No data found for the requested pre-registration id</td>
+    <td>No data found for the requested pre-registration id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_PAM_APP_005</td>
+    <td>PRG_PAM_APP_005</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@72c9ebfa</td></tr>
+</table><p>
+</body>
+</html>

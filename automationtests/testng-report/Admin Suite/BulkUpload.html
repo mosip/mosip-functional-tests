@@ -1,0 +1,285 @@
+<html>
+<head>
+<title>TestNG:  BulkUpload</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>BulkUpload</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:09:34 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>2 seconds (2990 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormDataAndFile.Admin_BulkUpload_Smoke_sid()'><b>Admin_BulkUpload_Smoke_sid</b><br>Test class: io.mosip.testscripts.PostWithFormDataAndFile (Admin_BulkUpload_update_gender_name)<br>Parameters: TestCaseDTO(testCaseName=Admin_BulkUpload_Smoke_sid, endPoint=/v1/admin/bulkupload, role=admin, templateFields=null, input={ "category":"masterdata", "files":["masterdata/BulkUpload/FilesToUpload/gender.csv"], "operation":"insert", "tableName":"gender" }, output={ "transcationId": "$IGNORE$", "tableName": "gender", "operation": "insert" }, inputTemplate=masterdata/BulkUpload/bulkUpload, outputTemplate=masterdata/BulkUpload/bulkUploadResult, restMethod=post)<br/>
+<a href="#Output-1893004914" onClick='toggleBox("Output-1893004914", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1893004914" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1893004914">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "category": "masterdata",
+  "files": [
+    "masterdata/BulkUpload/FilesToUpload/gender.csv"
+  ],
+  "operation": "insert",
+  "tableName": "gender"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/admin/bulkupload) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-15T09:39:35.837Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "\"code\" - Invalid column name."
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>"code" - Invalid column name.</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:39:35.837Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormDataAndFile@7f9e8421</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithFormDataAndFile.Admin_BulkUpload_update_gender_name()'><b>Admin_BulkUpload_update_gender_name</b><br>Test class: io.mosip.testscripts.PostWithFormDataAndFile (Admin_BulkUpload_update_gender_name)<br>Parameters: TestCaseDTO(testCaseName=Admin_BulkUpload_update_gender_name, endPoint=/v1/admin/bulkupload, role=admin, templateFields=null, input={ "category":"masterData", "files":["masterdata/BulkUpload/FilesToUpload/updateGender.csv"], "operation":"update", "tableName":"gender" }, output={ "transcationId": "$IGNORE$", "tableName": "gender", "operation": "update" }, inputTemplate=masterdata/BulkUpload/bulkUpload, outputTemplate=masterdata/BulkUpload/bulkUploadResult, restMethod=post)<br/>
+<a href="#Output-1114375302" onClick='toggleBox("Output-1114375302", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1114375302" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1114375302">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "category": "masterData",
+  "files": [
+    "masterdata/BulkUpload/FilesToUpload/updateGender.csv"
+  ],
+  "operation": "update",
+  "tableName": "gender"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/admin/bulkupload) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-15T09:39:36.709Z",
+  "response": {
+    "transcationId": "3cd06f5a-41c3-4f18-913f-99c3934b87ed",
+    "tableName": "gender",
+    "operation": "update",
+    "successCount": 1,
+    "category": "masterData",
+    "status": "FAILED",
+    "statusDescription": "[ADMN-BLK-001 --\u003e No entry found with this id \u003e\u003e CodeAndLanguageCodeID(code\u003dMLO, langCode\u003deng)]",
+    "uploadedBy": "110005",
+    "timeStamp": "2021-12-15T09:39:37.205522"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.successCount</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.tableName</td>
+    <td>NOT VERIFIED</td>
+    <td>gender</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.logs</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.transcationId</td>
+    <td>NOT VERIFIED</td>
+    <td>3cd06f5a-41c3-4f18-913f-99c3934b87ed</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.timeStamp</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:39:37.205522</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.statusDescription</td>
+    <td>NOT VERIFIED</td>
+    <td>[ADMN-BLK-001 --> No entry found with this id >> CodeAndLanguageCodeID(code=MLO, langCode=eng)]</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.operation</td>
+    <td>NOT VERIFIED</td>
+    <td>update</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.uploadedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.category</td>
+    <td>NOT VERIFIED</td>
+    <td>masterData</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:39:36.709Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>NOT VERIFIED</td>
+    <td>FAILED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithFormDataAndFile@7f9e8421</td></tr>
+</table><p>
+</body>
+</html>

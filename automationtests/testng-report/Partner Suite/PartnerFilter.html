@@ -1,0 +1,465 @@
+<html>
+<head>
+<title>TestNG:  PartnerFilter</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>PartnerFilter</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:32:11 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>4 seconds (4387 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PartnerFilter_Invalid_Column_doesnt_exist()'><b>partner_PartnerFilter_Invalid_Column_doesnt_exist</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PartnerFilter_Invalid_Empty_column)<br>Parameters: TestCaseDTO(testCaseName=partner_PartnerFilter_Invalid_Column_doesnt_exist, endPoint=/v1/partnermanager/partners/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "asfgs", "type": "unique", "text": "mpartner-default-abis" }], "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS-MSD-317", "message": "$IGNORE$" } ] }, inputTemplate=partner/FilterAPIs/PartnerFilter/partnerFilter, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-639393055" onClick='toggleBox("Output-639393055", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-639393055" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-639393055">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "asfgs",
+        "text": "mpartner-default-abis",
+        "type": "unique"
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:02:14.312Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-317",
+      "message": "Column asfgs doesn\u0027t exist for the searched entity"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-317</td>
+    <td>PMS-MSD-317</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@60fc7f43</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PartnerFilter_Invalid_EmptyFilterType()'><b>partner_PartnerFilter_Invalid_EmptyFilterType</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PartnerFilter_Invalid_Empty_column)<br>Parameters: TestCaseDTO(testCaseName=partner_PartnerFilter_Invalid_EmptyFilterType, endPoint=/v1/partnermanager/partners/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "id", "type": "", "text": "mpartner-default-abis" }], "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS-MSD-322", "message": "Filter Type cannot be empty or null" } ] }, inputTemplate=partner/FilterAPIs/PartnerFilter/partnerFilter, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-787089269" onClick='toggleBox("Output-787089269", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-787089269" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-787089269">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "id",
+        "text": "mpartner-default-abis",
+        "type": ""
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:02:13.603Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-322",
+      "message": "Filter Type cannot be empty or null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-322</td>
+    <td>PMS-MSD-322</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@60fc7f43</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PartnerFilter_Invalid_Empty_column()'><b>partner_PartnerFilter_Invalid_Empty_column</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PartnerFilter_Invalid_Empty_column)<br>Parameters: TestCaseDTO(testCaseName=partner_PartnerFilter_Invalid_Empty_column, endPoint=/v1/partnermanager/partners/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "", "type": "unique", "text": "mpartner-default-abis" }], "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_COR_001", "message": "Invalid request parameter - must not be blank :request.filters[0].columnName" } ] }, inputTemplate=partner/FilterAPIs/PartnerFilter/partnerFilter, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-204333035" onClick='toggleBox("Output-204333035", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-204333035" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-204333035">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "",
+        "text": "mpartner-default-abis",
+        "type": "unique"
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:15.697775",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - must not be blank :request.filters[0].columnName"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_001</td>
+    <td>PMS_COR_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@60fc7f43</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PartnerFilter_Invalid_type_doesnt_exist()'><b>partner_PartnerFilter_Invalid_type_doesnt_exist</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PartnerFilter_Invalid_Empty_column)<br>Parameters: TestCaseDTO(testCaseName=partner_PartnerFilter_Invalid_type_doesnt_exist, endPoint=/v1/partnermanager/partners/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "id", "type": "asdg", "text": "mpartner-default-abis" }], "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS-MSD-324", "message": "Received Filter Type not supported" } ] }, inputTemplate=partner/FilterAPIs/PartnerFilter/partnerFilter, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-916283981" onClick='toggleBox("Output-916283981", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-916283981" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-916283981">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "id",
+        "text": "mpartner-default-abis",
+        "type": "asdg"
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:02:15.009Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-324",
+      "message": "Received Filter Type not supported"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-324</td>
+    <td>PMS-MSD-324</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@60fc7f43</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PartnerFilter_all_Valid_Smoke()'><b>partner_PartnerFilter_all_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PartnerFilter_Invalid_Empty_column)<br>Parameters: TestCaseDTO(testCaseName=partner_PartnerFilter_all_Valid_Smoke, endPoint=/v1/partnermanager/partners/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "id", "type": "all", "text": "mpartner-default-abis" }], "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "id", "fieldValue": "mpartner-default-abis", "fieldCode": "mpartner-default-abis" } ] }, inputTemplate=partner/FilterAPIs/PartnerFilter/partnerFilter, outputTemplate=partner/FilterAPIs/PartnerFilter/partnerFilterResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1238746961" onClick='toggleBox("Output-1238746961", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1238746961" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1238746961">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "id",
+        "text": "mpartner-default-abis",
+        "type": "all"
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:12.796Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "id",
+        "fieldValue": "mpartner-default-abis",
+        "fieldCode": "mpartner-default-abis"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldValue</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-abis</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>NOT VERIFIED</td>
+    <td>id</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldCode</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-abis</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:02:12.796Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@60fc7f43</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.partner_PartnerFilter_unique_Valid_Smoke()'><b>partner_PartnerFilter_unique_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (partner_PartnerFilter_Invalid_Empty_column)<br>Parameters: TestCaseDTO(testCaseName=partner_PartnerFilter_unique_Valid_Smoke, endPoint=/v1/partnermanager/partners/filtervalues, role=partner, templateFields=null, input={ "filters": [{ "columnName": "id", "type": "unique", "text": "mpartner-default-abis" }], "requesttime": "$TIMESTAMP$" }, output={ "filters": [ { "fieldID": "id", "fieldValue": "mpartner-default-abis", "fieldCode": "mpartner-default-abis" } ] }, inputTemplate=partner/FilterAPIs/PartnerFilter/partnerFilter, outputTemplate=partner/FilterAPIs/PartnerFilter/partnerFilterResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1009997767" onClick='toggleBox("Output-1009997767", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1009997767" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1009997767">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "filters": [
+      {
+        "columnName": "id",
+        "text": "mpartner-default-abis",
+        "type": "unique"
+      }
+    ]
+  },
+  "requesttime": "2018-12-10T06:12:52.994Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/filtervalues) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:02:12.035Z",
+  "response": {
+    "filters": [
+      {
+        "fieldID": "id",
+        "fieldValue": "mpartner-default-abis",
+        "fieldCode": "mpartner-default-abis"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldValue</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-abis</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldID</td>
+    <td>NOT VERIFIED</td>
+    <td>id</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(filters)[0].fieldCode</td>
+    <td>NOT VERIFIED</td>
+    <td>mpartner-default-abis</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-07-14T17:02:12.035Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@60fc7f43</td></tr>
+</table><p>
+</body>
+</html>

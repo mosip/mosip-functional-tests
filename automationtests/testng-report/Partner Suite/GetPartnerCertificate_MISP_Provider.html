@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>TestNG:  GetPartnerCertificate_MISP_Provider</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetPartnerCertificate_MISP_Provider</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:30:22 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (781 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Partner_GetPartnerCert_All_Valid_Smoke()'><b>Partner_GetPartnerCert_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Partner_GetPartnerCert_All_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Partner_GetPartnerCert_All_Valid_Smoke, endPoint=/v1/partnermanager/partners/{partnerId}/certificate, role=partner, templateFields=null, input={ "partnerId": "MISP" }, output= { "errors": "$IGNORE$" }, inputTemplate=partner/mispPartner/GetCertificate/getCert, outputTemplate=partner/mispPartner/GetCertificate/getCertResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-179915314" onClick='toggleBox("Output-179915314", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-179915314" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-179915314">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "partnerId": "MISP"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/{partnerId}/certificate) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:23.209Z",
+  "response": {
+    "certificateData": "-----BEGIN CERTIFICATE-----\nMIIEkDCCA3igAwIBAgIIw4dnyqxOu8YwDQYJKoZIhvcNAQELBQAwdjELMAkGA1UE\nBhMCSU4xCzAJBgNVBAgMAktBMRIwEAYDVQQHDAlCQU5HQUxPUkUxDTALBgNVBAoM\nBElJVEIxIDAeBgNVBAsMF01PU0lQLVRFQ0gtQ0VOVEVSIChQTVMpMRUwEwYDVQQD\nDAx3d3cubW9zaXAuaW8wHhcNMjMwNzE0MTcwMDE4WhcNMjQwNzEzMTcwMDE4WjBW\nMQswCQYDVQQGEwJJTjEMMAoGA1UECAwDS0FSMQwwCgYDVQQHDANCTFIxDTALBgNV\nBAoMBG1pc3AxDTALBgNVBAsMBG1pc3AxDTALBgNVBAMMBG1pc3AwggIiMA0GCSqG\nSIb3DQEBAQUAA4ICDwAwggIKAoICAQDTACzyevO4uvQZzf7ZMEQ6/gUiiS5dvuDV\nfkF4f/YORzjl4+2gHYM3rrwSzvkKgmiCjTCW+7I/9N0lCzkgShds8KkQsqH/RPR+\nsGslqd0yW0gsEAvM975c1PhrO0v4VUalo7zyhtxuXUE0Xj2JT8pnF/tDUQ4j7T3a\nIhRMoS7zOJ+vQNOGYtAzJNFUS6h2LLbttSHFJ5iWhaFyH1bPcg//tI2Mx/Gk6Yxl\n/g1XUSv3ovZdzWyC0IrbbEaBhPj0EkFF45d4zYBx0V1P0481JkF122BjJUopNlgx\ncVasMKppayRThicHAa4MPuEivKhcbVZ5rq1tAI+HzkThjPLkFPn2ogWbjVqwZLWx\n8mQekD+WkRgLjOA9LZoJ3KdMJSmRBE7kvAsl2sGLVmzlMClHgXtzpAVEtXvvSQrs\nhetoUZpTUYrggGGkcM8VN7OeiTDYSdy4zsp2vwl0eKvimvFLG72syoS/3KewIlmX\nvtovfxeiHKhn3NRRDQnCOjC3sxlj/3FlwsrwXxSKrMhZQU4g7NyidvemheCGpy1Q\n44brmKbybtkSJqvwUekI8WZWH0fqFPhuyP2l/b6oNSWgvyojvgSgVDv8xenA3fQn\nM7INlv/LvaaBL8MXftbxplw4yDPqijEfWe5UCXPBNQdBa0AQpiupg5Rxl5usfe5D\n+HwMGZfNuQIDAQABo0IwQDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBRw2VRK\n7hK4WHrRNE7nLl502wwb/DAOBgNVHQ8BAf8EBAMCAqQwDQYJKoZIhvcNAQELBQAD\nggEBALwHUaKZIjVAOSLu1H7QFv9+NolNHj4fwS7LHRsixxUUne66pNC/YYTZCiRI\n1ltBK0NZJzQYxusKZF508kc6diXjpWQeogeVXtaqMRpA2GwQAZGgWD/4HM6PCs9N\nCW5olRkm2uUwQIKxWwg49NDJ7rMZQmv+nJk7vWfp6R26+0FwvN8EV1y76iEL3Lru\n3QS0ZEn6qvUE21OPD7F+58RktglW0Nk0rAuw3UC4dREWZgKWPxNtnYT0XqY9vVL+\nCP8AOjBMIIJSEW69gj0O8lE8kfFrR6iibEt2WxBa13RfpS3Shh9Z4Xc8O6dGDz4n\nAJrx2w3V7fHdrHtYq3IoP8Ol2NQ\u003d\n-----END CERTIFICATE-----\n",
+    "timestamp": "2023-07-14T17:00:23.239884"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.certificateData</td>
+    <td>NOT VERIFIED</td>
+    <td>-----BEGIN CERTIFICATE-----
+MIIEkDCCA3igAwIBAgIIw4dnyqxOu8YwDQYJKoZIhvcNAQELBQAwdjELMAkGA1UE
+BhMCSU4xCzAJBgNVBAgMAktBMRIwEAYDVQQHDAlCQU5HQUxPUkUxDTALBgNVBAoM
+BElJVEIxIDAeBgNVBAsMF01PU0lQLVRFQ0gtQ0VOVEVSIChQTVMpMRUwEwYDVQQD
+DAx3d3cubW9zaXAuaW8wHhcNMjMwNzE0MTcwMDE4WhcNMjQwNzEzMTcwMDE4WjBW
+MQswCQYDVQQGEwJJTjEMMAoGA1UECAwDS0FSMQwwCgYDVQQHDANCTFIxDTALBgNV
+BAoMBG1pc3AxDTALBgNVBAsMBG1pc3AxDTALBgNVBAMMBG1pc3AwggIiMA0GCSqG
+SIb3DQEBAQUAA4ICDwAwggIKAoICAQDTACzyevO4uvQZzf7ZMEQ6/gUiiS5dvuDV
+fkF4f/YORzjl4+2gHYM3rrwSzvkKgmiCjTCW+7I/9N0lCzkgShds8KkQsqH/RPR+
+sGslqd0yW0gsEAvM975c1PhrO0v4VUalo7zyhtxuXUE0Xj2JT8pnF/tDUQ4j7T3a
+IhRMoS7zOJ+vQNOGYtAzJNFUS6h2LLbttSHFJ5iWhaFyH1bPcg//tI2Mx/Gk6Yxl
+/g1XUSv3ovZdzWyC0IrbbEaBhPj0EkFF45d4zYBx0V1P0481JkF122BjJUopNlgx
+cVasMKppayRThicHAa4MPuEivKhcbVZ5rq1tAI+HzkThjPLkFPn2ogWbjVqwZLWx
+8mQekD+WkRgLjOA9LZoJ3KdMJSmRBE7kvAsl2sGLVmzlMClHgXtzpAVEtXvvSQrs
+hetoUZpTUYrggGGkcM8VN7OeiTDYSdy4zsp2vwl0eKvimvFLG72syoS/3KewIlmX
+vtovfxeiHKhn3NRRDQnCOjC3sxlj/3FlwsrwXxSKrMhZQU4g7NyidvemheCGpy1Q
+44brmKbybtkSJqvwUekI8WZWH0fqFPhuyP2l/b6oNSWgvyojvgSgVDv8xenA3fQn
+M7INlv/LvaaBL8MXftbxplw4yDPqijEfWe5UCXPBNQdBa0AQpiupg5Rxl5usfe5D
++HwMGZfNuQIDAQABo0IwQDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBRw2VRK
+7hK4WHrRNE7nLl502wwb/DAOBgNVHQ8BAf8EBAMCAqQwDQYJKoZIhvcNAQELBQAD
+ggEBALwHUaKZIjVAOSLu1H7QFv9+NolNHj4fwS7LHRsixxUUne66pNC/YYTZCiRI
+1ltBK0NZJzQYxusKZF508kc6diXjpWQeogeVXtaqMRpA2GwQAZGgWD/4HM6PCs9N
+CW5olRkm2uUwQIKxWwg49NDJ7rMZQmv+nJk7vWfp6R26+0FwvN8EV1y76iEL3Lru
+3QS0ZEn6qvUE21OPD7F+58RktglW0Nk0rAuw3UC4dREWZgKWPxNtnYT0XqY9vVL+
+CP8AOjBMIIJSEW69gj0O8lE8kfFrR6iibEt2WxBa13RfpS3Shh9Z4Xc8O6dGDz4n
+AJrx2w3V7fHdrHtYq3IoP8Ol2NQ=
+-----END CERTIFICATE-----
+</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@5f409872</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Mimoto Test Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="io.mosip.report.CustomTestNGReporter"/>
+    <listener class-name="io.mosip.authentication.fw.util.AuthenticationTestsListener"/>
+    <listener class-name="io.mosip.authentication.e2e.E2EReport"/>
+    <listener class-name="io.mosip.customReport.EmailableReport"/>
+  </listeners>
+  <test name="AuthLock(failed)">
+    <parameter name="ymlFile" value="mimoto/AuthLock/createAuthLock.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="test" invocation-numbers="3 4 5"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.PostWithBodyWithOtpGenerate -->
+    </classes>
+  </test> <!-- AuthLock(failed) -->
+  <test name="AuthUnLock(failed)">
+    <parameter name="ymlFile" value="mimoto/AuthUnLock/createAuthUnLock.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.PostWithBodyWithOtpGenerate">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="test" invocation-numbers="2 3"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.PostWithBodyWithOtpGenerate -->
+    </classes>
+  </test> <!-- AuthUnLock(failed) -->
+  <test name="CredentialCheckStatus(failed)">
+    <parameter name="ymlFile" value="mimoto/CredentialIssuance/CredentialCheckStatus/CredentialCheckStatus.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.GetWithParam">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.GetWithParam -->
+    </classes>
+  </test> <!-- CredentialCheckStatus(failed) -->
+  <test name="DownloadWithReqid(failed)">
+    <parameter name="ymlFile" value="mimoto/CredentialIssuance/DownloadWithReqid/DownloadWithReqid.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.GetWithParamForDownloadCard">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0 1"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.GetWithParamForDownloadCard -->
+    </classes>
+  </test> <!-- DownloadWithReqid(failed) -->
+  <test name="SendOTPUIN(failed)">
+    <parameter name="ymlFile" value="mimoto/SendOTPUIN/createSendOTP.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- SendOTPUIN(failed) -->
+  <test name="AidGetIndividualId(failed)">
+    <parameter name="ymlFile" value="mimoto/AidGetIndividualId/AidGetIndividualId.yml"/>
+    <classes>
+      <class name="io.mosip.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="testTearDown"/>
+          <include name="test" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- io.mosip.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- AidGetIndividualId(failed) -->
+</suite> <!-- Failed suite [Mimoto Test Suite] -->

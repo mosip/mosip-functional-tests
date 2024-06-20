@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>TestNG:  UploadCACertificate</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UploadCACertificate</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Jan 24 18:13:21 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>8 seconds (8412 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Idp_UploadCACertificate_All_Valid_Smoke()'><b>Idp_UploadCACertificate_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Idp_UploadCInterCertificate_All_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Idp_UploadCACertificate_All_Valid_Smoke, endPoint=/v1/partnermanager/partners/certificate/ca/upload, role=partner, templateFields=null, input={ "certificateData": "$CACERT$", "requesttime": "$TIMESTAMP$" }, output= { "status": "Upload Success." }, inputTemplate=idp/PmsIntegration/UploadCertificate/uploadCertificate, outputTemplate=idp/PmsIntegration/UploadCertificate/uploadCertificateResult, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1373579841" onClick='toggleBox("Output-1373579841", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1373579841" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1373579841">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "certificateData": "-----BEGIN CERTIFICATE-----\nMIID5jCCAs6gAwIBAgII8Ld8WNZJbLAwDQYJKoZIhvcNAQELBQAwgZAxCzAJBgNV\nBAYTAklOMQswCQYDVQQIDAJLQTEoMCYGA1UECgwfcGFydG5lcm5hbWVmb3JhdXRv\nbWF0aW9uaWRwLTg4MTEaMBgGA1UECwwRSURBLVRFU1QtT1JHLVVOSVQxLjAsBgNV\nBAMMJUNBLXJwLXBhcnRuZXJuYW1lZm9yYXV0b21hdGlvbmlkcC04ODEwHhcNMjMw\nMTI0MTI0MzIxWhcNMjgwMTI0MTI0MzIxWjCBkDELMAkGA1UEBhMCSU4xCzAJBgNV\nBAgMAktBMSgwJgYDVQQKDB9wYXJ0bmVybmFtZWZvcmF1dG9tYXRpb25pZHAtODgx\nMRowGAYDVQQLDBFJREEtVEVTVC1PUkctVU5JVDEuMCwGA1UEAwwlQ0EtcnAtcGFy\ndG5lcm5hbWVmb3JhdXRvbWF0aW9uaWRwLTg4MTCCASIwDQYJKoZIhvcNAQEBBQAD\nggEPADCCAQoCggEBAIWlP53u8rVceK2/L+0skHb8r5NxC4ecjRRAaKnIUT9DABdw\nXg7ZX7KqJNVAj1Dgn7JmE12JGtDf3XOkf4Jo6wJAYcVrYfPqycZzNzcPPtHwOoN7\neQ7ILFwFhFv44YwRoRa2e/v4TlRYWyF8YKk6LXflgurhDLkm4EHgs6y04y1WhBJ1\nyqUWZtysnzm4/nSWyi22xZi5pJ3l1ItNIanTaikVyFzUaH882T0XAueFLH5P/qaz\nfVIZIDfHC12qCcbIiV2CMamrRJF29d8UK/EOtYziCLGGdvUCp212pNSGPjcumuKh\nb9F+aKonBlR8p9z4a3uyp+gwrx7XLH2wVLU6DlECAwEAAaNCMEAwDwYDVR0TAQH/\nBAUwAwEB/zAdBgNVHQ4EFgQUClAf40m64NhdBF2dWwr9ap12V1YwDgYDVR0PAQH/\nBAQDAgKEMA0GCSqGSIb3DQEBCwUAA4IBAQCCW6tQLn31z4KjWGqnNcsX/FPx2E63\n5pR/vlnX3JcOlzxHzaOjZz9iVSEOu3qj3RJ/ujV6Vk5WRta4qD8XpRboQHZAwNZi\nQ0w8saq/EOrY9bXFM04WrDmDF6PlWk65K5Mc9in9aQam4soVz4EwdYgKTDyyFXPO\nnh+1FNQEZFAlpNpOesAznbbwXdXJgVFYwx/X8MAHAcZlorNWcmi/fSD1UYoGJd/M\novaros8Sc5Jee69z/BxEL6OIV9eA99eMBWGC9ebnc2+bib7WK3N5oNmeBcnUCl89\np/rVfmzcL6Z3JbJuk5Rpx/gDsBbCZasF8VraRFJgS8NDTh8Lg5QuMWIr\n-----END CERTIFICATE-----\n",
+    "partnerDomain": "Auth"
+  },
+  "requesttime": "2023-01-24T12:43:21.333Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-1201-b2.mosip.net/v1/partnermanager/partners/certificate/ca/upload) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-01-24T12:43:25.545Z",
+  "response": {
+    "status": "Upload Success.",
+    "timestamp": "2023-01-24T12:43:25.701721"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>Upload Success.</td>
+    <td>Upload Success.</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>io.mosip.testscripts.SimplePost@6987a133</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Idp_UploadCInterCertificate_All_Valid_Smoke()'><b>Idp_UploadCInterCertificate_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Idp_UploadCInterCertificate_All_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Idp_UploadCInterCertificate_All_Valid_Smoke, endPoint=/v1/partnermanager/partners/certificate/ca/upload, role=partner, templateFields=null, input={ "certificateData": "$INTERCERT$", "requesttime": "$TIMESTAMP$" }, output= { "status": "Upload Success." }, inputTemplate=idp/PmsIntegration/UploadCertificate/uploadCertificate, outputTemplate=idp/PmsIntegration/UploadCertificate/uploadCertificateResult, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-700253546" onClick='toggleBox("Output-700253546", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-700253546" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-700253546">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "certificateData": "-----BEGIN CERTIFICATE-----\nMIID6TCCAtGgAwIBAgII02iC7an6Wb4wDQYJKoZIhvcNAQELBQAwgZAxCzAJBgNV\nBAYTAklOMQswCQYDVQQIDAJLQTEoMCYGA1UECgwfcGFydG5lcm5hbWVmb3JhdXRv\nbWF0aW9uaWRwLTg4MTEaMBgGA1UECwwRSURBLVRFU1QtT1JHLVVOSVQxLjAsBgNV\nBAMMJUNBLXJwLXBhcnRuZXJuYW1lZm9yYXV0b21hdGlvbmlkcC04ODEwHhcNMjMw\nMTI0MTI0MzIxWhcNMjgwMTI0MTI0MzIxWjCBkzELMAkGA1UEBhMCSU4xCzAJBgNV\nBAgMAktBMSgwJgYDVQQKDB9wYXJ0bmVybmFtZWZvcmF1dG9tYXRpb25pZHAtODgx\nMRowGAYDVQQLDBFJREEtVEVTVC1PUkctVU5JVDExMC8GA1UEAwwoSU5URVItcnAt\ncGFydG5lcm5hbWVmb3JhdXRvbWF0aW9uaWRwLTg4MTCCASIwDQYJKoZIhvcNAQEB\nBQADggEPADCCAQoCggEBAN+cBEHjwToEn61OjrzeiWR3ylLkoZhG3paAA7Eswseg\n2s4tlVBHeTR+VpEq6k3w5iXwiucg0yvnS4QPDDtafBdjqUl3M/24hlaz/wF6pt4c\nIAmLEiQJjLwAFChraWCDmXX9C6UPOV/ix1zXk4O5rhZkVMPeLmgWBrvUc9J/iMNg\nUjg3TBGjZRAT8k4ANyCgOxTl1Aq93jiBZZnTPVUlLtSCKcf1gMDL8yxpXor9ip40\n5DHt3Fbjbji7FKZG6U551zsyOVeZUkO0C8yUvVeNAUspn19q4Vc/ozeoDc/9OB1f\nlTBAWCutjzeY4tLVUnD0DvtEkV2vB02dqtR8noqNum0CAwEAAaNCMEAwDwYDVR0T\nAQH/BAUwAwEB/zAdBgNVHQ4EFgQURqtxj1h6LwujkZY6ew/yeRFV2scwDgYDVR0P\nAQH/BAQDAgKEMA0GCSqGSIb3DQEBCwUAA4IBAQA/I92h/O/TRl5VUH2yI5uAEuiA\nYLBTZnXtkbjln2xJOcoxS0I4PuakI+xkO9aveO2RfKx9iExcU4E2IscGYC5J4sUu\nbuat0EFJSffFI4wp0k1/QEGzDreHpGEOGLbI9PIW6KcXTg/ma90yE779JDrrqj/V\nk0hcN7YKVDrJ7fkhJIOFLGYcIo0lNutOeRGGdaN/CN6gTcVMprMfykWGehi+j25b\nVaw8R6Qm5xY0don/9JUe27BNhTA7HXcPotYieXgtjCWSJLdwwB3lvwGV35pmmioK\nV9caurXTf7C65pJaxQNSBq0zwxfKlxZaqjCJNIII18BHU84oFMtI2S6RIe6w\n-----END CERTIFICATE-----\n",
+    "partnerDomain": "Auth"
+  },
+  "requesttime": "2023-01-24T12:43:25.805Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-1201-b2.mosip.net/v1/partnermanager/partners/certificate/ca/upload) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-01-24T12:43:28.516Z",
+  "response": {
+    "status": "Upload Success.",
+    "timestamp": "2023-01-24T12:43:29.597535"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>Upload Success.</td>
+    <td>Upload Success.</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testscripts.SimplePost@6987a133</td></tr>
+</table><p>
+</body>
+</html>

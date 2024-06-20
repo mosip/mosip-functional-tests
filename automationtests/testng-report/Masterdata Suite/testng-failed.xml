@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Masterdata Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="io.mosip.testrig.apirig.report.CustomTestNGReporter"/>
+    <listener class-name="io.mosip.testrig.apirig.authentication.e2e.E2EReport"/>
+    <listener class-name="io.mosip.testrig.apirig.customReport.EmailableReport"/>
+  </listeners>
+  <test name="CreateBlockListedWords(failed)">
+    <parameter name="ymlFile" value="masterdata/BlockListedWords/CreateBlockListedWords.yml"/>
+    <classes>
+      <class name="io.mosip.testrig.apirig.testscripts.SimplePost">
+        <methods>
+          <include name="setResultTestName"/>
+          <include name="test" invocation-numbers="0 1 2 3 4"/>
+          <include name="testTearDown"/>
+        </methods>
+      </class> <!-- io.mosip.testrig.apirig.testscripts.SimplePost -->
+    </classes>
+  </test> <!-- CreateBlockListedWords(failed) -->
+</suite> <!-- Failed suite [Masterdata Suite] -->

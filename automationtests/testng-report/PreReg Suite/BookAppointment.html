@@ -1,0 +1,2086 @@
+<html>
+<head>
+<title>TestNG:  BookAppointment</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>BookAppointment</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>12/15/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 21:55:57 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>114 seconds (114669 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_All_Valid_Smoke()'><b>Prereg_BookAppointment_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_All_Valid_Smoke, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "langCode": "eng" }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/bookAppointment/bookAppointmentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1989843834" onClick='toggleBox("Output-1989843834", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1989843834" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1989843834">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:26:00.874Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:26:02.864Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.bookingMessage</td>
+    <td>Appointment booked successfully</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.booking.book</td>
+    <td>mosip.pre-registration.booking.book</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1989843834", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1989843834'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>5</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Blank_appointment_date()'><b>Prereg_BookAppointment_Blank_appointment_date</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Blank_appointment_date, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_BOOK_RCI_008", "message": "Booking date time not selected" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-300374338" onClick='toggleBox("Output-300374338", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-300374338" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-300374338">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:26:59.522Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:01.154Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Booking date time not selected</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_BOOK_RCI_008</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace300374338", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace300374338'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Blank_registration_center_id()'><b>Prereg_BookAppointment_Blank_registration_center_id</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Blank_registration_center_id, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_BOOK_RCI_007", "message": "Registration center id not entered" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-503859750" onClick='toggleBox("Output-503859750", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-503859750" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-503859750">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:26:55.014Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:26:57.350Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Registration center id not entered</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_BOOK_RCI_007</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace503859750", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace503859750'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>5</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Blank_time_slot_from()'><b>Prereg_BookAppointment_Blank_time_slot_from</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Blank_time_slot_from, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_BOOK_RCI_003", "message": "User has not selected time slot" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-182174652" onClick='toggleBox("Output-182174652", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-182174652" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-182174652">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:27:27.503Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:29.123Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>User has not selected time slot</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_BOOK_RCI_003</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace182174652", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace182174652'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at jdk.internal.reflect.GeneratedMethodAccessor239.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Blank_time_slot_to()'><b>Prereg_BookAppointment_Blank_time_slot_to</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Blank_time_slot_to, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_BOOK_RCI_003", "message": "User has not selected time slot" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1648138632" onClick='toggleBox("Output-1648138632", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1648138632" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1648138632">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:27:23.523Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": ""
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:25.245Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>User has not selected time slot</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_BOOK_RCI_003</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1648138632", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1648138632'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at jdk.internal.reflect.GeneratedMethodAccessor239.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_CA_Smoke()'><b>Prereg_BookAppointment_CA_Smoke</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_CA_Smoke, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_Smoke_CancellAppointment_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "langCode": "eng" }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/bookAppointment/bookAppointmentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-504561103" onClick='toggleBox("Output-504561103", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-504561103" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-504561103">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:26:05.594Z",
+  "preRegistrationId": "26839109451645",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:26:07.640Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.bookingMessage</td>
+    <td>Appointment booked successfully</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.booking.book</td>
+    <td>mosip.pre-registration.booking.book</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace504561103", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace504561103'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>4</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_CancelApplicationsAppointment_Smoke()'><b>Prereg_BookAppointment_CancelApplicationsAppointment_Smoke</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_CancelApplicationsAppointment_Smoke, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_Smoke_CancelApplicationsAppointment_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "langCode": "eng" }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/bookAppointment/bookAppointmentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-147646893" onClick='toggleBox("Output-147646893", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-147646893" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-147646893">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:26:10.025Z",
+  "preRegistrationId": "50458742782976",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:26:12.091Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.bookingMessage</td>
+    <td>Appointment booked successfully</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.pre-registration.booking.book</td>
+    <td>mosip.pre-registration.booking.book</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace147646893", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace147646893'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>4</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Invalid_registration_center_id()'><b>Prereg_BookAppointment_Invalid_registration_center_id</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Invalid_registration_center_id, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "363wgbsion_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-215", "message": "Registration Center not found" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-766991922" onClick='toggleBox("Output-766991922", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-766991922" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-766991922">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:26:44.633Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "363wgbsion_center_id$",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:26:46.238Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Registration Center not found</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-215</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace766991922", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace766991922'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Invalid_time_slot_from()'><b>Prereg_BookAppointment_Invalid_time_slot_from</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Invalid_time_slot_from, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "sbshbs653tgv", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_BOOK_RCI_003", "message": "User has not selected time slot" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-24344628" onClick='toggleBox("Output-24344628", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-24344628" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-24344628">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:27:19.455Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "sbshbs653tgv"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:21.316Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>User has not selected time slot</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_BOOK_RCI_003</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace24344628", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace24344628'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at jdk.internal.reflect.GeneratedMethodAccessor239.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Invalid_time_slot_to()'><b>Prereg_BookAppointment_Invalid_time_slot_to</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Invalid_time_slot_to, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "dndj36gsbsb", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_BOOK_RCI_003", "message": "User has not selected time slot" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1964320423" onClick='toggleBox("Output-1964320423", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1964320423" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1964320423">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:27:11.231Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "dndj36gsbsb"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:13.269Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>User has not selected time slot</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_BOOK_RCI_003</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1964320423", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1964320423'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at jdk.internal.reflect.GeneratedMethodAccessor239.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>4</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Missing_appointment_date()'><b>Prereg_BookAppointment_Missing_appointment_date</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Missing_appointment_date, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$REMOVE$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_BOOK_RCI_008", "message": "Booking date time not selected" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1650233928" onClick='toggleBox("Output-1650233928", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1650233928" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1650233928">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00",
+    "registration_center_id": "10003"
+  },
+  "requesttime": "2023-07-14T16:27:03.316Z",
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "preRegistrationId": "51842975028036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:05.020Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Booking date time not selected</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_BOOK_RCI_008</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1650233928", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1650233928'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Missing_registration_center_id()'><b>Prereg_BookAppointment_Missing_registration_center_id</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Missing_registration_center_id, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$REMOVE$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_BOOK_RCI_007", "message": "Registration center id not entered" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-222334045" onClick='toggleBox("Output-222334045", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-222334045" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-222334045">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00",
+    "appointment_date": "2023-07-16"
+  },
+  "requesttime": "2023-07-14T16:26:49.397Z",
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "preRegistrationId": "51842975028036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:26:51.888Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Registration center id not entered</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_BOOK_RCI_007</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace222334045", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace222334045'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>5</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Missing_time_slot_to()'><b>Prereg_BookAppointment_Missing_time_slot_to</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Missing_time_slot_to, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$REMOVE$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_BOOK_RCI_003", "message": "User has not selected time slot" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1444955914" onClick='toggleBox("Output-1444955914", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1444955914" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1444955914">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "time_slot_from": "09:00:00",
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16"
+  },
+  "requesttime": "2023-07-14T16:27:15.550Z",
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "preRegistrationId": "51842975028036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:17.371Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>User has not selected time slot</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_BOOK_RCI_003</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1444955914", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1444955914'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at jdk.internal.reflect.GeneratedMethodAccessor239.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>4</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_On_holiday()'><b>Prereg_BookAppointment_On_holiday</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_On_holiday, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_013", "message": "$IGNORE$" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1859945349" onClick='toggleBox("Output-1859945349", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1859945349" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1859945349">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:27:50.744Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:52.473Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_013</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1859945349", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1859945349'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at jdk.internal.reflect.GeneratedMethodAccessor239.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_missing_time_slot_from()'><b>Prereg_BookAppointment_missing_time_slot_from</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_missing_time_slot_from, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$REMOVE$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_BOOK_RCI_003", "message": "User has not selected time slot" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1475476398" onClick='toggleBox("Output-1475476398", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1475476398" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1475476398">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "time_slot_to": "09:15:00",
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16"
+  },
+  "requesttime": "2023-07-14T16:27:31.657Z",
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "preRegistrationId": "51842975028036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:33.404Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_036",
+      "message": "Appointment cannot be booked for incomplete application"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>User has not selected time slot</td>
+    <td>Appointment cannot be booked for incomplete application</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_BOOK_RCI_003</td>
+    <td>PRG_BOOK_RCI_036</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1475476398", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1475476398'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.PostWithPathParamsAndBody.test(PostWithPathParamsAndBody.java:119)
+	at jdk.internal.reflect.GeneratedMethodAccessor239.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:161)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:114)
+</pre></div></td>
+<td>4</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Blank_Id()'><b>Prereg_BookAppointment_Blank_Id</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Blank_Id, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_PAM_CORE_001", "message": "Request id is invalid" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-645018917" onClick='toggleBox("Output-645018917", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-645018917" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-645018917">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:26:27.698Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:26:29.659Z",
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_CORE_001",
+      "message": "Request id is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Request id is invalid</td>
+    <td>Request id is invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_PAM_CORE_001</td>
+    <td>PRG_PAM_CORE_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Blank_requesttime()'><b>Prereg_BookAppointment_Blank_requesttime</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Blank_requesttime, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_003", "message": "Invalid request time" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-148222723" onClick='toggleBox("Output-148222723", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-148222723" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-148222723">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:44.902Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_003",
+      "message": "Invalid request time"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid request time</td>
+    <td>Invalid request time</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_003</td>
+    <td>PRG_CORE_REQ_003</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Blank_version()'><b>Prereg_BookAppointment_Blank_version</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Blank_version, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_002", "message": "Request version is invalid" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-498427378" onClick='toggleBox("Output-498427378", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-498427378" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-498427378">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "",
+  "requesttime": "2023-07-14T16:26:32.097Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:26:34.132Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_002",
+      "message": "Request version is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Request version is invalid</td>
+    <td>Request version is invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_002</td>
+    <td>PRG_CORE_REQ_002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Invalid_Id()'><b>Prereg_BookAppointment_Invalid_Id</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Invalid_Id, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "moe-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_PAM_CORE_001", "message": "Request id is invalid" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2020015678" onClick='toggleBox("Output-2020015678", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2020015678" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2020015678">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "moe-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:26:23.578Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:26:25.380Z",
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_CORE_001",
+      "message": "Request id is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Request id is invalid</td>
+    <td>Request id is invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_PAM_CORE_001</td>
+    <td>PRG_PAM_CORE_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Invalid_appointment_date()'><b>Prereg_BookAppointment_Invalid_appointment_date</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Invalid_appointment_date, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "njdus6w22ybsh", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_BOOK_RCI_031", "message": "$IGNORE$" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-202016647" onClick='toggleBox("Output-202016647", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-202016647" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-202016647">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:27:07.301Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "njdus6w22ybsh",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:08.943Z",
+  "errors": [
+    {
+      "errorCode": "PRG_BOOK_RCI_031",
+      "message": "Invalid Booking Date Time found for preregistration id - 51842975028036"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_BOOK_RCI_031</td>
+    <td>PRG_BOOK_RCI_031</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Invalid_requesttime()'><b>Prereg_BookAppointment_Invalid_requesttime</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Invalid_requesttime, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "snnsjnsjn65" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_015", "message": "$IGNORE$" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-350571061" onClick='toggleBox("Output-350571061", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-350571061" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-350571061">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "snnsjnsjn65",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T16:27:41.132Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_015",
+      "message": "JSON parse error: Cannot deserialize value of type `java.util.Date` from String \"snnsjnsjn65\": expected format \"yyyy-MM-dd\u0027T\u0027HH:mm:ss.SSS\u0027Z\u0027\"; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.util.Date` from String \"snnsjnsjn65\": expected format \"yyyy-MM-dd\u0027T\u0027HH:mm:ss.SSS\u0027Z\u0027\"\n at [Source: (PushbackInputStream); line: 1, column: 147] (through reference chain: io.mosip.preregistration.core.common.dto.MainRequestDTO[\"requesttime\"])"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_015</td>
+    <td>PRG_CORE_REQ_015</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Invalid_version()'><b>Prereg_BookAppointment_Invalid_version</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Invalid_version, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "snsjd73t33ybyh2334@FDh", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_002", "message": "Request version is invalid" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-167599568" onClick='toggleBox("Output-167599568", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-167599568" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-167599568">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "snsjd73t33ybyh2334@FDh",
+  "requesttime": "2023-07-14T16:26:40.838Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:26:42.471Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_002",
+      "message": "Request version is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Request version is invalid</td>
+    <td>Request version is invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_002</td>
+    <td>PRG_CORE_REQ_002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_Missing_version()'><b>Prereg_BookAppointment_Missing_version</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_Missing_version, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "$REMOVE$", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_002", "message": "Request version is invalid" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2022715982" onClick='toggleBox("Output-2022715982", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2022715982" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2022715982">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00",
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16"
+  },
+  "requesttime": "2023-07-14T16:26:36.752Z",
+  "id": "mosip.pre-registration.booking.book",
+  "preRegistrationId": "51842975028036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:26:38.725Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_002",
+      "message": "Request version is invalid"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Request version is invalid</td>
+    <td>Request version is invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_002</td>
+    <td>PRG_CORE_REQ_002</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_blank_preRegistrationId()'><b>Prereg_BookAppointment_blank_preRegistrationId</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_blank_preRegistrationId, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_015", "message": "$IGNORE$" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-906065973" onClick='toggleBox("Output-906065973", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-906065973" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-906065973">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:26:19.627Z",
+  "preRegistrationId": "",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T16:26:21.327Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_015",
+      "message": "JSON parse error: Unrecognized field \"time_slot_from\" (class io.mosip.preregistration.booking.dto.MultiBookingRequest), not marked as ignorable; nested exception is com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field \"time_slot_from\" (class io.mosip.preregistration.booking.dto.MultiBookingRequest), not marked as ignorable (one known property: \"bookingRequest\"])\n at [Source: (PushbackInputStream); line: 1, column: 31] (through reference chain: io.mosip.preregistration.core.common.dto.MainRequestDTO[\"request\"]-\u003eio.mosip.preregistration.booking.dto.MultiBookingRequest[\"time_slot_from\"])"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_015</td>
+    <td>PRG_CORE_REQ_015</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_inValid_preRegistrationId()'><b>Prereg_BookAppointment_inValid_preRegistrationId</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_inValid_preRegistrationId, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"1234fgfgdb", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PRG_APP_013", "message": "No Records Found" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1725382189" onClick='toggleBox("Output-1725382189", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1725382189" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1725382189">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2023-07-14T16:26:15.058Z",
+  "preRegistrationId": "1234fgfgdb",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:26:17.203Z",
+  "errors": [
+    {
+      "errorCode": "PRG_APP_013",
+      "message": "No Records Found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>No Records Found</td>
+    <td>No Records Found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_APP_013</td>
+    <td>PRG_APP_013</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_missing_requesttime()'><b>Prereg_BookAppointment_missing_requesttime</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_missing_requesttime, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "$REMOVE$" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_003", "message": "Invalid request time" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1553338212" onClick='toggleBox("Output-1553338212", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1553338212" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1553338212">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00",
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16"
+  },
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "preRegistrationId": "51842975028036"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:37.392Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_003",
+      "message": "Invalid request time"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid request time</td>
+    <td>Invalid request time</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_003</td>
+    <td>PRG_CORE_REQ_003</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithPathParamsAndBody.Prereg_BookAppointment_previous_date()'><b>Prereg_BookAppointment_previous_date</b><br>Test class: io.mosip.testscripts.PostWithPathParamsAndBody (Prereg_BookAppointment_On_holiday)<br>Parameters: TestCaseDTO(testCaseName=Prereg_BookAppointment_previous_date, endPoint=/preregistration/v1/applications/appointment/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId":"$ID:CreatePrereg_All_Valid_Smoke_sid_preRegistrationId$", "registration_center_id": "$registration_center_id$", "id": "mosip.pre-registration.booking.book", "version": "1.0", "appointment_date": "$appointment_date$", "time_slot_from": "$time_slot_from$", "time_slot_to": "$time_slot_to$", "requesttime": "2017-02-15T04:31:23.613Z" }, output={ "errors": [ { "errorCode": "PRG_CORE_REQ_013", "message": "Request date should be current date" } ] }, inputTemplate=preReg/bookAppointment/bookAppointment, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1508612218" onClick='toggleBox("Output-1508612218", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1508612218" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1508612218">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "requesttime": "2017-02-15T04:31:23.613Z",
+  "preRegistrationId": "51842975028036",
+  "request": {
+    "registration_center_id": "10003",
+    "appointment_date": "2023-07-16",
+    "time_slot_from": "09:00:00",
+    "time_slot_to": "09:15:00"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/appointment/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.booking.book",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:27:48.704Z",
+  "errors": [
+    {
+      "errorCode": "PRG_CORE_REQ_013",
+      "message": "Request date should be current date"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Request date should be current date</td>
+    <td>Request date should be current date</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_CORE_REQ_013</td>
+    <td>PRG_CORE_REQ_013</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>io.mosip.testscripts.PostWithPathParamsAndBody@17c4dc5b</td></tr>
+</table><p>
+</body>
+</html>

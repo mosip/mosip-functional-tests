@@ -1,0 +1,557 @@
+<html>
+<head>
+<title>TestNG:  FetchGenderType</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>FetchGenderType</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Dec 16 14:56:13 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>2 seconds (2349 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Masterdata_FetchGenderType_Validate_gender_name_invalid()'><b>Masterdata_FetchGenderType_Validate_gender_name_invalid</b><br>Test class: io.mosip.testscripts.GetWithParam (Masterdata_FetchGenderType_invalid_langcode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_FetchGenderType_Validate_gender_name_invalid, endPoint=/v1/masterdata/gendertypes/validate/{gendername}, role=admin, templateFields=[], input={ "langcode":"$REMOVE$", "gendername":"M@@dfdf433556667" }, output={ "status": "Invalid" }, inputTemplate=masterdata/FetchGenderType/fetchGenderType, outputTemplate=masterdata/FetchGenderType/fetchGenderTypeValidationResult, restMethod=get)<br/>
+<a href="#Output-909595122" onClick='toggleBox("Output-909595122", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-909595122" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-909595122">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "gendername": "M@@dfdf433556667"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/validate/{gendername}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-16T09:26:15.429Z",
+  "response": {
+    "status": "Invalid"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>Invalid</td>
+    <td>Invalid</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@373e6b9d</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Masterdata_FetchGenderType_Validate_gender_name_smoke()'><b>Masterdata_FetchGenderType_Validate_gender_name_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Masterdata_FetchGenderType_invalid_langcode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_FetchGenderType_Validate_gender_name_smoke, endPoint=/v1/masterdata/gendertypes/validate/{gendername}, role=admin, templateFields=[], input={ "langcode":"$REMOVE$", "gendername":"Male" }, output={ "status": "$IGNORE$" }, inputTemplate=masterdata/FetchGenderType/fetchGenderType, outputTemplate=masterdata/FetchGenderType/fetchGenderTypeValidationResult, restMethod=get)<br/>
+<a href="#Output-104849493" onClick='toggleBox("Output-104849493", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-104849493" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-104849493">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "gendername": "Male"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/validate/{gendername}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-16T09:26:14.828Z",
+  "response": {
+    "status": "Valid"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@373e6b9d</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Masterdata_FetchGenderType_allValid_smoke_get()'><b>Masterdata_FetchGenderType_allValid_smoke_get</b><br>Test class: io.mosip.testscripts.GetWithParam (Masterdata_FetchGenderType_invalid_langcode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_FetchGenderType_allValid_smoke_get, endPoint=/v1/masterdata/gendertypes, role=admin, templateFields=null, input={ "langcode":"$REMOVE$", "gendername":"$REMOVE$" }, output={ "genderType": [{ "langCode": "$IGNORE$", "isActive": $IGNORE$ }] }, inputTemplate=masterdata/FetchGenderType/fetchGenderType, outputTemplate=masterdata/FetchGenderType/fetchGenderTypeResult, restMethod=get)<br/>
+<a href="#Output-1583308255" onClick='toggleBox("Output-1583308255", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1583308255" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1583308255">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-16T09:26:14.226Z",
+  "response": {
+    "genderType": [
+      {
+        "code": "MLE",
+        "genderName": "Male",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "FLE",
+        "genderName": "Female",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "MLE",
+        "genderName": "الذكر",
+        "langCode": "ara",
+        "isActive": true
+      },
+      {
+        "code": "FLE",
+        "genderName": "أنثى",
+        "langCode": "ara",
+        "isActive": true
+      },
+      {
+        "code": "MLE",
+        "genderName": "Mâle",
+        "langCode": "fra",
+        "isActive": true
+      },
+      {
+        "code": "FLE",
+        "genderName": "Femelle",
+        "langCode": "fra",
+        "isActive": true
+      },
+      {
+        "code": "AAA",
+        "genderName": "AAA",
+        "langCode": "ara",
+        "isActive": true
+      },
+      {
+        "code": "BBB",
+        "genderName": "BBB",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "g3",
+        "genderName": "AAA",
+        "langCode": "ara",
+        "isActive": true
+      },
+      {
+        "code": "Genderdummy",
+        "genderName": "TestGenderName updated",
+        "langCode": "eng",
+        "isActive": true
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(genderType)[5].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>fra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[8].code</td>
+    <td>NOT VERIFIED</td>
+    <td>g3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[3].code</td>
+    <td>NOT VERIFIED</td>
+    <td>FLE</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[7].code</td>
+    <td>NOT VERIFIED</td>
+    <td>BBB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[2].code</td>
+    <td>NOT VERIFIED</td>
+    <td>MLE</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[8].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[5].code</td>
+    <td>NOT VERIFIED</td>
+    <td>FLE</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[2].genderName</td>
+    <td>NOT VERIFIED</td>
+    <td>الذكر</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[4].code</td>
+    <td>NOT VERIFIED</td>
+    <td>MLE</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[3].genderName</td>
+    <td>NOT VERIFIED</td>
+    <td>أنثى</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[1].genderName</td>
+    <td>NOT VERIFIED</td>
+    <td>Female</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[4].genderName</td>
+    <td>NOT VERIFIED</td>
+    <td>Mâle</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[9].code</td>
+    <td>NOT VERIFIED</td>
+    <td>Genderdummy</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[6].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[4].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>fra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[9].genderName</td>
+    <td>NOT VERIFIED</td>
+    <td>TestGenderName updated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[8].genderName</td>
+    <td>NOT VERIFIED</td>
+    <td>AAA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[9].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[6].genderName</td>
+    <td>NOT VERIFIED</td>
+    <td>AAA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[7].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[5].genderName</td>
+    <td>NOT VERIFIED</td>
+    <td>Femelle</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[7].genderName</td>
+    <td>NOT VERIFIED</td>
+    <td>BBB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[6].code</td>
+    <td>NOT VERIFIED</td>
+    <td>AAA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(genderType)[1].code</td>
+    <td>NOT VERIFIED</td>
+    <td>FLE</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@373e6b9d</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Masterdata_FetchGenderType_invalid_langcode_unexisting()'><b>Masterdata_FetchGenderType_invalid_langcode_unexisting</b><br>Test class: io.mosip.testscripts.GetWithParam (Masterdata_FetchGenderType_invalid_langcode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_FetchGenderType_invalid_langcode_unexisting, endPoint=/v1/masterdata/gendertypes/{langcode}, role=admin, templateFields=[], input={ "langcode":"GER", "gendername":"$REMOVE$" }, output={ "errors": [ { "errorCode": "KER-MSD-018", "message": "Gender Type not found" } ] }, inputTemplate=masterdata/FetchGenderType/fetchGenderType, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-304605729" onClick='toggleBox("Output-304605729", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-304605729" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-304605729">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "GER"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://dev2.mosip.net/v1/masterdata/gendertypes/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-16T09:26:16.015Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-018",
+      "message": "Gender Type not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Gender Type not found</td>
+    <td>Gender Type not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-018</td>
+    <td>KER-MSD-018</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@373e6b9d</td></tr>
+</table><p>
+</body>
+</html>

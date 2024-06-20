@@ -1,0 +1,855 @@
+<html>
+<head>
+<title>TestNG:  LinkTransaction</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>LinkTransaction</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>15/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Aug 01 22:10:25 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>11 seconds (11532 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_Consent_Vid_SameClaim_all_Valid_Smoke_sid()'><b>ESignet_LinkTransaction_Consent_Vid_SameClaim_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_Consent_Vid_SameClaim_all_Valid_Smoke_sid, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "linkCode": "$ID:GenerateLinkCode_Consent_Vid_SameClaim_all_Valid_Smoke_sid_linkCode$" }, output={
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/LinkTransaction/LinkTransactionResult, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-685189361" onClick='toggleBox("Output-685189361", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-685189361" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-685189361">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:40:27.817Z",
+  "request": {
+    "linkCode": "cjI21NdzFrIPlUW"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:28.498Z",
+  "response": {
+    "linkTransactionId": "wm9BLB7FWjq2E4d5P_ZHTBZ8_XfKcLUoSS3JaisWqUY",
+    "clientName": "MOSIP OIDC Client",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    }
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_Consent_uin_SameClaim_all_Valid_Smoke_sid()'><b>ESignet_LinkTransaction_Consent_uin_SameClaim_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_Consent_uin_SameClaim_all_Valid_Smoke_sid, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "linkCode": "$ID:GenerateLinkCode_Consent_uin_SameClaim_all_Valid_Smoke_sid_linkCode$" }, output={
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/LinkTransaction/LinkTransactionResult, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-2077947235" onClick='toggleBox("Output-2077947235", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2077947235" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2077947235">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:40:26.991Z",
+  "request": {
+    "linkCode": "gxhLiVUQr0nPdty"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:27.624Z",
+  "response": {
+    "linkTransactionId": "0MT0Zw3c2ANWtRPlWwnNRD2kas9PeFKzsUy06nCsI_M",
+    "clientName": "MOSIP OIDC Client",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    }
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_Empty_LinkCode_Neg()'><b>ESignet_LinkTransaction_Empty_LinkCode_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_Empty_LinkCode_Neg, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "linkCode": "" }, output={ "errors": [ { "errorCode": "invalid_link_code", "errorMessage": "$IGNORE$" } ]
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-415511277" onClick='toggleBox("Output-415511277", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-415511277" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-415511277">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:40:35.775Z",
+  "request": {
+    "linkCode": ""
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:36.389Z",
+  "errors": [
+    {
+      "errorCode": "invalid_link_code",
+      "errorMessage": "request.linkCode: invalid_link_code"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_link_code</td>
+    <td>invalid_link_code</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_Empty_RequestTime_Neg()'><b>ESignet_LinkTransaction_Empty_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_Empty_RequestTime_Neg, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "", "linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ]
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-121483686" onClick='toggleBox("Output-121483686", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-121483686" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-121483686">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "",
+  "request": {
+    "linkCode": "wsjOuwRLW1SnlwS"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:33.230Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_Expired_LinkCode_Neg()'><b>ESignet_LinkTransaction_Expired_LinkCode_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_Expired_LinkCode_Neg, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "linkCode": "8VaJtjUopVpq8Hd" }, output={ "errors": [ { "errorCode": "invalid_link_code", "errorMessage": "$IGNORE$" } ]
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1198375087" onClick='toggleBox("Output-1198375087", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1198375087" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1198375087">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:40:35.070Z",
+  "request": {
+    "linkCode": "8VaJtjUopVpq8Hd"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:35.732Z",
+  "errors": [
+    {
+      "errorCode": "invalid_link_code",
+      "errorMessage": "invalid_link_code"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_link_code</td>
+    <td>invalid_link_code</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_Invalid_LinkCode_Neg()'><b>ESignet_LinkTransaction_Invalid_LinkCode_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_Invalid_LinkCode_Neg, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "linkCode": "$5Ng" }, output={ "errors": [ { "errorCode": "invalid_link_code", "errorMessage": "$IGNORE$" } ]
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-6267871" onClick='toggleBox("Output-6267871", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-6267871" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-6267871">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:40:33.270Z",
+  "request": {
+    "linkCode": "$5Ng"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:33.979Z",
+  "errors": [
+    {
+      "errorCode": "invalid_link_code",
+      "errorMessage": "invalid_link_code"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_link_code</td>
+    <td>invalid_link_code</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_Invalid_RequestTime_Neg()'><b>ESignet_LinkTransaction_Invalid_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_Invalid_RequestTime_Neg, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "2022-11-08T06:35:53", "linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ]
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-514983875" onClick='toggleBox("Output-514983875", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-514983875" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-514983875">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2022-11-08T06:35:53",
+  "request": {
+    "linkCode": "wsjOuwRLW1SnlwS"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:29.198Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_Missing_val_LinkCode_Neg()'><b>ESignet_LinkTransaction_Missing_val_LinkCode_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_Missing_val_LinkCode_Neg, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "linkCode": "$REMOVE$" }, output={ "errors": [ { "errorCode": "invalid_link_code", "errorMessage": "$IGNORE$" } ]
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1445905688" onClick='toggleBox("Output-1445905688", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1445905688" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1445905688">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:40:34.287Z",
+  "request": {}
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:35.030Z",
+  "errors": [
+    {
+      "errorCode": "invalid_link_code",
+      "errorMessage": "request.linkCode: invalid_link_code"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_link_code</td>
+    <td>invalid_link_code</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_Null_LinkCode_Neg()'><b>ESignet_LinkTransaction_Null_LinkCode_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_Null_LinkCode_Neg, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "linkCode": "null" }, output={ "errors": [ { "errorCode": "invalid_link_code", "errorMessage": "$IGONRE$" } ]
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-324998670" onClick='toggleBox("Output-324998670", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-324998670" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-324998670">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:40:36.437Z",
+  "request": {
+    "linkCode": "null"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:37.079Z",
+  "errors": [
+    {
+      "errorCode": "invalid_link_code",
+      "errorMessage": "invalid_link_code"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_link_code</td>
+    <td>invalid_link_code</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_RequestTime_FutureValue_Neg()'><b>ESignet_LinkTransaction_RequestTime_FutureValue_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_RequestTime_FutureValue_Neg, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "2024-01-16T00:17:54.649Z", "linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ]
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-779445238" onClick='toggleBox("Output-779445238", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-779445238" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-779445238">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2024-01-16T00:17:54.649Z",
+  "request": {
+    "linkCode": "wsjOuwRLW1SnlwS"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:30.528Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_RequestTime_PastValue_Neg()'><b>ESignet_LinkTransaction_RequestTime_PastValue_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_RequestTime_PastValue_Neg, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "2023-01-16T00:17:54.649Z", "linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ]
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1799623198" onClick='toggleBox("Output-1799623198", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1799623198" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1799623198">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-01-16T00:17:54.649Z",
+  "request": {
+    "linkCode": "wsjOuwRLW1SnlwS"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:29.837Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_Space_Val_RequestTime_Neg()'><b>ESignet_LinkTransaction_Space_Val_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_Space_Val_RequestTime_Neg, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": " ", "linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ]
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2047200712" onClick='toggleBox("Output-2047200712", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2047200712" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2047200712">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": " ",
+  "request": {
+    "linkCode": "wsjOuwRLW1SnlwS"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:32.569Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_all_Valid_Smoke_sid()'><b>ESignet_LinkTransaction_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_all_Valid_Smoke_sid, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$" }, output={
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/LinkTransaction/LinkTransactionResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1677690398" onClick='toggleBox("Output-1677690398", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1677690398" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1677690398">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:40:25.597Z",
+  "request": {
+    "linkCode": "wsjOuwRLW1SnlwS"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:26.213Z",
+  "response": {
+    "linkTransactionId": "AwYYEf_o2cUVHh8_9gjEamA03q1xcRbZooMJmru8wqc",
+    "clientName": "MOSIP OIDC Client",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    }
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_LinkTransaction_vid_all_Valid_Smoke_sid()'><b>ESignet_LinkTransaction_vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_LinkTransaction_vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "linkCode": "$ID:GenerateLinkCode_vid_all_Valid_Smoke_sid_linkCode$" }, output={
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/LinkTransaction/LinkTransactionResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1145479569" onClick='toggleBox("Output-1145479569", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1145479569" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1145479569">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:40:26.304Z",
+  "request": {
+    "linkCode": "OTLp2BdVjCVaCEb"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:26.914Z",
+  "response": {
+    "linkTransactionId": "gWgmMJ32C6dNhiKFfFoYvlC81jN6NIxYe4SEkDqukdg",
+    "clientName": "MOSIP OIDC Client",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    }
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_Link_Transaction_Absent_RequestTime_Neg()'><b>ESignet_Link_Transaction_Absent_RequestTime_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_LinkTransaction_Null_LinkCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=ESignet_Link_Transaction_Absent_RequestTime_Neg, endPoint=/v1/esignet/linked-authorization/link-transaction, role=resident, templateFields=null, input={ "requestTime": "$IGNORE$", "linkCode": "$ID:GenerateLinkCode_all_Valid_Smoke_sid_linkCode$" }, output={ "errors": [ { "errorCode": "invalid_request", "errorMessage": "$IGNORE$" } ]
+}, inputTemplate=esignet/LinkTransaction/LinkTransaction, outputTemplate=esignet/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-953949264" onClick='toggleBox("Output-953949264", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-953949264" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-953949264">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "$IGNORE$",
+  "request": {
+    "linkCode": "wsjOuwRLW1SnlwS"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/linked-authorization/link-transaction) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:40:31.531Z",
+  "errors": [
+    {
+      "errorCode": "invalid_request",
+      "errorMessage": "requestTime: invalid_request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>invalid_request</td>
+    <td>invalid_request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@54a056e4</td></tr>
+</table><p>
+</body>
+</html>

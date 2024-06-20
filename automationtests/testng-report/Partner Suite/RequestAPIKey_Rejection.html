@@ -1,0 +1,320 @@
+<html>
+<head>
+<title>TestNG:  RequestAPIKey_Rejection</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>RequestAPIKey_Rejection</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Sun Jan 09 20:23:04 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1455 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePatchForAutoGenId.Partner_SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid()'><b>Partner_SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePatchForAutoGenId (Partner_SubmitPartnerApiKeyRequest_invalid_partnerId)<br>Parameters: TestCaseDTO(testCaseName=Partner_SubmitPartnerApiKeyRequest_All_Valid_Smoke_sid, endPoint=/v1/partnermanager/partners/Tech-123/apikey/request, role=partner, templateFields=null, input={ "policyName": "mosip policy", "useCaseDescription": "Need to submit the payment", "requesttime": "$TIMESTAMP$" }, output= { "apiRequestId": "254785", "message": "PartnerAPIKeyRequest successfully submitted.", "apikeyId": null }, inputTemplate=partner/authPartner/RequestAPIKey/requestApiKey, outputTemplate=partner/authPartner/RequestAPIKey/requestApiKeyResult, restMethod=patch)<br/>
+<a href="#Output-1102782217" onClick='toggleBox("Output-1102782217", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1102782217" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1102782217">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "policyName": "mosip policy",
+    "useCaseDescription": "Need to submit the payment"
+  },
+  "requesttime": "2022-01-09T14:53:04.601Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/partnermanager/partners/Tech-123/apikey/request) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2022-01-09T14:53:05.060Z",
+  "errors": [
+    {
+      "errorCode": "PMS_PMP_016",
+      "message": "Partner is not active."
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Partner is not active.</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>PMS_PMP_016</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.apikeyId</td>
+    <td>null</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+  <tr>
+    <td>response.message</td>
+    <td>PartnerAPIKeyRequest successfully submitted.</td>
+    <td>NOT AVAILABLE</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePatchForAutoGenId.test(SimplePatchForAutoGenId.java:105)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:85)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:43)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1102782217", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1102782217'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePatchForAutoGenId.test(SimplePatchForAutoGenId.java:105)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:85)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:43)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePatchForAutoGenId@71454b9d</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePatchForAutoGenId.Partner_SubmitPartnerApiKeyRequest_invalid_policyName()'><b>Partner_SubmitPartnerApiKeyRequest_invalid_policyName</b><br>Test class: io.mosip.testscripts.SimplePatchForAutoGenId (Partner_SubmitPartnerApiKeyRequest_invalid_partnerId)<br>Parameters: TestCaseDTO(testCaseName=Partner_SubmitPartnerApiKeyRequest_invalid_policyName, endPoint=/v1/partnermanager/partners/Tech-123/apikey/request, role=partner, templateFields=null, input={ "policyName": "abc", "useCaseDescription": "Need to submit the payment", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_PRT_098", "message": "$IGNORE$" } ] }, inputTemplate=partner/authPartner/RequestAPIKey/requestApiKey, outputTemplate=partner/error, restMethod=patch)<br/>
+<a href="#Output-1514969303" onClick='toggleBox("Output-1514969303", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1514969303" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1514969303">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "policyName": "abc",
+    "useCaseDescription": "Need to submit the payment"
+  },
+  "requesttime": "2022-01-09T14:53:05.080Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/partnermanager/partners/Tech-123/apikey/request) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2022-01-09T14:53:05.531Z",
+  "errors": [
+    {
+      "errorCode": "PMS_PMP_016",
+      "message": "Partner is not active."
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_PRT_098</td>
+    <td>PMS_PMP_016</td>
+    <td bgcolor='RED'>FAIL</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePatchForAutoGenId.test(SimplePatchForAutoGenId.java:105)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:85)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:43)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1514969303", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1514969303'><pre>io.mosip.admin.fw.util.AdminTestException: Failed at output validation
+	at io.mosip.testscripts.SimplePatchForAutoGenId.test(SimplePatchForAutoGenId.java:105)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:85)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:43)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePatchForAutoGenId@71454b9d</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePatchForAutoGenId.Partner_SubmitPartnerApiKeyRequest_invalid_partnerId()'><b>Partner_SubmitPartnerApiKeyRequest_invalid_partnerId</b><br>Test class: io.mosip.testscripts.SimplePatchForAutoGenId (Partner_SubmitPartnerApiKeyRequest_invalid_partnerId)<br>Parameters: TestCaseDTO(testCaseName=Partner_SubmitPartnerApiKeyRequest_invalid_partnerId, endPoint=/v1/partnermanager/partners/Tech-1231234/apikey/request, role=partner, templateFields=null, input={ "policyName": "abc", "useCaseDescription": "Need to submit the payment", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_PRT_005", "message": "Partner does not exist" } ] }, inputTemplate=partner/authPartner/RequestAPIKey/requestApiKey, outputTemplate=partner/error, restMethod=patch)<br/>
+<a href="#Output-358115395" onClick='toggleBox("Output-358115395", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-358115395" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-358115395">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "policyName": "abc",
+    "useCaseDescription": "Need to submit the payment"
+  },
+  "requesttime": "2022-01-09T14:53:05.548Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/partnermanager/partners/Tech-1231234/apikey/request) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2022-01-09T14:53:06.021Z",
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_005",
+      "message": "Partner does not exist"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Partner does not exist</td>
+    <td>Partner does not exist</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_PRT_005</td>
+    <td>PMS_PRT_005</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePatchForAutoGenId@71454b9d</td></tr>
+</table><p>
+</body>
+</html>

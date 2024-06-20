@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>TestNG:  RemoveMapDeviceWithSBI</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>RemoveMapDeviceWithSBI</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:31:47 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (741 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Partner_RemoveMapDeviceWithSBI_All_Valid_Smoke_sid()'><b>Partner_RemoveMapDeviceWithSBI_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePut (Partner_RemoveMapDeviceWithSBI_All_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=Partner_RemoveMapDeviceWithSBI_All_Valid_Smoke_sid, endPoint=/v1/partnermanager/securebiometricinterface/devicedetails/map/remove, role=partner, templateFields=null, input={ "deviceDetailId": "device-id-123", "sbiId": "$ID:SaveSecureBiometricInterface_All_Valid_Smoke_sid_id$" }, output={ "response": "Success" }, inputTemplate=partner/device/SecureBiometricInterface/RemoveMapDeviceWithSBI/removeMapDeviceWithSBI, outputTemplate=partner/device/SecureBiometricInterface/RemoveMapDeviceWithSBI/removeMapDeviceWithSBIResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2097702021" onClick='toggleBox("Output-2097702021", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2097702021" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2097702021">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "requesttime": "",
+  "metadata": {},
+  "request": {
+    "deviceDetailId": "device-id-123",
+    "sbiId": "feea3037-8b7e-4f7e-8dd9-16aed490798f"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/securebiometricinterface/devicedetails/map/remove) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:48.021Z",
+  "response": "Success",
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>Success</td>
+    <td>Success</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@30517a57</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,671 @@
+<html>
+<head>
+<title>TestNG:  CreateTemplateFileFormat</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>CreateTemplateFileFormat</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>9/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 20 13:38:46 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>3 seconds (3168 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateTemplateFileFormat_All_Valid_Smoke_sid()'><b>Masterdata_CreateTemplateFileFormat_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateTemplateFileFormat_All_Valid_Smoke_sid, endPoint=/v1/masterdata/templatefileformats, role=admin, templateFields=[langCode], input={ "code": "Doc", "description": "Doc Test", "isActive": false, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "code": "Doc", "langCode": "eng" }, inputTemplate=masterdata/TemplateFileFormat/templateFileFormat, outputTemplate=masterdata/TemplateFileFormat/templateFileFormatResult, restMethod=post)<br/>
+<a href="#Output-1315514135" onClick='toggleBox("Output-1315514135", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1315514135" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1315514135">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "Doc",
+    "description": "Doc Test",
+    "isActive": false,
+    "langCode": "ara"
+  },
+  "requesttime": "2022-09-20T08:08:46.183Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templatefileformats) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:08:46.508Z",
+  "response": {
+    "code": "Doc",
+    "langCode": "ara"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>ara</td>
+    <td>ara</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>Doc</td>
+    <td>Doc</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@e249b2c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateTemplateFileFormat_InputParameter_Code_AboveMaxLen36()'><b>Masterdata_CreateTemplateFileFormat_InputParameter_Code_AboveMaxLen36</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateTemplateFileFormat_InputParameter_Code_AboveMaxLen36, endPoint=/v1/masterdata/templatefileformats, role=admin, templateFields=null, input={ "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk", "description": "Docxx Test", "isActive": false, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/TemplateFileFormat/templateFileFormat, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1269400404" onClick='toggleBox("Output-1269400404", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1269400404" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1269400404">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "description": "Docxx Test",
+    "isActive": false,
+    "langCode": "eng"
+  },
+  "requesttime": "2022-09-20T08:08:48.297Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templatefileformats) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:08:48.622Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@e249b2c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateTemplateFileFormat_InputParameter_Code_Empty()'><b>Masterdata_CreateTemplateFileFormat_InputParameter_Code_Empty</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateTemplateFileFormat_InputParameter_Code_Empty, endPoint=/v1/masterdata/templatefileformats, role=admin, templateFields=null, input={ "code": "", "description": "Docxx Test", "isActive": false, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/TemplateFileFormat/templateFileFormat, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-2106029193" onClick='toggleBox("Output-2106029193", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2106029193" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2106029193">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "",
+    "description": "Docxx Test",
+    "isActive": false,
+    "langCode": "eng"
+  },
+  "requesttime": "2022-09-20T08:08:47.949Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templatefileformats) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:08:48.278Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@e249b2c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateTemplateFileFormat_InputParameter_Code_Missing()'><b>Masterdata_CreateTemplateFileFormat_InputParameter_Code_Missing</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateTemplateFileFormat_InputParameter_Code_Missing, endPoint=/v1/masterdata/templatefileformats, role=admin, templateFields=null, input={ "code": "$REMOVE$", "description": "Docxx Test", "isActive": false, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: must not be null" } ] }, inputTemplate=masterdata/TemplateFileFormat/templateFileFormat, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1304342922" onClick='toggleBox("Output-1304342922", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1304342922" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1304342922">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "langCode": "eng",
+    "description": "Docxx Test",
+    "isActive": false
+  },
+  "metadata": {},
+  "requesttime": "2022-09-20T08:08:47.609Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templatefileformats) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:08:47.934Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: must not be null</td>
+    <td>request.code: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@e249b2c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateTemplateFileFormat_InputParameter_Description_AboveMaxLen256()'><b>Masterdata_CreateTemplateFileFormat_InputParameter_Description_AboveMaxLen256</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateTemplateFileFormat_InputParameter_Description_AboveMaxLen256, endPoint=/v1/masterdata/templatefileformats, role=admin, templateFields=null, input={ "code": "Docx", "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW", "isActive": false, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.description: Should not be blank or size must be between 1 and 256" } ] }, inputTemplate=masterdata/TemplateFileFormat/templateFileFormat, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1156658546" onClick='toggleBox("Output-1156658546", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1156658546" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1156658546">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "Docx",
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
+    "isActive": false,
+    "langCode": "eng"
+  },
+  "requesttime": "2022-09-20T08:08:46.548Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templatefileformats) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:08:46.887Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: Should not be blank or size must be between 1 and 256"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.description: Should not be blank or size must be between 1 and 256</td>
+    <td>request.description: Should not be blank or size must be between 1 and 256</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@e249b2c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateTemplateFileFormat_InputParameter_Description_Empty()'><b>Masterdata_CreateTemplateFileFormat_InputParameter_Description_Empty</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateTemplateFileFormat_InputParameter_Description_Empty, endPoint=/v1/masterdata/templatefileformats, role=admin, templateFields=null, input={ "code": "Docxx", "description": "", "isActive": false, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.description: Should not be blank or size must be between 1 and 256" } ] }, inputTemplate=masterdata/TemplateFileFormat/templateFileFormat, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-2039714437" onClick='toggleBox("Output-2039714437", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2039714437" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2039714437">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "Docxx",
+    "description": "",
+    "isActive": false,
+    "langCode": "eng"
+  },
+  "requesttime": "2022-09-20T08:08:47.262Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templatefileformats) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:08:47.586Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: Should not be blank or size must be between 1 and 256"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.description: Should not be blank or size must be between 1 and 256</td>
+    <td>request.description: Should not be blank or size must be between 1 and 256</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@e249b2c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateTemplateFileFormat_InputParameter_Description_Missing()'><b>Masterdata_CreateTemplateFileFormat_InputParameter_Description_Missing</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateTemplateFileFormat_InputParameter_Description_Missing, endPoint=/v1/masterdata/templatefileformats, role=admin, templateFields=null, input={ "code": "Docxx", "description": "$REMOVE$", "isActive": false, "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.description: must not be null" } ] }, inputTemplate=masterdata/TemplateFileFormat/templateFileFormat, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1735534775" onClick='toggleBox("Output-1735534775", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1735534775" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1735534775">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "code": "Docxx",
+    "langCode": "eng",
+    "isActive": false
+  },
+  "metadata": {},
+  "requesttime": "2022-09-20T08:08:46.902Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templatefileformats) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:08:47.247Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.description: must not be null</td>
+    <td>request.description: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@e249b2c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateTemplateFileFormat_InputParameter_LangCode_AboveMaxLen3()'><b>Masterdata_CreateTemplateFileFormat_InputParameter_LangCode_AboveMaxLen3</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateTemplateFileFormat_InputParameter_LangCode_AboveMaxLen3, endPoint=/v1/masterdata/templatefileformats, role=admin, templateFields=null, input={ "code": "docx1", "description": "Docxx Test", "isActive": false, "langCode": "engr", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.langCode: Should not be blank or size must be between 3 and 3" } ] }, inputTemplate=masterdata/TemplateFileFormat/templateFileFormat, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-657217224" onClick='toggleBox("Output-657217224", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-657217224" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-657217224">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "docx1",
+    "description": "Docxx Test",
+    "isActive": false,
+    "langCode": "engr"
+  },
+  "requesttime": "2022-09-20T08:08:48.638Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templatefileformats) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:08:48.962Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.langCode: Should not be blank or size must be between 3 and 3"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.langCode: Should not be blank or size must be between 3 and 3</td>
+    <td>request.langCode: Should not be blank or size must be between 3 and 3</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@e249b2c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing()'><b>Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateTemplateFileFormat_InputParameter_isActive_Missing, endPoint=/v1/masterdata/templatefileformats, role=admin, templateFields=null, input={ "code": "docx1", "description": "Docxx Test", "isActive": "$REMOVE$", "langCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.isActive: must not be null" } ] }, inputTemplate=masterdata/TemplateFileFormat/templateFileFormat, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1247326109" onClick='toggleBox("Output-1247326109", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1247326109" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1247326109">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "code": "docx1",
+    "langCode": "eng",
+    "description": "Docxx Test"
+  },
+  "metadata": {},
+  "requesttime": "2022-09-20T08:08:48.977Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/templatefileformats) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2022-09-20T08:08:49.319Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.isActive: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.isActive: must not be null</td>
+    <td>request.isActive: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@e249b2c</td></tr>
+</table><p>
+</body>
+</html>

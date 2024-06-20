@@ -1,0 +1,505 @@
+<html>
+<head>
+<title>TestNG:  CreatePolicyGroup</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>CreatePolicyGroup</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>8/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:27:36 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>10 seconds (10129 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Partner_DefinePolicyGroup_All_Valid_Smoke_sid()'><b>Partner_DefinePolicyGroup_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Partner_DefinePolicyGroup_Missing_InputParameter_name)<br>Parameters: TestCaseDTO(testCaseName=Partner_DefinePolicyGroup_All_Valid_Smoke_sid, endPoint=/v1/policymanager/policies/group/new, role=partner, templateFields=null, input={ "desc": "desc mosip policy group", "name": "mosip policy group", "requesttime": "$TIMESTAMP$" }, output= { "id": "$IGNORE$", "name": "mosip policy group", "desc": "desc mosip policy group", "is_Active": true }, inputTemplate=partner/policy/DefinePolicyGroup/definePolicyGroup, outputTemplate=partner/policy/DefinePolicyGroup/definePolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-139762783" onClick='toggleBox("Output-139762783", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-139762783" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-139762783">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "desc mosip policy group",
+    "name": "mosip policy group"
+  },
+  "requesttime": "2023-07-14T16:57:36.508Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/new) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T16:57:38.333Z",
+  "response": {
+    "id": "63894",
+    "name": "mosip policy group",
+    "desc": "desc mosip policy group",
+    "is_Active": true,
+    "cr_by": "partner-111997",
+    "cr_dtimes": "2023-07-14T16:57:38.266157"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td>mosip policy group</td>
+    <td>mosip policy group</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.desc</td>
+    <td>desc mosip policy group</td>
+    <td>desc mosip policy group</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Partner_DefinePolicyGroup_AlreadyExists_InValid()'><b>Partner_DefinePolicyGroup_AlreadyExists_InValid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Partner_DefinePolicyGroup_Missing_InputParameter_name)<br>Parameters: TestCaseDTO(testCaseName=Partner_DefinePolicyGroup_AlreadyExists_InValid, endPoint=/v1/policymanager/policies/group/new, role=partner, templateFields=null, input={ "desc": "desc mosip policy group", "name": "mosip policy group", "requesttime": "$TIMESTAMP$" }, output= { "errors": [ { "errorCode": "PMS_POL_014", "message": "Policy group exists with name : mosip policy group" } ] }, inputTemplate=partner/policy/DefinePolicyGroup/definePolicyGroup, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1126853225" onClick='toggleBox("Output-1126853225", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1126853225" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1126853225">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "desc mosip policy group",
+    "name": "mosip policy group"
+  },
+  "requesttime": "2023-07-14T16:57:42.501Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/new) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T16:57:43.361Z",
+  "errors": [
+    {
+      "errorCode": "PMS_POL_014",
+      "message": "Policy group exists with name : mosip policy group"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_POL_014</td>
+    <td>PMS_POL_014</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Partner_DefinePolicyGroup_InActive_All_Valid_Smoke_sid()'><b>Partner_DefinePolicyGroup_InActive_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Partner_DefinePolicyGroup_Missing_InputParameter_name)<br>Parameters: TestCaseDTO(testCaseName=Partner_DefinePolicyGroup_InActive_All_Valid_Smoke_sid, endPoint=/v1/policymanager/policies/group/new, role=partner, templateFields=null, input={ "desc": "desc mosip policy group2", "name": "mosip policy group2", "requesttime": "$TIMESTAMP$" }, output= { "id": "$IGNORE$", "name": "mosip policy group2", "desc": "desc mosip policy group2", "is_Active": true }, inputTemplate=partner/policy/DefinePolicyGroup/definePolicyGroup, outputTemplate=partner/policy/DefinePolicyGroup/definePolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-590794129" onClick='toggleBox("Output-590794129", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-590794129" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-590794129">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "desc mosip policy group2",
+    "name": "mosip policy group2"
+  },
+  "requesttime": "2023-07-14T16:57:41.524Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/new) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T16:57:42.485Z",
+  "response": {
+    "id": "88761",
+    "name": "mosip policy group2",
+    "desc": "desc mosip policy group2",
+    "is_Active": true,
+    "cr_by": "partner-111997",
+    "cr_dtimes": "2023-07-14T16:57:42.418484"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td>mosip policy group2</td>
+    <td>mosip policy group2</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.desc</td>
+    <td>desc mosip policy group2</td>
+    <td>desc mosip policy group2</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Partner_DefinePolicyGroup_Missing_InputParameter_desc()'><b>Partner_DefinePolicyGroup_Missing_InputParameter_desc</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Partner_DefinePolicyGroup_Missing_InputParameter_name)<br>Parameters: TestCaseDTO(testCaseName=Partner_DefinePolicyGroup_Missing_InputParameter_desc, endPoint=/v1/policymanager/policies/group/new, role=partner, templateFields=null, input={ "desc": "$REMOVE$", "name": "mosip policy group", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_COR_001", "message": "Invalid request parameter - value is empty or null :request.desc" } ] }, inputTemplate=partner/policy/DefinePolicyGroup/definePolicyGroup, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2122967975" onClick='toggleBox("Output-2122967975", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2122967975" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2122967975">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "name": "mosip policy group"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T16:57:44.358Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/new) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T16:57:45.125Z",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - value is empty or null :request.desc"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_001</td>
+    <td>PMS_COR_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Partner_DefinePolicyGroup_Missing_InputParameter_name()'><b>Partner_DefinePolicyGroup_Missing_InputParameter_name</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Partner_DefinePolicyGroup_Missing_InputParameter_name)<br>Parameters: TestCaseDTO(testCaseName=Partner_DefinePolicyGroup_Missing_InputParameter_name, endPoint=/v1/policymanager/policies/group/new, role=partner, templateFields=null, input={ "desc": "desc mosip policy group", "name": "$REMOVE$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_COR_001", "message": "Invalid request parameter - value is empty or null :request.name" } ] }, inputTemplate=partner/policy/DefinePolicyGroup/definePolicyGroup, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2050024203" onClick='toggleBox("Output-2050024203", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2050024203" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2050024203">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "desc": "desc mosip policy group"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T16:57:45.145Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/new) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T16:57:46.170Z",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - value is empty or null :request.name"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_001</td>
+    <td>PMS_COR_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Partner_DefinePolicyGroup_UpdatePolicyGroupForPartner_AllValid_Smoke_sid()'><b>Partner_DefinePolicyGroup_UpdatePolicyGroupForPartner_AllValid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Partner_DefinePolicyGroup_Missing_InputParameter_name)<br>Parameters: TestCaseDTO(testCaseName=Partner_DefinePolicyGroup_UpdatePolicyGroupForPartner_AllValid_Smoke_sid, endPoint=/v1/policymanager/policies/group/new, role=partner, templateFields=null, input={ "desc": "desc update policy group", "name": "update_policy_group", "requesttime": "$TIMESTAMP$" }, output= { "id": "$IGNORE$", "name": "update_policy_group", "desc": "desc update policy group", "is_Active": true }, inputTemplate=partner/policy/DefinePolicyGroup/definePolicyGroup, outputTemplate=partner/policy/DefinePolicyGroup/definePolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-408107501" onClick='toggleBox("Output-408107501", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-408107501" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-408107501">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "desc update policy group",
+    "name": "update_policy_group"
+  },
+  "requesttime": "2023-07-14T16:57:43.389Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/new) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T16:57:44.343Z",
+  "response": {
+    "id": "41242",
+    "name": "update_policy_group",
+    "desc": "desc update policy group",
+    "is_Active": true,
+    "cr_by": "partner-111997",
+    "cr_dtimes": "2023-07-14T16:57:44.242443"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td>update_policy_group</td>
+    <td>update_policy_group</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.desc</td>
+    <td>desc update policy group</td>
+    <td>desc update policy group</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Partner_DefinePolicyGroup_with_policy_manager_role_Smoke_sid()'><b>Partner_DefinePolicyGroup_with_policy_manager_role_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Partner_DefinePolicyGroup_Missing_InputParameter_name)<br>Parameters: TestCaseDTO(testCaseName=Partner_DefinePolicyGroup_with_policy_manager_role_Smoke_sid, endPoint=/v1/policymanager/policies/group/new, role=policytest, templateFields=null, input={ "desc": "desc mosip policy group 9983", "name": "mosip policy role testing groupp", "requesttime": "$TIMESTAMP$" }, output= { "id": "$IGNORE$", "name": "mosip policy role testing groupp", "desc": "desc mosip policy group 9983", "is_Active": true }, inputTemplate=partner/policy/DefinePolicyGroup/definePolicyGroup, outputTemplate=partner/policy/DefinePolicyGroup/definePolicyGroupResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1085016662" onClick='toggleBox("Output-1085016662", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1085016662" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1085016662">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "desc mosip policy group 9983",
+    "name": "mosip policy role testing groupp"
+  },
+  "requesttime": "2023-07-14T16:57:38.510Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/new) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T16:57:40.052Z",
+  "response": {
+    "id": "71370",
+    "name": "mosip policy role testing groupp",
+    "desc": "desc mosip policy group 9983",
+    "is_Active": true,
+    "cr_by": "partner-111998",
+    "cr_dtimes": "2023-07-14T16:57:39.925591"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>true</td>
+    <td>true</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td>mosip policy role testing groupp</td>
+    <td>mosip policy role testing groupp</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.desc</td>
+    <td>desc mosip policy group 9983</td>
+    <td>desc mosip policy group 9983</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Partner_DefinePolicyGroup_without_policy_manager_role_sid()'><b>Partner_DefinePolicyGroup_without_policy_manager_role_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Partner_DefinePolicyGroup_Missing_InputParameter_name)<br>Parameters: TestCaseDTO(testCaseName=Partner_DefinePolicyGroup_without_policy_manager_role_sid, endPoint=/v1/policymanager/policies/group/new, role=admin, templateFields=null, input={ "desc": "desc mosip policy group 9983", "name": "mosip policy role testing groupp", "requesttime": "$TIMESTAMP$" }, output= { "errors": [ { "errorCode": "KER-ATH-403", "message": "Forbidden" } ] }, inputTemplate=partner/policy/DefinePolicyGroup/definePolicyGroup, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1285933977" onClick='toggleBox("Output-1285933977", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1285933977" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1285933977">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "desc": "desc mosip policy group 9983",
+    "name": "mosip policy role testing groupp"
+  },
+  "requesttime": "2023-07-14T16:57:40.179Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/policymanager/policies/group/new) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T16:57:41.508Z",
+  "errors": [
+    {
+      "errorCode": "KER-ATH-403",
+      "message": "Forbidden"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-ATH-403</td>
+    <td>KER-ATH-403</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@60dcf9ec</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>TestNG:  GetOidcUserInfoLinkedConsent</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetOidcUserInfoLinkedConsent</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Aug 01 22:10:10 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1380 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.ESignet_GetOidcUserInfo_LinkedConsent_Vid_IdpAccessToken_StatusCode_Valid_Smoke_sid()'><b>ESignet_GetOidcUserInfo_LinkedConsent_Vid_IdpAccessToken_StatusCode_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (ESignet_GetOidcUserInfo_LinkedConsent_Vid_IdpAccessToken_StatusCode_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_GetOidcUserInfo_LinkedConsent_Vid_IdpAccessToken_StatusCode_Valid_Smoke_sid, endPoint=/v1/esignet/oidc/userinfo, role=resident, templateFields=null, input={ "idpAccessToken": "$ID:GenerateToken_LinkedConsent_Vid_Valid_Smoke_sid_access_token$" }, output=200, inputTemplate=esignet/Consent/GetOidcUserInfoConsent/GetOidcUserInfoConsent, outputTemplate=esignet/Consent/GetOidcUserInfoConsent/GetOidcUserInfoConsentResult, restMethod=get, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1164219495" onClick='toggleBox("Output-1164219495", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1164219495" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1164219495">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "idpAccessToken": "eyJraWQiOiJRXy05bjN3dTgxQmgwa0hQSC1vb1BLaVl0eDRDM3NUTHdFU2k1NjYyZ0JBIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIzNDE1NDE3MjUyODc0MTYzOTU4MDU4MDE0MDM0Mjg4NjQ3MzkiLCJhdWQiOiJhRHF5azR6NFhHTjNfMHg3ZjVoRUVTc1gzRXNVazhlU3NTQkR0NXVEYXRzIiwiaXNzIjoiaHR0cHM6XC9cL2VzaWduZXQuZGV2My5tb3NpcC5uZXRcL3YxXC9lc2lnbmV0IiwiZXhwIjoxNjkwOTExNjA5LCJpYXQiOjE2OTA5MDgwMDl9.teNxTr40uPZQpo2joT3FHlpQs2Fab0nCQqs8-3PdAosq1FsfcbwflsswG3Fg5KLjcGgqrQlkZ06TCiQJ4ikDCBuJAykEnE_992IxszGfCeD02eic54zvKeRKDAlK7L6KAwhTPMDaJNVnjPZsrO0waYuNQ1xEOvQUg5n6xIshmoKV-muNK-dLdUPaVgCFTgNnlGk1btJN29m3Pyuufm37ss2iacKuVYEyi3wS8Fuh_XhPxWM7gw2aEByY4z3qD6pf4Z9X2je5WCkQJnn-2essPcrobWSG3t5NoaObVUOZWN3OZ9E1L2bAwok4Gfbdv9yVoobCkBDbN_M8k2mHvCKBXA"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/oidc/userinfo) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>"eyJraWQiOiJ0azRQMUppMmwwNElPRmVRRE5kdWtqcXR4a1UzZXg1aVo0c3J4bmRJXy1rIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIzNDE1NDE3MjUyODc0MTYzOTU4MDU4MDE0MDM0Mjg4NjQ3MzkiLCJnZW5kZXIiOiJNTEVlbmciLCJuYW1lIjoiVEVTVF9GVUxMTkFNRWVuZyIsImVtYWlsIjoiRVNpZ25ldF9BZGRJZGVudGl0eV9MaW5rZWRfQ29uc2VudF9WaWRfc21va2VfUG9zQG1vc2lwLm5ldCJ9.AaqJ6HdezwHUewpsHEH72DbeOW8zNsSWhwlgkia90bJYsgP3Cxr0aM4xY3TxdZo0u7qZ0E2-aG9gmBWCLs_gE1ldWCftRZjHbVtVCZPDvuA9-hDt2GAH37ad8XNpd8eXH5vZNf1iJ1gPUgb-Xh2pr6I-x1cZQtJ3yzTmF1JRroHhBL_hGoW70DosokP5UMe65EVWfJTF3SwQh2qkC7t0B0Y80PTwUNumPb8kC2ZxxP2dwUkmbQsHZjEirlLabYCBefvAaUyYeDcZ6T-NJZ0YoEXjkDtYzWxYOMa0OG3oIUrGqpkan_GhtPBQrGwligrgfIXA-rjAwCH8miu3BW5Wqg"</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>200</td>
+    <td>200</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@7e2c6702</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.ESignet_GetOidcUserInfo_LinkedConsent_uin_IdpAccessToken_StatusCode_Valid_Smoke_sid()'><b>ESignet_GetOidcUserInfo_LinkedConsent_uin_IdpAccessToken_StatusCode_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (ESignet_GetOidcUserInfo_LinkedConsent_Vid_IdpAccessToken_StatusCode_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_GetOidcUserInfo_LinkedConsent_uin_IdpAccessToken_StatusCode_Valid_Smoke_sid, endPoint=/v1/esignet/oidc/userinfo, role=resident, templateFields=null, input={ "idpAccessToken": "$ID:GenerateToken_LinkedConsent_uin_Valid_Smoke_sid_access_token$" }, output=200, inputTemplate=esignet/Consent/GetOidcUserInfoConsent/GetOidcUserInfoConsent, outputTemplate=esignet/Consent/GetOidcUserInfoConsent/GetOidcUserInfoConsentResult, restMethod=get, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1836115595" onClick='toggleBox("Output-1836115595", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1836115595" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1836115595">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "idpAccessToken": "eyJraWQiOiJRXy05bjN3dTgxQmgwa0hQSC1vb1BLaVl0eDRDM3NUTHdFU2k1NjYyZ0JBIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIyOTQ2NTE1Mjc3MTk4NzU5MzIzOTg3MzEwNjUzODY2OTA3ODciLCJhdWQiOiJhRHF5azR6NFhHTjNfMHg3ZjVoRUVTc1gzRXNVazhlU3NTQkR0NXVEYXRzIiwiaXNzIjoiaHR0cHM6XC9cL2VzaWduZXQuZGV2My5tb3NpcC5uZXRcL3YxXC9lc2lnbmV0IiwiZXhwIjoxNjkwOTExNjA3LCJpYXQiOjE2OTA5MDgwMDd9.eC7MYLyF9wN8LCk6kn1HY7DYD1S1EYj6I2yEDl0YTo1Vb_0eirMRAdwvGUO18l-czDzQrQWFGhxrM81PVh80nZvBIZKflwK29cau0HxdTdZmIFOmyhIndf6PijLhhIMN3q8lpyLotET5j8jNztj-FtK6DTOARNjk31wFVRFH1gV1P5DLfFYQXZyJq7LmGYeBDoyyYEFmXLj9mKtuszc2WlnABS9qeVDPj-x7m-fvZsMaXuNE4377efZYVvKeBrNQKaoApOzZr_TgnRfDV_SN7h_FrVnCAWvLzjW1vbeffg0YuiUzajlnn0KV4b8eRU0VHWnXTI2MZ28nHddiWTeR-A"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/oidc/userinfo) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>"eyJraWQiOiJ0azRQMUppMmwwNElPRmVRRE5kdWtqcXR4a1UzZXg1aVo0c3J4bmRJXy1rIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIyOTQ2NTE1Mjc3MTk4NzU5MzIzOTg3MzEwNjUzODY2OTA3ODciLCJnZW5kZXIiOiJNTEVlbmciLCJuYW1lIjoiVEVTVF9GVUxMTkFNRWVuZyIsImVtYWlsIjoiRVNpZ25ldF9BZGRJZGVudGl0eV9MaW5rZWRfQ29uc2VudF9zbW9rZV9Qb3NAbW9zaXAubmV0In0.KWgkEgErr1EcEzyZP5UMZSC6M_cPff6y2PXvB6RsUctzwXZHFYEmip07YfXr4ky6f95yAeKpuKteqWzueUP5eEZcoSWPykKHHkas-AUz2jwRx7Fa3gQ1_lhlSoYn1lwMr4Cy7QFP-ho6QITRdOirDBw7d9dbyUuEhLLhomuLh98PVxz7QXC11QBSI-YDt-cLDRntdbf7RwBIlYPJrav63LTakmSzdv43L6mZUdHo5kbVoNRm0GRKVnptfcxnpFPNpHehuowXfx9ltBgibtaLjqG62PE7Qk5lQGTMF78LFIdMu9Du25s_3Jn44vvXaQLTS4rYonxNKvs5ybnuCsY0jA"</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>200</td>
+    <td>200</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@7e2c6702</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,1039 @@
+<html>
+<head>
+<title>TestNG:  DeviceSearch</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>DeviceSearch</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>8/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:48:31 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>6 seconds (6278 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSearch_ASC_Name_eng_pos()'><b>MasterData_DeviceSearch_ASC_Name_eng_pos</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSearch_ASC_Name_eng_pos, endPoint=/v1/masterdata/devices/search, role=globalAdmin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "contains", "value": "Mock IRIS Scanner", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "$IGNORE$", "serialNum": "3456789012", "description": "$IGNORE$", "macAddress": "85-BB-97-4B-14-05", "ipAddress": "$IGNORE$", "deviceSpecId": "327", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "validityDateTime": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSearch/deviceSearch, outputTemplate=masterdata/DeviceSearch/deviceSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-893634980" onClick='toggleBox("Output-893634980", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-893634980" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-893634980">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "contains",
+        "value": "Mock IRIS Scanner",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:18:33.794Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devices/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:18:34.452Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 12,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:31.509Z",
+        "isDeleted": false,
+        "id": "1001",
+        "name": "Mock IRIS Scanner",
+        "serialNum": "3456789012",
+        "deviceSpecId": "327",
+        "macAddress": "85-BB-97-4B-14-05",
+        "langCode": "eng",
+        "regCenterId": "10001",
+        "zoneCode": "RBT",
+        "deviceTypeName": "Iris Scanner",
+        "mapStatus": "10001 (المركز أ بن منصور)"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RBT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].zone</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeName</td>
+    <td>NOT VERIFIED</td>
+    <td>Iris Scanner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].mapStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>10001 (المركز أ بن منصور)</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].regCenterId</td>
+    <td>NOT VERIFIED</td>
+    <td>10001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].macAddress</td>
+    <td>85-BB-97-4B-14-05</td>
+    <td>85-BB-97-4B-14-05</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceSpecId</td>
+    <td>327</td>
+    <td>327</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].serialNum</td>
+    <td>3456789012</td>
+    <td>3456789012</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@5813046e</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSearch_DESC_Name_eng_pos()'><b>MasterData_DeviceSearch_DESC_Name_eng_pos</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSearch_DESC_Name_eng_pos, endPoint=/v1/masterdata/devices/search, role=globalAdmin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "contains", "value": "Mock IRIS Scanner", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "DESC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "$IGNORE$", "serialNum": "3456789012", "description": "$IGNORE$", "macAddress": "85-BB-97-4B-14-05", "ipAddress": "$IGNORE$", "deviceSpecId": "327", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "validityDateTime": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSearch/deviceSearch, outputTemplate=masterdata/DeviceSearch/deviceSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-206219678" onClick='toggleBox("Output-206219678", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-206219678" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-206219678">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "contains",
+        "value": "Mock IRIS Scanner",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "DESC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:18:34.552Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devices/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:18:35.231Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 12,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:31.509Z",
+        "isDeleted": false,
+        "id": "1001",
+        "name": "Mock IRIS Scanner",
+        "serialNum": "3456789012",
+        "deviceSpecId": "327",
+        "macAddress": "85-BB-97-4B-14-05",
+        "langCode": "eng",
+        "regCenterId": "10001",
+        "zoneCode": "RBT",
+        "deviceTypeName": "Iris Scanner",
+        "mapStatus": "10001 (المركز أ بن منصور)"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RBT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].zone</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeName</td>
+    <td>NOT VERIFIED</td>
+    <td>Iris Scanner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].mapStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>10001 (المركز أ بن منصور)</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].regCenterId</td>
+    <td>NOT VERIFIED</td>
+    <td>10001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].macAddress</td>
+    <td>85-BB-97-4B-14-05</td>
+    <td>85-BB-97-4B-14-05</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceSpecId</td>
+    <td>327</td>
+    <td>327</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].serialNum</td>
+    <td>3456789012</td>
+    <td>3456789012</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@5813046e</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSearch_Equals_MacAddress_smoke()'><b>MasterData_DeviceSearch_Equals_MacAddress_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSearch_Equals_MacAddress_smoke, endPoint=/v1/masterdata/devices/search, role=globalAdmin, templateFields=[languageCode], input={ "filters": [ { "columnName": "macAddress", "type": "equals", "value": "85-BB-97-4B-14-05", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "macAddress", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "$IGNORE$", "serialNum": "$IGNORE$", "description": "$IGNORE$", "macAddress": "$IGNORE$", "ipAddress": "$IGNORE$", "deviceSpecId": "$IGNORE$", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "validityDateTime": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSearch/deviceSearch, outputTemplate=masterdata/DeviceSearch/deviceSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-488170925" onClick='toggleBox("Output-488170925", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-488170925" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-488170925">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "85-BB-97-4B-14-05",
+        "columnName": "macAddress"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "macAddress"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:18:32.985Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devices/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:18:33.686Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 36,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:31.509Z",
+        "isDeleted": false,
+        "id": "1001",
+        "name": "Mock IRIS Scanner",
+        "serialNum": "3456789012",
+        "deviceSpecId": "327",
+        "macAddress": "85-BB-97-4B-14-05",
+        "langCode": "eng",
+        "regCenterId": "10001",
+        "zoneCode": "RBT",
+        "deviceTypeName": "Iris Scanner",
+        "mapStatus": "10001 (المركز أ بن منصور)"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RBT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].zone</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeName</td>
+    <td>NOT VERIFIED</td>
+    <td>Iris Scanner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].mapStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>10001 (المركز أ بن منصور)</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].regCenterId</td>
+    <td>NOT VERIFIED</td>
+    <td>10001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@5813046e</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSearch_Equals_Name_eng_smoke()'><b>MasterData_DeviceSearch_Equals_Name_eng_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSearch_Equals_Name_eng_smoke, endPoint=/v1/masterdata/devices/search, role=globalAdmin, templateFields=[languageCode], input={ "filters": [ { "columnName": "name", "type": "startswith", "value": "Mock IRIS Scanner", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "$IGNORE$", "serialNum": "3456789012", "description": "$IGNORE$", "macAddress": "85-BB-97-4B-14-05", "ipAddress": "$IGNORE$", "deviceSpecId": "327", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "validityDateTime": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSearch/deviceSearch, outputTemplate=masterdata/DeviceSearch/deviceSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1913478427" onClick='toggleBox("Output-1913478427", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1913478427" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1913478427">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "startswith",
+        "value": "Mock IRIS Scanner",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:18:31.378Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devices/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:18:32.056Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 12,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:31.509Z",
+        "isDeleted": false,
+        "id": "1001",
+        "name": "Mock IRIS Scanner",
+        "serialNum": "3456789012",
+        "deviceSpecId": "327",
+        "macAddress": "85-BB-97-4B-14-05",
+        "langCode": "eng",
+        "regCenterId": "10001",
+        "zoneCode": "RBT",
+        "deviceTypeName": "Iris Scanner",
+        "mapStatus": "10001 (المركز أ بن منصور)"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RBT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].zone</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeName</td>
+    <td>NOT VERIFIED</td>
+    <td>Iris Scanner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].mapStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>10001 (المركز أ بن منصور)</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].regCenterId</td>
+    <td>NOT VERIFIED</td>
+    <td>10001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].macAddress</td>
+    <td>85-BB-97-4B-14-05</td>
+    <td>85-BB-97-4B-14-05</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceSpecId</td>
+    <td>327</td>
+    <td>327</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].serialNum</td>
+    <td>3456789012</td>
+    <td>3456789012</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@5813046e</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSearch_Equals_SerialNo_smoke()'><b>MasterData_DeviceSearch_Equals_SerialNo_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSearch_Equals_SerialNo_smoke, endPoint=/v1/masterdata/devices/search, role=globalAdmin, templateFields=[languageCode], input={ "filters": [ { "columnName": "serialNum", "type": "equals", "value": "3456789012", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "serialNum", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [{ "id": "$IGNORE$", "name": "$IGNORE$", "serialNum": "3456789012", "description": "$IGNORE$", "macAddress": "85-BB-97-4B-14-05", "ipAddress": "$IGNORE$", "deviceSpecId": "327", "langCode": "$IGNORE$", "isActive": "$IGNORE$", "validityDateTime": "$IGNORE$" }] }, inputTemplate=masterdata/DeviceSearch/deviceSearch, outputTemplate=masterdata/DeviceSearch/deviceSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-903889159" onClick='toggleBox("Output-903889159", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-903889159" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-903889159">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "3456789012",
+        "columnName": "serialNum"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "serialNum"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:18:32.184Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devices/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:18:32.858Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 12,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2022-02-23T12:40:31.509Z",
+        "isDeleted": false,
+        "id": "1001",
+        "name": "Mock IRIS Scanner",
+        "serialNum": "3456789012",
+        "deviceSpecId": "327",
+        "macAddress": "85-BB-97-4B-14-05",
+        "langCode": "eng",
+        "regCenterId": "10001",
+        "zoneCode": "RBT",
+        "deviceTypeName": "Iris Scanner",
+        "mapStatus": "10001 (المركز أ بن منصور)"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>RBT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].zone</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeName</td>
+    <td>NOT VERIFIED</td>
+    <td>Iris Scanner</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].mapStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>10001 (المركز أ بن منصور)</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].regCenterId</td>
+    <td>NOT VERIFIED</td>
+    <td>10001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].macAddress</td>
+    <td>85-BB-97-4B-14-05</td>
+    <td>85-BB-97-4B-14-05</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceSpecId</td>
+    <td>327</td>
+    <td>327</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].serialNum</td>
+    <td>3456789012</td>
+    <td>3456789012</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@5813046e</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSearch_Invalid_RequestTime_neg()'><b>MasterData_DeviceSearch_Invalid_RequestTime_neg</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSearch_Invalid_RequestTime_neg, endPoint=/v1/masterdata/devices/search, role=globalAdmin, templateFields=[value], input={ "filters": [ { "columnName": "name", "type": "equals", "value": "testDevicedummy", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "2019-7-3T05:22:35.845" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "Invalid Format in field : requesttime" } ] }, inputTemplate=masterdata/DeviceSearch/deviceSearch, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1352961504" onClick='toggleBox("Output-1352961504", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1352961504" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1352961504">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "testDevicedummy",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2019-7-3T05:22:35.845",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devices/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:18:37.577Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@5813046e</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSearch_Invalid_SortType_neg()'><b>MasterData_DeviceSearch_Invalid_SortType_neg</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSearch_Invalid_SortType_neg, endPoint=/v1/masterdata/devices/search, role=globalAdmin, templateFields=[value], input={ "filters": [ { "columnName": "name", "type": "equals", "value": "testDevicedummy", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "AESCENDING" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-358", "message": "Sort type AESCENDING is not supported" } ] }, inputTemplate=masterdata/DeviceSearch/deviceSearch, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1788895478" onClick='toggleBox("Output-1788895478", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1788895478" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1788895478">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "testDevicedummy",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "AESCENDING",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:18:36.215Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devices/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:18:36.864Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-358",
+      "message": "Sort type AESCENDING is not supported"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Sort type AESCENDING is not supported</td>
+    <td>Sort type AESCENDING is not supported</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-358</td>
+    <td>KER-MSD-358</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@5813046e</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_DeviceSearch_Invalid_Value_Name_smoke()'><b>MasterData_DeviceSearch_Invalid_Value_Name_smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_DeviceSearch_Invalid_RequestTime_neg)<br>Parameters: TestCaseDTO(testCaseName=MasterData_DeviceSearch_Invalid_Value_Name_smoke, endPoint=/v1/masterdata/devices/search, role=globalAdmin, templateFields=[value], input={ "filters": [ { "columnName": "name", "type": "equals", "value": "Language", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "name", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [] }, inputTemplate=masterdata/DeviceSearch/deviceSearch, outputTemplate=masterdata/DeviceSearch/deviceSearchResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1237850567" onClick='toggleBox("Output-1237850567", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1237850567" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1237850567">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "Language",
+        "columnName": "name"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "name"
+      }
+    ],
+    "languageCode": "ara"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:18:35.362Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/devices/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:18:36.116Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@5813046e</td></tr>
+</table><p>
+</body>
+</html>

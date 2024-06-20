@@ -1,0 +1,780 @@
+<html>
+<head>
+<title>TestNG:  RetrieveIdentityByUin</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>RetrieveIdentityByUin</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>12/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Oct 12 14:25:19 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>7 seconds (7766 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveIdentity_StatusCode_With_blank_UIN()'><b>IdRepository_RetrieveIdentity_StatusCode_With_blank_UIN</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveIdentity_StatusCode_With_blank_UIN, endPoint=/idrepository/v1/identity/idvid/{id}, role=idrepo, templateFields=null, input={ "id": "" }, output=404, inputTemplate=idRepository/RetrieveIdentityByUin/retrieveIdentityByUin, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1398164044" onClick='toggleBox("Output-1398164044", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1398164044" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1398164044">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": ""
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/idvid/{id}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:55:22 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=218]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:55:22.656+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/idvid/"
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>404</td>
+    <td>404</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@15a8cebd</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveIdentity_StatusCode_With_blank_Vid()'><b>IdRepository_RetrieveIdentity_StatusCode_With_blank_Vid</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveIdentity_StatusCode_With_blank_Vid, endPoint=/idrepository/v1/identity/idvid/{id}, role=idrepo, templateFields=null, input={ "id": "" }, output=404, inputTemplate=idRepository/RetrieveIdentityByUin/retrieveIdentityByUin, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1824222273" onClick='toggleBox("Output-1824222273", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1824222273" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1824222273">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": ""
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/idvid/{id}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:55:23 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=14]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:55:23.420+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/idvid/"
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>404</td>
+    <td>404</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@15a8cebd</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveIdentity_With_Deactivated_UIN_Smoke_Pos()'><b>IdRepository_RetrieveIdentity_With_Deactivated_UIN_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveIdentity_With_Deactivated_UIN_Smoke_Pos, endPoint=/idrepository/v1/identity/idvid/{id}, role=idrepo, templateFields=null, input={ "id": "$ID:AddIdentity_For_DeactivateScen_smoke_Pos_UIN$" }, output={
+}, inputTemplate=idRepository/RetrieveIdentityByUin/retrieveIdentityByUin, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-78384457" onClick='toggleBox("Output-78384457", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-78384457" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-78384457">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "952365849047"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/idvid/{id}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:55:20 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=266]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:55:20.662Z",
+  "response": {
+    "status": "DEACTIVATED",
+    "identity": {
+      "UIN": "952365849047",
+      "IDSchemaVersion": 1.5,
+      "firstName": [
+        {
+          "language": "eng",
+          "value": "TEST_FIRSTNAMEeng"
+        }
+      ],
+      "dateOfBirth": "1992/04/15",
+      "pobCountry": [
+        {
+          "language": "eng",
+          "value": "POB_COUNTRYeng"
+        }
+      ],
+      "pobProvince": [
+        {
+          "language": "eng",
+          "value": "POB_PROVINCEeng"
+        }
+      ],
+      "pobCity": [
+        {
+          "language": "eng",
+          "value": "POB_CITYeng"
+        }
+      ],
+      "gender": [
+        {
+          "language": "eng",
+          "value": "MLE"
+        }
+      ],
+      "residenceStatus": [
+        {
+          "language": "eng",
+          "value": "NFReng"
+        }
+      ],
+      "bloodType": [
+        {
+          "language": "eng",
+          "value": "BLOOD_TYPEeng"
+        }
+      ],
+      "permanentCountry": [
+        {
+          "language": "eng",
+          "value": "PERMANENT_COUNTRYeng"
+        }
+      ],
+      "permanentAddressLine1": [
+        {
+          "language": "eng",
+          "value": "PERMANENT_ADDRESS_LINE_1eng"
+        }
+      ],
+      "addressCopy": "Y",
+      "presentCountry": [
+        {
+          "language": "eng",
+          "value": "PRESENT_COUNTRYeng"
+        }
+      ],
+      "presentAddressLine1": [
+        {
+          "language": "eng",
+          "value": "PRESENT_ADDRESS_LINE_1eng"
+        }
+      ],
+      "modeOfClaim": [
+        {
+          "language": "eng",
+          "value": "MODE_OF_CLAIMeng"
+        }
+      ],
+      "proofOfAddress": {
+        "format": "txt",
+        "type": "DOC001",
+        "value": "fileReferenceID"
+      },
+      "individualBiometrics": {
+        "format": "cbeff",
+        "version": 1,
+        "value": "fileReferenceID"
+      },
+      "mobileno": "8249742850",
+      "email": "user@mailinator.com"
+    },
+    "documents": [],
+    "verifiedAttributes": []
+  },
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@15a8cebd</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveIdentity_With_Invalid_UIN()'><b>IdRepository_RetrieveIdentity_With_Invalid_UIN</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveIdentity_With_Invalid_UIN, endPoint=/idrepository/v1/identity/idvid/{id}, role=idrepo, templateFields=null, input={ "id": "UI5654@" }, output={ "errors": [ { "errorCode": "IDR-IDC-007" } ] }, inputTemplate=idRepository/RetrieveIdentityByUin/retrieveIdentityByUin, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-372645473" onClick='toggleBox("Output-372645473", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-372645473" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-372645473">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "UI5654@"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/idvid/{id}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:55:21 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=130]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:55:21.961Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-007",
+      "message": "No Record(s) found"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-007</td>
+    <td>IDR-IDC-007</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@15a8cebd</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveIdentity_With_Invalid_Vid()'><b>IdRepository_RetrieveIdentity_With_Invalid_Vid</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveIdentity_With_Invalid_Vid, endPoint=/idrepository/v1/identity/idvid/{id}, role=idrepo, templateFields=null, input={ "id": "dfsdhfsbd353" }, output={ "errors": [ { "errorCode": "IDR-IDC-007" } ] }, inputTemplate=idRepository/RetrieveIdentityByUin/retrieveIdentityByUin, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1850252216" onClick='toggleBox("Output-1850252216", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1850252216" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1850252216">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "dfsdhfsbd353"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/idvid/{id}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:55:23 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=88]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:55:23.110Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-007",
+      "message": "No Record(s) found"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-007</td>
+    <td>IDR-IDC-007</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@15a8cebd</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveIdentity_With_SpaceVal_UIN()'><b>IdRepository_RetrieveIdentity_With_SpaceVal_UIN</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveIdentity_With_SpaceVal_UIN, endPoint=/idrepository/v1/identity/idvid/{id}, role=idrepo, templateFields=null, input={ "id": " " }, output={ "errors": [ { "errorCode": "IDR-IDC-007" } ] }, inputTemplate=idRepository/RetrieveIdentityByUin/retrieveIdentityByUin, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1578732608" onClick='toggleBox("Output-1578732608", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1578732608" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1578732608">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": " "
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/idvid/{id}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:55:23 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=79]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:55:23.797Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-007",
+      "message": "No Record(s) found"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-007</td>
+    <td>IDR-IDC-007</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@15a8cebd</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveIdentity_With_SpaceVal_Vid()'><b>IdRepository_RetrieveIdentity_With_SpaceVal_Vid</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveIdentity_With_SpaceVal_Vid, endPoint=/idrepository/v1/identity/idvid/{id}, role=idrepo, templateFields=null, input={ "id": " " }, output={ "errors": [ { "errorCode": "IDR-IDC-007" } ] }, inputTemplate=idRepository/RetrieveIdentityByUin/retrieveIdentityByUin, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1027310894" onClick='toggleBox("Output-1027310894", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1027310894" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1027310894">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": " "
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/idvid/{id}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:55:24 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=89]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:55:24.185Z",
+  "errors": [
+    {
+      "errorCode": "IDR-IDC-007",
+      "message": "No Record(s) found"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-IDC-007</td>
+    <td>IDR-IDC-007</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@15a8cebd</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveIdentity_With_Valid_UIN_Smoke_Pos()'><b>IdRepository_RetrieveIdentity_With_Valid_UIN_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveIdentity_With_Valid_UIN_Smoke_Pos, endPoint=/idrepository/v1/identity/idvid/{id}, role=idrepo, templateFields=null, input={ "id": "$ID:AddIdentity_For_NewScen_smoke_Pos_UIN$" }, output={
+}, inputTemplate=idRepository/RetrieveIdentityByUin/retrieveIdentityByUin, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-909878836" onClick='toggleBox("Output-909878836", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-909878836" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-909878836">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "762970917542"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/idvid/{id}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:55:19 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=292]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:55:19.869Z",
+  "response": {
+    "status": "ACTIVATED",
+    "identity": {
+      "UIN": "762970917542",
+      "IDSchemaVersion": 1.5,
+      "firstName": [
+        {
+          "language": "eng",
+          "value": "TEST_FIRSTNAMEeng"
+        }
+      ],
+      "dateOfBirth": "1992/04/15",
+      "pobCountry": [
+        {
+          "language": "eng",
+          "value": "POB_COUNTRYeng"
+        }
+      ],
+      "pobProvince": [
+        {
+          "language": "eng",
+          "value": "POB_PROVINCEeng"
+        }
+      ],
+      "pobCity": [
+        {
+          "language": "eng",
+          "value": "POB_CITYeng"
+        }
+      ],
+      "gender": [
+        {
+          "language": "eng",
+          "value": "MLE"
+        }
+      ],
+      "residenceStatus": [
+        {
+          "language": "eng",
+          "value": "NFReng"
+        }
+      ],
+      "bloodType": [
+        {
+          "language": "eng",
+          "value": "BLOOD_TYPEeng"
+        }
+      ],
+      "permanentCountry": [
+        {
+          "language": "eng",
+          "value": "PERMANENT_COUNTRYeng"
+        }
+      ],
+      "permanentAddressLine1": [
+        {
+          "language": "eng",
+          "value": "PERMANENT_ADDRESS_LINE_1eng"
+        }
+      ],
+      "addressCopy": "Y",
+      "presentCountry": [
+        {
+          "language": "eng",
+          "value": "PRESENT_COUNTRYeng"
+        }
+      ],
+      "presentAddressLine1": [
+        {
+          "language": "eng",
+          "value": "PRESENT_ADDRESS_LINE_1eng"
+        }
+      ],
+      "modeOfClaim": [
+        {
+          "language": "eng",
+          "value": "MODE_OF_CLAIMeng"
+        }
+      ],
+      "proofOfAddress": {
+        "format": "txt",
+        "type": "DOC001",
+        "value": "fileReferenceID"
+      },
+      "individualBiometrics": {
+        "format": "cbeff",
+        "version": 1,
+        "value": "fileReferenceID"
+      },
+      "mobileno": "8249742850",
+      "email": "mosipuser123@mailinator.com"
+    },
+    "documents": []
+  },
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@15a8cebd</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveIdentity_With_Valid_Vid_Smoke_Pos()'><b>IdRepository_RetrieveIdentity_With_Valid_Vid_Smoke_Pos</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveIdentity_With_Valid_Vid_Smoke_Pos, endPoint=/idrepository/v1/identity/idvid/{id}, role=idrepo, templateFields=null, input={ "id": "$ID:CreateVID_withValidParameters_Smoke_Perpetual_sid_VID$" }, output={
+}, inputTemplate=idRepository/RetrieveIdentityByUin/retrieveIdentityByUin, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-1385576505" onClick='toggleBox("Output-1385576505", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1385576505" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1385576505">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "4630651398019021"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/idvid/{id}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:55:21 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=503]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:55:21.503Z",
+  "response": {
+    "status": "ACTIVATED",
+    "identity": {
+      "UIN": "762970917542",
+      "IDSchemaVersion": 1.5,
+      "firstName": [
+        {
+          "language": "eng",
+          "value": "TEST_FIRSTNAMEeng"
+        }
+      ],
+      "dateOfBirth": "1992/04/15",
+      "pobCountry": [
+        {
+          "language": "eng",
+          "value": "POB_COUNTRYeng"
+        }
+      ],
+      "pobProvince": [
+        {
+          "language": "eng",
+          "value": "POB_PROVINCEeng"
+        }
+      ],
+      "pobCity": [
+        {
+          "language": "eng",
+          "value": "POB_CITYeng"
+        }
+      ],
+      "gender": [
+        {
+          "language": "eng",
+          "value": "MLE"
+        }
+      ],
+      "residenceStatus": [
+        {
+          "language": "eng",
+          "value": "NFReng"
+        }
+      ],
+      "bloodType": [
+        {
+          "language": "eng",
+          "value": "BLOOD_TYPEeng"
+        }
+      ],
+      "permanentCountry": [
+        {
+          "language": "eng",
+          "value": "PERMANENT_COUNTRYeng"
+        }
+      ],
+      "permanentAddressLine1": [
+        {
+          "language": "eng",
+          "value": "PERMANENT_ADDRESS_LINE_1eng"
+        }
+      ],
+      "addressCopy": "Y",
+      "presentCountry": [
+        {
+          "language": "eng",
+          "value": "PRESENT_COUNTRYeng"
+        }
+      ],
+      "presentAddressLine1": [
+        {
+          "language": "eng",
+          "value": "PRESENT_ADDRESS_LINE_1eng"
+        }
+      ],
+      "modeOfClaim": [
+        {
+          "language": "eng",
+          "value": "MODE_OF_CLAIMeng"
+        }
+      ],
+      "proofOfAddress": {
+        "format": "txt",
+        "type": "DOC001",
+        "value": "fileReferenceID"
+      },
+      "individualBiometrics": {
+        "format": "cbeff",
+        "version": 1,
+        "value": "fileReferenceID"
+      },
+      "mobileno": "8249742850",
+      "email": "mosipuser123@mailinator.com"
+    },
+    "documents": []
+  },
+  "errors": []
+}</textarea> </div></pre><br/>
+<b> Marking test case as passed. As Output validation not performed and no errors in the response </b><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@15a8cebd</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveIdentity_With_deactivated_VID()'><b>IdRepository_RetrieveIdentity_With_deactivated_VID</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveIdentity_With_deactivated_VID, endPoint=/idrepository/v1/identity/idvid/{id}, role=idrepo, templateFields=null, input={ "id": "$ID:CreateVID_withValidParameters_pdea_Smoke_Perpetual_sid_VID$" }, output={ "errors": [ { "errorCode": "IDR-VID-001" } ] }, inputTemplate=idRepository/RetrieveIdentityByUin/retrieveIdentityByUin, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1871293699" onClick='toggleBox("Output-1871293699", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1871293699" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1871293699">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "6153714790194675"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/idvid/{id}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:55:24 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=320]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:55:24.779Z",
+  "errors": [
+    {
+      "errorCode": "IDR-VID-001",
+      "message": "VID is DEACTIVATED"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-VID-001</td>
+    <td>IDR-VID-001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@15a8cebd</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate()'><b>IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate, endPoint=/idrepository/v1/identity/idvid/{id}, role=idrepo, templateFields=null, input={ "id": "$ID:CreateVID_withValidParameters_pdea_Smoke_Perpetual_sid_VID$" }, output={ "errors": [ { "errorCode": "IDR-VID-001" } ] }, inputTemplate=idRepository/RetrieveIdentityByUin/retrieveIdentityByUin, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1865152087" onClick='toggleBox("Output-1865152087", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1865152087" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1865152087">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "6153714790194675"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/idvid/{id}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:55:26 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=807]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:55:27.009Z",
+  "errors": [
+    {
+      "errorCode": "IDR-VID-001",
+      "message": "VID is DEACTIVATED"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-VID-001</td>
+    <td>IDR-VID-001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@15a8cebd</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_RetrieveIdentity_With_deactivated_VID_restoreOnAction()'><b>IdRepository_RetrieveIdentity_With_deactivated_VID_restoreOnAction</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_RetrieveIdentity_With_deactivated_VID_Deactivate)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_RetrieveIdentity_With_deactivated_VID_restoreOnAction, endPoint=/idrepository/v1/identity/idvid/{id}, role=idrepo, templateFields=null, input={ "id": "$ID:CreateVID_withValidParameters_pdea_Smoke_Perpetual_sid_VID$" }, output={ "errors": [ { "errorCode": "IDR-VID-001" } ] }, inputTemplate=idRepository/RetrieveIdentityByUin/retrieveIdentityByUin, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-531076772" onClick='toggleBox("Output-531076772", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-531076772" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-531076772">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "6153714790194675"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/idvid/{id}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:55:25 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=463]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.id.read",
+  "version": "v1",
+  "responsetime": "2023-10-12T08:55:25.632Z",
+  "errors": [
+    {
+      "errorCode": "IDR-VID-001",
+      "message": "VID is DEACTIVATED"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>IDR-VID-001</td>
+    <td>IDR-VID-001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@15a8cebd</td></tr>
+</table><p>
+</body>
+</html>

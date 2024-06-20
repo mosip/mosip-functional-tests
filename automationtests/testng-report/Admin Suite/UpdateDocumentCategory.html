@@ -1,0 +1,673 @@
+<html>
+<head>
+<title>TestNG:  UpdateDocumentCategory</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateDocumentCategory</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>9/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:10:42 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>5 seconds (5989 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentCategory_All_Valid_Mandatory_Fields()'><b>MasterData_UpdateDocumentCategory_All_Valid_Mandatory_Fields</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentCategory_All_Valid_Mandatory_Fields, endPoint=/v1/masterdata/documentcategories, role=admin, templateFields=[name, description], input={ "code": "DocTestCode321", "description": "DocTestCode321 updated", "isActive": true, "langCode": "eng", "name": "DocCat", "requesttime": "$TIMESTAMP$" }, output={ "code": "DocTestCode321", "langCode": "eng" }, inputTemplate=masterdata/DocumentCategory/documentCategory, outputTemplate=masterdata/DocumentCategory/documentCategoryResult, restMethod=put)<br/>
+<a href="#Output-671963778" onClick='toggleBox("Output-671963778", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-671963778" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-671963778">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "DocTestCode321",
+    "description": "DocTestCode321 updated",
+    "isActive": true,
+    "langCode": "eng",
+    "name": "DocCat"
+  },
+  "requesttime": "2021-12-15T09:40:43.036Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:43.829Z",
+  "response": {
+    "code": "DocTestCode321",
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>eng</td>
+    <td>eng</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>DocTestCode321</td>
+    <td>DocTestCode321</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@4087c7fc</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_AboveMaxLen36()'><b>MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_AboveMaxLen36</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_AboveMaxLen36, endPoint=/v1/masterdata/documentcategories, role=admin, templateFields=[name, description], input={ "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk", "description": "Testing positive Doc", "isActive": false, "langCode": "eng", "name": "DocCat", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/DocumentCategory/documentCategory, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-971238008" onClick='toggleBox("Output-971238008", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-971238008" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-971238008">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "description": "Testing positive Doc",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "DocCat"
+  },
+  "requesttime": "2021-12-15T09:40:45.141Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:45.668Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@4087c7fc</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_Empty()'><b>MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_Empty</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_Empty, endPoint=/v1/masterdata/documentcategories, role=admin, templateFields=[name, description], input={ "code": "", "description": "Testing positive Doc", "isActive": false, "langCode": "eng", "name": "DocCat", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/DocumentCategory/documentCategory, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1771486148" onClick='toggleBox("Output-1771486148", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1771486148" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1771486148">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "",
+    "description": "Testing positive Doc",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "DocCat"
+  },
+  "requesttime": "2021-12-15T09:40:44.375Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:45.126Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td>request.code: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@4087c7fc</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_Missing()'><b>MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentCategory_Invalid_InputParameter_Code_Missing, endPoint=/v1/masterdata/documentcategories, role=admin, templateFields=[name, description], input={ "code": "$REMOVE$", "description": "Testing positive Doc", "isActive": false, "langCode": "eng", "name": "DocCat", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.code: must not be null" } ] }, inputTemplate=masterdata/DocumentCategory/documentCategory, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-807570919" onClick='toggleBox("Output-807570919", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-807570919" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-807570919">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "langCode": "eng",
+    "name": "DocCat",
+    "description": "Testing positive Doc",
+    "isActive": false
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:40:43.849Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:44.375Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.code: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.code: must not be null</td>
+    <td>request.code: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@4087c7fc</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentCategory_Invalid_InputParameter_Description_AboveMaxLen128()'><b>MasterData_UpdateDocumentCategory_Invalid_InputParameter_Description_AboveMaxLen128</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentCategory_Invalid_InputParameter_Description_AboveMaxLen128, endPoint=/v1/masterdata/documentcategories, role=admin, templateFields=[name, description], input={ "code": "DocTestCode01", "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy", "isActive": false, "langCode": "eng", "name": "DocCat", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.description: size must be between 0 and 128" } ] }, inputTemplate=masterdata/DocumentCategory/documentCategory, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1775434506" onClick='toggleBox("Output-1775434506", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1775434506" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1775434506">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "DocTestCode01",
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxy",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "DocCat"
+  },
+  "requesttime": "2021-12-15T09:40:45.665Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:46.305Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: size must be between 0 and 128"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.description: size must be between 0 and 128</td>
+    <td>request.description: size must be between 0 and 128</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@4087c7fc</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64()'><b>MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64, endPoint=/v1/masterdata/documentcategories, role=admin, templateFields=[name, description], input={ "code": "DocTestCode01", "description": "Testing positive Doc", "isActive": false, "langCode": "eng", "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/DocumentCategory/documentCategory, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1762039910" onClick='toggleBox("Output-1762039910", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1762039910" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1762039910">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "DocTestCode01",
+    "description": "Testing positive Doc",
+    "isActive": false,
+    "langCode": "eng",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm"
+  },
+  "requesttime": "2021-12-15T09:40:47.604Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:48.265Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@4087c7fc</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_Empty()'><b>MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_Empty</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_Empty, endPoint=/v1/masterdata/documentcategories, role=admin, templateFields=[description], input={ "code": "DocTestCode01", "description": "Testing positive Doc", "isActive": false, "langCode": "eng", "name": "", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/DocumentCategory/documentCategory, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-211995998" onClick='toggleBox("Output-211995998", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-211995998" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-211995998">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "DocTestCode01",
+    "description": "Testing positive Doc",
+    "isActive": false,
+    "langCode": "eng",
+    "name": ""
+  },
+  "requesttime": "2021-12-15T09:40:46.915Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:47.593Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@4087c7fc</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_Missing()'><b>MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_Missing, endPoint=/v1/masterdata/documentcategories, role=admin, templateFields=[description], input={ "code": "DocTestCode01", "description": "Testing positive Doc", "isActive": false, "langCode": "eng", "name": "$REMOVE$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: must not be null" } ] }, inputTemplate=masterdata/DocumentCategory/documentCategory, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1842068297" onClick='toggleBox("Output-1842068297", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1842068297" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1842068297">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "code": "DocTestCode01",
+    "langCode": "eng",
+    "description": "Testing positive Doc",
+    "isActive": false
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:40:46.308Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:46.914Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: must not be null</td>
+    <td>request.name: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@4087c7fc</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDocumentCategory_Valid_Smoke()'><b>MasterData_UpdateDocumentCategory_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDocumentCategory_Invalid_InputParameter_Name_AboveMaxLen64)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDocumentCategory_Valid_Smoke, endPoint=/v1/masterdata/documentcategories, role=admin, templateFields=[name, description], input={ "code": "DocTestCode123", "description": "Testing positive Doc updated", "isActive": true, "langCode": "eng", "name": "DocCat", "requesttime": "$TIMESTAMP$" }, output={ "code": "DocTestCode123", "langCode": "eng" }, inputTemplate=masterdata/DocumentCategory/documentCategory, outputTemplate=masterdata/DocumentCategory/documentCategoryResult, restMethod=put)<br/>
+<a href="#Output-2106614863" onClick='toggleBox("Output-2106614863", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2106614863" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2106614863">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "DocTestCode123",
+    "description": "Testing positive Doc updated",
+    "isActive": true,
+    "langCode": "eng",
+    "name": "DocCat"
+  },
+  "requesttime": "2021-12-15T09:40:42.289Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:43.013Z",
+  "response": {
+    "code": "DocTestCode123",
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>eng</td>
+    <td>eng</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>DocTestCode123</td>
+    <td>DocTestCode123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@4087c7fc</td></tr>
+</table><p>
+</body>
+</html>

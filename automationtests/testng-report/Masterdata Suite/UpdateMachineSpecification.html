@@ -1,0 +1,1356 @@
+<html>
+<head>
+<title>TestNG:  UpdateMachineSpecification</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateMachineSpecification</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>18/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:50:51 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>13 seconds (13255 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_All_Valid_Smoke()'><b>Masterdata_UpdateMachineSpecification_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_All_Valid_Smoke, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[description], input={ "brand": "HP", "description": "HP brand updated", "id": "$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$", "isActive": true, "langCode": "eng", "machineTypeCode": "Laptop2", "minDriverversion": "3.2", "model": "1234", "name": "HP", "requesttime": "$TIMESTAMP$" }, output={ "id": "$IGNORE$", "langCode": "eng" }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/MachineSpecification/MachineSpecificationResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1422440848" onClick='toggleBox("Output-1422440848", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1422440848" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1422440848">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "HP",
+    "description": "HP brand updated",
+    "id": "f8101133-4575-4c6d-840a-017ed00a6d70",
+    "isActive": true,
+    "langCode": "ara",
+    "machineTypeCode": "Laptop2",
+    "minDriverversion": "3.2",
+    "model": "1234",
+    "name": "HP"
+  },
+  "requesttime": "2023-07-14T17:20:51.436Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:20:52.104Z",
+  "response": {
+    "id": "f8101133-4575-4c6d-840a-017ed00a6d70",
+    "langCode": "ara"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>ara</td>
+    <td>ara</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_Brand_AboveMaxLen32()'><b>Masterdata_UpdateMachineSpecification_InputParameter_Brand_AboveMaxLen32</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_Brand_AboveMaxLen32, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "abcdefghijklmnopqrstuvwxyzabcdefghijk", "description": "Dell brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "3.2", "model": "1234", "name": "Dell Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.brand: Should not be blank or size must be between 1 and 32" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-426572525" onClick='toggleBox("Output-426572525", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-426572525" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-426572525">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "description": "Dell brand",
+    "id": "HP05",
+    "isActive": true,
+    "langCode": "ara",
+    "machineTypeCode": "DKS",
+    "minDriverversion": "3.2",
+    "model": "1234",
+    "name": "Dell Aspire"
+  },
+  "requesttime": "2023-07-14T17:20:55.811Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:20:56.468Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.brand: Should not be blank or size must be between 1 and 32"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.brand: Should not be blank or size must be between 1 and 32</td>
+    <td>request.brand: Should not be blank or size must be between 1 and 32</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_Brand_Empty()'><b>Masterdata_UpdateMachineSpecification_InputParameter_Brand_Empty</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_Brand_Empty, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "", "description": "Dell brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "3.2", "model": "1234", "name": "Dell Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.brand: Should not be blank or size must be between 1 and 32" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-179768306" onClick='toggleBox("Output-179768306", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-179768306" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-179768306">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "",
+    "description": "Dell brand",
+    "id": "HP05",
+    "isActive": true,
+    "langCode": "ara",
+    "machineTypeCode": "DKS",
+    "minDriverversion": "3.2",
+    "model": "1234",
+    "name": "Dell Aspire"
+  },
+  "requesttime": "2023-07-14T17:20:55.106Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:20:55.739Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.brand: Should not be blank or size must be between 1 and 32"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.brand: Should not be blank or size must be between 1 and 32</td>
+    <td>request.brand: Should not be blank or size must be between 1 and 32</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_Brand_Missing()'><b>Masterdata_UpdateMachineSpecification_InputParameter_Brand_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_Brand_Missing, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "$REMOVE$", "description": "Dell brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "3.2", "model": "1234", "name": "Dell Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.brand: must not be null" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-829031375" onClick='toggleBox("Output-829031375", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-829031375" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-829031375">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "machineTypeCode": "DKS",
+    "langCode": "ara",
+    "name": "Dell Aspire",
+    "description": "Dell brand",
+    "model": "1234",
+    "id": "HP05",
+    "isActive": true,
+    "minDriverversion": "3.2"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:20:54.407Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:20:55.039Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.brand: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.brand: must not be null</td>
+    <td>request.brand: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256()'><b>Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "HCL", "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "3,2", "model": "12345", "name": "HCL Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.description: size must be between 0 and 256" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-300612436" onClick='toggleBox("Output-300612436", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-300612436" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-300612436">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "HCL",
+    "description": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
+    "id": "HP05",
+    "isActive": true,
+    "langCode": "ara",
+    "machineTypeCode": "DKS",
+    "minDriverversion": "3,2",
+    "model": "12345",
+    "name": "HCL Aspire"
+  },
+  "requesttime": "2023-07-14T17:21:03.927Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:04.607Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.description: size must be between 0 and 256"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.description: size must be between 0 and 256</td>
+    <td>request.description: size must be between 0 and 256</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_Invalid_machineTypeCode()'><b>Masterdata_UpdateMachineSpecification_InputParameter_Invalid_machineTypeCode</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_Invalid_machineTypeCode, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "HCL", "description": "HCL brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DMR", "minDriverversion": "3.2", "model": "12345", "name": "HCL Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-722", "message": "Invalid mtype_code received" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1486395980" onClick='toggleBox("Output-1486395980", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1486395980" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1486395980">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "HCL",
+    "description": "HCL brand",
+    "id": "HP05",
+    "isActive": true,
+    "langCode": "ara",
+    "machineTypeCode": "DMR",
+    "minDriverversion": "3.2",
+    "model": "12345",
+    "name": "HCL Aspire"
+  },
+  "requesttime": "2023-07-14T17:21:00.979Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:01.676Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-722",
+      "message": "Invalid mtype_code received"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid mtype_code received</td>
+    <td>Invalid mtype_code received</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-722</td>
+    <td>KER-MSD-722</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_MinDriverversion_AboveMaxLen16()'><b>Masterdata_UpdateMachineSpecification_InputParameter_MinDriverversion_AboveMaxLen16</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_MinDriverversion_AboveMaxLen16, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "HCL", "description": "HCL brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "qwertyuiopasdfg17", "model": "12345", "name": "HCL Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.minDriverversion: Should not be blank or size must be between 1 and 16" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2078869422" onClick='toggleBox("Output-2078869422", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2078869422" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2078869422">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "HCL",
+    "description": "HCL brand",
+    "id": "HP05",
+    "isActive": true,
+    "langCode": "ara",
+    "machineTypeCode": "DKS",
+    "minDriverversion": "qwertyuiopasdfg17",
+    "model": "12345",
+    "name": "HCL Aspire"
+  },
+  "requesttime": "2023-07-14T17:21:03.221Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:03.857Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.minDriverversion: Should not be blank or size must be between 1 and 16"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.minDriverversion: Should not be blank or size must be between 1 and 16</td>
+    <td>request.minDriverversion: Should not be blank or size must be between 1 and 16</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_MinDriverversion_Empty()'><b>Masterdata_UpdateMachineSpecification_InputParameter_MinDriverversion_Empty</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_MinDriverversion_Empty, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "HCL", "description": "HCL brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "", "model": "12345", "name": "HCL Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.minDriverversion: Should not be blank or size must be between 1 and 16" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1553778065" onClick='toggleBox("Output-1553778065", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1553778065" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1553778065">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "HCL",
+    "description": "HCL brand",
+    "id": "HP05",
+    "isActive": true,
+    "langCode": "ara",
+    "machineTypeCode": "DKS",
+    "minDriverversion": "",
+    "model": "12345",
+    "name": "HCL Aspire"
+  },
+  "requesttime": "2023-07-14T17:21:02.487Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:03.148Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.minDriverversion: Should not be blank or size must be between 1 and 16"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.minDriverversion: Should not be blank or size must be between 1 and 16</td>
+    <td>request.minDriverversion: Should not be blank or size must be between 1 and 16</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_MinDriverversion_Missing()'><b>Masterdata_UpdateMachineSpecification_InputParameter_MinDriverversion_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_MinDriverversion_Missing, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "HCL", "description": "HCL brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "$REMOVE$", "model": "12345", "name": "HCL Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.minDriverversion: must not be null" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-173403393" onClick='toggleBox("Output-173403393", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-173403393" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-173403393">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "machineTypeCode": "DKS",
+    "langCode": "ara",
+    "name": "HCL Aspire",
+    "description": "HCL brand",
+    "model": "12345",
+    "id": "HP05",
+    "isActive": true,
+    "brand": "HCL"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:21:01.748Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:02.417Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.minDriverversion: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.minDriverversion: must not be null</td>
+    <td>request.minDriverversion: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_Model_AboveMaxLen16()'><b>Masterdata_UpdateMachineSpecification_InputParameter_Model_AboveMaxLen16</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_Model_AboveMaxLen16, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "HCL", "description": "HCL brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "3.2", "model": "qwertyuiopasdfg17", "name": "HCL Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.model: Should not be blank or size must be between 1 and 16" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-308036323" onClick='toggleBox("Output-308036323", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-308036323" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-308036323">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "HCL",
+    "description": "HCL brand",
+    "id": "HP05",
+    "isActive": true,
+    "langCode": "ara",
+    "machineTypeCode": "DKS",
+    "minDriverversion": "3.2",
+    "model": "qwertyuiopasdfg17",
+    "name": "HCL Aspire"
+  },
+  "requesttime": "2023-07-14T17:20:58.083Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:20:58.722Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.model: Should not be blank or size must be between 1 and 16"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.model: Should not be blank or size must be between 1 and 16</td>
+    <td>request.model: Should not be blank or size must be between 1 and 16</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_Model_Empty()'><b>Masterdata_UpdateMachineSpecification_InputParameter_Model_Empty</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_Model_Empty, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "HCL", "description": "HCL brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "3.2", "model": "", "name": "HCL Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.model: Should not be blank or size must be between 1 and 16" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-296785825" onClick='toggleBox("Output-296785825", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-296785825" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-296785825">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "HCL",
+    "description": "HCL brand",
+    "id": "HP05",
+    "isActive": true,
+    "langCode": "ara",
+    "machineTypeCode": "DKS",
+    "minDriverversion": "3.2",
+    "model": "",
+    "name": "HCL Aspire"
+  },
+  "requesttime": "2023-07-14T17:20:57.357Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:20:58.016Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.model: Should not be blank or size must be between 1 and 16"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.model: Should not be blank or size must be between 1 and 16</td>
+    <td>request.model: Should not be blank or size must be between 1 and 16</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_Model_Missing()'><b>Masterdata_UpdateMachineSpecification_InputParameter_Model_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_Model_Missing, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "HCL", "description": "HCL brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "3.2", "model": "$REMOVE$", "name": "HCL Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.model: must not be null" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1820155780" onClick='toggleBox("Output-1820155780", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1820155780" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1820155780">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "machineTypeCode": "DKS",
+    "langCode": "ara",
+    "name": "HCL Aspire",
+    "description": "HCL brand",
+    "id": "HP05",
+    "isActive": true,
+    "minDriverversion": "3.2",
+    "brand": "HCL"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:20:56.538Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:20:57.289Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.model: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.model: must not be null</td>
+    <td>request.model: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_Name_AboveMaxLen64()'><b>Masterdata_UpdateMachineSpecification_InputParameter_Name_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_Name_AboveMaxLen64, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[], input={ "brand": "Dell", "description": "Dell brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "3.2", "model": "1234", "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-211288447" onClick='toggleBox("Output-211288447", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-211288447" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-211288447">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "Dell",
+    "description": "Dell brand",
+    "id": "HP05",
+    "isActive": true,
+    "langCode": "eng",
+    "machineTypeCode": "DKS",
+    "minDriverversion": "3.2",
+    "model": "1234",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm"
+  },
+  "requesttime": "2023-07-14T17:20:53.674Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:20:54.338Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_Name_Empty()'><b>Masterdata_UpdateMachineSpecification_InputParameter_Name_Empty</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_Name_Empty, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[], input={ "brand": "Dell", "description": "Dell brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "3.2", "model": "1234", "name": "", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1103551404" onClick='toggleBox("Output-1103551404", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1103551404" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1103551404">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "Dell",
+    "description": "Dell brand",
+    "id": "HP05",
+    "isActive": true,
+    "langCode": "eng",
+    "machineTypeCode": "DKS",
+    "minDriverversion": "3.2",
+    "model": "1234",
+    "name": ""
+  },
+  "requesttime": "2023-07-14T17:20:52.942Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:20:53.608Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_Name_Missing()'><b>Masterdata_UpdateMachineSpecification_InputParameter_Name_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_Name_Missing, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[], input={ "brand": "Dell", "description": "Dell brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "DKS", "minDriverversion": "3.2", "model": "1234", "name": "$REMOVE$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: must not be null" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-294351833" onClick='toggleBox("Output-294351833", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-294351833" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-294351833">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "machineTypeCode": "DKS",
+    "langCode": "eng",
+    "description": "Dell brand",
+    "model": "1234",
+    "id": "HP05",
+    "isActive": true,
+    "minDriverversion": "3.2",
+    "brand": "Dell"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:20:52.210Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:20:52.878Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: must not be null</td>
+    <td>request.name: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_machineTypeCode_AboveMaxLen36()'><b>Masterdata_UpdateMachineSpecification_InputParameter_machineTypeCode_AboveMaxLen36</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_machineTypeCode_AboveMaxLen36, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "HCL", "description": "HCL brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "abcdefghijklmnopqrstuvwxyzabcdefghijk", "minDriverversion": "3.2", "model": "12345", "name": "HCL Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.machineTypeCode: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1146610503" onClick='toggleBox("Output-1146610503", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1146610503" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1146610503">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "HCL",
+    "description": "HCL brand",
+    "id": "HP05",
+    "isActive": true,
+    "langCode": "ara",
+    "machineTypeCode": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "minDriverversion": "3.2",
+    "model": "12345",
+    "name": "HCL Aspire"
+  },
+  "requesttime": "2023-07-14T17:21:00.241Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:00.900Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.machineTypeCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.machineTypeCode: Should not be blank or size must be between 1 and 36</td>
+    <td>request.machineTypeCode: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_machineTypeCode_Empty()'><b>Masterdata_UpdateMachineSpecification_InputParameter_machineTypeCode_Empty</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_machineTypeCode_Empty, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "HCL", "description": "HCL brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "", "minDriverversion": "3.2", "model": "12345", "name": "HCL Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.machineTypeCode: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-425414479" onClick='toggleBox("Output-425414479", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-425414479" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-425414479">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "brand": "HCL",
+    "description": "HCL brand",
+    "id": "HP05",
+    "isActive": true,
+    "langCode": "ara",
+    "machineTypeCode": "",
+    "minDriverversion": "3.2",
+    "model": "12345",
+    "name": "HCL Aspire"
+  },
+  "requesttime": "2023-07-14T17:20:59.517Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:00.173Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.machineTypeCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.machineTypeCode: Should not be blank or size must be between 1 and 36</td>
+    <td>request.machineTypeCode: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Masterdata_UpdateMachineSpecification_InputParameter_machineTypeCode_Missing()'><b>Masterdata_UpdateMachineSpecification_InputParameter_machineTypeCode_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (Masterdata_UpdateMachineSpecification_InputParameter_Description_AboveMaxLen256)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_UpdateMachineSpecification_InputParameter_machineTypeCode_Missing, endPoint=/v1/masterdata/machinespecifications, role=admin, templateFields=[name], input={ "brand": "HCL", "description": "HCL brand", "id": "HP05", "isActive": true, "langCode": "eng", "machineTypeCode": "$REMOVE$", "minDriverversion": "3.2", "model": "12345", "name": "HCL Aspire", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.machineTypeCode: must not be null" } ] }, inputTemplate=masterdata/MachineSpecification/machineSpecification, outputTemplate=masterdata/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-520468029" onClick='toggleBox("Output-520468029", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-520468029" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-520468029">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "langCode": "ara",
+    "name": "HCL Aspire",
+    "description": "HCL brand",
+    "model": "12345",
+    "id": "HP05",
+    "isActive": true,
+    "minDriverversion": "3.2",
+    "brand": "HCL"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:20:58.793Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machinespecifications) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:20:59.446Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.machineTypeCode: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.machineTypeCode: must not be null</td>
+    <td>request.machineTypeCode: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@2670435</td></tr>
+</table><p>
+</body>
+</html>

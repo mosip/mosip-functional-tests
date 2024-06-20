@@ -1,0 +1,1051 @@
+<html>
+<head>
+<title>TestNG:  PublishPolicy</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>PublishPolicy</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Jan 24 18:13:15 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>3 seconds (3266 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithOnlyPathParam.Idp_PublishPolicy_All_Valid_Smoke()'><b>Idp_PublishPolicy_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.PostWithOnlyPathParam (Idp_PublishPolicy_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Idp_PublishPolicy_All_Valid_Smoke, endPoint=/v1/policymanager/policies/{policyId}/group/{policygroupId}/publish, role=partner, templateFields=null, input={ "policygroupId": "$ID:DefinePolicyGroup_All_Valid_Smoke_sid_id$", "policyId": "$ID:DefinePolicy_All_Valid_Smoke_sid_id$", "requesttime": "$TIMESTAMP$" }, output={ "policyGroupName": "$IGNORE$", "policyGroupDesc": "$IGNORE$", "policyGroupStatus": true, "policyName": "$IGNORE$", "policyDesc": "$IGNORE$", "policyType": "Auth", "status": "PUBLISHED", "is_Active": true, "authType": "bio", "authSubType": "$IGNORE$", "mandatory": $IGNORE$, "attributeName": "$IGNORE$", "authTokenType": "$IGNORE$" }, inputTemplate=idp/PmsIntegration/PublishPolicy/publishPolicy, outputTemplate=idp/PmsIntegration/PublishPolicy/publishPolicyResult, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1247492326" onClick='toggleBox("Output-1247492326", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1247492326" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1247492326">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "policygroupId": "39365",
+  "policyId": "88110"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-1201-b2.mosip.net/v1/policymanager/policies/{policyId}/group/{policygroupId}/publish) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-01-24T12:43:16.290Z",
+  "response": {
+    "policyGroupId": "39365",
+    "policyGroupName": "policyGroupNameForAutomationIdp61781",
+    "policyGroupDesc": "policyGroupForAutomationIdp315865",
+    "policyGroupStatus": true,
+    "policyGroup_cr_by": "idp-111997",
+    "policyGroup_cr_dtimes": "2023-01-24T12:43:07.707347",
+    "policyId": "88110",
+    "policyName": "policyNameForAutomationIdp2605",
+    "policyDesc": "policyDescForAutomationIdp82042",
+    "policyType": "Auth",
+    "publishDate": "2023-01-24T12:43:13.070969",
+    "validTill": "2223-01-24T12:43:13.07097",
+    "status": "PUBLISHED",
+    "version": "1.0",
+    "schema": "https://schemas.mosip.io/v1/auth-policy",
+    "is_Active": true,
+    "cr_by": "idp-111997",
+    "cr_dtimes": "2023-01-24T12:43:13.070728",
+    "up_by": "idp-111997",
+    "upd_dtimes": "2023-01-24T12:43:16.407446",
+    "policies": {
+      "authTokenType": "policy",
+      "allowedKycAttributes": [
+        {
+          "attributeName": "fullName"
+        },
+        {
+          "attributeName": "gender"
+        },
+        {
+          "attributeName": "phone"
+        },
+        {
+          "attributeName": "email"
+        },
+        {
+          "attributeName": "dateOfBirth"
+        },
+        {
+          "attributeName": "city"
+        },
+        {
+          "attributeName": "face"
+        },
+        {
+          "attributeName": "addressLine1"
+        }
+      ],
+      "allowedAuthTypes": [
+        {
+          "authSubType": "IRIS",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FINGER",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FACE",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp-request",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kyc",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "demo",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycauth",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycexchange",
+          "mandatory": false
+        }
+      ]
+    }
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[5].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[0].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>bio</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[5].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>city</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[7].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>kycauth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.cr_by</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupName</td>
+    <td>NOT VERIFIED</td>
+    <td>policyGroupNameForAutomationIdp61781</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.publishDate</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-01-24T12:43:13.070969</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupDesc</td>
+    <td>NOT VERIFIED</td>
+    <td>policyGroupForAutomationIdp315865</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[4].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[6].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[2].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>39365</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[0].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>fullName</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[8].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroup_cr_dtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-01-24T12:43:07.707347</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.authTokenType</td>
+    <td>NOT VERIFIED</td>
+    <td>policy</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.upd_dtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-01-24T12:43:16.407446</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[7].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>addressLine1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[1].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>bio</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[0].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyName</td>
+    <td>NOT VERIFIED</td>
+    <td>policyNameForAutomationIdp2605</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[7].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[8].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>kycexchange</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[3].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td>FACE</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[2].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[1].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td>FINGER</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[0].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td>IRIS</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[1].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[4].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>otp-request</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[8].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.schema</td>
+    <td>NOT VERIFIED</td>
+    <td>https://schemas.mosip.io/v1/auth-policy</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[6].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>face</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroup_up_by</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.up_by</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[2].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>otp</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyDesc</td>
+    <td>NOT VERIFIED</td>
+    <td>policyDescForAutomationIdp82042</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[5].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>kyc</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.cr_dtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-01-24T12:43:13.070728</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[6].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[5].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-01-24T12:43:16.290Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyType</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[7].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[4].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>dateOfBirth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.validTill</td>
+    <td>NOT VERIFIED</td>
+    <td>2223-01-24T12:43:13.07097</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[2].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>phone</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[3].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroup_upd_dtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[3].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>bio</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[1].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>gender</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroup_cr_by</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyId</td>
+    <td>NOT VERIFIED</td>
+    <td>88110</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[3].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>email</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[4].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[6].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>demo</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>NOT VERIFIED</td>
+    <td>PUBLISHED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithOnlyPathParam@64910b2d</td></tr>
+<tr>
+<td title='io.mosip.testscripts.PostWithOnlyPathParam.Idp_PublishPolicy_Valid_Smoke()'><b>Idp_PublishPolicy_Valid_Smoke</b><br>Test class: io.mosip.testscripts.PostWithOnlyPathParam (Idp_PublishPolicy_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Idp_PublishPolicy_Valid_Smoke, endPoint=/v1/policymanager/policies/{policyId}/group/{policygroupId}/publish, role=partner, templateFields=null, input={ "policygroupId": "$ID:DefinePolicyGroup_Valid_Smoke_sid_id$", "policyId": "$ID:DefinePolicy_Valid_Smoke_sid_id$", "requesttime": "$TIMESTAMP$" }, output={ "policyGroupName": "$IGNORE$", "policyGroupDesc": "$IGNORE$", "policyGroupStatus": true, "policyName": "$IGNORE$", "policyDesc": "$IGNORE$", "policyType": "Auth", "status": "PUBLISHED", "is_Active": true, "authType": "bio", "authSubType": "$IGNORE$", "mandatory": $IGNORE$, "attributeName": "$IGNORE$", "authTokenType": "$IGNORE$" }, inputTemplate=idp/PmsIntegration/PublishPolicy/publishPolicy, outputTemplate=idp/PmsIntegration/PublishPolicy/publishPolicyResult, restMethod=post, regenerateHbs=false)<br/>
+<a href="#Output-1925645553" onClick='toggleBox("Output-1925645553", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1925645553" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1925645553">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "policygroupId": "88236",
+  "policyId": "52750"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-1201-b2.mosip.net/v1/policymanager/policies/{policyId}/group/{policygroupId}/publish) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-01-24T12:43:17.849Z",
+  "response": {
+    "policyGroupId": "88236",
+    "policyGroupName": "27850590576369",
+    "policyGroupDesc": "27850590576369",
+    "policyGroupStatus": true,
+    "policyGroup_cr_by": "idp-111997",
+    "policyGroup_cr_dtimes": "2023-01-24T12:43:10.502934",
+    "policyId": "52750",
+    "policyName": "policyNameForAutomationIdp2605pold",
+    "policyDesc": "policyDescForAutomationIdp82042pol",
+    "policyType": "Auth",
+    "publishDate": "2023-01-24T12:43:14.950722",
+    "validTill": "2223-01-24T12:43:14.950723",
+    "status": "PUBLISHED",
+    "version": "1.0",
+    "schema": "https://schemas.mosip.io/v1/auth-policy",
+    "is_Active": true,
+    "cr_by": "idp-111997",
+    "cr_dtimes": "2023-01-24T12:43:14.950666",
+    "up_by": "idp-111997",
+    "upd_dtimes": "2023-01-24T12:43:17.957204",
+    "policies": {
+      "authTokenType": "policy",
+      "allowedKycAttributes": [
+        {
+          "attributeName": "fullName"
+        },
+        {
+          "attributeName": "gender"
+        },
+        {
+          "attributeName": "phone"
+        },
+        {
+          "attributeName": "email"
+        },
+        {
+          "attributeName": "dateOfBirth"
+        },
+        {
+          "attributeName": "city"
+        },
+        {
+          "attributeName": "face"
+        },
+        {
+          "attributeName": "addressLine1"
+        }
+      ],
+      "allowedAuthTypes": [
+        {
+          "authSubType": "IRIS",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FINGER",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp",
+          "mandatory": false
+        },
+        {
+          "authSubType": "FACE",
+          "authType": "bio",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "otp-request",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kyc",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "demo",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycauth",
+          "mandatory": false
+        },
+        {
+          "authSubType": "",
+          "authType": "kycexchange",
+          "mandatory": false
+        }
+      ]
+    }
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[5].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.is_Active</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[0].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>bio</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[5].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>city</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[7].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>kycauth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.cr_by</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupName</td>
+    <td>NOT VERIFIED</td>
+    <td>27850590576369</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.publishDate</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-01-24T12:43:14.950722</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupDesc</td>
+    <td>NOT VERIFIED</td>
+    <td>27850590576369</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[4].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[6].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[2].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupId</td>
+    <td>NOT VERIFIED</td>
+    <td>88236</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[0].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>fullName</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[8].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroup_cr_dtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-01-24T12:43:10.502934</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.authTokenType</td>
+    <td>NOT VERIFIED</td>
+    <td>policy</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroupStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.upd_dtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-01-24T12:43:17.957204</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[7].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>addressLine1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[1].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>bio</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[0].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyName</td>
+    <td>NOT VERIFIED</td>
+    <td>policyNameForAutomationIdp2605pold</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[7].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[8].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>kycexchange</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[3].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td>FACE</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[2].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[1].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td>FINGER</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[0].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td>IRIS</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[1].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[4].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>otp-request</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[8].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.schema</td>
+    <td>NOT VERIFIED</td>
+    <td>https://schemas.mosip.io/v1/auth-policy</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[6].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>face</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroup_up_by</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.up_by</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[2].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>otp</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyDesc</td>
+    <td>NOT VERIFIED</td>
+    <td>policyDescForAutomationIdp82042pol</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[5].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>kyc</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.cr_dtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-01-24T12:43:14.950666</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[6].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[5].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2023-01-24T12:43:17.849Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyType</td>
+    <td>NOT VERIFIED</td>
+    <td>Auth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[7].authSubType</td>
+    <td>NOT VERIFIED</td>
+    <td></td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[4].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>dateOfBirth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.validTill</td>
+    <td>NOT VERIFIED</td>
+    <td>2223-01-24T12:43:14.950723</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[2].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>phone</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[3].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroup_upd_dtimes</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[3].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>bio</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[1].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>gender</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyGroup_cr_by</td>
+    <td>NOT VERIFIED</td>
+    <td>idp-111997</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policyId</td>
+    <td>NOT VERIFIED</td>
+    <td>52750</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedKycAttributes)[3].attributeName</td>
+    <td>NOT VERIFIED</td>
+    <td>email</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[4].mandatory</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.policies.(allowedAuthTypes)[6].authType</td>
+    <td>NOT VERIFIED</td>
+    <td>demo</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>NOT VERIFIED</td>
+    <td>PUBLISHED</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.PostWithOnlyPathParam@64910b2d</td></tr>
+</table><p>
+</body>
+</html>

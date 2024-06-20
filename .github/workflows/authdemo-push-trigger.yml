@@ -17,7 +17,7 @@ on:
       - '!release-branch'
       - master
       - 1.*
-      - develop
+      - develop*
       - MOSIP*
       - release*
       - camdgc-*
@@ -86,7 +86,4 @@ jobs:
       GPG_SECRET: ${{ secrets.GPG_SECRET }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
 
-  build-automation-tests:
-    needs: publish_to_nexus
-    uses: ./.github/workflows/automationtests-push-trigger.yml
-    secrets: inherit
+

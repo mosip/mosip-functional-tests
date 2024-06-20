@@ -1,0 +1,323 @@
+<html>
+<head>
+<title>TestNG:  GetLocationHierarchyByLanguageCode</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetLocationHierarchyByLanguageCode</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Aug 24 11:55:41 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>3 seconds (3008 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetLocationHierarchyByLanguageCode_All_Valid_Smoke()'><b>Resident_GetLocationHierarchyByLanguageCode_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetLocationHierarchyByLanguageCode_Empty_LangCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetLocationHierarchyByLanguageCode_All_Valid_Smoke, endPoint=/resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}, role=resident, templateFields=[langCode], input={ "langCode":"eng" }, output={ "hierarchyLevel": "$IGNORE$", "hierarchyLevelName": "$IGNORE$", "langCode": "$IGNORE$", "isActive": "$IGNORE$" }, inputTemplate=resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCode, outputTemplate=resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCodeResult, restMethod=get)<br/>
+<a href="#Output-854936618" onClick='toggleBox("Output-854936618", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-854936618" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-854936618">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langCode": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:42.557Z",
+  "response": {
+    "locationHierarchyLevels": [
+      {
+        "hierarchyLevel": 0,
+        "hierarchyLevelName": "Country",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 1,
+        "hierarchyLevelName": "Region",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 2,
+        "hierarchyLevelName": "Province",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 3,
+        "hierarchyLevelName": "City",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 4,
+        "hierarchyLevelName": "Zone",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 5,
+        "hierarchyLevelName": "Postal Code",
+        "langCode": "eng",
+        "isActive": true
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langCode": "ara"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:43.163Z",
+  "response": {
+    "locationHierarchyLevels": [
+      {
+        "hierarchyLevel": 0,
+        "hierarchyLevelName": "دولة",
+        "langCode": "ara",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 1,
+        "hierarchyLevelName": "المناطق",
+        "langCode": "ara",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 2,
+        "hierarchyLevelName": "المحافظة",
+        "langCode": "ara",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 3,
+        "hierarchyLevelName": "مدينة",
+        "langCode": "ara",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 4,
+        "hierarchyLevelName": "منطقة",
+        "langCode": "ara",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 5,
+        "hierarchyLevelName": "رمز بريدي",
+        "langCode": "ara",
+        "isActive": true
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@646d810b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetLocationHierarchyByLanguageCode_Empty_LangCode_Neg()'><b>Resident_GetLocationHierarchyByLanguageCode_Empty_LangCode_Neg</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetLocationHierarchyByLanguageCode_Empty_LangCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetLocationHierarchyByLanguageCode_Empty_LangCode_Neg, endPoint=/resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}, role=resident, templateFields=null, input={ "langCode":"" }, output={
+}, inputTemplate=resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCode, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-1526441996" onClick='toggleBox("Output-1526441996", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1526441996" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1526441996">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langCode": ""
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "timestamp": "2022-08-24T06:25:44.368+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/resident/v1/proxy/masterdata/locationHierarchyLevels/"
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>path</td>
+    <td>NOT VERIFIED</td>
+    <td>/resident/v1/proxy/masterdata/locationHierarchyLevels/</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>error</td>
+    <td>NOT VERIFIED</td>
+    <td>Not Found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>NOT VERIFIED</td>
+    <td>No message available</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@646d810b</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetLocationHierarchyByLanguageCode_InValid_LangCode()'><b>Resident_GetLocationHierarchyByLanguageCode_InValid_LangCode</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetLocationHierarchyByLanguageCode_Empty_LangCode_Neg)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetLocationHierarchyByLanguageCode_InValid_LangCode, endPoint=/resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}, role=resident, templateFields=null, input={ "langCode":"engg" }, output={ "errors": [ { "errorCode": "RES-SER-418", "message": "$IGNORE$" } ] }, inputTemplate=resident/GetLocationHierarchyByLanguageCode/getLocationHierarchyByLangCode, outputTemplate=resident/error, restMethod=get)<br/>
+<a href="#Output-1465712321" onClick='toggleBox("Output-1465712321", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1465712321" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1465712321">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langCode": "engg"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/proxy/masterdata/locationHierarchyLevels/{langCode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:25:43.800Z",
+  "errors": [
+    {
+      "errorCode": "RES-SER-418",
+      "message": "Location Hierarchy not Found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>RES-SER-418</td>
+    <td>RES-SER-418</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@646d810b</td></tr>
+</table><p>
+</body>
+</html>

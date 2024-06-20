@@ -1,0 +1,1074 @@
+<html>
+<head>
+<title>TestNG:  CreateMachine</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>CreateMachine</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>13/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:51:16 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>10 seconds (10532 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_All_Valid_Smoke_sid()'><b>Masterdata_CreateMachine_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_All_Valid_Smoke_sid, endPoint=/v1/masterdata/machines, role=globalAdmin, templateFields=[name], input={ "id":"123", "ipAddress":"192.168.0.424", "isActive":true, "langCode":"eng", "macAddress":"61-D3-FD-12-C9-ED", "machineSpecId":"$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$", "name":"Mach-Test", "serialNum":"FB5962911687", "validityDateTime":"2021-12-24T05:52:46.758Z", "publicKey":"$PUBLICKEY$", "signPublicKey":"$PUBLICKEY$", "zoneCode":"CST", "requesttime": "$TIMESTAMP$" }, output={ "id": "$IGNORE$", "name": "Mach-Test", "machineSpecId": "$IGNORE$", "serialNum": "FB5962911687", "ipAddress": "192.168.0.424", "isActive": "$IGNORE$", "langCode": "eng", "macAddress": "61-D3-FD-12-C9-ED", "zoneCode": "CST", "validityDateTime": "$IGNORE$" }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/Machine/machineResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-396069030" onClick='toggleBox("Output-396069030", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-396069030" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-396069030">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "192.168.0.424",
+    "isActive": true,
+    "langCode": "ara",
+    "macAddress": "61-D3-FD-12-C9-ED",
+    "machineSpecId": "f8101133-4575-4c6d-840a-017ed00a6d70",
+    "name": "Mach-Test",
+    "serialNum": "FB5962911687",
+    "validityDateTime": "2021-12-24T05:52:46.758Z",
+    "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApCTktWeYp+STIzfUrHDamO4De1lcQXzN3nqC4V4oOq0mUi5sWLw43uq0Qf3Vij0NN4kCvxa+ZFgn4ypwBuHTV58AePtgsm8kKWiDL6UO7DZN8AeuTT290xOqIR0ms5tjbMZxHi36BZ3EqBsF4OlHh3moTSRXJ8cToxPIHdIHFoE/Ae7QGiGx1dfvVdn5O0OD4kbOBaopDz2JBe415BzZu42pl5iEyheYtLzGlafW4YOZKDXYHqdjQCTxqNdtfm2UIFwW7aD0viwRK//VXTEQkBs6st7OPtHKLFaiktE2AD+owWIKJlEpvN86S5DKwaA/b0oWjnlUhJZG8DR/yvLRqQIDAQAB",
+    "zoneCode": "CST",
+    "signPublicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApCTktWeYp+STIzfUrHDamO4De1lcQXzN3nqC4V4oOq0mUi5sWLw43uq0Qf3Vij0NN4kCvxa+ZFgn4ypwBuHTV58AePtgsm8kKWiDL6UO7DZN8AeuTT290xOqIR0ms5tjbMZxHi36BZ3EqBsF4OlHh3moTSRXJ8cToxPIHdIHFoE/Ae7QGiGx1dfvVdn5O0OD4kbOBaopDz2JBe415BzZu42pl5iEyheYtLzGlafW4YOZKDXYHqdjQCTxqNdtfm2UIFwW7aD0viwRK//VXTEQkBs6st7OPtHKLFaiktE2AD+owWIKJlEpvN86S5DKwaA/b0oWjnlUhJZG8DR/yvLRqQIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:16.782Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:18.391Z",
+  "response": {
+    "isActive": false,
+    "createdBy": "globaladmin",
+    "createdDateTime": "2023-07-14T17:21:18.398Z",
+    "isDeleted": false,
+    "id": "10486",
+    "name": "Mach-Test",
+    "serialNum": "FB5962911687",
+    "macAddress": "61-D3-FD-12-C9-ED",
+    "ipAddress": "192.168.0.424",
+    "machineSpecId": "f8101133-4575-4c6d-840a-017ed00a6d70",
+    "langCode": "ara",
+    "validityDateTime": "2021-12-24T05:52:46.758Z"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td>Mach-Test</td>
+    <td>Mach-Test</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>ara</td>
+    <td>ara</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.serialNum</td>
+    <td>FB5962911687</td>
+    <td>FB5962911687</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.macAddress</td>
+    <td>61-D3-FD-12-C9-ED</td>
+    <td>61-D3-FD-12-C9-ED</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.ipAddress</td>
+    <td>192.168.0.424</td>
+    <td>192.168.0.424</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_Invalid_MAC_Address_Blank()'><b>Masterdata_CreateMachine_Invalid_MAC_Address_Blank</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_Invalid_MAC_Address_Blank, endPoint=/v1/masterdata/machines, role=admin, templateFields=[name], input={ "id":"123", "ipAddress":"192.168.0.424", "isActive":true, "langCode":"eng", "macAddress":"", "machineSpecId":"1001", "name":"HMT", "serialNum":"FB5962911687", "validityDateTime":"2021-12-24T05:52:46.758Z", "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "zoneCode":"CST", "requesttime": "$TIMESTAMP$" }, output={ "id":"$IGNORE$", "name": "HMT", "machineSpecId": "1001", "serialNum":"FB5962911687", "ipAddress": "192.168.0.424", "isActive": "$IGNORE$", "langCode": "eng", "macAddress": "$IGNORE$", "zoneCode": "CST", "validityDateTime": "$IGNORE$" }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1678463859" onClick='toggleBox("Output-1678463859", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1678463859" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1678463859">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "192.168.0.424",
+    "isActive": true,
+    "langCode": "ara",
+    "macAddress": "",
+    "machineSpecId": "1001",
+    "name": "HMT",
+    "serialNum": "FB5962911687",
+    "validityDateTime": "2021-12-24T05:52:46.758Z",
+    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode": "CST",
+    "signPublicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:22.969Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:23.625Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-413",
+      "message": "Entry already found for the provided machine name"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Entry already found for the provided machine name</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-MSD-413</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_Invalid_Machine_Name_Blank()'><b>Masterdata_CreateMachine_Invalid_Machine_Name_Blank</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_Invalid_Machine_Name_Blank, endPoint=/v1/masterdata/machines, role=admin, templateFields=[name], input={ "id":"123", "ipAddress":"192.168.0.424", "isActive":true, "langCode":"eng", "macAddress":"61-D3-FD-12-C9-ED", "machineSpecId":"1001", "name":"", "serialNum":"FB5962911687", "validityDateTime":"2021-12-24T05:52:46.758Z", "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "zoneCode":"CST", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1949012389" onClick='toggleBox("Output-1949012389", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1949012389" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1949012389">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "192.168.0.424",
+    "isActive": true,
+    "langCode": "ara",
+    "macAddress": "61-D3-FD-12-C9-ED",
+    "machineSpecId": "1001",
+    "name": "",
+    "serialNum": "FB5962911687",
+    "validityDateTime": "2021-12-24T05:52:46.758Z",
+    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode": "CST",
+    "signPublicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:20.723Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:21.380Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_Invalid_Machine_Zone()'><b>Masterdata_CreateMachine_Invalid_Machine_Zone</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_Invalid_Machine_Zone, endPoint=/v1/masterdata/machines, role=admin, templateFields=[name], input={ "id":"123", "ipAddress":"192.168.0.424", "isActive":true, "langCode":"eng", "macAddress":"61-D3-FD-12-C9-ED", "machineSpecId":"1001", "name":"Mach-Test1", "serialNum":"FB5962911687", "validityDateTime":"2021-12-24T05:52:46.758Z", "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "zoneCode":"BOM", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-255", "message": "Admin not authorized to access this Machine for this Zone" } ] }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-466966398" onClick='toggleBox("Output-466966398", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-466966398" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-466966398">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "192.168.0.424",
+    "isActive": true,
+    "langCode": "ara",
+    "macAddress": "61-D3-FD-12-C9-ED",
+    "machineSpecId": "1001",
+    "name": "Mach-Test1",
+    "serialNum": "FB5962911687",
+    "validityDateTime": "2021-12-24T05:52:46.758Z",
+    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode": "BOM",
+    "signPublicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:19.975Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:20.644Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-255",
+      "message": "Admin not authorized to access this Machine for this Zone"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Admin not authorized to access this Machine for this Zone</td>
+    <td>Admin not authorized to access this Machine for this Zone</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-255</td>
+    <td>KER-MSD-255</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_Invalid_Zone_Code_Blank()'><b>Masterdata_CreateMachine_Invalid_Zone_Code_Blank</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_Invalid_Zone_Code_Blank, endPoint=/v1/masterdata/machines, role=admin, templateFields=[name], input={ "id":"123", "ipAddress":"192.168.0.424", "isActive":true, "langCode":"eng", "macAddress":"61-D3-FD-12-C9-ED", "machineSpecId":"1001", "name":"Mach-Test1", "serialNum":"FB5962911687", "validityDateTime":"2021-12-24T05:52:46.758Z", "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "zoneCode":"", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.zoneCode: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-396439501" onClick='toggleBox("Output-396439501", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-396439501" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-396439501">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "192.168.0.424",
+    "isActive": true,
+    "langCode": "ara",
+    "macAddress": "61-D3-FD-12-C9-ED",
+    "machineSpecId": "1001",
+    "name": "Mach-Test1",
+    "serialNum": "FB5962911687",
+    "validityDateTime": "2021-12-24T05:52:46.758Z",
+    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode": "",
+    "signPublicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:21.460Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:22.138Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.zoneCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.zoneCode: Should not be blank or size must be between 1 and 36</td>
+    <td>request.zoneCode: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_Invalid_Zone_nonAccessable()'><b>Masterdata_CreateMachine_Invalid_Zone_nonAccessable</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_Invalid_Zone_nonAccessable, endPoint=/v1/masterdata/machines, role=admin, templateFields=[name], input={ "id":"123", "ipAddress":"192.168.0.424", "isActive":true, "langCode":"eng", "macAddress":"61-D3-FD-12-C9-ED", "machineSpecId":"$ID:CreateMachineSpecification_All_Valid_Smoke_sid_id$", "name":"Mach-Test2", "serialNum":"FB5962911687", "validityDateTime":"2021-12-24T05:52:46.758Z", "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "zoneCode":"STH", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-255", "message": "Admin not authorized to access this Machine for this Zone" } ] }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1819531404" onClick='toggleBox("Output-1819531404", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1819531404" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1819531404">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "192.168.0.424",
+    "isActive": true,
+    "langCode": "ara",
+    "macAddress": "61-D3-FD-12-C9-ED",
+    "machineSpecId": "f8101133-4575-4c6d-840a-017ed00a6d70",
+    "name": "Mach-Test2",
+    "serialNum": "FB5962911687",
+    "validityDateTime": "2021-12-24T05:52:46.758Z",
+    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode": "STH",
+    "signPublicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:22.214Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:22.896Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-255",
+      "message": "Admin not authorized to access this Machine for this Zone"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Admin not authorized to access this Machine for this Zone</td>
+    <td>Admin not authorized to access this Machine for this Zone</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-255</td>
+    <td>KER-MSD-255</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_Invalid_publicKey()'><b>Masterdata_CreateMachine_Invalid_publicKey</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_Invalid_publicKey, endPoint=/v1/masterdata/machines, role=globalAdmin, templateFields=[name], input={ "id":"123", "ipAddress":"192.168.0.424", "isActive":true, "langCode":"eng", "macAddress":"61-D3-FD-12-C9-ED", "machineSpecId":"1001", "name":"Mach-Test1", "serialNum":"FB5962911687", "validityDateTime":"2021-12-24T05:52:46.758Z", "publicKey":"anyRandomString", "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "zoneCode":"CST", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-257", "message": "Invalid public key provided" } ] }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1396466384" onClick='toggleBox("Output-1396466384", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1396466384" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1396466384">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "192.168.0.424",
+    "isActive": true,
+    "langCode": "ara",
+    "macAddress": "61-D3-FD-12-C9-ED",
+    "machineSpecId": "1001",
+    "name": "Mach-Test1",
+    "serialNum": "FB5962911687",
+    "validityDateTime": "2021-12-24T05:52:46.758Z",
+    "publicKey": "anyRandomString",
+    "zoneCode": "CST",
+    "signPublicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:18.494Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:19.185Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-257",
+      "message": "Invalid public key provided"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid public key provided</td>
+    <td>Invalid public key provided</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-257</td>
+    <td>KER-MSD-257</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_Invalid_validitydate_Format()'><b>Masterdata_CreateMachine_Invalid_validitydate_Format</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_Invalid_validitydate_Format, endPoint=/v1/masterdata/machines, role=admin, templateFields=[name], input={ "id":"123", "ipAddress":"192.168.0.424", "isActive":true, "langCode":"eng", "macAddress":"61-D3-FD-12-C9-ED", "machineSpecId":"1001", "name":"Mach-Test1", "serialNum":"FB5962911687", "validityDateTime":"2018-12-24T05", "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "zoneCode":"CST", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "Invalid Format in field : validityDateTime" } ] }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1111662823" onClick='toggleBox("Output-1111662823", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1111662823" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1111662823">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "192.168.0.424",
+    "isActive": true,
+    "langCode": "ara",
+    "macAddress": "61-D3-FD-12-C9-ED",
+    "machineSpecId": "1001",
+    "name": "Mach-Test1",
+    "serialNum": "FB5962911687",
+    "validityDateTime": "2018-12-24T05",
+    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode": "CST",
+    "signPublicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:19.254Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:19.905Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : validityDateTime"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid Format in field : validityDateTime</td>
+    <td>Invalid Format in field : validityDateTime</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_inValid_IPAddress_AboveMaxLen17()'><b>Masterdata_CreateMachine_inValid_IPAddress_AboveMaxLen17</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_inValid_IPAddress_AboveMaxLen17, endPoint=/v1/masterdata/machines, role=admin, templateFields=[name], input={ "id":"123", "ipAddress":"qwertyuiopasdfge18", "isActive":true, "langCode":"eng", "macAddress":"61-D3-FD-12-C9-ED", "machineSpecId":"1001", "name":"Mach-Test2", "serialNum":"FB5962911687", "validityDateTime":"2021-12-24T05:52:46.758Z", "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "zoneCode":"CST", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.ipAddress: size must be between 0 and 17" } ] }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1573655701" onClick='toggleBox("Output-1573655701", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1573655701" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1573655701">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "qwertyuiopasdfge18",
+    "isActive": true,
+    "langCode": "ara",
+    "macAddress": "61-D3-FD-12-C9-ED",
+    "machineSpecId": "1001",
+    "name": "Mach-Test2",
+    "serialNum": "FB5962911687",
+    "validityDateTime": "2021-12-24T05:52:46.758Z",
+    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode": "CST",
+    "signPublicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:25.825Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:26.515Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.ipAddress: size must be between 0 and 17"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.ipAddress: size must be between 0 and 17</td>
+    <td>request.ipAddress: size must be between 0 and 17</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36()'><b>Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36, endPoint=/v1/masterdata/machines, role=admin, templateFields=[name], input={ "id":"123", "ipAddress":"192.168.0.424", "isActive":true, "langCode":"eng", "macAddress":"61-D3-FD-12-C9-ED", "machineSpecId":"abcdefghijklmnopqrstuvwxyzabcdefghijk", "name":"Mach-Test2", "serialNum":"FB5962911687", "validityDateTime":"2021-12-24T05:52:46.758Z", "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "zoneCode":"CST", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.machineSpecId: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-200978652" onClick='toggleBox("Output-200978652", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-200978652" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-200978652">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "192.168.0.424",
+    "isActive": true,
+    "langCode": "ara",
+    "macAddress": "61-D3-FD-12-C9-ED",
+    "machineSpecId": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "name": "Mach-Test2",
+    "serialNum": "FB5962911687",
+    "validityDateTime": "2021-12-24T05:52:46.758Z",
+    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode": "CST",
+    "signPublicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:26.596Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:27.230Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.machineSpecId: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.machineSpecId: Should not be blank or size must be between 1 and 36</td>
+    <td>request.machineSpecId: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_inValid_MacAddress_AboveMaxLen64()'><b>Masterdata_CreateMachine_inValid_MacAddress_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_inValid_MacAddress_AboveMaxLen64, endPoint=/v1/masterdata/machines, role=admin, templateFields=[name], input={ "id":"123", "ipAddress":"192.168.0.424", "isActive":true, "langCode":"eng", "macAddress":"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "machineSpecId":"1001", "name":"Mach-Test2", "serialNum":"FB5962911687", "validityDateTime":"2021-12-24T05:52:46.758Z", "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "zoneCode":"CST", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.macAddress: Should not be blank or size must be between 0 and 64" } ] }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2074683736" onClick='toggleBox("Output-2074683736", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2074683736" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2074683736">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "192.168.0.424",
+    "isActive": true,
+    "langCode": "ara",
+    "macAddress": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "machineSpecId": "1001",
+    "name": "Mach-Test2",
+    "serialNum": "FB5962911687",
+    "validityDateTime": "2021-12-24T05:52:46.758Z",
+    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode": "CST",
+    "signPublicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:24.404Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:25.033Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.macAddress: Should not be blank or size must be between 0 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.macAddress: Should not be blank or size must be between 0 and 64</td>
+    <td>request.macAddress: Should not be blank or size must be between 0 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_inValid_MachineName_AboveMaxLen64()'><b>Masterdata_CreateMachine_inValid_MachineName_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_inValid_MachineName_AboveMaxLen64, endPoint=/v1/masterdata/machines, role=admin, templateFields=[], input={ "id":"123", "ipAddress":"192.168.0.424", "isActive":true, "langCode":"eng", "macAddress":"61-D3-FD-12-C9-ED", "machineSpecId":"1001", "name":"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "serialNum":"FB5962911687", "validityDateTime":"2021-12-24T05:52:46.758Z", "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "zoneCode":"CST", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-820412312" onClick='toggleBox("Output-820412312", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-820412312" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-820412312">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "192.168.0.424",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "61-D3-FD-12-C9-ED",
+    "machineSpecId": "1001",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "serialNum": "FB5962911687",
+    "validityDateTime": "2021-12-24T05:52:46.758Z",
+    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode": "CST",
+    "signPublicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:23.694Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:24.329Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.Masterdata_CreateMachine_inValid_SerialNumber_AboveMaxLen64()'><b>Masterdata_CreateMachine_inValid_SerialNumber_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (Masterdata_CreateMachine_inValid_MSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_CreateMachine_inValid_SerialNumber_AboveMaxLen64, endPoint=/v1/masterdata/machines, role=admin, templateFields=[name], input={ "id":"123", "ipAddress":"192.168.0.424", "isActive":true, "langCode":"eng", "macAddress":"61-D3-FD-12-C9-ED", "machineSpecId":"1001", "name":"Mach-Test2", "serialNum":"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "validityDateTime":"2021-12-24T05:52:46.758Z", "publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "signPublicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB", "zoneCode":"CST", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.serialNum: Should not be blank or size must be between 0 and 64" } ] }, inputTemplate=masterdata/Machine/machine, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1035877316" onClick='toggleBox("Output-1035877316", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1035877316" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1035877316">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "id": "123",
+    "ipAddress": "192.168.0.424",
+    "isActive": true,
+    "langCode": "ara",
+    "macAddress": "61-D3-FD-12-C9-ED",
+    "machineSpecId": "1001",
+    "name": "Mach-Test2",
+    "serialNum": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "validityDateTime": "2021-12-24T05:52:46.758Z",
+    "publicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB",
+    "zoneCode": "CST",
+    "signPublicKey": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPeK0rYSEqIhX1m4X8fk78zEhO7GTdzKE3spKlRqMc2l3fCDu0QjvC55F9saq+7fM8+oz/RDcLWOvsRl+4tLST5s86mKfsTjqmjnmUZTezSz8lb3/8YDl/K9TxOhpxXbYh9hvQ3J9Is7KECTzj1VAmmqc3HCrw/F8wC2T9wsLaIwIDAQAB"
+  },
+  "requesttime": "2023-07-14T17:21:25.108Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:21:25.752Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.serialNum: Should not be blank or size must be between 0 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.serialNum: Should not be blank or size must be between 0 and 64</td>
+    <td>request.serialNum: Should not be blank or size must be between 0 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@400cb9ef</td></tr>
+</table><p>
+</body>
+</html>

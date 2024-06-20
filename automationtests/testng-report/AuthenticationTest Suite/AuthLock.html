@@ -1,0 +1,259 @@
+<html>
+<head>
+<title>TestNG:  AuthLock</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>AuthLock</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/5</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Oct 05 13:52:19 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (13 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.auth_AuthLock_Valid_UIN_All()'><b>auth_AuthLock_Valid_UIN_All</b><br>Test class: io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate (auth_AuthLock_Valid_UIN_without_phon_email_uin)<br>Parameters: TestCaseDTO(testCaseName=auth_AuthLock_Valid_UIN_All, endPoint=/resident/v1/req/auth-lock, role=resident, templateFields=null, input={ "transactionID": "$TRANSACTIONID$", "individualId": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_UIN$", "individualIdType": "UIN", "requesttime": "$TIMESTAMP$", "id": "mosip.resident.authlock", "version": "v1", "authType": [{auth: "demo"},{auth: "bio-FACE"}], "otp": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_EMAIL$", "sendOtp":{ "transactionID": "$TRANSACTIONID$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Positive_LockUIN_valid_smoke_UIN$", "individualIdType": "UIN", "sendOtpReqTemplate": "ida/SendOTP/createSendOTP", "sendOtpEndPoint": "/resident/v1/req/otp" } }, output={ "message": "Notification has been sent to the provided contact detail(s)", "sendOtpResp":{ "maskedMobile": "XXXXXX8531", "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult" } }, inputTemplate=ida/AuthLock/createAuthLock, outputTemplate=ida/AuthLock/createAuthLockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)</td>
+<td><div><pre>org.testng.SkipException: Target env health check failed {https://api-internal.qa-upgrade3.mosip.net/v1/masterdata/actuator/health=No Response}
+	at io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.test(PostWithBodyWithOtpGenerate.java:84)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:132)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1451757974", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1451757974'><pre>org.testng.SkipException: Target env health check failed {https://api-internal.qa-upgrade3.mosip.net/v1/masterdata/actuator/health=No Response}
+	at io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.test(PostWithBodyWithOtpGenerate.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:132)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate@273dec10</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.auth_AuthLock_Valid_UIN_for_bio_auth()'><b>auth_AuthLock_Valid_UIN_for_bio_auth</b><br>Test class: io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate (auth_AuthLock_Valid_UIN_without_phon_email_uin)<br>Parameters: TestCaseDTO(testCaseName=auth_AuthLock_Valid_UIN_for_bio_auth, endPoint=/resident/v1/req/auth-lock, role=resident, templateFields=null, input={ "transactionID": "$TRANSACTIONID$", "individualId": "$ID:AddIdentity_Positive_LockUIN_For_bio_valid_smoke_UIN$", "individualIdType": "UIN", "requesttime": "$TIMESTAMP$", "id": "mosip.resident.authlock", "version": "v1", "authType": [{auth: "bio-Finger"}], "otp": "$ID:AddIdentity_Positive_LockUIN_For_bio_valid_smoke_EMAIL$", "sendOtp":{ "transactionID": "$TRANSACTIONID$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_Positive_LockUIN_For_bio_valid_smoke_UIN$", "individualIdType": "UIN", "sendOtpReqTemplate": "ida/SendOTP/createSendOTP", "sendOtpEndPoint": "/resident/v1/req/otp" } }, output={ "message": "Notification has been sent to the provided contact detail(s)", "sendOtpResp":{ "maskedMobile": "XXXXXX8531", "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult" } }, inputTemplate=ida/AuthLock/createAuthLock, outputTemplate=ida/AuthLock/createAuthLockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)</td>
+<td><div><pre>org.testng.SkipException: Target env health check failed {https://api-internal.qa-upgrade3.mosip.net/v1/masterdata/actuator/health=No Response}
+	at io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.test(PostWithBodyWithOtpGenerate.java:84)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:132)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1759030823", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1759030823'><pre>org.testng.SkipException: Target env health check failed {https://api-internal.qa-upgrade3.mosip.net/v1/masterdata/actuator/health=No Response}
+	at io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.test(PostWithBodyWithOtpGenerate.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:132)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate@273dec10</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.auth_AuthLock_Valid_UIN_locked_All()'><b>auth_AuthLock_Valid_UIN_locked_All</b><br>Test class: io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate (auth_AuthLock_Valid_UIN_without_phon_email_uin)<br>Parameters: TestCaseDTO(testCaseName=auth_AuthLock_Valid_UIN_locked_All, endPoint=/resident/v1/req/auth-lock, role=resident, templateFields=null, input={ "transactionID": "$TRANSACTIONID$", "individualId": "$ID:AddIdentity_lock_unlock_forever_smoke_sid_Pos_UIN$", "individualIdType": "UIN", "requesttime": "$TIMESTAMP$", "id": "mosip.resident.authlock", "version": "v1", "authType": [{auth: "demo"},{auth: "bio-FACE"}], "otp": "$ID:AddIdentity_lock_unlock_forever_smoke_sid_Pos_EMAIL$", "sendOtp":{ "transactionID": "$TRANSACTIONID$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_lock_unlock_forever_smoke_sid_Pos_UIN$", "individualIdType": "UIN", "sendOtpReqTemplate": "ida/SendOTP/createSendOTP", "sendOtpEndPoint": "/resident/v1/req/otp" } }, output={ "message": "Notification has been sent to the provided contact detail(s)", "sendOtpResp":{ "maskedMobile": "XXXXXX8531", "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult" } }, inputTemplate=ida/AuthLock/createAuthLock, outputTemplate=ida/AuthLock/createAuthLockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)</td>
+<td><div><pre>org.testng.SkipException: Target env health check failed {https://api-internal.qa-upgrade3.mosip.net/v1/masterdata/actuator/health=No Response}
+	at io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.test(PostWithBodyWithOtpGenerate.java:84)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:132)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace625361236", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace625361236'><pre>org.testng.SkipException: Target env health check failed {https://api-internal.qa-upgrade3.mosip.net/v1/masterdata/actuator/health=No Response}
+	at io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.test(PostWithBodyWithOtpGenerate.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:132)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate@273dec10</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.auth_AuthLock_Valid_UIN_without_phon_email_uin()'><b>auth_AuthLock_Valid_UIN_without_phon_email_uin</b><br>Test class: io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate (auth_AuthLock_Valid_UIN_without_phon_email_uin)<br>Parameters: TestCaseDTO(testCaseName=auth_AuthLock_Valid_UIN_without_phon_email_uin, endPoint=/resident/v1/req/auth-lock, role=resident, templateFields=null, input={ "transactionID": "$TRANSACTIONID$", "individualId": "$ID:AddIdentity_no_email_no_phone_sid_Pos_UIN$", "individualIdType": "UIN", "requesttime": "$TIMESTAMP$", "id": "mosip.resident.authlock", "version": "v1", "authType": [{auth: "bio-Finger"}], "otp": "$ID:AddIdentity_no_email_no_phone_sid_Pos_EMAIL$", "sendOtp":{ "transactionID": "$TRANSACTIONID$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_no_email_no_phone_sid_Pos_UIN$", "individualIdType": "UIN", "sendOtpReqTemplate": "ida/SendOTP/createSendOTP", "sendOtpEndPoint": "/resident/v1/req/otp" } }, output={ "message": "Notification has been sent to the provided contact detail(s)", "sendOtpResp":{ "maskedMobile": "XXXXXX8531", "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult" } }, inputTemplate=ida/AuthLock/createAuthLock, outputTemplate=ida/AuthLock/createAuthLockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)</td>
+<td><div><pre>org.testng.SkipException: Target env health check failed {https://api-internal.qa-upgrade3.mosip.net/v1/masterdata/actuator/health=No Response}
+	at io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.test(PostWithBodyWithOtpGenerate.java:84)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:132)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1810172725", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1810172725'><pre>org.testng.SkipException: Target env health check failed {https://api-internal.qa-upgrade3.mosip.net/v1/masterdata/actuator/health=No Response}
+	at io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.test(PostWithBodyWithOtpGenerate.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:132)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate@273dec10</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.auth_AuthLock_Valid_child_UIN_which_locked()'><b>auth_AuthLock_Valid_child_UIN_which_locked</b><br>Test class: io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate (auth_AuthLock_Valid_UIN_without_phon_email_uin)<br>Parameters: TestCaseDTO(testCaseName=auth_AuthLock_Valid_child_UIN_which_locked, endPoint=/resident/v1/req/auth-lock, role=resident, templateFields=null, input={ "transactionID": "$TRANSACTIONID$", "individualId": "$ID:AddIdentity_withValidParameters_with_Infant_which_locked_smoke_Pos_UIN$", "individualIdType": "UIN", "requesttime": "$TIMESTAMP$", "id": "mosip.resident.authlock", "version": "v1", "authType": [{auth: "demo"}], "otp": "$ID:AddIdentity_withValidParameters_with_Infant_which_locked_smoke_Pos_EMAIL$", "sendOtp":{ "transactionID": "$TRANSACTIONID$", "requestTime": "$TIMESTAMP$", "individualId": "$ID:AddIdentity_withValidParameters_with_Infant_which_locked_smoke_Pos_UIN$", "individualIdType": "UIN", "sendOtpReqTemplate": "ida/SendOTP/createSendOTP", "sendOtpEndPoint": "/resident/v1/req/otp" } }, output={ "message": "Notification has been sent to the provided contact detail(s)", "sendOtpResp":{ "maskedMobile": "XXXXXX8531", "sendOtpResTemplate":"ida/SendOTP/createSendOTPResult" } }, inputTemplate=ida/AuthLock/createAuthLock, outputTemplate=ida/AuthLock/createAuthLockResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)</td>
+<td><div><pre>org.testng.SkipException: Target env health check failed {https://api-internal.qa-upgrade3.mosip.net/v1/masterdata/actuator/health=No Response}
+	at io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.test(PostWithBodyWithOtpGenerate.java:84)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:132)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace320605039", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace320605039'><pre>org.testng.SkipException: Target env health check failed {https://api-internal.qa-upgrade3.mosip.net/v1/masterdata/actuator/health=No Response}
+	at io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate.test(PostWithBodyWithOtpGenerate.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:132)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PostWithBodyWithOtpGenerate@273dec10</td></tr>
+</table><p>
+</body>
+</html>

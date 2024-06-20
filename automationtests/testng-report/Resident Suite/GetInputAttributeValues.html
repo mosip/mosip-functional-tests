@@ -1,0 +1,361 @@
+<html>
+<head>
+<title>TestNG:  GetInputAttributeValues</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetInputAttributeValues</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Aug 24 11:57:12 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1274 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Resident_GetInputAttributeValues_UIN_all_Valid_Smoke()'><b>Resident_GetInputAttributeValues_UIN_all_Valid_Smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Resident_GetInputAttributeValues_UIN_all_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Resident_GetInputAttributeValues_UIN_all_Valid_Smoke, endPoint=/resident/v1/identity/info, role=residentNew, templateFields=null, input={ }, output={ }, inputTemplate=resident/GetInputAttributeValues/getInputAttributeValues, outputTemplate=resident/GetInputAttributeValues/getInputAttributeValuesResult, restMethod=get)<br/>
+<a href="#Output-1370665958" onClick='toggleBox("Output-1370665958", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1370665958" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1370665958">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa4.mosip.net/resident/v1/identity/info) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-08-24T06:27:14.188Z",
+  "response": {
+    "fullName": [
+      {
+        "language": "eng",
+        "value": "FR"
+      },
+      {
+        "language": "ara",
+        "value": "FR"
+      }
+    ],
+    "dateOfBirth": "1992/04/15",
+    "gender": [
+      {
+        "language": "eng",
+        "value": "FR"
+      },
+      {
+        "language": "ara",
+        "value": "FR"
+      }
+    ],
+    "region": [
+      {
+        "language": "eng",
+        "value": "FR"
+      },
+      {
+        "language": "ara",
+        "value": "FR"
+      }
+    ],
+    "province": [
+      {
+        "language": "eng",
+        "value": "FR"
+      },
+      {
+        "language": "ara",
+        "value": "FR"
+      }
+    ],
+    "city": [
+      {
+        "language": "eng",
+        "value": "FR"
+      },
+      {
+        "language": "ara",
+        "value": "FR"
+      }
+    ],
+    "zone": [
+      {
+        "language": "eng",
+        "value": "FR"
+      },
+      {
+        "language": "ara",
+        "value": "FR"
+      }
+    ],
+    "postalCode": "14022",
+    "phone": "9876543210",
+    "email": "residentautomation@gmail.com"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.postalCode</td>
+    <td>NOT VERIFIED</td>
+    <td>14022</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(gender)[0].language</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(region)[0].language</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(fullName)[0].language</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(city)[0].value</td>
+    <td>NOT VERIFIED</td>
+    <td>FR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(city)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>FR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(fullName)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(zone)[0].language</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(province)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(gender)[0].value</td>
+    <td>NOT VERIFIED</td>
+    <td>FR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(gender)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>FR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(city)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.email</td>
+    <td>NOT VERIFIED</td>
+    <td>residentautomation@gmail.com</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.phone</td>
+    <td>NOT VERIFIED</td>
+    <td>9876543210</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(region)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(fullName)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>FR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(province)[0].value</td>
+    <td>NOT VERIFIED</td>
+    <td>FR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(fullName)[0].value</td>
+    <td>NOT VERIFIED</td>
+    <td>FR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(province)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>FR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(region)[0].value</td>
+    <td>NOT VERIFIED</td>
+    <td>FR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.dateOfBirth</td>
+    <td>NOT VERIFIED</td>
+    <td>1992/04/15</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(zone)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>FR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(zone)[0].value</td>
+    <td>NOT VERIFIED</td>
+    <td>FR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(gender)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(region)[1].value</td>
+    <td>NOT VERIFIED</td>
+    <td>FR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(zone)[1].language</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(province)[0].language</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(city)[0].language</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.GetWithParam@7f0d8eff</td></tr>
+</table><p>
+</body>
+</html>

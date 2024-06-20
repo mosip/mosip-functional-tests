@@ -1,0 +1,441 @@
+<html>
+<head>
+<title>TestNG:  SendOtp</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>SendOtp</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>8/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Sep 22 15:00:28 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>4 seconds (4691 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.Prereg_SendOtp_All_Valid_Smoke_Phone_sid()'><b>Prereg_SendOtp_All_Valid_Smoke_Phone_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (Prereg_SendOtp_SpacialCharacter_email_Neg)<br>Parameters: TestCaseDTO(testCaseName=Prereg_SendOtp_All_Valid_Smoke_Phone_sid, endPoint=/preregistration/v1/login/sendOtp/langcode, role=batch, templateFields=null, input={ "version": "1.0", "requesttime": "$TIMESTAMP$", "userId": "9090872300", "id": "mosip.pre-registration.login.sendotp" }, output={ "status": "success" }, inputTemplate=preReg/SendOtp/sendotp, outputTemplate=preReg/SendOtp/sendotpResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)<br/>
+<a href="#Output-1144567906" onClick='toggleBox("Output-1144567906", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1144567906" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1144567906">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "requesttime": "2023-09-22T09:30:28.615Z",
+  "request": {
+    "langCode": "eng",
+    "userId": "9090872300"
+  }
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/preregistration/v1/login/sendOtp/langcode) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 22 Sep 2023 09:30:30 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=166]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2023-09-22T09:30:30.159Z",
+  "response": {
+    "message": "Sms Request Sent",
+    "status": "success"
+  }
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>success</td>
+    <td>success</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@3a3883c4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.Prereg_SendOtp_All_Valid_Smoke_email_sid()'><b>Prereg_SendOtp_All_Valid_Smoke_email_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (Prereg_SendOtp_SpacialCharacter_email_Neg)<br>Parameters: TestCaseDTO(testCaseName=Prereg_SendOtp_All_Valid_Smoke_email_sid, endPoint=/preregistration/v1/login/sendOtp/langcode, role=batch, templateFields=null, input={ "version": "1.0", "requesttime": "$TIMESTAMP$", "userId": "john.doe@mailinator.com", "id": "mosip.pre-registration.login.sendotp" }, output={ "status": "success" }, inputTemplate=preReg/SendOtp/sendotp, outputTemplate=preReg/SendOtp/sendotpResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)<br/>
+<a href="#Output-922145372" onClick='toggleBox("Output-922145372", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-922145372" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-922145372">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "requesttime": "2023-09-22T09:30:31.496Z",
+  "request": {
+    "langCode": "eng",
+    "userId": "john.doe@mailinator.com"
+  }
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/preregistration/v1/login/sendOtp/langcode) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 22 Sep 2023 09:30:31 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=132]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2023-09-22T09:30:31.913Z",
+  "response": {
+    "message": "Email Request submitted",
+    "status": "success"
+  }
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>success</td>
+    <td>success</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@3a3883c4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.Prereg_SendOtp_Invalid_Phone_Neg()'><b>Prereg_SendOtp_Invalid_Phone_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (Prereg_SendOtp_SpacialCharacter_email_Neg)<br>Parameters: TestCaseDTO(testCaseName=Prereg_SendOtp_Invalid_Phone_Neg, endPoint=/preregistration/v1/login/sendOtp/langcode, role=batch, templateFields=null, input={ "version": "1.0", "requesttime": "$TIMESTAMP$", "userId": "12", "id": "mosip.pre-registration.login.sendotp" }, output={ "errors": [ { "errorCode": "PRG_PAM_LGN_008" } ] }, inputTemplate=preReg/SendOtp/sendotp, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)<br/>
+<a href="#Output-1164616817" onClick='toggleBox("Output-1164616817", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1164616817" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1164616817">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "requesttime": "2023-09-22T09:30:30.293Z",
+  "request": {
+    "langCode": "eng",
+    "userId": "12"
+  }
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/preregistration/v1/login/sendOtp/langcode) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 22 Sep 2023 09:30:30 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=51]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2023-09-22T09:30:30.718Z",
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_LGN_008",
+      "message": "Invalid Request userId received"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_PAM_LGN_008</td>
+    <td>PRG_PAM_LGN_008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@3a3883c4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.Prereg_SendOtp_Invalid__email_Neg()'><b>Prereg_SendOtp_Invalid__email_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (Prereg_SendOtp_SpacialCharacter_email_Neg)<br>Parameters: TestCaseDTO(testCaseName=Prereg_SendOtp_Invalid__email_Neg, endPoint=/preregistration/v1/login/sendOtp/langcode, role=batch, templateFields=null, input={ "version": "1.0", "requesttime": "$TIMESTAMP$", "userId": "jo32", "id": "mosip.pre-registration.login.sendotp" }, output={ "errors": [ { "errorCode": "PRG_PAM_LGN_008" } ] }, inputTemplate=preReg/SendOtp/sendotp, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)<br/>
+<a href="#Output-907089215" onClick='toggleBox("Output-907089215", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-907089215" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-907089215">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "requesttime": "2023-09-22T09:30:31.959Z",
+  "request": {
+    "langCode": "eng",
+    "userId": "jo32"
+  }
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/preregistration/v1/login/sendOtp/langcode) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 22 Sep 2023 09:30:32 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=42]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2023-09-22T09:30:32.307Z",
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_LGN_008",
+      "message": "Invalid Request userId received"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_PAM_LGN_008</td>
+    <td>PRG_PAM_LGN_008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@3a3883c4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.Prereg_SendOtp_MISSING_Phone_Neg()'><b>Prereg_SendOtp_MISSING_Phone_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (Prereg_SendOtp_SpacialCharacter_email_Neg)<br>Parameters: TestCaseDTO(testCaseName=Prereg_SendOtp_MISSING_Phone_Neg, endPoint=/preregistration/v1/login/sendOtp/langcode, role=batch, templateFields=null, input={ "version": "1.0", "requesttime": "$TIMESTAMP$", "userId": "$REMOVE$", "id": "mosip.pre-registration.login.sendotp" }, output={ "errors": [ { "errorCode": "PRG_PAM_LGN_008" } ] }, inputTemplate=preReg/SendOtp/sendotp, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)<br/>
+<a href="#Output-1653318246" onClick='toggleBox("Output-1653318246", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1653318246" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1653318246">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "langCode": "eng"
+  },
+  "requesttime": "2023-09-22T09:30:30.748Z",
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/preregistration/v1/login/sendOtp/langcode) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 22 Sep 2023 09:30:31 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=29]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2023-09-22T09:30:31.153Z",
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_LGN_008",
+      "message": "Invalid Request userId received"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_PAM_LGN_008</td>
+    <td>PRG_PAM_LGN_008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@3a3883c4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.Prereg_SendOtp_Missing_email_Neg()'><b>Prereg_SendOtp_Missing_email_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (Prereg_SendOtp_SpacialCharacter_email_Neg)<br>Parameters: TestCaseDTO(testCaseName=Prereg_SendOtp_Missing_email_Neg, endPoint=/preregistration/v1/login/sendOtp/langcode, role=batch, templateFields=null, input={ "version": "1.0", "requesttime": "$TIMESTAMP$", "userId": "$REMOVE$", "id": "mosip.pre-registration.login.sendotp" }, output={ "errors": [ { "errorCode": "PRG_PAM_LGN_008" } ] }, inputTemplate=preReg/SendOtp/sendotp, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)<br/>
+<a href="#Output-1040093935" onClick='toggleBox("Output-1040093935", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1040093935" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1040093935">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "langCode": "eng"
+  },
+  "requesttime": "2023-09-22T09:30:32.309Z",
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/preregistration/v1/login/sendOtp/langcode) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 22 Sep 2023 09:30:32 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=45]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2023-09-22T09:30:32.657Z",
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_LGN_008",
+      "message": "Invalid Request userId received"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_PAM_LGN_008</td>
+    <td>PRG_PAM_LGN_008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@3a3883c4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.Prereg_SendOtp_SpacialCharacter_Val_Phone_Neg()'><b>Prereg_SendOtp_SpacialCharacter_Val_Phone_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (Prereg_SendOtp_SpacialCharacter_email_Neg)<br>Parameters: TestCaseDTO(testCaseName=Prereg_SendOtp_SpacialCharacter_Val_Phone_Neg, endPoint=/preregistration/v1/login/sendOtp/langcode, role=batch, templateFields=null, input={ "version": "1.0", "requesttime": "$TIMESTAMP$", "userId": "974$%26", "id": "mosip.pre-registration.login.sendotp" }, output={ "errors": [ { "errorCode": "PRG_PAM_LGN_008" } ] }, inputTemplate=preReg/SendOtp/sendotp, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)<br/>
+<a href="#Output-1827239708" onClick='toggleBox("Output-1827239708", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1827239708" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1827239708">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "requesttime": "2023-09-22T09:30:31.154Z",
+  "request": {
+    "langCode": "eng",
+    "userId": "974$%26"
+  }
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/preregistration/v1/login/sendOtp/langcode) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 22 Sep 2023 09:30:31 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=34]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2023-09-22T09:30:31.479Z",
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_LGN_008",
+      "message": "Invalid Request userId received"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_PAM_LGN_008</td>
+    <td>PRG_PAM_LGN_008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@3a3883c4</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePost.Prereg_SendOtp_SpacialCharacter_email_Neg()'><b>Prereg_SendOtp_SpacialCharacter_email_Neg</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePost (Prereg_SendOtp_SpacialCharacter_email_Neg)<br>Parameters: TestCaseDTO(testCaseName=Prereg_SendOtp_SpacialCharacter_email_Neg, endPoint=/preregistration/v1/login/sendOtp/langcode, role=batch, templateFields=null, input={ "version": "1.0", "requesttime": "$TIMESTAMP$", "userId": "$!&", "id": "mosip.pre-registration.login.sendotp" }, output={ "errors": [ { "errorCode": "PRG_PAM_LGN_008" } ] }, inputTemplate=preReg/SendOtp/sendotp, outputTemplate=preReg/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false)<br/>
+<a href="#Output-490567348" onClick='toggleBox("Output-490567348", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-490567348" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-490567348">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "requesttime": "2023-09-22T09:30:32.665Z",
+  "request": {
+    "langCode": "eng",
+    "userId": "$!\u0026amp;"
+  }
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/preregistration/v1/login/sendOtp/langcode) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 22 Sep 2023 09:30:32 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=45]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.login.sendotp",
+  "version": "1.0",
+  "responsetime": "2023-09-22T09:30:33.023Z",
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_LGN_008",
+      "message": "Invalid Request userId received"
+    }
+  ]
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_PAM_LGN_008</td>
+    <td>PRG_PAM_LGN_008</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePost@3a3883c4</td></tr>
+</table><p>
+</body>
+</html>

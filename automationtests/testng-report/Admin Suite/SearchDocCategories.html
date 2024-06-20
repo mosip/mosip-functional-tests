@@ -1,0 +1,1565 @@
+<html>
+<head>
+<title>TestNG:  SearchDocCategories</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>SearchDocCategories</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>17/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:10:56 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>11 seconds (11353 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_Valid_Request_Smoke()'><b>MasterData_SearchDocCategories_Valid_Request_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_Valid_Request_Smoke, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "isActive", "type": "equals", "value": "false", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" }, { "columnName": "code", "type": "equals", "value": "DocTestCode123", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "isActive", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/SearchDocCategories/searchDocCategoriesResult, restMethod=post)<br/>
+<a href="#Output-1586433944" onClick='toggleBox("Output-1586433944", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1586433944" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1586433944">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "false",
+        "columnName": "isActive"
+      },
+      {
+        "type": "equals",
+        "value": "DocTestCode123",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "isActive"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:40:56.060Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:56.647Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": false,
+        "createdBy": "110005",
+        "createdDateTime": "2021-12-15T09:40:35.822Z",
+        "updatedBy": "110005",
+        "updatedDateTime": "2021-12-15T09:40:43.015Z",
+        "isDeleted": false,
+        "code": "DocTestCode123",
+        "name": "DocCat",
+        "description": "Testing positive Doc updated",
+        "langCode": "eng"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:40:43.015Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:40:35.822Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Testing positive Doc updated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DocTestCode123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>DocCat</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_Valid_sortBy_code()'><b>MasterData_SearchDocCategories_Valid_sortBy_code</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_Valid_sortBy_code, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "code", "type": "equals", "value": "POA", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "code", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "isActive": "$IGNORE$", "description": "$IGNORE$", "code": "POA", "langCode": "$IGNORE$", "name": "$IGNORE$" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/SearchDocCategories/searchDocCategoriesResult, restMethod=post)<br/>
+<a href="#Output-1279369591" onClick='toggleBox("Output-1279369591", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1279369591" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1279369591">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "POA",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "code"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:40:56.653Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:57.466Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2021-10-06T13:47:50.725Z",
+        "updatedBy": "110005",
+        "updatedDateTime": "2021-12-15T08:17:41.216Z",
+        "isDeleted": false,
+        "code": "POA",
+        "name": "Proof of Address",
+        "description": "Address Proof",
+        "langCode": "eng"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].code</td>
+    <td>POA</td>
+    <td>POA</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_Valid_sortType_DESC()'><b>MasterData_SearchDocCategories_Valid_sortType_DESC</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_Valid_sortType_DESC, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "code", "type": "equals", "value": "POA", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "code", "sortType": "DESC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [ { "isActive": "$IGNORE$", "description": "$IGNORE$", "code": "POA", "langCode": "$IGNORE$", "name": "$IGNORE$" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/SearchDocCategories/searchDocCategoriesResult, restMethod=post)<br/>
+<a href="#Output-1791604331" onClick='toggleBox("Output-1791604331", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1791604331" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1791604331">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "POA",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "DESC",
+        "sortField": "code"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:40:57.580Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:58.320Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "isActive": true,
+        "createdBy": "superadmin",
+        "createdDateTime": "2021-10-06T13:47:50.725Z",
+        "updatedBy": "110005",
+        "updatedDateTime": "2021-12-15T08:17:41.216Z",
+        "isDeleted": false,
+        "code": "POA",
+        "name": "Proof of Address",
+        "description": "Address Proof",
+        "langCode": "eng"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].code</td>
+    <td>POA</td>
+    <td>POA</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td>string</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_columnName()'><b>MasterData_SearchDocCategories_inValid_columnName</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_columnName, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "agshshs", "type": "equals", "value": "DocTestCode123", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "agshshs", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-357", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-377941381" onClick='toggleBox("Output-377941381", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-377941381" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-377941381">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "DocTestCode123",
+        "columnName": "agshshs"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "agshshs"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:40:59.207Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:59.773Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-357",
+      "message": "Invalid sort field agshshs"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-357</td>
+    <td>KER-MSD-357</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_columnName_blank()'><b>MasterData_SearchDocCategories_inValid_columnName_blank</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_columnName_blank, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "", "type": "equals", "value": "DocTestCode123", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "code", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-311", "message": "Column is missing in request" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1938438604" onClick='toggleBox("Output-1938438604", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1938438604" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1938438604">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "DocTestCode123",
+        "columnName": ""
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "code"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:40:58.443Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:59.193Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-311",
+      "message": "Column is missing in request"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Column is missing in request</td>
+    <td>Column is missing in request</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-311</td>
+    <td>KER-MSD-311</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_filterType()'><b>MasterData_SearchDocCategories_inValid_filterType</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_filterType, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "code", "type": "kfdjfkd", "value": "DocTestCode123", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "code", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-318", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-2084322663" onClick='toggleBox("Output-2084322663", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2084322663" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2084322663">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "kfdjfkd",
+        "value": "DocTestCode123",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "code"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:41:05.015Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:41:05.603Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "Column code doesn\u0027t support filter type kfdjfkd"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-318</td>
+    <td>KER-MSD-318</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_filterType_blank()'><b>MasterData_SearchDocCategories_inValid_filterType_blank</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_filterType_blank, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "code", "type": "", "value": "DocTestCode123", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "code", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-312", "message": "Filter type is missing" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1031161409" onClick='toggleBox("Output-1031161409", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1031161409" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1031161409">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "",
+        "value": "DocTestCode123",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "code"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:41:04.325Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:41:05.002Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-312",
+      "message": "Filter type is missing"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Filter type is missing</td>
+    <td>Filter type is missing</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-312</td>
+    <td>KER-MSD-312</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_filter_value()'><b>MasterData_SearchDocCategories_inValid_filter_value</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_filter_value, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "code", "type": "equals", "value": "agshshs", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "code", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "data": [] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-694541704" onClick='toggleBox("Output-694541704", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-694541704" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-694541704">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "agshshs",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "code"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:40:59.779Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:41:00.449Z",
+  "response": {
+    "fromRecord": 0,
+    "toRecord": 0,
+    "totalRecord": 0
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.data</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.fromRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.toRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.totalRecord</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_filter_value_blank()'><b>MasterData_SearchDocCategories_inValid_filter_value_blank</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_filter_value_blank, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "code", "type": "equals", "value": "", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "code", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-390", "message": "Invalid filter value" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-2089678439" onClick='toggleBox("Output-2089678439", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2089678439" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2089678439">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "code"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:41:00.453Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:41:01.030Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-390",
+      "message": "Invalid filter value"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid filter value</td>
+    <td>Invalid filter value</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-390</td>
+    <td>KER-MSD-390</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_pagesize()'><b>MasterData_SearchDocCategories_inValid_pagesize</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_pagesize, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[languageCode], input={ "filters": [ { "columnName": "code", "type": "equals", "value": "POA", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "code", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": -1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.pagination.pageFetch: Should have positive integer value" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1895403386" onClick='toggleBox("Output-1895403386", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1895403386" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1895403386">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": -1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "POA",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "code"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:41:03.781Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:41:04.316Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.pagination.pageFetch: Should have positive integer value"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.pagination.pageFetch: Should have positive integer value</td>
+    <td>request.pagination.pageFetch: Should have positive integer value</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_requestTime_format()'><b>MasterData_SearchDocCategories_inValid_requestTime_format</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_requestTime_format, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "code", "type": "equals", "value": "DocTestCode123", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "code", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "2018-12-10 06:12:52.994Z" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "Invalid Format in field : requesttime" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1133655596" onClick='toggleBox("Output-1133655596", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1133655596" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1133655596">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "DocTestCode123",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "code"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2018-12-10 06:12:52.994Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:41:06.233Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : requesttime"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td>Invalid Format in field : requesttime</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_sortField()'><b>MasterData_SearchDocCategories_inValid_sortField</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_sortField, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "code", "type": "equals", "value": "DocTestCode123", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "fbheafg", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-357", "message": "Invalid sort field fbheafg" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-211992147" onClick='toggleBox("Output-211992147", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-211992147" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-211992147">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "DocTestCode123",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "fbheafg"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:41:01.031Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:41:01.793Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-357",
+      "message": "Invalid sort field fbheafg"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid sort field fbheafg</td>
+    <td>Invalid sort field fbheafg</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-357</td>
+    <td>KER-MSD-357</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_sortField_blank()'><b>MasterData_SearchDocCategories_inValid_sortField_blank</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_sortField_blank, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "code", "type": "equals", "value": "DocTestCode123", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "", "sortType": "fbheafg" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-314", "message": "Missing sort field or sort type values" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-948963537" onClick='toggleBox("Output-948963537", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-948963537" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-948963537">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "DocTestCode123",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "fbheafg",
+        "sortField": ""
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:41:02.486Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:41:03.080Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Missing sort field or sort type values</td>
+    <td>Missing sort field or sort type values</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-314</td>
+    <td>KER-MSD-314</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_sortType()'><b>MasterData_SearchDocCategories_inValid_sortType</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_sortType, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "code", "type": "equals", "value": "DocTestCode123", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "code", "sortType": "fbheafg" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-358", "message": "Sort type fbheafg is not supported" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1894652259" onClick='toggleBox("Output-1894652259", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1894652259" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1894652259">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "DocTestCode123",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "fbheafg",
+        "sortField": "code"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:41:01.810Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:41:02.479Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-358",
+      "message": "Sort type fbheafg is not supported"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Sort type fbheafg is not supported</td>
+    <td>Sort type fbheafg is not supported</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-358</td>
+    <td>KER-MSD-358</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_sortType_blank()'><b>MasterData_SearchDocCategories_inValid_sortType_blank</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_sortType_blank, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "code", "type": "equals", "value": "DocTestCode123", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "code", "sortType": "" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-314", "message": "Missing sort field or sort type values" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-1566104673" onClick='toggleBox("Output-1566104673", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1566104673" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1566104673">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "equals",
+        "value": "DocTestCode123",
+        "columnName": "code"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "",
+        "sortField": "code"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:41:03.092Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:41:03.759Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Missing sort field or sort type values</td>
+    <td>Missing sort field or sort type values</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-314</td>
+    <td>KER-MSD-314</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_typeFilter_contains()'><b>MasterData_SearchDocCategories_inValid_typeFilter_contains</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_typeFilter_contains, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "isActive", "type": "contains", "value": "true", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "isActive", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-318", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-24138677" onClick='toggleBox("Output-24138677", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-24138677" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-24138677">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "contains",
+        "value": "true",
+        "columnName": "isActive"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "isActive"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:41:06.239Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:41:06.832Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "Column isActive doesn\u0027t support filter type contains"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-318</td>
+    <td>KER-MSD-318</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.MasterData_SearchDocCategories_inValid_typeFilter_startsWith()'><b>MasterData_SearchDocCategories_inValid_typeFilter_startsWith</b><br>Test class: io.mosip.testscripts.SimplePost (MasterData_SearchDocCategories_inValid_typeFilter_startsWith)<br>Parameters: TestCaseDTO(testCaseName=MasterData_SearchDocCategories_inValid_typeFilter_startsWith, endPoint=/v1/masterdata/documentcategories/search, role=admin, templateFields=[value], input={ "filters": [ { "columnName": "isActive", "type": "startsWith", "value": "true", "fromValue": "$REMOVE$", "toValue": "$REMOVE$" } ], "sort": [ { "sortField": "isActive", "sortType": "ASC" } ], "pageStart": 0, "pageFetch": 1, "languageCode": "eng", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-318", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/SearchDocCategories/searchDocCategories, outputTemplate=masterdata/error, restMethod=post)<br/>
+<a href="#Output-114499348" onClick='toggleBox("Output-114499348", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-114499348" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-114499348">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": 0,
+      "pageFetch": 1
+    },
+    "filters": [
+      {
+        "type": "startsWith",
+        "value": "true",
+        "columnName": "isActive"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "ASC",
+        "sortField": "isActive"
+      }
+    ],
+    "languageCode": "eng"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:41:06.833Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documentcategories/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:41:07.403Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-318",
+      "message": "Column isActive doesn\u0027t support filter type startsWith"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-318</td>
+    <td>KER-MSD-318</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@33f17289</td></tr>
+</table><p>
+</body>
+</html>

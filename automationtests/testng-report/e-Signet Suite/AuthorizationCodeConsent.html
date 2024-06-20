@@ -1,0 +1,247 @@
+<html>
+<head>
+<title>TestNG:  AuthorizationCodeConsent</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>AuthorizationCodeConsent</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Aug 01 22:17:53 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>2 seconds (2091 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_AuthorizationCode_Consent_Vid_All_Valid_Smoke_sid()'><b>ESignet_AuthorizationCode_Consent_Vid_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_AuthorizationCode_Consent_Vid_All_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_AuthorizationCode_Consent_Vid_All_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/auth-code, role=resident, templateFields=null, input={ "encodedHash": "$ID:OAuthDetailsRequest_Consent_Vid_all_Valid_Smoke_sid_encodedResp$", "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Consent_Vid_all_Valid_Smoke_sid_transactionId$", "acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}] }, output={ "redirectUri": "$IGNORE$" }, inputTemplate=esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsent, outputTemplate=esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-1311774613" onClick='toggleBox("Output-1311774613", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1311774613" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1311774613">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:47:55.468Z",
+  "request": {
+    "permittedAuthorizeScopes": [],
+    "transactionId": "4SybzIrWQvuKCZ8a7lfEH5ZiHvnvYuozsKUnpMOYZxM",
+    "acceptedClaims": [
+      "name",
+      "gender",
+      "email"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/auth-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:47:55.730Z",
+  "response": {
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "code": "KMYRi0DLySklB8402Jx5xp5TaW8PFH60lIQbA-ko1Eo",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@2b9aeedb</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_AuthorizationCode_Consent_Vid_Claim2_All_Valid_Smoke_sid()'><b>ESignet_AuthorizationCode_Consent_Vid_Claim2_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_AuthorizationCode_Consent_Vid_All_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_AuthorizationCode_Consent_Vid_Claim2_All_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/auth-code, role=resident, templateFields=null, input={ "encodedHash": "$ID:OAuthDetailsRequest_Consent_Vid_Claim2_all_Valid_Smoke_sid_encodedResp$", "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Consent_Vid_Claim2_all_Valid_Smoke_sid_transactionId$", "acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}] }, output={ "redirectUri": "$IGNORE$" }, inputTemplate=esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsent, outputTemplate=esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-406267653" onClick='toggleBox("Output-406267653", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-406267653" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-406267653">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:47:54.545Z",
+  "request": {
+    "permittedAuthorizeScopes": [],
+    "transactionId": "mzsuQRuC0rbt4_DSgeL0GawFLpg_CBOAfjFH3zb3DWs",
+    "acceptedClaims": [
+      "name",
+      "gender",
+      "email"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/auth-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:47:54.800Z",
+  "response": {
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "code": "uXJFSiaV5iYvpZIosB3sgzvdRIvVQJnt4q5HpiCRVrE",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@2b9aeedb</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_AuthorizationCode_Consent_uin_All_Valid_Smoke_sid()'><b>ESignet_AuthorizationCode_Consent_uin_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_AuthorizationCode_Consent_Vid_All_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_AuthorizationCode_Consent_uin_All_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/auth-code, role=resident, templateFields=null, input={ "encodedHash": "$ID:OAuthDetailsRequest_Consent_all_Valid_Smoke_sid_encodedResp$", "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Consent_all_Valid_Smoke_sid_transactionId$", "acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}] }, output={ "redirectUri": "$IGNORE$" }, inputTemplate=esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsent, outputTemplate=esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-785090482" onClick='toggleBox("Output-785090482", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-785090482" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-785090482">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:47:55.014Z",
+  "request": {
+    "permittedAuthorizeScopes": [],
+    "transactionId": "glsqkQ9J1EcNlI6Wc6MjE16t5FT71ow1q9viKUcRoA8",
+    "acceptedClaims": [
+      "name",
+      "gender",
+      "email"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/auth-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:47:55.263Z",
+  "response": {
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "code": "KXTMUwaHRQ7BGv_N_tJjY2X8QrHwixGqYMR_kWzjvI4",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@2b9aeedb</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_AuthorizationCode_Consent_uin_Claim2_All_Valid_Smoke_sid()'><b>ESignet_AuthorizationCode_Consent_uin_Claim2_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_AuthorizationCode_Consent_Vid_All_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_AuthorizationCode_Consent_uin_Claim2_All_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/auth-code, role=resident, templateFields=null, input={ "encodedHash": "$ID:OAuthDetailsRequest_Consent_Claim2_all_Valid_Smoke_sid_encodedResp$", "requestTime": "$TIMESTAMP$", "transactionId": "$ID:OAuthDetailsRequest_Consent_Claim2_all_Valid_Smoke_sid_transactionId$", "acceptedClaims": [{claim: "name"},{claim: "gender"},{claim: "email"}] }, output={ "redirectUri": "$IGNORE$" }, inputTemplate=esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsent, outputTemplate=esignet/Consent/AuthorizationCodeConsent/AuthorizationCodeConsentResult, restMethod=post, regenerateHbs=false, validityCheckRequired=true, auditLogCheck=false)<br/>
+<a href="#Output-629563338" onClick='toggleBox("Output-629563338", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-629563338" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-629563338">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:47:53.870Z",
+  "request": {
+    "permittedAuthorizeScopes": [],
+    "transactionId": "t3lxFBqhMu_rCWr1jdEWHv2Mf5nog5lH3VZVirX3DiQ",
+    "acceptedClaims": [
+      "name",
+      "gender",
+      "email"
+    ]
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/auth-code) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:47:54.316Z",
+  "response": {
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "code": "h6xGIkMj9W-YaUIBsPNGLIaLpqrSGg3YCcs7h9co6fs",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@2b9aeedb</td></tr>
+</table><p>
+</body>
+</html>

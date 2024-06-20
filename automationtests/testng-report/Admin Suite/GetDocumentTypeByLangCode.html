@@ -1,0 +1,1305 @@
+<html>
+<head>
+<title>TestNG:  GetDocumentTypeByLangCode</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetDocumentTypeByLangCode</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:18:36 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1390 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Masterdata_GetDocumentTypeByLangCode_InValid_langcode()'><b>Masterdata_GetDocumentTypeByLangCode_InValid_langcode</b><br>Test class: io.mosip.testscripts.GetWithParam (Masterdata_GetDocumentTypeByLangCode_InValid_langcode)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetDocumentTypeByLangCode_InValid_langcode, endPoint=/v1/masterdata/documenttypes/{langcode}, role=admin, templateFields=null, input={ "langcode":"eng1" }, output={ "errors": [ { "errorCode": "KER-MSD-118", "message": "Document Type not found" } ] }, inputTemplate=masterdata/GetDocumentTypeByLangCode/getDocumentTypeByLangCode, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-335825369" onClick='toggleBox("Output-335825369", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-335825369" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-335825369">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng1"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documenttypes/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-15T09:48:37.850Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-118",
+      "message": "Document Type not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Document Type not found</td>
+    <td>Document Type not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-118</td>
+    <td>KER-MSD-118</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2a47597</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Masterdata_GetDocumentTypeByLangCode_allValid_smoke()'><b>Masterdata_GetDocumentTypeByLangCode_allValid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Masterdata_GetDocumentTypeByLangCode_InValid_langcode)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_GetDocumentTypeByLangCode_allValid_smoke, endPoint=/v1/masterdata/documenttypes/{langcode}, role=admin, templateFields=null, input={ "langcode":"eng" }, output={ "documenttypes": [{ "code": "$IGNORE$", "name": "$IGNORE$", "description": "$IGNORE$", "langCode": "eng", "isActive": $IGNORE$ }] }, inputTemplate=masterdata/GetDocumentTypeByLangCode/getDocumentTypeByLangCode, outputTemplate=masterdata/GetDocumentTypeByLangCode/getDocumentTypeByLangCodeResult, restMethod=get)<br/>
+<a href="#Output-1770925242" onClick='toggleBox("Output-1770925242", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1770925242" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1770925242">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "langcode": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/documenttypes/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-15T09:48:37.110Z",
+  "response": {
+    "documenttypes": [
+      {
+        "code": "RNC",
+        "name": "Rental contract",
+        "description": "Rental Agreement of address",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "COR",
+        "name": "Certificate of residence",
+        "description": "Proof of Resident",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC001",
+        "name": "Passport",
+        "description": "Proof of Idendity",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "CRN",
+        "name": "Certificate of Relationship",
+        "description": "Proof relationship of a person",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "COB",
+        "name": "Certificate of Birth",
+        "description": "Proof birth and age of a person",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "COE",
+        "name": "Certification of Exception",
+        "description": "Certificate of Exception",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC002",
+        "name": "PAN card",
+        "description": "PAN card",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC003",
+        "name": "Either Ration or PDS Photo card",
+        "description": "Either Ration or PDS Photo card",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC004",
+        "name": "Voter Identification card",
+        "description": "Voter Identification card",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC005",
+        "name": "Driving licence of the applicant",
+        "description": "Driving licence of the applicant",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC006",
+        "name": "Photo identification cards issued by the Government",
+        "description": "Photo identification cards issued by the Government",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC007",
+        "name": "Service photo ID cards that is issued by a PSU",
+        "description": "Service photo ID cards that is issued by a PSU",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC008",
+        "name": "Licence of Arms",
+        "description": "Licence of Arms",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC009",
+        "name": "Photo Bank ATM card",
+        "description": "Photo Bank ATM card",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC010",
+        "name": "Photo Credit card",
+        "description": "Photo Credit card",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC011",
+        "name": "Photo card of the Freedom Fighter",
+        "description": "Photo card of the Freedom Fighter",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC012",
+        "name": "Certificate of Marriage",
+        "description": "Certificate of Marriage",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC013",
+        "name": "Passbook or Bank Statement",
+        "description": "Passbook or Bank Statement",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC014",
+        "name": "Account statement or passbook of the Post Office",
+        "description": "Account statement or passbook of the Post Office",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC015",
+        "name": "Ration Card",
+        "description": "Ration Card",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC016",
+        "name": "PSU issued Service photo ID card with address",
+        "description": "PSU issued Service photo ID card with address",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC017",
+        "name": "Previous 3 months’ electricity bill",
+        "description": "Previous 3 months’ electricity bill",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC018",
+        "name": "Water bill as long as it is not more than 3 months’ old",
+        "description": "Water bill as long as it is not more than 3 months’ old",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC024",
+        "name": "PDS Card",
+        "description": "PDS Card",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC025",
+        "name": "Medical card issued by the State Govt, CGHS, ECHS and ESIC",
+        "description": "Medical card issued by the State Government, CGHS, ECHS and also ESIC",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC026",
+        "name": "Canteen card of the Army",
+        "description": "Canteen card of the Army",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC027",
+        "name": "Family entitlement document",
+        "description": "Any family entitlement document issued by any Central or State Government",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "CIN",
+        "name": "Reference Identity Card",
+        "description": "Reference Identity Card",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "DOC028",
+        "name": "Birth Certificate",
+        "description": "Registrar of Birth/municipal Corporation or any local government Birth Certificate",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "code": "EOP",
+        "name": "Expetion Photo",
+        "description": "Expetion Photo",
+        "langCode": "eng",
+        "isActive": true
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[0].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Rental Agreement of address</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[5].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[4].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Proof birth and age of a person</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[5].code</td>
+    <td>NOT VERIFIED</td>
+    <td>COE</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[29].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Expetion Photo</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[25].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[16].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[21].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Previous 3 months’ electricity bill</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[24].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[11].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Service photo ID cards that is issued by a PSU</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[21].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Previous 3 months’ electricity bill</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[17].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[10].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[25].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Canteen card of the Army</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[17].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Passbook or Bank Statement</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[25].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC026</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[18].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Account statement or passbook of the Post Office</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[11].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[14].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Photo Credit card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[24].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Medical card issued by the State Govt, CGHS, ECHS and ESIC</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[10].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC006</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[10].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Photo identification cards issued by the Government</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[17].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[24].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Rental contract</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Certificate of Relationship</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[19].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Ration Card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[13].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Photo Bank ATM card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[10].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[18].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[23].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[27].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Reference Identity Card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[28].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC028</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[9].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Driving licence of the applicant</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[8].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Voter Identification card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[6].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[9].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Driving licence of the applicant</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[13].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC009</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[6].name</td>
+    <td>NOT VERIFIED</td>
+    <td>PAN card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[12].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[22].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Water bill as long as it is not more than 3 months’ old</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[0].code</td>
+    <td>NOT VERIFIED</td>
+    <td>RNC</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[1].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Proof of Resident</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[29].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[20].description</td>
+    <td>NOT VERIFIED</td>
+    <td>PSU issued Service photo ID card with address</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[14].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[24].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Medical card issued by the State Government, CGHS, ECHS and also ESIC</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[3].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Proof relationship of a person</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[7].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Either Ration or PDS Photo card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[5].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Certificate of Exception</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[22].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC018</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[11].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[20].name</td>
+    <td>NOT VERIFIED</td>
+    <td>PSU issued Service photo ID card with address</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[26].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Family entitlement document</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[29].code</td>
+    <td>NOT VERIFIED</td>
+    <td>EOP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[19].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC015</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[12].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC008</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[7].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Either Ration or PDS Photo card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:48:37.110Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[28].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Registrar of Birth/municipal Corporation or any local government Birth Certificate</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[26].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[13].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Photo Bank ATM card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[26].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Any family entitlement document issued by any Central or State Government</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[15].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[6].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC002</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[21].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[14].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Photo Credit card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[8].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Voter Identification card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[19].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[8].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Certificate of residence</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[23].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC024</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[18].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC014</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[22].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[20].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[23].description</td>
+    <td>NOT VERIFIED</td>
+    <td>PDS Card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[2].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Proof of Idendity</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[27].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[6].description</td>
+    <td>NOT VERIFIED</td>
+    <td>PAN card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[15].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Photo card of the Freedom Fighter</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[25].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Canteen card of the Army</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[21].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC017</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[11].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC007</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[21].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Passport</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[9].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[18].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Account statement or passbook of the Post Office</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[13].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[14].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC010</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[17].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC013</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[28].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[28].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Birth Certificate</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[27].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Reference Identity Card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[24].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC025</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[27].code</td>
+    <td>NOT VERIFIED</td>
+    <td>CIN</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[16].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Certificate of Marriage</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[1].code</td>
+    <td>NOT VERIFIED</td>
+    <td>COR</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[19].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Ration Card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[15].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Photo card of the Freedom Fighter</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[9].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[11].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Service photo ID cards that is issued by a PSU</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[12].description</td>
+    <td>NOT VERIFIED</td>
+    <td>Licence of Arms</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[4].code</td>
+    <td>NOT VERIFIED</td>
+    <td>COB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[9].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[12].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Licence of Arms</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[14].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[27].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[16].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC012</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[7].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC003</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[19].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[22].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[10].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Photo identification cards issued by the Government</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[20].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[26].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC027</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[4].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Certificate of Birth</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[16].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Certificate of Marriage</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[3].code</td>
+    <td>NOT VERIFIED</td>
+    <td>CRN</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[7].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[23].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[18].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[23].name</td>
+    <td>NOT VERIFIED</td>
+    <td>PDS Card</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[15].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[4].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[5].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Certification of Exception</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[28].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[15].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC011</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[13].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[26].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[20].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC016</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[29].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Expetion Photo</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[8].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[16].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[17].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Passbook or Bank Statement</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[25].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[12].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[29].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[22].name</td>
+    <td>NOT VERIFIED</td>
+    <td>Water bill as long as it is not more than 3 months’ old</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[8].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(documenttypes)[2].code</td>
+    <td>NOT VERIFIED</td>
+    <td>DOC001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@2a47597</td></tr>
+</table><p>
+</body>
+</html>

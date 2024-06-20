@@ -1,0 +1,266 @@
+<html>
+<head>
+<title>TestNG:  UpdatePartner</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdatePartner</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:29:36 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>3 seconds (3052 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Partner_UpdatePartnerDetails_All_Valid_Smoke()'><b>Partner_UpdatePartnerDetails_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePut (Partner_UpdatePartnerDetails_Missing_InputParameter_contactNumber)<br>Parameters: TestCaseDTO(testCaseName=Partner_UpdatePartnerDetails_All_Valid_Smoke, endPoint=/v1/partnermanager/partners/Tech-123, role=partner, templateFields=null, input={ "address": "Bangalore Ind", "contactNumber": "8553967576", "requesttime": "$TIMESTAMP$" }, output= { "partnerId": "Tech-123", "status": "approved" }, inputTemplate=partner/authPartner/UpdatePartner/updatePartner, outputTemplate=partner/authPartner/UpdatePartner/updatePartnerResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2052185144" onClick='toggleBox("Output-2052185144", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2052185144" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2052185144">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "address": "Bangalore Ind",
+    "contactNumber": "8553967576"
+  },
+  "requesttime": "2023-07-14T16:59:36.999Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/Tech-123) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T16:59:37.774Z",
+  "response": {
+    "partnerId": "Tech-123",
+    "status": "approved"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.partnerId</td>
+    <td>Tech-123</td>
+    <td>Tech-123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.status</td>
+    <td>approved</td>
+    <td>approved</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@6e068ac9</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Partner_UpdatePartnerDetails_Missing_InputParameter_Address()'><b>Partner_UpdatePartnerDetails_Missing_InputParameter_Address</b><br>Test class: io.mosip.testscripts.SimplePut (Partner_UpdatePartnerDetails_Missing_InputParameter_contactNumber)<br>Parameters: TestCaseDTO(testCaseName=Partner_UpdatePartnerDetails_Missing_InputParameter_Address, endPoint=/v1/partnermanager/partners/Tech-123, role=partner, templateFields=null, input={ "address": "$REMOVE$", "contactNumber": "8553967576", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_COR_001", "message": "Invalid request parameter - value is empty or null :request.address" } ] }, inputTemplate=partner/authPartner/UpdatePartner/updatePartner, outputTemplate=partner/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1089324622" onClick='toggleBox("Output-1089324622", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1089324622" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1089324622">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "contactNumber": "8553967576"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T16:59:38.567Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/Tech-123) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T16:59:39.269283",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - value is empty or null :request.address"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_001</td>
+    <td>PMS_COR_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@6e068ac9</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Partner_UpdatePartnerDetails_Missing_InputParameter_contactNumber()'><b>Partner_UpdatePartnerDetails_Missing_InputParameter_contactNumber</b><br>Test class: io.mosip.testscripts.SimplePut (Partner_UpdatePartnerDetails_Missing_InputParameter_contactNumber)<br>Parameters: TestCaseDTO(testCaseName=Partner_UpdatePartnerDetails_Missing_InputParameter_contactNumber, endPoint=/v1/partnermanager/partners/Tech-123, role=partner, templateFields=null, input={ "address": "Bangalore Ind", "contactNumber": "$REMOVE$", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_COR_001", "message": "Invalid request parameter - value is empty or null :request.contactNumber" } ] }, inputTemplate=partner/authPartner/UpdatePartner/updatePartner, outputTemplate=partner/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-133145446" onClick='toggleBox("Output-133145446", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-133145446" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-133145446">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "address": "Bangalore Ind"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T16:59:39.259Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/Tech-123) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T16:59:40.036563",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - value is empty or null :request.contactNumber"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_001</td>
+    <td>PMS_COR_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@6e068ac9</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Partner_UpdatePartnerDetails_invalid_partnerId()'><b>Partner_UpdatePartnerDetails_invalid_partnerId</b><br>Test class: io.mosip.testscripts.SimplePut (Partner_UpdatePartnerDetails_Missing_InputParameter_contactNumber)<br>Parameters: TestCaseDTO(testCaseName=Partner_UpdatePartnerDetails_invalid_partnerId, endPoint=/v1/partnermanager/partners/Tech-1231234, role=partner, templateFields=null, input={ "address": "Bangalore Ind", "contactNumber": "8553967576", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_PRT_005", "message": "Partner does not exist" } ] }, inputTemplate=partner/authPartner/UpdatePartner/updatePartner, outputTemplate=partner/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1933687459" onClick='toggleBox("Output-1933687459", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1933687459" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1933687459">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "address": "Bangalore Ind",
+    "contactNumber": "8553967576"
+  },
+  "requesttime": "2023-07-14T16:59:37.822Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/partners/Tech-1231234) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:59:38.575Z",
+  "errors": [
+    {
+      "errorCode": "PMS_PRT_005",
+      "message": "Partner does not exist"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_PRT_005</td>
+    <td>PMS_PRT_005</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@6e068ac9</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<html>
+<head>
+<title>TestNG:  FetchDistinctDynamicField</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>FetchDistinctDynamicField</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 20 13:40:03 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (340 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Masterdata_FetchDistinctDynamicField_AllValid_smoke()'><b>Masterdata_FetchDistinctDynamicField_AllValid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Masterdata_FetchDistinctDynamicField_AllValid_smoke)<br>Parameters: TestCaseDTO(testCaseName=Masterdata_FetchDistinctDynamicField_AllValid_smoke, endPoint=/v1/masterdata/dynamicfields/distinct, role=admin, templateFields=null, input={
+}, output={ "errors": null }, inputTemplate=masterdata/FetchDistinctDynamicField/fetchDistinctDynamicField, outputTemplate=masterdata/FetchDistinctDynamicField/fetchDistinctDynamicFieldResult, restMethod=get)<br/>
+<a href="#Output-495107789" onClick='toggleBox("Output-495107789", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-495107789" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-495107789">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/dynamicfields/distinct) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:10:03.959Z",
+  "response": [
+    "TestAutomationField",
+    "somerandomname",
+    "gender",
+    "somex",
+    "Automation",
+    "something",
+    "modeOfClaim",
+    "residenceStatus",
+    "bloodType",
+    "preferredLang",
+    "registrationType",
+    "maritalStatus",
+    "TestAPL"
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(response)[0]</td>
+    <td>NOT VERIFIED</td>
+    <td>TestAutomationField</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(response)[2]</td>
+    <td>NOT VERIFIED</td>
+    <td>gender</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(response)[1]</td>
+    <td>NOT VERIFIED</td>
+    <td>somerandomname</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(response)[4]</td>
+    <td>NOT VERIFIED</td>
+    <td>Automation</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(response)[3]</td>
+    <td>NOT VERIFIED</td>
+    <td>somex</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(response)[6]</td>
+    <td>NOT VERIFIED</td>
+    <td>modeOfClaim</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(response)[5]</td>
+    <td>NOT VERIFIED</td>
+    <td>something</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(response)[8]</td>
+    <td>NOT VERIFIED</td>
+    <td>bloodType</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(response)[7]</td>
+    <td>NOT VERIFIED</td>
+    <td>residenceStatus</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(response)[10]</td>
+    <td>NOT VERIFIED</td>
+    <td>registrationType</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(response)[9]</td>
+    <td>NOT VERIFIED</td>
+    <td>preferredLang</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(response)[11]</td>
+    <td>NOT VERIFIED</td>
+    <td>maritalStatus</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(response)[12]</td>
+    <td>NOT VERIFIED</td>
+    <td>TestAPL</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@3369c143</td></tr>
+</table><p>
+</body>
+</html>

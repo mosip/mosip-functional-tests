@@ -1,0 +1,373 @@
+<html>
+<head>
+<title>TestNG:  UpdateDeviceDetail</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateDeviceDetail</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:30:57 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>4 seconds (4956 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Partner_ServiceToUpdateDeviceDetail_All_Valid_Smoke()'><b>Partner_ServiceToUpdateDeviceDetail_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePut (Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceTypeCode)<br>Parameters: TestCaseDTO(testCaseName=Partner_ServiceToUpdateDeviceDetail_All_Valid_Smoke, endPoint=/v1/partnermanager/devicedetail, role=partner, templateFields=null, input={ "deviceProviderId": "Tech-123", "deviceSubTypeCode": "Slap", "deviceTypeCode": "Finger", "id": "device-id-123", "isActive": true, "isItForRegistrationDevice": true, "make": "abcdef", "model": "FRO90000", "partnerOrganizationName": "Techno", "requesttime": "$TIMESTAMP$" }, output={ "id": "device-id-123" }, inputTemplate=partner/device/makeAndModel/update/updateDeviceDetail, outputTemplate=partner/device/makeAndModel/update/updateDeviceDetailResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1523475985" onClick='toggleBox("Output-1523475985", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1523475985" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1523475985">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Slap",
+    "deviceTypeCode": "Finger",
+    "id": "device-id-123",
+    "isActive": true,
+    "isItForRegistrationDevice": true,
+    "make": "abcdef",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno"
+  },
+  "requesttime": "2023-07-14T17:00:57.315Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:58.065Z",
+  "response": {
+    "id": "device-id-123"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePut@3a16984c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_DeviceId()'><b>Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_DeviceId</b><br>Test class: io.mosip.testscripts.SimplePut (Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceTypeCode)<br>Parameters: TestCaseDTO(testCaseName=Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_DeviceId, endPoint=/v1/partnermanager/devicedetail, role=partner, templateFields=null, input={ "deviceProviderId": "Tech-123", "deviceSubTypeCode": "Slab", "deviceTypeCode": "Finger", "id": "$REMOVE$", "isActive": true, "isItForRegistrationDevice": true, "make": "abcde", "model": "FRO90000", "partnerOrganizationName": "Techno", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_COR_001", "message": "Invalid request parameter - value is empty or null :request.id" } ] }, inputTemplate=partner/device/makeAndModel/update/updateDeviceDetail, outputTemplate=partner/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-998575031" onClick='toggleBox("Output-998575031", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-998575031" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-998575031">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "deviceTypeCode": "Finger",
+    "isItForRegistrationDevice": true,
+    "model": "FRO90000",
+    "isActive": true,
+    "make": "abcde",
+    "deviceSubTypeCode": "Slab",
+    "partnerOrganizationName": "Techno",
+    "deviceProviderId": "Tech-123"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:00:59.346Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:00.035437",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - value is empty or null :request.id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_001</td>
+    <td>PMS_COR_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@3a16984c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceProviderId()'><b>Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceProviderId</b><br>Test class: io.mosip.testscripts.SimplePut (Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceTypeCode)<br>Parameters: TestCaseDTO(testCaseName=Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceProviderId, endPoint=/v1/partnermanager/devicedetail, role=partner, templateFields=null, input={ "deviceProviderId": "$REMOVE$", "deviceSubTypeCode": "Slab", "deviceTypeCode": "Finger", "id": "device-id-123", "isActive": true, "isItForRegistrationDevice": true, "make": "abcde", "model": "FRO90000", "partnerOrganizationName": "Techno", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_AUT_001", "message": "Reg Device Sub Type Code not found in the list of Reg Device Sub Types" } ] }, inputTemplate=partner/device/makeAndModel/update/updateDeviceDetail, outputTemplate=partner/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1411531045" onClick='toggleBox("Output-1411531045", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1411531045" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1411531045">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "deviceTypeCode": "Finger",
+    "isItForRegistrationDevice": true,
+    "model": "FRO90000",
+    "id": "device-id-123",
+    "isActive": true,
+    "make": "abcde",
+    "deviceSubTypeCode": "Slab",
+    "partnerOrganizationName": "Techno"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:00.039Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:01:00.809Z",
+  "errors": [
+    {
+      "errorCode": "PMS_AUT_001",
+      "message": "Reg Device Sub Type Code not found in the list of Reg Device Sub Types"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_AUT_001</td>
+    <td>PMS_AUT_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@3a16984c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceSubTypeCode()'><b>Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceSubTypeCode</b><br>Test class: io.mosip.testscripts.SimplePut (Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceTypeCode)<br>Parameters: TestCaseDTO(testCaseName=Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceSubTypeCode, endPoint=/v1/partnermanager/devicedetail, role=partner, templateFields=null, input={ "deviceProviderId": "Tech-123", "deviceSubTypeCode": "$REMOVE$", "deviceTypeCode": "Finger", "id": "device-id-123", "isActive": true, "isItForRegistrationDevice": true, "make": "abcde", "model": "FRO90000", "partnerOrganizationName": "Techno", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_COR_001", "message": "Invalid request parameter - value is empty or null :request.deviceSubTypeCode" } ] }, inputTemplate=partner/device/makeAndModel/update/updateDeviceDetail, outputTemplate=partner/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-377458755" onClick='toggleBox("Output-377458755", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-377458755" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-377458755">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "deviceTypeCode": "Finger",
+    "isItForRegistrationDevice": true,
+    "model": "FRO90000",
+    "id": "device-id-123",
+    "isActive": true,
+    "make": "abcde",
+    "partnerOrganizationName": "Techno",
+    "deviceProviderId": "Tech-123"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:00.807Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:01.490071",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - value is empty or null :request.deviceSubTypeCode"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_001</td>
+    <td>PMS_COR_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@3a16984c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceTypeCode()'><b>Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceTypeCode</b><br>Test class: io.mosip.testscripts.SimplePut (Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceTypeCode)<br>Parameters: TestCaseDTO(testCaseName=Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceTypeCode, endPoint=/v1/partnermanager/devicedetail, role=partner, templateFields=null, input={ "deviceProviderId": "Tech-123", "deviceSubTypeCode": "Slab", "deviceTypeCode": "$REMOVE$", "id": "device-id-123", "isActive": true, "isItForRegistrationDevice": true, "make": "abcde", "model": "FRO90000", "partnerOrganizationName": "Techno", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "PMS_COR_001", "message": "Invalid request parameter - value is empty or null :request.deviceTypeCode" } ] }, inputTemplate=partner/device/makeAndModel/update/updateDeviceDetail, outputTemplate=partner/error, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1838459238" onClick='toggleBox("Output-1838459238", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1838459238" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1838459238">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "isItForRegistrationDevice": true,
+    "model": "FRO90000",
+    "id": "device-id-123",
+    "isActive": true,
+    "make": "abcde",
+    "deviceSubTypeCode": "Slab",
+    "partnerOrganizationName": "Techno",
+    "deviceProviderId": "Tech-123"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:01.490Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:02.257522",
+  "errors": [
+    {
+      "errorCode": "PMS_COR_001",
+      "message": "Invalid request parameter - value is empty or null :request.deviceTypeCode"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS_COR_001</td>
+    <td>PMS_COR_001</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@3a16984c</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.Partner_ServiceToUpdateDeviceDetail_afterReject_InValid()'><b>Partner_ServiceToUpdateDeviceDetail_afterReject_InValid</b><br>Test class: io.mosip.testscripts.SimplePut (Partner_ServiceToUpdateDeviceDetail_Missing_InputParameter_deviceTypeCode)<br>Parameters: TestCaseDTO(testCaseName=Partner_ServiceToUpdateDeviceDetail_afterReject_InValid, endPoint=/v1/partnermanager/devicedetail, role=partner, templateFields=null, input={ "deviceProviderId": "Tech-123", "deviceSubTypeCode": "Single", "deviceTypeCode": "Finger", "id": "device-id-124", "isActive": true, "isItForRegistrationDevice": true, "make": "abcdef", "model": "FRO90000", "partnerOrganizationName": "Techno", "requesttime": "$TIMESTAMP$" }, output={ "id": "device-id-124" }, inputTemplate=partner/device/makeAndModel/update/updateDeviceDetail, outputTemplate=partner/device/makeAndModel/update/updateDeviceDetailResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1679592356" onClick='toggleBox("Output-1679592356", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1679592356" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1679592356">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceProviderId": "Tech-123",
+    "deviceSubTypeCode": "Single",
+    "deviceTypeCode": "Finger",
+    "id": "device-id-124",
+    "isActive": true,
+    "isItForRegistrationDevice": true,
+    "make": "abcdef",
+    "model": "FRO90000",
+    "partnerOrganizationName": "Techno"
+  },
+  "requesttime": "2023-07-14T17:00:58.399Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:00:59.334Z",
+  "response": {
+    "id": "device-id-124"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@3a16984c</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,660 @@
+<html>
+<head>
+<title>TestNG:  FetchHolidays</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>FetchHolidays</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Sep 20 13:40:45 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>2 seconds (2098 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchHolidays_allValid_smoke_get()'><b>MasterData_FetchHolidays_allValid_smoke_get</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchHolidays_invalid_langcode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchHolidays_allValid_smoke_get, endPoint=/v1/masterdata/holidays, role=admin, templateFields=null, input={ "holidayid":"$REMOVE$", "langcode": "$REMOVE$" }, output={ "holidays": [{ "langCode": "$IGNORE$", "isActive": $IGNORE$ }] }, inputTemplate=masterdata/FetchHolidays/fetchHoliday, outputTemplate=masterdata/FetchHolidays/fetchHolidayResult, restMethod=get)<br/>
+<a href="#Output-1158509760" onClick='toggleBox("Output-1158509760", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1158509760" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1158509760">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/holidays) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:10:45.415Z",
+  "response": {
+    "holidays": [
+      {
+        "locationCode": "10000",
+        "holidayDate": "2022-10-22",
+        "holidayName": "Z202208251612212",
+        "holidayDesc": "Z202208251612",
+        "langCode": "eng",
+        "isActive": true,
+        "holidayId": 2000002
+      },
+      {
+        "locationCode": "KTA",
+        "holidayDate": "2020-08-15",
+        "holidayName": "AutoTest user Eng",
+        "holidayDesc": "AutoTest user Holiday",
+        "langCode": "eng",
+        "isActive": true,
+        "holidayId": 2000003
+      },
+      {
+        "locationCode": "KTA",
+        "holidayDate": "2020-08-15",
+        "holidayName": "AutoTest user Eng",
+        "holidayDesc": "AutoTest user Holiday",
+        "langCode": "fra",
+        "isActive": true,
+        "holidayId": 2000004
+      },
+      {
+        "locationCode": "KTA",
+        "holidayDate": "2020-08-15",
+        "holidayName": "َُتُتِست ُسِر ِنگ",
+        "holidayDesc": "َُتُتِست ُسِر هُلِدَي",
+        "langCode": "ara",
+        "isActive": true,
+        "holidayId": 2000005
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[1].locationCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KTA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[0].holidayDesc</td>
+    <td>NOT VERIFIED</td>
+    <td>Z202208251612</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[2].holidayName</td>
+    <td>NOT VERIFIED</td>
+    <td>AutoTest user Eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[3].holidayName</td>
+    <td>NOT VERIFIED</td>
+    <td>َُتُتِست ُسِر ِنگ</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[1].holidayName</td>
+    <td>NOT VERIFIED</td>
+    <td>AutoTest user Eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[3].locationCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KTA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[0].holidayName</td>
+    <td>NOT VERIFIED</td>
+    <td>Z202208251612212</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[2].holidayId</td>
+    <td>NOT VERIFIED</td>
+    <td>2000004</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-09-20T08:10:45.415Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[1].holidayDesc</td>
+    <td>NOT VERIFIED</td>
+    <td>AutoTest user Holiday</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[2].holidayDesc</td>
+    <td>NOT VERIFIED</td>
+    <td>AutoTest user Holiday</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>ara</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[3].holidayDesc</td>
+    <td>NOT VERIFIED</td>
+    <td>َُتُتِست ُسِر هُلِدَي</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[0].locationCode</td>
+    <td>NOT VERIFIED</td>
+    <td>10000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[1].holidayId</td>
+    <td>NOT VERIFIED</td>
+    <td>2000003</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[2].locationCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KTA</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>fra</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[0].holidayDate</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-10-22</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[3].holidayId</td>
+    <td>NOT VERIFIED</td>
+    <td>2000005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[0].holidayId</td>
+    <td>NOT VERIFIED</td>
+    <td>2000002</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[2].holidayDate</td>
+    <td>NOT VERIFIED</td>
+    <td>2020-08-15</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[1].holidayDate</td>
+    <td>NOT VERIFIED</td>
+    <td>2020-08-15</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(holidays)[3].holidayDate</td>
+    <td>NOT VERIFIED</td>
+    <td>2020-08-15</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@1e5ba462</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchHolidays_allValid_smoke_with Id()'><b>MasterData_FetchHolidays_allValid_smoke_with Id</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchHolidays_invalid_langcode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchHolidays_allValid_smoke_with Id, endPoint=/v1/masterdata/holidays/{holidayid}, role=admin, templateFields=null, input={ "holidayid":"2000001", "langcode":"$REMOVE$" }, output={ "holidays": [{ "langCode": "$IGNORE$", "isActive": $IGNORE$ }] }, inputTemplate=masterdata/FetchHolidays/fetchHoliday, outputTemplate=masterdata/FetchHolidays/fetchHolidayResult, restMethod=get)<br/>
+<a href="#Output-1827786059" onClick='toggleBox("Output-1827786059", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1827786059" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1827786059">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "holidayid": "2000001"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/holidays/{holidayid}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:10:45.758Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-020",
+      "message": "Holiday not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Holiday not found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-MSD-020</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-09-20T08:10:45.758Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@1e5ba462</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchHolidays_allValid_smoke_with Id and langCode()'><b>MasterData_FetchHolidays_allValid_smoke_with Id and langCode</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchHolidays_invalid_langcode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchHolidays_allValid_smoke_with Id and langCode, endPoint=/v1/masterdata/holidays/{holidayid}/{langcode}, role=admin, templateFields=null, input={ "holidayid":"2000001", "langcode":"eng" }, output={ "holidays": [{ "langCode": "$IGNORE$", "isActive": $IGNORE$ } ] }, inputTemplate=masterdata/FetchHolidays/fetchHoliday, outputTemplate=masterdata/FetchHolidays/fetchHolidayResult, restMethod=get)<br/>
+<a href="#Output-1903996422" onClick='toggleBox("Output-1903996422", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1903996422" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1903996422">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "holidayid": "2000001",
+  "langcode": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/holidays/{holidayid}/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:10:46.101Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-020",
+      "message": "Holiday not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>NOT VERIFIED</td>
+    <td>Holiday not found</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>NOT VERIFIED</td>
+    <td>KER-MSD-020</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-09-20T08:10:46.101Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@1e5ba462</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchHolidays_invalid_holidayid_unexisting()'><b>MasterData_FetchHolidays_invalid_holidayid_unexisting</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchHolidays_invalid_langcode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchHolidays_invalid_holidayid_unexisting, endPoint=/v1/masterdata/holidays/{holidayid}, role=admin, templateFields=null, input={ "holidayid":"2450001", "langcode":"$REMOVE$" }, output={ "errors": [ { "errorCode": "KER-MSD-020", "message": "Holiday not found" } ] }, inputTemplate=masterdata/FetchHolidays/fetchHoliday, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-1709695324" onClick='toggleBox("Output-1709695324", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1709695324" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1709695324">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "holidayid": "2450001"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/holidays/{holidayid}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:10:46.447Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-020",
+      "message": "Holiday not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Holiday not found</td>
+    <td>Holiday not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-020</td>
+    <td>KER-MSD-020</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@1e5ba462</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchHolidays_invalid_holidayid_unexisting with langCode()'><b>MasterData_FetchHolidays_invalid_holidayid_unexisting with langCode</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchHolidays_invalid_langcode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchHolidays_invalid_holidayid_unexisting with langCode, endPoint=/v1/masterdata/holidays/{holidayid}/{langcode}, role=admin, templateFields=null, input={ "holidayid":"2450001", "langcode":"eng" }, output={ "errors": [ { "errorCode": "KER-MSD-020", "message": "Holiday not found" } ] }, inputTemplate=masterdata/FetchHolidays/fetchHoliday, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-858814059" onClick='toggleBox("Output-858814059", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-858814059" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-858814059">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "holidayid": "2450001",
+  "langcode": "eng"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/holidays/{holidayid}/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:10:46.805Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-020",
+      "message": "Holiday not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Holiday not found</td>
+    <td>Holiday not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-020</td>
+    <td>KER-MSD-020</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@1e5ba462</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.MasterData_FetchHolidays_invalid_langcode_unexisting()'><b>MasterData_FetchHolidays_invalid_langcode_unexisting</b><br>Test class: io.mosip.testscripts.GetWithParam (MasterData_FetchHolidays_invalid_langcode_unexisting)<br>Parameters: TestCaseDTO(testCaseName=MasterData_FetchHolidays_invalid_langcode_unexisting, endPoint=/v1/masterdata/holidays/{holidayid}/{langcode}, role=admin, templateFields=null, input={ "holidayid":"2450001", "langcode":"GER" }, output={ "errors": [ { "errorCode": "KER-MSD-020", "message": "Holiday not found" } ] }, inputTemplate=masterdata/FetchHolidays/fetchHoliday, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-752963104" onClick='toggleBox("Output-752963104", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-752963104" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-752963104">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "holidayid": "2450001",
+  "langcode": "GER"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/masterdata/holidays/{holidayid}/{langcode}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2022-09-20T08:10:47.152Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-020",
+      "message": "Holiday not found"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Holiday not found</td>
+    <td>Holiday not found</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-020</td>
+    <td>KER-MSD-020</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@1e5ba462</td></tr>
+</table><p>
+</body>
+</html>

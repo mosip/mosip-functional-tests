@@ -1,0 +1,2835 @@
+<html>
+<head>
+<title>TestNG:  OAuthDetailsRequestNonAuth</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>OAuthDetailsRequestNonAuth</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>26/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Aug 01 22:15:55 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>17 seconds (17338 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_BioFace_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_BioFace_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_BioFace_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1781227569" onClick='toggleBox("Output-1781227569", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1781227569" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1781227569">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:45:57.043Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:45:57.624Z",
+  "response": {
+    "transactionId": "JHnN53Tyqn5S_IM9sR5IATxIjjoM5nI1auG3Exd9GhY",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_BioFace_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_BioFace_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_BioFace_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-780753611" onClick='toggleBox("Output-780753611", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-780753611" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-780753611">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:45:56.417Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:45:56.976Z",
+  "response": {
+    "transactionId": "fyzArr1VqHCcWmw-55lEassLg9AKXV1XdjRJGSQcNP8",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1419454167" onClick='toggleBox("Output-1419454167", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1419454167" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1419454167">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:11.759Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:12.370Z",
+  "response": {
+    "transactionId": "6UJL3bTtp8uC7IUTnluieZoZ1HxTAp2QmM4gvkTwUaU",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_LeftIris_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_LeftIris_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_LeftIris_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-794026109" onClick='toggleBox("Output-794026109", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-794026109" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-794026109">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:11.112Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:11.683Z",
+  "response": {
+    "transactionId": "6bRP_BLfmtG7Hdn4z6pSh1J2mvjEYXUtHw70PCcKTYg",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_LeftLittleFinger_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_LeftLittleFinger_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_LeftLittleFinger_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1120531149" onClick='toggleBox("Output-1120531149", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1120531149" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1120531149">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:00.877Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:01.436Z",
+  "response": {
+    "transactionId": "SmLVegOguE8dXXngYbfPi5GGyEZF6Wy3yhqc1ney2Fc",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_LeftLittleFinger_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_LeftLittleFinger_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_LeftLittleFinger_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1941584971" onClick='toggleBox("Output-1941584971", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1941584971" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1941584971">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:00.237Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:00.815Z",
+  "response": {
+    "transactionId": "fQzLdXhjjdweBBa2RseFsGxgdW_RJ8pS1X7LSfv2-DE",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_LeftMiddleFingerr_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_LeftMiddleFingerr_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_LeftMiddleFingerr_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-921262971" onClick='toggleBox("Output-921262971", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-921262971" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-921262971">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:45:59.563Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:00.154Z",
+  "response": {
+    "transactionId": "-yLOtlqIO16ZSu_5vYl3cF1Sxo8LlCDEUZpXti6GpM0",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_LeftMiddleFingerr_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_LeftMiddleFingerr_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_LeftMiddleFingerr_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2105634098" onClick='toggleBox("Output-2105634098", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2105634098" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2105634098">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:45:58.923Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:45:59.490Z",
+  "response": {
+    "transactionId": "mtfxNFPkyWVbMxpowO_2dNmDvNmI3CXOoFkv1ZjqADQ",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_LeftThumb_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_LeftThumb_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_LeftThumb_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2098087645" onClick='toggleBox("Output-2098087645", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2098087645" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2098087645">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:07.717Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:08.279Z",
+  "response": {
+    "transactionId": "6LjpTocDvsLRX7S8UMdaZhMo16mkJzclceu1eoZzGr8",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_LeftThumb_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_LeftThumb_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_LeftThumb_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1076550812" onClick='toggleBox("Output-1076550812", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1076550812" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1076550812">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:07.069Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:07.654Z",
+  "response": {
+    "transactionId": "pTr4ETQOijJzcvgRUXuW2uv-HYSI-Ao1pa_wOUUoyxE",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_Otp_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_Otp_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_Otp_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:generated-code", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-531145975" onClick='toggleBox("Output-531145975", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-531145975" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-531145975">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:45:55.761Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:generated-code",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:45:56.339Z",
+  "response": {
+    "transactionId": "nOlkRiQ33TeN5IrB1C-Y4Ho7E0w0Lu5ZYk_jA3VEQoE",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_Otp_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_Otp_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_Otp_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:generated-code", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-514682400" onClick='toggleBox("Output-514682400", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-514682400" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-514682400">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:45:55.101Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:generated-code",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:45:55.638Z",
+  "response": {
+    "transactionId": "tlPuyk7SujIEmXjrd8MA25y8SUc1e-dXAkweNFOMT7Q",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RightIndexFinger_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RightIndexFinger_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RightIndexFinger_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-95655406" onClick='toggleBox("Output-95655406", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-95655406" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-95655406">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:02.172Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:02.742Z",
+  "response": {
+    "transactionId": "pzBmdoAoXbcIE-PATt_5K0TO6z9-Z2_Z4SwkmU4RtHs",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RightIndexFinger_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RightIndexFinger_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RightIndexFinger_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2145651615" onClick='toggleBox("Output-2145651615", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2145651615" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2145651615">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:01.525Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:02.073Z",
+  "response": {
+    "transactionId": "U0YYoBcxxBjP3wtXtVUXIfPCQYSutZhyjErw-T-2ycU",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RightIris_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RightIris_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RightIris_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-92510173" onClick='toggleBox("Output-92510173", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-92510173" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-92510173">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:10.465Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:11.020Z",
+  "response": {
+    "transactionId": "xpSPb4RVarMfCCYP10l_FkojEDm9KM_EwvhZzvklmck",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RightIris_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RightIris_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RightIris_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1271355282" onClick='toggleBox("Output-1271355282", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1271355282" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1271355282">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:09.804Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:10.390Z",
+  "response": {
+    "transactionId": "YnDsUDfBmXqtzs4kgODPNEa1PTX46gKRnSNjFF9EFaA",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RightLittleFinger_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RightLittleFinger_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RightLittleFinger_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-692315676" onClick='toggleBox("Output-692315676", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-692315676" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-692315676">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:06.446Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:07.003Z",
+  "response": {
+    "transactionId": "AM91OqoyMqoVlurx2rhAo6HUGUUyVVwSERCzhQCu8bw",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RightLittleFinger_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RightLittleFinger_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RightLittleFinger_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1090642246" onClick='toggleBox("Output-1090642246", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1090642246" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1090642246">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:05.719Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:06.332Z",
+  "response": {
+    "transactionId": "m7239MxfwbizzLvRPmlBYWrcATQlzxXfexuIwbCsCdo",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RightMiddleFinger_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RightMiddleFinger_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RightMiddleFinger_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-700370827" onClick='toggleBox("Output-700370827", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-700370827" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-700370827">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:05.095Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:05.641Z",
+  "response": {
+    "transactionId": "k0fgRclt8AkMrqcP8K1s35jSe-GudgI4dToFvswdTAY",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RightMiddleFinger_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RightMiddleFinger_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RightMiddleFinger_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-400761853" onClick='toggleBox("Output-400761853", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-400761853" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-400761853">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:04.268Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:04.993Z",
+  "response": {
+    "transactionId": "XaeOzxlzxS8oFhP4CFRAjaZvPxI2GBbdL8BRuzyqdxE",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RightRingFinger_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RightRingFinger_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RightRingFinger_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-44746251" onClick='toggleBox("Output-44746251", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-44746251" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-44746251">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:03.582Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:04.186Z",
+  "response": {
+    "transactionId": "b4Y8yQHba8SOW2c2iVA_kvP8Vdj-aupTszp_npPpVD0",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RightRingFinger_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RightRingFinger_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RightRingFinger_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-647226268" onClick='toggleBox("Output-647226268", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-647226268" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-647226268">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:02.808Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:03.390Z",
+  "response": {
+    "transactionId": "YqVtm_bJNLtPALRzeY7RNbTs3wLb-1CuRofX5mpRkLs",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RightThumb_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RightThumb_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RightThumb_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1978865375" onClick='toggleBox("Output-1978865375", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1978865375" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1978865375">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:09.033Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:09.637Z",
+  "response": {
+    "transactionId": "tmjHwHrywEicZxy53IPAyvh1mP4R1e1k4eMbN4ZkVkk",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RightThumb_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RightThumb_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RightThumb_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1700257002" onClick='toggleBox("Output-1700257002", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1700257002" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1700257002">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:46:08.349Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:46:08.961Z",
+  "response": {
+    "transactionId": "mFKwsHxJpjiNZuEuLrW6RWd8Il445ozElnBz4y0zSvA",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RingFinger_Vid_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RingFinger_Vid_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RingFinger_Vid_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-814583272" onClick='toggleBox("Output-814583272", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-814583272" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-814583272">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:45:58.302Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:45:58.865Z",
+  "response": {
+    "transactionId": "_LY3KEAEEI67_SOdlSoLTvKo9-L-vhG6MBeeBgPv4T8",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId.ESignet_OAuthDetailsRequest_NonAuth_RingFinger_all_Valid_Smoke_sid()'><b>ESignet_OAuthDetailsRequest_NonAuth_RingFinger_all_Valid_Smoke_sid</b><br>Test class: io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId (ESignet_OAuthDetailsRequest_NonAuth_LeftIris_Vid_all_Valid_Smoke_sid)<br>Parameters: TestCaseDTO(testCaseName=ESignet_OAuthDetailsRequest_NonAuth_RingFinger_all_Valid_Smoke_sid, endPoint=/v1/esignet/authorization/oauth-details, role=resident, templateFields=null, input={ "requestTime": "$TIMESTAMP$", "clientId": "$ID:CreateOIDCClient_NonAuth_all_Valid_Smoke_sid_clientId$", "scope": "openid resident-service profile", "responseType": "code", "redirectUri": "$IDPREDIRECTURI$", "display": "popup", "prompt": "login", "acrValues": "mosip:idp:acr:biometrics", "nonce": "973eieljzng", "state": "eree2311", "claimsLocales": "en" }, output={
+}, inputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequest, outputTemplate=esignet/OAuthDetailsRequest/OAuthDetailsRequestResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-413118491" onClick='toggleBox("Output-413118491", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-413118491" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-413118491">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "requestTime": "2023-08-01T16:45:57.708Z",
+  "request": {
+    "clientId": "u79lD02KZVrYSNC81EysWhL3ecij6tbBI5Jev4N415M",
+    "scope": "openid resident-service profile",
+    "responseType": "code",
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile",
+    "display": "popup",
+    "prompt": "login",
+    "acrValues": "mosip:idp:acr:biometrics",
+    "claims": {
+      "userinfo": {
+        "name": {
+          "essential": true
+        },
+        "email": {
+          "essential": true
+        },
+        "picture": {
+          "essential": false
+        },
+        "gender": {
+          "essential": false
+        }
+      },
+      "id_token": {}
+    },
+    "nonce": "973eieljzng",
+    "state": "eree2311",
+    "claimsLocales": "en"
+  }
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api.dev3.mosip.net/v1/esignet/authorization/oauth-details) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responseTime": "2023-08-01T16:45:58.245Z",
+  "response": {
+    "transactionId": "yzLgluJazgB6Sr0U4YC4D0aP-tJBt4qEwycw64J2NqA",
+    "clientName": "mosip931690907200359",
+    "logoUrl": "https://health-services.com/logo.png",
+    "authFactors": [
+      [
+        {
+          "type": "WLA",
+          "count": 0
+        }
+      ]
+    ],
+    "authorizeScopes": [],
+    "essentialClaims": [
+      "name",
+      "email"
+    ],
+    "voluntaryClaims": [
+      "birthdate",
+      "address",
+      "gender",
+      "phone_number",
+      "picture"
+    ],
+    "configs": {
+      "sbi.env": "Developer",
+      "sbi.timeout.DISC": 30,
+      "sbi.timeout.DINFO": 30,
+      "sbi.timeout.CAPTURE": 30,
+      "sbi.capture.count.face": 1,
+      "sbi.capture.count.finger": 1,
+      "sbi.capture.count.iris": 1,
+      "sbi.capture.score.face": 70,
+      "sbi.capture.score.finger": 70,
+      "sbi.capture.score.iris": 70,
+      "resend.otp.delay.secs": 180,
+      "send.otp.channels": "email,phone",
+      "captcha.sitekey": "6LfhRNomAAAAAFHw1ff9scaFf0QVvbGUdHdtDhwi",
+      "captcha.enable": "otp",
+      "auth.txnid.length": "10",
+      "wallet.logo-url": "inji_logo.png",
+      "consent.screen.timeout-in-secs": 60,
+      "consent.screen.timeout-buffer-in-secs": 5,
+      "mosip.esignet.link-auth-code-expire-in-secs": 120,
+      "linked-transaction-expire-in-secs": 120,
+      "wallet.qr-code-buffer-in-secs": 10
+    },
+    "redirectUri": "https://healthservices.dev3.mosip.net/userprofile"
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.SimplePostForAutoGenId@19705650</td></tr>
+</table><p>
+</body>
+</html>

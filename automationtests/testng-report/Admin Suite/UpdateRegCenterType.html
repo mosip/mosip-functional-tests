@@ -1,0 +1,475 @@
+<html>
+<head>
+<title>TestNG:  UpdateRegCenterType</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateRegCenterType</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:15:26 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>3 seconds (3780 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegCenterType_All_Valid_Smoke()'><b>MasterData_UpdateRegCenterType_All_Valid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegCenterType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegCenterType_All_Valid_Smoke, endPoint=/v1/masterdata/registrationcentertypes, role=admin, templateFields=[name, descr], input={ "code": "ALT-3", "langCode": "eng", "name": "alternate", "descr": "alternate center updated", "isActive":true, "requesttime": "$TIMESTAMP$" }, output={ "code": "ALT-3", "langCode": "eng" }, inputTemplate=masterdata/RegCenterType/regCenterType, outputTemplate=masterdata/RegCenterType/regCenterTypeResult, restMethod=put)<br/>
+<a href="#Output-328246330" onClick='toggleBox("Output-328246330", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-328246330" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-328246330">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "ALT-3",
+    "langCode": "eng",
+    "name": "alternate",
+    "descr": "alternate center updated",
+    "isActive": true
+  },
+  "requesttime": "2021-12-15T09:45:26.461Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/registrationcentertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:45:27.127Z",
+  "response": {
+    "code": "ALT-3",
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>eng</td>
+    <td>eng</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>ALT-3</td>
+    <td>ALT-3</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@1f43cab7</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegCenterType_InputParameter_Description_AboveMaxLen256()'><b>MasterData_UpdateRegCenterType_InputParameter_Description_AboveMaxLen256</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegCenterType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegCenterType_InputParameter_Description_AboveMaxLen256, endPoint=/v1/masterdata/registrationcentertypes, role=admin, templateFields=[name, descr], input={ "code": "ALT-5", "langCode": "eng", "name": "alternate", "descr": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW", "isActive":true, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.descr: size must be between 0 and 128" } ] }, inputTemplate=masterdata/RegCenterType/regCenterType, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1331925151" onClick='toggleBox("Output-1331925151", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1331925151" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1331925151">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "ALT-5",
+    "langCode": "eng",
+    "name": "alternate",
+    "descr": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvW",
+    "isActive": true
+  },
+  "requesttime": "2021-12-15T09:45:28.981Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/registrationcentertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:45:29.653Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.descr: size must be between 0 and 128"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.descr: size must be between 0 and 128</td>
+    <td>request.descr: size must be between 0 and 128</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@1f43cab7</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegCenterType_InputParameter_Name_AboveMaxLen64()'><b>MasterData_UpdateRegCenterType_InputParameter_Name_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegCenterType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegCenterType_InputParameter_Name_AboveMaxLen64, endPoint=/v1/masterdata/registrationcentertypes, role=admin, templateFields=[name, descr], input={ "code": "ALT-3", "langCode": "eng", "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "descr": "alternate center updated", "isActive":true, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/RegCenterType/regCenterType, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-2011324899" onClick='toggleBox("Output-2011324899", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2011324899" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2011324899">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "ALT-3",
+    "langCode": "eng",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "descr": "alternate center updated",
+    "isActive": true
+  },
+  "requesttime": "2021-12-15T09:45:28.365Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/registrationcentertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:45:28.981Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@1f43cab7</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegCenterType_InputParameter_Name_Empty()'><b>MasterData_UpdateRegCenterType_InputParameter_Name_Empty</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegCenterType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegCenterType_InputParameter_Name_Empty, endPoint=/v1/masterdata/registrationcentertypes, role=admin, templateFields=[descr], input={ "code": "ALT-3", "langCode": "eng", "name": "", "descr": "alternate center updated", "isActive":true, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/RegCenterType/regCenterType, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-748971195" onClick='toggleBox("Output-748971195", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-748971195" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-748971195">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "code": "ALT-3",
+    "langCode": "eng",
+    "name": "",
+    "descr": "alternate center updated",
+    "isActive": true
+  },
+  "requesttime": "2021-12-15T09:45:27.772Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/registrationcentertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:45:28.368Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@1f43cab7</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegCenterType_InputParameter_Name_Missing()'><b>MasterData_UpdateRegCenterType_InputParameter_Name_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegCenterType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegCenterType_InputParameter_Name_Missing, endPoint=/v1/masterdata/registrationcentertypes, role=admin, templateFields=[descr], input={ "code": "ALT-3", "langCode": "eng", "name": "$REMOVE$", "descr": "alternate center updated", "isActive":true, "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: must not be null" } ] }, inputTemplate=masterdata/RegCenterType/regCenterType, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1814705071" onClick='toggleBox("Output-1814705071", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1814705071" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1814705071">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "descr": "alternate center updated",
+    "code": "ALT-3",
+    "langCode": "eng",
+    "isActive": true
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:45:27.135Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/registrationcentertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:45:27.766Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: must not be null"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: must not be null</td>
+    <td>request.name: must not be null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@1f43cab7</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateRegCenterType_InputParameter_isActive_Missing()'><b>MasterData_UpdateRegCenterType_InputParameter_isActive_Missing</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateRegCenterType_InputParameter_isActive_Missing)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateRegCenterType_InputParameter_isActive_Missing, endPoint=/v1/masterdata/registrationcentertypes, role=admin, templateFields=[name, descr], input={ "code": "ALT-3", "langCode": "eng", "name": "alternate", "descr": "alternate center", "isActive":"$REMOVE$", "requesttime": "$TIMESTAMP$" }, output={ "code": "ALT-3", "langCode": "eng" }, inputTemplate=masterdata/RegCenterType/regCenterType, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1423602542" onClick='toggleBox("Output-1423602542", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1423602542" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1423602542">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "descr": "alternate center",
+    "code": "ALT-3",
+    "langCode": "eng",
+    "name": "alternate"
+  },
+  "metadata": {},
+  "requesttime": "2021-12-15T09:45:29.656Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/registrationcentertypes) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:45:30.216Z",
+  "response": {
+    "code": "ALT-3",
+    "langCode": "eng"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.code</td>
+    <td>NOT VERIFIED</td>
+    <td>ALT-3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@1f43cab7</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<html>
+<head>
+<title>TestNG:  GetLocationHierarchyLevelByLastUpdatedDate</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetLocationHierarchyLevelByLastUpdatedDate</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:18:18 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1300 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Admin_GetLocationHierarchyLevelByLastUpdatedDate_Invalid_Invalid_lD()'><b>Admin_GetLocationHierarchyLevelByLastUpdatedDate_Invalid_Invalid_lD</b><br>Test class: io.mosip.testscripts.GetWithParam (Admin_GetLocationHierarchyLevelByLastUpdatedDate_Invalid_Invalid_lD)<br>Parameters: TestCaseDTO(testCaseName=Admin_GetLocationHierarchyLevelByLastUpdatedDate_Invalid_Invalid_lD, endPoint=/v1/masterdata/locationHierarchyLevels?lastUpdated=abc, role=admin, templateFields=null, input={
+}, output={ "errors": [ { "errorCode": "KER-MSD-261", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/GetLocationHierarchyLevelByLastUpdatedDate/getLocationHierarchyLevelByLastUpdatedDate, outputTemplate=masterdata/error, restMethod=get)<br/>
+<a href="#Output-458308840" onClick='toggleBox("Output-458308840", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-458308840" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-458308840">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locationHierarchyLevels?lastUpdated=abc) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-15T09:48:20.114Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-261",
+      "message": "Text \u0027abc\u0027 could not be parsed at index 0"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-261</td>
+    <td>KER-MSD-261</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@1a538ed8</td></tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Admin_GetLocationHierarchyLevelByLastUpdatedDate_allValid_smoke()'><b>Admin_GetLocationHierarchyLevelByLastUpdatedDate_allValid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Admin_GetLocationHierarchyLevelByLastUpdatedDate_Invalid_Invalid_lD)<br>Parameters: TestCaseDTO(testCaseName=Admin_GetLocationHierarchyLevelByLastUpdatedDate_allValid_smoke, endPoint=/v1/masterdata/locationHierarchyLevels?lastUpdated=2020-10-20T17:13:44.793Z, role=admin, templateFields=null, input={
+}, output={ "locationHierarchyLevels": [{ "hierarchyLevel": "$IGNORE$", "hierarchyLevelName": "$IGNORE$", "langCode": "$IGNORE$", "isActive": $IGNORE$ }] }, inputTemplate=masterdata/GetLocationHierarchyLevelByLastUpdatedDate/getLocationHierarchyLevelByLastUpdatedDate, outputTemplate=masterdata/GetLocationHierarchyLevelByLastUpdatedDate/getLocationHierarchyLevelByLastUpdatedDateResult, restMethod=get)<br/>
+<a href="#Output-328041976" onClick='toggleBox("Output-328041976", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-328041976" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-328041976">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/locationHierarchyLevels?lastUpdated=2020-10-20T17:13:44.793Z) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-15T09:48:19.455Z",
+  "response": {
+    "locationHierarchyLevels": [
+      {
+        "hierarchyLevel": 0,
+        "hierarchyLevelName": "World",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 1,
+        "hierarchyLevelName": "Country",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 2,
+        "hierarchyLevelName": "Region",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 3,
+        "hierarchyLevelName": "Province",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 4,
+        "hierarchyLevelName": "City",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 5,
+        "hierarchyLevelName": "Zone",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 6,
+        "hierarchyLevelName": "Postal Code",
+        "langCode": "eng",
+        "isActive": true
+      },
+      {
+        "hierarchyLevel": 7,
+        "hierarchyLevelName": "ward",
+        "langCode": "eng",
+        "isActive": false
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[6].hierarchyLevelName</td>
+    <td>NOT VERIFIED</td>
+    <td>Postal Code</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[4].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[3].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>3</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[3].hierarchyLevelName</td>
+    <td>NOT VERIFIED</td>
+    <td>Province</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[1].hierarchyLevelName</td>
+    <td>NOT VERIFIED</td>
+    <td>Country</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[0].hierarchyLevelName</td>
+    <td>NOT VERIFIED</td>
+    <td>World</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[7].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[5].hierarchyLevelName</td>
+    <td>NOT VERIFIED</td>
+    <td>Zone</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:48:19.455Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[7].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[0].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>0</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[6].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>6</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[2].hierarchyLevelName</td>
+    <td>NOT VERIFIED</td>
+    <td>Region</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[5].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[7].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>7</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[7].hierarchyLevelName</td>
+    <td>NOT VERIFIED</td>
+    <td>ward</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[2].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>2</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[5].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[4].hierarchyLevelName</td>
+    <td>NOT VERIFIED</td>
+    <td>City</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[1].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>1</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[4].hierarchyLevel</td>
+    <td>NOT VERIFIED</td>
+    <td>4</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[6].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(locationHierarchyLevels)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@1a538ed8</td></tr>
+</table><p>
+</body>
+</html>

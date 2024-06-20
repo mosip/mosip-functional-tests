@@ -1,0 +1,745 @@
+<html>
+<head>
+<title>TestNG:  GetUpdateCount</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetUpdateCount</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/10/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Oct 12 14:23:50 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>4 seconds (4914 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_GetUpdateCount_Uin_Empty_idType()'><b>IdRepository_GetUpdateCount_Uin_Empty_idType</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_GetUpdateCount_Vid_Spaceval_idType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_GetUpdateCount_Uin_Empty_idType, endPoint=/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}, role=resident, templateFields=null, input={ "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$", "idType": "", "attribute_list": "fullName" }, output={ "errors": [ { "errorCode": "IDR-IDC-002" } ] }, inputTemplate=idRepository/GetUpdateCount/GetUpdateCount, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-734191650" onClick='toggleBox("Output-734191650", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-734191650" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-734191650">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "individualId": "501867134984",
+  "idType": "",
+  "attribute_list": "fullName"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:53 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=11]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:53:53.718+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/501867134984/update-counts"
+}</textarea> </div></pre><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace734191650", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace734191650'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@37b01ce2</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_GetUpdateCount_Uin_Invalid_IndivId()'><b>IdRepository_GetUpdateCount_Uin_Invalid_IndivId</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_GetUpdateCount_Vid_Spaceval_idType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_GetUpdateCount_Uin_Invalid_IndivId, endPoint=/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}, role=resident, templateFields=null, input={ "individualId": "$123ds", "idType": "VID", "attribute_list": "fullName" }, output={ "errors": [ { "errorCode": "IDR-IDC-002" } ] }, inputTemplate=idRepository/GetUpdateCount/GetUpdateCount, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-699787227" onClick='toggleBox("Output-699787227", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-699787227" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-699787227">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "individualId": "$123ds",
+  "idType": "VID",
+  "attribute_list": "fullName"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:51 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=13]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:53:51.620+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/%24123ds/update-counts"
+}</textarea> </div></pre><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace699787227", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace699787227'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@37b01ce2</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_GetUpdateCount_Uin_Invalid_idType()'><b>IdRepository_GetUpdateCount_Uin_Invalid_idType</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_GetUpdateCount_Vid_Spaceval_idType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_GetUpdateCount_Uin_Invalid_idType, endPoint=/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}, role=resident, templateFields=null, input={ "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$", "idType": "dfsdf", "attribute_list": "fullName" }, output={ "errors": [ { "errorCode": "IDR-IDC-002" } ] }, inputTemplate=idRepository/GetUpdateCount/GetUpdateCount, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-384119884" onClick='toggleBox("Output-384119884", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-384119884" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-384119884">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "individualId": "501867134984",
+  "idType": "dfsdf",
+  "attribute_list": "fullName"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:53 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=9]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:53:53.345+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/501867134984/update-counts"
+}</textarea> </div></pre><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace384119884", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace384119884'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@37b01ce2</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_GetUpdateCount_Uin_SpaceVal_IndivId()'><b>IdRepository_GetUpdateCount_Uin_SpaceVal_IndivId</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_GetUpdateCount_Vid_Spaceval_idType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_GetUpdateCount_Uin_SpaceVal_IndivId, endPoint=/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}, role=resident, templateFields=null, input={ "individualId": " ", "idType": "VID", "attribute_list": "fullName" }, output={ "errors": [ { "errorCode": "IDR-IDC-003" } ] }, inputTemplate=idRepository/GetUpdateCount/GetUpdateCount, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-185876853" onClick='toggleBox("Output-185876853", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-185876853" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-185876853">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "individualId": " ",
+  "idType": "VID",
+  "attribute_list": "fullName"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:52 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=10]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:53:52.366+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/%20/update-counts"
+}</textarea> </div></pre><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace185876853", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace185876853'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@37b01ce2</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_GetUpdateCount_Uin_Spaceval_idType()'><b>IdRepository_GetUpdateCount_Uin_Spaceval_idType</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_GetUpdateCount_Vid_Spaceval_idType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_GetUpdateCount_Uin_Spaceval_idType, endPoint=/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}, role=resident, templateFields=null, input={ "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$", "idType": " ", "attribute_list": "fullName" }, output={ "errors": [ { "errorCode": "IDR-IDC-002" } ] }, inputTemplate=idRepository/GetUpdateCount/GetUpdateCount, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-536353549" onClick='toggleBox("Output-536353549", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-536353549" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-536353549">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "individualId": "501867134984",
+  "idType": " ",
+  "attribute_list": "fullName"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:54 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=10]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:53:54.060+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/501867134984/update-counts"
+}</textarea> </div></pre><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace536353549", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace536353549'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@37b01ce2</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_GetUpdateCount_Uin_Valid_Smoke()'><b>IdRepository_GetUpdateCount_Uin_Valid_Smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_GetUpdateCount_Vid_Spaceval_idType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_GetUpdateCount_Uin_Valid_Smoke, endPoint=/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}, role=resident, templateFields=null, input={ "individualId": "$ID:AddIdentity_UpdateCount_smoke_Pos_UIN$", "idType": "UIN", "attribute_list": "fullName" }, output={
+}, inputTemplate=idRepository/GetUpdateCount/GetUpdateCount, outputTemplate=idRepository/GetUpdateCount/GetUpdateCountResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-568564610" onClick='toggleBox("Output-568564610", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-568564610" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-568564610">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "individualId": "501867134984",
+  "idType": "UIN",
+  "attribute_list": "fullName"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:51 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=225]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:53:51.265+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/501867134984/update-counts"
+}</textarea> </div></pre><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace568564610", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace568564610'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@37b01ce2</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_GetUpdateCount_Vid_Empty_idType()'><b>IdRepository_GetUpdateCount_Vid_Empty_idType</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_GetUpdateCount_Vid_Spaceval_idType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_GetUpdateCount_Vid_Empty_idType, endPoint=/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}, role=resident, templateFields=null, input={ "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$", "idType": "", "attribute_list": "fullName" }, output={ "errors": [ { "errorCode": "IDR-IDC-002", "message": "Invalid Input Parameter - idType" } ] }, inputTemplate=idRepository/GetUpdateCount/GetUpdateCount, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1421004802" onClick='toggleBox("Output-1421004802", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1421004802" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1421004802">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "individualId": "5638098470167930",
+  "idType": "",
+  "attribute_list": "fullName"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:54 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=9]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:53:54.743+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/5638098470167930/update-counts"
+}</textarea> </div></pre><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1421004802", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1421004802'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@37b01ce2</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_GetUpdateCount_Vid_Invalid_idType()'><b>IdRepository_GetUpdateCount_Vid_Invalid_idType</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_GetUpdateCount_Vid_Spaceval_idType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_GetUpdateCount_Vid_Invalid_idType, endPoint=/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}, role=resident, templateFields=null, input={ "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$", "idType": "dfsdf", "attribute_list": "fullName" }, output={ "errors": [ { "errorCode": "IDR-IDC-002" } ] }, inputTemplate=idRepository/GetUpdateCount/GetUpdateCount, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1723076051" onClick='toggleBox("Output-1723076051", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1723076051" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1723076051">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "individualId": "5638098470167930",
+  "idType": "dfsdf",
+  "attribute_list": "fullName"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:54 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=11]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:53:54.398+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/5638098470167930/update-counts"
+}</textarea> </div></pre><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1723076051", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1723076051'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@37b01ce2</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_GetUpdateCount_Vid_Spaceval_idType()'><b>IdRepository_GetUpdateCount_Vid_Spaceval_idType</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_GetUpdateCount_Vid_Spaceval_idType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_GetUpdateCount_Vid_Spaceval_idType, endPoint=/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}, role=resident, templateFields=null, input={ "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$", "idType": " ", "attribute_list": "fullName" }, output={ "errors": [ { "errorCode": "IDR-IDC-002" } ] }, inputTemplate=idRepository/GetUpdateCount/GetUpdateCount, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-92686444" onClick='toggleBox("Output-92686444", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-92686444" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-92686444">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "individualId": "5638098470167930",
+  "idType": " ",
+  "attribute_list": "fullName"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:55 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=11]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:53:55.073+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/5638098470167930/update-counts"
+}</textarea> </div></pre><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace92686444", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace92686444'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@37b01ce2</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_GetUpdateCount_Vid_Valid_Smoke()'><b>IdRepository_GetUpdateCount_Vid_Valid_Smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_GetUpdateCount_Vid_Spaceval_idType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_GetUpdateCount_Vid_Valid_Smoke, endPoint=/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}, role=resident, templateFields=null, input={ "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$", "idType": "VID", "attribute_list": "fullName" }, output={
+}, inputTemplate=idRepository/GetUpdateCount/GetUpdateCount, outputTemplate=idRepository/GetUpdateCount/GetUpdateCountResult, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null)<br/>
+<a href="#Output-1814943883" onClick='toggleBox("Output-1814943883", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1814943883" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1814943883">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "individualId": "5638098470167930",
+  "idType": "VID",
+  "attribute_list": "fullName"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:52 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=13]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:53:52.976+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/5638098470167930/update-counts"
+}</textarea> </div></pre><br/>
+</div>
+</td>
+<td><div><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1814943883", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1814943883'><pre>io.mosip.testrig.apirig.admin.fw.util.AdminTestException: Page not found. Hence marking the test case as failed
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:478)
+	at io.mosip.testrig.apirig.authentication.fw.util.OutputValidationUtil.doJsonOutputValidation(OutputValidationUtil.java:462)
+	at io.mosip.testrig.apirig.testscripts.GetWithParam.test(GetWithParam.java:143)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:134)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@37b01ce2</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_GetUpdateCount_Uin_StatusCode_Empty_IndivId()'><b>IdRepository_GetUpdateCount_Uin_StatusCode_Empty_IndivId</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_GetUpdateCount_Vid_Spaceval_idType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_GetUpdateCount_Uin_StatusCode_Empty_IndivId, endPoint=/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}, role=resident, templateFields=null, input={ "individualId": "", "idType": "VID", "attribute_list": "fullName" }, output=404, inputTemplate=idRepository/GetUpdateCount/GetUpdateCount, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-1753110043" onClick='toggleBox("Output-1753110043", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1753110043" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1753110043">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "individualId": "",
+  "idType": "VID",
+  "attribute_list": "fullName"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:51 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=11]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:53:52.010+00:00",
+  "status": 404,
+  "error": "Not Found",
+  "message": "No message available",
+  "path": "/idrepository/v1/identity/update-counts"
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>404</td>
+    <td>404</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@37b01ce2</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.GetWithParam.IdRepository_GetUpdateCount_Uin_StatusCode_Invalid_Token()'><b>IdRepository_GetUpdateCount_Uin_StatusCode_Invalid_Token</b><br>Test class: io.mosip.testrig.apirig.testscripts.GetWithParam (IdRepository_GetUpdateCount_Vid_Spaceval_idType)<br>Parameters: TestCaseDTO(testCaseName=IdRepository_GetUpdateCount_Uin_StatusCode_Invalid_Token, endPoint=/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}, role=invalid, templateFields=null, input={ "individualId": "$ID:CreateVID_UpdateCount_Smoke_Perpetual_sid_VID$", "idType": "VID", "attribute_list": "fullName" }, output=500, inputTemplate=idRepository/GetUpdateCount/GetUpdateCount, outputTemplate=idRepository/error, restMethod=get, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=false, allowedErrorCodes=null)<br/>
+<a href="#Output-2115461862" onClick='toggleBox("Output-2115461862", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2115461862" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2115461862">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "individualId": "5638098470167930",
+  "idType": "VID",
+  "attribute_list": "fullName"
+}</textarea> </div></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.qa-upgrade3.mosip.net/idrepository/v1/identity/{individualId}/update-counts?idType={idType}&attribute_list={attribute_list}) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Thu, 12 Oct 2023 08:53:52 GMT, Content-Type=application/json;charset=UTF-8, Transfer-Encoding=chunked, Connection=keep-alive, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=8]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "timestamp": "2023-10-12T08:53:52.677+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "The token was expected to have 3 parts, but got 1.",
+  "path": "/idrepository/v1/identity/5638098470167930/update-counts"
+}</textarea> </div></pre><br/>
+<b> Output validation for: </b>expected vs actual
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>500</td>
+    <td>500</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.GetWithParam@37b01ce2</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,759 @@
+<html>
+<head>
+<title>TestNG:  GetRoleIdForAllRoles</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetRoleIdForAllRoles</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Apr 19 09:54:30 IST 2022</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (747 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak.Prerequisite_GetRoleIdForAllRoles_allValid_smoke_get_sid_KeyCloakroleDetails()'><b>Prerequisite_GetRoleIdForAllRoles_allValid_smoke_get_sid_KeyCloakroleDetails</b><br>Test class: io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak (Prerequisite_GetRoleIdForAllRoles_allValid_smoke_get_sid_KeyCloakroleDetails)<br>Parameters: TestCaseDTO(testCaseName=Prerequisite_GetRoleIdForAllRoles_allValid_smoke_get_sid_KeyCloakroleDetails, endPoint=/auth/admin/realms/mosip/roles/, role=keycloak, templateFields=null, input={ }, output={ "genderType": [{ "langCode": "$IGNORE$", "isActive": $IGNORE$ }] }, inputTemplate=prerequisite/KeyCloak/GetRoleIdForAllRoles/getRoleIdForAllRoles, outputTemplate=prerequisite/KeyCloak/GetRoleIdForAllRoles/getRoleIdForAllRolesResult, restMethod=get)<br/>
+<a href="#Output-1964864549" onClick='toggleBox("Output-1964864549", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1964864549" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1964864549">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://iam.dev3.mosip.net/auth/admin/realms/mosip/roles/) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>[
+  {
+    "id": "857d4e6b-93aa-4b13-9d7d-f391e978d395",
+    "name": "CREATE_SHARE",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "44da0e1a-ef6f-468a-99c9-4a21f6b0ffbb",
+    "name": "AUTH_PARTNER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "faf678d8-6c63-4a8a-97c9-93adf8dcaec8",
+    "name": "PUBLISH_CREDENTIAL_ISSUED_ALL_INDIVIDUAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "58766389-098f-4599-b7e8-dc8402008c96",
+    "name": "PUBLISH_REGISTRATION_PROCESSOR_WORKFLOW_PAUSED_FOR_ADDITIONAL_INFO_EVENT_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "5fef0b10-14b2-4b6d-bf80-c1588eef6544",
+    "name": "SUBSCRIBE_CREDENTIAL_STATUS_UPDATE_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "0eac1176-0864-49b9-a2f1-f14df5aed168",
+    "name": "MISP",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "3652e2a1-ad57-418a-81b5-c668ed83cea6",
+    "name": "SUBSCRIBE_REMOVE_ID_INDIVIDUAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "6a8169fc-f901-4809-b345-175ce085c718",
+    "name": "PRE_REGISTRATION_ADMIN",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "a6d32120-87cd-423c-96ed-08e41266c04e",
+    "name": "SUBSCRIBE_APIKEY_APPROVED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "93904a70-d0db-4046-8478-9a87f0eb44cc",
+    "name": "PUBLISH_PARTNER_UPDATED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "ace914e4-fad3-403b-81a8-e74c08e8b24e",
+    "name": "PARTNER_ADMIN",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "f4d64233-8d42-4fa5-99c3-f003c2bfadbe",
+    "name": "PUBLISH_POLICY_UPDATED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "96e0b926-eb8f-4801-afa1-91d8196f43b6",
+    "name": "default-roles-mosip",
+    "description": "${role_default-roles}",
+    "composite": true,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "af5e1426-688f-4343-8324-9f9b05d147a5",
+    "name": "ID_REPOSITORY",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "8456a465-9822-4a0a-a975-e2f86666438d",
+    "name": "POLICYMANAGER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "69185675-85c5-40fc-b676-43fc6d6119c4",
+    "name": "SUBSCRIBE_CA_CERTIFICATE_UPLOADED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "d1e3c7ae-f04b-4b2c-b065-07af4e8e0722",
+    "name": "MISP_PARTNER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "a983e79f-c9ac-4e49-baaf-5dfd1032bc0c",
+    "name": "PUBLISH_VID_CRED_STATUS_UPDATE_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "b38809fa-af43-4c01-ad46-fcd1b49c7180",
+    "name": "ID_AUTHENTICATION",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "fddc18ef-eebb-4a1d-9aa4-d4332a8ae989",
+    "name": "SUBSCRIBE_MOSIP_HOTLIST_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "47c1ea98-9511-417e-b088-2bf368b46e1e",
+    "name": "PUBLISH_MOSIP_HOTLIST_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "b3803455-d1c7-4c62-b278-3ff00eb9065e",
+    "name": "DOCUMENT_READ",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "7ac8c0ca-1fd0-4864-b394-a111425c0d6e",
+    "name": "SUBSCRIBE_CREDENTIAL_ISSUED_INDIVIDUAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "5f1cf66b-8db9-4e8b-9bcc-fbdf834eb45a",
+    "name": "PMS_ADMIN",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "15507d05-41b1-4722-83f7-3246ad82b452",
+    "name": "PUBLISH_APIKEY_UPDATED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "208d9393-4d27-4570-a7ef-d6ec2ad6ef97",
+    "name": "REGISTRATION_OPERATOR",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "d98b8af3-50f1-461d-8c35-5af39d98700c",
+    "name": "PRINT_PARTNER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "36422d5e-97dc-41ab-95dc-12e3cdd09c3f",
+    "name": "CENTRAL_ADMIN",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "1faeefc1-afaa-46a1-9921-e21730d9a132",
+    "name": "PUBLISH_MASTERDATA_IDAUTHENTICATION_TEMPLATES_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "a1d9c899-1d5e-4871-a80e-f21823411a66",
+    "name": "FTM_PROVIDER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "aad93a5e-f823-4eb1-8b3d-e6cfa6159098",
+    "name": "ZONAL_ADMIN",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "6c5a3e62-71d1-46d3-bae7-194a50c3b427",
+    "name": "PUBLISH_MISP_LICENSE_GENERATED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "e98cfc2f-73c0-4ece-add0-ff3fac64bfd1",
+    "name": "PREREG",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "4a670e39-1ef3-47a0-8740-bdc527b974c5",
+    "name": "REGISTRATION_SUPERVISOR",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "0aea6610-6e82-4f7d-8f24-dd72ada5d4dd",
+    "name": "CREDENTIAL_ISSUANCE",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "3df6c341-e394-45fe-ab48-667869a9c9d8",
+    "name": "REGISTRATION_OFFICER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "0806b6d6-6561-411a-8e9a-36e1eb244acd",
+    "name": "SUBSCRIBE_ACTIVATE_ID_INDIVIDUAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "64c89e35-69fa-46b0-a6d8-63705a3c4ea6",
+    "name": "PMS_USER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "6bfcb8bb-3bf5-45ba-9bf8-7b5f39284e1b",
+    "name": "PUBLISH_APIKEY_APPROVED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "4c3489f5-b7ff-48fb-ad68-762a8b43824a",
+    "name": "ABIS_PARTNER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "e1b3c0cc-9c77-4cc6-9cd2-016084d9955a",
+    "name": "HOTLIST_ADMIN",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "5e9ec290-1316-420a-8eb9-a0ad18166abd",
+    "name": "SUBSCRIBE_DEACTIVATE_ID_INDIVIDUAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "d0dc9468-88c0-427c-8a24-ab491b68a9aa",
+    "name": "PUBLISH_AUTH_TYPE_STATUS_UPDATE_ACK_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "7e930b2a-e170-4a0b-b9e8-8f8346a96573",
+    "name": "PUBLISH_CREDENTIAL_STATUS_UPDATE_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "8ab82175-f94b-4e87-ac15-7c40609e6f8e",
+    "name": "SUBSCRIBE_VID_CRED_STATUS_UPDATE_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "806e3075-ae07-4ca5-aab3-b706c6c6692e",
+    "name": "SUBSCRIBE_AUTH_TYPE_STATUS_UPDATE_ACK_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "1a3f836a-837a-4aa3-8c25-b998308c60b9",
+    "name": "CENTRAL_APPROVER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "5dea58e1-6c77-4014-bfc3-d444cb96d1a6",
+    "name": "PUBLISH_MISP_LICENSE_UPDATED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "25039538-41b1-4c0a-932d-a8c479ea5eb8",
+    "name": "REGISTRATION_ADMIN",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "9d622398-8df7-4d0f-a790-aee5350a6eef",
+    "name": "PUBLISH_REGISTRATION_PROCESSOR_WORKFLOW_COMPLETED_EVENT_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "07611180-91a7-41a3-8a16-418f5c6a113a",
+    "name": "KEY_MAKER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "83808cd3-ae3c-4071-b5b0-68c030de3ded",
+    "name": "SUBSCRIBE_PARTNER_UPDATED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "3379aa91-e373-46d0-a47b-ddbe335dff5f",
+    "name": "RESIDENT",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "f2df38ec-1993-4012-b62c-383fa3b2cc5d",
+    "name": "INDIVIDUAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "192b21e7-a0e2-4905-bf2c-203fa784d335",
+    "name": "PUBLISH_ACTIVATE_ID_ALL_INDIVIDUAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "0bcca918-fdef-4b7f-a220-d50488776bb3",
+    "name": "PUBLISH_AUTH_TYPE_STATUS_UPDATE_ALL_INDIVIDUAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "d9c4cc45-4a61-4b47-a79e-f11fbcfc4f5f",
+    "name": "SUBSCRIBE_MISP_LICENSE_GENERATED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "b1566ec6-c7b4-45d5-afd3-1931dc305ae7",
+    "name": "PUBLISH_ANONYMOUS_PROFILE_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "6c1c1015-ab12-49c5-add4-8909953bb26b",
+    "name": "PUBLISH_MASTERDATA_TITLES_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "be6151cc-2863-4ae4-997e-fb14462ea826",
+    "name": "SUBSCRIBE_REGISTRATION_PROCESSOR_WORKFLOW_COMPLETED_EVENT_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "a6f2ac02-086b-4ac2-a33f-a4e198ed8510",
+    "name": "CREDENTIAL_PARTNER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "20fa7f92-26eb-4aed-8875-df313760a655",
+    "name": "PUBLISH_CA_CERTIFICATE_UPLOADED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "4a1b53e2-7326-4027-bd8c-a276f30841eb",
+    "name": "CREDENTIAL_REQUEST",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "ade60a45-4068-42b7-8813-ffd1f74dc912",
+    "name": "PUBLISH_IDA_FRAUD_ANALYTICS_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "d2c00f23-f373-470a-a114-d90fe35ed900",
+    "name": "AUTH",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "f93c194b-d22f-415d-86f9-1adc4b1f7732",
+    "name": "DATA_READ",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "7d333191-0004-4f22-93c3-1275d382628d",
+    "name": "PUBLISH_DEACTIVATE_ID_ALL_INDIVIDUAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "05186fb3-ec1b-4409-b7d4-08a78d1c7d96",
+    "name": "REGISTRATION_PROCESSOR",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "ab7e61b4-33f4-4a70-aa6f-762491187688",
+    "name": "PUBLISH_AUTHENTICATION_TRANSACTION_STATUS_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "1b24c00b-264e-444d-b7e7-2d42f1b63e97",
+    "name": "SUBSCRIBE_MISP_LICENSE_UPDATED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "ab4ac8b8-b79b-412b-ae03-f6c30bbebfec",
+    "name": "PARTNER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "c3b0298e-84cc-4702-9ddc-4edc00026564",
+    "name": "MASTERDATA_ADMIN",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "582badd1-d0f8-47ac-86ce-dc038cb5ceb7",
+    "name": "DEVICE_PROVIDER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "23a73f74-e3e1-4431-b39a-701c41c8bff4",
+    "name": "BIOMETRIC_READ",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "c32e328e-99b0-488c-9604-3baf2ceabf0f",
+    "name": "ONLINE_VERIFICATION_PARTNER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "04866fbb-d7c8-4f4f-b2d1-71b24754b1f2",
+    "name": "SUBSCRIBE_MASTERDATA_TITLES_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "91932f76-3bbc-4d8e-8cbc-e1199b84a553",
+    "name": "ZONAL_APPROVER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "e612700d-cbb6-4696-9e42-db3d6bf2efe3",
+    "name": "GLOBAL_ADMIN",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "673d3037-ddaa-4cf7-9686-a2b1e948f51c",
+    "name": "Default",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "6557166e-8457-4ef8-9089-33f1cd055eb9",
+    "name": "uma_authorization",
+    "description": "${role_uma_authorization}",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "d20f7d42-c074-4727-ba89-057cb61fa2be",
+    "name": "PARTNERMANAGER",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "adca0340-50ce-4c87-9241-bf8f2c2e5efb",
+    "name": "SUBSCRIBE_REGISTRATION_PROCESSOR_WORKFLOW_PAUSED_FOR_ADDITIONAL_INFO_EVENT_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "6a7980b5-9c76-4f3a-a339-01dd6ad9fbd8",
+    "name": "SUBSCRIBE_POLICY_UPDATED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "149c0f86-95aa-49f9-81e4-dd28bb06d416",
+    "name": "offline_access",
+    "description": "${role_offline-access}",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "fe6358e1-86ea-45f6-82cb-7fcf692d9b0c",
+    "name": "SUBSCRIBE_AUTH_TYPE_STATUS_UPDATE_INDIVIDUAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "94c5a7c8-8bc9-4d90-9b44-a4cb49ed4e61",
+    "name": "SUBSCRIBE_MASTERDATA_IDAUTHENTICATION_TEMPLATES_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "f8086deb-d52f-46e1-9109-fe33c11356fd",
+    "name": "PUBLISH_REMOVE_ID_ALL_INDIVIDUAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "ebff3101-b17b-435a-b479-e7c7173e6598",
+    "name": "PRE_REGISTRATION",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "97790599-bc6f-4f2c-ad58-4a66b9fad977",
+    "name": "METADATA_READ",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  },
+  {
+    "id": "996b0c8d-9c25-441b-8a66-c485e10259b8",
+    "name": "SUBSCRIBE_APIKEY_UPDATED_GENERAL",
+    "composite": false,
+    "clientRole": false,
+    "containerId": "b6ed2e23-8383-4b07-b256-2bfc476ce81f"
+  }
+]</textarea></pre><br/>
+</div>
+</td>
+<td><div><pre>java.lang.NullPointerException
+	at io.mosip.authentication.fw.util.ReportUtil.getOutputValiReport(ReportUtil.java:31)
+	at io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak.test(GetWithParamForAutoGenIdForKeyCloak.java:79)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:85)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:43)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1964864549", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1964864549'><pre>java.lang.NullPointerException
+	at io.mosip.authentication.fw.util.ReportUtil.getOutputValiReport(ReportUtil.java:31)
+	at io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak.test(GetWithParamForAutoGenIdForKeyCloak.java:79)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:85)
+	at io.mosip.testrunner.MosipTestRunner.main(MosipTestRunner.java:43)
+</pre></div></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParamForAutoGenIdForKeyCloak@3b332962</td></tr>
+</table><p>
+</body>
+</html>

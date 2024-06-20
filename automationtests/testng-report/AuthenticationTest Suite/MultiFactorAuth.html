@@ -1,0 +1,191 @@
+<html>
+<head>
+<title>TestNG:  MultiFactorAuth</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>MultiFactorAuth</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/1</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Nov 17 10:04:10 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>1 seconds (1810 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.MultiFactorAuthNew.auth_MultiFactorAuth_Biometric_remove_OTP_allowed_authtype()'><b>auth_MultiFactorAuth_Biometric_remove_OTP_allowed_authtype</b><br>Test class: io.mosip.testrig.apirig.testscripts.MultiFactorAuthNew (auth_MultiFactorAuth_Biometric_remove_OTP_allowed_authtype)<br>Parameters: TestCaseDTO(testCaseName=auth_MultiFactorAuth_Biometric_remove_OTP_allowed_authtype, endPoint=/v1/identity/authenticate?moduleName=$MODULENAME$&certsDir=$CERTSDIR$&transactionId=$TRANSACTIONID$&id=964976086724&partnerUrlSuffix=$UpdatedPartnerKeyURL$&keyFileNameByPartnerName=true&partnerName=$PartnerName$, role=resident, templateFields=null, input={ "otp": "$ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$", "individualId": "964976086724", "bioSubType": "", "bioType": "FACE", "bioValue": "$FACE$", "deviceCode": "bc0b6848-6d45-46d1-a9bd-b334410bf823", "dateTime": "$DATETIME$", "deviceProviderID": "1873299273", "deviceServiceID": "", "deviceServiceVersion": "SB.WIN.001", "deviceProvider": "SYNCBYTE", "deviceProviderId": "SYNCBYTE.LTC165", "deviceSubType": "Single", "make": "Logitech", "model": "4d36e96c-e325-11ce-bfc1-08002be10318", "serialNo": "78467171", "type": "Face", "key": "dob", "value": "1970/07/08", "transactionId": "$TRANSACTIONID$", "timestamp": "$TIMESTAMP$" }, output={ "authStatus": "true", "sendOtpResp":{ "sendOtpResTemplate":"ida/MultiFactorAuth/sendOtpRes" } }, inputTemplate=ida/MultiFactorAuth/MultiFactorAuth, outputTemplate=ida/MultiFactorAuth/MultiFactorAuthResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false, checkErrorsOnlyInResponse=true, allowedErrorCodes=null, kycFields=null)<br/>
+<a href="#Output-439657758" onClick='toggleBox("Output-439657758", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-439657758" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-439657758">
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>No headers</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "keyFileNameByPartnerName": true,
+  "partnerName": "mosip_partnerorg1700195565593",
+  "moduleName": "IDA",
+  "id": 964976086724,
+  "transactionId": 2882760430
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b>(End Point URL: http://localhost:8082/v1/identity/createOtpReqest) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[signature=eyJ4NWMiOlsiTUlJRHpEQ0NBclNnQXdJQkFnSUl5VXBXSlZjZU44Z3dEUVlKS29aSWh2Y05BUUVMQlFBd2RqRUxNQWtHQTFVRUJoTUNTVTR4Q3pBSkJnTlZCQWdNQWt0Qk1SSXdFQVlEVlFRSERBbENRVTVIUVV4UFVrVXhEVEFMQmdOVkJBb01CRWxKVkVJeElEQWVCZ05WQkFzTUYwMVBVMGxRTFZSRlEwZ3RRMFZPVkVWU0lDaFFUVk1wTVJVd0V3WURWUVFEREF4M2QzY3ViVzl6YVhBdWFXOHdIaGNOTWpNeE1URTNNRFF6TXpNd1doY05NalF4TVRFMk1EUXpNek13V2pDQmtURUxNQWtHQTFVRUJoTUNTVTR4Q3pBSkJnTlZCQWdNQWt0Qk1TWXdKQVlEVlFRS0RCMXRiM05wY0Y5d1lYSjBibVZ5YjNKbk1UY3dNREU1TlRVMk5UVTVNekVhTUJnR0ExVUVDd3dSU1VSQkxWUkZVMVF0VDFKSExWVk9TVlF4TVRBdkJnTlZCQU1NS0ZCQlVsUk9SVkl0Y25BdGJXOXphWEJmY0dGeWRHNWxjbTl5WnpFM01EQXhPVFUxTmpVMU9UTXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCQVFDZExPOEp2SDZhSVNsM2tGdTQ2LytDMUhnNzJ4cSticjRCaWd6eVZPbDFmQmJYS3czbjcrNXFHNTZlNHpGOUdqTHpQbTU5QUEwOGk4SDRkQXQ2bStlTW5hV1YyOVRjWmQwc1g5UTlYVDkzY0xrZlliTzA1U2ora1RGWEhzSkNiTms5SmFUSG1Uamd0bXZGazVIdnFVQXRveElONWRPSEJocUlkZGF1N1NnVXdxNXVONFhyUWl6SVkwM0RsWW0xVjArSFpTdjFtaFpGcStHdjNGWmZzUTV4VGhJSnV0WHMwc3lheW16SjlrbXRZUS9yY3hOWTZoakkxVjFac1Ard3BIMXphY1dOak5HN25ZR3BwRUtkVTA4YlMvdjMrVUVuL3o0NkJFamFXZDVTQjlnV0Nlb1k1WEthZDBZaTJ0dWVQTWVLSUdZbmwwM3JVYkFpR3NIcm1ISExBZ01CQUFHalFqQkFNQThHQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTTBXOERVN1lCaXZobjRUY2xnSlNhTXlscGJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBa0NWODRkS2ZDVnZnVzFHQmh3RWwwYnhlZUdmcGd4OEJEeG4zZys3QWZpRG9KNGtDMTdlSDVRZkZaODI0ME1tcjkrVHJDdnRZeFl1d0lwT3A2ci8vY3A2aloxbmJ5NmluK3Fhb1JhRzhXL08vV1MyRDlobHo1TkkrNUhTVWsrMTh0ZEpXOGJGZGhpNFhSY3h2L0U4MFI0dG5ZcERtZWhlb0dSdzJ0ODA3ME92TE4vVmpQRUMvVjBCVTBsaTlWSUs0N0ttRmxGQjlPMGVJNExIKzB3ODF0N0d6a2M0TlY0U3Z3eVJFM1ZVQjUwejV5NXhFMWJmSUxzanNxcVdIMEFlaTRLem05Y3BYeUZGZHNwVU9mZGEzaURCRUNrZjYrMXZYQmJMYU1CYVBQa290VFBnK1ZzNzI5NUo5MHdnZE9vdGlWcDIrSFU3OW9IamVoaFJlWXNMa0VBPT0iXSwiYWxnIjoiUlMyNTYifQ..D2ZIYcpIV2bw7nDvDRdCVbNoRlXxBKnMtVNRezOLrdpv09KHenj36ucTM424fuW7NwBj4MDx6upd5u-kfuCO9rS8DZ9xFlIYWpS78Ua3LOpgNWM7HqXrtY1H8syneNHbMzIQjkhD8r5O2tjJjxh-SWAwlQkEDgjbD1zu1eroOkF5Q4s10KTWJK3jd7Ay9yhBG-xHH2bIERs5gnAZPfn142XVjc7uG-9UuuwLjDa37M2_YeClm15e4Z5G_-mvsRxuWv_IzOyCEHJfFw8WnN1_fdxkt6lbd5NN6tUJaG8i7r0Hy8p-jAWnG017t8BsRSQLkan6mYA2MIpw3KWUd6EzfQ, Content-Type=text/plain;charset=UTF-8, Content-Length=174, Date=Fri, 17 Nov 2023 04:34:10 GMT, Keep-Alive=timeout=60, Connection=keep-alive]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp",
+  "individualId": "964976086724",
+  "otpChannel": [
+    "EMAIL",
+    "PHONE"
+  ],
+  "requestTime": "2023-11-17T04:34:10.906Z",
+  "transactionID": "2882760430",
+  "version": "1.0"
+}</textarea> </div></pre><br/>
+<pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>{Authorization=eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJQbHBYczdJWG9pY0hTeldPeWVQTjdXZFl4WmhsclczQV9RbXFjUlRRaEJRIn0.eyJleHAiOjE3MDAyMzE1NjksImlhdCI6MTcwMDE5NTU2OSwianRpIjoiOWRkZjNhNTMtYjNiOS00Zjg5LWI3YjgtNTQxNmQyYWJhOWE4IiwiaXNzIjoiaHR0cHM6Ly9pYW0ucWEtdXBncmFkZTMubW9zaXAubmV0L2F1dGgvcmVhbG1zL21vc2lwIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjExOWY5NGEwLTIxOGYtNDc3MS04YWY2LTQzNGFiYzBmNjM5OCIsInR5cCI6IkJlYXJlciIsImF6cCI6Im1vc2lwLXJlc2lkZW50LWNsaWVudCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9xYTMubW9zaXAubmV0Il0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJDUkVERU5USUFMX1JFUVVFU1QiLCJSRVNJREVOVCIsIkNSRURFTlRJQUxfSVNTVUFOQ0UiLCJvZmZsaW5lX2FjY2VzcyIsIlBBUlRORVJfQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7Im1vc2lwLXJlc2lkZW50LWNsaWVudCI6eyJyb2xlcyI6WyJ1bWFfcHJvdGVjdGlvbiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIGlkYV90b2tlbiBpbmRpdmlkdWFsX2lkIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRIb3N0IjoiMTAuNDIuNC4zOSIsImNsaWVudElkIjoibW9zaXAtcmVzaWRlbnQtY2xpZW50IiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LW1vc2lwLXJlc2lkZW50LWNsaWVudCIsImNsaWVudEFkZHJlc3MiOiIxMC40Mi40LjM5In0.aWXjS01WkSOhGNNEqrSODG_77D6noY3c8u1l5ZNkflPM6vDJgU2wnBhwjcTLUqG4a5-YHhCvk0v6k1gp4uYJC95AAHtKgcOHSndKmEucFZa7RINa-d0s7XoZkhgh7sxpl3iZHjiLx24kn9ebq4OcgtP4qpIWtkER_3RzMDBo-0vdSHuJ9UGxX1cOtDipmEXtHkl2_1t-WK4zymjz2X6gr_-Pi568M9P0gydwC0JYrOqGqe_v78ViAsyqFz8-OCTQPW78oV5I6XpKEHrvw7e8hpH81fRlwk1WzdnQHE5Qf35mpFoWRXgiSrErx0Q6aLYLSnWgSds3MiFbxW_9SvlnGg, signature=eyJ4NWMiOlsiTUlJRHpEQ0NBclNnQXdJQkFnSUl5VXBXSlZjZU44Z3dEUVlKS29aSWh2Y05BUUVMQlFBd2RqRUxNQWtHQTFVRUJoTUNTVTR4Q3pBSkJnTlZCQWdNQWt0Qk1SSXdFQVlEVlFRSERBbENRVTVIUVV4UFVrVXhEVEFMQmdOVkJBb01CRWxKVkVJeElEQWVCZ05WQkFzTUYwMVBVMGxRTFZSRlEwZ3RRMFZPVkVWU0lDaFFUVk1wTVJVd0V3WURWUVFEREF4M2QzY3ViVzl6YVhBdWFXOHdIaGNOTWpNeE1URTNNRFF6TXpNd1doY05NalF4TVRFMk1EUXpNek13V2pDQmtURUxNQWtHQTFVRUJoTUNTVTR4Q3pBSkJnTlZCQWdNQWt0Qk1TWXdKQVlEVlFRS0RCMXRiM05wY0Y5d1lYSjBibVZ5YjNKbk1UY3dNREU1TlRVMk5UVTVNekVhTUJnR0ExVUVDd3dSU1VSQkxWUkZVMVF0VDFKSExWVk9TVlF4TVRBdkJnTlZCQU1NS0ZCQlVsUk9SVkl0Y25BdGJXOXphWEJmY0dGeWRHNWxjbTl5WnpFM01EQXhPVFUxTmpVMU9UTXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCQVFDZExPOEp2SDZhSVNsM2tGdTQ2LytDMUhnNzJ4cSticjRCaWd6eVZPbDFmQmJYS3czbjcrNXFHNTZlNHpGOUdqTHpQbTU5QUEwOGk4SDRkQXQ2bStlTW5hV1YyOVRjWmQwc1g5UTlYVDkzY0xrZlliTzA1U2ora1RGWEhzSkNiTms5SmFUSG1Uamd0bXZGazVIdnFVQXRveElONWRPSEJocUlkZGF1N1NnVXdxNXVONFhyUWl6SVkwM0RsWW0xVjArSFpTdjFtaFpGcStHdjNGWmZzUTV4VGhJSnV0WHMwc3lheW16SjlrbXRZUS9yY3hOWTZoakkxVjFac1Ard3BIMXphY1dOak5HN25ZR3BwRUtkVTA4YlMvdjMrVUVuL3o0NkJFamFXZDVTQjlnV0Nlb1k1WEthZDBZaTJ0dWVQTWVLSUdZbmwwM3JVYkFpR3NIcm1ISExBZ01CQUFHalFqQkFNQThHQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGTTBXOERVN1lCaXZobjRUY2xnSlNhTXlscGJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBa0NWODRkS2ZDVnZnVzFHQmh3RWwwYnhlZUdmcGd4OEJEeG4zZys3QWZpRG9KNGtDMTdlSDVRZkZaODI0ME1tcjkrVHJDdnRZeFl1d0lwT3A2ci8vY3A2aloxbmJ5NmluK3Fhb1JhRzhXL08vV1MyRDlobHo1TkkrNUhTVWsrMTh0ZEpXOGJGZGhpNFhSY3h2L0U4MFI0dG5ZcERtZWhlb0dSdzJ0ODA3ME92TE4vVmpQRUMvVjBCVTBsaTlWSUs0N0ttRmxGQjlPMGVJNExIKzB3ODF0N0d6a2M0TlY0U3Z3eVJFM1ZVQjUwejV5NXhFMWJmSUxzanNxcVdIMEFlaTRLem05Y3BYeUZGZHNwVU9mZGEzaURCRUNrZjYrMXZYQmJMYU1CYVBQa290VFBnK1ZzNzI5NUo5MHdnZE9vdGlWcDIrSFU3OW9IamVoaFJlWXNMa0VBPT0iXSwiYWxnIjoiUlMyNTYifQ..D2ZIYcpIV2bw7nDvDRdCVbNoRlXxBKnMtVNRezOLrdpv09KHenj36ucTM424fuW7NwBj4MDx6upd5u-kfuCO9rS8DZ9xFlIYWpS78Ua3LOpgNWM7HqXrtY1H8syneNHbMzIQjkhD8r5O2tjJjxh-SWAwlQkEDgjbD1zu1eroOkF5Q4s10KTWJK3jd7Ay9yhBG-xHH2bIERs5gnAZPfn142XVjc7uG-9UuuwLjDa37M2_YeClm15e4Z5G_-mvsRxuWv_IzOyCEHJfFw8WnN1_fdxkt6lbd5NN6tUJaG8i7r0Hy8p-jAWnG017t8BsRSQLkan6mYA2MIpw3KWUd6EzfQ}</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp",
+  "individualId": "964976086724",
+  "otpChannel": [
+    "EMAIL",
+    "PHONE"
+  ],
+  "requestTime": "2023-11-17T04:34:10.906Z",
+  "transactionID": "2882760430",
+  "version": "1.0"
+}</textarea> </div></pre><br/>
+<b><u>Response: </u></b>(End Point URL: https://api-internal.qa-upgrade3.mosip.net/idauthentication/v1/otp/C8rFMm9j7p0Ywc0yO9qvwEmVPxsRrgbOZDZuJStHJJW368eE3c/mosip_partnerorg1700195565593/418471) <pre><div> <textarea style='border:solid 1px gray; background-color: lightgray;' name='headers' rows='4' cols='160' readonly='true'>[Server=nginx, Date=Fri, 17 Nov 2023 04:34:12 GMT, Content-Type=application/json;charset=UTF-8, Content-Length=241, Connection=keep-alive, response-signature=eyJ4NWMiOlsiTUlJRHB6Q0NBbytnQXdJQkFnSUlTRVgwYzdydkRHd3dEUVlKS29aSWh2Y05BUUVMQlFBd2JqRUxNQWtHQTFVRUJoTUNTVTR4Q3pBSkJnTlZCQWdNQWt0Qk1SSXdFQVlEVlFRSERBbENRVTVIUVV4UFVrVXhEVEFMQmdOVkJBb01CRWxKVkVJeEdqQVlCZ05WQkFzTUVVMVBVMGxRTFZSRlEwZ3RRMFZPVkVWU01STXdFUVlEVlFRRERBcE5UMU5KVUMxU1QwOVVNQjRYRFRJek1UQXhOekF4TURVME5sb1hEVEkyTVRBeE5qQXhNRFUwTmxvd2NqRUxNQWtHQTFVRUJoTUNTVTR4Q3pBSkJnTlZCQWdNQWt0Qk1SSXdFQVlEVlFRSERBbENRVTVIUVV4UFVrVXhEVEFMQmdOVkJBb01CRWxKVkVJeEdqQVlCZ05WQkFzTUVVMVBVMGxRTFZSRlEwZ3RRMFZPVkVWU01SY3dGUVlEVlFRRERBNU5UMU5KVUMxSlJFRXRVMGxIVGpDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTHNJZFV5TlJRdGZGZWE3ZHZpblBsQUI0ZVBsNXpPWFRoZThDZmVoTFVYd0ZyU1VHaDFXM1dBWVEvWTQ4S3dWV0hDRFNnWjRmNDdGc21qSm96NEcza3pKMVRSSlg0b3FpeXY1RVp4aTdZQmp0MmRXai9zOEQwdFR0VmQ1VkM2R29CQXRNcHRiM1YzZUFRMjNpQ0Z4R1F6V1o1dG5IWXBSY1NiMVUrSmtSMGl6LzZNMndMbEFWTm44aDZuTG9ET2Z3OTBuaTdiQnpzQ05tRXc0eU4wYjR0SGYwUnRYOG9ETkd1dkwxeTk0MHROSWJ6bHdTQW9NWDBlOWNFWnF4YkpmbVhRVHZWamw1SEZpaXlVeFJqaWtMU0dkUmk0ek42K1N1TXREaW1FTlpOYVNpd3FoSURpUlhEMnluTEhVR2I1UXlRMjJkUVYxL2V1c09sRkdFTHFpVWw4Q0F3RUFBYU5GTUVNd0VnWURWUjBUQVFIL0JBZ3dCZ0VCL3dJQkFUQWRCZ05WSFE0RUZnUVVldFl2YzBGUk40eEhQeGF2VGxqYXVsVEVyblV3RGdZRFZSMFBBUUgvQkFRREFnS0VNQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUJBUUFtNTZBWEJOSWJjd0p3R2J2NG1mSVJ2Ym9YUlVqZEdPQTVta3ZIVkxpblhlVjlNeUVOSGZJcVp5eXp4M2M5TzViVEVEOURIQno5RmNLeUxacVZoSVNZRmNBNGlaMTg2bkFGdDl3cHJrQzkvVFJGTzhsSVhWbWZGcVFvRDlwS3dQbW00K0tXcUlFWEhpelU4eFA4TWVnQzI2WU0wdlRpWGpoK0lEOHl3OEZsRWdEZ0tkbVF6aWZzMThaUURLc2x0RjZSZy9yTE5nUXlyMlpnYTFHemRLbVZLQ1VqZ1l0MGNoQmY0eDc1QTdIa0pxZXZZUUM1ZVZCRjFyWGpkVm1WR2lUQWRJNGIxdXh4Z3hKSUJxVmxzdkJzWCsyQTBOeTdneDYwdFRKNXorVjFaVm9TSm1VZStmeFpDWlVwemlldGM0QVVBS0VEbmE0bEpvOGtiWWpnVldVWCJdLCJ4NXQjUzI1NiI6InFhcldLNlVHdWZZZi1HeUhQY3d2UF9TNENYZnFMUkI2V2lxTE8wRnEtLWciLCJraWQiOiJybUpxU2JPN3VQODlyVldpZWhfd19BVlRNTzltNHBfbEhVMnhGdVh4UmlrIiwiYWxnIjoiUlMyNTYifQ..elhAtjvX1c17l-VsIJTgTo-Fdv61DLWd2_C5RDQMEfbWcTYhVy-AHo7i-WeekS5YdW4A0N_y0E2rWi7Vjl9CgXVuVS0kiyfsQoC4Bgw55uzefFvptfKR7lzA-jgXmaT-theKstxa7gkaiQItKmWBIFfeb5mcOSqo_PZkBTb7bYCUn0HfYevz3mOt_-C6mQPpX8ajkcFp2_7CzjoJtqgHeu9HIDz5gQV0R7W5PGTjEaBoDPdGHaPJLtYJxQWknWl7nkDBYIG7S_gtdU1Sk6X-CEgyZlWaEfsq4vOrO6o6bdh7TNH-5PgtiBWhWa8d4uxzZpXGbKhs7qeeJG3xiOFU3w, x-content-type-options=nosniff, x-xss-protection=1; mode=block, cache-control=no-cache, no-store, max-age=0, must-revalidate, pragma=no-cache, expires=0, x-frame-options=SAMEORIGIN, x-envoy-upstream-service-time=1095]</textarea> </div><div> <textarea style='border:solid 1px white;' name='message' rows='10' cols='160' readonly='true'>{
+  "id": "mosip.identity.otp",
+  "version": "1.0",
+  "transactionID": "2882760430",
+  "responseTime": "2023-11-17T04:34:12.500Z",
+  "response": {
+    "maskedMobile": "XXXXXX8531",
+    "maskedEmail": "XXtXXAXXIXXnXXtXXPXXiXXvXXdXXoXXtXXnXXeXXmXXe@mosip.net"
+  }
+}</textarea> </div></pre><br/>
+<b> Output validation: </b>EXPECTED vs ACTUAL
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>mosip.identity.otp</td>
+    <td>mosip.identity.otp</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>1.0</td>
+    <td>1.0</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td><div><pre>org.testng.SkipException: Marking testcase as skipped as required fields are empty $ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$
+	at io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil.replaceKeywordWithValue(AdminTestUtil.java:2804)
+	at io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil.replaceIdWithAutogeneratedId(AdminTestUtil.java:3816)
+	at io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil.inputJsonKeyWordHandeler(AdminTestUtil.java:2870)
+	at io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil.postWithBodyAndCookie(AdminTestUtil.java:409)
+	at io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil.postWithBodyAndCookie(AdminTestUtil.java:393)
+	at io.mosip.testrig.apirig.testscripts.MultiFactorAuthNew.test(MultiFactorAuthNew.java:189)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:196)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:137)
+... Removed 22 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace439657758", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace439657758'><pre>org.testng.SkipException: Marking testcase as skipped as required fields are empty $ID:AddIdentity_ValidParam_smoke_Pos_EMAIL$
+	at io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil.replaceKeywordWithValue(AdminTestUtil.java:2804)
+	at io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil.replaceIdWithAutogeneratedId(AdminTestUtil.java:3816)
+	at io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil.inputJsonKeyWordHandeler(AdminTestUtil.java:2870)
+	at io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil.postWithBodyAndCookie(AdminTestUtil.java:409)
+	at io.mosip.testrig.apirig.admin.fw.util.AdminTestUtil.postWithBodyAndCookie(AdminTestUtil.java:393)
+	at io.mosip.testrig.apirig.testscripts.MultiFactorAuthNew.test(MultiFactorAuthNew.java:189)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.startTestRunner(MosipTestRunner.java:196)
+	at io.mosip.testrig.apirig.testrunner.MosipTestRunner.main(MosipTestRunner.java:137)
+</pre></div></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.MultiFactorAuthNew@74a85515</td></tr>
+</table><p>
+</body>
+</html>

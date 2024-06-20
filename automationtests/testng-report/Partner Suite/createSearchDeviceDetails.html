@@ -1,0 +1,2299 @@
+<html>
+<head>
+<title>TestNG:  createSearchDeviceDetails</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>createSearchDeviceDetails</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>11/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:31:19 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>8 seconds (8744 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchDeviceDetails_AllValid_Smoke()'><b>Partner_SearchDeviceDetails_AllValid_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchDeviceDetails_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchDeviceDetails_AllValid_Smoke, endPoint=/v1/partnermanager/devicedetail/search, role=partner, templateFields=null, input={ "deviceProviderId": "all", "pageFetch": "$REMOVE$", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [] }, inputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails, outputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetailsResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-577076657" onClick='toggleBox("Output-577076657", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-577076657" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-577076657">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0"
+    },
+    "purpose": "REGISTRATION",
+    "filters": [],
+    "sort": [],
+    "deviceProviderId": "all"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:20.094Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:20.949Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 7,
+    "totalRecord": 7,
+    "data": [
+      {
+        "id": "mdevice_detail_default_face",
+        "deviceProviderId": "MOSIP.PROXY.SBI",
+        "deviceTypeCode": "Face",
+        "deviceSubTypeCode": "Full face",
+        "make": "MOSIP",
+        "model": "FACE01",
+        "partnerOrganizationName": "MOSIP",
+        "isActive": true,
+        "approvalStatus": "Activated"
+      },
+      {
+        "id": "mdevice_detail_default_finger",
+        "deviceProviderId": "MOSIP.PROXY.SBI",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Slap",
+        "make": "MOSIP",
+        "model": "SLAP01",
+        "partnerOrganizationName": "MOSIP",
+        "isActive": true,
+        "approvalStatus": "Activated"
+      },
+      {
+        "id": "mdevice_detail_default_iris",
+        "deviceProviderId": "MOSIP.PROXY.SBI",
+        "deviceTypeCode": "Iris",
+        "deviceSubTypeCode": "Double",
+        "make": "MOSIP",
+        "model": "IRIS01",
+        "partnerOrganizationName": "MOSIP",
+        "isActive": true,
+        "approvalStatus": "Activated"
+      },
+      {
+        "id": "25135",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Iris",
+        "deviceSubTypeCode": "Single",
+        "make": "abcde",
+        "model": "FRO90000",
+        "partnerOrganizationName": "Techno",
+        "isActive": false,
+        "approvalStatus": "pending_approval"
+      },
+      {
+        "id": "97372",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Slap",
+        "make": "abcdef",
+        "model": "FRO900000",
+        "partnerOrganizationName": "Techno",
+        "isActive": false,
+        "approvalStatus": "pending_approval"
+      },
+      {
+        "id": "device-id-123",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Slap",
+        "make": "abcdef",
+        "model": "FRO90000",
+        "partnerOrganizationName": "Techno",
+        "isActive": true,
+        "approvalStatus": "approved"
+      },
+      {
+        "id": "device-id-124",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Single",
+        "make": "abcdef",
+        "model": "FRO90000",
+        "partnerOrganizationName": "Techno",
+        "isActive": false,
+        "approvalStatus": "rejected"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].make</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Iris</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Slap</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcdef</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>pending_approval</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mdevice_detail_default_face</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Single</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Slap</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].id</td>
+    <td>NOT VERIFIED</td>
+    <td>device-id-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>pending_approval</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>rejected</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].make</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].id</td>
+    <td>NOT VERIFIED</td>
+    <td>device-id-124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcdef</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Face</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Iris</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>25135</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].make</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Double</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO90000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO90000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Full face</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Slap</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].model</td>
+    <td>NOT VERIFIED</td>
+    <td>IRIS01</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].model</td>
+    <td>NOT VERIFIED</td>
+    <td>SLAP01</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO90000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FACE01</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO900000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>97372</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Single</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcde</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mdevice_detail_default_finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcdef</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mdevice_detail_default_iris</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@40f1aa95</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchDeviceDetails_Only_FilterCriteria_Smoke()'><b>Partner_SearchDeviceDetails_Only_FilterCriteria_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchDeviceDetails_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchDeviceDetails_Only_FilterCriteria_Smoke, endPoint=/v1/partnermanager/devicedetail/search, role=partner, templateFields=null, input={ "deviceProviderId": "all", "filters": [ { "columnName": "id", "type": "equals", "value": "device-id-123" } ], "pageFetch": "$REMOVE$", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [] }, inputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails, outputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetailsResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-66348462" onClick='toggleBox("Output-66348462", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-66348462" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-66348462">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0"
+    },
+    "purpose": "REGISTRATION",
+    "filters": [
+      {
+        "type": "equals",
+        "value": "device-id-123",
+        "columnName": "id"
+      }
+    ],
+    "sort": [],
+    "deviceProviderId": "all"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:21.018Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:21.713Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "id": "device-id-123",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Slap",
+        "make": "abcdef",
+        "model": "FRO90000",
+        "partnerOrganizationName": "Techno",
+        "isActive": true,
+        "approvalStatus": "approved"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcdef</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Slap</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>device-id-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO90000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@40f1aa95</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchDeviceDetails_Only_PaginationCriteria_Smoke()'><b>Partner_SearchDeviceDetails_Only_PaginationCriteria_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchDeviceDetails_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchDeviceDetails_Only_PaginationCriteria_Smoke, endPoint=/v1/partnermanager/devicedetail/search, role=partner, templateFields=null, input={ "deviceProviderId": "all", "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [] }, inputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails, outputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetailsResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1261105387" onClick='toggleBox("Output-1261105387", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1261105387" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1261105387">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceProviderId": "all",
+    "filters": [],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "purpose": "REGISTRATION",
+    "sort": []
+  },
+  "requesttime": "2023-07-14T17:01:22.716Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:23.745Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 7,
+    "totalRecord": 7,
+    "data": [
+      {
+        "id": "mdevice_detail_default_face",
+        "deviceProviderId": "MOSIP.PROXY.SBI",
+        "deviceTypeCode": "Face",
+        "deviceSubTypeCode": "Full face",
+        "make": "MOSIP",
+        "model": "FACE01",
+        "partnerOrganizationName": "MOSIP",
+        "isActive": true,
+        "approvalStatus": "Activated"
+      },
+      {
+        "id": "mdevice_detail_default_finger",
+        "deviceProviderId": "MOSIP.PROXY.SBI",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Slap",
+        "make": "MOSIP",
+        "model": "SLAP01",
+        "partnerOrganizationName": "MOSIP",
+        "isActive": true,
+        "approvalStatus": "Activated"
+      },
+      {
+        "id": "mdevice_detail_default_iris",
+        "deviceProviderId": "MOSIP.PROXY.SBI",
+        "deviceTypeCode": "Iris",
+        "deviceSubTypeCode": "Double",
+        "make": "MOSIP",
+        "model": "IRIS01",
+        "partnerOrganizationName": "MOSIP",
+        "isActive": true,
+        "approvalStatus": "Activated"
+      },
+      {
+        "id": "25135",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Iris",
+        "deviceSubTypeCode": "Single",
+        "make": "abcde",
+        "model": "FRO90000",
+        "partnerOrganizationName": "Techno",
+        "isActive": false,
+        "approvalStatus": "pending_approval"
+      },
+      {
+        "id": "97372",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Slap",
+        "make": "abcdef",
+        "model": "FRO900000",
+        "partnerOrganizationName": "Techno",
+        "isActive": false,
+        "approvalStatus": "pending_approval"
+      },
+      {
+        "id": "device-id-123",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Slap",
+        "make": "abcdef",
+        "model": "FRO90000",
+        "partnerOrganizationName": "Techno",
+        "isActive": true,
+        "approvalStatus": "approved"
+      },
+      {
+        "id": "device-id-124",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Single",
+        "make": "abcdef",
+        "model": "FRO90000",
+        "partnerOrganizationName": "Techno",
+        "isActive": false,
+        "approvalStatus": "rejected"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].make</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Iris</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Slap</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcdef</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>pending_approval</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mdevice_detail_default_face</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Single</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Slap</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].id</td>
+    <td>NOT VERIFIED</td>
+    <td>device-id-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>pending_approval</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>rejected</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].make</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].id</td>
+    <td>NOT VERIFIED</td>
+    <td>device-id-124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcdef</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Face</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Iris</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>25135</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].make</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Double</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO90000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO90000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Full face</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Slap</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].model</td>
+    <td>NOT VERIFIED</td>
+    <td>IRIS01</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].model</td>
+    <td>NOT VERIFIED</td>
+    <td>SLAP01</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO90000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FACE01</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO900000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>97372</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Single</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcde</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mdevice_detail_default_finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcdef</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mdevice_detail_default_iris</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@40f1aa95</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchDeviceDetails_Only_SortCriteria_Smoke()'><b>Partner_SearchDeviceDetails_Only_SortCriteria_Smoke</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchDeviceDetails_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchDeviceDetails_Only_SortCriteria_Smoke, endPoint=/v1/partnermanager/devicedetail/search, role=partner, templateFields=null, input={ "deviceProviderId": "all", "sort": [ { "sortField": "id", "sortType": "desc" } ], "pageFetch": "$REMOVE$", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [] }, inputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails, outputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetailsResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-664700395" onClick='toggleBox("Output-664700395", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-664700395" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-664700395">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0"
+    },
+    "purpose": "REGISTRATION",
+    "filters": [],
+    "sort": [
+      {
+        "sortType": "desc",
+        "sortField": "id"
+      }
+    ],
+    "deviceProviderId": "all"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:21.709Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:22.659Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 7,
+    "totalRecord": 7,
+    "data": [
+      {
+        "id": "mdevice_detail_default_iris",
+        "deviceProviderId": "MOSIP.PROXY.SBI",
+        "deviceTypeCode": "Iris",
+        "deviceSubTypeCode": "Double",
+        "make": "MOSIP",
+        "model": "IRIS01",
+        "partnerOrganizationName": "MOSIP",
+        "isActive": true,
+        "approvalStatus": "Activated"
+      },
+      {
+        "id": "mdevice_detail_default_finger",
+        "deviceProviderId": "MOSIP.PROXY.SBI",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Slap",
+        "make": "MOSIP",
+        "model": "SLAP01",
+        "partnerOrganizationName": "MOSIP",
+        "isActive": true,
+        "approvalStatus": "Activated"
+      },
+      {
+        "id": "mdevice_detail_default_face",
+        "deviceProviderId": "MOSIP.PROXY.SBI",
+        "deviceTypeCode": "Face",
+        "deviceSubTypeCode": "Full face",
+        "make": "MOSIP",
+        "model": "FACE01",
+        "partnerOrganizationName": "MOSIP",
+        "isActive": true,
+        "approvalStatus": "Activated"
+      },
+      {
+        "id": "device-id-124",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Single",
+        "make": "abcdef",
+        "model": "FRO90000",
+        "partnerOrganizationName": "Techno",
+        "isActive": false,
+        "approvalStatus": "rejected"
+      },
+      {
+        "id": "device-id-123",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Slap",
+        "make": "abcdef",
+        "model": "FRO90000",
+        "partnerOrganizationName": "Techno",
+        "isActive": true,
+        "approvalStatus": "approved"
+      },
+      {
+        "id": "97372",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Slap",
+        "make": "abcdef",
+        "model": "FRO900000",
+        "partnerOrganizationName": "Techno",
+        "isActive": false,
+        "approvalStatus": "pending_approval"
+      },
+      {
+        "id": "25135",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Iris",
+        "deviceSubTypeCode": "Single",
+        "make": "abcde",
+        "model": "FRO90000",
+        "partnerOrganizationName": "Techno",
+        "isActive": false,
+        "approvalStatus": "pending_approval"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].make</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Face</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Slap</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcdef</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mdevice_detail_default_iris</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Single</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Slap</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].id</td>
+    <td>NOT VERIFIED</td>
+    <td>97372</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>rejected</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>pending_approval</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].make</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP.PROXY.SBI</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].id</td>
+    <td>NOT VERIFIED</td>
+    <td>25135</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcdef</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>Activated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Iris</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Iris</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>device-id-124</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].make</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Full face</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO900000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO90000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Double</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Slap</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FACE01</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].model</td>
+    <td>NOT VERIFIED</td>
+    <td>SLAP01</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO90000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].model</td>
+    <td>NOT VERIFIED</td>
+    <td>IRIS01</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO90000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].id</td>
+    <td>NOT VERIFIED</td>
+    <td>device-id-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Single</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[3].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcdef</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[4].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mdevice_detail_default_finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[6].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcde</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[5].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>pending_approval</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[1].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>MOSIP</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>mdevice_detail_default_face</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.SimplePost@40f1aa95</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchDeviceDetails_sort_type_desc_equals_Smoke_sid()'><b>Partner_SearchDeviceDetails_sort_type_desc_equals_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchDeviceDetails_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchDeviceDetails_sort_type_desc_equals_Smoke_sid, endPoint=/v1/partnermanager/devicedetail/search, role=partner, templateFields=null, input={ "deviceProviderId": "all", "filters": [ { "columnName": "id", "type": "equals", "value": "device-id-123" } ], "sort": [ { "sortField": "id", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [] }, inputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails, outputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetailsResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1841686615" onClick='toggleBox("Output-1841686615", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1841686615" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1841686615">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceProviderId": "all",
+    "filters": [
+      {
+        "columnName": "id",
+        "type": "equals",
+        "value": "device-id-123"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "purpose": "REGISTRATION",
+    "sort": [
+      {
+        "sortField": "id",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:01:19.407Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2023-07-14T17:01:20.090Z",
+  "response": {
+    "fromRecord": 1,
+    "toRecord": 1,
+    "totalRecord": 1,
+    "data": [
+      {
+        "id": "device-id-123",
+        "deviceProviderId": "Tech-123",
+        "deviceTypeCode": "Finger",
+        "deviceSubTypeCode": "Slap",
+        "make": "abcdef",
+        "model": "FRO90000",
+        "partnerOrganizationName": "Techno",
+        "isActive": true,
+        "approvalStatus": "approved"
+      }
+    ]
+  },
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Finger</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceProviderId</td>
+    <td>NOT VERIFIED</td>
+    <td>Tech-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].partnerOrganizationName</td>
+    <td>NOT VERIFIED</td>
+    <td>Techno</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].make</td>
+    <td>NOT VERIFIED</td>
+    <td>abcdef</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].approvalStatus</td>
+    <td>NOT VERIFIED</td>
+    <td>approved</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].deviceSubTypeCode</td>
+    <td>NOT VERIFIED</td>
+    <td>Slap</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>device-id-123</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(data)[0].model</td>
+    <td>NOT VERIFIED</td>
+    <td>FRO90000</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@40f1aa95</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchDeviceDetails_with_invalid_columnName()'><b>Partner_SearchDeviceDetails_with_invalid_columnName</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchDeviceDetails_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchDeviceDetails_with_invalid_columnName, endPoint=/v1/partnermanager/devicedetail/search, role=partner, templateFields=null, input={ "deviceProviderId": "all", "filters": [ { "columnName": "mo@@@@@@@2334412345del", "type": "startswith", "value": "FACE01" } ], "sort": [ { "sortField": "model", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-310", "message": "Invalid column received : mo@@@@@@@2334412345del" } ] }, inputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-877457423" onClick='toggleBox("Output-877457423", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-877457423" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-877457423">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceProviderId": "all",
+    "filters": [
+      {
+        "columnName": "mo@@@@@@@2334412345del",
+        "type": "startswith",
+        "value": "FACE01"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "purpose": "REGISTRATION",
+    "sort": [
+      {
+        "sortField": "model",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:01:23.776Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:01:24.483Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-310",
+      "message": "Invalid column received : mo@@@@@@@2334412345del"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-310</td>
+    <td>PMS-MSD-310</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@40f1aa95</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchDeviceDetails_with_invalid_sort_field()'><b>Partner_SearchDeviceDetails_with_invalid_sort_field</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchDeviceDetails_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchDeviceDetails_with_invalid_sort_field, endPoint=/v1/partnermanager/devicedetail/search, role=partner, templateFields=null, input={ "deviceProviderId": "all", "filters": [ { "columnName": "model", "type": "startswith", "value": "FACE01" } ], "sort": [ { "sortField": "mo@@@del", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-357", "message": "Invalid sort field mo@@@del" } ] }, inputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1318920254" onClick='toggleBox("Output-1318920254", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1318920254" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1318920254">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceProviderId": "all",
+    "filters": [
+      {
+        "columnName": "model",
+        "type": "startswith",
+        "value": "FACE01"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "purpose": "REGISTRATION",
+    "sort": [
+      {
+        "sortField": "mo@@@del",
+        "sortType": "desc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:01:26.743Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:01:27.451Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-357",
+      "message": "Invalid sort field mo@@@del"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-357</td>
+    <td>PMS-MSD-357</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@40f1aa95</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchDeviceDetails_with_invalid_sort_type()'><b>Partner_SearchDeviceDetails_with_invalid_sort_type</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchDeviceDetails_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchDeviceDetails_with_invalid_sort_type, endPoint=/v1/partnermanager/devicedetail/search, role=partner, templateFields=null, input={ "deviceProviderId": "all", "filters": [ { "columnName": "model", "type": "startswith", "value": "FACE01" } ], "sort": [ { "sortField": "model", "sortType": "dc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-358", "message": "Sort type dc is not supported" } ] }, inputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1386612163" onClick='toggleBox("Output-1386612163", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1386612163" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1386612163">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceProviderId": "all",
+    "filters": [
+      {
+        "columnName": "model",
+        "type": "startswith",
+        "value": "FACE01"
+      }
+    ],
+    "pagination": {
+      "pageFetch": "10",
+      "pageStart": "0"
+    },
+    "purpose": "REGISTRATION",
+    "sort": [
+      {
+        "sortField": "model",
+        "sortType": "dc"
+      }
+    ]
+  },
+  "requesttime": "2023-07-14T17:01:25.267Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:01:25.971Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-358",
+      "message": "Sort type dc is not supported"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-358</td>
+    <td>PMS-MSD-358</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@40f1aa95</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchDeviceDetails_with_missing_sort_field()'><b>Partner_SearchDeviceDetails_with_missing_sort_field</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchDeviceDetails_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchDeviceDetails_with_missing_sort_field, endPoint=/v1/partnermanager/devicedetail/search, role=partner, templateFields=null, input={ "deviceProviderId": "all", "filters": [ { "columnName": "model", "type": "startswith", "value": "FACE01" } ], "sort": [ { "sortField": "$REMOVE$", "sortType": "asc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-314", "message": "Missing sort field or sort type values" } ] }, inputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1171120083" onClick='toggleBox("Output-1171120083", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1171120083" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1171120083">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0",
+      "pageFetch": "10"
+    },
+    "purpose": "REGISTRATION",
+    "filters": [
+      {
+        "type": "startswith",
+        "value": "FACE01",
+        "columnName": "model"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "asc"
+      }
+    ],
+    "deviceProviderId": "all"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:27.441Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:01:28.139Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-314</td>
+    <td>PMS-MSD-314</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@40f1aa95</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchDeviceDetails_with_missing_sort_type()'><b>Partner_SearchDeviceDetails_with_missing_sort_type</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchDeviceDetails_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchDeviceDetails_with_missing_sort_type, endPoint=/v1/partnermanager/devicedetail/search, role=partner, templateFields=null, input={ "deviceProviderId": "all", "filters": [ { "columnName": "model", "type": "startswith", "value": "FACE01" } ], "sort": [ { "sortField": "model", "sortType": "$REMOVE$" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-314", "message": "Missing sort field or sort type values" } ] }, inputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-592520538" onClick='toggleBox("Output-592520538", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-592520538" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-592520538">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0",
+      "pageFetch": "10"
+    },
+    "purpose": "REGISTRATION",
+    "filters": [
+      {
+        "type": "startswith",
+        "value": "FACE01",
+        "columnName": "model"
+      }
+    ],
+    "sort": [
+      {
+        "sortField": "model"
+      }
+    ],
+    "deviceProviderId": "all"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:25.965Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:01:26.726Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-314",
+      "message": "Missing sort field or sort type values"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-314</td>
+    <td>PMS-MSD-314</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@40f1aa95</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePost.Partner_SearchDeviceDetails_with_missing_type()'><b>Partner_SearchDeviceDetails_with_missing_type</b><br>Test class: io.mosip.testscripts.SimplePost (Partner_SearchDeviceDetails_with_missing_sort_field)<br>Parameters: TestCaseDTO(testCaseName=Partner_SearchDeviceDetails_with_missing_type, endPoint=/v1/partnermanager/devicedetail/search, role=partner, templateFields=null, input={ "deviceProviderId": "all", "filters": [ { "columnName": "model", "type": "$REMOVE$", "value": "FACE01" } ], "sort": [ { "sortField": "model", "sortType": "desc" } ], "pageFetch": "10", "pageStart": "0", "requesttime": "$TIMESTAMP$", "version": "v1" }, output={ "errors": [ { "errorCode": "PMS-MSD-312", "message": "Filter type is missing" } ] }, inputTemplate=partner/SearchAPIs/SearchDeviceDetails/createSearchDeviceDetails, outputTemplate=partner/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-438448733" onClick='toggleBox("Output-438448733", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-438448733" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-438448733">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "pagination": {
+      "pageStart": "0",
+      "pageFetch": "10"
+    },
+    "purpose": "REGISTRATION",
+    "filters": [
+      {
+        "value": "FACE01",
+        "columnName": "model"
+      }
+    ],
+    "sort": [
+      {
+        "sortType": "desc",
+        "sortField": "model"
+      }
+    ],
+    "deviceProviderId": "all"
+  },
+  "metadata": {},
+  "requesttime": "2023-07-14T17:01:24.476Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/partnermanager/devicedetail/search) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.partnermanagement",
+  "version": "1.0",
+  "responsetime": "2023-07-14T17:01:25.215Z",
+  "errors": [
+    {
+      "errorCode": "PMS-MSD-312",
+      "message": "Filter type is missing"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PMS-MSD-312</td>
+    <td>PMS-MSD-312</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePost@40f1aa95</td></tr>
+</table><p>
+</body>
+</html>

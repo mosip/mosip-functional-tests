@@ -1,0 +1,508 @@
+<html>
+<head>
+<title>TestNG:  GetMachines</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>GetMachines</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:18:12 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (714 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.GetWithParam.Admin_GetMachines_allValid_smoke()'><b>Admin_GetMachines_allValid_smoke</b><br>Test class: io.mosip.testscripts.GetWithParam (Admin_GetMachines_allValid_smoke)<br>Parameters: TestCaseDTO(testCaseName=Admin_GetMachines_allValid_smoke, endPoint=/v1/masterdata/machines, role=admin, templateFields=null, input={
+}, output={ "machines": [{ "id": "$IGNORE$", "name": "$IGNORE$", "serialNum": "$IGNORE$", "macAddress": "$IGNORE$", "ipAddress": "$IGNORE$", "machineSpecId": "$IGNORE$", "regCenterId": "$IGNORE$", "langCode": "$IGNORE$", "isActive": $IGNORE$, "validityDateTime": "$IGNORE$", "publicKey":"$IGNORE$", "signPublicKey": "$IGNORE$", "zoneCode": "$IGNORE$" }] }, inputTemplate=masterdata/GetMachines/getMachines, outputTemplate=masterdata/GetMachines/getMachinesResult, restMethod=get)<br/>
+<a href="#Output-1341377059" onClick='toggleBox("Output-1341377059", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1341377059" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1341377059">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/machines) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "responsetime": "2021-12-15T09:48:13.291Z",
+  "response": {
+    "machines": [
+      {
+        "id": "10146",
+        "name": "DESKTOP-HVG58IU",
+        "serialNum": "98989898",
+        "macAddress": "989.989.989",
+        "ipAddress": "192.192.98.9",
+        "machineSpecId": "1001",
+        "regCenterId": "10002",
+        "isActive": true,
+        "validityDateTime": "2026-06-26T18:30:00.000Z",
+        "publicKey": "AAEACwACAHIAIINxl2dEhLP4GpDMjUal1yT9UtduBlILZPKh2hszFGmqABAAFwALCAAAAQABAQC0_2MyVvqso2drMgYRv1C8T-Ib5FMUOwSWLuo26E0J8aQLy1Z4Ven0A9TLaGQ20Q_7eAEfB60T6dIe3hYwjfBpATgneVkNxJX1Y8UYjiNFYxfw2HqHkqRkMQyzDDoWNR2sq6IKe6GSgFzLFvFC8vxrzByiWO7aT-CyB0-6WVZarQjJnd1iw-_w9vuPh6lGOMag0KiiSgj-fGoHyDgrAY6W4cn7Xrv8MqIR1U_Q9lRCJN-etgWgR3bgo3jVQaMVF0wWusPAaINJNrE7s-D5EdBLq9fhdz6dr29uV1KsWtXkTq2ToMFWDqL4eU5l5CAbJVaFLtIVxLnBLhwI15N7Xv01",
+        "signPublicKey": "AAEABAAEAHIAAAAQABQACwgAAAEAAQEAsc1F3uWztjP-F-wU4ez5hYH_7daEOej6Qz8uG5Z_IBltNUP2bgLRkL5Dq9f_3Ot4Q7vxXQeng1jyHxOIswPWsHM5hIHc35u2Up3Ise9Q-H6r_462de2NCKYpNJ1qwBubz5iSSfRcyy4eeJ3ss_4vlYTmlllwNLyWnAk5gL2C_MQwDG1TCsi0O34AAny2n9gA3E9wIZtBlCSgDNC0n912dFV9svXUA5oZPMNEpr_MThVNcBqQbuVxKTDyKwEAMKCKp_D3WjweN9ugena6s7mSgNXKS9m75n1nqVUHYJd_SCdyFhOPAGuUbV2XZGNhBo5iR-KhU5aEtQp2b8faGIaiCw",
+        "zoneCode": "NTH"
+      },
+      {
+        "id": "10149",
+        "name": "techno-342",
+        "serialNum": "FB5962911682",
+        "macAddress": "A4-BB-6D-0F-BC-3E",
+        "ipAddress": "192.168.0.408",
+        "machineSpecId": "1001",
+        "regCenterId": "10001",
+        "langCode": "eng",
+        "isActive": true,
+        "validityDateTime": "2022-11-17T09:50:23.637Z",
+        "publicKey": "AAEACwACAHIAIINxl2dEhLP4GpDMjUal1yT9UtduBlILZPKh2hszFGmqABAAFwALCAAAAQABAQC8nxPBqoEe2phBKrBiAeTg9gtc4OFotelK5t8TSul7MOOlF_qThfiSHN_qSrjp6rXBVwOIzWgNo1O8qM6dMjFCboeWa8TuHF1qNIs9oCzDukbTItwhqLfRddTPznY6kISNlqqTleBPjeVSE-eyehevijvjw3Bq9KVBDkhXeyMEHJ4K187w1mcHlDbzLSxJldiztJHJmMgvd20b0zg2i66Rw80qgJ1OFbIFo-FFJJCGDDy8o0UKgILbh2V6BlaCPrtYmcfMFJbHjhXXZljwtLWdLN9DNzZaM-dZZAluOUhSWHwqwLWVenInVVBiUge_GBlYGR1lMAnN0-kVkKaOWNQB",
+        "signPublicKey": "AAEABAAEAHIAAAAQABQACwgAAAEAAQEAsSjDgYinVazFApn5wk1p6oQbyWLqyY7SaHrdq6fNsfV1c1-ooXS1sYbfIi8AxL5cIm4OW25GyjPZYX93MIi09EV0uHjvB8sBl85XXdEepR5taeSVMqybE1ENEdgkOI_QIUz1PFt9QM8bgKBZopQWAn3JZSP9CselRgusl28E6ml2vg2ZvtY7EKZVqX3EALIn3JceLd7Oz6XBkS2C-Pag5EHxF7yGw_v93oNjd8d4-CkxDeRI1584hOs0JU7M3XvYJ3_qh6Q2UzUQNbL7-sa9yqKhPt05pW0AxsG_Et9WahJcipM4e95vuRQ4aHHgKM1FYh8hXz3H9nGosj8tVU3B2Q",
+        "zoneCode": "NTH"
+      },
+      {
+        "id": "10077",
+        "name": "ZYJUA77FYT",
+        "serialNum": "FB5962911688",
+        "macAddress": "3C-2C-30-D1-E5-65",
+        "ipAddress": "192.168.0.403",
+        "machineSpecId": "1001",
+        "regCenterId": "10001",
+        "isActive": true,
+        "validityDateTime": "2022-12-01T18:30:00.000Z",
+        "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAillnbd77VPuML7K2qyeiRa3cKBe9tnbYwQGW9gvFFvZ1V_TiCgMeeg2n61rX_N7eYhdcIm1T0gonyQzJVCw-WTRrE24tw0cQhTOaHVQANyGTo-vPjvRKBRODEUl9YCN6_MqiHHuh9XE23uDd6A450ONoc9IlQV1kDT8OFWpGExvOPfyR0Jsf5msSD2zX853eigv3HC6tYr07eCOSIOZLWprVBs_-4C_O65K1T1lmZL7w6oc5oaCYW5T854g0u9fpAeGvoUrU8UDS9GhPFqmBsaoypNPa5f31KMxaVD1XwgvRHcP7uF_LRPwKCudK8UiAWhmNM1qZKIRz7I6emokXMQIDAQAB",
+        "signPublicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAillnbd77VPuML7K2qyeiRa3cKBe9tnbYwQGW9gvFFvZ1V_TiCgMeeg2n61rX_N7eYhdcIm1T0gonyQzJVCw-WTRrE24tw0cQhTOaHVQANyGTo-vPjvRKBRODEUl9YCN6_MqiHHuh9XE23uDd6A450ONoc9IlQV1kDT8OFWpGExvOPfyR0Jsf5msSD2zX853eigv3HC6tYr07eCOSIOZLWprVBs_-4C_O65K1T1lmZL7w6oc5oaCYW5T854g0u9fpAeGvoUrU8UDS9GhPFqmBsaoypNPa5f31KMxaVD1XwgvRHcP7uF_LRPwKCudK8UiAWhmNM1qZKIRz7I6emokXMQIDAQAB",
+        "zoneCode": "NTH"
+      },
+      {
+        "id": "68979",
+        "name": "technoklvf",
+        "serialNum": "FB5962911688",
+        "macAddress": "3C-2C-30-D1-E5-65",
+        "ipAddress": "192.168.0.408",
+        "machineSpecId": "1001",
+        "regCenterId": "10002",
+        "langCode": "eng",
+        "isActive": true,
+        "validityDateTime": "2022-11-17T09:50:23.637Z",
+        "publicKey": "AAEACwACAHIAIINxl2dEhLP4GpDMjUal1yT9UtduBlILZPKh2hszFGmqABAAFwALCAAAAQABAQChwod-whEGKLigpPkZfhNi2tRchkWSEOFwUoCr_nlcjj76mMI05jNHZMnrYD5_ttNNovXv4FCmN90NP0M9yyChmuak4gsPDYrJ37y7iEZrSLRrrLS1XArlpmGYxe1SrML2OxaA6kzHUyDKNz_rVSUzdoP6d8ISCXYLvs4yD9wQ3pijUzROLqqQZRAGWU6gYD-i9GZFmAEDZkQVPxDK7-EBCqjesHfpVS_CzblrkgpLDtWdUHyEEgvzRRxqvlh32HmSwqDfPcTzITYvRYB17bVyAo_91XRiwv4qeHhbttOsnt4aX0I2_68F22wPx3ESQ9FWwVeXao-17r7vjF3ld3C5",
+        "signPublicKey": "AAEACwACAHIAIINxl2dEhLP4GpDMjUal1yT9UtduBlILZPKh2hszFGmqABAAFwALCAAAAQABAQChwod-whEGKLigpPkZfhNi2tRchkWSEOFwUoCr_nlcjj76mMI05jNHZMnrYD5_ttNNovXv4FCmN90NP0M9yyChmuak4gsPDYrJ37y7iEZrSLRrrLS1XArlpmGYxe1SrML2OxaA6kzHUyDKNz_rVSUzdoP6d8ISCXYLvs4yD9wQ3pijUzROLqqQZRAGWU6gYD-i9GZFmAEDZkQVPxDK7-EBCqjesHfpVS_CzblrkgpLDtWdUHyEEgvzRRxqvlh32HmSwqDfPcTzITYvRYB17bVyAo_91XRiwv4qeHhbttOsnt4aX0I2_68F22wPx3ESQ9FWwVeXao-17r7vjF3ld3C5",
+        "zoneCode": "NTH"
+      }
+    ]
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].publicKey</td>
+    <td>NOT VERIFIED</td>
+    <td>AAEACwACAHIAIINxl2dEhLP4GpDMjUal1yT9UtduBlILZPKh2hszFGmqABAAFwALCAAAAQABAQChwod-whEGKLigpPkZfhNi2tRchkWSEOFwUoCr_nlcjj76mMI05jNHZMnrYD5_ttNNovXv4FCmN90NP0M9yyChmuak4gsPDYrJ37y7iEZrSLRrrLS1XArlpmGYxe1SrML2OxaA6kzHUyDKNz_rVSUzdoP6d8ISCXYLvs4yD9wQ3pijUzROLqqQZRAGWU6gYD-i9GZFmAEDZkQVPxDK7-EBCqjesHfpVS_CzblrkgpLDtWdUHyEEgvzRRxqvlh32HmSwqDfPcTzITYvRYB17bVyAo_91XRiwv4qeHhbttOsnt4aX0I2_68F22wPx3ESQ9FWwVeXao-17r7vjF3ld3C5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].machineSpecId</td>
+    <td>NOT VERIFIED</td>
+    <td>1001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].serialNum</td>
+    <td>NOT VERIFIED</td>
+    <td>FB5962911688</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].regCenterId</td>
+    <td>NOT VERIFIED</td>
+    <td>10001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].macAddress</td>
+    <td>NOT VERIFIED</td>
+    <td>3C-2C-30-D1-E5-65</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>NTH</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].ipAddress</td>
+    <td>NOT VERIFIED</td>
+    <td>192.168.0.408</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].signPublicKey</td>
+    <td>NOT VERIFIED</td>
+    <td>AAEACwACAHIAIINxl2dEhLP4GpDMjUal1yT9UtduBlILZPKh2hszFGmqABAAFwALCAAAAQABAQChwod-whEGKLigpPkZfhNi2tRchkWSEOFwUoCr_nlcjj76mMI05jNHZMnrYD5_ttNNovXv4FCmN90NP0M9yyChmuak4gsPDYrJ37y7iEZrSLRrrLS1XArlpmGYxe1SrML2OxaA6kzHUyDKNz_rVSUzdoP6d8ISCXYLvs4yD9wQ3pijUzROLqqQZRAGWU6gYD-i9GZFmAEDZkQVPxDK7-EBCqjesHfpVS_CzblrkgpLDtWdUHyEEgvzRRxqvlh32HmSwqDfPcTzITYvRYB17bVyAo_91XRiwv4qeHhbttOsnt4aX0I2_68F22wPx3ESQ9FWwVeXao-17r7vjF3ld3C5</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].signPublicKey</td>
+    <td>NOT VERIFIED</td>
+    <td>AAEABAAEAHIAAAAQABQACwgAAAEAAQEAsc1F3uWztjP-F-wU4ez5hYH_7daEOej6Qz8uG5Z_IBltNUP2bgLRkL5Dq9f_3Ot4Q7vxXQeng1jyHxOIswPWsHM5hIHc35u2Up3Ise9Q-H6r_462de2NCKYpNJ1qwBubz5iSSfRcyy4eeJ3ss_4vlYTmlllwNLyWnAk5gL2C_MQwDG1TCsi0O34AAny2n9gA3E9wIZtBlCSgDNC0n912dFV9svXUA5oZPMNEpr_MThVNcBqQbuVxKTDyKwEAMKCKp_D3WjweN9ugena6s7mSgNXKS9m75n1nqVUHYJd_SCdyFhOPAGuUbV2XZGNhBo5iR-KhU5aEtQp2b8faGIaiCw</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].regCenterId</td>
+    <td>NOT VERIFIED</td>
+    <td>10002</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].macAddress</td>
+    <td>NOT VERIFIED</td>
+    <td>3C-2C-30-D1-E5-65</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].publicKey</td>
+    <td>NOT VERIFIED</td>
+    <td>AAEACwACAHIAIINxl2dEhLP4GpDMjUal1yT9UtduBlILZPKh2hszFGmqABAAFwALCAAAAQABAQC0_2MyVvqso2drMgYRv1C8T-Ib5FMUOwSWLuo26E0J8aQLy1Z4Ven0A9TLaGQ20Q_7eAEfB60T6dIe3hYwjfBpATgneVkNxJX1Y8UYjiNFYxfw2HqHkqRkMQyzDDoWNR2sq6IKe6GSgFzLFvFC8vxrzByiWO7aT-CyB0-6WVZarQjJnd1iw-_w9vuPh6lGOMag0KiiSgj-fGoHyDgrAY6W4cn7Xrv8MqIR1U_Q9lRCJN-etgWgR3bgo3jVQaMVF0wWusPAaINJNrE7s-D5EdBLq9fhdz6dr29uV1KsWtXkTq2ToMFWDqL4eU5l5CAbJVaFLtIVxLnBLhwI15N7Xv01</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].ipAddress</td>
+    <td>NOT VERIFIED</td>
+    <td>192.192.98.9</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].macAddress</td>
+    <td>NOT VERIFIED</td>
+    <td>A4-BB-6D-0F-BC-3E</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].validityDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-11-17T09:50:23.637Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].macAddress</td>
+    <td>NOT VERIFIED</td>
+    <td>989.989.989</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].publicKey</td>
+    <td>NOT VERIFIED</td>
+    <td>AAEACwACAHIAIINxl2dEhLP4GpDMjUal1yT9UtduBlILZPKh2hszFGmqABAAFwALCAAAAQABAQC8nxPBqoEe2phBKrBiAeTg9gtc4OFotelK5t8TSul7MOOlF_qThfiSHN_qSrjp6rXBVwOIzWgNo1O8qM6dMjFCboeWa8TuHF1qNIs9oCzDukbTItwhqLfRddTPznY6kISNlqqTleBPjeVSE-eyehevijvjw3Bq9KVBDkhXeyMEHJ4K187w1mcHlDbzLSxJldiztJHJmMgvd20b0zg2i66Rw80qgJ1OFbIFo-FFJJCGDDy8o0UKgILbh2V6BlaCPrtYmcfMFJbHjhXXZljwtLWdLN9DNzZaM-dZZAluOUhSWHwqwLWVenInVVBiUge_GBlYGR1lMAnN0-kVkKaOWNQB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].name</td>
+    <td>NOT VERIFIED</td>
+    <td>DESKTOP-HVG58IU</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].publicKey</td>
+    <td>NOT VERIFIED</td>
+    <td>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAillnbd77VPuML7K2qyeiRa3cKBe9tnbYwQGW9gvFFvZ1V_TiCgMeeg2n61rX_N7eYhdcIm1T0gonyQzJVCw-WTRrE24tw0cQhTOaHVQANyGTo-vPjvRKBRODEUl9YCN6_MqiHHuh9XE23uDd6A450ONoc9IlQV1kDT8OFWpGExvOPfyR0Jsf5msSD2zX853eigv3HC6tYr07eCOSIOZLWprVBs_-4C_O65K1T1lmZL7w6oc5oaCYW5T854g0u9fpAeGvoUrU8UDS9GhPFqmBsaoypNPa5f31KMxaVD1XwgvRHcP7uF_LRPwKCudK8UiAWhmNM1qZKIRz7I6emokXMQIDAQAB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].id</td>
+    <td>NOT VERIFIED</td>
+    <td>10146</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].validityDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2026-06-26T18:30:00.000Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>NTH</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].name</td>
+    <td>NOT VERIFIED</td>
+    <td>technoklvf</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].ipAddress</td>
+    <td>NOT VERIFIED</td>
+    <td>192.168.0.403</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].id</td>
+    <td>NOT VERIFIED</td>
+    <td>10149</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].machineSpecId</td>
+    <td>NOT VERIFIED</td>
+    <td>1001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].regCenterId</td>
+    <td>NOT VERIFIED</td>
+    <td>10002</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].machineSpecId</td>
+    <td>NOT VERIFIED</td>
+    <td>1001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].name</td>
+    <td>NOT VERIFIED</td>
+    <td>ZYJUA77FYT</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].id</td>
+    <td>NOT VERIFIED</td>
+    <td>10077</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].regCenterId</td>
+    <td>NOT VERIFIED</td>
+    <td>10001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>NTH</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].id</td>
+    <td>NOT VERIFIED</td>
+    <td>68979</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].serialNum</td>
+    <td>NOT VERIFIED</td>
+    <td>FB5962911688</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:48:13.291Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].serialNum</td>
+    <td>NOT VERIFIED</td>
+    <td>98989898</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].signPublicKey</td>
+    <td>NOT VERIFIED</td>
+    <td>AAEABAAEAHIAAAAQABQACwgAAAEAAQEAsSjDgYinVazFApn5wk1p6oQbyWLqyY7SaHrdq6fNsfV1c1-ooXS1sYbfIi8AxL5cIm4OW25GyjPZYX93MIi09EV0uHjvB8sBl85XXdEepR5taeSVMqybE1ENEdgkOI_QIUz1PFt9QM8bgKBZopQWAn3JZSP9CselRgusl28E6ml2vg2ZvtY7EKZVqX3EALIn3JceLd7Oz6XBkS2C-Pag5EHxF7yGw_v93oNjd8d4-CkxDeRI1584hOs0JU7M3XvYJ3_qh6Q2UzUQNbL7-sa9yqKhPt05pW0AxsG_Et9WahJcipM4e95vuRQ4aHHgKM1FYh8hXz3H9nGosj8tVU3B2Q</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].signPublicKey</td>
+    <td>NOT VERIFIED</td>
+    <td>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAillnbd77VPuML7K2qyeiRa3cKBe9tnbYwQGW9gvFFvZ1V_TiCgMeeg2n61rX_N7eYhdcIm1T0gonyQzJVCw-WTRrE24tw0cQhTOaHVQANyGTo-vPjvRKBRODEUl9YCN6_MqiHHuh9XE23uDd6A450ONoc9IlQV1kDT8OFWpGExvOPfyR0Jsf5msSD2zX853eigv3HC6tYr07eCOSIOZLWprVBs_-4C_O65K1T1lmZL7w6oc5oaCYW5T854g0u9fpAeGvoUrU8UDS9GhPFqmBsaoypNPa5f31KMxaVD1XwgvRHcP7uF_LRPwKCudK8UiAWhmNM1qZKIRz7I6emokXMQIDAQAB</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].ipAddress</td>
+    <td>NOT VERIFIED</td>
+    <td>192.168.0.408</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].validityDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-12-01T18:30:00.000Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].serialNum</td>
+    <td>NOT VERIFIED</td>
+    <td>FB5962911682</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>NTH</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[1].name</td>
+    <td>NOT VERIFIED</td>
+    <td>techno-342</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[2].isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>true</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[0].machineSpecId</td>
+    <td>NOT VERIFIED</td>
+    <td>1001</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.(machines)[3].validityDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2022-11-17T09:50:23.637Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.GetWithParam@65ef48f2</td></tr>
+</table><p>
+</body>
+</html>

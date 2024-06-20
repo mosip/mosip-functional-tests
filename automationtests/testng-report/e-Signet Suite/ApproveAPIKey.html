@@ -1,0 +1,331 @@
+<html>
+<head>
+<title>TestNG:  ApproveAPIKey</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>ApproveAPIKey</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Aug 04 12:03:48 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>5 seconds (5284 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.Esignet_ApproveRejectPartnerAPIKeyReq_All_Valid_Smoke()'><b>Esignet_ApproveRejectPartnerAPIKeyReq_All_Valid_Smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (Esignet_ApproveRejectPartnerAPIKeyReq_Auth_False_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Esignet_ApproveRejectPartnerAPIKeyReq_All_Valid_Smoke, endPoint=/v1/partnermanager/partners/policy/{mappingkey}, role=partner, templateFields=null, input={ "status": "Approved", "mappingkey": "$ID:SubmitPartnerApiKeyRequest_Rejection_All_Valid_Smoke_sid_mappingkey$", "requesttime": "$TIMESTAMP$" }, output={ "response": "Policy mapping approved successfully" }, inputTemplate=esignet/PmsIntegration/ApproveAPIKey/approveAPIKey, outputTemplate=esignet/PmsIntegration/ApproveAPIKey/approveAPIKeyResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-764179103" onClick='toggleBox("Output-764179103", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-764179103" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-764179103">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "status": "Approved"
+  },
+  "metadata": {},
+  "requesttime": "2023-08-04T06:33:48.388Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/partnermanager/partners/policy/{mappingkey}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:33:49.006Z",
+  "response": "Policy mapping approved successfully",
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>Policy mapping approved successfully</td>
+    <td>Policy mapping approved successfully</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@1c7cd434</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.Esignet_ApproveRejectPartnerAPIKeyReq_Auth_False_Valid_Smoke()'><b>Esignet_ApproveRejectPartnerAPIKeyReq_Auth_False_Valid_Smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (Esignet_ApproveRejectPartnerAPIKeyReq_Auth_False_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Esignet_ApproveRejectPartnerAPIKeyReq_Auth_False_Valid_Smoke, endPoint=/v1/partnermanager/partners/policy/{mappingkey}, role=partner, templateFields=null, input={ "status": "Approved", "mappingkey": "$ID:SubmitPartnerApiKeyRequest_Rejection_Auth_False_Valid_Smoke_sid_mappingkey$", "requesttime": "$TIMESTAMP$" }, output={ "response": "Policy mapping approved successfully" }, inputTemplate=esignet/PmsIntegration/ApproveAPIKey/approveAPIKey, outputTemplate=esignet/PmsIntegration/ApproveAPIKey/approveAPIKeyResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2103450069" onClick='toggleBox("Output-2103450069", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2103450069" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2103450069">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "status": "Approved"
+  },
+  "metadata": {},
+  "requesttime": "2023-08-04T06:33:52.711Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/partnermanager/partners/policy/{mappingkey}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:33:53.445Z",
+  "response": "Policy mapping approved successfully",
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>Policy mapping approved successfully</td>
+    <td>Policy mapping approved successfully</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@1c7cd434</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.Esignet_ApproveRejectPartnerAPIKeyReq_Kyc_All_Valid_Smoke()'><b>Esignet_ApproveRejectPartnerAPIKeyReq_Kyc_All_Valid_Smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (Esignet_ApproveRejectPartnerAPIKeyReq_Auth_False_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Esignet_ApproveRejectPartnerAPIKeyReq_Kyc_All_Valid_Smoke, endPoint=/v1/partnermanager/partners/policy/{mappingkey}, role=partner, templateFields=null, input={ "status": "Approved", "mappingkey": "$ID:SubmitPartnerApiKeyRequest_Kyc_Rejection_All_Valid_Smoke_sid_mappingkey$", "requesttime": "$TIMESTAMP$" }, output={ "response": "Policy mapping approved successfully" }, inputTemplate=esignet/PmsIntegration/ApproveAPIKey/approveAPIKey, outputTemplate=esignet/PmsIntegration/ApproveAPIKey/approveAPIKeyResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1019695044" onClick='toggleBox("Output-1019695044", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1019695044" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1019695044">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "status": "Approved"
+  },
+  "metadata": {},
+  "requesttime": "2023-08-04T06:33:49.937Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/partnermanager/partners/policy/{mappingkey}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:33:50.579Z",
+  "response": "Policy mapping approved successfully",
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>Policy mapping approved successfully</td>
+    <td>Policy mapping approved successfully</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@1c7cd434</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.Esignet_ApproveRejectPartnerAPIKeyReq_Misp_False_Valid_Smoke()'><b>Esignet_ApproveRejectPartnerAPIKeyReq_Misp_False_Valid_Smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (Esignet_ApproveRejectPartnerAPIKeyReq_Auth_False_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Esignet_ApproveRejectPartnerAPIKeyReq_Misp_False_Valid_Smoke, endPoint=/v1/partnermanager/partners/policy/{mappingkey}, role=partner, templateFields=null, input={ "status": "Approved", "mappingkey": "$ID:SubmitPartnerApiKeyRequest_Rejection_Misp_False_Valid_Smoke_sid_mappingkey$", "requesttime": "$TIMESTAMP$" }, output={ "response": "Policy mapping approved successfully" }, inputTemplate=esignet/PmsIntegration/ApproveAPIKey/approveAPIKey, outputTemplate=esignet/PmsIntegration/ApproveAPIKey/approveAPIKeyResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-820729289" onClick='toggleBox("Output-820729289", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-820729289" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-820729289">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "status": "Approved"
+  },
+  "metadata": {},
+  "requesttime": "2023-08-04T06:33:51.785Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/partnermanager/partners/policy/{mappingkey}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:33:52.528Z",
+  "response": "Policy mapping approved successfully",
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>Policy mapping approved successfully</td>
+    <td>Policy mapping approved successfully</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@1c7cd434</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.Esignet_ApproveRejectPartnerAPIKeyReq_Misp_Valid_Smoke()'><b>Esignet_ApproveRejectPartnerAPIKeyReq_Misp_Valid_Smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (Esignet_ApproveRejectPartnerAPIKeyReq_Auth_False_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Esignet_ApproveRejectPartnerAPIKeyReq_Misp_Valid_Smoke, endPoint=/v1/partnermanager/partners/policy/{mappingkey}, role=partner, templateFields=null, input={ "status": "Approved", "mappingkey": "$ID:SubmitPartnerApiKeyRequest_Rejection_Misp_Valid_Smoke_sid_mappingkey$", "requesttime": "$TIMESTAMP$" }, output={ "response": "Policy mapping approved successfully" }, inputTemplate=esignet/PmsIntegration/ApproveAPIKey/approveAPIKey, outputTemplate=esignet/PmsIntegration/ApproveAPIKey/approveAPIKeyResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1650307296" onClick='toggleBox("Output-1650307296", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1650307296" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1650307296">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "status": "Approved"
+  },
+  "metadata": {},
+  "requesttime": "2023-08-04T06:33:49.128Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/partnermanager/partners/policy/{mappingkey}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:33:49.780Z",
+  "response": "Policy mapping approved successfully",
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>Policy mapping approved successfully</td>
+    <td>Policy mapping approved successfully</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@1c7cd434</td></tr>
+<tr>
+<td title='io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody.Esignet_ApproveRejectPartnerAPIKeyReq_NonAuth_All_Valid_Smoke()'><b>Esignet_ApproveRejectPartnerAPIKeyReq_NonAuth_All_Valid_Smoke</b><br>Test class: io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody (Esignet_ApproveRejectPartnerAPIKeyReq_Auth_False_Valid_Smoke)<br>Parameters: TestCaseDTO(testCaseName=Esignet_ApproveRejectPartnerAPIKeyReq_NonAuth_All_Valid_Smoke, endPoint=/v1/partnermanager/partners/policy/{mappingkey}, role=partner, templateFields=null, input={ "status": "Approved", "mappingkey": "$ID:SubmitPartnerApiKeyRequest_Rejection_NonAuth_All_Valid_Smoke_sid_mappingkey$", "requesttime": "$TIMESTAMP$" }, output={ "response": "Policy mapping approved successfully" }, inputTemplate=esignet/PmsIntegration/ApproveAPIKey/approveAPIKey, outputTemplate=esignet/PmsIntegration/ApproveAPIKey/approveAPIKeyResult, restMethod=put, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-700081136" onClick='toggleBox("Output-700081136", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-700081136" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-700081136">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "request": {
+    "status": "Approved"
+  },
+  "metadata": {},
+  "requesttime": "2023-08-04T06:33:50.751Z",
+  "id": "string",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.dev3.mosip.net/v1/partnermanager/partners/policy/{mappingkey}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-08-04T06:33:51.606Z",
+  "response": "Policy mapping approved successfully",
+  "errors": []
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>Policy mapping approved successfully</td>
+    <td>Policy mapping approved successfully</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testrig.apirig.testscripts.PutWithPathParamsAndBody@1c7cd434</td></tr>
+</table><p>
+</body>
+</html>

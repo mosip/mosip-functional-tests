@@ -1,0 +1,170 @@
+<html>
+<head>
+<title>TestNG:  DeletePreRegistration</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>DeletePreRegistration</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:00:33 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>3 seconds (3722 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.DeleteWithParam.Prereg_DeletePreRegistration_All_Valid_Smoke_sid()'><b>Prereg_DeletePreRegistration_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.DeleteWithParam (Prereg_DeletePreRegistration_inValid_preRegistrationId_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_DeletePreRegistration_All_Valid_Smoke_sid, endPoint=/preregistration/v1/applications/prereg/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId": "$ID:CreatePrereg_All_Valid_Smoke_BookByPRID_sid_preRegistrationId$" }, output={ "deletedBy": "robin.hood@mailinator.com" }, inputTemplate=preReg/DeletePreRegistration/deletePreRegistration, outputTemplate=preReg/DeletePreRegistration/deletePreRegistrationResult, restMethod=delete, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-2034906128" onClick='toggleBox("Output-2034906128", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2034906128" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2034906128">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "preRegistrationId": "62184015087047"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/prereg/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.demographic.delete",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:30:35.467Z",
+  "response": {
+    "preRegistrationId": "62184015087047",
+    "deletedBy": "robin.hood@mailinator.com",
+    "deletedDateTime": "2023-07-14T16:30:35.467+00:00"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.deletedBy</td>
+    <td>robin.hood@mailinator.com</td>
+    <td>robin.hood@mailinator.com</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>null</td>
+    <td>null</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.DeleteWithParam@d87d449</td></tr>
+<tr>
+<td title='io.mosip.testscripts.DeleteWithParam.Prereg_DeletePreRegistration_inValid_preRegistrationId_sid()'><b>Prereg_DeletePreRegistration_inValid_preRegistrationId_sid</b><br>Test class: io.mosip.testscripts.DeleteWithParam (Prereg_DeletePreRegistration_inValid_preRegistrationId_sid)<br>Parameters: TestCaseDTO(testCaseName=Prereg_DeletePreRegistration_inValid_preRegistrationId_sid, endPoint=/preregistration/v1/applications/prereg/{preRegistrationId}, role=batch, templateFields=null, input={ "preRegistrationId": "nhhh654443@@ffffv" }, output={ "errors": [ { "errorCode": "PRG_PAM_APP_005", "message": "No record found for the requested user id" } ] }, inputTemplate=preReg/DeletePreRegistration/deletePreRegistration, outputTemplate=preReg/error, restMethod=delete, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1948039212" onClick='toggleBox("Output-1948039212", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1948039212" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1948039212">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "preRegistrationId": "nhhh654443@@ffffv"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/preregistration/v1/applications/prereg/{preRegistrationId}) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "mosip.pre-registration.demographic.delete",
+  "version": "1.0",
+  "responsetime": "2023-07-14T16:30:37.309Z",
+  "errors": [
+    {
+      "errorCode": "PRG_PAM_APP_005",
+      "message": "No record found for the requested user id"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>No record found for the requested user id</td>
+    <td>No record found for the requested user id</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>PRG_PAM_APP_005</td>
+    <td>PRG_PAM_APP_005</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>io.mosip.testscripts.DeleteWithParam@d87d449</td></tr>
+</table><p>
+</body>
+</html>

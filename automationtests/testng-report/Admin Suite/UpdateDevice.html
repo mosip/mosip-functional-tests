@@ -1,0 +1,1254 @@
+<html>
+<head>
+<title>TestNG:  UpdateDevice</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UpdateDevice</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>13/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Dec 15 15:10:08 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>9 seconds (9125 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_All_Valid_Smoke_sid()'><b>MasterData_UpdateDevice_All_Valid_Smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_All_Valid_Smoke_sid, endPoint=/v1/masterdata/devices, role=admin, templateFields=[name], input={ "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$", "name": "testDevicedummy updated", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": true, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "CST", "validityDateTime": "$TIMESTAMP$", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, output={ "name": "$IGNORE$", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": $IGNORE$, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "CST", "validityDateTime": "$TIMESTAMP$", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/Device/createDeviceResult, restMethod=put)<br/>
+<a href="#Output-1387473776" onClick='toggleBox("Output-1387473776", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1387473776" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1387473776">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "736",
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "ipAddress": "172.23.174.113",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "name": "testDevicedummy updated",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "validityDateTime": "2021-12-15T09:40:08.986Z",
+    "zoneCode": "CST"
+  },
+  "requesttime": "2021-12-15T09:40:08.986Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:09.606Z",
+  "response": {
+    "isActive": false,
+    "createdBy": "110005",
+    "createdDateTime": "2021-12-15T09:40:01.098Z",
+    "updatedBy": "110005",
+    "updatedDateTime": "2021-12-15T09:40:09.623Z",
+    "isDeleted": false,
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "name": "testDevicedummy updated",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "deviceSpecId": "736",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "ipAddress": "172.23.174.113",
+    "langCode": "eng",
+    "validityDateTime": "2021-12-15T09:40:08.986Z",
+    "zoneCode": "CST"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.validityDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:40:08.986Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td>NOT VERIFIED</td>
+    <td>testDevicedummy updated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:40:01.098Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.serialNum</td>
+    <td>NOT VERIFIED</td>
+    <td>ceec5f62-77b7-46f3-816b-3e734305a9c8</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.deviceSpecId</td>
+    <td>NOT VERIFIED</td>
+    <td>736</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.macAddress</td>
+    <td>NOT VERIFIED</td>
+    <td>D4-3D-7E-C0-8C-4A</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:40:09.623Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.ipAddress</td>
+    <td>NOT VERIFIED</td>
+    <td>172.23.174.113</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.regCenterId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:40:09.606Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>CST</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36()'><b>MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36, endPoint=/v1/masterdata/devices, role=admin, templateFields=[name], input={ "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$", "name": "testDevicedummy_1", "deviceSpecId": "abcdefghijklmnopqrstuvwxyzabcdefghijk", "ipAddress": "172.23.174.113", "isActive": true, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "CST", "validityDateTime": "$TIMESTAMP$", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.deviceSpecId: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-961708482" onClick='toggleBox("Output-961708482", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-961708482" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-961708482">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "abcdefghijklmnopqrstuvwxyzabcdefghijk",
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "ipAddress": "172.23.174.113",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "name": "testDevicedummy_1",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "validityDateTime": "2021-12-15T09:40:17.427Z",
+    "zoneCode": "CST"
+  },
+  "requesttime": "2021-12-15T09:40:17.427Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:18.108Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.deviceSpecId: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.deviceSpecId: Should not be blank or size must be between 1 and 36</td>
+    <td>request.deviceSpecId: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_Invalid_DeviceName_AboveMaxLen64()'><b>MasterData_UpdateDevice_Invalid_DeviceName_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_Invalid_DeviceName_AboveMaxLen64, endPoint=/v1/masterdata/devices, role=admin, templateFields=[name], input={ "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$", "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": true, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "CST", "validityDateTime": "$TIMESTAMP$", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-375201108" onClick='toggleBox("Output-375201108", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-375201108" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-375201108">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "736",
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "ipAddress": "172.23.174.113",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "name": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "validityDateTime": "2021-12-15T09:40:12.254Z",
+    "zoneCode": "CST"
+  },
+  "requesttime": "2021-12-15T09:40:12.254Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:13.006Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_Invalid_Device_Zone_notPresentInDB()'><b>MasterData_UpdateDevice_Invalid_Device_Zone_notPresentInDB</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_Invalid_Device_Zone_notPresentInDB, endPoint=/v1/masterdata/devices, role=admin, templateFields=[name], input={ "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$", "name": "testDevicedummy_1", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": true, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "BOM", "validityDateTime": "$TIMESTAMP$", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-439", "message": "Admin not authorized to access this Device for this Zone" } ] }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-219286908" onClick='toggleBox("Output-219286908", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-219286908" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-219286908">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "736",
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "ipAddress": "172.23.174.113",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "name": "testDevicedummy_1",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "validityDateTime": "2021-12-15T09:40:10.934Z",
+    "zoneCode": "BOM"
+  },
+  "requesttime": "2021-12-15T09:40:10.934Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:11.560Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-439",
+      "message": "Admin not authorized to access this Device for this Zone"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Admin not authorized to access this Device for this Zone</td>
+    <td>Admin not authorized to access this Device for this Zone</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-439</td>
+    <td>KER-MSD-439</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_Invalid_IPAddress_AboveMaxLen17()'><b>MasterData_UpdateDevice_Invalid_IPAddress_AboveMaxLen17</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_Invalid_IPAddress_AboveMaxLen17, endPoint=/v1/masterdata/devices, role=admin, templateFields=[name], input={ "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$", "name": "testDevicedummy_1", "deviceSpecId": "736", "ipAddress": "qwertyuiopasdfge18", "isActive": true, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "CST", "validityDateTime": "$TIMESTAMP$", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.ipAddress: size must be between 0 and 17" } ] }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1842314090" onClick='toggleBox("Output-1842314090", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1842314090" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1842314090">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "736",
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "ipAddress": "qwertyuiopasdfge18",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "name": "testDevicedummy_1",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "validityDateTime": "2021-12-15T09:40:16.684Z",
+    "zoneCode": "CST"
+  },
+  "requesttime": "2021-12-15T09:40:16.684Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:17.425Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.ipAddress: size must be between 0 and 17"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.ipAddress: size must be between 0 and 17</td>
+    <td>request.ipAddress: size must be between 0 and 17</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_Invalid_InputParameterInvalid_Format()'><b>MasterData_UpdateDevice_Invalid_InputParameterInvalid_Format</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_Invalid_InputParameterInvalid_Format, endPoint=/v1/masterdata/devices, role=admin, templateFields=[name], input={ "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$", "name": "testDevicedummy_1", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": true, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "CST", "validityDateTime": "2018-12-24T05", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "Invalid Format in field : validityDateTime" } ] }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1385208471" onClick='toggleBox("Output-1385208471", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1385208471" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1385208471">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "736",
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "ipAddress": "172.23.174.113",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "name": "testDevicedummy_1",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "validityDateTime": "2018-12-24T05",
+    "zoneCode": "CST"
+  },
+  "requesttime": "2021-12-15T09:40:10.370Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:10.935Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "Invalid Format in field : validityDateTime"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>Invalid Format in field : validityDateTime</td>
+    <td>Invalid Format in field : validityDateTime</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_Invalid_MAC_Address_Blank()'><b>MasterData_UpdateDevice_Invalid_MAC_Address_Blank</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_Invalid_MAC_Address_Blank, endPoint=/v1/masterdata/devices, role=admin, templateFields=[name], input={ "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$", "name": "testDevicedummy_1", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": true, "langCode": "eng", "macAddress": "", "zoneCode": "CST", "validityDateTime": "$TIMESTAMP$", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.macAddress: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-831775261" onClick='toggleBox("Output-831775261", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-831775261" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-831775261">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "736",
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "ipAddress": "172.23.174.113",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "",
+    "name": "testDevicedummy_1",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "validityDateTime": "2021-12-15T09:40:13.677Z",
+    "zoneCode": "CST"
+  },
+  "requesttime": "2021-12-15T09:40:13.677Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:14.421Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.macAddress: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.macAddress: Should not be blank or size must be between 1 and 64</td>
+    <td>request.macAddress: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_Invalid_MacAddress_AboveMaxLen64()'><b>MasterData_UpdateDevice_Invalid_MacAddress_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_Invalid_MacAddress_AboveMaxLen64, endPoint=/v1/masterdata/devices, role=admin, templateFields=[name], input={ "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$", "name": "testDevicedummy_1", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": true, "langCode": "eng", "macAddress": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "zoneCode": "CST", "validityDateTime": "$TIMESTAMP$", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.macAddress: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-115816820" onClick='toggleBox("Output-115816820", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-115816820" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-115816820">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "736",
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "ipAddress": "172.23.174.113",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "name": "testDevicedummy_1",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "validityDateTime": "2021-12-15T09:40:14.460Z",
+    "zoneCode": "CST"
+  },
+  "requesttime": "2021-12-15T09:40:14.460Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:15.189Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.macAddress: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.macAddress: Should not be blank or size must be between 1 and 64</td>
+    <td>request.macAddress: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_Invalid_Machine_Name_Blank()'><b>MasterData_UpdateDevice_Invalid_Machine_Name_Blank</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_Invalid_Machine_Name_Blank, endPoint=/v1/masterdata/devices, role=admin, templateFields=null, input={ "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$", "name": "", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": true, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "CST", "validityDateTime": "$TIMESTAMP$", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.name: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1135026238" onClick='toggleBox("Output-1135026238", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1135026238" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1135026238">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "736",
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "ipAddress": "172.23.174.113",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "name": "",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "validityDateTime": "2021-12-15T09:40:11.571Z",
+    "zoneCode": "CST"
+  },
+  "requesttime": "2021-12-15T09:40:11.571Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:12.251Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.name: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td>request.name: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_Invalid_SerialNumber_AboveMaxLen64()'><b>MasterData_UpdateDevice_Invalid_SerialNumber_AboveMaxLen64</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_Invalid_SerialNumber_AboveMaxLen64, endPoint=/v1/masterdata/devices, role=admin, templateFields=[name], input={ "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$", "name": "testDevicedummy_1", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": true, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "CST", "validityDateTime": "$TIMESTAMP$", "serialNum": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.serialNum: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1377543055" onClick='toggleBox("Output-1377543055", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1377543055" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1377543055">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "736",
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "ipAddress": "172.23.174.113",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "name": "testDevicedummy_1",
+    "serialNum": "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklm",
+    "validityDateTime": "2021-12-15T09:40:15.899Z",
+    "zoneCode": "CST"
+  },
+  "requesttime": "2021-12-15T09:40:15.899Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:16.680Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.serialNum: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.serialNum: Should not be blank or size must be between 1 and 64</td>
+    <td>request.serialNum: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_Invalid_Serial_Number_Blank()'><b>MasterData_UpdateDevice_Invalid_Serial_Number_Blank</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_Invalid_Serial_Number_Blank, endPoint=/v1/masterdata/devices, role=admin, templateFields=[name], input={ "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$", "name": "testDevicedummy_1", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": true, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "CST", "validityDateTime": "$TIMESTAMP$", "serialNum": "", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.serialNum: Should not be blank or size must be between 1 and 64" } ] }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-1810327249" onClick='toggleBox("Output-1810327249", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1810327249" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1810327249">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "736",
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "ipAddress": "172.23.174.113",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "name": "testDevicedummy_1",
+    "serialNum": "",
+    "validityDateTime": "2021-12-15T09:40:15.199Z",
+    "zoneCode": "CST"
+  },
+  "requesttime": "2021-12-15T09:40:15.199Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:15.898Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.serialNum: Should not be blank or size must be between 1 and 64"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.serialNum: Should not be blank or size must be between 1 and 64</td>
+    <td>request.serialNum: Should not be blank or size must be between 1 and 64</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_Invalid_Zone_Code_Blank()'><b>MasterData_UpdateDevice_Invalid_Zone_Code_Blank</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_Invalid_Zone_Code_Blank, endPoint=/v1/masterdata/devices, role=admin, templateFields=[name], input={ "id": "$ID:CreateDevice_All_Valid_Smoke_sid_id$", "name": "testDevicedummy_1", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": true, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "", "validityDateTime": "$TIMESTAMP$", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.zoneCode: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/error, restMethod=put)<br/>
+<a href="#Output-693831648" onClick='toggleBox("Output-693831648", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-693831648" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-693831648">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "736",
+    "id": "130d14bf-a93a-446d-a6b0-50e78a01719d",
+    "ipAddress": "172.23.174.113",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "name": "testDevicedummy_1",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "validityDateTime": "2021-12-15T09:40:13.020Z",
+    "zoneCode": ""
+  },
+  "requesttime": "2021-12-15T09:40:13.020Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:13.668Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.zoneCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.zoneCode: Should not be blank or size must be between 1 and 36</td>
+    <td>request.zoneCode: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePut.MasterData_UpdateDevice_Valid_Smoke_decommison_sid()'><b>MasterData_UpdateDevice_Valid_Smoke_decommison_sid</b><br>Test class: io.mosip.testscripts.SimplePut (MasterData_UpdateDevice_Invalid_DSpecID_AboveMaxLen36)<br>Parameters: TestCaseDTO(testCaseName=MasterData_UpdateDevice_Valid_Smoke_decommison_sid, endPoint=/v1/masterdata/devices, role=admin, templateFields=[name], input={ "id": "$ID:CreateDevice_Valid_Smoke_decommison_sid_id$", "name": "testDevicedummy updated", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": true, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "CST", "validityDateTime": "$TIMESTAMP$", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, output={ "name": "$IGNORE$", "deviceSpecId": "736", "ipAddress": "172.23.174.113", "isActive": $IGNORE$, "langCode": "eng", "macAddress": "D4-3D-7E-C0-8C-4A", "zoneCode": "CST", "validityDateTime": "$TIMESTAMP$", "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8", "requesttime": "$TIMESTAMP$" }, inputTemplate=masterdata/Device/createDevice, outputTemplate=masterdata/Device/createDeviceResult, restMethod=put)<br/>
+<a href="#Output-942649169" onClick='toggleBox("Output-942649169", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-942649169" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-942649169">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "deviceSpecId": "736",
+    "id": "b606f1f4-cf61-4c74-868d-2b9e4d348fef",
+    "ipAddress": "172.23.174.113",
+    "isActive": true,
+    "langCode": "eng",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "name": "testDevicedummy updated",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "validityDateTime": "2021-12-15T09:40:09.657Z",
+    "zoneCode": "CST"
+  },
+  "requesttime": "2021-12-15T09:40:09.657Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://qa-single-rc2.mosip.net/v1/masterdata/devices) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2021-12-15T09:40:10.329Z",
+  "response": {
+    "isActive": false,
+    "createdBy": "110005",
+    "createdDateTime": "2021-12-15T09:40:01.832Z",
+    "updatedBy": "110005",
+    "updatedDateTime": "2021-12-15T09:40:10.337Z",
+    "isDeleted": false,
+    "id": "b606f1f4-cf61-4c74-868d-2b9e4d348fef",
+    "name": "testDevicedummy updated",
+    "serialNum": "ceec5f62-77b7-46f3-816b-3e734305a9c8",
+    "deviceSpecId": "736",
+    "macAddress": "D4-3D-7E-C0-8C-4A",
+    "ipAddress": "172.23.174.113",
+    "langCode": "eng",
+    "validityDateTime": "2021-12-15T09:40:09.657Z",
+    "zoneCode": "CST"
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.deletedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.validityDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:40:09.657Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td>NOT VERIFIED</td>
+    <td>testDevicedummy updated</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.langCode</td>
+    <td>NOT VERIFIED</td>
+    <td>eng</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.updatedBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.createdDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:40:01.832Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.serialNum</td>
+    <td>NOT VERIFIED</td>
+    <td>ceec5f62-77b7-46f3-816b-3e734305a9c8</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.deviceSpecId</td>
+    <td>NOT VERIFIED</td>
+    <td>736</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.macAddress</td>
+    <td>NOT VERIFIED</td>
+    <td>D4-3D-7E-C0-8C-4A</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.createdBy</td>
+    <td>NOT VERIFIED</td>
+    <td>110005</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.isDeleted</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.isActive</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.updatedDateTime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:40:10.337Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.ipAddress</td>
+    <td>NOT VERIFIED</td>
+    <td>172.23.174.113</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.regCenterId</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>responsetime</td>
+    <td>NOT VERIFIED</td>
+    <td>2021-12-15T09:40:10.329Z</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>NOT VERIFIED</td>
+    <td>string</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.zoneCode</td>
+    <td>NOT VERIFIED</td>
+    <td>CST</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>errors</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePut@46e3559f</td></tr>
+</table><p>
+</body>
+</html>

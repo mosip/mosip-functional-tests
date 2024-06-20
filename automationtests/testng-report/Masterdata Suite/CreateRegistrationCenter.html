@@ -1,0 +1,533 @@
+<html>
+<head>
+<title>TestNG:  CreateRegistrationCenter</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>CreateRegistrationCenter</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Jul 14 22:52:03 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>3 seconds (3105 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.MasterData_CreateRegCenter_Invalid_HolidayLocationCode_blank_eng()'><b>MasterData_CreateRegCenter_Invalid_HolidayLocationCode_blank_eng</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (MasterData_CreateRegCenter_Invalid_latitude_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_CreateRegCenter_Invalid_HolidayLocationCode_blank_eng, endPoint=/v1/masterdata/registrationcenters, role=admin, templateFields=[name, addressLine1, addressLine2, addressLine3, timeZone], input={ "addressLine1": "HSR", "addressLine2": "Venkatapura", "addressLine3": "kormangla", "centerEndTime": "17:00:00", "centerStartTime": "09:00:00", "centerTypeCode": "ALT-3", "contactPerson": "Venkat TestPerson", "contactPhone": "9663089998", "holidayLocationCode": "", "isActive": true, "langCode": "eng", "latitude": "33.995612", "locationCode": "TST", "longitude": "-6.815281", "lunchEndTime": "14:00:00", "lunchStartTime": "13:00:00", "name": "BTM Center", "perKioskProcessTime": "00:15:00", "timeZone": "Test Time zone", "workingHours": "8:00:00", "zoneCode":"STT", "id": "96874", "exceptionHolidayDate": "2020-11-16", "exceptionHolidayName": "TestHoliday", "exceptionHolidayReson": "CenterCreation", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.holidayLocationCode: Should not be blank or size must be between 1 and 36" } ] }, inputTemplate=masterdata/RegistrationCenter/registrationCenter, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1186146979" onClick='toggleBox("Output-1186146979", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1186146979" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1186146979">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "addressLine1": "HSR",
+    "addressLine2": "Venkatapura",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "ALT-3",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "",
+    "isActive": true,
+    "langCode": "ara",
+    "latitude": "33.995612",
+    "locationCode": "TST",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "BTM Center",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode": "STT",
+    "id": "96874",
+    "exceptionalHolidayPutPostDto": [
+      {
+        "exceptionHolidayDate": "2020-11-16",
+        "exceptionHolidayName": "TestHoliday",
+        "exceptionHolidayReson": "CenterCreation"
+      }
+    ],
+    "workingNonWorkingDays": {
+      "fri": true,
+      "mon": true,
+      "sat": true,
+      "sun": false,
+      "thu": true,
+      "tue": true,
+      "wed": true
+    }
+  },
+  "requesttime": "2023-07-14T17:22:04.113Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcenters) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:04.788Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.holidayLocationCode: Should not be blank or size must be between 1 and 36"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.holidayLocationCode: Should not be blank or size must be between 1 and 36</td>
+    <td>request.holidayLocationCode: Should not be blank or size must be between 1 and 36</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@1ac32da1</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.MasterData_CreateRegCenter_Invalid_latitude_blank_eng()'><b>MasterData_CreateRegCenter_Invalid_latitude_blank_eng</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (MasterData_CreateRegCenter_Invalid_latitude_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_CreateRegCenter_Invalid_latitude_blank_eng, endPoint=/v1/masterdata/registrationcenters, role=admin, templateFields=[name, addressLine1, addressLine2, addressLine3, timeZone], input={ "addressLine1": "WhiteField", "addressLine2": "whiteBoard", "addressLine3": "kormangla", "centerEndTime": "17:00:00", "centerStartTime": "09:00:00", "centerTypeCode": "ALT-3", "contactPerson": "Venkat TestPerson", "contactPhone": "9663089998", "holidayLocationCode": "RBT", "isActive": true, "langCode": "eng", "latitude": "", "locationCode": "TST", "longitude": "-6.815281", "lunchEndTime": "14:00:00", "lunchStartTime": "13:00:00", "name": "WhiteField Center", "perKioskProcessTime": "00:15:00", "timeZone": "Test Time zone", "workingHours": "8:00:00", "zoneCode":"STT", "id": "96874", "exceptionHolidayDate": "2020-11-16", "exceptionHolidayName": "TestHoliday", "exceptionHolidayReson": "CenterCreation", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-999", "message": "request.latitude: Should not be blank or size must be between 1 and 32" } ] }, inputTemplate=masterdata/RegistrationCenter/registrationCenter, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1373798513" onClick='toggleBox("Output-1373798513", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1373798513" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1373798513">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "addressLine1": "WhiteField",
+    "addressLine2": "whiteBoard",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "ALT-3",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "RBT",
+    "isActive": true,
+    "langCode": "ara",
+    "latitude": "",
+    "locationCode": "TST",
+    "longitude": "-6.815281",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "WhiteField Center",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode": "STT",
+    "id": "96874",
+    "exceptionalHolidayPutPostDto": [
+      {
+        "exceptionHolidayDate": "2020-11-16",
+        "exceptionHolidayName": "TestHoliday",
+        "exceptionHolidayReson": "CenterCreation"
+      }
+    ],
+    "workingNonWorkingDays": {
+      "fri": true,
+      "mon": true,
+      "sat": true,
+      "sun": false,
+      "thu": true,
+      "tue": true,
+      "wed": true
+    }
+  },
+  "requesttime": "2023-07-14T17:22:04.882Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcenters) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:05.572Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-999",
+      "message": "request.latitude: Should not be blank or size must be between 1 and 32"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].message</td>
+    <td>request.latitude: Should not be blank or size must be between 1 and 32</td>
+    <td>request.latitude: Should not be blank or size must be between 1 and 32</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-999</td>
+    <td>KER-MSD-999</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@1ac32da1</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.MasterData_CreateRegCenter_Invalid_latitude_eng()'><b>MasterData_CreateRegCenter_Invalid_latitude_eng</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (MasterData_CreateRegCenter_Invalid_latitude_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_CreateRegCenter_Invalid_latitude_eng, endPoint=/v1/masterdata/registrationcenters, role=admin, templateFields=[name, addressLine1, addressLine2, addressLine3, timeZone], input={ "addressLine1": "WhiteField", "addressLine2": "whiteBoard", "addressLine3": "kormangla", "centerEndTime": "17:00:00", "centerStartTime": "09:00:00", "centerTypeCode": "ALT-3", "contactPerson": "Venkat TestPerson", "contactPhone": "9663089998", "holidayLocationCode": "RBT", "isActive": true, "langCode": "eng", "latitude": "fbheafg", "locationCode": "14023", "longitude": "-6.8152", "lunchEndTime": "14:00:00", "lunchStartTime": "13:00:00", "name": "WhiteField Center", "perKioskProcessTime": "00:15:00", "timeZone": "Test Time zone", "workingHours": "8:00:00", "zoneCode":"STT", "id": "96874", "exceptionHolidayDate": "2020-11-16", "exceptionHolidayName": "TestHoliday", "exceptionHolidayReson": "CenterCreation", "requesttime": "$TIMESTAMP$" }, output={ "errors": [ { "errorCode": "KER-MSD-307", "message": "$IGNORE$" } ] }, inputTemplate=masterdata/RegistrationCenter/registrationCenter, outputTemplate=masterdata/error, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1319962561" onClick='toggleBox("Output-1319962561", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1319962561" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1319962561">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "addressLine1": "WhiteField",
+    "addressLine2": "whiteBoard",
+    "addressLine3": "kormangla",
+    "centerEndTime": "17:00:00",
+    "centerStartTime": "09:00:00",
+    "centerTypeCode": "ALT-3",
+    "contactPerson": "Venkat TestPerson",
+    "contactPhone": "9663089998",
+    "holidayLocationCode": "RBT",
+    "isActive": true,
+    "langCode": "ara",
+    "latitude": "fbheafg",
+    "locationCode": "14023",
+    "longitude": "-6.8152",
+    "lunchEndTime": "14:00:00",
+    "lunchStartTime": "13:00:00",
+    "name": "WhiteField Center",
+    "perKioskProcessTime": "00:15:00",
+    "timeZone": "Test Time zone",
+    "workingHours": "8:00:00",
+    "zoneCode": "STT",
+    "id": "96874",
+    "exceptionalHolidayPutPostDto": [
+      {
+        "exceptionHolidayDate": "2020-11-16",
+        "exceptionHolidayName": "TestHoliday",
+        "exceptionHolidayReson": "CenterCreation"
+      }
+    ],
+    "workingNonWorkingDays": {
+      "fri": true,
+      "mon": true,
+      "sat": true,
+      "sun": false,
+      "thu": true,
+      "tue": true,
+      "wed": true
+    }
+  },
+  "requesttime": "2023-07-14T17:22:05.661Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcenters) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:06.315Z",
+  "errors": [
+    {
+      "errorCode": "KER-MSD-307",
+      "message": "Latitude or Longitude must have maximum 2 digits before and minimum 4 digits after decimal"
+    }
+  ]
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>metadata</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>NOT VERIFIED</td>
+    <td>null</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>(errors)[0].errorCode</td>
+    <td>KER-MSD-307</td>
+    <td>KER-MSD-307</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@1ac32da1</td></tr>
+<tr>
+<td title='io.mosip.testscripts.SimplePostForAutoGenId.MasterData_CreateRegCenter_allValid_smoke_sid()'><b>MasterData_CreateRegCenter_allValid_smoke_sid</b><br>Test class: io.mosip.testscripts.SimplePostForAutoGenId (MasterData_CreateRegCenter_Invalid_latitude_eng)<br>Parameters: TestCaseDTO(testCaseName=MasterData_CreateRegCenter_allValid_smoke_sid, endPoint=/v1/masterdata/registrationcenters, role=admin, templateFields=[name, addressLine1, addressLine2, addressLine3, timeZone, langCode], input={ "addressLine1":"sdfg", "addressLine2":"", "addressLine3":"", "centerEndTime":"03:30:00", "centerStartTime":"00:00:00", "centerTypeCode":"REG", "contactPerson":"rtestsd", "contactPhone":"", "holidayLocationCode":"RSK", "langCode":"hin", "latitude":"78.5478", "locationCode":"14080", "longitude":"45.2456", "lunchEndTime":"00:00:00", "lunchStartTime":"00:00:00", "name":"Test123", "perKioskProcessTime":"00:30:00", "timeZone":"(GTM+01:00) CENTRAL EUROPEAN TIME", "workingHours":3.5, "zoneCode":"CSB", "id":"", "isActive":"false", "numberOfKiosks":0, "exceptionHolidayDate":"2021-11-12", "exceptionHolidayName":"", "exceptionHolidayReson":"", "version":"1.0", "requesttime":"$TIMESTAMP$" }, output={ "name": "Test123" }, inputTemplate=masterdata/RegistrationCenter/registrationCenter, outputTemplate=masterdata/RegistrationCenter/registrationCenterResult, restMethod=post, regenerateHbs=false, validityCheckRequired=false, auditLogCheck=false)<br/>
+<a href="#Output-1495309261" onClick='toggleBox("Output-1495309261", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1495309261" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1495309261">
+<pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "metadata": {},
+  "request": {
+    "addressLine1": "sdfg",
+    "addressLine2": "",
+    "addressLine3": "",
+    "centerEndTime": "03:30:00",
+    "centerStartTime": "00:00:00",
+    "centerTypeCode": "REG",
+    "contactPerson": "rtestsd",
+    "contactPhone": "",
+    "holidayLocationCode": "RSK",
+    "isActive": false,
+    "langCode": "ara",
+    "latitude": "78.5478",
+    "locationCode": "14080",
+    "longitude": "45.2456",
+    "lunchEndTime": "00:00:00",
+    "lunchStartTime": "00:00:00",
+    "name": "Test123",
+    "perKioskProcessTime": "00:30:00",
+    "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+    "workingHours": "3.5",
+    "zoneCode": "CSB",
+    "id": "",
+    "exceptionalHolidayPutPostDto": [
+      {
+        "exceptionHolidayDate": "2021-11-12",
+        "exceptionHolidayName": "",
+        "exceptionHolidayReson": ""
+      }
+    ],
+    "workingNonWorkingDays": {
+      "fri": true,
+      "mon": true,
+      "sat": true,
+      "sun": false,
+      "thu": true,
+      "tue": true,
+      "wed": true
+    }
+  },
+  "requesttime": "2023-07-14T17:22:03.298Z",
+  "version": "string"
+}</textarea></pre><br/>
+<b><u>Actual Response Content: </u></b>(EndPointUrl: https://api-internal.upgrade2.mosip.net/v1/masterdata/registrationcenters) <pre><textarea style='border:solid 1px white;' name='message' rows='20' cols='160' readonly='true'>{
+  "id": "string",
+  "version": "string",
+  "responsetime": "2023-07-14T17:22:03.966Z",
+  "response": {
+    "isActive": false,
+    "createdBy": "masterdata-220005",
+    "createdDateTime": "2023-07-14T17:22:03.973Z",
+    "isDeleted": false,
+    "id": "10405",
+    "name": "Test123",
+    "centerTypeCode": "REG",
+    "addressLine1": "sdfg",
+    "addressLine2": "",
+    "addressLine3": "",
+    "latitude": "78.5478",
+    "longitude": "45.2456",
+    "locationCode": "14080",
+    "holidayLocationCode": "RSK",
+    "contactPhone": "",
+    "workingHours": "3.5",
+    "langCode": "ara",
+    "numberOfKiosks": 0,
+    "perKioskProcessTime": "00:30:00",
+    "centerStartTime": "00:00:00",
+    "centerEndTime": "03:30:00",
+    "timeZone": "(GTM+01:00) CENTRAL EUROPEAN TIME",
+    "contactPerson": "rtestsd",
+    "lunchStartTime": "00:00:00",
+    "lunchEndTime": "00:00:00",
+    "zoneCode": "CSB",
+    "workingNonWorkingDays": {
+      "105": false,
+      "103": false,
+      "101": false,
+      "107": false,
+      "104": false,
+      "102": false,
+      "106": false
+    },
+    "exceptionalHolidayPutPostDto": []
+  }
+}</textarea></pre><br/>
+<b> Output validation for: </b>expected vs actual<br/>
+<table width='90%' charset='UTF8'>
+  <tr>
+    <th>FieldName</th>
+    <th>Expected Value</th> 
+    <th>Actual Value</th>
+    <th>Status</th>
+  </tr>
+  <tr>
+    <td>response.workingNonWorkingDays.107</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.workingNonWorkingDays.106</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.workingNonWorkingDays.101</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.workingNonWorkingDays.103</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.workingNonWorkingDays.102</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.workingNonWorkingDays.105</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.workingNonWorkingDays.104</td>
+    <td>NOT VERIFIED</td>
+    <td>false</td>
+    <td bgcolor='LIGHTYELLOW'>WARNING</td>
+  </tr>
+  <tr>
+    <td>response.name</td>
+    <td>Test123</td>
+    <td>Test123</td>
+    <td bgcolor='Green'>PASS</td>
+  </tr>
+</table><br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>io.mosip.testscripts.SimplePostForAutoGenId@1ac32da1</td></tr>
+</table><p>
+</body>
+</html>
